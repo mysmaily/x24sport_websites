@@ -1,0 +1,4 @@
+interface:
+  display_name: "X24Sport Website Development"
+  short_description: "Build polished, Google-ready X24Sport sites"
+  default_prompt: "Use $develop-x24sport-websites to build or improve an X24Sport website with complete UI, SEO, accessibility, and performance verification."

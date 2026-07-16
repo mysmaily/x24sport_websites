@@ -18,6 +18,7 @@ x24sport_websites/
 ├── AGENTS.md                         # Shared routing, safety, and workflow rules
 ├── CLAUDE.md                         # Imports AGENTS.md
 ├── WEBSITE-OPTIMIZATION-GUIDE.md     # Lazily loaded criteria for triggered requests
+├── .codex/skills/develop-x24sport-websites/ # Website development skill
 ├── cms-api/                         # Shared Payload CMS for Next.js tenants
 ├── docker-compose.yml               # Shared CMS and tenant frontend services
 ├── scripts/                         # Registry and operational utilities
@@ -97,10 +98,41 @@ Instruction priority:
 1. The user's latest explicit request.
 2. Safety warnings and verified facts in the target website's local `AGENTS.md`.
 3. Routing and safety rules in root `AGENTS.md`.
-4. For a managed site with a matching guide trigger only, criteria in
+4. For website-development requests, the scoped workflow and quality gates in
+   `.codex/skills/develop-x24sport-websites/SKILL.md`.
+5. For a managed site with a matching guide trigger only, criteria in
    `WEBSITE-OPTIMIZATION-GUIDE.md`.
 
 Guide values are placeholders unless the target website profile confirms them.
+
+## Required website development skill
+
+For any `mayao*.vn` request that builds, redesigns, extends, or reviews public
+UI/UX, navigation, page templates, product or category experiences, content
+architecture, technical or on-page SEO, structured data, accessibility,
+responsive behavior, Core Web Vitals, or production readiness, load and follow:
+
+```text
+.codex/skills/develop-x24sport-websites/SKILL.md
+```
+
+Use the skill after reading this file and the target website's `AGENTS.md`, and
+before designing or implementing the change. Load only the skill references
+routed by `SKILL.md`.
+
+- The skill complements the target website profile; it does not override
+  site-specific safety, access, backup, cache, deployment, or rollback rules.
+- Apply only quality gates relevant to the user's exact scope. The skill does not
+  authorize an unsolicited full-site audit or cross-site rollout.
+- When a request also matches an optimization-guide trigger, use both the skill
+  and `WEBSITE-OPTIMIZATION-GUIDE.md`. Prefer current official Google Search
+  Central or web.dev documentation for changeable Google requirements, while
+  preserving the instruction priority and site-specific facts defined here.
+- Distinguish Google requirements, Google recommendations, and project quality
+  gates. Never promise ranking, indexing, rich results, conversion improvement,
+  or Core Web Vitals success without corresponding evidence.
+- Do not apply the skill to product-image generation or catalog migration alone
+  unless the request also changes a public website experience, content, or SEO.
 
 ## Shared execution workflow
 
