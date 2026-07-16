@@ -1,0 +1,51 @@
+{
+  "job_id": "x24-cb-064-2188",
+  "wave_id": "pickleball-product-execute-20260709",
+  "operation_mode": "update_existing_product",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaopickleball.vn",
+  "source_product_url": "https://mayaochaybo.vn/ao-chay-bo-nam-x24-cb-064-cam-nang-dong-elara/",
+  "destination_product_id": 2188,
+  "destination_original_url": "https://mayaopickleball.vn/ao-chay-bo-nam-x24-cb-064-cam-nang-dong-elara/",
+  "product_code": "X24-PB-017",
+  "new_title": "Bộ Quần Áo Pickleball Nam Nữ X24 Cam Elara X24-PB-017",
+  "new_slug": "bo-quan-ao-pickleball-nam-nu-x24-cam-elara-x24-pb-017",
+  "new_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-cam-elara-x24-pb-017/",
+  "source_image": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/source/AoChayBo-X24-CB-064-Cam-Kieu2.jpg",
+  "reused_media": [
+    2646,
+    2647
+  ],
+  "backups": {
+    "wc_before": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/backup/wc-product-2188-before.json",
+    "wp_before": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/backup/wp-product-2188-before-edit.json",
+    "media_2646_before": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/backup/wp-media-2646-before.json",
+    "media_2647_before": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/backup/wp-media-2647-before.json",
+    "skill_env_example_before": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/backup/skill-files/.env.example.before"
+  },
+  "requests": {
+    "media_2646": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/requests/media-2646-update.json",
+    "media_2647": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/requests/media-2647-update.json",
+    "product_2188": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/requests/product-2188-update.json"
+  },
+  "verification": {
+    "wc_after": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/verify/wc-product-2188-after.json",
+    "wp_after": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/verify/wp-product-2188-after-edit.json",
+    "media_2646_after": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/verify/wp-media-2646-after.json",
+    "media_2647_after": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/verify/wp-media-2647-after.json",
+    "new_product_html": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/verify/new-product.html",
+    "old_url_head": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/verify/old-product-head.txt",
+    "category_html": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-064/verify/category-ao-pickleball.html",
+    "results": {
+      "new_product_html": "200 OK",
+      "old_url_behavior": "301 redirect to new slug",
+      "wc_product": "200 OK sku=X24-PB-017 categories=95,96 media=2646,2647",
+      "wp_product": "200 OK slug/title updated",
+      "wp_media": "2646 and 2647 updated with X24-PB-017 metadata and pickleball alt text",
+      "category_listing": "Áo Pickleball category HTML contains X24-PB-017",
+      "product_record_terms": "No running terms remain in the updated product title, slug, SKU, descriptions, media alt text, or schema product node",
+      "remaining_site_level_legacy_text": "Related-products slider still surfaces other running-era products elsewhere on the site; not part of this product mutation."
+    }
+  },
+  "status": "verified"
+}

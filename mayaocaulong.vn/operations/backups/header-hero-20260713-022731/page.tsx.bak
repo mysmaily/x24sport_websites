@@ -1,0 +1,359 @@
+import Link from 'next/link'
+
+const supportItems = [
+  {
+    title: 'Giao Hàng Tận Nơi',
+    description: 'Giao hàng đúng hẹn !',
+    icon: 'https://aobongchuyenthietke.vn/wp-content/uploads/2025/08/mp2-infobox-map-pointer.svg',
+  },
+  {
+    title: 'Đóng Gói Cẩn Thận',
+    description: 'Bảo quản khi giao hàng',
+    icon: 'https://aobongchuyenthietke.vn/wp-content/uploads/2025/08/mp2-infobox-bundle.svg',
+  },
+  {
+    title: 'Đặt Hàng Nhanh',
+    description: 'Liên hệ đặt hàng ngay!',
+    icon: 'https://aobongchuyenthietke.vn/wp-content/uploads/2025/08/mp2-infobox-phone-clrd.svg',
+  },
+  {
+    title: 'Hỗ Trợ 24/7',
+    description: 'Hỗ trợ mọi lúc mọi nơi',
+    icon: 'https://aobongchuyenthietke.vn/wp-content/uploads/2025/08/mp2-infobox-heart.svg',
+  },
+] as const
+
+const collectionItems = [
+  {
+    title: 'War BC-19 Xanh Dương Đậm – Bộ Quần Áo Bóng Chuyền Thiết Kế Năng Động 2025',
+    image:
+      'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2025/12/QuanAoBongChuyen-WAR-BC-19-Mau-XanhBich.jpg',
+    reviews: '266 đánh giá',
+  },
+  {
+    title: 'VENOM – Áo Bóng Chuyền Thiết Kế Màu Xanh Navy Tím W-BC-17',
+    image:
+      'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2025/12/QuanAoBongChuyen-WAR-BC-17-Mau-TimThan.jpg',
+    reviews: '137 đánh giá',
+  },
+  {
+    title: 'Trang Phục Bóng Chuyền WAR-BC-10 Tím Sát Nách Năng Động',
+    image:
+      'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2025/12/QuanAoBongChuyen-WAR-BC-10-Tim-SatNach.jpg',
+    reviews: '347 đánh giá',
+  },
+  {
+    title: 'Trang phục bóng chuyền LUCKY W-BE-04 Ombre Đỏ - Xanh',
+    image:
+      'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2025/12/QuanAoBongChuyen-WAR-BC-04-Mau-Do.jpg',
+    reviews: '153 đánh giá',
+  },
+  {
+    title: 'SWIFT WAR-BC-03 – Bộ đồ thể thao màu tím than sát nách đầy cá tính',
+    image:
+      'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2025/12/QuanAoBongChuyen-WAR-BC-03-TimThan-SatNach.jpg',
+    reviews: '385 đánh giá',
+  },
+  {
+    title: 'SWIFT W-BC-03 - Bộ Quần Áo Thể Thao Màu Xanh Lá Năng Động',
+    image:
+      'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2025/12/QuanAoBongChuyen-WAR-BC-03-Mau-XanhVeChai.jpg',
+    reviews: '480 đánh giá',
+  },
+  {
+    title: 'Set đồ thể thao WAR-BC-20 màu xám tro phối navy',
+    image:
+      'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2025/12/QuanAoBongChuyen-WAR-BC-20-Mau-Xam.jpg',
+    reviews: '204 đánh giá',
+  },
+  {
+    title: 'Quần Áo Bóng Chuyền WAR-BC-03 Đen Sát Nách',
+    image:
+      'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2025/12/QuanAoBongChuyen-WAR-BC-03-Den-SatNach.jpg',
+    reviews: '237 đánh giá',
+  },
+] as const
+
+const testimonials = [
+  {
+    quote:
+      'Đội bóng mình đã đặt áo thi đấu mới ở Phúc Hải Đăng và thật sự ấn tượng. Áo được thiết kế hiện đại, đường may chắc chắn và chất liệu mát. Chúng tôi đặt số lượng lớn mà shop vẫn in ấn sắc nét, giao hàng nhanh và rất đúng hẹn.',
+    name: 'TRẦN ĐỨC THỊNH',
+    role: 'Trưởng nhóm CLB sinh viên',
+    avatar:
+      'https://aobongchuyenthietke.vn/wp-content/uploads/2025/08/testimonial-avatar-male-1-ux-builder.jpg',
+  },
+  {
+    quote:
+      'Team mình cần áo gấp để kịp đấu giải trường vào cuối tuần, hỏi mấy bên đều lắc đầu. May sao tìm được Warra, chốt đơn hôm trước hôm sau có luôn. 5 sao cho tốc độ.',
+    name: 'TRẦN ĐỨC THỊNH',
+    role: 'SV Đại Học Kinh Tế Quốc Dân',
+    avatar:
+      'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2025/12/Gemini_Generated_Image_r4xbk5r4xbk5r4xb-1000x1000.jpg',
+  },
+  {
+    quote:
+      'Vải mè bên Warra mặc thoáng, đánh bóng chuyền mồ hôi ra nhiều mà áo không bị bết dính vào người, rất nhẹ. Form áo chuẩn, tay áo rộng rãi dễ đập bóng.',
+    name: 'Phạm Quốc Thái',
+    role: 'Vận động viên bán chuyên',
+    avatar:
+      'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2026/01/nen-in-hay-theu-ao-bong-chuyen-content-1000x1000.jpg',
+  },
+  {
+    quote:
+      'Dịch vụ tư vấn nhiệt tình, size số tư vấn rất chuẩn. Team mình 12 người, mỗi người một form mà nhận áo ai mặc cũng vừa in. Rất chuyên nghiệp.',
+    name: 'Đặng Hải Đăng',
+    role: 'Lớp trưởng 12A3',
+    avatar:
+      'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2026/01/kinh-nghiem-dat-ao-bong-chuyen-content-1000x1000.jpg',
+  },
+] as const
+
+const collectionPoster =
+  'https://cdn.aobongchuyenthietke.vn/wp-content/uploads/2026/04/Banner-Slide-04-638x1500.jpg'
+const storyImage =
+  'https://aobongchuyenthietke.vn/wp-content/uploads/2025/09/z6978786679725_9cad18780dab8eafc828067f10bc3047.jpg'
+
+export default function Home() {
+  return (
+    <main className="bg-white">
+      <section className="bg-[#0d0625] px-4 py-3 sm:px-6 lg:px-10">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {supportItems.map((item) => (
+            <article
+              className="flex items-center gap-4 border border-white/8 px-4 py-4 text-white"
+              key={item.title}
+            >
+              <div className="flex h-[55px] w-[55px] shrink-0 items-center justify-center rounded-full border-[3px] border-[#573eb5]">
+                <img alt="" className="h-6 w-6" height={24} src={item.icon} width={24} />
+              </div>
+              <div>
+                <h2 className="text-[1.25rem] font-semibold leading-[1.45]">{item.title}</h2>
+                <p className="mt-1 text-base leading-[1.35] text-white">{item.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-4 py-[30px] sm:px-6 sm:py-[50px] lg:px-10">
+        <div className="mx-auto grid max-w-[1280px] gap-8 lg:grid-cols-[24.5%_1fr]">
+          <aside className="hidden lg:block">
+            <img
+              alt="Bộ sưu tập áo bóng chuyền"
+              className="w-full"
+              height={1500}
+              src={collectionPoster}
+              width={638}
+            />
+          </aside>
+
+          <div>
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <h2 className="text-[1.55rem] font-semibold uppercase text-[#f15f22]">
+                BỘ SƯU TẬP ÁO BÓNG CHUYỀN
+              </h2>
+              <Link
+                className="inline-flex items-center gap-1 text-[15px] font-medium text-[#666] hover:text-[#f15f22]"
+                href="#"
+              >
+                Xem tất cả
+                <span aria-hidden="true">›</span>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-3 xl:grid-cols-4">
+              {collectionItems.map((item) => (
+                <article className="group" key={item.title}>
+                  <a className="block overflow-hidden" href="#">
+                    <img
+                      alt={item.title}
+                      className="aspect-square w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                      height={1000}
+                      src={item.image}
+                      width={1000}
+                    />
+                  </a>
+
+                  <div className="pt-3">
+                    <h3 className="line-clamp-2 text-[15px] font-medium leading-6 text-[#111]">
+                      <a href="#">{item.title}</a>
+                    </h3>
+
+                    <div className="mt-2 flex items-center gap-2 text-[15px]">
+                      <span className="text-[#7d7d7d] line-through">149.000 ₫</span>
+                      <span className="font-semibold text-[#f15f22]">129.000 ₫</span>
+                    </div>
+
+                    <div className="mt-2 flex items-center gap-2 text-[14px] text-[#555]">
+                      <span className="tracking-[0.1em] text-[#f6b100]">★★★★★</span>
+                      <span>{item.reviews}</span>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-[30px] sm:px-6 sm:py-[30px] lg:px-10">
+        <div className="mx-auto max-w-[1280px] rounded-[13px] bg-[#ebeaea] px-4 py-6 sm:px-8 sm:py-8">
+          <div className="text-center">
+            <h2 className="text-[1.95rem] font-semibold uppercase text-[#111]">
+              KHÁCH HÀNG ĐÃ NÓI GÌ?
+            </h2>
+          </div>
+
+          <div className="home-reviews-track mt-6 flex snap-x gap-6 overflow-x-auto pb-2">
+            {testimonials.map((item) => (
+              <article
+                className="min-w-full snap-center text-center sm:min-w-[78%] lg:min-w-[62%]"
+                key={`${item.name}-${item.role}`}
+              >
+                <div className="mx-auto max-w-[820px]">
+                  <p className="text-[17px] leading-[1.9] text-black">{item.quote}</p>
+                  <img
+                    alt={item.name}
+                    className="mx-auto mt-5 h-[50px] w-[50px] rounded-full object-cover"
+                    height={50}
+                    src={item.avatar}
+                    width={50}
+                  />
+                  <h3 className="mt-4 text-[1rem] font-semibold uppercase text-black">
+                    {item.name}
+                  </h3>
+                  <p className="mt-1 text-[15px] text-black">{item.role}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f6f5f8] px-4 py-[30px] sm:px-6 sm:py-[50px] lg:px-10">
+        <div className="mx-auto max-w-[1280px]">
+          <div>
+            <img
+              alt="Áo bóng chuyền Warra"
+              className="h-[300px] w-full object-cover sm:h-[450px]"
+              height={680}
+              src={storyImage}
+              width={1020}
+            />
+          </div>
+
+          <div className="relative ml-auto w-full bg-white px-[8%] py-[7%] sm:max-w-[620px] lg:-mt-[290px] lg:py-[8%]">
+            <h2 className="text-[1.6rem] font-medium text-black sm:text-[2rem]">
+              ÁO BÓNG CHUYỀN WARRA – LINH HOẠT TRONG TỪNG CHUYỂN ĐỘNG
+            </h2>
+            <p className="mt-4 text-[16px] leading-[1.75] text-black">
+              Áo bóng chuyền Warra được thiết kế tối ưu cho thi đấu với chất liệu thể thao
+              thoáng khí, co giãn tốt, giúp vận động linh hoạt và thoải mái suốt trận đấu.
+              Kiểu dáng hiện đại, màu sắc trẻ trung cùng khả năng thiết kế – in ấn theo yêu
+              cầu, giúp mỗi đội bóng tự tin thể hiện cá tính trên sân.
+            </p>
+            <a
+              className="mt-5 inline-flex rounded-[5px] bg-[#f15f22] px-5 py-[7px] text-sm font-semibold text-white"
+              href="#"
+            >
+              TÌM HIỂU THÊM
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-[radial-gradient(circle_at_top,#262626_0%,#111111_38%,#050505_100%)] px-4 pb-6 pt-12 text-white sm:px-6 lg:px-10">
+        <div className="mx-auto max-w-[1280px]">
+          <div className="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-2 xl:grid-cols-[1.3fr_.8fr_.9fr_1fr]">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/55">
+                MayaoCauLong.vn
+              </p>
+              <h2 className="mt-4 max-w-[360px] text-[2rem] font-semibold leading-tight sm:text-[2.4rem]">
+                Đồng phục thể thao đặt may với nhịp trình bày rõ ràng và chắc tay.
+              </h2>
+              <p className="mt-4 max-w-[520px] text-[15px] leading-7 text-white/72">
+                Chúng tôi tập trung vào các bộ đồng phục cầu lông, bóng chuyền và teamwear
+                thiết kế theo yêu cầu, ưu tiên form đẹp, lên màu sắc nét và quy trình chốt
+                đơn gọn cho đội nhóm, trường lớp và câu lạc bộ.
+              </p>
+              <a
+                className="mt-6 inline-flex items-center rounded-full border border-white/15 bg-white/6 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/12"
+                href="tel:0900000000"
+              >
+                Gọi tư vấn ngay
+              </a>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/55">
+                Danh mục nhanh
+              </h3>
+              <ul className="mt-5 space-y-3 text-[15px] text-white/82">
+                <li>
+                  <a className="transition hover:text-white" href="#">
+                    Áo cầu lông thiết kế
+                  </a>
+                </li>
+                <li>
+                  <a className="transition hover:text-white" href="#">
+                    Bộ sưu tập thi đấu
+                  </a>
+                </li>
+                <li>
+                  <a className="transition hover:text-white" href="#">
+                    In tên số theo yêu cầu
+                  </a>
+                </li>
+                <li>
+                  <a className="transition hover:text-white" href="#">
+                    Đặt áo cho câu lạc bộ
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/55">
+                Thông tin liên hệ
+              </h3>
+              <div className="mt-5 space-y-4 text-[15px] leading-7 text-white/82">
+                <p>Hotline: 0900 000 000</p>
+                <p>Email: lienhe@mayaocaulong.vn</p>
+                <p>Xưởng may: Hà Nội, Việt Nam</p>
+                <p>Hỗ trợ lên mẫu, chốt size và tư vấn deadline giao hàng.</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/55">
+                Cam kết dịch vụ
+              </h3>
+              <div className="mt-5 grid gap-3">
+                {[
+                  'Thiết kế theo đúng màu đội',
+                  'Hỗ trợ đơn số lượng từ nhỏ đến lớn',
+                  'Theo dõi tiến độ và giao hàng toàn quốc',
+                  'Tối ưu cho đội phong trào và giải đấu',
+                ].map((item) => (
+                  <div
+                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-[14px] text-white/84"
+                    key={item}
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3 pt-5 text-sm text-white/45 md:flex-row md:items-center md:justify-between">
+            <p>© 2026 MayaoCauLong.vn. All rights reserved.</p>
+            <p>Thiết kế landing page thể thao, bố cục tối ưu cho nội dung và chuyển đổi.</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+  )
+}

@@ -1,0 +1,28 @@
+Use case: identity-preserve
+Asset type: square WooCommerce product image for mayaobongro.vn
+
+Image 1 is a garment-design reference only. Preserve its light fresh green to white gradient, ECO RETREAT mark, small Vietnam flag sleeve accent when visible, clean eco/team feeling, and approved text placement. Do not preserve the adult models, jogging pose, park path running environment, black running shorts, watermark, mayaochaybo.vn footer, hotline, or running silhouette.
+
+Convert the garment into an authentic basketball uniform: sleeveless jersey with wider shoulders, basketball rib-knit crew neckline and armholes, relaxed straight torso, and a hem 5–8 cm longer than a running shirt. The hem must cover the shorts waistband. Pair it with loose knee-length basketball shorts whose palette, gradient, trim, panels, and restrained graphic motif visibly coordinate with the jersey. Use light green and white as dominant colors; do not default shorts to black.
+
+Text decisions:
+- Preserve: ECO RETREAT.
+- Replace front phrase “Rừng Retreat của riêng bạn” with “Sân bóng của riêng bạn”.
+- Preserve back phrase “Ban Quản Lý Vận Hành” only if a readable back view appears.
+- Replace the running silhouette with a basketball player, basketball, or hoop silhouette in the same lower-front graphic spirit.
+- Remove mayaochaybo.vn and Hotline/Zalo footer.
+
+Composition:
+Square 1:1, three-quarter body, garment fully visible, clean category-thumbnail readability, natural basketball-ready pose, product-focused commercial image.
+
+Style:
+Photorealistic Vietnamese school sportswear photography, realistic breathable mesh, natural folds, correct anatomy, plausible daylight, fresh green sustainable color mood.
+
+Constraints:
+Fictional student only, age-appropriate, non-sexualized, no exposed midriff, no real school identifiers, no extra logos, no running terminology.
+
+Avoid:
+running pose, jogging path, park race scene, track, road race, marathon cues, running shorts, tight running shirt fit, cropped jersey, adult glamour styling, bodybuilder physique, distorted text, distorted hands, copied mockup frame, watermark.
+
+Scene: high-school basketball court after class, warm soft daylight, generic court lines and hoop visible, no readable school name.
+Subject: One fictional Vietnamese high-school basketball player, age 16–17, athletic but unmistakably age-appropriate, confident game-ready pose holding a basketball. No adult bodybuilder proportions and no glamour styling.

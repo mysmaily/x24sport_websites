@@ -1,0 +1,28 @@
+{
+  "batch": "running-to-basketball-pages7-10-20260707",
+  "products": 48,
+  "images": 96,
+  "sku_range": [
+    "X24-BR-058",
+    "X24-BR-105"
+  ],
+  "source_pages": [
+    7,
+    8,
+    9,
+    10
+  ],
+  "female_led_expected": 48,
+  "female_led_percentage_expected": 50.0,
+  "female_solo_allowed": false,
+  "generation_success": 96,
+  "generation_failures": 0,
+  "generation_seconds": {
+    "min": 59.8,
+    "max": 139.7,
+    "avg": 81.0
+  },
+  "contact_sheet": "verification/contact-sheet-running-to-basketball-pages7-10-20260707.jpg",
+  "slugfix_applied": true,
+  "slug_source": "WordPress sanitize_title equivalent; local manifest normalized đ→d after deploy"
+}

@@ -1,0 +1,240 @@
+[
+  {
+    "job_id": "product-1269",
+    "source_shop_order": 146,
+    "source_shop_page": 13,
+    "destination_product_id": 1269,
+    "product_code": "X24-BR-457",
+    "edition_group": "x24-br-457-bo-quan-ao-bong-ro-logo-xanh-duong-manh-me",
+    "old_title": "Logo Running Style - Xanh dương mạnh mẽ, phong cách thể thao bền bỉ",
+    "new_title": "Bộ Quần Áo Bóng Rổ Logo Xanh Dương Mạnh Mẽ",
+    "old_slug": "logo-running-style-xanh-duong-manh-me-phong-cach-the-thao-ben-bi",
+    "new_slug": "bo-quan-ao-bong-ro-logo-xanh-duong-manh-me-x24-br-457",
+    "old_url": "https://mayaobongro.vn/logo-running-style-xanh-duong-manh-me-phong-cach-the-thao-ben-bi/",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2025/08/logo-nhom-running-style.jpg",
+    "source_image": "running-to-basketball-db-text-hits-20260708/source/x24-br-457-logo-running-style-xanh-duong-manh-me-phong-cach-the-thao-ben-bi.jpg",
+    "model_composition": {
+      "elementary": "female_lead_with_teammate",
+      "high_school": "male_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-457-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-457-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-457-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-457-ao-bong-ro-thpt.webp"
+    },
+    "regular_price": "0",
+    "sale_price": "135000",
+    "text_hits": {
+      "title": false,
+      "excerpt": true,
+      "content": true
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1267",
+    "source_shop_order": 147,
+    "source_shop_page": 13,
+    "destination_product_id": 1267,
+    "product_code": "X24-BR-458",
+    "edition_group": "x24-br-458-bo-quan-ao-bong-ro-logo-xanh-la-pastel",
+    "old_title": "Logo chạy bộ màu xanh lá pastel - Logo hiện đại, thân thiện môi trường",
+    "new_title": "Bộ Quần Áo Bóng Rổ Logo Xanh Lá Pastel",
+    "old_slug": "logo-chay-bo-mau-xanh-la-pastel-logo-hien-dai-than-thien-moi-truong",
+    "new_slug": "bo-quan-ao-bong-ro-logo-xanh-la-pastel-x24-br-458",
+    "old_url": "https://mayaobongro.vn/logo-chay-bo-mau-xanh-la-pastel-logo-hien-dai-than-thien-moi-truong/",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2025/08/logo-club-chay-bo-hien-dai.jpg",
+    "source_image": "running-to-basketball-db-text-hits-20260708/source/x24-br-458-logo-chay-bo-mau-xanh-la-pastel-logo-hien-dai-than-thien-moi-truong.jpg",
+    "model_composition": {
+      "elementary": "female_lead_with_teammate",
+      "high_school": "male_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-458-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-458-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-458-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-458-ao-bong-ro-thpt.webp"
+    },
+    "regular_price": "0",
+    "sale_price": "135000",
+    "text_hits": {
+      "title": true,
+      "excerpt": true,
+      "content": true
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-722",
+    "source_shop_order": 285,
+    "source_shop_page": 24,
+    "destination_product_id": 722,
+    "product_code": "X24-BR-596",
+    "edition_group": "x24-br-596-bo-quan-ao-bong-ro-do-cam-vang-nang-dong",
+    "old_title": "Áo chạy bộ nam đỏ cam vàng tank-top thể thao năng động",
+    "new_title": "Bộ Quần Áo Bóng Rổ Đỏ Cam Vàng Năng Động",
+    "old_slug": "ao-chay-bo-nam-do-cam-vang-tank-top-the-thao-nang-dong",
+    "new_slug": "bo-quan-ao-bong-ro-do-cam-vang-nang-dong-x24-br-596",
+    "old_url": "https://mayaobongro.vn/ao-chay-bo-nam-do-cam-vang-tank-top-the-thao-nang-dong/",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2025/05/thiet-ke-ao-chay-giai-viet-da.jpg",
+    "source_image": "running-to-basketball-db-text-hits-20260708/source/x24-br-596-ao-chay-bo-nam-do-cam-vang-tank-top-the-thao-nang-dong.jpg",
+    "model_composition": {
+      "elementary": "female_lead_with_teammate",
+      "high_school": "male_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-596-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-596-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-596-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-596-ao-bong-ro-thpt.webp"
+    },
+    "regular_price": "169000",
+    "sale_price": "135000",
+    "text_hits": {
+      "title": true,
+      "excerpt": true,
+      "content": true
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-719",
+    "source_shop_order": 286,
+    "source_shop_page": 24,
+    "destination_product_id": 719,
+    "product_code": "X24-BR-597",
+    "edition_group": "x24-br-597-bo-quan-ao-bong-ro-xanh-ket-hoa-tiet-sam-chop",
+    "old_title": "Áo chạy bộ màu xanh két hoạ tiết sấm chớp nổi bật",
+    "new_title": "Bộ Quần Áo Bóng Rổ Xanh Két Họa Tiết Sấm Chớp",
+    "old_slug": "ao-chay-bo-mau-xanh-ket-hoa-tiet-sam-chop-noi-bat",
+    "new_slug": "bo-quan-ao-bong-ro-xanh-ket-hoa-tiet-sam-chop-x24-br-597",
+    "old_url": "https://mayaobongro.vn/ao-chay-bo-mau-xanh-ket-hoa-tiet-sam-chop-noi-bat/",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2025/05/ao-chay-bo-nhom-chuyen-nghiep.jpg",
+    "source_image": "running-to-basketball-db-text-hits-20260708/source/x24-br-597-ao-chay-bo-mau-xanh-ket-hoa-tiet-sam-chop-noi-bat.jpg",
+    "model_composition": {
+      "elementary": "female_lead_with_teammate",
+      "high_school": "male_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-597-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-597-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-597-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-597-ao-bong-ro-thpt.webp"
+    },
+    "regular_price": "169000",
+    "sale_price": "135000",
+    "text_hits": {
+      "title": true,
+      "excerpt": true,
+      "content": true
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-716",
+    "source_shop_order": 287,
+    "source_shop_page": 24,
+    "destination_product_id": 716,
+    "product_code": "X24-BR-598",
+    "edition_group": "x24-br-598-bo-quan-ao-bong-ro-xanh-bich-phoi-trang-hoa-tiet",
+    "old_title": "Áo chạy bộ nam xanh bích phối trắng họa tiết đỉnh núi thời trang",
+    "new_title": "Bộ Quần Áo Bóng Rổ Xanh Bích Phối Trắng Họa Tiết",
+    "old_slug": "ao-chay-bo-nam-xanh-bich-phoi-trang-hoa-tiet-dinh-nui-thoi-trang",
+    "new_slug": "bo-quan-ao-bong-ro-xanh-bich-phoi-trang-hoa-tiet-x24-br-598",
+    "old_url": "https://mayaobongro.vn/ao-chay-bo-nam-xanh-bich-phoi-trang-hoa-tiet-dinh-nui-thoi-trang/",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2025/05/mau-ao-chay-bo-in-hoa-van.jpg",
+    "source_image": "running-to-basketball-db-text-hits-20260708/source/x24-br-598-ao-chay-bo-nam-xanh-bich-phoi-trang-hoa-tiet-dinh-nui-thoi-trang.jpg",
+    "model_composition": {
+      "elementary": "female_lead_with_teammate",
+      "high_school": "male_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-598-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-598-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-598-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-598-ao-bong-ro-thpt.webp"
+    },
+    "regular_price": "169000",
+    "sale_price": "135000",
+    "text_hits": {
+      "title": true,
+      "excerpt": true,
+      "content": true
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-713",
+    "source_shop_order": 288,
+    "source_shop_page": 24,
+    "destination_product_id": 713,
+    "product_code": "X24-BR-599",
+    "edition_group": "x24-br-599-bo-quan-ao-bong-ro-do-phoi-xanh-vang-nang-dong",
+    "old_title": "Áo chạy bộ nam màu đỏ phối xanh vàng – Năng động, nổi bật",
+    "new_title": "Bộ Quần Áo Bóng Rổ Đỏ Phối Xanh Vàng Năng Động",
+    "old_slug": "ao-chay-bo-nam-mau-do-phoi-xanh-vang-nang-dong-noi-bat",
+    "new_slug": "bo-quan-ao-bong-ro-do-phoi-xanh-vang-nang-dong-x24-br-599",
+    "old_url": "https://mayaobongro.vn/ao-chay-bo-nam-mau-do-phoi-xanh-vang-nang-dong-noi-bat/",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2025/05/ao-chay-bo-dep-cho-nam-nu.jpg",
+    "source_image": "running-to-basketball-db-text-hits-20260708/source/x24-br-599-ao-chay-bo-nam-mau-do-phoi-xanh-vang-nang-dong-noi-bat.jpg",
+    "model_composition": {
+      "elementary": "female_lead_with_teammate",
+      "high_school": "male_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-599-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-599-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-599-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-599-ao-bong-ro-thpt.webp"
+    },
+    "regular_price": "169000",
+    "sale_price": "135000",
+    "text_hits": {
+      "title": true,
+      "excerpt": true,
+      "content": true
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-710",
+    "source_shop_order": 289,
+    "source_shop_page": 25,
+    "destination_product_id": 710,
+    "product_code": "X24-BR-600",
+    "edition_group": "x24-br-600-bo-quan-ao-bong-ro-den-cam-nang-dong",
+    "old_title": "Áo chạy bộ nam màu đen cam - Năng động & thoáng khí",
+    "new_title": "Bộ Quần Áo Bóng Rổ Đen Cam Năng Động",
+    "old_slug": "ao-chay-bo-nam-mau-den-cam-nang-dong-thoang-khi",
+    "new_slug": "bo-quan-ao-bong-ro-den-cam-nang-dong-x24-br-600",
+    "old_url": "https://mayaobongro.vn/ao-chay-bo-nam-mau-den-cam-nang-dong-thoang-khi/",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2025/05/ao-chay-bo-danh-cho-su-kien.jpg",
+    "source_image": "running-to-basketball-db-text-hits-20260708/source/x24-br-600-ao-chay-bo-nam-mau-den-cam-nang-dong-thoang-khi.jpg",
+    "model_composition": {
+      "elementary": "female_lead_with_teammate",
+      "high_school": "male_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-600-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-600-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-600-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-600-ao-bong-ro-thpt.webp"
+    },
+    "regular_price": "169000",
+    "sale_price": "135000",
+    "text_hits": {
+      "title": true,
+      "excerpt": true,
+      "content": true
+    },
+    "qa": {},
+    "status": "discovered"
+  }
+]

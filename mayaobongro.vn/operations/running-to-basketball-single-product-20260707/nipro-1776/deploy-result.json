@@ -1,0 +1,20 @@
+{
+    "product_id": 1776,
+    "old_slug": "ao-chay-bo-nipro-mau-hong-xanh-duong-noi-bat-fdl-song-khoe",
+    "new_slug": "bo-quan-ao-bong-ro-hoc-sinh-nipro-fdl-song-khoe-hong-xanh",
+    "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-hoc-sinh-nipro-fdl-song-khoe-hong-xanh/",
+    "featured_media_id": 2400,
+    "gallery_media_ids": [],
+    "elementary_media_id": 2774,
+    "high_school_media_id": 2775,
+    "category_ids": [
+        75
+    ],
+    "backup_path": "/var/www/mayaobongro.vn/wp-content/uploads/codex-nipro-1776-temp/product-1776-before-nipro-single-gallery.json",
+    "meta": {
+        "_mayaobongro_edition_group": "nipro-fdl-song-khoe-hong-xanh",
+        "_mayaobongro_age_gallery_model": "single-product",
+        "_mayaobongro_age_image_tieu_hoc_id": 2774,
+        "_mayaobongro_age_image_thpt_id": 2775
+    }
+}

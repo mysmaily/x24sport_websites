@@ -1,0 +1,87 @@
+{
+  "media_ids": [
+    2576,
+    2577
+  ],
+  "media_urls": [
+    "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-009-ao-pickleball-nam-nu-co-co-tay-ao-ngan-xanh-duong-trang-upload.jpg",
+    "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-009-ao-pickleball-nam-3-lo-nu-khong-tay-xanh-duong-trang-upload.jpg"
+  ],
+  "product_id": 1750,
+  "name": "Bộ Quần Áo Pickleball Nam Nữ X24 Xanh Dương Trắng X24-PB-009",
+  "slug": "bo-quan-ao-pickleball-nam-nu-x24-xanh-duong-trang-x24-pb-009",
+  "sku": "X24-PB-009",
+  "categories": [
+    {
+      "id": 95,
+      "name": "Áo Pickleball",
+      "slug": "ao-pickleball"
+    },
+    {
+      "id": 96,
+      "name": "Áo Pickleball Thiết Kế Riêng",
+      "slug": "ao-pickleball-thiet-ke-rieng"
+    }
+  ],
+  "tags": [
+    {
+      "id": 97,
+      "name": "áo pickleball nam",
+      "slug": "ao-pickleball-nam"
+    },
+    {
+      "id": 105,
+      "name": "áo pickleball nam 3 lỗ",
+      "slug": "ao-pickleball-nam-3-lo"
+    },
+    {
+      "id": 102,
+      "name": "áo pickleball nam có cổ",
+      "slug": "ao-pickleball-nam-co-co"
+    },
+    {
+      "id": 98,
+      "name": "áo pickleball nữ",
+      "slug": "ao-pickleball-nu"
+    },
+    {
+      "id": 104,
+      "name": "áo pickleball nữ không tay",
+      "slug": "ao-pickleball-nu-khong-tay"
+    },
+    {
+      "id": 106,
+      "name": "áo pickleball tank top",
+      "slug": "ao-pickleball-tank-top"
+    },
+    {
+      "id": 100,
+      "name": "áo pickleball thiết kế riêng",
+      "slug": "ao-pickleball-thiet-ke-rieng"
+    },
+    {
+      "id": 99,
+      "name": "bộ quần áo pickleball nam nữ",
+      "slug": "bo-quan-ao-pickleball-nam-nu"
+    },
+    {
+      "id": 101,
+      "name": "đồng phục pickleball",
+      "slug": "dong-phuc-pickleball"
+    }
+  ],
+  "images": [
+    {
+      "id": 2576,
+      "src": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-009-ao-pickleball-nam-nu-co-co-tay-ao-ngan-xanh-duong-trang-upload.jpg",
+      "name": "X24-PB-009 &#8211; Áo pickleball nam nữ có cổ tay áo ngắn xanh dương trắng",
+      "alt": "Áo pickleball nam nữ có cổ tay áo ngắn X24 màu xanh dương trắng trên sân pickleball"
+    },
+    {
+      "id": 2577,
+      "src": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-009-ao-pickleball-nam-3-lo-nu-khong-tay-xanh-duong-trang-upload.jpg",
+      "name": "X24-PB-009 &#8211; Áo pickleball nam 3 lỗ nữ không tay xanh dương trắng",
+      "alt": "Áo pickleball nam 3 lỗ phối áo pickleball nữ không tay X24 màu xanh dương trắng trên sân pickleball"
+    }
+  ]
+}

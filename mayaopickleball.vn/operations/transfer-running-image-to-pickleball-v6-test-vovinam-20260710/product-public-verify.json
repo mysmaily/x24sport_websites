@@ -1,0 +1,13 @@
+{
+  "public_product_status": 200,
+  "public_contains_product_code": true,
+  "public_contains_media_urls": [
+    true,
+    true
+  ],
+  "public_forbidden_hits": [
+    "5k",
+    "mayaochaybo",
+    "aochaybo"
+  ]
+}

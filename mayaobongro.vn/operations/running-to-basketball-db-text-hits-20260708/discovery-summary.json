@@ -1,0 +1,11 @@
+{
+  "batch": "running-to-basketball-db-text-hits-20260708",
+  "source": "database title/excerpt/content contains \"chạy bộ\"; already-converted image products skipped",
+  "discovered_count": 289,
+  "manifest_count": 289,
+  "jobs_count": 578,
+  "max_existing_code": 311,
+  "first_new_code": "X24-BR-312",
+  "last_new_code": "X24-BR-600",
+  "generated_at": "2026-07-08T02:52:48.643Z"
+}

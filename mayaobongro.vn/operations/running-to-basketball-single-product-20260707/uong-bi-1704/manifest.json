@@ -1,0 +1,74 @@
+{
+  "job_id": "product-1704-uong-bi-single-age-gallery",
+  "created_at": "2026-07-07T14:40:00+07:00",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaobongro.vn",
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-uong-bi-club-runner-mau-do-thiet-ke-tre-trung-tinh-than-viet-nam/",
+  "destination_product_id": 1704,
+  "edition_group": "uong-bi-x24-br-033",
+  "old_title": "Áo Chạy Bộ Uông Bí Club Runner Màu Đỏ – Thiết Kế Trẻ Trung, Tinh Thần Việt Nam",
+  "new_title": "Bộ Quần Áo Bóng Rổ Uông Bí Đỏ X24-BR-033",
+  "old_slug": "ao-chay-bo-uong-bi-club-runner-mau-do-thiet-ke-tre-trung-tinh-than-viet-nam",
+  "new_slug": "bo-quan-ao-bong-ro-uong-bi-do-x24-br-033",
+  "source_image": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/uong-bi-1704/source/uong-bi-source.jpg",
+  "source_media_id": 2435,
+  "text_decisions": [
+    {
+      "source": "running/race terms",
+      "action": "replace/remove",
+      "target": "basketball-specific wording"
+    },
+    {
+      "source": "replace Uông Bí Running Club / Runner with Uông Bí Club or Uông Bí Hoops; preserve Vietnam spirit marks",
+      "action": "apply",
+      "target": "basketball-safe design text"
+    }
+  ],
+  "category_ids": [
+    70,
+    97,
+    101,
+    102,
+    75,
+    95
+  ],
+  "outputs": {
+    "elementary": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/uong-bi-1704/final/x24-br-033-ao-bong-ro-tieu-hoc.webp",
+    "high_school": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/uong-bi-1704/final/x24-br-033-ao-bong-ro-thpt.webp"
+  },
+  "gallery_roles": {
+    "featured": "high_school",
+    "secondary": [
+      "elementary"
+    ]
+  },
+  "seo_keywords": [
+    "bộ quần áo bóng rổ thiết kế riêng",
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ học sinh THCS",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT",
+    "đồng phục bóng rổ trường học"
+  ],
+  "status": "verified",
+  "errors": [],
+  "new_media_ids": {
+    "elementary": 2849,
+    "high_school": 2850,
+    "featured": 2850,
+    "gallery": [
+      2849
+    ]
+  },
+  "meta": {
+    "_mayaobongro_edition_group": "uong-bi-x24-br-033",
+    "_mayaobongro_age_gallery_model": "single-product",
+    "_mayaobongro_age_image_tieu_hoc_id": 2849,
+    "_mayaobongro_age_image_thpt_id": 2850
+  },
+  "backup_path": "/Users/hoang/wordpress_websites/mayaobongro.vn/backups/running-to-basketball-single-product-20260707/uong-bi-1704/product-1704-before-uong-bi-1704-single-gallery-20260707T090245Z.json",
+  "verification_report": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/uong-bi-1704/verification-report.json",
+  "verified_at": "2026-07-07T09:08:12Z"
+}

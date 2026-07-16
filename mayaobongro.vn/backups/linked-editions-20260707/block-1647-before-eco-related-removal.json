@@ -1,0 +1,5 @@
+{
+    "ID": 1647,
+    "post_title": "Chi tiết sản phẩm",
+    "post_content": "[section class=\"x24-product-hero-section\"]\n\n[row class=\"x24-product-hero-row\"]\n\n[col span=\"6\" span__sm=\"12\" class=\"x24-product-media-col\"]\n\n[ux_product_gallery]\n\n[ux_text][mayaobongro_x24_product_colors][/ux_text]\n\n[/col]\n[col span=\"6\" span__sm=\"12\" align=\"left\" class=\"x24-product-summary-col\"]\n\n[ux_product_breadcrumbs]\n\n[ux_text][mayaobongro_x24_product_summary][/ux_text]\n[ux_text][mayaobongro_school_edition_switcher][/ux_text]\n\n[/col]\n\n[/row]\n\n[row class=\"x24-product-size-row\"]\n\n[col span__sm=\"12\"]\n\n[ux_text][mayaobongro_x24_product_size_guide][/ux_text]\n\n[/col]\n\n[/row]\n\n[/section]\n[section]\n\n[row]\n\n[col span__sm=\"12\"]\n\n[ux_product_tabs]\n\n[/col]\n\n[/row]\n\n[/section]\n[section]\n\n[row]\n\n[col span__sm=\"12\"]\n\n<h3>SẢN PHẨM TƯƠNG TỰ</h3>\n[ux_products cat=\"75,71,70\" products=\"20\"]\n\n[/col]\n\n[/row]\n\n[/section]\n"
+}

@@ -1,0 +1,21 @@
+{
+  "pilot_index": 10,
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-team-orc-den-cam-truyen-thong/",
+  "source_slug": "ao-chay-bo-team-orc-den-cam-truyen-thong",
+  "source_title": "Áo chạy bộ Team ORC – Đen Cam Truyền Thống",
+  "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-team-orc-model-v2-20260705.jpg",
+  "source_product_id_guess": "1756",
+  "job_id": "10-ao-chay-bo-team-orc-den-cam-truyen-thong",
+  "destination_site": "mayaopickleball.vn",
+  "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/10-ao-chay-bo-team-orc-den-cam-truyen-thong/source/ao-chay-bo-team-orc-model-v2-20260705.jpg",
+  "new_product_code": "X24-PB-011",
+  "color_label": "cam đen",
+  "outputs": {},
+  "status": "source_downloaded",
+  "attempts": {
+    "image_a": 0,
+    "image_b": 0
+  },
+  "wordpress_mutation": false,
+  "notes": []
+}

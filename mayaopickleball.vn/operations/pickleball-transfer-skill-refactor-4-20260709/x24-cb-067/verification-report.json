@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "same_product_id",
+      "ok": true,
+      "detail": "wc=2218 wp=2218"
+    },
+    {
+      "name": "slug_and_sku",
+      "ok": true,
+      "detail": "slug=bo-quan-ao-pickleball-x24-pb-021-den-vang-do-nang-dong sku=X24-PB-021"
+    },
+    {
+      "name": "price_preserved",
+      "ok": true,
+      "detail": "price=135000 regular=200000 sale=135000"
+    },
+    {
+      "name": "image_ids",
+      "ok": true,
+      "detail": "[(2660, 'https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-021-image-b-male-tank-female-collared-nosleeve.webp'), (2659, 'https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-021-image-a-collared-short-sleeve.webp')]"
+    },
+    {
+      "name": "media_dimensions",
+      "ok": true,
+      "detail": "a=image/webp 1200x1200 b=image/webp 1200x1200"
+    },
+    {
+      "name": "categories",
+      "ok": true,
+      "detail": "[70, 71, 95, 96]"
+    },
+    {
+      "name": "tags_no_running_tag",
+      "ok": true,
+      "detail": "[97, 98, 99, 100, 101, 104, 105, 107]"
+    },
+    {
+      "name": "shopper_fields_forbidden_terms",
+      "ok": true,
+      "detail": "{}"
+    },
+    {
+      "name": "public_page_200_content",
+      "ok": true,
+      "detail": "title/images present"
+    },
+    {
+      "name": "yoast_head_new_image",
+      "ok": true,
+      "detail": "new social image present"
+    },
+    {
+      "name": "old_url_redirects",
+      "ok": true,
+      "detail": "200 https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-021-den-vang-do-nang-dong/"
+    },
+    {
+      "name": "category_public-cat-ao-pickleball-final.html",
+      "ok": true,
+      "detail": "slug and featured image present"
+    },
+    {
+      "name": "category_public-cat-khong-tay-final.html",
+      "ok": true,
+      "detail": "slug and featured image present"
+    },
+    {
+      "name": "headers_media-a-final-headers.txt",
+      "ok": true,
+      "detail": "http/2 200 "
+    },
+    {
+      "name": "headers_media-b-final-headers.txt",
+      "ok": true,
+      "detail": "http/2 200 "
+    }
+  ],
+  "scoped_residual_public_html_terms": {
+    "chạy bộ": 21,
+    "aochaybo": 44,
+    "cb-067": 6
+  },
+  "residual_note": "Remaining whole-page legacy hits are from related product cards/global logo/favicon filenames or redirect metadata, not product 2218 shopper fields or Yoast head.",
+  "cache_services_touched": "none"
+}

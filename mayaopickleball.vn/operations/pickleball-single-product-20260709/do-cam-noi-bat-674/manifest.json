@@ -1,0 +1,86 @@
+{
+  "job_id": "do-cam-noi-bat-674",
+  "source_site": "mayaopickleball.vn",
+  "destination_site": "mayaopickleball.vn",
+  "source_product_id": 674,
+  "target_product_id": 674,
+  "source_url": "https://mayaopickleball.vn/ao-chay-bo-phong-cach-nang-dong-mau-do-cam-noi-bat/",
+  "source_slug": "ao-chay-bo-phong-cach-nang-dong-mau-do-cam-noi-bat",
+  "source_title": "Ao chay bo phong cach nang dong - Mau do cam noi bat",
+  "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2025/05/ao-chay-bo-phong-cach-nang-dong.jpg",
+  "source_local": "source/ao-chay-bo-phong-cach-nang-dong.jpg",
+  "new_product_code": "X24-PB-015",
+  "new_title": "Bo Quan Ao Pickleball Nam Nu X24 Xanh La Vang X24-PB-015",
+  "new_slug": "bo-quan-ao-pickleball-nam-nu-x24-xanh-la-vang-x24-pb-015",
+  "status": "verified",
+  "female_variant": "female_collared_no_sleeve",
+  "text_decisions": [
+    {"source": "AO CHAY BO", "action": "remove", "target": ""},
+    {"source": "RUNNING", "action": "remove", "target": ""},
+    {"source": "SINGLET", "action": "remove", "target": ""},
+    {"source": "RUN FOR ALL", "action": "remove", "target": ""},
+    {"source": "RUN FOR LIFE", "action": "remove", "target": ""},
+    {"source": "0989.353.247", "action": "remove", "target": ""},
+    {"source": "X24SPORT.COM", "action": "remove", "target": ""}
+  ],
+  "palette_notes": [
+    "green upper body",
+    "creamy white lower fade",
+    "yellow accent shards",
+    "subtle geometric linework"
+  ],
+  "garment_styles": [
+    {
+      "slot": "A",
+      "style": "collared_short_sleeve",
+      "featured": true,
+      "pose_slot": "A1",
+      "crop_slot": "three_quarter_body",
+      "image_filter_tags": ["ngan tay"]
+    },
+    {
+      "slot": "B",
+      "style": "male_tank_top_female_collared_no_sleeve",
+      "featured": false,
+      "pose_slot": "B1",
+      "crop_slot": "medium_product_portrait",
+      "image_filter_tags": ["3 lo", "tank top"]
+    }
+  ],
+  "outputs": {
+    "image_a_generated": "generated/x24-pb-015-image-a.png",
+    "image_b_generated": "generated/x24-pb-015-image-b.png",
+    "image_a_final": "final/x24-pb-015-ao-pickleball-nam-nu-co-co-tay-ngan-xanh-la-vang.webp",
+    "image_b_final": "final/x24-pb-015-ao-pickleball-nam-3-lo-nu-khong-tay-co-co-xanh-la-vang.webp",
+    "contact_sheet": "final-contact-sheet.jpg",
+    "image_a_upload_jpeg": "upload-jpeg/x24-pb-015-ao-pickleball-nam-nu-co-co-tay-ngan-xanh-la-vang-upload.jpg",
+    "image_b_upload_jpeg": "upload-jpeg/x24-pb-015-ao-pickleball-nam-3-lo-nu-khong-tay-xanh-la-vang-upload.jpg"
+  },
+  "notes": [
+    "Started as a local demo, then promoted to a live upload/update after the bucket mapping was corrected.",
+    "Public title says do cam but visible palette is green/yellow, so prompts follow the image rather than the stale title.",
+    "Image B was regenerated once because the first attempt showed readable paddle branding, which failed the guide QA.",
+    "Upload retried after the user corrected the destination bucket mapping; new CDN host now resolves under cdn.mayaopickleball.vn."
+  ],
+  "qa": [
+    "Image A shows collared short-sleeve tops on both models, with front/back coverage.",
+    "Image B shows male tank top plus female collared no-sleeve top, with modest armhole coverage.",
+    "Both final images include watermark badge and vertical color-dot overlay.",
+    "WordPress media upload and WooCommerce product update succeeded on retry after bucket fix."
+  ],
+  "backups": [
+    "backups/20260709-022709-before-update"
+  ],
+  "new_media_ids": [
+    2643,
+    2644
+  ],
+  "verification": {
+    "new_product_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-xanh-la-vang-x24-pb-015/",
+    "old_url_behavior": "200 OK after redirect/canonical resolution to new URL",
+    "wc_product": "200 OK sku=X24-PB-015 categories=95,96 images=2643,2644",
+    "wp_media_urls": "2643 and 2644 return HTTP 200 image/jpeg from cdn.mayaopickleball.vn",
+    "public_html": "Title, canonical, og:image, gallery, and inline description images all reference X24-PB-015 assets on the corrected CDN host",
+    "cache_services_touched": "none"
+  }
+}

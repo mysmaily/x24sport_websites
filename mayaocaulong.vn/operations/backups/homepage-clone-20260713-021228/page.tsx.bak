@@ -1,0 +1,135 @@
+import Link from 'next/link'
+import { ArrowRight, BadgeCheck, Phone, Shirt, Sparkles } from 'lucide-react'
+import { formatPrice, getHomeData } from '../lib/content'
+
+export default async function Home() {
+  const { tenant, products, posts } = await getHomeData()
+
+  return (
+    <main>
+      <header className="sticky top-0 z-20 flex h-[72px] items-center justify-between border-b border-[var(--line)] bg-[rgba(248,250,252,.86)] px-[clamp(20px,5vw,72px)] backdrop-blur-[18px]">
+        <a className="flex items-center gap-2.5 font-extrabold" href="#">
+          <span className="inline-flex h-[34px] w-[34px] items-center justify-center bg-[var(--ink)] text-white">MC</span>
+          {tenant.name}
+        </a>
+        <nav className="hidden gap-[26px] text-sm text-[var(--muted)] md:flex">
+          <a href="#products">San pham</a>
+          <a href="#process">Quy trinh</a>
+          <a href="#blog">Blog</a>
+        </nav>
+        <a className="inline-flex h-[42px] w-[42px] items-center justify-center border border-[var(--line)]" href="#contact" aria-label="Lien he">
+          <Phone size={18} />
+        </a>
+      </header>
+
+      <section className="grid min-h-[calc(100vh-72px)] gap-8 px-[clamp(20px,5vw,72px)] py-[clamp(42px,7vw,86px)] pb-7 lg:grid-cols-[minmax(0,1fr)_minmax(320px,.9fr)]">
+        <div className="max-w-[760px] self-center">
+          <p className="mb-3 text-xs font-black uppercase text-[var(--accent)]">Custom teamwear / badminton</p>
+          <h1 className="mb-6 max-w-[840px] text-[clamp(48px,7vw,112px)] leading-[0.9]">{tenant.brand?.headline}</h1>
+          <p className="max-w-[620px] text-xl leading-[1.6] text-[var(--muted)]">{tenant.brand?.subheadline}</p>
+          <div className="mt-[30px] flex flex-wrap gap-3">
+            <a className="inline-flex min-h-[42px] items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-extrabold text-white" href="#products">
+              Xem mau ao <ArrowRight size={18} />
+            </a>
+            <a className="inline-flex min-h-[42px] items-center gap-2 border border-[var(--line)] bg-white px-[18px] text-[var(--ink)]" href="#process">
+              Nhan tu van
+            </a>
+          </div>
+        </div>
+        <div
+          aria-label="Ao cau long mau"
+          className="relative min-h-[360px] overflow-hidden border border-[var(--line)] bg-[#e7f7ed] [background-image:linear-gradient(90deg,transparent_49%,rgba(17,24,39,.12)_50%,transparent_51%),repeating-linear-gradient(0deg,rgba(17,24,39,.10)_0_1px,transparent_1px_64px)] lg:min-h-[460px]"
+        >
+          <div className="absolute left-[10%] top-[20%] flex h-[210px] w-[170px] rotate-[-9deg] items-center justify-center bg-[var(--ink)] text-5xl font-black text-[var(--lime)] [clip-path:polygon(18%_0,36%_0,43%_12%,57%_12%,64%_0,82%_0,100%_22%,82%_38%,82%_100%,18%_100%,18%_38%,0_22%)] md:h-[280px] md:w-[230px]">
+            <span>08</span>
+          </div>
+          <div className="absolute right-[10%] top-[35%] flex h-[210px] w-[170px] rotate-[8deg] items-center justify-center bg-[var(--accent)] text-5xl font-black text-white [clip-path:polygon(18%_0,36%_0,43%_12%,57%_12%,64%_0,82%_0,100%_22%,82%_38%,82%_100%,18%_100%,18%_38%,0_22%)] md:h-[280px] md:w-[230px]">
+            <span>CLB</span>
+          </div>
+          <div className="absolute left-1/2 top-[14%] h-[76px] w-[76px] -translate-x-1/2 rounded-full border-[10px] border-white bg-[var(--lime)]" />
+        </div>
+      </section>
+
+      <section className="grid grid-cols-1 gap-px border-y border-[var(--line)] px-0 py-0 md:grid-cols-2 xl:grid-cols-4">
+        {['Len mau 24h', 'In ten so', 'Tu 10 bo', 'Giao toan quoc'].map((item) => (
+          <div className="flex min-h-[88px] items-center gap-2.5 bg-white p-[18px] font-extrabold" key={item}>
+            <BadgeCheck size={18} />
+            {item}
+          </div>
+        ))}
+      </section>
+
+      <section id="products" className="px-[clamp(20px,5vw,72px)] py-[54px]">
+        <div className="mb-7 flex flex-col justify-between gap-6 md:flex-row">
+          <div>
+            <p className="mb-3 text-xs font-black uppercase text-[var(--accent)]">Featured drops</p>
+            <h2 className="max-w-[720px] text-[clamp(30px,4vw,58px)] leading-none">Mau ao cau long san sang tuy bien</h2>
+          </div>
+        </div>
+        <div className="grid gap-[18px] md:grid-cols-2 xl:grid-cols-3">
+          {products.map((product, index) => (
+            <article className="border border-[var(--line)] bg-white" key={product.id}>
+              <div
+                className={`flex h-[270px] items-center justify-center ${
+                  index === 0 ? 'bg-[#dbeafe] text-[var(--accent)]' : index === 1 ? 'bg-[#fee2e2] text-[var(--ink)]' : 'bg-[#ecfccb] text-[#365314]'
+                }`}
+              >
+                <Shirt size={54} />
+              </div>
+              <div className="p-5">
+                <p className="mb-2 text-xs font-extrabold text-[var(--muted)]">{product.sku}</p>
+                <h3 className="mb-2.5 text-[22px]">
+                  <Link className="transition-opacity hover:opacity-75" href={`/san-pham/${product.slug}`}>
+                    {product.name}
+                  </Link>
+                </h3>
+                <span className="block leading-[1.5] text-[var(--muted)]">{product.shortDescription}</span>
+                <strong className="mt-4 block text-[22px]">{formatPrice(product.price)}</strong>
+                <Link className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-[var(--accent)]" href={`/san-pham/${product.slug}`}>
+                  Xem chi tiet <ArrowRight size={16} />
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="process" className="grid items-start gap-6 bg-[var(--ink)] px-[clamp(20px,5vw,72px)] py-[54px] text-white lg:grid-cols-[.8fr_1fr]">
+        <div>
+          <Sparkles size={24} />
+          <h2 className="mt-4 max-w-[720px] text-[clamp(30px,4vw,58px)] leading-none">Tu y tuong den san dau</h2>
+        </div>
+        <ol className="grid gap-3.5">
+          <li className="bg-white/8 p-5">Gui logo, mau chu dao va so luong.</li>
+          <li className="bg-white/8 p-5">Duyet mockup, chat vai va bang size.</li>
+          <li className="bg-white/8 p-5">San xuat, kiem hang va giao don.</li>
+        </ol>
+      </section>
+
+      <section id="blog" className="px-[clamp(20px,5vw,72px)] py-[54px]">
+        <div className="mb-7 flex flex-col justify-between gap-6 md:flex-row">
+          <div>
+            <p className="mb-3 text-xs font-black uppercase text-[var(--accent)]">Guidebook</p>
+            <h2 className="max-w-[720px] text-[clamp(30px,4vw,58px)] leading-none">Bai viet mau tu Payload</h2>
+          </div>
+        </div>
+        <div className="grid gap-[18px] md:grid-cols-2 xl:grid-cols-3">
+          {posts.map((post) => (
+            <article className="border border-[var(--line)] bg-white p-[22px]" key={post.id}>
+              <p className="mb-2 text-xs font-extrabold text-[var(--muted)]">{post.slug}</p>
+              <h3 className="mb-2.5 text-[22px]">{post.title}</h3>
+              <span className="block leading-[1.5] text-[var(--muted)]">{post.excerpt}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <footer id="contact" className="flex flex-col items-start justify-between gap-[22px] bg-[var(--lime)] px-[clamp(20px,5vw,72px)] py-[54px] md:flex-row md:items-center">
+        <h2 className="max-w-[720px] text-[clamp(30px,4vw,58px)] leading-none">Can len mau ao cho doi?</h2>
+        <a className="inline-flex min-h-[42px] items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-extrabold text-white" href="tel:0900000000">
+          Goi tu van
+        </a>
+      </footer>
+    </main>
+  )
+}

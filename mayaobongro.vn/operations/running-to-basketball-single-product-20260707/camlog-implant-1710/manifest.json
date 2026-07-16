@@ -1,0 +1,74 @@
+{
+  "job_id": "product-1710-camlog-implant-single-age-gallery",
+  "created_at": "2026-07-07T14:40:00+07:00",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaobongro.vn",
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-giai-chay-mau-cam-xanh-nang-dong-chat-lieu-thoai-mai-thiet-ke-the-thao-2026/",
+  "destination_product_id": 1710,
+  "edition_group": "camlog-implant-x24-br-030",
+  "old_title": "Áo Chạy Bộ Giải Chạy Màu Cam Xanh Năng Động – Chất Liệu Thoải Mái, Thiết Kế Thể Thao 2026",
+  "new_title": "Bộ Quần Áo Bóng Rổ Camlog Implant Cam Xanh X24-BR-030",
+  "old_slug": "ao-chay-bo-giai-chay-mau-cam-xanh-nang-dong-chat-lieu-thoai-mai-thiet-ke-the-thao-2026",
+  "new_slug": "bo-quan-ao-bong-ro-camlog-implant-cam-xanh-x24-br-030",
+  "source_image": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/camlog-implant-1710/source/camlog-implant-source.jpg",
+  "source_media_id": 2432,
+  "text_decisions": [
+    {
+      "source": "running/race terms",
+      "action": "replace/remove",
+      "target": "basketball-specific wording"
+    },
+    {
+      "source": "preserve Camlog Implant if readable; remove giải chạy/race wording",
+      "action": "apply",
+      "target": "basketball-safe design text"
+    }
+  ],
+  "category_ids": [
+    70,
+    97,
+    101,
+    102,
+    75,
+    95
+  ],
+  "outputs": {
+    "elementary": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/camlog-implant-1710/final/x24-br-030-ao-bong-ro-tieu-hoc.webp",
+    "high_school": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/camlog-implant-1710/final/x24-br-030-ao-bong-ro-thpt.webp"
+  },
+  "gallery_roles": {
+    "featured": "high_school",
+    "secondary": [
+      "elementary"
+    ]
+  },
+  "seo_keywords": [
+    "bộ quần áo bóng rổ thiết kế riêng",
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ học sinh THCS",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT",
+    "đồng phục bóng rổ trường học"
+  ],
+  "status": "verified",
+  "errors": [],
+  "new_media_ids": {
+    "elementary": 2843,
+    "high_school": 2844,
+    "featured": 2844,
+    "gallery": [
+      2843
+    ]
+  },
+  "meta": {
+    "_mayaobongro_edition_group": "camlog-implant-x24-br-030",
+    "_mayaobongro_age_gallery_model": "single-product",
+    "_mayaobongro_age_image_tieu_hoc_id": 2843,
+    "_mayaobongro_age_image_thpt_id": 2844
+  },
+  "backup_path": "/Users/hoang/wordpress_websites/mayaobongro.vn/backups/running-to-basketball-single-product-20260707/camlog-implant-1710/product-1710-before-camlog-implant-1710-single-gallery-20260707T090245Z.json",
+  "verification_report": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/camlog-implant-1710/verification-report.json",
+  "verified_at": "2026-07-07T09:08:12Z"
+}

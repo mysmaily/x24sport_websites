@@ -1,0 +1,127 @@
+[
+  {
+    "id": 68,
+    "description": "",
+    "name": "Main",
+    "slug": "main",
+    "meta": [],
+    "locations": [
+      "primary",
+      "primary_mobile"
+    ],
+    "auto_add": false,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus/68",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/taxonomies/nav_menu"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items?menus=68"
+        }
+      ],
+      "wp:menu-location": [
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-locations/primary"
+        },
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-locations/primary_mobile"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 67,
+    "description": "",
+    "name": "Secondary",
+    "slug": "secondary",
+    "meta": [],
+    "locations": [
+      "footer",
+      "top_bar_nav",
+      "vertical"
+    ],
+    "auto_add": false,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus/67",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/taxonomies/nav_menu"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items?menus=67"
+        }
+      ],
+      "wp:menu-location": [
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-locations/footer"
+        },
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-locations/top_bar_nav"
+        },
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-locations/vertical"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

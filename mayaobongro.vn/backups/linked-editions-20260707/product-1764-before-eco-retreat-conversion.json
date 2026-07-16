@@ -1,0 +1,201 @@
+{
+    "backup_time": "2026-07-06T19:05:29+00:00",
+    "product_id": 1764,
+    "post": {
+        "ID": 1764,
+        "post_author": "1",
+        "post_date": "2026-05-25 03:19:24",
+        "post_date_gmt": "2026-05-25 03:19:24",
+        "post_content": "<blockquote>\n<b>Áo chạy bộ ECO RETREAT phiên bản xanh lá nhạt – Sự lựa chọn hoàn hảo giúp b...
+        "post_title": "Áo Chạy Bộ ECO RETREAT Xanh Lá Nhạt - Tươi Mát, Bền Vững",
+        "post_excerpt": "Áo chạy bộ ECO RETREAT xanh lá nhạt – thiết kế thời trang trẻ trung, chất liệu thoáng mát, t...
+        "post_status": "publish",
+        "comment_status": "open",
+        "ping_status": "closed",
+        "post_password": "",
+        "post_name": "ao-chay-bo-eco-retreat-xanh-la-nhat-tuoi-mat-ben-vung",
+        "to_ping": "",
+        "pinged": "",
+        "post_modified": "2026-05-25 04:11:39",
+        "post_modified_gmt": "2026-05-25 04:11:39",
+        "post_content_filtered": "",
+        "post_parent": 0,
+        "guid": "https://mayaochaybo.vn/?post_type=product&#038;p=1764",
+        "menu_order": 0,
+        "post_type": "product",
+        "post_mime_type": "",
+        "comment_count": "0",
+        "filter": "raw"
+    },
+    "product_data": {
+        "id": 1764,
+        "name": "Áo Chạy Bộ ECO RETREAT Xanh Lá Nhạt - Tươi Mát, Bền Vững",
+        "slug": "ao-chay-bo-eco-retreat-xanh-la-nhat-tuoi-mat-ben-vung",
+        "date_created": {
+            "date": "2026-05-25 03:19:24.000000",
+            "timezone_type": 1,
+            "timezone": "+00:00"
+        },
+        "date_modified": {
+            "date": "2026-05-25 04:11:39.000000",
+            "timezone_type": 1,
+            "timezone": "+00:00"
+        },
+        "status": "publish",
+        "featured": false,
+        "catalog_visibility": "visible",
+        "description": "<blockquote>\n<b>Áo chạy bộ ECO RETREAT phiên bản xanh lá nhạt – Sự lựa chọn hoàn hảo giúp bạ...
+        "short_description": "Áo chạy bộ ECO RETREAT xanh lá nhạt – thiết kế thời trang trẻ trung, chất liệu thoáng m...
+        "sku": "",
+        "global_unique_id": "",
+        "price": "135000",
+        "regular_price": "200000",
+        "sale_price": "135000",
+        "date_on_sale_from": null,
+        "date_on_sale_to": null,
+        "total_sales": 0,
+        "tax_status": "taxable",
+        "tax_class": "",
+        "manage_stock": false,
+        "stock_quantity": null,
+        "stock_status": "instock",
+        "backorders": "no",
+        "low_stock_amount": "",
+        "sold_individually": false,
+        "weight": "",
+        "length": "",
+        "width": "",
+        "height": "",
+        "upsell_ids": [],
+        "cross_sell_ids": [],
+        "parent_id": 0,
+        "reviews_allowed": true,
+        "purchase_note": "",
+        "attributes": [],
+        "default_attributes": [],
+        "menu_order": 0,
+        "post_password": "",
+        "virtual": false,
+        "downloadable": false,
+        "category_ids": [
+            75
+        ],
+        "tag_ids": [
+            91
+        ],
+        "shipping_class_id": 0,
+        "downloads": [],
+        "image_id": "2405",
+        "gallery_image_ids": [],
+        "download_limit": -1,
+        "download_expiry": -1,
+        "rating_counts": [],
+        "average_rating": "0",
+        "review_count": 0,
+        "cogs_value": null,
+        "meta_data": [
+            {
+                "id": 20585,
+                "key": "_yoast_wpseo_metadesc",
+                "value": "Áo chạy bộ ECO RETREAT xanh lá nhạt – thiết kế thời trang trẻ trung, chất liệu thoáng mát, ...
+            },
+            {
+                "id": 22467,
+                "key": "_yoast_wpseo_focuskw",
+                "value": "áo chạy bộ eco retreat xanh lá"
+            }
+        ]
+    },
+    "meta": {
+        "_regular_price": [
+            "200000"
+        ],
+        "total_sales": [
+            "0"
+        ],
+        "_tax_status": [
+            "taxable"
+        ],
+        "_tax_class": [
+            ""
+        ],
+        "_manage_stock": [
+            "no"
+        ],
+        "_backorders": [
+            "no"
+        ],
+        "_sold_individually": [
+            "no"
+        ],
+        "_virtual": [
+            "no"
+        ],
+        "_downloadable": [
+            "no"
+        ],
+        "_download_limit": [
+            "-1"
+        ],
+        "_download_expiry": [
+            "-1"
+        ],
+        "_thumbnail_id": [
+            "2405"
+        ],
+        "_stock": [
+            null
+        ],
+        "_stock_status": [
+            "instock"
+        ],
+        "_wc_average_rating": [
+            "0"
+        ],
+        "_wc_review_count": [
+            "0"
+        ],
+        "_product_version": [
+            "10.0.6"
+        ],
+        "_price": [
+            "135000"
+        ],
+        "_sale_price": [
+            "135000"
+        ],
+        "_yoast_wpseo_metadesc": [
+            "Áo chạy bộ ECO RETREAT xanh lá nhạt – thiết kế thời trang trẻ trung, chất liệu thoáng mát, thấm hút mồ h...
+        ],
+        "_yoast_wpseo_focuskw": [
+            "áo chạy bộ eco retreat xanh lá"
+        ]
+    },
+    "terms": [
+        {
+            "term_id": 75,
+            "name": "Áo Bóng Rổ Thiết Kế Riêng",
+            "slug": "may-ao-bong-ro-thiet-ke-rieng-x24",
+            "term_group": 0,
+            "term_taxonomy_id": 75,
+            "taxonomy": "product_cat",
+            "description": "<strong>Áo Bóng Rổ Thiết Kế Riêng – Mẫu Đã Sản Xuất Thực Tế Tại Mayaobongro.vn</strong>\r...
+            "parent": 0,
+            "count": 119,
+            "filter": "raw",
+            "object_id": 1764
+        },
+        {
+            "term_id": 91,
+            "name": "áo chạy bộ thể thao",
+            "slug": "ao-chay-bo-the-thao",
+            "term_group": 0,
+            "term_taxonomy_id": 91,
+            "taxonomy": "product_tag",
+            "description": "",
+            "parent": 0,
+            "count": 0,
+            "filter": "raw",
+            "object_id": 1764
+        },
+... (18 lines truncated)

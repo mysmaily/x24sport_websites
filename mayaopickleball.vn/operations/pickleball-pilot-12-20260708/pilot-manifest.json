@@ -1,0 +1,257 @@
+{
+  "created_at": "2026-07-08T21:03:26.278639",
+  "items": [
+    {
+      "pilot_index": 1,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-nipro-mau-hong-xanh-duong-noi-bat-fdl-song-khoe/",
+      "source_slug": "ao-chay-bo-nipro-mau-hong-xanh-duong-noi-bat-fdl-song-khoe",
+      "source_title": "Áo chạy bộ Nipro màu hồng-xanh dương nổi bật FDL Sống Khỏe",
+      "source_image_url": "https://mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-nipro-hong-xanh-models-20260705.jpg",
+      "source_product_id_guess": "1776",
+      "job_id": "01-ao-chay-bo-nipro-mau-hong-xanh-duong-noi-bat-fdl-song-khoe",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/01-ao-chay-bo-nipro-mau-hong-xanh-duong-noi-bat-fdl-song-khoe/source/ao-chay-bo-nipro-hong-xanh-models-20260705.jpg",
+      "new_product_code": "X24-PB-001",
+      "color_label": "hồng xanh dương xanh",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    },
+    {
+      "pilot_index": 2,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-mau-cam-noi-bat-dong-hanh-cung-giai-chay-dong-do-land/",
+      "source_slug": "ao-chay-bo-mau-cam-noi-bat-dong-hanh-cung-giai-chay-dong-do-land",
+      "source_title": "Áo Chạy Bộ Màu Cam Nổi Bật Đồng Hành Cùng Giải Chạy Đông Đô Land",
+      "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-dong-do-land-model.jpg",
+      "source_product_id_guess": "1774",
+      "job_id": "02-ao-chay-bo-mau-cam-noi-bat-dong-hanh-cung-giai-chay-dong-do-land",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/02-ao-chay-bo-mau-cam-noi-bat-dong-hanh-cung-giai-chay-dong-do-land/source/ao-chay-bo-dong-do-land-model.jpg",
+      "new_product_code": "X24-PB-004",
+      "color_label": "cam",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    },
+    {
+      "pilot_index": 3,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-xanh-duong-giai-chay-vuot-deo-lo-dieu-xanh-2026/",
+      "source_slug": "ao-chay-bo-xanh-duong-giai-chay-vuot-deo-lo-dieu-xanh-2026",
+      "source_title": "Áo Chạy Bộ Xanh Dương - Giải Chạy Vượt Đèo Lộ Diêu Xanh 2026",
+      "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-lo-dieu-xanh-2026-model.jpg",
+      "source_product_id_guess": "1770",
+      "job_id": "03-ao-chay-bo-xanh-duong-giai-chay-vuot-deo-lo-dieu-xanh-2026",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/03-ao-chay-bo-xanh-duong-giai-chay-vuot-deo-lo-dieu-xanh-2026/source/ao-chay-bo-lo-dieu-xanh-2026-model.jpg",
+      "new_product_code": "X24-PB-003",
+      "color_label": "xanh dương xanh",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    },
+    {
+      "pilot_index": 4,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-thiet-ke-doc-quyen-ho-da-runners-vang-xanh-nang-dong/",
+      "source_slug": "ao-chay-bo-thiet-ke-doc-quyen-ho-da-runners-vang-xanh-nang-dong",
+      "source_title": "Áo chạy bộ thiết kế độc quyền HỒ ĐÁ RUNNERS – Vàng xanh năng động",
+      "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-ho-da-runners-model-20260705.jpg",
+      "source_product_id_guess": "1768",
+      "job_id": "04-ao-chay-bo-thiet-ke-doc-quyen-ho-da-runners-vang-xanh-nang-dong",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/04-ao-chay-bo-thiet-ke-doc-quyen-ho-da-runners-vang-xanh-nang-dong/source/ao-chay-bo-ho-da-runners-model-20260705.jpg",
+      "new_product_code": "X24-PB-005",
+      "color_label": "xanh vàng",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    },
+    {
+      "pilot_index": 5,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-thiet-ke-rieng-trang-xanh-team-building-thoang-khi-nang-dong/",
+      "source_slug": "ao-chay-bo-thiet-ke-rieng-trang-xanh-team-building-thoang-khi-nang-dong",
+      "source_title": "Áo Chạy Bộ Thiết Kế Riêng Trắng Xanh Team Building – Thoáng Khí, Năng Động",
+      "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-team-building-retreat-2026-model.jpg",
+      "source_product_id_guess": "1766",
+      "job_id": "05-ao-chay-bo-thiet-ke-rieng-trang-xanh-team-building-thoang-khi-nang-dong",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/05-ao-chay-bo-thiet-ke-rieng-trang-xanh-team-building-thoang-khi-nang-dong/source/ao-chay-bo-team-building-retreat-2026-model.jpg",
+      "new_product_code": "X24-PB-006",
+      "color_label": "xanh trắng",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    },
+    {
+      "pilot_index": 6,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-eco-retreat-xanh-la-nhat-tuoi-mat-ben-vung/",
+      "source_slug": "ao-chay-bo-eco-retreat-xanh-la-nhat-tuoi-mat-ben-vung",
+      "source_title": "Áo Chạy Bộ ECO RETREAT Xanh Lá Nhạt - Tươi Mát, Bền Vững",
+      "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-eco-retreat-model-20260705.jpg",
+      "source_product_id_guess": "1764",
+      "job_id": "06-ao-chay-bo-eco-retreat-xanh-la-nhat-tuoi-mat-ben-vung",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/06-ao-chay-bo-eco-retreat-xanh-la-nhat-tuoi-mat-ben-vung/source/ao-chay-bo-eco-retreat-model-20260705.jpg",
+      "new_product_code": "X24-PB-007",
+      "color_label": "xanh lá xanh",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    },
+    {
+      "pilot_index": 7,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-thiet-ke-rieng-vovinam-da-nang-sac-vang-nang-dong-chat-the-thao/",
+      "source_slug": "ao-chay-bo-thiet-ke-rieng-vovinam-da-nang-sac-vang-nang-dong-chat-the-thao",
+      "source_title": "Áo Chạy Bộ Thiết Kế Riêng Vovinam Đà Nẵng – Sắc Vàng Năng Động, Chất Thể Thao",
+      "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-vovinam-da-nang-model.jpg",
+      "source_product_id_guess": "1762",
+      "job_id": "07-ao-chay-bo-thiet-ke-rieng-vovinam-da-nang-sac-vang-nang-dong-chat-the-thao",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/07-ao-chay-bo-thiet-ke-rieng-vovinam-da-nang-sac-vang-nang-dong-chat-the-thao/source/ao-chay-bo-vovinam-da-nang-model.jpg",
+      "new_product_code": "X24-PB-008",
+      "color_label": "vàng",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    },
+    {
+      "pilot_index": 8,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-thiet-ke-rieng-turtle-team-ban-do-den-do-noi-bat/",
+      "source_slug": "ao-chay-bo-thiet-ke-rieng-turtle-team-ban-do-den-do-noi-bat",
+      "source_title": "Áo chạy bộ thiết kế riêng Turtle Team bản đồ đen đỏ nổi bật",
+      "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-turtle-team-nguoi-mau-20260705.jpg",
+      "source_product_id_guess": "1760",
+      "job_id": "08-ao-chay-bo-thiet-ke-rieng-turtle-team-ban-do-den-do-noi-bat",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/08-ao-chay-bo-thiet-ke-rieng-turtle-team-ban-do-den-do-noi-bat/source/ao-chay-bo-turtle-team-nguoi-mau-20260705.jpg",
+      "new_product_code": "X24-PB-009",
+      "color_label": "đen đỏ",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    },
+    {
+      "pilot_index": 9,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-team-saigon-u60-gradient-hong-vang-xanh-duong-nang-dong/",
+      "source_slug": "ao-chay-bo-team-saigon-u60-gradient-hong-vang-xanh-duong-nang-dong",
+      "source_title": "Áo Chạy Bộ Team SAIGON U60 Gradient Hồng Vàng Xanh Dương Năng Động",
+      "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-team-saigon-u60-model-20260705.jpg",
+      "source_product_id_guess": "1758",
+      "job_id": "09-ao-chay-bo-team-saigon-u60-gradient-hong-vang-xanh-duong-nang-dong",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/09-ao-chay-bo-team-saigon-u60-gradient-hong-vang-xanh-duong-nang-dong/source/ao-chay-bo-team-saigon-u60-model-20260705.jpg",
+      "new_product_code": "X24-PB-010",
+      "color_label": "hồng xanh dương xanh vàng",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    },
+    {
+      "pilot_index": 10,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-team-orc-den-cam-truyen-thong/",
+      "source_slug": "ao-chay-bo-team-orc-den-cam-truyen-thong",
+      "source_title": "Áo chạy bộ Team ORC – Đen Cam Truyền Thống",
+      "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-team-orc-model-v2-20260705.jpg",
+      "source_product_id_guess": "1756",
+      "job_id": "10-ao-chay-bo-team-orc-den-cam-truyen-thong",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/10-ao-chay-bo-team-orc-den-cam-truyen-thong/source/ao-chay-bo-team-orc-model-v2-20260705.jpg",
+      "new_product_code": "X24-PB-011",
+      "color_label": "cam đen",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    },
+    {
+      "pilot_index": 11,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-team-ht-pickleball-phoi-do-xanh-canh-nui-quoc-ky-viet-nam/",
+      "source_slug": "ao-chay-bo-team-ht-pickleball-phoi-do-xanh-canh-nui-quoc-ky-viet-nam",
+      "source_title": "Áo Chạy Bộ Team HT Pickleball – Phối Đỏ Xanh Cảnh Núi, Quốc Kỳ Việt Nam",
+      "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-team-ht-pickleball-model-20260705.jpg",
+      "source_product_id_guess": "1754",
+      "job_id": "11-ao-chay-bo-team-ht-pickleball-phoi-do-xanh-canh-nui-quoc-ky-viet-nam",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/11-ao-chay-bo-team-ht-pickleball-phoi-do-xanh-canh-nui-quoc-ky-viet-nam/source/ao-chay-bo-team-ht-pickleball-model-20260705.jpg",
+      "new_product_code": "X24-PB-012",
+      "color_label": "xanh đỏ",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    },
+    {
+      "pilot_index": 12,
+      "source_url": "https://mayaochaybo.vn/ao-chay-bo-team-cong-chao-mau-xanh-su-ket-hop-hoan-hao-giua-phong-cach-va-hieu-nang/",
+      "source_slug": "ao-chay-bo-team-cong-chao-mau-xanh-su-ket-hop-hoan-hao-giua-phong-cach-va-hieu-nang",
+      "source_title": "Áo Chạy Bộ Team Cộng Chào Màu Xanh – Sự Kết Hợp Hoàn Hảo Giữa Phong Cách và Hiệu Năng",
+      "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-team-cong-chao-model-20260705.jpg",
+      "source_product_id_guess": "1752",
+      "job_id": "12-ao-chay-bo-team-cong-chao-mau-xanh-su-ket-hop-hoan-hao-giua-phong-cach-va-hieu-nang",
+      "destination_site": "mayaopickleball.vn",
+      "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/12-ao-chay-bo-team-cong-chao-mau-xanh-su-ket-hop-hoan-hao-giua-phong-cach-va-hieu-nang/source/ao-chay-bo-team-cong-chao-model-20260705.jpg",
+      "new_product_code": "X24-PB-013",
+      "color_label": "xanh",
+      "outputs": {},
+      "status": "source_downloaded",
+      "attempts": {
+        "image_a": 0,
+        "image_b": 0
+      },
+      "wordpress_mutation": false,
+      "notes": []
+    }
+  ]
+}

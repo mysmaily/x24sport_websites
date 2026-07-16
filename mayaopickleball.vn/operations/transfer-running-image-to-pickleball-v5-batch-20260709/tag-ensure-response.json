@@ -1,0 +1,122 @@
+[
+  {
+    "id": 123,
+    "name": "màu trắng",
+    "slug": "mau-trang",
+    "created": false
+  },
+  {
+    "id": 136,
+    "name": "màu tím",
+    "slug": "mau-tim",
+    "created": true
+  },
+  {
+    "id": 137,
+    "name": "trắng xanh",
+    "slug": "trang-xanh",
+    "created": true
+  },
+  {
+    "id": 119,
+    "name": "màu đỏ",
+    "slug": "mau-do",
+    "created": false
+  },
+  {
+    "id": 138,
+    "name": "hồng tím",
+    "slug": "hong-tim",
+    "created": true
+  },
+  {
+    "id": 114,
+    "name": "hồng vàng",
+    "slug": "hong-vang",
+    "created": false
+  },
+  {
+    "id": 139,
+    "name": "vàng xanh",
+    "slug": "vang-xanh",
+    "created": true
+  },
+  {
+    "id": 140,
+    "name": "đỏ tím",
+    "slug": "do-tim",
+    "created": true
+  },
+  {
+    "id": 141,
+    "name": "cam tím",
+    "slug": "cam-tim",
+    "created": true
+  },
+  {
+    "id": 142,
+    "name": "hồng đỏ",
+    "slug": "hong-do",
+    "created": true
+  },
+  {
+    "id": 143,
+    "name": "đỏ trắng",
+    "slug": "do-trang",
+    "created": true
+  },
+  {
+    "id": 144,
+    "name": "vàng cam",
+    "slug": "vang-cam",
+    "created": true
+  },
+  {
+    "id": 145,
+    "name": "cam xanh",
+    "slug": "cam-xanh",
+    "created": true
+  },
+  {
+    "id": 146,
+    "name": "đỏ đen",
+    "slug": "do-den",
+    "created": true
+  },
+  {
+    "id": 147,
+    "name": "đỏ xanh",
+    "slug": "do-xanh",
+    "created": true
+  },
+  {
+    "id": 148,
+    "name": "đen tím",
+    "slug": "den-tim",
+    "created": true
+  },
+  {
+    "id": 120,
+    "name": "đỏ vàng",
+    "slug": "do-vang",
+    "created": false
+  },
+  {
+    "id": 149,
+    "name": "hồng trắng",
+    "slug": "hong-trang",
+    "created": true
+  },
+  {
+    "id": 150,
+    "name": "đỏ cam",
+    "slug": "do-cam",
+    "created": true
+  },
+  {
+    "id": 151,
+    "name": "hồng đen",
+    "slug": "hong-den",
+    "created": true
+  }
+]

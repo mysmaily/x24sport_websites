@@ -1,0 +1,100 @@
+{
+  "payload": {
+    "url": "https://mayaopickleball.vn/shop/?s=logo+pickleball",
+    "title": "Logo Đội Pickleball"
+  },
+  "response": {
+    "id": 1311,
+    "title": {
+      "raw": "Logo Đội Pickleball",
+      "rendered": "Logo Đội Pickleball"
+    },
+    "status": "publish",
+    "url": "https://mayaopickleball.vn/logo-doi-chay/",
+    "attr_title": "",
+    "description": "",
+    "type": "taxonomy",
+    "type_label": "Danh mục",
+    "object": "product_cat",
+    "object_id": 73,
+    "parent": 0,
+    "menu_order": 4,
+    "target": "",
+    "classes": [
+      ""
+    ],
+    "xfn": [
+      ""
+    ],
+    "invalid": false,
+    "meta": [],
+    "menus": 68,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/1311",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/nav_menu_item"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "nav_menu",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus?post=1311"
+        }
+      ],
+      "wp:menu-item-object": [
+        {
+          "taxonomy": "product_cat",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/product_cat/73"
+        }
+      ],
+      "wp:action-publish": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/1311"
+        }
+      ],
+      "wp:action-unfiltered-html": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/1311"
+        }
+      ],
+      "wp:action-create-menus": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/1311"
+        }
+      ],
+      "wp:action-assign-menus": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/1311"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+}

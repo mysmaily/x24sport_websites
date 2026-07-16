@@ -1,0 +1,302 @@
+[
+  {
+    "job_id": "product-1535",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1535,
+    "product_code": "X24-BR-034",
+    "edition_group": "x24-br-034-ao-chay-bo-thiet-ke-sat-nach-mau-gradient-vang-xanh-nang-dong-thoang-mat",
+    "old_title": "Áo Chạy Bộ Thiết Kế Sát Nách Màu Gradient Vàng Xanh – Năng Động, Thoáng Mát",
+    "new_title": "Bộ Quần Áo Bóng Rổ Sát Nách Màu Gradient Vàng Xanh X24-BR-034",
+    "old_slug": "ao-chay-bo-thiet-ke-sat-nach-mau-gradient-vang-xanh-nang-dong-thoang-mat",
+    "new_slug": "bo-quan-ao-bong-ro-thiet-ke-sat-nach-mau-gradient-vang-xanh-nang-dong-thoang-mat-x24-br-034",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-sat-nach-gradient-page4-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-034-ao-chay-bo-thiet-ke-sat-nach-mau-gradient-vang-xanh-nang-dong-thoang-mat.jpg",
+    "model_composition": {
+      "elementary": "female_solo",
+      "high_school": "male_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-034-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-034-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-034-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-034-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1533",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1533,
+    "product_code": "X24-BR-035",
+    "edition_group": "x24-br-035-ao-chay-bo-thiet-ke-rieng-mau-trang-xanh-nang-dong-thoai-mai-cho-hoat-dong-the-thao",
+    "old_title": "Áo Chạy Bộ Thiết Kế Riêng Màu Trắng Xanh – Năng Động & Thoải Mái Cho Hoạt Động Thể Thao",
+    "new_title": "Bộ Quần Áo Bóng Rổ Màu Trắng Xanh X24-BR-035",
+    "old_slug": "ao-chay-bo-thiet-ke-rieng-mau-trang-xanh-nang-dong-thoai-mai-cho-hoat-dong-the-thao",
+    "new_slug": "bo-quan-ao-bong-ro-thiet-ke-rieng-mau-trang-xanh-nang-dong-thoai-mai-cho-hoat-dong-the-thao-x24-br-035",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-trang-xanh-doi-thuyen-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-035-ao-chay-bo-thiet-ke-rieng-mau-trang-xanh-nang-dong-thoai-mai-cho-hoat-dong-the-thao.jpg",
+    "model_composition": {
+      "elementary": "male_solo",
+      "high_school": "female_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-035-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-035-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-035-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-035-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1531",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1531,
+    "product_code": "X24-BR-036",
+    "edition_group": "x24-br-036-ao-chay-bo-gradient-xanh-la-vang-thiet-ke-thien-nhien-cao-bang-runner",
+    "old_title": "Áo Chạy Bộ Gradient Xanh Lá Vàng – Thiết Kế Thiên Nhiên Cao Bằng Runner",
+    "new_title": "Bộ Quần Áo Bóng Rổ Gradient Xanh Lá Vàng X24-BR-036",
+    "old_slug": "ao-chay-bo-gradient-xanh-la-vang-thiet-ke-thien-nhien-cao-bang-runner",
+    "new_slug": "bo-quan-ao-bong-ro-gradient-xanh-la-vang-thiet-ke-thien-nhien-cao-bang-x24-br-036",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-cao-bang-xanh-la-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-036-ao-chay-bo-gradient-xanh-la-vang-thiet-ke-thien-nhien-cao-bang-runner.jpg",
+    "model_composition": {
+      "elementary": "mixed_group_female_lead",
+      "high_school": "male_lead_with_teammate"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-036-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-036-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-036-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-036-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1529",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1529,
+    "product_code": "X24-BR-037",
+    "edition_group": "x24-br-037-ao-chay-bo-thiet-ke-gia-dinh-la-so-1-vang-noi-bat-thoang-mat",
+    "old_title": "Áo Chạy Bộ Thiết Kế Gia Đình Là Số 1 Vàng Nổi Bật Thoáng Mát",
+    "new_title": "Bộ Quần Áo Bóng Rổ Gia Đình Là Số 1 Vàng Nổi Bật Thoáng Mát X24-BR-037",
+    "old_slug": "ao-chay-bo-thiet-ke-gia-dinh-la-so-1-vang-noi-bat-thoang-mat",
+    "new_slug": "bo-quan-ao-bong-ro-thiet-ke-gia-dinh-la-so-1-vang-noi-bat-thoang-mat-x24-br-037",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-gia-dinh-la-so-1-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-037-ao-chay-bo-thiet-ke-gia-dinh-la-so-1-vang-noi-bat-thoang-mat.jpg",
+    "model_composition": {
+      "elementary": "male_solo",
+      "high_school": "mixed_group_female_lead"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-037-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-037-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-037-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-037-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1527",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1527,
+    "product_code": "X24-BR-038",
+    "edition_group": "x24-br-038-ao-chay-bo-thiet-ke-xanh-nhat-rvc-runner-tu-hao-viet-nam-chinh-phuc-moi-duong-chay",
+    "old_title": "Áo chạy bộ thiết kế xanh nhạt RVC RUNNER – Tự hào Việt Nam, chinh phục mọi đường chạy",
+    "new_title": "Bộ Quần Áo Bóng Rổ xanh nhạt RVC X24-BR-038",
+    "old_slug": "ao-chay-bo-thiet-ke-xanh-nhat-rvc-runner-tu-hao-viet-nam-chinh-phuc-moi-duong-chay",
+    "new_slug": "bo-quan-ao-bong-ro-thiet-ke-xanh-nhat-rvc-tu-hao-viet-nam-chinh-phuc-moi-x24-br-038",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-rvc-xanh-nhat-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-038-ao-chay-bo-thiet-ke-xanh-nhat-rvc-runner-tu-hao-viet-nam-chinh-phuc-moi-duong-chay.jpg",
+    "model_composition": {
+      "elementary": "female_lead_with_teammate",
+      "high_school": "male_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-038-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-038-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-038-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-038-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1525",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1525,
+    "product_code": "X24-BR-039",
+    "edition_group": "x24-br-039-ao-chay-bo-rvc-runner-thiet-ke-vang-cam-nang-dong-va-chuyen-nghiep",
+    "old_title": "Áo chạy bộ RVC Runner thiết kế vàng cam – Năng động và chuyên nghiệp",
+    "new_title": "Bộ Quần Áo Bóng Rổ RVC vàng cam X24-BR-039",
+    "old_slug": "ao-chay-bo-rvc-runner-thiet-ke-vang-cam-nang-dong-va-chuyen-nghiep",
+    "new_slug": "bo-quan-ao-bong-ro-rvc-thiet-ke-vang-cam-nang-dong-va-chuyen-nghiep-x24-br-039",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-rvc-vang-cam-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-039-ao-chay-bo-rvc-runner-thiet-ke-vang-cam-nang-dong-va-chuyen-nghiep.jpg",
+    "model_composition": {
+      "elementary": "male_lead_with_teammate",
+      "high_school": "female_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-039-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-039-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-039-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-039-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1523",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1523,
+    "product_code": "X24-BR-040",
+    "edition_group": "x24-br-040-ao-chay-bo-thiet-ke-mau-den-ca-tinh-in-ten-theo-yeu-cau",
+    "old_title": "Áo Chạy Bộ Thiết Kế Màu Đen Cá Tính – In Tên Theo Yêu Cầu",
+    "new_title": "Bộ Quần Áo Bóng Rổ Màu Đen Cá Tính X24-BR-040",
+    "old_slug": "ao-chay-bo-thiet-ke-mau-den-ca-tinh-in-ten-theo-yeu-cau",
+    "new_slug": "bo-quan-ao-bong-ro-thiet-ke-mau-den-ca-tinh-in-ten-theo-yeu-cau-x24-br-040",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-nguyen-xuan-dat-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-040-ao-chay-bo-thiet-ke-mau-den-ca-tinh-in-ten-theo-yeu-cau.jpg",
+    "model_composition": {
+      "elementary": "female_solo",
+      "high_school": "mixed_group_male_lead"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-040-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-040-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-040-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-040-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1521",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1521,
+    "product_code": "X24-BR-041",
+    "edition_group": "x24-br-041-ao-chay-bo-thiet-ke-don-gian-mau-trang-logo-xanh-navy",
+    "old_title": "Áo Chạy Bộ Thiết Kế Đơn Giản Màu Trắng Logo Xanh Navy",
+    "new_title": "Bộ Quần Áo Bóng Rổ Đơn Giản Màu Trắng Logo Xanh Navy X24-BR-041",
+    "old_slug": "ao-chay-bo-thiet-ke-don-gian-mau-trang-logo-xanh-navy",
+    "new_slug": "bo-quan-ao-bong-ro-thiet-ke-don-gian-mau-trang-logo-xanh-navy-x24-br-041",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-rvc-trang-mental-health-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-041-ao-chay-bo-thiet-ke-don-gian-mau-trang-logo-xanh-navy.jpg",
+    "model_composition": {
+      "elementary": "mixed_group_female_lead",
+      "high_school": "male_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-041-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-041-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-041-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-041-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1519",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1519,
+    "product_code": "X24-BR-042",
+    "edition_group": "x24-br-042-ao-chay-bo-thiet-ke-gradient-nang-dong-xanh-cam-vang",
+    "old_title": "Áo chạy bộ thiết kế gradient năng động xanh cam vàng",
+    "new_title": "Bộ Quần Áo Bóng Rổ gradient năng động xanh cam vàng X24-BR-042",
+    "old_slug": "ao-chay-bo-thiet-ke-gradient-nang-dong-xanh-cam-vang",
+    "new_slug": "bo-quan-ao-bong-ro-thiet-ke-gradient-nang-dong-xanh-cam-vang-x24-br-042",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-gradient-xanh-cam-vang-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-042-ao-chay-bo-thiet-ke-gradient-nang-dong-xanh-cam-vang.jpg",
+    "model_composition": {
+      "elementary": "male_solo",
+      "high_school": "female_lead_with_teammate"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-042-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-042-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-042-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-042-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1517",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1517,
+    "product_code": "X24-BR-043",
+    "edition_group": "x24-br-043-ao-chay-bo-thiet-ke-xanh-cam-tre-trung-chuyen-nghiep-nang-dong",
+    "old_title": "Áo Chạy Bộ Thiết Kế Xanh Cam Trẻ Trung – Chuyên Nghiệp & Năng Động",
+    "new_title": "Bộ Quần Áo Bóng Rổ Xanh Cam Trẻ Trung X24-BR-043",
+    "old_slug": "ao-chay-bo-thiet-ke-xanh-cam-tre-trung-chuyen-nghiep-nang-dong",
+    "new_slug": "bo-quan-ao-bong-ro-thiet-ke-xanh-cam-tre-trung-chuyen-nghiep-nang-dong-x24-br-043",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-xanh-cam-hinh-hoc-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-043-ao-chay-bo-thiet-ke-xanh-cam-tre-trung-chuyen-nghiep-nang-dong.jpg",
+    "model_composition": {
+      "elementary": "female_solo",
+      "high_school": "male_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-043-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-043-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-043-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-043-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1515",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1515,
+    "product_code": "X24-BR-044",
+    "edition_group": "x24-br-044-ao-chay-bo-cao-bang-runner-phoi-vang-xanh-nang-dong-thiet-ke-dep-2026",
+    "old_title": "Áo chạy bộ Cao Bằng Runner phối vàng xanh năng động – Thiết kế đẹp 2026",
+    "new_title": "Bộ Quần Áo Bóng Rổ Cao Bằng phối vàng xanh năng động X24-BR-044",
+    "old_slug": "ao-chay-bo-cao-bang-runner-phoi-vang-xanh-nang-dong-thiet-ke-dep-2026",
+    "new_slug": "bo-quan-ao-bong-ro-cao-bang-phoi-vang-xanh-nang-dong-thiet-ke-dep-2026-x24-br-044",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-cao-bang-vang-xanh-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-044-ao-chay-bo-cao-bang-runner-phoi-vang-xanh-nang-dong-thiet-ke-dep-2026.jpg",
+    "model_composition": {
+      "elementary": "mixed_group_male_lead",
+      "high_school": "female_solo"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-044-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-044-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-044-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-044-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  },
+  {
+    "job_id": "product-1513",
+    "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+    "destination_product_id": 1513,
+    "product_code": "X24-BR-045",
+    "edition_group": "x24-br-045-ao-chay-bo-twin-team-do-vang-thiet-ke-noi-bat-cho-doi-nhom",
+    "old_title": "Áo chạy bộ Twin Team đỏ vàng – Thiết kế nổi bật cho đội nhóm",
+    "new_title": "Bộ Quần Áo Bóng Rổ Twin Team đỏ vàng X24-BR-045",
+    "old_slug": "ao-chay-bo-twin-team-do-vang-thiet-ke-noi-bat-cho-doi-nhom",
+    "new_slug": "bo-quan-ao-bong-ro-twin-team-do-vang-thiet-ke-noi-bat-cho-doi-nhom-x24-br-045",
+    "source_image_url": "https://mayaobongro.vn/wp-content/uploads/2026/07/ao-chay-bo-twin-team-model-20260705.jpg",
+    "source_image": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/source/x24-br-045-ao-chay-bo-twin-team-do-vang-thiet-ke-noi-bat-cho-doi-nhom.jpg",
+    "model_composition": {
+      "elementary": "female_lead_with_teammate",
+      "high_school": "mixed_group_female_lead"
+    },
+    "outputs": {
+      "elementary": "generated/x24-br-045-ao-bong-ro-tieu-hoc.png",
+      "high_school": "generated/x24-br-045-ao-bong-ro-thpt.png",
+      "elementary_final": "final/x24-br-045-ao-bong-ro-tieu-hoc.webp",
+      "high_school_final": "final/x24-br-045-ao-bong-ro-thpt.webp"
+    },
+    "qa": {},
+    "status": "discovered"
+  }
+]

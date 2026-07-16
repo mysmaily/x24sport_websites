@@ -1,0 +1,1655 @@
+<?php
+/**
+ * Flatsome functions and definitions
+ *
+ * @package flatsome
+ */
+
+/**
+ * Note: It's not recommended to add any custom code here. Please use a child theme so that your customizations aren't lost during updates.
+ * Learn more here: http://codex.wordpress.org/Child_Themes
+ */
+/**
+Tạo phần xem thêm trong chi tiết sản phẩm
+ */
+add_action('wp_footer','devvn_readmore_flatsome');
+function devvn_readmore_flatsome(){
+    ?>
+    <style>
+        .single-product div#tab-description {
+            overflow: hidden;
+            position: relative;
+        }
+        .single-product .tab-panels div#tab-description.panel:not(.active) {
+            height: 0 !important;
+        }
+        .devvn_readmore_flatsome {
+            text-align: center;
+            cursor: pointer;
+            position: absolute;
+            z-index: 9999;
+            bottom: 0;
+            width: 100%;
+            background: #fff;
+        }
+        .devvn_readmore_flatsome:before {
+            height: 55px;
+            margin-top: -45px;
+            content: "";
+            background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+            background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff00', endColorstr='#ffffff',GradientType=0 );
+            display: block;
+        }
+        .devvn_readmore_flatsome a {
+            color: #2f80ed;
+            display: block;
+            border: 1px solid #2f80ed;
+            border-radius: 5px;
+            max-width: 280px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 5px 0;
+        }
+        .devvn_readmore_flatsome a:after {
+            content: '';
+            width: 0;
+            right: 0;
+            border-top: 6px solid #2f80ed;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            display: inline-block;
+            vertical-align: middle;
+            margin: -2px 0 0 5px;
+        }
+    </style>
+    <script>
+        (function($){
+            $(document).ready(function(){
+                $(window).on('load', function(){
+                    if($('.single-product div#tab-description').length > 0){
+                        var wrap = $('.single-product div#tab-description');
+                        var current_height = wrap.height();
+                        var your_height = 1000;
+                        if(current_height > your_height){
+                            wrap.css('height', your_height+'px');
+                            wrap.append(function(){
+                                return '<div class="devvn_readmore_flatsome"><a title="Xem thêm" href="javascript:void(0);">Xem Thêm Nội Dung</a></div>';
+                            });
+                            $('body').on('click','.devvn_readmore_flatsome', function(){
+                                wrap.removeAttr('style');
+                                $('body .devvn_readmore_flatsome').remove();
+                            });
+                        }
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+    <?php
+}
+
+/*
+ * Thêm nút Xem thêm vào phần mô tả của danh mục sản phẩm
+*/
+add_action('wp_footer','devvn_readmore_taxonomy_flatsome');
+function devvn_readmore_taxonomy_flatsome(){
+    if(is_woocommerce() && is_tax('product_cat')):
+        ?>
+        <style>
+            .tax-product_cat.woocommerce .shop-container .term-description {
+                overflow: hidden;
+                position: relative;
+                margin-bottom: 20px;
+                padding-bottom: 25px;
+            }
+            .devvn_readmore_taxonomy_flatsome {
+                text-align: center;
+                cursor: pointer;
+                position: absolute;
+                z-index: 10;
+                bottom: 0;
+                width: 100%;
+                background: #fff;
+            }
+            .devvn_readmore_taxonomy_flatsome:before {
+                height: 55px;
+                margin-top: -45px;
+                content: "";
+                background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+                background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+                background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff00', endColorstr='#ffffff',GradientType=0 );
+                display: block;
+            }
+            .devvn_readmore_taxonomy_flatsome a {
+                color: #2f80ed;
+            display: block;
+            border: 1px solid #2f80ed;
+            border-radius: 5px;
+            max-width: 280px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 5px 0;
+            }
+            .devvn_readmore_taxonomy_flatsome a:after {
+                content: '';
+                width: 0;
+                right: 0;
+                border-top: 6px solid #2f80ed;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                display: inline-block;
+                vertical-align: middle;
+                margin: -2px 0 0 5px;
+            }
+            .devvn_readmore_taxonomy_flatsome_less:before {
+                display: none;
+            }
+            .devvn_readmore_taxonomy_flatsome_less a:after {
+                border-top: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-bottom: 6px solid #318A00;
+            }
+        </style>
+        <script>
+            (function($){
+                $(document).ready(function(){
+                    $(window).on('load', function(){
+                        if($('.tax-product_cat.woocommerce .shop-container .term-description').length > 0){
+                            var wrap = $('.tax-product_cat.woocommerce .shop-container .term-description');
+                            var current_height = wrap.height();
+                            var your_height = 300;
+                            if(current_height > your_height){
+                                wrap.css('height', your_height+'px');
+                                wrap.append(function(){
+                                    return '<div class="devvn_readmore_taxonomy_flatsome devvn_readmore_taxonomy_flatsome_show"><a title="Xem thêm" href="javascript:void(0);">Xem thêm</a></div>';
+                                });
+                                wrap.append(function(){
+                                    return '<div class="devvn_readmore_taxonomy_flatsome devvn_readmore_taxonomy_flatsome_less" style="display: none"><a title="Thu gọn" href="javascript:void(0);">Thu gọn</a></div>';
+                                });
+                                $('body').on('click','.devvn_readmore_taxonomy_flatsome_show', function(){
+                                    wrap.removeAttr('style');
+                                    $('body .devvn_readmore_taxonomy_flatsome_show').hide();
+                                    $('body .devvn_readmore_taxonomy_flatsome_less').show();
+                                });
+                                $('body').on('click','.devvn_readmore_taxonomy_flatsome_less', function(){
+                                    wrap.css('height', your_height+'px');
+                                    $('body .devvn_readmore_taxonomy_flatsome_show').show();
+                                    $('body .devvn_readmore_taxonomy_flatsome_less').hide();
+                                });
+                            }
+                        }
+                    });
+                });
+            })(jQuery);
+        </script>
+    <?php
+    endif;
+}
+/*
+* Thêm Phần Giá Chỉ:
+ */
+ 
+/*Add default setting*/
+function devvn_woocommerce_general_settings( $array ) {
+ 
+    $array[] = array( 'name' => __( 'Prefix and suffix to price', 'woocommerce' ), 'type' => 'title', 'desc' => '', 'id' => 'woocommerce_presuffix_settings' );
+ 
+    $array[] = array(
+        'title'    => __( 'Prefix', 'woocommerce' ),
+        'desc'     => __( 'Add prefix to price. Leave blank to disable.', 'woocommerce' ),
+        'id'       => 'devvn_woocommerce_price_prefix',
+        'desc_tip' => true,
+        'type'     => 'text',
+    );
+ 
+    $array[] = array(
+        'title'    => __( 'Suffix', 'woocommerce' ),
+        'desc'     => __( 'Add suffix to price. Leave blank to disable.', 'woocommerce' ),
+        'id'       => 'devvn_woocommerce_price_suffix',
+        'desc_tip' => true,
+        'type'     => 'text',
+    );
+ 
+    $array[] = array( 'type' => 'sectionend', 'id' => 'woocommerce_presuffix_settings');
+    return $array;
+};
+add_filter( 'woocommerce_general_settings', 'devvn_woocommerce_general_settings', 10, 1 );
+ 
+/*Add metabox to product*/
+add_action( 'woocommerce_product_options_general_product_data', 'devvn_presuffix_products' );
+function devvn_presuffix_products() {
+    //Add metabox prefix to product
+    woocommerce_wp_text_input( array(
+        'id' => '_product_prefix',
+        'label' => 'Prefix',
+        'description' => 'Add prefix to price. Leave blank to default.',
+        'desc_tip' => 'true',
+    ) );
+    //Add metabox suffix to product
+    woocommerce_wp_text_input( array(
+        'id' => '_product_suffix',
+        'label' => 'Suffix',
+        'description' => 'Add suffix to price. Leave blank to default.',
+        'desc_tip' => 'true',
+    ) );
+}
+ 
+/*Save metabox prefix and suffix*/
+add_action( 'woocommerce_process_product_meta', 'devvn_presuffix_products_save' );
+function devvn_presuffix_products_save( $post_id ) {
+    if(get_post_type($post_id) == 'product'){
+        if ( isset($_POST['_product_prefix']) ) {
+            if ($_POST['_product_prefix'] != "") {
+                update_post_meta($post_id, '_product_prefix', sanitize_text_field($_POST['_product_prefix']));
+            } else {
+                delete_post_meta($post_id, '_product_prefix');
+            }
+        }
+        if ( isset($_POST['_product_suffix']) ) {
+            if ($_POST['_product_suffix'] != "") {
+                update_post_meta($post_id, '_product_suffix', sanitize_text_field($_POST['_product_suffix']));
+            } else {
+                delete_post_meta($post_id, '_product_suffix');
+            }
+        }
+    }
+}
+ 
+/*Add to price html*/
+add_filter( 'woocommerce_get_price_html', 'bbloomer_price_prefix_suffix', 100, 2 );
+function bbloomer_price_prefix_suffix( $price, $product ){
+    $prefix = get_option( 'devvn_woocommerce_price_prefix');
+    $suffix = get_option( 'devvn_woocommerce_price_suffix');
+ 
+    $prefix_product = sanitize_text_field(get_post_meta($product->get_ID(), '_product_prefix', true));
+    $suffix_product = sanitize_text_field(get_post_meta($product->get_ID(), '_product_suffix', true));
+ 
+    if($prefix_product || (is_numeric($prefix_product) && $prefix_product == 0)) $prefix = $prefix_product;
+    if($suffix_product || (is_numeric($suffix_product) && $suffix_product == 0)) $suffix = $suffix_product;
+ 
+    $prefix = ($prefix && $prefix !== 0)?'<span class="devvn_woocommerce_price_prefix">'.$prefix.'</span>':'';
+    $suffix = ($suffix && $suffix !== 0)?'<span class="devvn_woocommerce_price_suffix">'.$suffix.'</span>':'';
+ 
+    $price = $prefix.$price.$suffix;
+     
+    return apply_filters( 'devvn_woocommerce_get_price', $price );
+}
+
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text' );    // 2.1 +
+ 
+function woo_custom_cart_button_text() {
+ 
+        return __( 'Mua Ngay', 'woocommerce' );
+ 
+}
+/*
+ * Thay chữ Sale thành phần trăm (%) giảm giá
+ */
+add_filter('woocommerce_sale_flash', 'devvn_woocommerce_sale_flash', 10, 3);
+function devvn_woocommerce_sale_flash($html, $post, $product){
+    return '<span class="onsale"><span>' . devvn_presentage_bubble($product) . '</span></span>';
+}
+ 
+function devvn_presentage_bubble( $product ) {
+    $post_id = $product->get_id();
+ 
+    if ( $product->is_type( 'simple' ) || $product->is_type( 'external' ) ) {
+        $regular_price  = $product->get_regular_price();
+        $sale_price     = $product->get_sale_price();
+        $bubble_content = round( ( ( floatval( $regular_price ) - floatval( $sale_price ) ) / floatval( $regular_price ) ) * 100 );
+    } elseif ( $product->is_type( 'variable' ) ) {
+        if ( $bubble_content = devvn_percentage_get_cache( $post_id ) ) {
+            return devvn_percentage_format( $bubble_content );
+        }
+ 
+        $available_variations = $product->get_available_variations();
+        $maximumper           = 0;
+ 
+        for ( $i = 0; $i < count( $available_variations ); ++ $i ) {
+            $variation_id     = $available_variations[ $i ]['variation_id'];
+            $variable_product = new WC_Product_Variation( $variation_id );
+            if ( ! $variable_product->is_on_sale() ) {
+                continue;
+            }
+            $regular_price = $variable_product->get_regular_price();
+            $sale_price    = $variable_product->get_sale_price();
+            $percentage    = round( ( ( floatval( $regular_price ) - floatval( $sale_price ) ) / floatval( $regular_price ) ) * 100 );
+            if ( $percentage > $maximumper ) {
+                $maximumper = $percentage;
+            }
+        }
+ 
+        $bubble_content = sprintf( __( '%s', 'woocommerce' ), $maximumper );
+ 
+        devvn_percentage_set_cache( $post_id, $bubble_content );
+    } else {
+        $bubble_content = __( 'Sale!', 'woocommerce' );
+ 
+        return $bubble_content;
+    }
+ 
+    return devvn_percentage_format( $bubble_content );
+}
+ 
+function devvn_percentage_get_cache( $post_id ) {
+    return get_post_meta( $post_id, '_devvn_product_percentage', true );
+}
+ 
+function devvn_percentage_set_cache( $post_id, $bubble_content ) {
+    update_post_meta( $post_id, '_devvn_product_percentage', $bubble_content );
+}
+ 
+//Định dạng kết quả dạng -{value}%. Ví dụ -20%
+function devvn_percentage_format( $value ) {
+    return str_replace( '{value}', $value, '-{value}%' );
+}
+ 
+// Xóa cache khi sản phẩm hoặc biến thể thay đổi
+function devvn_percentage_clear( $object ) {
+    $post_id = 'variation' === $object->get_type()
+        ? $object->get_parent_id()
+        : $object->get_id();
+ 
+    delete_post_meta( $post_id, '_devvn_product_percentage' );
+}
+add_action( 'woocommerce_before_product_object_save', 'devvn_percentage_clear' );
+
+function devvn_remove_slug( $post_link, $post ) {
+    if ( !in_array( get_post_type($post), array( 'product' ) ) || 'publish' != $post->post_status ) {
+        return $post_link;
+    }
+    if('product' == $post->post_type){
+        $post_link = str_replace( '/cua-hang/', '/', $post_link ); //Thay cua-hang bằng slug hiện tại của bạn
+    }else{
+        $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
+    }
+    return $post_link;
+}
+add_filter( 'post_type_link', 'devvn_remove_slug', 10, 2 );
+/*Sửa lỗi 404 sau khi đã remove slug product hoặc cua-hang*/
+function devvn_woo_product_rewrite_rules($flash = false) {
+    global $wp_post_types, $wpdb;
+    $siteLink = esc_url(home_url('/'));
+    foreach ($wp_post_types as $type=>$custom_post) {
+        if($type == 'product'){
+            if ($custom_post->_builtin == false) {
+                $querystr = "SELECT {$wpdb->posts}.post_name, {$wpdb->posts}.ID
+                            FROM {$wpdb->posts} 
+                            WHERE {$wpdb->posts}.post_status = 'publish' 
+                            AND {$wpdb->posts}.post_type = '{$type}'";
+                $posts = $wpdb->get_results($querystr, OBJECT);
+                foreach ($posts as $post) {
+                    $current_slug = get_permalink($post->ID);
+                    $base_product = str_replace($siteLink,'',$current_slug);
+                    add_rewrite_rule($base_product.'?$', "index.php?{$custom_post->query_var}={$post->post_name}", 'top');                    
+                    add_rewrite_rule($base_product.'comment-page-([0-9]{1,})/?$', 'index.php?'.$custom_post->query_var.'='.$post->post_name.'&cpage=$matches[1]', 'top');
+                    add_rewrite_rule($base_product.'(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?'.$custom_post->query_var.'='.$post->post_name.'&feed=$matches[1]','top');
+                }
+            }
+        }
+    }
+    if ($flash == true)
+        flush_rewrite_rules(false);
+}
+add_action('init', 'devvn_woo_product_rewrite_rules');
+/*Fix lỗi khi tạo sản phẩm mới bị 404*/
+function devvn_woo_new_product_post_save($post_id){
+    global $wp_post_types;
+    $post_type = get_post_type($post_id);
+    foreach ($wp_post_types as $type=>$custom_post) {
+        if ($custom_post->_builtin == false && $type == $post_type) {
+            devvn_woo_product_rewrite_rules(true);
+        }
+    }
+}
+add_action('wp_insert_post', 'devvn_woo_new_product_post_save');
+add_filter( 'term_link', 'devvn_product_cat_permalink', 10, 3 );
+function devvn_product_cat_permalink( $url, $term, $taxonomy ){
+    switch ($taxonomy):
+        case 'product_cat':
+            $taxonomy_slug = 'product-category'; //Thay bằng slug hiện tại của bạn. Mặc định là product-category
+            if(strpos($url, $taxonomy_slug) === FALSE) break;
+            $url = str_replace('/' . $taxonomy_slug, '', $url);
+            break;
+    endswitch;
+    return $url;
+}
+// Add our custom product cat rewrite rules
+function devvn_product_category_rewrite_rules($flash = false) {
+    $terms = get_terms( array(
+        'taxonomy' => 'product_cat',
+        'post_type' => 'product',
+        'hide_empty' => false,
+    ));
+    if($terms && !is_wp_error($terms)){
+        $siteurl = esc_url(home_url('/'));
+        foreach ($terms as $term){
+            $term_slug = $term->slug;
+            $baseterm = str_replace($siteurl,'',get_term_link($term->term_id,'product_cat'));
+            add_rewrite_rule($baseterm.'?$','index.php?product_cat='.$term_slug,'top');
+            add_rewrite_rule($baseterm.'page/([0-9]{1,})/?$', 'index.php?product_cat='.$term_slug.'&paged=$matches[1]','top');
+            add_rewrite_rule($baseterm.'(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?product_cat='.$term_slug.'&feed=$matches[1]','top');
+        }
+    }
+    if ($flash == true)
+        flush_rewrite_rules(false);
+}
+add_action('init', 'devvn_product_category_rewrite_rules');
+
+/*Sửa lỗi khi tạo mới taxomony bị 404*/
+add_action( 'create_term', 'devvn_new_product_cat_edit_success', 10, 2 );
+function devvn_new_product_cat_edit_success( $term_id, $taxonomy ) {
+    devvn_product_category_rewrite_rules(true);
+}
+
+add_action('wp_ajax_load_product_categories', 'load_product_categories');
+add_action('wp_ajax_nopriv_load_product_categories', 'load_product_categories');
+
+function load_product_categories() {
+    $parent_slug = isset($_GET['parent']) ? sanitize_text_field($_GET['parent']) : '';
+
+    // Nếu chưa chọn parent => load danh mục cha
+    if (!$parent_slug) {
+        $args = array(
+            'taxonomy'   => 'product_cat',
+            'hide_empty' => false,
+            'parent'     => 0,
+        );
+        $parent_categories = get_terms($args);
+
+        if (!empty($parent_categories) && !is_wp_error($parent_categories)) {
+            echo '<div class="category-buttons" style="margin-bottom:20px;">';
+            foreach ($parent_categories as $index => $cat) {
+                $active = $index === 0 ? 'active' : '';
+                echo '<a href="#" class="category-button ' . $active . '" data-category="' . esc_attr($cat->slug) . '">'
+                        . esc_html($cat->name) .
+                    '</a>';
+            }
+            echo '</div>';
+        }
+    } else {
+        // Nếu có parent => lấy danh mục con
+        $parent_term = get_term_by('slug', $parent_slug, 'product_cat');
+        if ($parent_term) {
+            $child_args = array(
+                'taxonomy'   => 'product_cat',
+                'hide_empty' => false,
+                'parent'     => $parent_term->term_id,
+            );
+            $child_cats = get_terms($child_args);
+
+            if (!empty($child_cats) && !is_wp_error($child_cats)) {
+                echo '<div class="product-categories-list">';
+                foreach ($child_cats as $child) {
+                    $thumbnail_id = get_term_meta($child->term_id, 'thumbnail_id', true);
+                    $image = wp_get_attachment_url($thumbnail_id);
+
+                    echo '<div class="category-item">';
+                    echo '<a href="' . esc_url( get_term_link( $child->term_id, 'product_cat' ) ) . '" 
+          class="category-button" 
+          data-category="' . esc_attr($child->slug) . '">';
+                    if ($image) {
+                        echo '<img src="' . esc_url($image) . '" alt="' . esc_attr($child->name) . '" />';
+                    } else {
+                        echo '<img src="' . wc_placeholder_img_src() . '" alt="' . esc_attr($child->name) . '" />';
+                    }
+                    echo '<p>' . esc_html($child->name) . '</p>';
+                    echo '</a>';
+                    echo '</div>';
+                }
+                echo '</div>';
+            } else {
+                echo '<p>Không có danh mục con cho ' . esc_html($parent_term->name) . '.</p>';
+            }
+        }
+    }
+
+    wp_die();
+}
+
+/**
+ * Frontend performance tweaks for mayaochaybo.vn.
+ */
+add_action( 'after_setup_theme', 'x24_frontend_performance_setup' );
+function x24_frontend_performance_setup() {
+    add_theme_support( 'html5', array( 'script', 'style' ) );
+}
+
+add_action( 'wp_enqueue_scripts', 'x24_dequeue_unneeded_frontend_assets', 100 );
+function x24_dequeue_unneeded_frontend_assets() {
+    if ( ! is_admin() ) {
+        wp_dequeue_style( 'wp-block-library' );
+        wp_dequeue_style( 'wc-blocks-style' );
+        wp_dequeue_style( 'woocommerce-inline' );
+    }
+}
+
+add_action( 'init', 'x24_disable_wp_emoji_assets' );
+function x24_disable_wp_emoji_assets() {
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+}
+
+add_filter( 'wp_resource_hints', 'x24_resource_hints', 10, 2 );
+function x24_resource_hints( $urls, $relation_type ) {
+    if ( 'preconnect' === $relation_type ) {
+        $urls[] = 'https://cdn.mayaochaybo.vn';
+    }
+
+    if ( 'dns-prefetch' === $relation_type ) {
+        $urls[] = '//cdn.mayaochaybo.vn';
+    }
+
+    return array_values( array_unique( $urls ) );
+}
+
+add_filter( 'wp_get_attachment_image_attributes', 'x24_attachment_image_attributes', 20, 3 );
+function x24_attachment_image_attributes( $attr, $attachment, $size ) {
+    if ( is_admin() ) {
+        return $attr;
+    }
+
+    $attr['decoding'] = 'async';
+
+    if ( empty( $attr['loading'] ) ) {
+        $attr['loading'] = 'lazy';
+    }
+
+    if ( 'lazy' === $attr['loading'] && empty( $attr['fetchpriority'] ) ) {
+        $attr['fetchpriority'] = 'low';
+    }
+
+    return $attr;
+}
+
+add_filter( 'script_loader_tag', 'x24_defer_safe_scripts', 20, 3 );
+function x24_defer_safe_scripts( $tag, $handle, $src ) {
+    if ( is_admin() || false !== strpos( $tag, ' defer' ) || false !== strpos( $tag, ' async' ) ) {
+        return $tag;
+    }
+
+    $defer_handles = array(
+        'contact-form-7',
+        'wpcf7',
+        'wc-add-to-cart',
+        'woocommerce',
+        'wc-cart-fragments',
+        'sourcebuster',
+        'wc-order-attribution',
+        'flatsome-live-search',
+    );
+
+    if ( in_array( $handle, $defer_handles, true ) || false !== strpos( $src, '/contact-form-7/' ) ) {
+        return str_replace( '<script ', '<script defer ', $tag );
+    }
+
+    return $tag;
+}
+
+add_action( 'template_redirect', 'x24_start_frontend_output_buffer', 0 );
+function x24_start_frontend_output_buffer() {
+    if ( is_admin() || wp_doing_ajax() || is_feed() || is_customize_preview() ) {
+        return;
+    }
+
+    ob_start( 'x24_optimize_frontend_html' );
+}
+
+function x24_optimize_frontend_html( $html ) {
+    if ( false === stripos( $html, '<html' ) ) {
+        return $html;
+    }
+
+    $html = str_replace( '/var/www/html/wp-content/fonts/', '/wp-content/fonts/', $html );
+    return $html;
+}
+
+function x24_lazyload_offscreen_cdn_images( $html ) {
+    if ( false === strpos( $html, 'cdn.mayaochaybo.vn/wp-content/uploads/' ) ) {
+        return $html;
+    }
+
+    $placeholder = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
+    $image_index = 0;
+
+    $html = preg_replace_callback(
+        '/<img\b[^>]*\bsrc=(["\'])(https:\/\/cdn\.mayaochaybo\.vn\/wp-content\/uploads\/[^"\']+\.(?:jpe?g|png|webp))(?:\?[^"\']*)?\1[^>]*>/i',
+        function ( $matches ) use ( $placeholder, &$image_index ) {
+            $image_index++;
+            $tag = $matches[0];
+
+            if ( $image_index <= 8 || false !== strpos( $tag, 'data-x24-lazy=' ) ) {
+                return x24_add_image_defaults( $tag, $image_index <= 2 );
+            }
+
+            $src = $matches[2];
+            $quote = $matches[1];
+            $tag = x24_add_image_defaults( $tag, false );
+            $tag = preg_replace( '/\s+srcset=(["\']).*?\1/i', '', $tag );
+            $tag = preg_replace( '/\s+sizes=(["\']).*?\1/i', '', $tag );
+            $tag = preg_replace( '/\s+src=(["\']).*?\1/i', ' src=' . $quote . $placeholder . $quote . ' data-src=' . $quote . esc_url( $src ) . $quote, $tag, 1 );
+
+            return str_replace( '<img ', '<img data-x24-lazy="1" ', $tag );
+        },
+        $html
+    );
+
+    if ( false === strpos( $html, 'data-x24-lazy="1"' ) ) {
+        return $html;
+    }
+
+    $script = <<<'HTML'
+<script id="x24-lazy-images">
+(function(){
+  var images = document.querySelectorAll('img[data-x24-lazy][data-src]');
+  if (!images.length) return;
+  function load(img){
+    if (!img || !img.dataset || !img.dataset.src) return;
+    img.src = img.dataset.src;
+    img.removeAttribute('data-src');
+    img.removeAttribute('data-x24-lazy');
+  }
+  if (!('IntersectionObserver' in window)) {
+    images.forEach(load);
+    return;
+  }
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        observer.unobserve(entry.target);
+        load(entry.target);
+      }
+    });
+  }, {rootMargin: '600px 0px'});
+  images.forEach(function(img){ observer.observe(img); });
+}());
+</script>
+HTML;
+
+    return str_ireplace( '</body>', $script . '</body>', $html );
+}
+
+function x24_add_image_defaults( $tag, $high_priority = false ) {
+    // Hero images (first 2) get eager loading, not lazy
+    if ( false === stripos( $tag, ' loading=' ) ) {
+        $loading = $high_priority ? 'eager' : 'lazy';
+        $tag = str_replace( '<img ', '<img loading="' . $loading . '" ', $tag );
+    }
+
+    if ( false === stripos( $tag, ' decoding=' ) ) {
+        $tag = str_replace( '<img ', '<img decoding="async" ', $tag );
+    }
+
+    if ( false === stripos( $tag, ' fetchpriority=' ) ) {
+        $priority = $high_priority ? 'high' : 'low';
+        $tag = str_replace( '<img ', '<img fetchpriority="' . $priority . '" ', $tag );
+    }
+
+    return $tag;
+}
+
+add_action( 'wp_head', 'x24_desktop_visual_tuning_overrides', 99999 );
+function x24_desktop_visual_tuning_overrides() {
+    if ( is_admin() ) {
+        return;
+    }
+    ?>
+    <style id="x24-desktop-visual-tuning">
+    @media (min-width: 850px) {
+      body { font-size: 15px !important; }
+      .container,
+      .row,
+      .row.row-small,
+      .row.row-large,
+      .row.row-collapse {
+        max-width: 1180px !important;
+      }
+      /* Tightened from 34px to 24px for cleaner spacing */
+      .section {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+      }
+      .section-title-container {
+        margin-bottom: 18px !important;
+      }
+      .section-title-main {
+        font-size: 26px !important;
+        line-height: 1.16 !important;
+      }
+      .woocommerce-loop-product__title,
+      .product-title a {
+        font-size: 14px !important;
+        line-height: 1.32 !important;
+      }
+      .banner .text-box-content {
+        max-width: 760px !important;
+      }
+      /* Reduce product-main top padding from 40px */
+      .product-main {
+        padding: 24px 0 !important;
+      }
+      /* Reduce tab panel padding from 30px */
+      .nav-tabs + .tab-panels {
+        padding: 20px !important;
+      }
+      .product-footer .woocommerce-tabs {
+        padding: 20px 0 !important;
+      }
+      /* Tighter product short description */
+      .product-short-description {
+        line-height: 1.5 !important;
+      }
+      /* Reduce gallery margin */
+      .woocommerce div.product div.images {
+        margin-bottom: 20px !important;
+      }
+    }
+
+    /* Accessibility: scroll-margin for sticky header */
+    #tab-description,
+    #tab-reviews,
+    #respond,
+    #product-zoom {
+      scroll-margin-top: 90px;
+    }
+    @media (max-width: 549px) {
+      #tab-description,
+      #tab-reviews,
+      #respond,
+      #product-zoom {
+        scroll-margin-top: 70px;
+      }
+    }
+
+    /* Accessibility: restore focus outline on gallery */
+    .product-gallery-slider .woocommerce-product-gallery__image a:focus-visible {
+      outline: 2px solid #0087b7 !important;
+      outline-offset: 2px;
+    }
+
+    /* Typography: tabular numbers for size charts */
+    .single-product table td,
+    .single-product table th {
+      font-variant-numeric: tabular-nums;
+    }
+    </style>
+    <?php
+}
+
+
+/**
+ * X24 Design Review Fix: Override broken mobile heading collapse.
+ * design-v3-fix sets h1,h2,h3{font-size:inherit!important} which destroys hierarchy.
+ * This runs at priority 100000 to win the cascade.
+ */
+add_action( "wp_head", "x24_fix_mobile_headings", 100000 );
+function x24_fix_mobile_headings() {
+    if ( is_admin() ) {
+        return;
+    }
+    ?>
+    <style id="x24-fix-mobile-headings">
+    @media (max-width: 549px) {
+      h1 { font-size: 1.5em !important; }
+      h2 { font-size: 1.3em !important; }
+      h3 { font-size: 1.15em !important; }
+      .product-title.product_title.entry-title { font-size: 1.4em !important; }
+      .section-title-main { font-size: 20px !important; }
+    }
+    </style>
+    <?php
+}
+
+/**
+ * X24 Sport - SEO Schema Enhancement
+ *
+ * Sửa đổi schema WooCommerce + Yoast để tối ưu rich results.
+ * Không thêm aggregateRating thủ công khi sản phẩm chưa có review thật.
+ */
+
+// ============================================================
+// 1. BRAND - Thêm thương hiệu vào schema
+// ============================================================
+add_filter('woocommerce_structured_data_product', 'x24_add_product_brand', 20, 2);
+function x24_add_product_brand($markup, $product) {
+    $markup['brand'] = [
+        '@type' => 'Brand',
+        'name'  => 'X24 Sport',
+    ];
+    return $markup;
+}
+
+// ============================================================
+// 2. SHIPPING DETAILS - Thông tin vận chuyển
+// ============================================================
+add_filter('woocommerce_structured_data_product', 'x24_add_shipping_details', 30, 2);
+function x24_add_shipping_details($markup, $product) {
+    if (isset($markup['offers']) && is_array($markup['offers'])) {
+        foreach ($markup['offers'] as &$offer) {
+            if (!isset($offer['@type'])) continue;
+            $offer['shippingDetails'] = [
+                '@type' => 'OfferShippingDetails',
+                'shippingRate' => [
+                    '@type'    => 'MonetaryAmount',
+                    'value'    => '0',
+                    'currency' => 'VND',
+                ],
+                'deliveryTime' => [
+                    '@type' => 'ShippingDeliveryTime',
+                    'handlingTime' => [
+                        '@type'    => 'QuantitativeValue',
+                        'minValue' => 3,
+                        'maxValue' => 7,
+                        'unitCode' => 'DAY',
+                    ],
+                ],
+                'shippingDestination' => [
+                    '@type'          => 'DefinedRegion',
+                    'addressCountry' => 'VN',
+                ],
+            ];
+        }
+    }
+    return $markup;
+}
+
+// ============================================================
+// 3. YOAST SCHEMA - Thêm company info vào Organization
+// ============================================================
+add_filter('wpseo_schema_organization', 'x24_enhance_organization');
+function x24_enhance_organization($data) {
+    $data['name']        = 'Mayaobongro.vn - Xưởng May Áo Bóng Rổ';
+    $data['description'] = 'Xưởng may áo bóng rổ trực tiếp, thiết kế riêng miễn phí cho đội nhóm, câu lạc bộ và giải đấu bóng rổ';
+    $data['telephone']   = '+84989353247';
+    $data['address']     = [
+        '@type'           => 'PostalAddress',
+        'streetAddress'   => '1090/22D Quang Trung, Phường 14',
+        'addressLocality' => 'Gò Vấp',
+        'addressRegion'   => 'TP. Hồ Chí Minh',
+        'addressCountry'  => 'VN',
+    ];
+    return $data;
+}
+
+// ============================================================
+// 4. SEO HYGIENE - Noindex demo/thin URLs and improve archives/posts
+// ============================================================
+function x24_seo_is_demo_page($post = null) {
+    $post = get_post($post);
+    if (!$post instanceof WP_Post) {
+        return false;
+    }
+
+    $protected_page_ids = array_filter([
+        (int) get_option('page_on_front'),
+        (int) get_option('page_for_posts'),
+    ]);
+    if (in_array((int) $post->ID, $protected_page_ids, true)) {
+        return false;
+    }
+
+    if (in_array($post->post_type, ['blocks', 'featured_item'], true)) {
+        return true;
+    }
+
+    if ($post->post_type !== 'page') {
+        return false;
+    }
+
+    $path = trim((string) get_page_uri($post), '/');
+    return $path === 'test'
+        || $path === 'trang-mau'
+        || $path === 'elements'
+        || str_starts_with($path, 'elements/')
+        || $path === 'demos'
+        || str_starts_with($path, 'demos/');
+}
+
+function x24_seo_should_noindex_current_url() {
+    if (is_admin()) {
+        return false;
+    }
+
+    if (is_front_page() || is_home()) {
+        return false;
+    }
+
+    if (is_singular()) {
+        return x24_seo_is_demo_page(get_queried_object_id());
+    }
+
+    if (is_author() || is_tag() || is_tax('product_tag')) {
+        return true;
+    }
+
+    if (is_post_type_archive(['blocks', 'featured_item'])) {
+        return true;
+    }
+
+    return false;
+}
+
+add_filter('wpseo_robots', 'x24_seo_noindex_thin_urls', 999);
+function x24_seo_noindex_thin_urls($robots) {
+    if (!x24_seo_should_noindex_current_url()) {
+        return $robots;
+    }
+
+    return 'noindex, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+}
+
+add_filter('wpseo_sitemap_exclude_post_type', 'x24_seo_exclude_demo_post_types_from_sitemap', 10, 2);
+function x24_seo_exclude_demo_post_types_from_sitemap($excluded, $post_type) {
+    if (in_array($post_type, ['blocks', 'featured_item'], true)) {
+        return true;
+    }
+
+    return $excluded;
+}
+
+add_filter('wpseo_sitemap_exclude_taxonomy', 'x24_seo_exclude_thin_taxonomies_from_sitemap', 10, 2);
+function x24_seo_exclude_thin_taxonomies_from_sitemap($excluded, $taxonomy) {
+    if (in_array($taxonomy, ['post_tag', 'product_tag', 'featured_item_category'], true)) {
+        return true;
+    }
+
+    return $excluded;
+}
+
+add_filter('wpseo_sitemap_entry', 'x24_seo_filter_demo_sitemap_entries', 10, 3);
+function x24_seo_filter_demo_sitemap_entries($url, $type, $object) {
+    if (is_object($object) && isset($object->ID) && x24_seo_is_demo_page((int) $object->ID)) {
+        return false;
+    }
+
+    if (is_array($url) && isset($url['loc'])) {
+        $loc = (string) $url['loc'];
+        if (str_contains($loc, '/elements/') || str_contains($loc, '/demos/') || str_contains($loc, '/test/') || str_contains($loc, '/trang-mau/') || str_contains($loc, '/author/')) {
+            return false;
+        }
+    }
+
+    return $url;
+}
+
+add_filter('wpseo_schema_graph', 'x24_seo_add_blogposting_schema', 20, 2);
+function x24_seo_add_blogposting_schema($graph, $context) {
+    if (!is_singular('post')) {
+        return $graph;
+    }
+
+    $post_id = get_queried_object_id();
+    $image_id = get_post_thumbnail_id($post_id);
+    $author_id = (int) get_post_field('post_author', $post_id);
+
+    $article = [
+        '@type' => 'BlogPosting',
+        '@id' => get_permalink($post_id) . '#article',
+        'isPartOf' => [
+            '@id' => get_permalink($post_id) . '#webpage',
+        ],
+        'headline' => wp_strip_all_tags(get_the_title($post_id)),
+        'datePublished' => get_the_date(DATE_W3C, $post_id),
+        'dateModified' => get_the_modified_date(DATE_W3C, $post_id),
+        'mainEntityOfPage' => [
+            '@id' => get_permalink($post_id) . '#webpage',
+        ],
+        'author' => [
+            '@type' => 'Person',
+            'name' => get_the_author_meta('display_name', $author_id),
+        ],
+        'publisher' => [
+            '@id' => $context->site_url . '#organization',
+        ],
+    ];
+
+    if ($image_id) {
+        $image_url = wp_get_attachment_image_url($image_id, 'full');
+        if ($image_url) {
+            $article['image'] = [
+                '@type' => 'ImageObject',
+                'url' => $image_url,
+            ];
+        }
+    }
+
+    $graph[] = $article;
+    return $graph;
+}
+
+add_filter('the_content', 'x24_seo_add_homepage_h1', 5);
+function x24_seo_add_homepage_h1($content) {
+    if (is_admin() || !is_front_page() || !in_the_loop() || !is_main_query()) {
+        return $content;
+    }
+
+    if (stripos((string) $content, '<h1') !== false) {
+        return $content;
+    }
+
+    return '<h1 class="x24-home-seo-title">Xưởng May Áo Bóng Rổ Thiết Kế Theo Yêu Cầu</h1>' . $content;
+}
+
+add_action('wp_head', 'x24_seo_homepage_h1_style', 20);
+function x24_seo_homepage_h1_style() {
+    if (!is_front_page()) {
+        return;
+    }
+    ?>
+    <style id="x24-home-seo-title-style">
+      .x24-home-seo-title {
+        max-width: 1180px;
+        margin: 24px auto 10px;
+        padding: 0 15px;
+        color: #111827;
+        font-size: clamp(26px, 3vw, 42px);
+        line-height: 1.15;
+        text-align: center;
+        letter-spacing: 0;
+      }
+      @media (max-width: 549px) {
+        .x24-home-seo-title {
+          margin-top: 16px;
+          font-size: 24px !important;
+        }
+      }
+    </style>
+    <?php
+}
+
+add_action('woocommerce_archive_description', 'x24_seo_add_product_category_h1', 1);
+function x24_seo_add_product_category_h1() {
+    if (!is_product_category()) {
+        return;
+    }
+
+    $term = get_queried_object();
+    if (!$term || empty($term->name)) {
+        return;
+    }
+
+    echo '<h1 class="x24-seo-archive-title">' . esc_html($term->name) . '</h1>';
+}
+
+add_action('wp_head', 'x24_seo_archive_title_styles', 20);
+function x24_seo_archive_title_styles() {
+    if (!is_product_category()) {
+        return;
+    }
+    ?>
+    <style id="x24-seo-archive-title-style">
+      .x24-seo-archive-title {
+        font-size: clamp(28px, 4vw, 44px);
+        line-height: 1.12;
+        margin: 0 0 18px;
+        color: #132238;
+        letter-spacing: -0.03em;
+      }
+    </style>
+    <?php
+}
+
+add_filter('get_avatar', 'x24_seo_fill_blank_avatar_alt', 20, 1);
+function x24_seo_fill_blank_avatar_alt($avatar) {
+    if (!is_string($avatar) || $avatar === '') {
+        return $avatar;
+    }
+
+    return preg_replace("/alt=(['\"])\\s*\\1/i", "alt=$1Mayaobongro.vn$1", $avatar);
+}
+
+// ============================================================
+
+add_filter('wpseo_schema_graph', 'x24_filter_local_business', 10, 2);
+function x24_filter_local_business($graph, $context) {
+    $graph[] = [
+        '@type'            => 'LocalBusiness',
+        '@id'              => $context->site_url . '#localbusiness',
+        'name'             => 'Mayaobongro.vn - Xưởng May Áo Bóng Rổ',
+        'description'      => 'Xưởng may áo bóng rổ trực tiếp, thiết kế riêng miễn phí',
+        'url'              => $context->site_url,
+        'telephone'        => '+84989353247',
+        'priceRange'       => '50.000đ - 500.000đ',
+        'address'          => [
+            '@type'           => 'PostalAddress',
+            'streetAddress'   => '1090/22D Quang Trung, Phường 14',
+            'addressLocality' => 'Gò Vấp',
+            'addressRegion'   => 'TP. Hồ Chí Minh',
+            'addressCountry'  => 'VN',
+        ],
+        'openingHoursSpecification' => [
+            [
+                '@type'     => 'OpeningHoursSpecification',
+                'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                'opens'     => '08:00',
+                'closes'    => '18:00',
+            ],
+        ],
+    ];
+    return $graph;
+}
+
+// ============================================================
+// PERFORMANCE OPTIMIZATIONS v2 — Added 2026-07-02
+// (Only additions not already handled by existing functions)
+// ============================================================
+
+// 1. REMOVE UNNECESSARY WP HEAD TAGS
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wp_shortlink_wp_head');
+remove_action('wp_head', 'rest_output_link_wp_head');
+remove_action('wp_head', 'wp_oembed_add_discovery_links');
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
+
+// 2. REMOVE WP VERSION QUERY STRINGS FROM ASSETS
+add_filter('style_loader_src', 'x24_perf_remove_version', 9999);
+add_filter('script_loader_src', 'x24_perf_remove_version', 9999);
+function x24_perf_remove_version($src) {
+    if (strpos($src, 'ver=') !== false) {
+        $src = remove_query_arg('ver', $src);
+    }
+    return $src;
+}
+
+// 3. DEFER ADDITIONAL RENDER-BLOCKING SCRIPTS
+// (Existing x24_defer_safe_scripts handles CF7/WooCommerce — this adds more)
+add_filter('script_loader_tag', 'x24_perf_defer_extra', 25, 3);
+function x24_perf_defer_extra($tag, $handle, $src) {
+    if (is_admin() || false !== strpos($tag, ' defer') || false !== strpos($tag, ' async')) {
+        return $tag;
+    }
+    // Additional scripts to defer (not covered by existing function)
+    $extra_defer = array(
+        'jquery-migrate',
+        'jquery-blockui',
+        'js-cookie',
+        'wc-add-to-cart-variation',
+        'wc-single-product',
+        'zoom',
+        'flexslider',
+        'flatsome-js',
+        'flatsome-masonry-js',
+        'ux-core-js',
+    );
+    if (in_array($handle, $extra_defer, true)) {
+        return str_replace('<script ', '<script defer ', $tag);
+    }
+    return $tag;
+}
+
+// 4. PRELOAD CRITICAL CSS
+add_action('wp_head', 'x24_perf_preload_css', 1);
+function x24_perf_preload_css() {
+    echo '<link rel="preload" as="style" href="' . get_template_directory_uri() . '/assets/css/flatsome.css" />';
+    echo "\n";
+    echo '<link rel="preload" as="style" href="' . get_stylesheet_directory_uri() . '/style.css" />';
+    echo "\n";
+}
+
+// 5. ADD HSTS HEADER (via PHP since nginx is behind Cloudflare)
+add_action('send_headers', 'x24_perf_hsts_header');
+function x24_perf_hsts_header() {
+    if (is_ssl() || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+        header('Strict-Transport-Security: max-age=31536000; includeSubDomains; preload');
+    }
+}
+
+/**
+ * Product hero data and layout.
+ *
+ * The model code is editable in Product data > General. Product colors use the
+ * global WooCommerce attribute "Màu sắc" so they can be filtered later.
+ */
+add_action('woocommerce_product_options_general_product_data', 'x24_product_model_code_field');
+function x24_product_model_code_field() {
+    woocommerce_wp_text_input(
+        array(
+            'id'          => '_x24_model_code',
+            'label'       => 'Mã mẫu',
+            'placeholder' => 'Ví dụ: X24-CB-064',
+            'desc_tip'    => true,
+            'description' => 'Mã hiển thị trên trang chi tiết sản phẩm.',
+        )
+    );
+}
+
+add_action('woocommerce_process_product_meta', 'x24_save_product_model_code_field');
+function x24_save_product_model_code_field($product_id) {
+    if (!isset($_POST['_x24_model_code'])) {
+        return;
+    }
+
+    update_post_meta(
+        $product_id,
+        '_x24_model_code',
+        sanitize_text_field(wp_unslash($_POST['_x24_model_code']))
+    );
+}
+
+function x24_clean_product_text($text) {
+    return trim(str_replace(array('–', '—'), '-', (string) $text));
+}
+
+function x24_get_product_model_code($product) {
+    $saved_code = x24_clean_product_text($product->get_meta('_x24_model_code', true));
+    if ($saved_code !== '') {
+        return $saved_code;
+    }
+
+    $title = x24_clean_product_text($product->get_name());
+    if (preg_match('/\bX24[\s-]*CB[\s-]*(\d{2,4})\b/iu', $title, $matches)) {
+        return 'X24-CB-' . $matches[1];
+    }
+
+    return sprintf('X24-CB-%03d', (int) $product->get_id() % 1000);
+}
+
+function x24_get_product_subtitle($product, $model_code) {
+    $subtitle = x24_clean_product_text($product->get_name());
+    $subtitle = preg_replace('/^Áo\s+Chạy\s+Bộ(?:\s+Nam|\s+Nữ)?\s*/iu', '', $subtitle);
+    $subtitle = str_ireplace($model_code, '', $subtitle);
+    $subtitle = trim((string) $subtitle, " \t\n\r\0\x0B-");
+
+    if ($subtitle !== '') {
+        return $subtitle;
+    }
+
+    $categories = wc_get_product_category_list($product->get_id(), ', ', '', '');
+    return $categories !== '' ? wp_strip_all_tags($categories) : 'Thiết kế theo yêu cầu';
+}
+
+function x24_get_product_style_label($product) {
+    $terms = get_the_terms($product->get_id(), 'product_cat');
+    if (!is_wp_error($terms) && !empty($terms)) {
+        $label = preg_replace('/^Áo\s+Chạy\s+Bộ\s*/iu', '', $terms[0]->name);
+        if ($label !== '') {
+            return x24_clean_product_text($label);
+        }
+    }
+
+    return 'Thiết kế riêng';
+}
+
+function x24_product_color_map() {
+    return array(
+        'cam'       => '#f05a2a',
+        'đỏ'        => '#df2029',
+        'do'        => '#df2029',
+        'vàng'      => '#f3c51d',
+        'vang'      => '#f3c51d',
+        'xanh lá'   => '#69a83a',
+        'xanh la'   => '#69a83a',
+        'xanh ngọc' => '#2bb6a8',
+        'xanh ngoc' => '#2bb6a8',
+        'xanh biển' => '#2679d8',
+        'xanh bien' => '#2679d8',
+        'xanh'      => '#2679d8',
+        'tím'       => '#7656b5',
+        'tim'       => '#7656b5',
+        'hồng'      => '#e6759e',
+        'hong'      => '#e6759e',
+        'đen'       => '#27292c',
+        'den'       => '#27292c',
+        'trắng'     => '#f4f4f1',
+        'trang'     => '#f4f4f1',
+        'xám'       => '#8b9096',
+        'xam'       => '#8b9096',
+    );
+}
+
+function x24_get_product_colors($product) {
+    $colors = array();
+    if (taxonomy_exists('pa_mau-sac')) {
+        $terms = wc_get_product_terms(
+            $product->get_id(),
+            'pa_mau-sac',
+            array('fields' => 'names')
+        );
+
+        if (!is_wp_error($terms)) {
+            $colors = array_values(array_filter(array_map('x24_clean_product_text', $terms)));
+        }
+    }
+
+    if (!empty($colors)) {
+        return $colors;
+    }
+
+    $title = mb_strtolower(x24_clean_product_text($product->get_name()), 'UTF-8');
+    foreach (array_keys(x24_product_color_map()) as $candidate) {
+        if (mb_strpos($title, $candidate, 0, 'UTF-8') !== false) {
+            return array(mb_convert_case($candidate, MB_CASE_TITLE, 'UTF-8'));
+        }
+    }
+
+    return array('Theo thiết kế');
+}
+
+function x24_get_product_color_hex($color) {
+    $key = mb_strtolower(x24_clean_product_text($color), 'UTF-8');
+    $map = x24_product_color_map();
+    return isset($map[$key]) ? $map[$key] : '#d72f25';
+}
+
+add_shortcode('x24_product_colors', 'x24_product_colors_shortcode');
+function x24_product_colors_shortcode() {
+    if (!is_product()) {
+        return '';
+    }
+
+    $product = wc_get_product(get_queried_object_id());
+    if (!$product instanceof WC_Product) {
+        return '';
+    }
+
+    $colors = x24_get_product_colors($product);
+    ob_start();
+    ?>
+    <div class="x24-product-colors" aria-label="Màu sắc sản phẩm">
+        <?php foreach ($colors as $color) : ?>
+            <span class="x24-product-color">
+                <span
+                    class="x24-product-color__swatch"
+                    style="--x24-swatch: <?php echo esc_attr(x24_get_product_color_hex($color)); ?>"
+                    aria-hidden="true"
+                ></span>
+                <span><?php echo esc_html($color); ?></span>
+            </span>
+        <?php endforeach; ?>
+    </div>
+    <?php
+    return trim((string) ob_get_clean());
+}
+
+add_shortcode('x24_product_summary', 'x24_product_summary_shortcode');
+function x24_product_summary_shortcode() {
+    if (!is_product()) {
+        return '';
+    }
+
+    $product = wc_get_product(get_queried_object_id());
+    if (!$product instanceof WC_Product) {
+        return '';
+    }
+
+    $model_code = x24_get_product_model_code($product);
+    $subtitle   = x24_get_product_subtitle($product, $model_code);
+    $style      = x24_get_product_style_label($product);
+
+    ob_start();
+    ?>
+    <section class="x24-product-summary" aria-label="Thông tin sản phẩm">
+        <h1 class="product-title product_title entry-title">
+            <?php echo esc_html(x24_clean_product_text($product->get_name())); ?>
+        </h1>
+        <p class="x24-product-subtitle"><?php echo esc_html($subtitle); ?></p>
+
+        <div class="x24-product-meta-pills" aria-label="Thông tin mẫu áo">
+            <span class="x24-product-meta-pill">
+                <i class="icon-tag" aria-hidden="true"></i>
+                <span>Mã mẫu: <strong><?php echo esc_html($model_code); ?></strong></span>
+            </span>
+            <span class="x24-product-meta-pill">
+                <i class="icon-shopping-bag" aria-hidden="true"></i>
+                <span><?php echo esc_html($style); ?></span>
+            </span>
+        </div>
+
+        <div class="x24-product-price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
+        <p class="x24-product-price-note">Giá thay đổi theo số lượng, chất liệu và yêu cầu in.</p>
+
+        <div class="x24-product-actions" aria-label="Liên hệ đặt may">
+            <a class="x24-product-actions__zalo" href="https://zalo.me/0989353247" target="_blank" rel="noopener">
+                <i class="icon-pen-alt-fill" aria-hidden="true"></i>
+                <span>Nhận thiết kế miễn phí</span>
+            </a>
+            <a class="x24-product-actions__phone" href="tel:0989353247">
+                <i class="icon-phone" aria-hidden="true"></i>
+                <span>Gọi 0989.353.247</span>
+            </a>
+        </div>
+
+        <section class="x24-fabric-panel" aria-labelledby="x24-fabric-panel-title">
+            <div class="x24-fabric-panel__heading">
+                <h2 id="x24-fabric-panel-title">Chất liệu vải</h2>
+                <a href="<?php echo esc_url(home_url('/chat-lieu-vai/')); ?>">
+                    <span>Xem chi tiết</span>
+                    <i class="icon-angle-right" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="x24-fabric-table" role="table" aria-label="Các chất liệu vải may áo bóng rổ">
+                <div class="x24-fabric-table__cell" role="cell">
+                    <strong>Runair</strong>
+                    <span>Siêu thoáng</span>
+                </div>
+                <div class="x24-fabric-table__cell" role="cell">
+                    <strong>Dryfit</strong>
+                    <span>Thấm hút tốt</span>
+                </div>
+                <div class="x24-fabric-table__cell" role="cell">
+                    <strong>Coolmax</strong>
+                    <span>Làm mát</span>
+                </div>
+                <div class="x24-fabric-table__cell" role="cell">
+                    <strong>Basic</strong>
+                    <span>Bền, giá hợp lý</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="x24-order-benefits" aria-labelledby="x24-order-benefits-title">
+            <h2 id="x24-order-benefits-title">
+                <i class="icon-user-o" aria-hidden="true"></i>
+                <span>Ưu đãi khi đặt theo đội nhóm</span>
+            </h2>
+            <div class="x24-order-benefits__grid">
+                <div class="x24-order-benefit">
+                    <span class="x24-order-benefit__icon"><i class="icon-pen-alt-fill" aria-hidden="true"></i></span>
+                    <span>Miễn phí chỉnh thiết kế<br>theo yêu cầu</span>
+                </div>
+                <div class="x24-order-benefit">
+                    <span class="x24-order-benefit__icon"><i class="icon-star-o" aria-hidden="true"></i></span>
+                    <span>In logo, tên đội,<br>slogan riêng</span>
+                </div>
+                <div class="x24-order-benefit">
+                    <span class="x24-order-benefit__icon"><i class="icon-shopping-bag" aria-hidden="true"></i></span>
+                    <span>Đủ size<br>nam, nữ và trẻ em</span>
+                </div>
+                <div class="x24-order-benefit">
+                    <span class="x24-order-benefit__icon"><i class="icon-shopping-cart" aria-hidden="true"></i></span>
+                    <span>Giao hàng<br>toàn quốc</span>
+                </div>
+            </div>
+        </section>
+    </section>
+    <?php
+    return trim((string) ob_get_clean());
+}
+
+/**
+ * Product detail conversion panel.
+ *
+ * Replaces legacy short descriptions that contain document-level markup with
+ * a consistent, accessible sales panel. Review data always comes from
+ * WooCommerce and is never fabricated.
+ */
+add_filter('woocommerce_short_description', 'x24_product_detail_conversion_panel', 999);
+function x24_product_detail_conversion_panel($description) {
+    if (is_admin() && !wp_doing_ajax()) {
+        return $description;
+    }
+
+    global $product;
+    if (!$product instanceof WC_Product) {
+        $product = wc_get_product(get_queried_object_id());
+    }
+    if (!$product instanceof WC_Product) {
+        return $description;
+    }
+
+    $review_count = (int) $product->get_review_count();
+    $average      = (float) $product->get_average_rating();
+
+    ob_start();
+    ?>
+    <section class="x24-product-panel" aria-label="Tư vấn đặt may áo bóng rổ">
+        <div class="x24-product-panel__intro">
+            <div>
+                <p class="x24-product-panel__label">May theo thiết kế riêng</p>
+                <h2>Ưu đãi dành cho đội nhóm</h2>
+            </div>
+            <?php if ($review_count > 0) : ?>
+                <a class="x24-product-panel__rating" href="#tab-reviews">
+                    <span aria-hidden="true">★</span>
+                    <?php echo esc_html(number_format_i18n($average, 1)); ?>/5
+                    <small><?php echo esc_html(sprintf('(%d đánh giá)', $review_count)); ?></small>
+                </a>
+            <?php else : ?>
+                <span class="x24-product-panel__trust">Thiết kế miễn phí theo yêu cầu</span>
+            <?php endif; ?>
+        </div>
+
+        <ul class="x24-product-benefits">
+            <li>Miễn phí thiết kế logo và slogan riêng</li>
+            <li>In nhiệt sắc nét, bền màu, không bong tróc</li>
+            <li>Hoàn thiện nhanh từ 1-2 ngày tùy đơn hàng</li>
+            <li>Đủ kích cỡ cho nam, nữ và trẻ em</li>
+        </ul>
+
+        <div class="x24-product-actions" aria-label="Liên hệ đặt may">
+            <a class="x24-product-actions__zalo" href="https://zalo.me/0989353247" target="_blank" rel="noopener">
+                Tư vấn qua Zalo
+            </a>
+            <a class="x24-product-actions__phone" href="tel:0989353247">
+                Gọi 0989.353.247
+            </a>
+        </div>
+        <p class="x24-product-panel__note">Giá và ưu đãi được xác nhận theo số lượng, chất liệu và yêu cầu in.</p>
+    </section>
+    <?php
+    return trim((string) ob_get_clean());
+}
+
+add_shortcode('x24_product_size_guide', 'x24_product_size_guide_shortcode');
+function x24_product_size_guide_shortcode() {
+    if (!is_product()) {
+        return '';
+    }
+
+    ob_start();
+    ?>
+    <section class="x24-size-guide x24-size-guide--full" aria-labelledby="x24-size-guide-title">
+        <div class="x24-size-guide__heading">
+            <div>
+                <p class="x24-size-guide__label">Hướng dẫn chọn size</p>
+                <h2 id="x24-size-guide-title">Bảng size áo bóng rổ nam và nữ</h2>
+            </div>
+            <p>Đối chiếu cân nặng trước, sau đó dùng chiều cao để chọn giữa hai size gần nhau.</p>
+        </div>
+
+        <div class="x24-size-guide__grid">
+            <?php x24_render_size_table(
+                'Bảng size nam',
+                array('S', 'M', 'L', 'XL', '2XL', '3XL', '4XL-6XL'),
+                array(
+                    'Cân nặng (kg)' => array('45-53', '53-60', '60-68', '68-74', '74-80', '80-86', '86-120'),
+                    'Chiều cao (m)' => array('1,45-1,60', '1,60-1,65', '1,65-1,70', '1,70-1,75', '1,75-1,80', '1,80-1,85', '1,80-1,85'),
+                    'Rộng áo (cm)'  => array('46', '48', '50', '52', '54', '56', '58'),
+                    'Dài áo (cm)'   => array('62', '64', '66', '68', '70', '72', '72'),
+                ),
+                true
+            ); ?>
+
+            <?php x24_render_size_table(
+                'Bảng size nữ',
+                array('S', 'M', 'L', 'XL', '2XL', '3XL', '4XL-6XL'),
+                array(
+                    'Cân nặng (kg)' => array('40-45', '45-50', '50-55', '55-60', '60-65', '65-70', '70-100'),
+                    'Chiều cao (m)' => array('1,50-1,55', '1,55-1,60', '1,57-1,62', '1,60-1,65', '1,62-1,68', '1,64-1,70', '1,64-1,70'),
+                    'Rộng áo (cm)'  => array('42', '44', '46', '48', '50', '52', '54'),
+                    'Dài áo (cm)'   => array('56', '58', '60', '62', '64', '66', '66'),
+                ),
+                true
+            ); ?>
+        </div>
+
+        <p class="x24-size-guide__note">Số đo có thể chênh lệch nhẹ theo chất liệu và form áo. Liên hệ Zalo để được tư vấn khi số đo nằm giữa hai size.</p>
+    </section>
+    <?php
+    return trim((string) ob_get_clean());
+}
+
+function x24_render_size_table($title, $sizes, $rows, $open = false) {
+    ?>
+    <details class="x24-size-table" <?php echo $open ? 'open' : ''; ?>>
+        <summary>
+            <span><?php echo esc_html($title); ?></span>
+            <span class="x24-size-table__toggle" aria-hidden="true">Xem thông số</span>
+        </summary>
+        <div class="x24-size-table__scroll" tabindex="0" role="region" aria-label="<?php echo esc_attr($title); ?>">
+            <table>
+                <caption class="screen-reader-text"><?php echo esc_html($title); ?></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Size</th>
+                        <?php foreach ($sizes as $size) : ?>
+                            <th scope="col"><?php echo esc_html($size); ?></th>
+                        <?php endforeach; ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($rows as $label => $values) : ?>
+                        <tr>
+                            <th scope="row"><?php echo esc_html($label); ?></th>
+                            <?php foreach ($values as $value) : ?>
+                                <td><?php echo esc_html($value); ?></td>
+                            <?php endforeach; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </details>
+    <?php
+}
+
+// === Fabric page: inject remixicon via wp_head (bypass Autoptimize) ===
+add_action("wp_head", "x24_fabric_remixicon", 20);
+function x24_fabric_remixicon() {
+    if (is_singular("page") && is_page("chat-lieu-vai")) {
+        echo "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css\">\n";
+    }
+}
+
+
+
+// === Zoomable image viewer for fabric page (mayaochaybo.vn/chat-lieu-vai/) ===
+// Hook at template_redirect priority 1 (before Autoptimize's buffer at priority 2)
+// to disable JS optimization and enqueue the lightbox script.
+add_action("template_redirect", "x24_fabric_lightbox_setup", 1);
+function x24_fabric_lightbox_setup() {
+    if (!is_singular("page") || !is_page("chat-lieu-vai")) {
+        return;
+    }
+    add_filter("autoptimize_filter_js_noptimize", "__return_true");
+    $relative_path = "/x24-fabric-lightbox.js";
+    $absolute_path = get_stylesheet_directory() . $relative_path;
+    wp_enqueue_script(
+        "x24-fabric-lightbox",
+        get_stylesheet_directory_uri() . $relative_path,
+        array(),
+        file_exists($absolute_path) ? (string) filemtime($absolute_path) : null,
+        true
+    );
+}

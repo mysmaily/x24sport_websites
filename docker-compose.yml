@@ -1,0 +1,44 @@
+services:
+  cms-api:
+    build:
+      context: ./cms-api
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://${SPORTS_CMS_DB_USER}:${SPORTS_CMS_DB_PASSWORD}@${SPORTS_CMS_DB_HOST}:${SPORTS_CMS_DB_PORT}/${SPORTS_CMS_DB_NAME}
+      CLOUDFLARE_ACCOUNT_ID: ${CLOUDFLARE_ACCOUNT_ID:-}
+      CLOUDFLARE_R2_ACCESS_KEY_ID: ${CLOUDFLARE_R2_ACCESS_KEY_ID:-}
+      CLOUDFLARE_R2_BUCKET_NAME: ${CLOUDFLARE_R2_BUCKET_NAME:-}
+      CLOUDFLARE_R2_ENDPOINT: ${CLOUDFLARE_R2_ENDPOINT:-}
+      CLOUDFLARE_R2_PUBLIC_URL: ${CLOUDFLARE_R2_PUBLIC_URL:-https://static.x24sport.vn}
+      CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${CLOUDFLARE_R2_SECRET_ACCESS_KEY:-}
+      PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL}
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      PORT: 3001
+    ports:
+      - "3001:3001"
+
+  mayaocaulong:
+    build:
+      context: ./mayaocaulong.vn
+    restart: unless-stopped
+    depends_on:
+      - cms-api
+    environment:
+      PAYLOAD_API_URL: http://cms-api:3001
+      PORT: 3002
+      TENANT_SLUG: mayaocaulong
+    ports:
+      - "3002:3002"
+
+  mayaobongchuyen:
+    build:
+      context: ./mayaobongchuyen.vn
+    restart: unless-stopped
+    depends_on:
+      - cms-api
+    environment:
+      PAYLOAD_API_URL: http://cms-api:3001
+      PORT: 3003
+      TENANT_SLUG: mayaobongchuyen
+    ports:
+      - "3003:3003"

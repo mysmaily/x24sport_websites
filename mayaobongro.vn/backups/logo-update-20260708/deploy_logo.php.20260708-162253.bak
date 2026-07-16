@@ -1,0 +1,88 @@
+<?php
+require '/var/www/mayaobongro.vn/wp-load.php';
+require_once ABSPATH . 'wp-admin/includes/image.php';
+require_once ABSPATH . 'wp-admin/includes/file.php';
+require_once ABSPATH . 'wp-admin/includes/media.php';
+
+$filename = 'mayaobongro-header-logo-20260707-v3.png';
+$relative = '2026/07/' . $filename;
+$upload_path = WP_CONTENT_DIR . '/uploads/' . $relative;
+$backup_dir = WP_CONTENT_DIR . '/uploads/brand-migration-backups';
+$backup_file = $backup_dir . '/header-logo-backup-' . date('Ymd-His') . '.json';
+
+if (!is_dir($backup_dir)) {
+    wp_mkdir_p($backup_dir);
+}
+
+$backup = [
+    'created_at' => date('c'),
+    'theme' => get_stylesheet(),
+    'theme_mods_option' => 'theme_mods_' . get_stylesheet(),
+    'theme_mods' => get_theme_mods(),
+    'custom_logo_option' => get_option('custom_logo'),
+    'blogname' => get_option('blogname'),
+    'blogdescription' => get_option('blogdescription'),
+];
+
+file_put_contents(
+    $backup_file,
+    wp_json_encode($backup, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
+);
+
+global $wpdb;
+$attachment_id = (int) $wpdb->get_var(
+    $wpdb->prepare(
+        "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_wp_attached_file' AND meta_value = %s LIMIT 1",
+        $relative
+    )
+);
+
+if (!$attachment_id) {
+    if (!is_file($upload_path)) {
+        fwrite(STDERR, "Missing upload: {$upload_path}\n");
+        exit(1);
+    }
+
+    $filetype = wp_check_filetype($filename, null);
+    $attachment_id = wp_insert_attachment(
+        [
+            'guid' => content_url('uploads/' . $relative),
+            'post_mime_type' => $filetype['type'],
+            'post_title' => 'Mayaobongro.vn header logo 20260707',
+            'post_content' => '',
+            'post_status' => 'inherit',
+        ],
+        $upload_path
+    );
+
+    if (is_wp_error($attachment_id) || !$attachment_id) {
+        fwrite(STDERR, 'Failed to create attachment: ' . print_r($attachment_id, true) . "\n");
+        exit(1);
+    }
+}
+
+update_post_meta($attachment_id, '_wp_attachment_image_alt', 'Mayaobongro.vn');
+$metadata = wp_generate_attachment_metadata($attachment_id, $upload_path);
+if (!empty($metadata)) {
+    wp_update_attachment_metadata($attachment_id, $metadata);
+}
+
+set_theme_mod('site_logo', $attachment_id);
+set_theme_mod('site_logo_dark', $attachment_id);
+set_theme_mod('custom_logo', $attachment_id);
+set_theme_mod('logo_width', '330');
+
+echo wp_json_encode(
+    [
+        'attachment_id' => $attachment_id,
+        'url' => wp_get_attachment_url($attachment_id),
+        'backup_file' => $backup_file,
+        'theme_mods' => [
+            'site_logo' => get_theme_mod('site_logo'),
+            'site_logo_dark' => get_theme_mod('site_logo_dark'),
+            'custom_logo' => get_theme_mod('custom_logo'),
+            'logo_width' => get_theme_mod('logo_width'),
+        ],
+    ],
+    JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
+) . "\n";

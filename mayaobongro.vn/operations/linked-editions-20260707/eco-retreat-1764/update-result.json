@@ -1,0 +1,42 @@
+
+Warning: unlink(/var/www/mayaobongro.vn/wp-content/uploads/codex-ops/eco-retreat-1764/eco-retreat-tieu-hoc.webp): Permission denied in /var/www/mayaobongro.vn/wp-admin/includes/file.php on line 1021
+
+Warning: unlink(/var/www/mayaobongro.vn/wp-content/uploads/codex-ops/eco-retreat-1764/eco-retreat-trung-hoc.webp): Permission denied in /var/www/mayaobongro.vn/wp-admin/includes/file.php on line 1021
+{
+    "plugin_active": true,
+    "edition_group": "eco-retreat-xanh-la-nhat",
+    "old_source_media_id": 2405,
+    "old_slug": "ao-chay-bo-eco-retreat-xanh-la-nhat-tuoi-mat-ben-vung",
+    "elementary": {
+        "product_id": 2768,
+        "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-tieu-hoc-lop-4-5-eco-retreat-xanh-la-nhat/",
+        "media_id": 2769,
+        "category_ids": [
+            101,
+            97,
+            95,
+            70,
+            75
+        ],
+        "gallery_media_ids": [],
+        "linked_product_id": 1764
+    },
+    "high_school": {
+        "product_id": 1764,
+        "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-trung-hoc-lop-11-12-eco-retreat-xanh-la-nhat/",
+        "media_id": 2770,
+        "category_ids": [
+            97,
+            102,
+            95,
+            70,
+            75
+        ],
+        "gallery_media_ids": [],
+        "linked_product_id": 2768
+    },
+    "categories": {
+        "elementary": 101,
+        "high_school": 102
+    }
+}

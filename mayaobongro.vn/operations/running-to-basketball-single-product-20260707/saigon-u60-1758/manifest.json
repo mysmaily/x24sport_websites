@@ -1,0 +1,46 @@
+{
+  "job_id": "product-1758-saigon-u60-single-age-gallery",
+  "created_at": "2026-07-07T00:00:00+07:00",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaobongro.vn",
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-team-saigon-u60-gradient-hong-vang-xanh-duong-nang-dong/",
+  "destination_product_id": 1758,
+  "edition_group": "saigon-u60-gradient-pink-yellow-blue",
+  "old_title": "Áo Chạy Bộ Team SAIGON U60 Gradient Hồng Vàng Xanh Dương Năng Động",
+  "new_title": "Bộ Quần Áo Bóng Rổ SAIGON U60 Gradient X24-BR-004",
+  "old_slug": "ao-chay-bo-team-saigon-u60-gradient-hong-vang-xanh-duong-nang-dong",
+  "new_slug": "bo-quan-ao-bong-ro-saigon-u60-gradient-x24-br-004",
+  "source_image": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/saigon-u60-1758/source/saigon-u60-running-source.jpg",
+  "source_media_id": 2411,
+  "text_decisions": [
+    {"source": "SAIGON U60", "action": "preserve", "target": "SAIGON U60"},
+    {"source": "pink-yellow-blue gradient motif", "action": "preserve", "target": "pink-yellow-blue gradient motif"},
+    {"source": "áo chạy bộ / marathon / road race concept", "action": "replace", "target": "bộ quần áo bóng rổ"},
+    {"source": "running pose/environment", "action": "replace", "target": "school basketball court"},
+    {"source": "mayaochaybo.vn / hotline / mockup frame", "action": "remove", "target": ""}
+  ],
+  "category_ids": [70, 97, 101, 102, 75, 95],
+  "outputs": {
+    "elementary": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/saigon-u60-1758/final/x24-br-004-ao-bong-ro-tieu-hoc.webp",
+    "high_school": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/saigon-u60-1758/final/x24-br-004-ao-bong-ro-thpt.webp"
+  },
+  "gallery_roles": {
+    "featured": "high_school",
+    "secondary": ["elementary"]
+  },
+  "seo_keywords": [
+    "bộ quần áo bóng rổ thiết kế riêng",
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ học sinh THCS",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT",
+    "đồng phục bóng rổ trường học"
+  ],
+  "status": "verified",
+  "verified_at": "2026-07-07T06:25:00Z",
+  "backup_path": "/Users/hoang/wordpress_websites/mayaobongro.vn/backups/running-to-basketball-single-product-20260707/saigon-u60-1758/product-1758-before-audience-neutral-20260707T062232Z.json",
+  "verification_report": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/saigon-u60-1758/verification/public-verification-v2.json",
+  "errors": []
+}

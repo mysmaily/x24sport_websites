@@ -1,0 +1,38 @@
+Create a square 1:1 photorealistic ecommerce product image for mayaopickleball.vn.
+
+Use the source running-shirt image only as a garment-design reference. Preserve this design identity:
+- bright white shirt base;
+- soft light-gray abstract swirl/camo pattern across the torso;
+- bold asymmetrical black-and-white symbol pattern covering one shoulder panel;
+- a very small black X24 chest mark.
+
+Remove all old text, old mockup elements, size badges, hotline, footer website text, and running cues.
+
+Convert the design into authentic pickleball apparel for two fictional Vietnamese adult models, one male and one female. This image must sell the apparel, not a lesson or match action. Both models stand relaxed and upright with blank pickleball paddles.
+
+Garment style:
+- male wears a realistic production-friendly pickleball tank top / ao 3 lo using the same white-gray-black graphic map;
+- female wears a collared no-sleeve pickleball top using the same palette and asymmetrical shoulder language;
+- her armhole stays close to the natural armpit line with a straight or nearly vertical edge, full side-bust coverage, and no fashion-tank look.
+
+Pose:
+- male front-right, confident, paddle by his side;
+- female front-left or three-quarter-front, smiling and standing tall;
+- this image must look visibly different from Image A.
+
+Crop:
+- medium product portrait;
+- garments large and readable at thumbnail scale while full tops remain visible.
+
+Scene:
+- covered Vietnamese pickleball court with soft daylight;
+- believable net geometry;
+- a subtle X24 SPORTS sign or board near the fence, secondary and softly blurred.
+
+Text/logo decisions:
+- remove ELARA, X24-CB-064, KEEP OF RUNNING, MAYAOCHAYBO.VN, 0989.353.247, and all other readable source text;
+- keep only a tiny X24 chest mark on visible shirt fronts;
+- do not place readable text on shirt backs or paddle faces;
+- do not put mayaopickleball.vn on the garments.
+
+Avoid deep fashion tanks, scooped female armholes, side-chest exposure, running poses, copied seaside background, race cues, distorted text, distorted hands, and impossible court geometry.

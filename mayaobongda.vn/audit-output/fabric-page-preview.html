@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chất liệu vải may áo bóng đá | X24 Sport</title>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:root {
+  --x24-accent: #c51f2a;
+  --x24-accent-dark: #9d1720;
+  --x24-ink: #17181a;
+  --x24-muted: #62666d;
+  --x24-line: #e3e5e8;
+  --x24-surface: #f5f6f7;
+  --x24-container: 1280px;
+  --x24-shadow: 0 12px 30px rgba(23, 24, 26, 0.08);
+}
+* { box-sizing: border-box; }
+body { background: #fff; color: var(--x24-ink); font-family: "Roboto Condensed", "Arial Narrow", Arial, sans-serif; margin: 0; }
+nav.topbar { background: #17181a; border-bottom: 1px solid rgba(255,255,255,0.08); }
+nav.topbar .inner { align-items: center; display: flex; gap: 24px; justify-content: space-between; margin: 0 auto; max-width: 1280px; padding: 14px 20px; }
+nav.topbar a { color: #c9ccd1; font-size: 14px; font-weight: 700; text-decoration: none; }
+nav.topbar .logo { color: #fff; font-size: 17px; font-weight: 800; letter-spacing: 0.02em; }
+nav.topbar .links { display: flex; gap: 22px; }
+
+.entry-header { background: var(--x24-ink); color: #fff; margin: 0; padding: 60px 20px 48px; position: relative; overflow: hidden; }
+.entry-header::after { background: radial-gradient(circle at 85% 15%, rgba(197,31,42,0.28), transparent 55%), radial-gradient(circle at 10% 90%, rgba(255,255,255,0.06), transparent 60%); content: ""; inset: 0; pointer-events: none; position: absolute; }
+.entry-header-inner { margin: 0 auto; max-width: var(--x24-container); position: relative; z-index: 1; }
+.x24-bento-eyebrow { align-items: center; color: #ff6972; display: inline-flex; font-size: 12px; font-weight: 800; gap: 8px; letter-spacing: 0.04em; margin-bottom: 14px; text-transform: uppercase; }
+.x24-bento-eyebrow::before { background: var(--x24-accent); border-radius: 999px; content: ""; display: inline-block; height: 7px; width: 7px; }
+.entry-header h1 { color: #fff; font-size: clamp(30px, 4vw, 44px); line-height: 1.1; margin: 0 0 12px; }
+.entry-header p { color: #c9ccd1; font-size: 16px; line-height: 1.6; margin: 0; max-width: 60ch; }
+
+.x24-fabric-grid { display: grid; gap: 22px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 40px auto; max-width: var(--x24-container); padding: 0 20px; }
+.x24-fabric-card { background: #fff; border: 1px solid var(--x24-line); border-radius: 14px; display: flex; flex-direction: column; overflow: hidden; transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease; }
+.x24-fabric-card:hover { border-color: #c9cdd2; box-shadow: var(--x24-shadow); transform: translateY(-3px); }
+.x24-fabric-card-media { aspect-ratio: 4/3; background: var(--x24-surface); overflow: hidden; position: relative; }
+.x24-fabric-card-media .x24-fabric-placeholder { align-items: center; color: #b3b7bd; display: flex; flex-direction: column; font-size: 13px; gap: 8px; height: 100%; justify-content: center; text-align: center; }
+.x24-fabric-card-media .x24-fabric-placeholder i { color: #d4d7dd; font-size: 38px; }
+.x24-fabric-card-body { display: flex; flex-direction: column; gap: 8px; padding: 20px; }
+.x24-fabric-card-body h2 { color: var(--x24-ink); font-size: 19px; line-height: 1.2; margin: 0; }
+.x24-fabric-card-body p { color: var(--x24-muted); font-size: 14px; line-height: 1.55; margin: 0; }
+.x24-fabric-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.x24-fabric-card-tags span { background: rgba(197,31,42,0.08); border-radius: 999px; color: var(--x24-accent-dark); font-size: 12px; font-weight: 700; padding: 4px 10px; }
+
+.x24-fabric-cta { align-items: center; background: var(--x24-ink); border-radius: 16px; display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; margin: 0 auto 60px; max-width: var(--x24-container); padding: 30px 28px; }
+.x24-fabric-cta-copy h2 { color: #fff; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.15; margin: 0 0 6px; }
+.x24-fabric-cta-copy p { color: #c9ccd1; font-size: 14px; line-height: 1.5; margin: 0; }
+.x24-bento-cta { align-items: center; background: var(--x24-accent); border-radius: 999px; color: #fff !important; display: inline-flex; font-size: 15px; font-weight: 800; gap: 8px; padding: 13px 22px; text-decoration: none; text-transform: none; white-space: nowrap; width: max-content; }
+.x24-bento-cta:hover { background: var(--x24-accent-dark); }
+.x24-bento-cta i { font-size: 18px; }
+
+.x24-fabric-footer { background: #151618; color: #d7d9dc; padding: 36px 20px; text-align: center; }
+.x24-fabric-footer .inner { margin: 0 auto; max-width: 1280px; }
+.x24-fabric-footer a { color: #f0f1f2; text-decoration: none; }
+
+@media (max-width: 1024px) { .x24-fabric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 549px) {
+  .x24-fabric-grid { gap: 16px; grid-template-columns: minmax(0, 1fr); padding: 0 16px; }
+  .entry-header { padding: 44px 16px 36px; }
+  .x24-fabric-cta { padding: 22px 20px; }
+}
+</style>
+</head>
+<body class="chat-lieu-vai-page">
+<nav class="topbar">
+  <div class="inner">
+    <a class="logo" href="#">X24 SPORT</a>
+    <div class="links">
+      <a href="#">Trang chủ</a>
+      <a href="#">Áo không logo</a>
+      <a href="#">Thiết kế áo</a>
+    </div>
+  </div>
+</nav>
+<header class="entry-header">
+  <div class="entry-header-inner">
+    <span class="x24-bento-eyebrow">Chất liệu vải</span>
+    <h1>5+ chất liệu vải may áo bóng đá X24 Sport</h1>
+    <p>Tổng hợp các loại vải may áo bóng đá tại X24 Sport: two-way, lon bò, peached, coolmax, mesh, thun lạnh. Mỗi loại được tuyển chọn cho từng điều kiện sân, vị trí và ngân sách của đội bóng.</p>
+  </div>
+</header>
+<section class="x24-fabric-grid">
+  <article class="x24-fabric-card">
+    <div class="x24-fabric-card-media"><div class="x24-fabric-placeholder"><i class="ri-image-2-line"></i><span>Ảnh chất liệu 1</span></div></div>
+    <div class="x24-fabric-card-body">
+      <h2>Vải two-way thoáng mát</h2>
+      <p>Co giãn 4 chiều, nhẹ và thoáng khí. Phù hợp mọi vị trí, trận đấu dài không bí bách.</p>
+      <div class="x24-fabric-card-tags"><span>Co giãn 4 chiều</span><span>Thoáng khí</span><span>Phổ biến</span></div>
+    </div>
+  </article>
+  <article class="x24-fabric-card">
+    <div class="x24-fabric-card-media"><div class="x24-fabric-placeholder"><i class="ri-image-2-line"></i><span>Ảnh chất liệu 2</span></div></div>
+    <div class="x24-fabric-card-body">
+      <h2>Vải lon bò bền bỉ</h2>
+      <p>Bề mặt bóng, dày dặn, chịu lực tốt. Lý tưởng cho đội bóng thi đấu thường xuyên.</p>
+      <div class="x24-fabric-card-tags"><span>Bền bỉ</span><span>Chịu lực</span><span>Bề mặt bóng</span></div>
+    </div>
+  </article>
+  <article class="x24-fabric-card">
+    <div class="x24-fabric-card-media"><div class="x24-fabric-placeholder"><i class="ri-image-2-line"></i><span>Ảnh chất liệu 3</span></div></div>
+    <div class="x24-fabric-card-body">
+      <h2>Vải peached mềm mại</h2>
+      <p>Mặt vải êm ái, thoải mái khi mặc. Phù hợp áo đào tạo và sự kiện doanh nghiệp.</p>
+      <div class="x24-fabric-card-tags"><span>Mềm mại</span><span>Thoải mái</span><span>Đào tạo</span></div>
+    </div>
+  </article>
+  <article class="x24-fabric-card">
+    <div class="x24-fabric-card-media"><div class="x24-fabric-placeholder"><i class="ri-image-2-line"></i><span>Ảnh chất liệu 4</span></div></div>
+    <div class="x24-fabric-card-body">
+      <h2>Vải coolmax khô nhanh</h2>
+      <p>Công nghệ thấm hút mồ hôi, khô nhanh. Tối ưu cho thời tiết nóng và trận đấu cường độ cao.</p>
+      <div class="x24-fabric-card-tags"><span>Khô nhanh</span><span>Thấm hút</span><span>Cao cấp</span></div>
+    </div>
+  </article>
+  <article class="x24-fabric-card">
+    <div class="x24-fabric-card-media"><div class="x24-fabric-placeholder"><i class="ri-image-2-line"></i><span>Ảnh chất liệu 5</span></div></div>
+    <div class="x24-fabric-card-body">
+      <h2>Mesh lưới thoáng khí</h2>
+      <p>Lưới thoáng lướt gió, giảm nhiệt vùng nách và lưng. Thường ghép làm điểm nhấn thoáng.</p>
+      <div class="x24-fabric-card-tags"><span>Thoáng lưới</span><span>Ghép điểm nhấn</span></div>
+    </div>
+  </article>
+  <article class="x24-fabric-card">
+    <div class="x24-fabric-card-media"><div class="x24-fabric-placeholder"><i class="ri-image-2-line"></i><span>Ảnh chất liệu 6</span></div></div>
+    <div class="x24-fabric-card-body">
+      <h2>Vải thun lạnh mát</h2>
+      <p>Bề mặt mát lạnh, chống nhăn. Tốt cho áo bóng đá sân nhỏ và hoạt động ngoài trời.</p>
+      <div class="x24-fabric-card-tags"><span>Mát lạnh</span><span>Chống nhăn</span></div>
+    </div>
+  </article>
+</section>
+<section class="x24-fabric-cta">
+  <div class="x24-fabric-cta-copy">
+    <h2>Chưa rõ chất liệu nào phù hợp?</h2>
+    <p>Đội ngũ X24 Sport tư vấn miễn phí theo nhu cầu thi đấu và ngân sách của đội.</p>
+  </div>
+  <a class="x24-bento-cta" href="#">Nhận tư vấn <i class="ri-arrow-right-line"></i></a>
+</section>
+<footer class="x24-fabric-footer">
+  <div class="inner">
+    <p style="margin:0 0 8px;font-size:14px;">X24 Sport - May áo bóng đá thiết kế trực tiếp tại xưởng.</p>
+    <p style="margin:0;font-size:13px;color:#9a9da2;"><a href="#">Về trang chủ</a> · <a href="#">Thiết kế áo</a></p>
+  </div>
+</footer>
+</body>
+</html>

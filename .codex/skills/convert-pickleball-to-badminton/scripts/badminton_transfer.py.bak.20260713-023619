@@ -1,0 +1,879 @@
+#!/usr/bin/env python3
+"""Convert final pickleball product images into Payload badminton products."""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+
+ROOT = Path(__file__).resolve().parents[1]
+ASSETS_DIR = ROOT / "assets"
+RUNTIME_VENV_PYTHON = ROOT / ".runtime-venv" / "bin" / "python"
+LOGO_BADGE = ASSETS_DIR / "badge-logo.png"
+DOT_COLOR = ASSETS_DIR / "dot-color.png"
+CONTACT_PILL_TEXT = "Hotline: 0989 353 247"
+DEFAULT_SOURCE_ROOT = Path("/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/transfer-running-image-to-pickleball-v5/operations")
+DEFAULT_WAVE = Path("/Users/hoang/hacado/wordpress_websites/mayaocaulong.vn/operations/pickleball-to-badminton")
+DEFAULT_PRICE = 135000
+DEFAULT_COMPARE_AT_PRICE = 200000
+TERMINAL_STATUSES = {"verified", "skipped_duplicate"}
+STATUS_ORDER = {
+    "source_discovered": 10,
+    "reserved": 20,
+    "source_copied": 30,
+    "analyzed": 40,
+    "images_generated": 50,
+    "media_uploaded": 60,
+    "product_updated": 70,
+    "verified": 80,
+    "skipped_duplicate": 90,
+}
+FORBIDDEN = [
+    "pickleball",
+    "running",
+    "runner",
+    "chạy bộ",
+    "mayaochaybo",
+    "mayaopickleball",
+    "prompt",
+    "render",
+    "watermark",
+    "metadata",
+]
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def load_env(path: Path | None) -> dict[str, str]:
+    env = os.environ.copy()
+    if path and path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            env.setdefault(key.strip(), value.strip().strip("'\""))
+    env.setdefault("PAYLOAD_BASE_URL", "http://localhost:3001")
+    env.setdefault("MAYAOCAULONG_PUBLIC_BASE_URL", "https://mayaocaulong.vn")
+    return env
+
+
+def read_jsonl(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    records: list[dict[str, Any]] = []
+    for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+        if not line.strip():
+            continue
+        try:
+            records.append(json.loads(line))
+        except json.JSONDecodeError as exc:
+            raise SystemExit(f"{path}:{line_no}: invalid JSON: {exc}") from exc
+    return records
+
+
+def write_jsonl(path: Path, records: list[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text("".join(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n" for record in records), encoding="utf-8")
+    tmp.replace(path)
+
+
+def manifest_path(wave_dir: Path) -> Path:
+    return wave_dir / "manifest.jsonl"
+
+
+def converted_path(wave_dir: Path) -> Path:
+    return wave_dir / "converted-sources.jsonl"
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def slugify_ascii(value: str) -> str:
+    replacements = {
+        "đ": "d",
+        "á": "a", "à": "a", "ả": "a", "ã": "a", "ạ": "a",
+        "ă": "a", "ắ": "a", "ằ": "a", "ẳ": "a", "ẵ": "a", "ặ": "a",
+        "â": "a", "ấ": "a", "ầ": "a", "ẩ": "a", "ẫ": "a", "ậ": "a",
+        "é": "e", "è": "e", "ẻ": "e", "ẽ": "e", "ẹ": "e",
+        "ê": "e", "ế": "e", "ề": "e", "ể": "e", "ễ": "e", "ệ": "e",
+        "í": "i", "ì": "i", "ỉ": "i", "ĩ": "i", "ị": "i",
+        "ó": "o", "ò": "o", "ỏ": "o", "õ": "o", "ọ": "o",
+        "ô": "o", "ố": "o", "ồ": "o", "ổ": "o", "ỗ": "o", "ộ": "o",
+        "ơ": "o", "ớ": "o", "ờ": "o", "ở": "o", "ỡ": "o", "ợ": "o",
+        "ú": "u", "ù": "u", "ủ": "u", "ũ": "u", "ụ": "u",
+        "ư": "u", "ứ": "u", "ừ": "u", "ử": "u", "ữ": "u", "ự": "u",
+        "ý": "y", "ỳ": "y", "ỷ": "y", "ỹ": "y", "ỵ": "y",
+    }
+    text = value.lower()
+    for src, dest in replacements.items():
+        text = text.replace(src, dest)
+    return re.sub(r"[^a-z0-9]+", "-", text).strip("-")
+
+
+def source_key_for_path(path: Path) -> str:
+    parts = path.parts
+    if "operations" in parts:
+        idx = parts.index("operations")
+        if idx + 1 < len(parts):
+            op_name = slugify_ascii(parts[idx + 1])
+            if op_name:
+                return op_name
+    return slugify_ascii(path.stem)
+
+
+def infer_colors(text: str) -> list[str]:
+    lower = slugify_ascii(text)
+    mapping = [
+        ("hong", "hồng"),
+        ("do", "đỏ"),
+        ("den", "đen"),
+        ("trang", "trắng"),
+        ("vang", "vàng"),
+        ("cam", "cam"),
+        ("tim", "tím"),
+        ("xanh-ngoc", "xanh ngọc"),
+        ("xanh", "xanh"),
+    ]
+    colors: list[str] = []
+    for needle, color in mapping:
+        if needle in lower and color not in colors:
+            colors.append(color)
+    return colors[:3] or ["nổi bật"]
+
+
+def infer_product_shape(text: str) -> str:
+    lower = slugify_ascii(text)
+    if "3-lo" in lower or "ba-lo" in lower or "khong-tay" in lower or "sat-nach" in lower:
+        return "ba lỗ"
+    if "khong-tay" in lower or "co-co-khong-tay" in lower or "collared-no-sleeve" in lower:
+        return "không tay"
+    return "cổ bẻ tay ngắn"
+
+
+def infer_gradient_terms(text: str, colors: list[str]) -> list[str]:
+    lower = slugify_ascii(text)
+    terms: list[str] = []
+    if "gradient" in lower:
+        terms.append("gradient thể thao")
+    if "fade" in lower or "dots" in lower or "circle" in lower:
+        terms.append("gradient chấm chuyển sắc")
+    if "splash" in lower:
+        terms.append("gradient vệt sơn")
+    color_set = set(colors)
+    if {"trắng", "đỏ", "cam"} & color_set and "gradient trắng đỏ cam" not in terms:
+        terms.append("gradient trắng đỏ cam")
+    if {"xanh", "trắng"} <= color_set or {"xanh ngọc", "trắng"} <= color_set:
+        terms.append("gradient xanh trắng")
+    if not terms:
+        if len(colors) >= 2:
+            terms.append(f"gradient {' '.join(colors[:2])}")
+        else:
+            terms.append(f"gradient {colors[0]}")
+    return terms[:3]
+
+
+def search_tags_for_record(record: dict[str, Any]) -> list[str]:
+    source_text = " ".join(
+        str(record.get(key) or "")
+        for key in ("source_path", "source_filename", "source_product_key")
+    )
+    colors = infer_colors(source_text)
+    gradients = infer_gradient_terms(source_text, colors)
+    shape = infer_product_shape(source_text)
+    base_tags = [
+        "áo cầu lông",
+        "đồng phục cầu lông",
+        "quần áo cầu lông",
+        "badminton",
+        shape,
+        *colors,
+        *gradients,
+    ]
+    seen: set[str] = set()
+    tags: list[str] = []
+    for tag in base_tags:
+        norm = slugify_ascii(tag)
+        if norm and norm not in seen:
+            seen.add(norm)
+            tags.append(tag)
+    return tags
+
+
+def product_code(prefix: str, number: int) -> str:
+    return f"{prefix}{number:03d}"
+
+
+def reservation_sku(signature: str) -> str:
+    return f"x24-cl-transfer-{signature[:18]}"
+
+
+class PayloadClient:
+    def __init__(self, env: dict[str, str]):
+        self.base_url = env["PAYLOAD_BASE_URL"].rstrip("/")
+        self.env = env
+        self.token = env.get("PAYLOAD_TOKEN") or self.login(env)
+
+    def login(self, env: dict[str, str]) -> str:
+        email = env.get("PAYLOAD_EMAIL") or env.get("PAYLOAD_SEED_EMAIL")
+        password = env.get("PAYLOAD_PASSWORD") or env.get("PAYLOAD_SEED_PASSWORD")
+        if not email or not password:
+            raise RuntimeError("missing PAYLOAD_TOKEN or PAYLOAD_EMAIL/PAYLOAD_PASSWORD")
+        data = self.request("/api/users/login", method="POST", payload={"email": email, "password": password}, auth=False)
+        token = data.get("token")
+        if not token:
+            raise RuntimeError("Payload login response did not include token")
+        return str(token)
+
+    def request(self, path: str, method: str = "GET", payload: dict[str, Any] | None = None, auth: bool = True) -> Any:
+        data = None if payload is None else json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        req = urllib.request.Request(
+            self.base_url + path,
+            data=data,
+            method=method,
+            headers={"Accept": "application/json", "User-Agent": "badminton-transfer/1.0"},
+        )
+        if payload is not None:
+            req.add_header("Content-Type", "application/json")
+        if auth:
+            req.add_header("Authorization", f"Bearer {self.token}")
+        try:
+            with urllib.request.urlopen(req, timeout=60) as response:
+                raw = response.read().decode("utf-8")
+                return json.loads(raw) if raw else {}
+        except urllib.error.HTTPError as exc:
+            body = exc.read().decode("utf-8", errors="ignore")
+            detail = body[:1000] if body else exc.reason
+            raise RuntimeError(f"Payload API {method} {path} failed with HTTP {exc.code}: {detail}") from exc
+
+    def product_by_sku(self, sku: str) -> dict[str, Any] | None:
+        query = urllib.parse.urlencode({"where[sku][equals]": sku})
+        data = self.request(f"/api/products?{query}")
+        docs = data.get("docs") if isinstance(data, dict) else None
+        if docs:
+            return docs[0]
+        return None
+
+    @staticmethod
+    def unwrap_doc(data: Any) -> dict[str, Any]:
+        if isinstance(data, dict) and isinstance(data.get("doc"), dict):
+            return data["doc"]
+        if isinstance(data, dict):
+            return data
+        raise RuntimeError(f"unexpected Payload document response: {type(data)!r}")
+
+    def create_product(self, payload: dict[str, Any]) -> dict[str, Any]:
+        return self.unwrap_doc(self.request("/api/products", method="POST", payload=payload))
+
+    def update_product(self, product_id: str | int, payload: dict[str, Any]) -> dict[str, Any]:
+        return self.unwrap_doc(self.request(f"/api/products/{product_id}", method="PATCH", payload=payload))
+
+    def get_product(self, product_id: str | int) -> dict[str, Any]:
+        return self.unwrap_doc(self.request(f"/api/products/{product_id}"))
+
+    def upload_media(self, path: Path, alt: str, search_tags: list[str] | None = None) -> dict[str, Any]:
+        payload: dict[str, Any] = {"alt": alt}
+        if search_tags:
+            payload["searchTags"] = [{"value": tag} for tag in search_tags]
+        if self.env.get("PAYLOAD_TENANT_ID"):
+            payload["tenant"] = self.env["PAYLOAD_TENANT_ID"]
+        cmd = [
+            "curl", "-sS", "--fail", "--max-time", "120",
+            "-H", f"Authorization: Bearer {self.token}",
+            "-F", f"file=@{path}",
+            "-F", "_payload=" + json.dumps(payload, ensure_ascii=False),
+            f"{self.base_url}/api/media",
+        ]
+        display = ["curl", "-sS", "--fail", "--max-time", "120", "-H", "Authorization: Bearer ***REDACTED***", "-F", f"file=@{path}", "-F", "_payload=***", f"{self.base_url}/api/media"]
+        print("+ " + " ".join(display), flush=True)
+        result = subprocess.run(cmd, text=True, capture_output=True, check=True)
+        return self.unwrap_doc(json.loads(result.stdout))
+
+
+def maybe_tenant(env: dict[str, str]) -> dict[str, Any]:
+    return {"tenant": env["PAYLOAD_TENANT_ID"]} if env.get("PAYLOAD_TENANT_ID") else {}
+
+
+def lexical_doc(paragraphs: list[str]) -> dict[str, Any]:
+    children = []
+    for paragraph in paragraphs:
+        children.append({
+            "type": "paragraph",
+            "children": [{"text": paragraph, "type": "text", "version": 1}],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+        })
+    return {"root": {"type": "root", "children": children, "direction": "ltr", "format": "", "indent": 0, "version": 1}}
+
+
+def placeholder_payload(record: dict[str, Any], env: dict[str, str]) -> dict[str, Any]:
+    key = str(record["source_product_key"])
+    sku = reservation_sku(str(record["source_signature"]))
+    payload = {
+        "name": f"[Đang tạo] {record['product_code']} từ {key}",
+        "slug": f"dang-tao-cau-long-{slugify_ascii(key)}-{str(record['source_signature'])[:8]}",
+        "sku": sku,
+        "sport": "badminton",
+        "price": 0,
+        "shortDescription": "Sản phẩm đang được hệ thống tạo ảnh và nội dung.",
+        "badges": [{"label": "Đang tạo"}],
+        "featured": False,
+    }
+    payload.update(maybe_tenant(env))
+    return payload
+
+
+def final_product_payload(record: dict[str, Any], media_ids: list[int], env: dict[str, str]) -> dict[str, Any]:
+    code = str(record["product_code"])
+    source_text = " ".join(
+        str(record.get(key) or "")
+        for key in ("source_path", "source_filename", "source_product_key")
+    )
+    colors = infer_colors(source_text)
+    gradients = infer_gradient_terms(source_text, colors)
+    shape = infer_product_shape(source_text)
+    search_tags = search_tags_for_record(record)
+    color_copy = ", ".join(colors)
+    color_title = " ".join(color.title() for color in colors if color != "nổi bật") or "Nổi Bật"
+    slug_color = "-".join(slugify_ascii(color) for color in colors if color != "nổi bật") or "noi-bat"
+    gradient_copy = ", ".join(gradients)
+    name = f"Áo Cầu Lông Đặt May {code} {color_title} {shape.title()}"
+    short = (
+        f"Mẫu áo cầu lông đặt may {code} tông {color_copy}, {gradient_copy}, "
+        f"phù hợp đồng phục câu lạc bộ, đội phong trào và đơn in tên số theo yêu cầu."
+    )
+    paragraphs = [
+        f"{name} là mẫu quần áo cầu lông đặt may nổi bật với tông {color_copy} và hiệu ứng {gradient_copy}, phù hợp cho đội thi đấu, câu lạc bộ và nhóm phong trào cần hình ảnh đồng bộ, hiện đại.",
+        f"Phom {shape} được xử lý theo hướng thể thao gọn gàng, giúp lên form đẹp trong nhà thi đấu và giữ cảm giác thoải mái khi di chuyển, xoay trở và giao cầu.",
+        "Khách hàng có thể đặt in tên, số, logo đội hoặc điều chỉnh màu sắc theo nhận diện riêng để dùng cho giải nội bộ, giải phong trào, lớp năng khiếu hoặc đồng phục câu lạc bộ cầu lông.",
+    ]
+    payload = {
+        "name": name,
+        "slug": f"ao-cau-long-dat-may-{code.lower()}-{slug_color}",
+        "sku": code,
+        "sport": "badminton",
+        "price": int(env.get("BADMINTON_TRANSFER_PRICE", DEFAULT_PRICE)),
+        "compareAtPrice": int(env.get("BADMINTON_TRANSFER_COMPARE_AT_PRICE", DEFAULT_COMPARE_AT_PRICE)),
+        "shortDescription": short,
+        "description": lexical_doc(paragraphs),
+        "searchTags": [{"value": tag} for tag in search_tags],
+        "gallery": media_ids,
+        "badges": [{"label": "Mới"}],
+        "featured": False,
+    }
+    payload.update(maybe_tenant(env))
+    shopper = json.dumps(payload, ensure_ascii=False).casefold()
+    hits = [term for term in FORBIDDEN if term in shopper]
+    if hits:
+        raise RuntimeError("forbidden shopper terms: " + ", ".join(hits))
+    return payload
+
+
+def load_manifest(wave_dir: Path) -> list[dict[str, Any]]:
+    return read_jsonl(manifest_path(wave_dir))
+
+
+def save_manifest(wave_dir: Path, records: list[dict[str, Any]]) -> None:
+    write_jsonl(manifest_path(wave_dir), records)
+
+
+def find_record(records: list[dict[str, Any]], source_key: str) -> dict[str, Any]:
+    for record in records:
+        if str(record.get("source_product_key")) == source_key:
+            return record
+    raise SystemExit(f"source_product_key not found: {source_key}")
+
+
+def mark_record(wave_dir: Path, source_key: str, status: str, patch: dict[str, Any] | None = None, error: str | None = None) -> None:
+    records = load_manifest(wave_dir)
+    record = find_record(records, source_key)
+    record["status"] = status
+    record["updated_at"] = utc_now()
+    if error is not None:
+        record["last_error"] = error or None
+        if error:
+            record["attempt_count"] = int(record.get("attempt_count") or 0) + 1
+    if patch:
+        record.update(patch)
+    save_manifest(wave_dir, records)
+
+
+def pending(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    items = [record for record in records if record.get("status") not in TERMINAL_STATUSES]
+    items.sort(key=lambda record: (STATUS_ORDER.get(str(record.get("status")), 999), int(record.get("source_index") or 0)))
+    return items
+
+
+def prompt_for_record(record: dict[str, Any]) -> str:
+    colors = ", ".join(infer_colors(str(record.get("source_path") or record.get("source_filename") or "")))
+    code = str(record["product_code"])
+    return f"""Create a photorealistic square 1:1 product image for mayaocaulong.vn.
+
+Use the provided pickleball product image only as a garment and composition reference. Preserve the clothing design: colorway ({colors}), panel placement, graphic flow, collar/sleeve shape, accents, fabric texture, and commercial product-selling clarity. Convert the sport world completely into badminton.
+
+Output requirement: Vietnamese badminton apparel catalog photo for product {code}. Replace pickleball paddles with badminton rackets, replace balls with shuttlecocks only if naturally present, replace the court with an unmistakable badminton court or indoor badminton hall: badminton net height and mesh, court boundary lines, polished indoor floor or dedicated badminton surface, sports hall lighting, and subtle club background. A small or distant in-venue X24 Sport advertising banner is allowed when it looks naturally mounted in the hall and stays secondary in the frame. Do not show volleyball, pickleball, tennis, running, race, or outdoor road cues.
+
+Models and pose: keep a relaxed catalog/product posture. Avoid jump smash, lunging action, overdramatic athletic poses, or motion blur. If two models are visible in the source, use one fictional Vietnamese adult male and one fictional Vietnamese adult female together. If the source is single-model, keep a clean single-model catalog pose unless the user asks for a pair. For the female model, most outputs should stay front-facing or slight-angle. Allow occasional back-look variations where she turns enough to show the back of the shirt clearly and looks back over the shoulder in a natural elegant way. Do not make every image back-look. When the user asks to lock the female model face, apply that face-lock only to front-facing or slight-angle female poses. First choose one source image as the identity anchor and keep the target body/head pose close to that anchor. Prefer compositions with similar head yaw, pitch, shoulder angle, and torso direction. Preserve the facial identity, ear visibility, jawline, skin tone, neck width, shoulder angle, camera angle, and natural jaw-to-neck transition. Do not copy the original hair shape from the anchor; allow newly generated hair that fits the new pose and lighting. The neck, collar contact, shoulders, chin contour, and hair integration must look anatomically real, as if the whole head and upper body were photographed together. Do not paste only a face mask onto an unrelated head or body. If the candidate body turns too far away from the anchor, reject that composition and regenerate a closer full model instead. For back-look poses, do not use the face anchor; generate a fresh attractive female model with a graceful rear-view silhouette, controlled over-shoulder glance, visible back panel of the shirt, and hair that does not block the rear design.
+
+Garment realism: the outfit must look like real sewn sportswear worn by the model, not a pasted graphic. Show believable seams, collar, sleeve openings, hems, fabric folds, body curvature, shadows, wrinkles, and natural light response. The pattern should bend with the body and fabric tension while preserving the source design map.
+
+Branding/text: add at most a small X24 chest mark if the source already suggests that placement. Leave clean areas for later branding overlays when needed. A distant X24 Sport hall banner or wall sign is acceptable as environmental signage only. Do not add readable pickleball text, old website text, watermarks, product-code labels, phone numbers, or random foreground signage. Do not invent official overlay badges, contact pills, or color dots unless the user explicitly provides those assets for post-processing.
+
+Style: premium Vietnamese badminton sportswear photography, clean bright skin, accurate anatomy and hands, realistic badminton rackets physically held by the handles, apparel in sharp focus, background secondary and not cluttered.
+
+Avoid: pickleball court lines, pickleball paddles, tennis rackets, volleyball context, running cues, source site names, flat pasted shirt print, broken collars, distorted hands, floating rackets, unreadable random text, harsh cutout artifacts, and any shopper-facing old-source branding."""
+
+
+def assert_webp(path: Path) -> None:
+    if path.suffix.lower() != ".webp":
+        raise SystemExit(
+            f"generated image must be .webp before mark-generated/upload: {path}"
+        )
+
+
+def load_pillow() -> tuple[Any, Any]:
+    try:
+        from PIL import Image, ImageDraw, ImageFont  # type: ignore
+    except ModuleNotFoundError as exc:
+        if (
+            os.environ.get("BADMINTON_TRANSFER_REEXEC") != "1"
+            and RUNTIME_VENV_PYTHON.exists()
+        ):
+            env = os.environ.copy()
+            env["BADMINTON_TRANSFER_REEXEC"] = "1"
+            os.execve(
+                str(RUNTIME_VENV_PYTHON),
+                [str(RUNTIME_VENV_PYTHON), __file__, *sys.argv[1:]],
+                env,
+            )
+        raise SystemExit(
+            "mark-generated requires Pillow for branding overlays. "
+            f"Install it in the active Python env with: pip install pillow, "
+            f"or create {RUNTIME_VENV_PYTHON}"
+        ) from exc
+    return Image, ImageDraw, ImageFont, Image.LANCZOS
+
+
+def load_contact_font(image_font: Any, target_size: int) -> Any:
+    candidates = [
+        "DejaVuSans-Bold.ttf",
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+        "/System/Library/Fonts/Supplemental/Arial.ttf",
+    ]
+    for candidate in candidates:
+        try:
+            return image_font.truetype(candidate, target_size)
+        except OSError:
+            continue
+    return image_font.load_default()
+
+
+def build_contact_pill(image_module: Any, image_draw: Any, image_font: Any, width: int) -> Any:
+    font = load_contact_font(image_font, max(24, int(width * 0.033)))
+    probe = image_module.new("RGBA", (10, 10), (0, 0, 0, 0))
+    draw = image_draw.Draw(probe)
+    bbox = draw.textbbox((0, 0), CONTACT_PILL_TEXT, font=font)
+    text_w = bbox[2] - bbox[0]
+    text_h = bbox[3] - bbox[1]
+    pad_x = max(18, int(width * 0.018))
+    pad_y = max(10, int(width * 0.01))
+    stroke = max(3, int(width * 0.004))
+    pill_w = text_w + pad_x * 2
+    pill_h = text_h + pad_y * 2
+    pill = image_module.new("RGBA", (pill_w, pill_h), (0, 0, 0, 0))
+    pill_draw = image_draw.Draw(pill)
+    radius = pill_h // 2
+    pill_draw.rounded_rectangle(
+        (0, 0, pill_w - 1, pill_h - 1),
+        radius=radius,
+        fill=(0, 0, 0, 168),
+        outline=(255, 255, 255, 235),
+        width=stroke,
+    )
+    pill_draw.text(
+        ((pill_w - text_w) / 2, (pill_h - text_h) / 2 - bbox[1]),
+        CONTACT_PILL_TEXT,
+        font=font,
+        fill=(255, 255, 255, 255),
+    )
+    return pill
+
+
+def branded_webp_for_generated(source_path: Path, dest_path: Path, index: int) -> None:
+    for asset in (LOGO_BADGE, DOT_COLOR):
+        if not asset.exists():
+            raise SystemExit(f"required branding asset missing: {asset}")
+
+    Image, ImageDraw, ImageFont, lanczos = load_pillow()
+    base = Image.open(source_path).convert("RGBA")
+    logo = Image.open(LOGO_BADGE).convert("RGBA")
+    dots = Image.open(DOT_COLOR).convert("RGBA")
+    width, height = base.size
+    margin = max(18, int(width * 0.028))
+
+    logo_w = max(120, int(width * 0.16))
+    logo_h = max(1, int(logo.height * (logo_w / logo.width)))
+    logo = logo.resize((logo_w, logo_h), lanczos)
+
+    contact = build_contact_pill(Image, ImageDraw, ImageFont, width)
+
+    dots_h = max(180, int(height * 0.34))
+    dots_w = max(1, int(dots.width * (dots_h / dots.height)))
+    dots = dots.resize((dots_w, dots_h), lanczos)
+
+    canvas = base.copy()
+
+    use_logo_left = index % 2 == 1
+    logo_x = margin if use_logo_left else width - logo.width - margin
+    logo_y = margin
+    canvas.alpha_composite(logo, (logo_x, logo_y))
+
+    contact_x = (width - contact.width) // 2
+    contact_y = height - contact.height - margin
+    canvas.alpha_composite(contact, (contact_x, contact_y))
+
+    use_dots_right = index % 2 == 1
+    dots_x = width - dots.width - margin if use_dots_right else margin
+    dots_y = max(margin, int(height * 0.32))
+    canvas.alpha_composite(dots, (dots_x, dots_y))
+
+    dest_path.parent.mkdir(parents=True, exist_ok=True)
+    canvas.convert("RGB").save(dest_path, "WEBP", quality=92, method=6)
+
+
+def append_converted(wave_dir: Path, record: dict[str, Any]) -> None:
+    entry = {
+        "schema_version": "1.0",
+        "source_site": "mayaopickleball.vn",
+        "destination_site": "mayaocaulong.vn",
+        "source_product_key": record.get("source_product_key"),
+        "source_path": record.get("source_path"),
+        "source_signature": record.get("source_signature"),
+        "destination_product_id": record.get("product_id"),
+        "destination_sku": record.get("product_code"),
+        "converted_at": utc_now(),
+    }
+    path = converted_path(wave_dir)
+    existing = read_jsonl(path)
+    marker = (entry["source_signature"], entry["destination_product_id"])
+    seen = {(item.get("source_signature"), item.get("destination_product_id")) for item in existing}
+    if marker not in seen:
+        with path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(entry, ensure_ascii=False, sort_keys=True) + "\n")
+
+
+def cmd_discover(args: argparse.Namespace) -> int:
+    root = args.source_root
+    patterns = ["*.webp", "*.png", "*.jpg", "*.jpeg"]
+    images: list[Path] = []
+    for pattern in patterns:
+        images.extend(root.glob(f"**/final/{pattern}"))
+    images = sorted({path.resolve() for path in images if path.is_file()})
+    if args.limit:
+        images = images[: args.limit]
+    records = []
+    for index, path in enumerate(images, start=1):
+        signature = sha256_file(path)
+        records.append({
+            "schema_version": "1.0-source-image",
+            "source_index": index,
+            "source_site": "mayaopickleball.vn",
+            "source_path": str(path),
+            "source_filename": path.name,
+            "source_product_key": source_key_for_path(path),
+            "source_signature": signature,
+            "source_size": path.stat().st_size,
+        })
+    write_jsonl(args.out, records)
+    print(json.dumps({"out": str(args.out), "count": len(records)}, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_init(args: argparse.Namespace) -> int:
+    wave_dir = args.wave_dir
+    source_records = read_jsonl(args.source_jsonl)
+    existing = load_manifest(wave_dir)
+    seen = {str(record.get("source_signature")) for record in existing if record.get("source_signature")}
+    code_no = args.product_code_start
+    added = 0
+    for source in source_records:
+        if source.get("source_signature") in seen:
+            continue
+        while any(record.get("product_code") == product_code(args.product_code_prefix, code_no) for record in existing):
+            code_no += 1
+        key = str(source["source_product_key"])
+        record = dict(source)
+        record.update({
+            "schema_version": "1.0-manifest",
+            "destination_site": "mayaocaulong.vn",
+            "product_code": product_code(args.product_code_prefix, code_no),
+            "reservation_sku": reservation_sku(str(source["source_signature"])),
+            "status": "source_discovered",
+            "attempt_count": 0,
+            "last_error": None,
+            "product_id": None,
+            "media_ids": [],
+            "artifacts": {
+                "item_dir": f"products/{key}",
+                "source": None,
+                "generated": [],
+                "prompts": [],
+            },
+            "created_at": utc_now(),
+            "updated_at": utc_now(),
+        })
+        existing.append(record)
+        seen.add(str(source["source_signature"]))
+        code_no += 1
+        added += 1
+    save_manifest(wave_dir, existing)
+    print(json.dumps({"manifest": str(manifest_path(wave_dir)), "total": len(existing), "added": added}, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_summary(args: argparse.Namespace) -> int:
+    counts: dict[str, int] = {}
+    records = load_manifest(args.wave_dir)
+    for record in records:
+        status = str(record.get("status") or "unknown")
+        counts[status] = counts.get(status, 0) + 1
+    print(json.dumps({"manifest": str(manifest_path(args.wave_dir)), "total": len(records), "counts": counts}, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_next(args: argparse.Namespace) -> int:
+    items = pending(load_manifest(args.wave_dir))
+    print(json.dumps({"done": not items, "record": None if not items else items[0]}, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_list_imagegen_ready(args: argparse.Namespace) -> int:
+    ready = []
+    for record in load_manifest(args.wave_dir):
+        if record.get("status") == "analyzed":
+            ready.append({
+                "source_product_key": record.get("source_product_key"),
+                "product_id": record.get("product_id"),
+                "source": (record.get("artifacts") or {}).get("source"),
+                "prompts": (record.get("artifacts") or {}).get("prompts") or [],
+                "generated_dir": str(args.wave_dir / "products" / str(record.get("source_product_key")) / "generated"),
+            })
+    print(json.dumps({"ready": ready}, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_mark_generated(args: argparse.Namespace) -> int:
+    records = load_manifest(args.wave_dir)
+    record = find_record(records, args.source_key)
+    item_dir = args.wave_dir / "products" / str(record["source_product_key"])
+    generated_dir = item_dir / "generated"
+    generated_dir.mkdir(parents=True, exist_ok=True)
+    generated: list[str] = []
+    for idx, image in enumerate(args.images, start=1):
+        if not image.exists():
+            raise SystemExit(f"generated image not found: {image}")
+        dest = generated_dir / f"{str(record['product_code']).lower()}-badminton-{idx}.webp"
+        branded_webp_for_generated(image, dest, idx)
+        generated.append(str(dest.relative_to(args.wave_dir)))
+    artifacts = dict(record.get("artifacts") or {})
+    artifacts["generated"] = generated
+    mark_record(args.wave_dir, args.source_key, "images_generated", {"artifacts": artifacts})
+    print(json.dumps({"source_product_key": args.source_key, "generated": generated}, ensure_ascii=False, indent=2))
+    return 0
+
+
+def process_record(record: dict[str, Any], wave_dir: Path, env: dict[str, str], client: PayloadClient | None, dry_run: bool) -> None:
+    key = str(record["source_product_key"])
+    item_dir = wave_dir / "products" / key
+    source_dir = item_dir / "source"
+    prompt_dir = item_dir / "prompts"
+    generated_dir = item_dir / "generated"
+    source_dir.mkdir(parents=True, exist_ok=True)
+    prompt_dir.mkdir(parents=True, exist_ok=True)
+    generated_dir.mkdir(parents=True, exist_ok=True)
+    source_path = Path(str(record["source_path"]))
+    local_source = source_dir / source_path.name
+
+    if dry_run:
+        print(json.dumps({
+            "dry_run_next": key,
+            "product_code": record.get("product_code"),
+            "reservation_sku": record.get("reservation_sku"),
+            "source_path": str(source_path),
+        }, ensure_ascii=False, indent=2))
+        return
+    if client is None:
+        raise RuntimeError("live run requires Payload credentials")
+
+    if record["status"] == "source_discovered":
+        existing = client.product_by_sku(str(record["reservation_sku"]))
+        if existing:
+            patch = {"product_id": existing.get("id"), "api_duplicate_attached": True}
+            mark_record(wave_dir, key, "reserved", patch)
+        else:
+            created = client.create_product(placeholder_payload(record, env))
+            mark_record(wave_dir, key, "reserved", {"product_id": created.get("id")})
+        record = find_record(load_manifest(wave_dir), key)
+
+    if record["status"] == "reserved":
+        if not source_path.exists():
+            raise RuntimeError(f"source image missing: {source_path}")
+        shutil.copy2(source_path, local_source)
+        artifacts = dict(record.get("artifacts") or {})
+        artifacts["source"] = str(local_source.relative_to(wave_dir))
+        mark_record(wave_dir, key, "source_copied", {"artifacts": artifacts})
+        record = find_record(load_manifest(wave_dir), key)
+
+    if record["status"] == "source_copied":
+        prompt_path = prompt_dir / f"{str(record['product_code']).lower()}-badminton-prompt.txt"
+        prompt_path.write_text(prompt_for_record(record), encoding="utf-8")
+        artifacts = dict(record.get("artifacts") or {})
+        artifacts["prompts"] = [str(prompt_path.relative_to(wave_dir))]
+        mark_record(wave_dir, key, "analyzed", {"artifacts": artifacts})
+        print(json.dumps({
+            "analyzed": key,
+            "source": str(local_source),
+            "prompt": str(prompt_path),
+            "generated_dir": str(generated_dir),
+            "next": "Use Codex imagegen, save the rendered images, then run mark-generated to apply branding overlays and export final .webp outputs automatically.",
+        }, ensure_ascii=False, indent=2))
+        return
+
+    if record["status"] == "analyzed":
+        print(json.dumps({"waiting_for_generated_images": key, "generated_dir": str(generated_dir)}, ensure_ascii=False, indent=2))
+        return
+
+    if record["status"] == "images_generated":
+        generated = [wave_dir / path for path in (record.get("artifacts") or {}).get("generated", [])]
+        if not generated:
+            raise RuntimeError(f"{key} has no generated images")
+        media_ids: list[int] = []
+        media_search_tags = search_tags_for_record(record)
+        for idx, path in enumerate(generated, start=1):
+            assert_webp(path)
+            alt = (
+                f"Áo cầu lông đặt may {record['product_code']} "
+                f"{', '.join(infer_colors(str(record.get('source_filename') or record.get('source_path') or '')))} "
+                f"ảnh sản phẩm {idx}"
+            )
+            media = client.upload_media(path, alt, media_search_tags)
+            media_ids.append(int(media["id"]))
+        mark_record(wave_dir, key, "media_uploaded", {"media_ids": media_ids})
+        record = find_record(load_manifest(wave_dir), key)
+
+    if record["status"] == "media_uploaded":
+        product_id = record.get("product_id")
+        if not product_id:
+            existing = client.product_by_sku(str(record["reservation_sku"]))
+            if existing and existing.get("id") is not None:
+                product_id = existing.get("id")
+                mark_record(wave_dir, key, "media_uploaded", {"product_id": product_id})
+                record = find_record(load_manifest(wave_dir), key)
+                product_id = record.get("product_id")
+        if not product_id:
+            raise RuntimeError(f"{key} is missing product_id")
+        payload = final_product_payload(record, [int(i) for i in record.get("media_ids", [])], env)
+        updated = client.update_product(product_id, payload)
+        mark_record(wave_dir, key, "product_updated", {"product_id": updated.get("id")})
+        record = find_record(load_manifest(wave_dir), key)
+
+    if record["status"] == "product_updated":
+        product_id = record.get("product_id")
+        product = client.get_product(product_id)
+        ok = product.get("sport") == "badminton" and product.get("sku") == record.get("product_code")
+        if not ok:
+            raise RuntimeError(f"verification failed for {key}: sport={product.get('sport')} sku={product.get('sku')}")
+        public_base = env.get("MAYAOCAULONG_PUBLIC_BASE_URL", "").rstrip("/")
+        product_url = f"{public_base}/san-pham/{product.get('slug')}" if public_base and product.get("slug") else None
+        mark_record(wave_dir, key, "verified", {"product_url": product_url})
+        append_converted(wave_dir, find_record(load_manifest(wave_dir), key))
+        print(json.dumps({"verified": key, "product_id": product_id, "product_url": product_url}, ensure_ascii=False, indent=2))
+
+
+def cmd_run(args: argparse.Namespace) -> int:
+    env = load_env(args.env_file)
+    client = None if args.dry_run else PayloadClient(env)
+    items = pending(load_manifest(args.wave_dir))[: args.max_items]
+    if not items:
+        print(json.dumps({"done": True}, ensure_ascii=False))
+        return 0
+    for record in items:
+        try:
+            process_record(record, args.wave_dir, env, client, args.dry_run)
+        except Exception as exc:
+            mark_record(args.wave_dir, str(record["source_product_key"]), str(record.get("status") or "source_discovered"), error=str(exc))
+            raise
+    return 0
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    discover = sub.add_parser("discover")
+    discover.add_argument("--source-root", type=Path, default=DEFAULT_SOURCE_ROOT)
+    discover.add_argument("--out", type=Path, required=True)
+    discover.add_argument("--limit", type=int)
+    discover.set_defaults(func=cmd_discover)
+
+    init = sub.add_parser("init")
+    init.add_argument("--wave-dir", type=Path, default=DEFAULT_WAVE)
+    init.add_argument("--source-jsonl", type=Path, required=True)
+    init.add_argument("--product-code-prefix", default="X24-CL-")
+    init.add_argument("--product-code-start", type=int, default=1)
+    init.set_defaults(func=cmd_init)
+
+    run = sub.add_parser("run")
+    run.add_argument("--wave-dir", type=Path, default=DEFAULT_WAVE)
+    run.add_argument("--env-file", type=Path)
+    run.add_argument("--max-items", type=int, default=1)
+    run.add_argument("--dry-run", action="store_true")
+    run.set_defaults(func=cmd_run)
+
+    mark_generated = sub.add_parser("mark-generated")
+    mark_generated.add_argument("--wave-dir", type=Path, default=DEFAULT_WAVE)
+    mark_generated.add_argument("--source-key", required=True)
+    mark_generated.add_argument("--images", type=Path, nargs="+", required=True)
+    mark_generated.set_defaults(func=cmd_mark_generated)
+
+    summary = sub.add_parser("summary")
+    summary.add_argument("--wave-dir", type=Path, default=DEFAULT_WAVE)
+    summary.set_defaults(func=cmd_summary)
+
+    next_cmd = sub.add_parser("next")
+    next_cmd.add_argument("--wave-dir", type=Path, default=DEFAULT_WAVE)
+    next_cmd.set_defaults(func=cmd_next)
+
+    ready = sub.add_parser("list-imagegen-ready")
+    ready.add_argument("--wave-dir", type=Path, default=DEFAULT_WAVE)
+    ready.set_defaults(func=cmd_list_imagegen_ready)
+
+    args = parser.parse_args()
+    return args.func(args)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

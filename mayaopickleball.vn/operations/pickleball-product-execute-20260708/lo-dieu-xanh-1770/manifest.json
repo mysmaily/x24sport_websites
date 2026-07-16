@@ -1,0 +1,144 @@
+{
+  "job_id": "lo-dieu-xanh-1770",
+  "source_site": "mayaopickleball.vn",
+  "destination_site": "mayaopickleball.vn",
+  "source_product_url": "https://mayaopickleball.vn/ao-chay-bo-xanh-duong-giai-chay-vuot-deo-lo-dieu-xanh-2026/",
+  "source_product_id": 1770,
+  "source_media_id": 2402,
+  "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/source/ao-chay-bo-lo-dieu-xanh-2026-model.jpg",
+  "old_title": "Áo Chạy Bộ Xanh Dương - Giải Chạy Vượt Đèo Lộ Diêu Xanh 2026",
+  "new_product_code": "X24-PB-003",
+  "draft_new_title": "Bộ Quần Áo Pickleball Nam Nữ X24 Xanh Dương X24-PB-003",
+  "draft_new_slug": "bo-quan-ao-pickleball-nam-nu-x24-xanh-duong-x24-pb-003",
+  "color_label": "xanh dương",
+  "palette": "blue/cyan/white",
+  "pose_slots": {
+    "image_a": "A3",
+    "image_b": "B2"
+  },
+  "text_decisions": [
+    {
+      "source": "chạy bộ / giải chạy / vượt đèo / Lò Diều Xanh 2026",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "legacy logos/source-domain/hotline",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "front chest logo",
+      "action": "replace",
+      "target": "small X24 chest mark"
+    }
+  ],
+  "outputs": {
+    "image_a_png": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/generated/x24-pb-003-image-a-a3-imagegen.png",
+    "image_a_final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/final/x24-pb-003-ao-pickleball-nam-nu-co-co-tay-ao-ngan-xanh-duong-xanh-la-vang.webp",
+    "image_b_png": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/generated/x24-pb-003-image-b-b2-safe-armhole-imagegen.png",
+    "image_b_final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/final/x24-pb-003-ao-pickleball-nam-ba-lo-nu-khoet-nach-xanh-duong-xanh-la-vang.webp",
+    "contact_sheet": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/final/contact-sheet-x24-pb-003.jpg",
+    "image_a_uploaded_media_id": 2560,
+    "image_a_uploaded_media_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-003-ao-pickleball-nam-nu-co-co-tay-ao-ngan-xanh-duong-xanh-la-vang.webp",
+    "image_b_uploaded_media_id": 2561,
+    "image_b_uploaded_media_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-003-ao-pickleball-nam-ba-lo-nu-khoet-nach-xanh-duong-xanh-la-vang.webp",
+    "updated_product_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-xanh-duong-xanh-la-vang-x24-pb-003/",
+    "updated_product_id": 1770,
+    "image_a_svg_logo_final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/final/x24-pb-003-ao-pickleball-nam-nu-co-co-tay-ao-ngan-xanh-duong-xanh-la-vang-svg-logo.webp",
+    "image_b_svg_logo_final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/final/x24-pb-003-ao-pickleball-nam-ba-lo-nu-khoet-nach-xanh-duong-xanh-la-vang-svg-logo.webp",
+    "svg_logo_contact_sheet": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/final/contact-sheet-x24-pb-003-svg-logo.jpg",
+    "svg_logo_rendered_png": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/render-svg-logo/logo.svg.png",
+    "svg_logo_image_a_uploaded_media_id": 2562,
+    "svg_logo_image_a_uploaded_media_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-003-ao-pickleball-nam-nu-co-co-tay-ao-ngan-xanh-duong-xanh-la-vang-svg-logo.webp",
+    "svg_logo_image_b_uploaded_media_id": 2563,
+    "svg_logo_image_b_uploaded_media_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-003-ao-pickleball-nam-ba-lo-nu-khoet-nach-xanh-duong-xanh-la-vang-svg-logo.webp",
+    "svg_logo_product_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-xanh-duong-xanh-la-vang-x24-pb-003/"
+  },
+  "status": "natural_copy_verified",
+  "attempts": {
+    "image_a": 1,
+    "image_b": 1
+  },
+  "wordpress_mutation": true,
+  "notes": [],
+  "updated_at": "2026-07-08T20:48:36.856707",
+  "backup_path": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/backups/20260708-183414",
+  "garment_styles": [
+    {
+      "slot": "A",
+      "style": "collared_short_sleeve",
+      "pose_slot": "A3",
+      "featured": true,
+      "media_id": 2562
+    },
+    {
+      "slot": "B",
+      "style": "male_sleeveless_sport_safe_armhole",
+      "pose_slot": "B2",
+      "featured": false,
+      "media_id": 2563
+    }
+  ],
+  "verification_file": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/final/verification-x24-pb-003.json",
+  "verified_at": "2026-07-08T18:35:40.952438",
+  "verification_summary": {
+    "new_url_status": "HTTP/2 200 ",
+    "old_url_redirect": "HTTP/2 301  location: https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-xanh-duong-xanh-la-vang-x24-pb-003/",
+    "api_image_ids": [
+      2560,
+      2561
+    ],
+    "public_html_references_both_images": true,
+    "og_uses_image_a": true,
+    "forbidden_terms_in_product_fields": false
+  },
+  "description_embeds": [
+    {
+      "slot": "A",
+      "media_id": 2562,
+      "url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-003-ao-pickleball-nam-nu-co-co-tay-ao-ngan-xanh-duong-xanh-la-vang-svg-logo.webp",
+      "alt_text": "Áo pickleball nam nữ có cổ tay áo ngắn X24 màu xanh dương xanh lá vàng trên sân pickleball",
+      "figcaption": "Kiểu áo có cổ tay ngắn gọn gàng, phù hợp làm đồng phục pickleball cho đội nhóm và câu lạc bộ."
+    },
+    {
+      "slot": "B",
+      "media_id": 2563,
+      "url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-003-ao-pickleball-nam-ba-lo-nu-khoet-nach-xanh-duong-xanh-la-vang-svg-logo.webp",
+      "alt_text": "Áo pickleball nam ba lỗ và áo pickleball nữ khoét nách thể thao X24 màu xanh dương xanh lá vàng trên sân pickleball",
+      "figcaption": "Phiên bản nam ba lỗ phối áo nữ khoét nách thể thao, thoáng vai và vẫn kín đáo khi vận động."
+    }
+  ],
+  "svg_logo_backup_path": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/backups/20260708-203143-svg-logo-embed",
+  "svg_logo_embed_verification_file": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/final/verification-x24-pb-003-svg-logo-embed.json",
+  "svg_logo_embed_verified_at": "2026-07-08T20:33:36.281924",
+  "svg_logo_embed_verification_summary": {
+    "new_url_status": "HTTP/2 200 ",
+    "old_url_redirect": "HTTP/2 301  location: https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-xanh-duong-xanh-la-vang-x24-pb-003/",
+    "api_image_ids": [
+      2562,
+      2563
+    ],
+    "public_html_references_both_images": true,
+    "public_html_contains_figcaptions": true,
+    "og_uses_image_a": true,
+    "forbidden_terms_in_product_fields": true,
+    "forbidden_terms_in_product_text_excluding_cdn_urls": false,
+    "cdn_domain_note": "Uploaded media URLs are served from cdn.mayaochaybo.vn on this destination site."
+  },
+  "natural_copy_backup_path": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/backups/20260708-204821-natural-copy",
+  "natural_copy_word_count": 401,
+  "natural_copy_verification_file": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/lo-dieu-xanh-1770/final/verification-x24-pb-003-natural-copy.json",
+  "natural_copy_verified_at": "2026-07-08T20:49:58.001018",
+  "natural_copy_verification_summary": {
+    "word_count_estimate": 401,
+    "technical_language_hits": [
+      "dot"
+    ],
+    "forbidden_running_hits_excluding_urls": [],
+    "public_html_contains_images_and_captions": true,
+    "og_uses_image_a": true,
+    "technical_language_hits_in_product_fields_refined": [],
+    "word_count_estimate_refined": 401
+  }
+}

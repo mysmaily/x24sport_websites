@@ -1,0 +1,64 @@
+{
+  "payload": {
+    "instance": {
+      "raw": {
+        "title": "Thông tin liên hệ",
+        "content": "<h2>🏢\r\nMAY ÁO PICKLEBALL - VN</h2>\r\n<p>📍 \r\nMiền Bắc: 6 Ngõ 50 Nguyễn Hữu Thọ, Hoàng Liệt, Hà Nội\r\n</p>\r\n<p>📍 Miền Nam: 86/10 đường 12, P.Tam Bình, Thủ Đức, TP.HCM</p>\r\n\r\n<p>📞 Hotline: 0989.353.247</p>\r\n\r\n<p>📧 Email: x24sport.vn@gmail.com</p>\r\n\r\n<p>🕐 Thời gian làm việc: 8h00 – 20h00 (Tất cả các ngày trong tuần)</p>"
+      }
+    }
+  },
+  "response": {
+    "id": "custom_html-3",
+    "id_base": "custom_html",
+    "sidebar": "sidebar-footer-2",
+    "rendered": "<div id=\"custom_html-3\" class=\"widget_text col pb-0 widget widget_custom_html\"><span class=\"widget-title\">Thông tin liên hệ</span><div class=\"is-divider small\"></div><div class=\"textwidget custom-html-widget\"><h2>🏢\r\nMAY ÁO PICKLEBALL - VN</h2>\r\n<p>📍 \r\nMiền Bắc: 6 Ngõ 50 Nguyễn Hữu Thọ, Hoàng Liệt, Hà Nội\r\n</p>\r\n<p>📍 Miền Nam: 86/10 đường 12, P.Tam Bình, Thủ Đức, TP.HCM</p>\r\n\r\n<p>📞 Hotline: 0989.353.247</p>\r\n\r\n<p>📧 Email: x24sport.vn@gmail.com</p>\r\n\r\n<p>🕐 Thời gian làm việc: 8h00 – 20h00 (Tất cả các ngày trong tuần)</p></div></div>",
+    "rendered_form": "<input id=\"widget-custom_html-3-title\" name=\"widget-custom_html[3][title]\" class=\"title sync-input\" type=\"hidden\" value=\"Thông tin liên hệ\" />\n\t\t<textarea id=\"widget-custom_html-3-content\" name=\"widget-custom_html[3][content]\" class=\"content sync-input\" hidden>&lt;h2&gt;🏢\r\nMAY ÁO PICKLEBALL - VN&lt;/h2&gt;\r\n&lt;p&gt;📍 \r\nMiền Bắc: 6 Ngõ 50 Nguyễn Hữu Thọ, Hoàng Liệt, Hà Nội\r\n&lt;/p&gt;\r\n&lt;p&gt;📍 Miền Nam: 86/10 đường 12, P.Tam Bình, Thủ Đức, TP.HCM&lt;/p&gt;\r\n\r\n&lt;p&gt;📞 Hotline: 0989.353.247&lt;/p&gt;\r\n\r\n&lt;p&gt;📧 Email: x24sport.vn@gmail.com&lt;/p&gt;\r\n\r\n&lt;p&gt;🕐 Thời gian làm việc: 8h00 – 20h00 (Tất cả các ngày trong tuần)&lt;/p&gt;</textarea>",
+    "instance": {
+      "encoded": "YToyOntzOjU6InRpdGxlIjtzOjIxOiJUaMO0bmcgdGluIGxpw6puIGjhu4ciO3M6NzoiY29udGVudCI7czozNzg6IjxoMj7wn4+iDQpNQVkgw4FPIFBJQ0tMRUJBTEwgLSBWTjwvaDI+DQo8cD7wn5ONIA0KTWnhu4FuIELhuq9jOiA2IE5nw7UgNTAgTmd1eeG7hW4gSOG7r3UgVGjhu40sIEhvw6BuZyBMaeG7h3QsIEjDoCBO4buZaQ0KPC9wPg0KPHA+8J+TjSBNaeG7gW4gTmFtOiA4Ni8xMCDEkcaw4budbmcgMTIsIFAuVGFtIELDrG5oLCBUaOG7pyDEkOG7qWMsIFRQLkhDTTwvcD4NCg0KPHA+8J+TniBIb3RsaW5lOiAwOTg5LjM1My4yNDc8L3A+DQoNCjxwPvCfk6cgRW1haWw6IHgyNHNwb3J0LnZuQGdtYWlsLmNvbTwvcD4NCg0KPHA+8J+VkCBUaOG7nWkgZ2lhbiBsw6BtIHZp4buHYzogOGgwMCDigJMgMjBoMDAgKFThuqV0IGPhuqMgY8OhYyBuZ8OgeSB0cm9uZyB0deG6p24pPC9wPiI7fQ==",
+      "hash": "06b876fe62cb6f6c0deafb8eb556681b",
+      "raw": {
+        "title": "Thông tin liên hệ",
+        "content": "<h2>🏢\r\nMAY ÁO PICKLEBALL - VN</h2>\r\n<p>📍 \r\nMiền Bắc: 6 Ngõ 50 Nguyễn Hữu Thọ, Hoàng Liệt, Hà Nội\r\n</p>\r\n<p>📍 Miền Nam: 86/10 đường 12, P.Tam Bình, Thủ Đức, TP.HCM</p>\r\n\r\n<p>📞 Hotline: 0989.353.247</p>\r\n\r\n<p>📧 Email: x24sport.vn@gmail.com</p>\r\n\r\n<p>🕐 Thời gian làm việc: 8h00 – 20h00 (Tất cả các ngày trong tuần)</p>"
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/widgets/custom_html-3",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/widgets"
+        }
+      ],
+      "about": [
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/widget-types/custom_html"
+        }
+      ],
+      "wp:sidebar": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars/sidebar-footer-2/"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+}

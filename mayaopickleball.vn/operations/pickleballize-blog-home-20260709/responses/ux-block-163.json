@@ -1,0 +1,256 @@
+{
+  "payload": {
+    "content": "<!-- Giới Thiệu X24 Sport -->\r\n<div class=\"footer-section about-x24\">\r\n<p>May Áo Pickleball - VN chuyên may áo pickleball cho đội nhóm nhỏ đến các giải giao hữu pickleball lớn</p>\r\n<p>Cam kết: <br />\r\n✅ Thiết kế, In Ấn, Vận Chuyển miễn phí <br />\r\n✅ May siêu tốc trong 24H <br />\r\n✅ Không bỏ size – Không bỏ mẫu <br />\r\n✅ Giá tốt tận xưởng – Chất lượng đảm bảo</p>\r\n</div>\r\n<p>\r\n<style>\r\n.footer-section.about-x24 {\r\n  background: #1a1a1a;\r\n  padding: 30px;\r\n  border-radius: 12px;\r\n  color: #ffffff;\r\n  max-width: 350px;\r\n  margin: auto;\r\n  line-height: 1.6;\r\n}\r\n.footer-section.about-x24 h3 {\r\n  font-size: 20px;\r\n  margin-bottom: 15px;\r\n  border-bottom: 2px solid #ffcc00;\r\n  display: inline-block;\r\n  padding-bottom: 5px;\r\n  color: #ffcc00;\r\n}\r\n.footer-section.about-x24 p {\r\n  font-size: 15px;\r\n  color: #e0e0e0;\r\n  margin-bottom: 10px;\r\n}\r\n.footer-section.about-x24 p br {\r\n  line-height: 1.4;\r\n}\r\n@media screen and (max-width: 600px) {\r\n  .footer-section.about-x24 {\r\n    padding: 20px;\r\n    max-width: 100%;\r\n  }\r\n}\r\n</style>\r\n</p>\r\n<p>[follow facebook=\"#\" instagram=\"#\" twitter=\"#\" email=\"#\" pinterest=\"#\"]</p>",
+    "title": "Footer - About us Pickleball"
+  },
+  "response": {
+    "id": 163,
+    "date": "2016-08-25T13:41:28",
+    "date_gmt": "2016-08-25T13:41:28",
+    "guid": {
+      "rendered": "http://flatsome.dev/?post_type=blocks&#038;p=8781",
+      "raw": "http://flatsome.dev/?post_type=blocks&#038;p=8781"
+    },
+    "modified": "2026-07-08T18:53:35",
+    "modified_gmt": "2026-07-08T18:53:35",
+    "password": "",
+    "slug": "footer-about-us",
+    "status": "publish",
+    "type": "blocks",
+    "link": "https://mayaopickleball.vn/blocks/footer-about-us/",
+    "title": {
+      "raw": "Footer - About us Pickleball",
+      "rendered": "Footer &#8211; About us Pickleball"
+    },
+    "content": {
+      "raw": "<!-- Giới Thiệu X24 Sport -->\r\n<div class=\"footer-section about-x24\">\r\n<p>May Áo Pickleball - VN chuyên may áo pickleball cho đội nhóm nhỏ đến các giải giao hữu pickleball lớn</p>\r\n<p>Cam kết: <br />\r\n✅ Thiết kế, In Ấn, Vận Chuyển miễn phí <br />\r\n✅ May siêu tốc trong 24H <br />\r\n✅ Không bỏ size – Không bỏ mẫu <br />\r\n✅ Giá tốt tận xưởng – Chất lượng đảm bảo</p>\r\n</div>\r\n<p>\r\n<style>\r\n.footer-section.about-x24 {\r\n  background: #1a1a1a;\r\n  padding: 30px;\r\n  border-radius: 12px;\r\n  color: #ffffff;\r\n  max-width: 350px;\r\n  margin: auto;\r\n  line-height: 1.6;\r\n}\r\n.footer-section.about-x24 h3 {\r\n  font-size: 20px;\r\n  margin-bottom: 15px;\r\n  border-bottom: 2px solid #ffcc00;\r\n  display: inline-block;\r\n  padding-bottom: 5px;\r\n  color: #ffcc00;\r\n}\r\n.footer-section.about-x24 p {\r\n  font-size: 15px;\r\n  color: #e0e0e0;\r\n  margin-bottom: 10px;\r\n}\r\n.footer-section.about-x24 p br {\r\n  line-height: 1.4;\r\n}\r\n@media screen and (max-width: 600px) {\r\n  .footer-section.about-x24 {\r\n    padding: 20px;\r\n    max-width: 100%;\r\n  }\r\n}\r\n</style>\r\n</p>\r\n<p>[follow facebook=\"#\" instagram=\"#\" twitter=\"#\" email=\"#\" pinterest=\"#\"]</p>",
+      "rendered": "<p><!-- Giới Thiệu X24 Sport --></p>\n<div class=\"footer-section about-x24\">\n<p>May Áo Pickleball &#8211; VN chuyên may áo pickleball cho đội nhóm nhỏ đến các giải giao hữu pickleball lớn</p>\n<p>Cam kết: <br />\n✅ Thiết kế, In Ấn, Vận Chuyển miễn phí <br />\n✅ May siêu tốc trong 24H <br />\n✅ Không bỏ size – Không bỏ mẫu <br />\n✅ Giá tốt tận xưởng – Chất lượng đảm bảo</p>\n</div>\n<p><style>\n.footer-section.about-x24 {\n  background: #1a1a1a;\n  padding: 30px;\n  border-radius: 12px;\n  color: #ffffff;\n  max-width: 350px;\n  margin: auto;\n  line-height: 1.6;\n}\n.footer-section.about-x24 h3 {\n  font-size: 20px;\n  margin-bottom: 15px;\n  border-bottom: 2px solid #ffcc00;\n  display: inline-block;\n  padding-bottom: 5px;\n  color: #ffcc00;\n}\n.footer-section.about-x24 p {\n  font-size: 15px;\n  color: #e0e0e0;\n  margin-bottom: 10px;\n}\n.footer-section.about-x24 p br {\n  line-height: 1.4;\n}\n@media screen and (max-width: 600px) {\n  .footer-section.about-x24 {\n    padding: 20px;\n    max-width: 100%;\n  }\n}\n</style>\n</p>\n<div class=\"social-icons follow-icons\" ><a href=\"#\" target=\"_blank\" data-label=\"Facebook\" class=\"icon button circle is-outline facebook tooltip\" title=\"Theo dõi trên Facebook\" aria-label=\"Theo dõi trên Facebook\" rel=\"noopener nofollow\" ><i class=\"icon-facebook\" ></i></a><a href=\"#\" target=\"_blank\" data-label=\"Instagram\" class=\"icon button circle is-outline instagram tooltip\" title=\"Theo dõi trên Instagram\" aria-label=\"Theo dõi trên Instagram\" rel=\"noopener nofollow\" ><i class=\"icon-instagram\" ></i></a><a href=\"#\" data-label=\"Twitter\" target=\"_blank\" class=\"icon button circle is-outline twitter tooltip\" title=\"Theo dõi trên Twitter\" aria-label=\"Theo dõi trên Twitter\" rel=\"noopener nofollow\" ><i class=\"icon-twitter\" ></i></a><a href=\"mailto:#\" data-label=\"E-mail\" target=\"_blank\" class=\"icon button circle is-outline email tooltip\" title=\"Gửi email cho chúng tôi\" aria-label=\"Gửi email cho chúng tôi\" rel=\"nofollow noopener\" ><i class=\"icon-envelop\" ></i></a><a href=\"#\" data-label=\"Pinterest\" target=\"_blank\" class=\"icon button circle is-outline pinterest tooltip\" title=\"Theo dõi trên Pinterest\" aria-label=\"Theo dõi trên Pinterest\" rel=\"noopener nofollow\" ><i class=\"icon-pinterest\" ></i></a></div>\n",
+      "protected": false,
+      "block_version": 0
+    },
+    "featured_media": 18,
+    "parent": 0,
+    "template": "",
+    "meta": {
+      "footnotes": ""
+    },
+    "permalink_template": "https://mayaopickleball.vn/blocks/%pagename%/",
+    "generated_slug": "footer-about-us-pickleball",
+    "class_list": [
+      "post-163",
+      "blocks",
+      "type-blocks",
+      "status-publish",
+      "has-post-thumbnail",
+      "hentry"
+    ],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Footer - About us Pickleball - May Áo Pickleball - VN</title>\n<!-- Chú ý dành cho Admin: trang này không hiển thị thẻ meta mô tả vì nó không có, hoặc là thêm thẳng vào trang hoặc là vào menu [Yoast SEO - Thiết lập] và cài đặt một template. -->\n<meta name=\"robots\" content=\"noindex, follow\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Footer - About us Pickleball\" />\n<meta property=\"og:description\" content=\"May Áo Pickleball &#8211; VN chuyên may áo pickleball cho đội nhóm nhỏ đến các giải giao hữu pickleball lớn Cam kết: ✅ Thiết kế, In Ấn, Vận Chuyển miễn phí ✅ May siêu tốc trong 24H ✅ Không bỏ size – Không bỏ mẫu ✅ Giá tốt tận xưởng – Chất lượng đảm bảo\" />\n<meta property=\"og:url\" content=\"https://mayaopickleball.vn/blocks/footer-about-us/\" />\n<meta property=\"og:site_name\" content=\"May Áo Pickleball - VN\" />\n<meta property=\"article:modified_time\" content=\"2026-07-08T18:53:35+00:00\" />\n<meta property=\"og:image\" content=\"https://cdn.mayaochaybo.vn/wp-content/uploads/2016/08/dummy-1.jpg\" />\n\t<meta property=\"og:image:width\" content=\"400\" />\n\t<meta property=\"og:image:height\" content=\"260\" />\n\t<meta property=\"og:image:type\" content=\"image/jpeg\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Ước tính thời gian đọc\" />\n\t<meta name=\"twitter:data1\" content=\"1 phút\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://mayaopickleball.vn/blocks/footer-about-us/\",\"url\":\"https://mayaopickleball.vn/blocks/footer-about-us/\",\"name\":\"Footer - About us Pickleball - May Áo Pickleball - VN\",\"isPartOf\":{\"@id\":\"https://mayaopickleball.vn/#website\"},\"primaryImageOfPage\":{\"@id\":\"https://mayaopickleball.vn/blocks/footer-about-us/#primaryimage\"},\"image\":{\"@id\":\"https://mayaopickleball.vn/blocks/footer-about-us/#primaryimage\"},\"thumbnailUrl\":\"https://cdn.mayaochaybo.vn/wp-content/uploads/2016/08/dummy-1.jpg\",\"datePublished\":\"2016-08-25T13:41:28+00:00\",\"dateModified\":\"2026-07-08T18:53:35+00:00\",\"breadcrumb\":{\"@id\":\"https://mayaopickleball.vn/blocks/footer-about-us/#breadcrumb\"},\"inLanguage\":\"vi\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https://mayaopickleball.vn/blocks/footer-about-us/\"]}]},{\"@type\":\"ImageObject\",\"inLanguage\":\"vi\",\"@id\":\"https://mayaopickleball.vn/blocks/footer-about-us/#primaryimage\",\"url\":\"https://cdn.mayaochaybo.vn/wp-content/uploads/2016/08/dummy-1.jpg\",\"contentUrl\":\"https://cdn.mayaochaybo.vn/wp-content/uploads/2016/08/dummy-1.jpg\",\"width\":400,\"height\":260,\"caption\":\"Dummy Image 1\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaopickleball.vn/blocks/footer-about-us/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://mayaopickleball.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Footer &#8211; About us Pickleball\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaopickleball.vn/#website\",\"url\":\"https://mayaopickleball.vn/\",\"name\":\"May Áo Pickleball - VN\",\"description\":\"Chuyên May Áo Pickleball Cho Đội Nhóm, CLB và Giải Giao Hữu\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaopickleball.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"},{\"@type\":\"LocalBusiness\",\"@id\":\"https://mayaopickleball.vn/#localbusiness\",\"name\":\"X24 Sport - May Áo Chạy Bộ\",\"description\":\"Xưởng may áo chạy bộ trực tiếp, thiết kế riêng miễn phí\",\"url\":\"https://mayaopickleball.vn/\",\"telephone\":\"+84977130115\",\"priceRange\":\"50.000đ - 500.000đ\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"1090/22D Quang Trung, Phường 14\",\"addressLocality\":\"Gò Vấp\",\"addressRegion\":\"TP. Hồ Chí Minh\",\"addressCountry\":\"VN\"},\"openingHoursSpecification\":[{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"],\"opens\":\"08:00\",\"closes\":\"18:00\"}]}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+    "yoast_head_json": {
+      "title": "Footer - About us Pickleball - May Áo Pickleball - VN",
+      "robots": {
+        "index": "noindex",
+        "follow": "follow"
+      },
+      "og_locale": "vi_VN",
+      "og_type": "article",
+      "og_title": "Footer - About us Pickleball",
+      "og_description": "May Áo Pickleball &#8211; VN chuyên may áo pickleball cho đội nhóm nhỏ đến các giải giao hữu pickleball lớn Cam kết: ✅ Thiết kế, In Ấn, Vận Chuyển miễn phí ✅ May siêu tốc trong 24H ✅ Không bỏ size – Không bỏ mẫu ✅ Giá tốt tận xưởng – Chất lượng đảm bảo",
+      "og_url": "https://mayaopickleball.vn/blocks/footer-about-us/",
+      "og_site_name": "May Áo Pickleball - VN",
+      "article_modified_time": "2026-07-08T18:53:35+00:00",
+      "og_image": [
+        {
+          "width": 400,
+          "height": 260,
+          "url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2016/08/dummy-1.jpg",
+          "type": "image/jpeg"
+        }
+      ],
+      "twitter_card": "summary_large_image",
+      "twitter_misc": {
+        "Ước tính thời gian đọc": "1 phút"
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://mayaopickleball.vn/blocks/footer-about-us/",
+            "url": "https://mayaopickleball.vn/blocks/footer-about-us/",
+            "name": "Footer - About us Pickleball - May Áo Pickleball - VN",
+            "isPartOf": {
+              "@id": "https://mayaopickleball.vn/#website"
+            },
+            "primaryImageOfPage": {
+              "@id": "https://mayaopickleball.vn/blocks/footer-about-us/#primaryimage"
+            },
+            "image": {
+              "@id": "https://mayaopickleball.vn/blocks/footer-about-us/#primaryimage"
+            },
+            "thumbnailUrl": "https://cdn.mayaochaybo.vn/wp-content/uploads/2016/08/dummy-1.jpg",
+            "datePublished": "2016-08-25T13:41:28+00:00",
+            "dateModified": "2026-07-08T18:53:35+00:00",
+            "breadcrumb": {
+              "@id": "https://mayaopickleball.vn/blocks/footer-about-us/#breadcrumb"
+            },
+            "inLanguage": "vi",
+            "potentialAction": [
+              {
+                "@type": "ReadAction",
+                "target": [
+                  "https://mayaopickleball.vn/blocks/footer-about-us/"
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ImageObject",
+            "inLanguage": "vi",
+            "@id": "https://mayaopickleball.vn/blocks/footer-about-us/#primaryimage",
+            "url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2016/08/dummy-1.jpg",
+            "contentUrl": "https://cdn.mayaochaybo.vn/wp-content/uploads/2016/08/dummy-1.jpg",
+            "width": 400,
+            "height": 260,
+            "caption": "Dummy Image 1"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://mayaopickleball.vn/blocks/footer-about-us/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://mayaopickleball.vn/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Footer &#8211; About us Pickleball"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mayaopickleball.vn/#website",
+            "url": "https://mayaopickleball.vn/",
+            "name": "May Áo Pickleball - VN",
+            "description": "Chuyên May Áo Pickleball Cho Đội Nhóm, CLB và Giải Giao Hữu",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://mayaopickleball.vn/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "vi"
+          },
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://mayaopickleball.vn/#localbusiness",
+            "name": "X24 Sport - May Áo Chạy Bộ",
+            "description": "Xưởng may áo chạy bộ trực tiếp, thiết kế riêng miễn phí",
+            "url": "https://mayaopickleball.vn/",
+            "telephone": "+84977130115",
+            "priceRange": "50.000đ - 500.000đ",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1090/22D Quang Trung, Phường 14",
+              "addressLocality": "Gò Vấp",
+              "addressRegion": "TP. Hồ Chí Minh",
+              "addressCountry": "VN"
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks/163",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/blocks"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 7,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks/163/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 2636,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks/163/revisions/2636"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/media/18"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/media?parent=163"
+        }
+      ],
+      "wp:action-publish": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks/163"
+        }
+      ],
+      "wp:action-unfiltered-html": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks/163"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+}

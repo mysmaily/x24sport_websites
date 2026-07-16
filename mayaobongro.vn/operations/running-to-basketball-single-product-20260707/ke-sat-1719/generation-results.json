@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 1,
+  "results": [
+    {
+      "ok": true,
+      "id": "ke-sat-1719-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-014-ao-bong-ro-tieu-hoc.png",
+      "seconds": 66.6
+    },
+    {
+      "ok": true,
+      "id": "ke-sat-1719-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-014-ao-bong-ro-thpt.png",
+      "seconds": 87.9
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+.runtime/
+*.env
+*.env.local
+wordpress-api
+wordpress-api.env
+*.secret
+*.secrets
+.DS_Store
+__pycache__/
+*.pyc
+operations/
+generated_images/
+*.log

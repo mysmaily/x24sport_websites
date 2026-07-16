@@ -1,0 +1,58 @@
+{
+  "job_id": "tim-cam-slimfit-677",
+  "source_product_id": 677,
+  "source_url": "https://mayaopickleball.vn/ao-chay-bo-nu-mau-tim-cam-form-slimfit/",
+  "source_slug": "ao-chay-bo-nu-mau-tim-cam-form-slimfit",
+  "source_title": "Ao chay bo nu mau tim cam form Slimfit",
+  "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2025/05/ao-chay-bo-nu-form-slimfit.jpg",
+  "destination_site": "mayaopickleball.vn",
+  "target_product_id": 677,
+  "new_product_code": "X24-PB-014",
+  "new_title": "Bo Quan Ao Pickleball Nam Nu X24 Tim Cam X24-PB-014",
+  "new_slug": "bo-quan-ao-pickleball-nam-nu-x24-tim-cam-x24-pb-014",
+  "price_strategy": {
+    "regular_price": "189000",
+    "sale_price": ""
+  },
+  "taxonomy": {
+    "category_ids": [
+      95,
+      96
+    ],
+    "tag_ids": [
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103
+    ]
+  },
+  "style_slots": {
+    "image_a": "male and female both wear a collared short-sleeve pickleball shirt with a clean team-uniform look",
+    "image_b": "male wears a pickleball tank top and female wears a collared no-sleeve pickleball top with a straight, modest armhole"
+  },
+  "outputs": {
+    "source_local": "source/ao-chay-bo-nu-form-slimfit.jpg",
+    "image_a_generated": "generated/x24-pb-014-image-a.png",
+    "image_b_generated": "generated/x24-pb-014-image-b.png",
+    "image_a_final": "final/x24-pb-014-ao-pickleball-nam-nu-co-co-tay-ngan-tim-cam.webp",
+    "image_b_final": "final/x24-pb-014-ao-pickleball-nam-ba-lo-nu-khong-tay-co-co-tim-cam.webp",
+    "image_a_media_id": 2621,
+    "image_b_media_id": 2624,
+    "new_public_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-tim-cam-x24-pb-014/",
+    "old_url_redirects_to": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-tim-cam-x24-pb-014/"
+  },
+  "status": "completed",
+  "notes": [
+    "Source artwork uses a purple-to-orange gradient with geometric linework.",
+    "Remove all running language, top-corner branding, side thumbnails, and feature icons from the source frame.",
+    "Use deterministic female image-B variant: collared no-sleeve for X24-PB-014.",
+    "Used images/generations fallback after images/edits timed out in this environment.",
+    "Public running-word hits remain in global site template content and related products, not in the converted product body."
+  ],
+  "backups": [
+    "backups/20260709-015140-before-update"
+  ]
+}

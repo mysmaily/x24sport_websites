@@ -1,0 +1,21 @@
+{
+  "pilot_index": 8,
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-thiet-ke-rieng-turtle-team-ban-do-den-do-noi-bat/",
+  "source_slug": "ao-chay-bo-thiet-ke-rieng-turtle-team-ban-do-den-do-noi-bat",
+  "source_title": "Áo chạy bộ thiết kế riêng Turtle Team bản đồ đen đỏ nổi bật",
+  "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-turtle-team-nguoi-mau-20260705.jpg",
+  "source_product_id_guess": "1760",
+  "job_id": "08-ao-chay-bo-thiet-ke-rieng-turtle-team-ban-do-den-do-noi-bat",
+  "destination_site": "mayaopickleball.vn",
+  "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/08-ao-chay-bo-thiet-ke-rieng-turtle-team-ban-do-den-do-noi-bat/source/ao-chay-bo-turtle-team-nguoi-mau-20260705.jpg",
+  "new_product_code": "X24-PB-009",
+  "color_label": "đen đỏ",
+  "outputs": {},
+  "status": "source_downloaded",
+  "attempts": {
+    "image_a": 0,
+    "image_b": 0
+  },
+  "wordpress_mutation": false,
+  "notes": []
+}

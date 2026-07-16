@@ -1,0 +1,21 @@
+HTTP/2 200 
+date: Sat, 04 Jul 2026 02:07:03 GMT
+content-type: text/html; charset=UTF-8
+server: cloudflare
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+x-powered-by: PHP/8.2.30
+link: <https://mayaobongda.vn/wp-json/>; rel="https://api.w.org/"
+link: <https://mayaobongda.vn/wp-json/wp/v2/pages/57>; rel="alternate"; title="JSON"; type="application/json"
+link: <https://mayaobongda.vn/>; rel=shortlink
+x-fastcgi-cache: STALE
+strict-transport-security: max-age=31536000
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+permissions-policy: geolocation=(), microphone=(), camera=()
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Gl81uaPseIYK6ItpgNXutwiRnx3vHtmAopG8aHM8bl5Q7ZtBvkusQn%2BLWztcDYzr3QtDBoXiVmn0kLO18OAJAjv8GbdFC3tnLyO8INZdI8WEZnYpg6IC88cx%2FPA5N8vJ5w%3D%3D"}]}
+cf-cache-status: DYNAMIC
+vary: accept-encoding
+cf-ray: a15a92fced40dd3c-HKG
+alt-svc: h3=":443"; ma=86400
+

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "turtle-team-1760-elementary",
+    "audience": "elementary",
+    "product_id": 1760,
+    "source": "source/turtle-team-running-source.jpg",
+    "generated": "generated/x24-br-008-ao-bong-ro-tieu-hoc.png",
+    "final": "final/x24-br-008-ao-bong-ro-tieu-hoc.webp",
+    "title": "Bộ Quần Áo Bóng Rổ Turtle Team Đen Đỏ X24-BR-008",
+    "prompt": "Use case: identity-preserve\nAsset type: square WooCommerce product image for mayaobongro.vn\n\nImage 1 is a garment-design reference only. Preserve the black base, red route/map line motif, subtle contour-map pattern, Turtle Team logo, and SLOW AND STEADY back phrase if readable. Replace the large RUN text with HOOPS or PLAY. Remove 10K/5K route markers, running/race wording, mayaochaybo.vn, hotline, old running logo, lakeside road scene, adult models, and running-shirt cut.\n\nConvert the garment into an authentic basketball uniform: wider basketball shoulders, rib-knit neckline and armholes, relaxed straight torso, longer hem covering the shorts waistband. Pair it with loose knee-length basketball shorts coordinated in black, red, and subtle contour-map panels.\n\nScene: clean indoor elementary school gym, soft daylight, generic hoop and court lines, no readable school identity.\n\nSubject: One fictional Vietnamese elementary-school basketball player, age 9-10, natural child proportions, friendly confident expression, holding a basketball at waist height.\n\nComposition: Square 1:1, three-quarter body, garment fully visible, thumbnail-readable front design and coordinated shorts.\n\nStyle: Photorealistic commercial Vietnamese school sportswear photography, realistic breathable mesh, natural folds, correct anatomy.\n\nConstraints: fictional student only, age-appropriate, non-sexualized, no exposed midriff, no real school identifiers, no extra logos, no running terminology, no watermark."
+  },
+  {
+    "id": "turtle-team-1760-high-school",
+    "audience": "high_school",
+    "product_id": 1760,
+    "source": "source/turtle-team-running-source.jpg",
+    "generated": "generated/x24-br-008-ao-bong-ro-thpt.png",
+    "final": "final/x24-br-008-ao-bong-ro-thpt.webp",
+    "title": "Bộ Quần Áo Bóng Rổ Turtle Team Đen Đỏ X24-BR-008",
+    "prompt": "Use case: identity-preserve\nAsset type: square WooCommerce product image for mayaobongro.vn\n\nImage 1 is a garment-design reference only. Preserve the black base, red route/map line motif, subtle contour-map pattern, Turtle Team logo, and SLOW AND STEADY back phrase if readable. Replace the large RUN text with HOOPS or PLAY. Remove 10K/5K route markers, running/race wording, mayaochaybo.vn, hotline, old running logo, lakeside road scene, adult models, and running-shirt cut.\n\nConvert the garment into an authentic basketball uniform: wider basketball shoulders, rib-knit neckline and armholes, relaxed straight torso, longer hem covering the shorts waistband. Pair it with loose knee-length basketball shorts coordinated in black, red, and subtle contour-map panels.\n\nScene: outdoor high-school basketball court after class, clean daylight, generic court lines and hoop, no readable school identity.\n\nSubject: One fictional Vietnamese high-school basketball player, age 16-17, athletic but age-appropriate, confident ready stance holding a basketball.\n\nComposition: Square 1:1, three-quarter body, garment fully visible, thumbnail-readable front design and coordinated shorts.\n\nStyle: Photorealistic commercial Vietnamese school sportswear photography, realistic breathable mesh, natural folds, correct anatomy.\n\nConstraints: fictional student only, age-appropriate, non-sexualized, no exposed midriff, no real school identifiers, no extra logos, no running terminology, no watermark."
+  }
+]

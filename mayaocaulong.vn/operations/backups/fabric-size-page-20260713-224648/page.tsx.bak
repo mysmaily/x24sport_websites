@@ -1,0 +1,101 @@
+import type { Metadata } from 'next'
+import { ArrowRight, BadgeCheck, Ruler, Shirt, Sparkles, Wind } from 'lucide-react'
+import { InfoPage, zaloHref } from '../_components/info-pages'
+
+export const metadata: Metadata = {
+  title: 'Chất liệu & bảng size áo cầu lông | MayaoCauLong',
+  description: 'Tư vấn chất liệu, form áo và cách chọn size khi đặt may áo cầu lông cho đội nhóm, CLB, trường lớp.',
+}
+
+const fabrics = [
+  { icon: Wind, title: 'Thoáng khí khi vận động', text: 'Ưu tiên chất vải nhẹ, thoát mồ hôi tốt để không bị nặng áo khi đánh lâu.' },
+  { icon: Shirt, title: 'Form gọn cho cú vung vợt', text: 'Vai, nách và thân áo cần đủ linh hoạt cho các động tác đập cầu, phòng thủ, di chuyển ngang.' },
+  { icon: Sparkles, title: 'Lên màu và in sắc nét', text: 'Phù hợp thiết kế gradient, mảng màu lớn, logo CLB, tên và số áo.' },
+  { icon: BadgeCheck, title: 'Dễ đồng bộ cả đội', text: 'Chất liệu và form cần ổn định để nhiều thể trạng mặc vẫn đều đội hình.' },
+] as const
+
+const sizeSteps = [
+  'Gửi chiều cao và cân nặng của từng thành viên.',
+  'Cho biết mong muốn mặc gọn, vừa người hay rộng thoải mái.',
+  'Đối chiếu bảng size với đúng kiểu áo trước khi sản xuất.',
+  'Gửi danh sách tên, số áo và size theo từng người để hạn chế nhầm lẫn.',
+] as const
+
+const sizeRows = [
+  { size: 'S', height: '150-160cm', weight: '42-50kg', note: 'Dáng nhỏ, mặc gọn' },
+  { size: 'M', height: '160-168cm', weight: '50-58kg', note: 'Phổ biến cho nữ và nam nhỏ' },
+  { size: 'L', height: '168-174cm', weight: '58-66kg', note: 'Form nam phổ biến' },
+  { size: 'XL', height: '174-180cm', weight: '66-76kg', note: 'Vai rộng, mặc thoải mái' },
+  { size: '2XL', height: '180cm+', weight: '76-88kg', note: 'Nên xác nhận form trước' },
+] as const
+
+export default function FabricSizePage() {
+  return (
+    <InfoPage
+      description="Chọn đúng chất liệu và kích thước giúp đồng phục thoải mái khi vận động, đồng thời giữ được form áo đồng đều cho cả đội."
+      image="https://picsum.photos/seed/badminton-fabric-size-guide/1280/960"
+      kicker="Chất liệu & bảng size"
+      stats={[
+        { value: '4 bước', label: 'chọn size cho đội' },
+        { value: 'form gọn', label: 'phù hợp cầu lông' },
+        { value: 'miễn phí', label: 'tư vấn trước khi may' },
+      ]}
+      title="Chọn vải và size áo cầu lông để cả đội mặc thoải mái"
+    >
+      <section className="info-section fabric-detail-section">
+        <div className="info-section-heading">
+          <h2>Chất liệu áo cầu lông nên ưu tiên</h2>
+          <p>Cầu lông có nhiều pha di chuyển nhanh, đổi hướng liên tục và ra mồ hôi nhiều. Vì vậy áo cần nhẹ, thoáng và giữ form.</p>
+        </div>
+        <div className="factor-grid">
+          {fabrics.map(({ icon: Icon, title, text }) => (
+            <article key={title}>
+              <Icon size={26} strokeWidth={1.6} />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="info-section size-guide-section">
+        <div className="size-guide-copy">
+          <Ruler size={32} strokeWidth={1.6} />
+          <h2>Cách chọn size cho đội</h2>
+          <ol>
+            {sizeSteps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+          <p>Lưu ý: form và thông số có thể khác theo kiểu áo. Hãy xác nhận bảng size của đúng mẫu trước khi chốt đơn.</p>
+        </div>
+        <div className="size-table" role="table" aria-label="Bảng size áo cầu lông tham khảo">
+          <div role="row">
+            <strong>Size</strong>
+            <strong>Chiều cao</strong>
+            <strong>Cân nặng</strong>
+            <strong>Ghi chú</strong>
+          </div>
+          {sizeRows.map((row) => (
+            <div role="row" key={row.size}>
+              <span>{row.size}</span>
+              <span>{row.height}</span>
+              <span>{row.weight}</span>
+              <span>{row.note}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="info-section design-free-band">
+        <div>
+          <h2>Gửi danh sách size qua Zalo</h2>
+          <p>Nếu đội có nhiều thể trạng khác nhau, gửi danh sách theo tên từng người để được rà lại trước khi sản xuất.</p>
+        </div>
+        <a className="primary-button" href={zaloHref}>
+          Gửi danh sách size <ArrowRight size={18} />
+        </a>
+      </section>
+    </InfoPage>
+  )
+}

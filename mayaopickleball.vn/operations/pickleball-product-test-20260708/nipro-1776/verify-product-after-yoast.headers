@@ -1,0 +1,17 @@
+HTTP/2 200 
+date: Wed, 08 Jul 2026 07:11:27 GMT
+content-type: text/html; charset=UTF-8
+server: cloudflare
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+x-powered-by: PHP/8.2.31
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+link: <https://mayaopickleball.vn/wp-json/>; rel="https://api.w.org/"
+link: <https://mayaopickleball.vn/wp-json/wp/v2/product/1776>; rel="alternate"; title="JSON"; type="application/json"
+link: <https://mayaopickleball.vn/?p=1776>; rel=shortlink
+set-cookie: woocommerce_recently_viewed=1776; path=/
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=7Cse2w00Mx2ql8SpGbzUGY85O1zz%2F9XVYhtRIBsZm%2BvZxrHZ5WGkSyvuQ%2FYiq%2FZSGwjqPROwh816mPn3EFDKNtsk1W8FviiFYDUr7Ly8HAH8ksJVDbBMCuEcI7l9KQAj3dZ75Lg%3D"}]}
+cf-cache-status: DYNAMIC
+vary: accept-encoding
+cf-ray: a17d465adc54094a-HKG
+alt-svc: h3=":443"; ma=86400
+

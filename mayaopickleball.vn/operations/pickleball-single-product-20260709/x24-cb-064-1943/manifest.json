@@ -1,0 +1,206 @@
+{
+  "schema_version": "0.4",
+  "job_id": "x24-cb-064-1943",
+  "wave_id": "demo-1943",
+  "operation_mode": "update_existing_product",
+  "selection_mode": "single_url",
+  "destination_site": "mayaopickleball.vn",
+  "destination_product": {
+    "id": 1943,
+    "url": "https://mayaopickleball.vn/ao-chay-bo-x24-cb-064-trang-nang-dong-thanh-lich/",
+    "old_title": "Ao Chay Bo X24 CB-064 Trang - Nang Dong Thanh Lich",
+    "old_slug": "ao-chay-bo-x24-cb-064-trang-nang-dong-thanh-lich",
+    "old_sku": "",
+    "title": "Bộ Quần Áo Pickleball Nam Nữ X24 Trắng Xám Đen X24-PB-018",
+    "slug": "bo-quan-ao-pickleball-nam-nu-x24-trang-xam-den-x24-pb-018",
+    "sku": "X24-PB-018",
+    "category_ids": [
+      95,
+      96,
+      71
+    ]
+  },
+  "selection": {
+    "score": 18,
+    "matched_fields": [
+      "title",
+      "slug",
+      "excerpt",
+      "content",
+      "tags",
+      "featured_image.filename",
+      "featured_image.alt_text",
+      "public_html"
+    ],
+    "matched_terms": [
+      "chạy bộ",
+      "Áo chạy bộ",
+      "mayaochaybo.vn"
+    ],
+    "visual_signals": [
+      "running pose",
+      "hotline/footer bar",
+      "size strip",
+      "KEEP OF RUNNING text",
+      "legacy seafront running mockup layout"
+    ],
+    "review_status": "selected"
+  },
+  "legacy_reference": {
+    "product_media_ids": [
+      1942
+    ],
+    "featured_image_url": "https://mayaopickleball.vn/wp-content/uploads/2026/06/AoChayBo-X24-CB-064-Trang-Kieu1.jpg",
+    "gallery_image_urls": [],
+    "usable_design_reference_path": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/source/ao-chay-bo-x24-cb-064-trang-kieu1.jpg"
+  },
+  "design_notes": {
+    "palette": "trang, xam nhat, den",
+    "graphic_map": "white base, soft light-gray swirl pattern across torso, bold black-white symbol pattern on one shoulder and sleeve, small black chest mark",
+    "front_available": true,
+    "back_available": false
+  },
+  "text_decisions": [
+    {
+      "source": "ELARA",
+      "action": "remove",
+      "target": "",
+      "approved_by_user": false
+    },
+    {
+      "source": "X24-CB-064",
+      "action": "remove",
+      "target": "",
+      "approved_by_user": false
+    },
+    {
+      "source": "KEEP OF RUNNING",
+      "action": "remove",
+      "target": "",
+      "approved_by_user": false
+    },
+    {
+      "source": "MAYAOCHAYBO.VN",
+      "action": "remove",
+      "target": "",
+      "approved_by_user": false
+    },
+    {
+      "source": "0989.353.247",
+      "action": "remove",
+      "target": "",
+      "approved_by_user": false
+    }
+  ],
+  "assets": {
+    "image_a": {
+      "slot": "A",
+      "required": true,
+      "style": "collared_short_sleeve",
+      "female_variant": null,
+      "pose_slot": "A1",
+      "crop_slot": "three_quarter_body",
+      "scene_slot": "S1",
+      "status": "verified",
+      "attempts": 1,
+      "source_reference_path": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/source/ao-chay-bo-x24-cb-064-trang-kieu1.jpg",
+      "generated_path": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/generated/x24-pb-018-image-a.png",
+      "final_path": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/final/x24-pb-018-ao-pickleball-nam-nu-co-co-tay-ngan-trang-xam-den.webp",
+      "upload_path": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/upload-jpeg/x24-pb-018-ao-pickleball-nam-nu-co-co-tay-ngan-trang-xam-den-upload.jpg",
+      "media_id": 2651,
+      "image_filter_tags": [
+        "ngắn tay"
+      ],
+      "alt_text": "Áo pickleball nam nữ có cổ tay áo ngắn X24 màu trắng xám đen trên sân pickleball",
+      "caption": "Áo pickleball nam nữ có cổ, tay áo ngắn, thiết kế X24 màu trắng xám đen cho đội nhóm và câu lạc bộ pickleball.",
+      "qa": {
+        "visual": "passed_local_demo",
+        "notes": [
+          "Both models are adult and non-identifying.",
+          "Collar and sleeves are clearly visible.",
+          "Legacy running text and frame were removed."
+        ]
+      }
+    },
+    "image_b": {
+      "slot": "B",
+      "required": true,
+      "style": "male_tank_top_female_collared_no_sleeve",
+      "female_variant": "female_collared_no_sleeve",
+      "pose_slot": "B1",
+      "crop_slot": "medium_product_portrait",
+      "scene_slot": "S2",
+      "status": "verified",
+      "attempts": 1,
+      "source_reference_path": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/source/ao-chay-bo-x24-cb-064-trang-kieu1.jpg",
+      "generated_path": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/generated/x24-pb-018-image-b.png",
+      "final_path": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/final/x24-pb-018-ao-pickleball-nam-3-lo-nu-khong-tay-trang-xam-den.webp",
+      "upload_path": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/upload-jpeg/x24-pb-018-ao-pickleball-nam-3-lo-nu-khong-tay-trang-xam-den-upload.jpg",
+      "media_id": 2650,
+      "image_filter_tags": [
+        "3 lỗ",
+        "tank top"
+      ],
+      "alt_text": "Áo pickleball nam 3 lỗ phối áo pickleball nữ không tay X24 màu trắng xám đen trên sân pickleball",
+      "caption": "Áo pickleball nam 3 lỗ phối áo nữ không tay, thiết kế X24 màu trắng xám đen cho người chơi và đội nhóm pickleball.",
+      "qa": {
+        "visual": "passed_local_demo",
+        "notes": [
+          "Male tank and female collared no-sleeve cuts are visibly different from Image A.",
+          "Female armhole remains modest and production-friendly.",
+          "No readable paddle text or old branding appears."
+        ]
+      }
+    }
+  },
+  "copy": {
+    "short_description": "<p>Bộ quần áo pickleball nam nữ X24 phối trắng xám đen gọn gàng, gồm lựa chọn áo có cổ tay ngắn và phiên bản nam 3 lỗ phối áo nữ không tay cho đội nhóm, câu lạc bộ và giải giao hữu.</p>",
+    "focus_keyword": "bộ quần áo pickleball nam nữ",
+    "meta_description": "Bộ quần áo pickleball nam nữ X24-PB-018 phối trắng xám đen, có áo có cổ tay ngắn và phiên bản nam 3 lỗ phối áo nữ không tay cho đội nhóm và câu lạc bộ.",
+    "tags": [
+      "áo pickleball nam",
+      "áo pickleball nữ",
+      "bộ quần áo pickleball nam nữ",
+      "áo pickleball có cổ",
+      "áo pickleball nam 3 lỗ",
+      "áo pickleball nữ không tay",
+      "áo pickleball thiết kế riêng",
+      "đồng phục pickleball"
+    ]
+  },
+  "description_embeds": [
+    "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-018-ao-pickleball-nam-nu-co-co-tay-ngan-trang-xam-den-upload.jpg",
+    "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-018-ao-pickleball-nam-3-lo-nu-khong-tay-trang-xam-den-upload.jpg"
+  ],
+  "backup": {
+    "old_product_record_path": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/backups/20260709-094328-before-update/wc-product-1943-before.json",
+    "old_product_records": {
+      "wc_product": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/backups/20260709-094328-before-update/wc-product-1943-before.json",
+      "wp_product": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/backups/20260709-094328-before-update/wp-product-1943-public.json",
+      "public_html": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/backups/20260709-094328-before-update/public-product-1943-before.html"
+    },
+    "new_media_ids": [
+      2651,
+      2650
+    ],
+    "rollback_plan": "restore_existing_product"
+  },
+  "verification": {
+    "rest_checked": true,
+    "public_html_checked": true,
+    "category_checked": false,
+    "same_product_id_confirmed": true,
+    "evidence_paths": [
+      "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/verify/wp-product-1943-public.json",
+      "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/verify/wc-product-1943-before.json",
+      "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/verify/public-product-1943-before.html",
+      "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/verify/verify-wc-product-final.json",
+      "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/verify/wp-product-after.json",
+      "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/verify/public-new-url.html",
+      "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/verify/public-old-url.html",
+      "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/pickleball-single-product-20260709/x24-cb-064-1943/verify/category-ao-pickleball-thiet-ke-rieng.html"
+    ]
+  },
+  "status": "verified",
+  "errors": []
+}

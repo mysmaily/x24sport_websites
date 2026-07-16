@@ -1,0 +1,74 @@
+{
+  "job_id": "product-1723-tam-anh-single-age-gallery",
+  "created_at": "2026-07-07T14:40:00+07:00",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaobongro.vn",
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-team-tam-anh-runners-den-vang-hoa-chau-chay-cho-chu/",
+  "destination_product_id": 1723,
+  "edition_group": "tam-anh-x24-br-024",
+  "old_title": "Áo chạy bộ Team Tâm Anh Runners đen vàng hoả châu – Chạy cho Chữ",
+  "new_title": "Bộ Quần Áo Bóng Rổ Tâm Anh Đen Vàng X24-BR-024",
+  "old_slug": "ao-chay-bo-team-tam-anh-runners-den-vang-hoa-chau-chay-cho-chu",
+  "new_slug": "bo-quan-ao-bong-ro-tam-anh-den-vang-x24-br-024",
+  "source_image": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/tam-anh-1723/source/tam-anh-source.jpg",
+  "source_media_id": 2426,
+  "text_decisions": [
+    {
+      "source": "running/race terms",
+      "action": "replace/remove",
+      "target": "basketball-specific wording"
+    },
+    {
+      "source": "replace Tâm Anh Runners with Tâm Anh; replace Chạy cho Chữ with Học Cùng Bóng Rổ or Play for Learning",
+      "action": "apply",
+      "target": "basketball-safe design text"
+    }
+  ],
+  "category_ids": [
+    70,
+    97,
+    101,
+    102,
+    75,
+    95
+  ],
+  "outputs": {
+    "elementary": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/tam-anh-1723/final/x24-br-024-ao-bong-ro-tieu-hoc.webp",
+    "high_school": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/tam-anh-1723/final/x24-br-024-ao-bong-ro-thpt.webp"
+  },
+  "gallery_roles": {
+    "featured": "high_school",
+    "secondary": [
+      "elementary"
+    ]
+  },
+  "seo_keywords": [
+    "bộ quần áo bóng rổ thiết kế riêng",
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ học sinh THCS",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT",
+    "đồng phục bóng rổ trường học"
+  ],
+  "status": "verified",
+  "errors": [],
+  "new_media_ids": {
+    "elementary": 2831,
+    "high_school": 2832,
+    "featured": 2832,
+    "gallery": [
+      2831
+    ]
+  },
+  "meta": {
+    "_mayaobongro_edition_group": "tam-anh-x24-br-024",
+    "_mayaobongro_age_gallery_model": "single-product",
+    "_mayaobongro_age_image_tieu_hoc_id": 2831,
+    "_mayaobongro_age_image_thpt_id": 2832
+  },
+  "backup_path": "/Users/hoang/wordpress_websites/mayaobongro.vn/backups/running-to-basketball-single-product-20260707/tam-anh-1723/product-1723-before-tam-anh-1723-single-gallery-20260707T090245Z.json",
+  "verification_report": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/tam-anh-1723/verification-report.json",
+  "verified_at": "2026-07-07T09:08:12Z"
+}

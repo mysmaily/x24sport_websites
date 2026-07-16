@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 2,
+  "results": [
+    {
+      "ok": true,
+      "id": "nipro-1776-high-school",
+      "audience": "high_school",
+      "output": "generated/nipro-ao-bong-ro-thpt.png",
+      "seconds": 69.1
+    },
+    {
+      "ok": true,
+      "id": "nipro-1776-elementary",
+      "audience": "elementary",
+      "output": "generated/nipro-ao-bong-ro-tieu-hoc.png",
+      "seconds": 137.6
+    }
+  ]
+}

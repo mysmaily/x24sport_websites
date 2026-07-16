@@ -1,0 +1,86 @@
+{
+  "status": "review_ready_no_wordpress_upload",
+  "pages": [
+    {
+      "page": "page5",
+      "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/5/",
+      "products": 12,
+      "final_images": 24,
+      "female_led_expected": 13,
+      "minimum_female_led_required": 11,
+      "quota_pass_expected": true,
+      "codes": [
+        "X24-BR-034",
+        "X24-BR-035",
+        "X24-BR-036",
+        "X24-BR-037",
+        "X24-BR-038",
+        "X24-BR-039",
+        "X24-BR-040",
+        "X24-BR-041",
+        "X24-BR-042",
+        "X24-BR-043",
+        "X24-BR-044",
+        "X24-BR-045"
+      ],
+      "product_ids": [
+        1535,
+        1533,
+        1531,
+        1529,
+        1527,
+        1525,
+        1523,
+        1521,
+        1519,
+        1517,
+        1515,
+        1513
+      ],
+      "contact_sheet": "mayaobongro.vn/operations/running-to-basketball-page5-20260707/verification/contact-sheet-page5.jpg"
+    },
+    {
+      "page": "page6",
+      "source_page": "https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/page/6/",
+      "products": 12,
+      "final_images": 24,
+      "female_led_expected": 13,
+      "minimum_female_led_required": 11,
+      "quota_pass_expected": true,
+      "codes": [
+        "X24-BR-046",
+        "X24-BR-047",
+        "X24-BR-048",
+        "X24-BR-049",
+        "X24-BR-050",
+        "X24-BR-051",
+        "X24-BR-052",
+        "X24-BR-053",
+        "X24-BR-054",
+        "X24-BR-055",
+        "X24-BR-056",
+        "X24-BR-057"
+      ],
+      "product_ids": [
+        1510,
+        1508,
+        1506,
+        1504,
+        1502,
+        1500,
+        1498,
+        1496,
+        1494,
+        1492,
+        1490,
+        1488
+      ],
+      "contact_sheet": "mayaobongro.vn/operations/running-to-basketball-page6-20260707/verification/contact-sheet-page6.jpg"
+    }
+  ],
+  "total_products": 24,
+  "total_final_images": 48,
+  "total_female_led_expected": 26,
+  "minimum_female_led_required": 22,
+  "quota_pass_expected": true
+}

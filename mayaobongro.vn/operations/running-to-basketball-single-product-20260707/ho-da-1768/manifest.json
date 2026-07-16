@@ -1,0 +1,79 @@
+{
+  "job_id": "product-1768-ho-da-single-age-gallery",
+  "created_at": "2026-07-07T13:50:00+07:00",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaobongro.vn",
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-thiet-ke-doc-quyen-ho-da-runners-vang-xanh-nang-dong/",
+  "destination_product_id": 1768,
+  "edition_group": "ho-da-yellow-green-mountain",
+  "old_title": "Áo chạy bộ thiết kế độc quyền HỒ ĐÁ RUNNERS - Vàng xanh năng động",
+  "new_title": "Bộ Quần Áo Bóng Rổ Hồ Đá Vàng Xanh X24-BR-009",
+  "old_slug": "ao-chay-bo-thiet-ke-doc-quyen-ho-da-runners-vang-xanh-nang-dong",
+  "new_slug": "bo-quan-ao-bong-ro-ho-da-vang-xanh-x24-br-009",
+  "source_image": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/ho-da-1768/source/ho-da-running-source.jpg",
+  "source_media_id": 2403,
+  "text_decisions": [
+    {
+      "source": "HỒ ĐÁ RUNNERS",
+      "action": "replace",
+      "target": "HỒ ĐÁ"
+    },
+    {
+      "source": "HDR logo",
+      "action": "preserve",
+      "target": "HDR logo if readable"
+    },
+    {
+      "source": "yellow/green mountain motif",
+      "action": "preserve",
+      "target": "yellow/green mountain basketball uniform motif"
+    },
+    {
+      "source": "mayaochaybo.vn / hotline / road scene",
+      "action": "remove",
+      "target": ""
+    }
+  ],
+  "category_ids": [
+    70,
+    97,
+    101,
+    102,
+    75,
+    95
+  ],
+  "outputs": {
+    "elementary": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/ho-da-1768/final/x24-br-009-ao-bong-ro-tieu-hoc.webp",
+    "high_school": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/ho-da-1768/final/x24-br-009-ao-bong-ro-thpt.webp"
+  },
+  "gallery_roles": {
+    "featured": "high_school",
+    "secondary": [
+      "elementary"
+    ]
+  },
+  "seo_keywords": [
+    "bộ quần áo bóng rổ thiết kế riêng",
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ học sinh THCS",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT",
+    "đồng phục bóng rổ trường học"
+  ],
+  "status": "verified",
+  "errors": [],
+  "new_media_ids": [
+    2797,
+    2798
+  ],
+  "meta": {
+    "_mayaobongro_age_gallery_model": "single-product",
+    "_mayaobongro_age_image_tieu_hoc_id": 2797,
+    "_mayaobongro_age_image_thpt_id": 2798
+  },
+  "backup_path": "/Users/hoang/wordpress_websites/mayaobongro.vn/backups/running-to-basketball-single-product-20260707/ho-da-1768/product-1768-before-ho-da-single-gallery-20260707T071000Z.json",
+  "verification_report": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/ho-da-1768/verification/public-verification.json",
+  "verified_at": "2026-07-07T07:12:00Z"
+}

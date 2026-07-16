@@ -1,0 +1,43 @@
+{
+  "job_id": "product-1774-dong-do-land-single-age-gallery",
+  "created_at": "2026-07-07T00:00:00+07:00",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaobongro.vn",
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-mau-cam-noi-bat-dong-hanh-cung-giai-chay-dong-do-land/",
+  "destination_product_id": 1774,
+  "edition_group": "dong-do-land-orange-skyline",
+  "old_title": "Áo Chạy Bộ Màu Cam Nổi Bật Đồng Hành Cùng Giải Chạy Đông Đô Land",
+  "new_title": "Bộ Quần Áo Bóng Rổ Học Sinh Đông Đô Land Cam X24-BR-002",
+  "old_slug": "ao-chay-bo-mau-cam-noi-bat-dong-hanh-cung-giai-chay-dong-do-land",
+  "new_slug": "bo-quan-ao-bong-ro-hoc-sinh-dong-do-land-cam-x24-br-002",
+  "source_image": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/dong-do-land-1774/source/dong-do-land-running-source.jpg",
+  "source_media_id": 2401,
+  "text_decisions": [
+    {"source": "Đông Đô Land", "action": "preserve", "target": "Đông Đô Land"},
+    {"source": "orange skyline/building motif", "action": "preserve", "target": "orange skyline/building motif"},
+    {"source": "áo chạy bộ / giải chạy / running concept", "action": "replace", "target": "bộ quần áo bóng rổ học sinh"},
+    {"source": "running pose/environment", "action": "replace", "target": "school basketball court"},
+    {"source": "mayaochaybo.vn / hotline / mockup frame", "action": "remove", "target": ""}
+  ],
+  "category_ids": [70, 97, 101, 102, 75, 95],
+  "outputs": {
+    "elementary": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/dong-do-land-1774/final/x24-br-002-ao-bong-ro-tieu-hoc.webp",
+    "high_school": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/dong-do-land-1774/final/x24-br-002-ao-bong-ro-thpt.webp"
+  },
+  "gallery_roles": {
+    "featured": "high_school",
+    "secondary": ["elementary"]
+  },
+  "seo_keywords": [
+    "bộ quần áo bóng rổ học sinh",
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ học sinh THCS",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT",
+    "đồng phục bóng rổ trường học"
+  ],
+  "status": "discovered",
+  "errors": []
+}

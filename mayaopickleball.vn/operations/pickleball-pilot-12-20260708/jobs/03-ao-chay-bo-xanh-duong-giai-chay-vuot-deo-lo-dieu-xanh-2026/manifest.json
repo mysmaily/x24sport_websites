@@ -1,0 +1,21 @@
+{
+  "pilot_index": 3,
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-xanh-duong-giai-chay-vuot-deo-lo-dieu-xanh-2026/",
+  "source_slug": "ao-chay-bo-xanh-duong-giai-chay-vuot-deo-lo-dieu-xanh-2026",
+  "source_title": "Áo Chạy Bộ Xanh Dương - Giải Chạy Vượt Đèo Lộ Diêu Xanh 2026",
+  "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/ao-chay-bo-lo-dieu-xanh-2026-model.jpg",
+  "source_product_id_guess": "1770",
+  "job_id": "03-ao-chay-bo-xanh-duong-giai-chay-vuot-deo-lo-dieu-xanh-2026",
+  "destination_site": "mayaopickleball.vn",
+  "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-pilot-12-20260708/jobs/03-ao-chay-bo-xanh-duong-giai-chay-vuot-deo-lo-dieu-xanh-2026/source/ao-chay-bo-lo-dieu-xanh-2026-model.jpg",
+  "new_product_code": "X24-PB-003",
+  "color_label": "xanh dương xanh",
+  "outputs": {},
+  "status": "source_downloaded",
+  "attempts": {
+    "image_a": 0,
+    "image_b": 0
+  },
+  "wordpress_mutation": false,
+  "notes": []
+}

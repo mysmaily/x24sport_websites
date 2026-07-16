@@ -1,0 +1,74 @@
+{
+  "job_id": "product-1727-review-ha-noi-single-age-gallery",
+  "created_at": "2026-07-07T14:40:00+07:00",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaobongro.vn",
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-team-review-ha-noi-mau-do-noi-bat/",
+  "destination_product_id": 1727,
+  "edition_group": "review-ha-noi-x24-br-022",
+  "old_title": "Áo Chạy Bộ Team Review Hà Nội Màu Đỏ Nổi Bật",
+  "new_title": "Bộ Quần Áo Bóng Rổ Review Hà Nội Đỏ X24-BR-022",
+  "old_slug": "ao-chay-bo-team-review-ha-noi-mau-do-noi-bat",
+  "new_slug": "bo-quan-ao-bong-ro-review-ha-noi-do-x24-br-022",
+  "source_image": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/review-ha-noi-1727/source/review-ha-noi-source.jpg",
+  "source_media_id": 2424,
+  "text_decisions": [
+    {
+      "source": "running/race terms",
+      "action": "replace/remove",
+      "target": "basketball-specific wording"
+    },
+    {
+      "source": "preserve Review Hà Nội / Group Reviewhanoi if readable; remove running wording",
+      "action": "apply",
+      "target": "basketball-safe design text"
+    }
+  ],
+  "category_ids": [
+    70,
+    97,
+    101,
+    102,
+    75,
+    95
+  ],
+  "outputs": {
+    "elementary": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/review-ha-noi-1727/final/x24-br-022-ao-bong-ro-tieu-hoc.webp",
+    "high_school": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/review-ha-noi-1727/final/x24-br-022-ao-bong-ro-thpt.webp"
+  },
+  "gallery_roles": {
+    "featured": "high_school",
+    "secondary": [
+      "elementary"
+    ]
+  },
+  "seo_keywords": [
+    "bộ quần áo bóng rổ thiết kế riêng",
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ học sinh THCS",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT",
+    "đồng phục bóng rổ trường học"
+  ],
+  "status": "verified",
+  "errors": [],
+  "new_media_ids": {
+    "elementary": 2827,
+    "high_school": 2828,
+    "featured": 2828,
+    "gallery": [
+      2827
+    ]
+  },
+  "meta": {
+    "_mayaobongro_edition_group": "review-ha-noi-x24-br-022",
+    "_mayaobongro_age_gallery_model": "single-product",
+    "_mayaobongro_age_image_tieu_hoc_id": 2827,
+    "_mayaobongro_age_image_thpt_id": 2828
+  },
+  "backup_path": "/Users/hoang/wordpress_websites/mayaobongro.vn/backups/running-to-basketball-single-product-20260707/review-ha-noi-1727/product-1727-before-review-ha-noi-1727-single-gallery-20260707T090245Z.json",
+  "verification_report": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/review-ha-noi-1727/verification-report.json",
+  "verified_at": "2026-07-07T09:08:12Z"
+}

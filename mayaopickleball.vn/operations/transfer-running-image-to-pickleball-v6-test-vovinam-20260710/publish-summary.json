@@ -1,0 +1,38 @@
+{
+  "product_id": 2800,
+  "product_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-064-vang-xanh-nang-dong/",
+  "sku": "X24-PB-064",
+  "media_ids": [
+    2798,
+    2799
+  ],
+  "media_urls": [
+    "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-064-ao-pickleball-nam-nu-co-co-tay-ngan-vang-xanh.webp",
+    "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-064-ao-pickleball-nam-co-tron-nu-co-co-khong-tay-vang-xanh.webp"
+  ],
+  "rest_verify": {
+    "rest_product_status": 200,
+    "product_id": 2800,
+    "product_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-064-vang-xanh-nang-dong/",
+    "shopper_fields_forbidden_hits": [],
+    "public_category_deferred_to_batch": true
+  },
+  "public_verify": {
+    "public_product_status": 200,
+    "public_contains_media_urls": [
+      true,
+      true
+    ],
+    "product_specific_forbidden_hits": [],
+    "global_false_positive_hits": [
+      "5k",
+      "mayaochaybo",
+      "aochaybo"
+    ]
+  },
+  "category_verify": {
+    "category_status": 200,
+    "category_contains_product_slug": true
+  },
+  "ledger_appended": "/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/operations/transfer-running-image-to-pickleball-converted-sources.jsonl"
+}

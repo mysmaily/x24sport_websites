@@ -1,0 +1,74 @@
+{
+  "job_id": "product-1714-hong-nghia-taekwondo-single-age-gallery",
+  "created_at": "2026-07-07T14:40:00+07:00",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaobongro.vn",
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-xanh-lam-do-hong-nghia-taekwondo-doc-quyen-nang-dong/",
+  "destination_product_id": 1714,
+  "edition_group": "hong-nghia-taekwondo-x24-br-028",
+  "old_title": "Áo Chạy Bộ Xanh Lam Đỏ – Hồng Nghĩa Taekwondo Độc Quyền Năng Động",
+  "new_title": "Bộ Quần Áo Bóng Rổ Hồng Nghĩa Taekwondo Xanh Đỏ X24-BR-028",
+  "old_slug": "ao-chay-bo-xanh-lam-do-hong-nghia-taekwondo-doc-quyen-nang-dong",
+  "new_slug": "bo-quan-ao-bong-ro-hong-nghia-taekwondo-xanh-do-x24-br-028",
+  "source_image": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/hong-nghia-taekwondo-1714/source/hong-nghia-taekwondo-source.jpg",
+  "source_media_id": 2430,
+  "text_decisions": [
+    {
+      "source": "running/race terms",
+      "action": "replace/remove",
+      "target": "basketball-specific wording"
+    },
+    {
+      "source": "preserve Hồng Nghĩa Taekwondo / Võ Đường if readable; remove running wording",
+      "action": "apply",
+      "target": "basketball-safe design text"
+    }
+  ],
+  "category_ids": [
+    70,
+    97,
+    101,
+    102,
+    75,
+    95
+  ],
+  "outputs": {
+    "elementary": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/hong-nghia-taekwondo-1714/final/x24-br-028-ao-bong-ro-tieu-hoc.webp",
+    "high_school": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/hong-nghia-taekwondo-1714/final/x24-br-028-ao-bong-ro-thpt.webp"
+  },
+  "gallery_roles": {
+    "featured": "high_school",
+    "secondary": [
+      "elementary"
+    ]
+  },
+  "seo_keywords": [
+    "bộ quần áo bóng rổ thiết kế riêng",
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ học sinh THCS",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT",
+    "đồng phục bóng rổ trường học"
+  ],
+  "status": "verified",
+  "errors": [],
+  "new_media_ids": {
+    "elementary": 2839,
+    "high_school": 2840,
+    "featured": 2840,
+    "gallery": [
+      2839
+    ]
+  },
+  "meta": {
+    "_mayaobongro_edition_group": "hong-nghia-taekwondo-x24-br-028",
+    "_mayaobongro_age_gallery_model": "single-product",
+    "_mayaobongro_age_image_tieu_hoc_id": 2839,
+    "_mayaobongro_age_image_thpt_id": 2840
+  },
+  "backup_path": "/Users/hoang/wordpress_websites/mayaobongro.vn/backups/running-to-basketball-single-product-20260707/hong-nghia-taekwondo-1714/product-1714-before-hong-nghia-taekwondo-1714-single-gallery-20260707T090245Z.json",
+  "verification_report": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/hong-nghia-taekwondo-1714/verification-report.json",
+  "verified_at": "2026-07-07T09:08:12Z"
+}

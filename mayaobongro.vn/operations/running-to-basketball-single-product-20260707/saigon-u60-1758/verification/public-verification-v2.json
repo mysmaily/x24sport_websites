@@ -1,0 +1,78 @@
+{
+  "product_id": 1758,
+  "slug": "bo-quan-ao-bong-ro-saigon-u60-gradient-x24-br-004",
+  "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-saigon-u60-gradient-x24-br-004/",
+  "title": "Bộ Quần Áo Bóng Rổ SAIGON U60 Gradient X24-BR-004",
+  "status": 200,
+  "yoast_title": "Bộ Quần Áo Bóng Rổ SAIGON U60 Gradient X24-BR-004 - May Áo Bóng Rổ - VN",
+  "yoast_description": "Bộ quần áo bóng rổ SAIGON U60 Gradient X24-BR-004 phối hồng, vàng, xanh dương, form áo bóng rổ suông và quần đồng bộ thoáng khí.",
+  "yoast_canonical": "https://mayaobongro.vn/bo-quan-ao-bong-ro-saigon-u60-gradient-x24-br-004/",
+  "categories": [
+    101,
+    97,
+    102,
+    95,
+    70,
+    75
+  ],
+  "required_categories_present": true,
+  "category_100_absent": true,
+  "forbidden_terms_found": [],
+  "forbidden_title_slug_terms_found": [],
+  "yoast_forbidden_title_slug_terms_found": [],
+  "required_phrases_present": [
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT"
+  ],
+  "source_domain_in_product_fields": false,
+  "source_domain_in_html": false,
+  "has_age_fit_box": false,
+  "featured_media": 2788,
+  "media": [
+    {
+      "id": 2788,
+      "alt_text": "Ảnh mẫu học sinh cấp 3 mặc bộ quần áo bóng rổ SAIGON U60 gradient hồng vàng xanh X24-BR-004",
+      "media_type": "image",
+      "mime_type": "image/webp",
+      "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-004-ao-bong-ro-thpt.webp",
+      "head": {
+        "status": 200,
+        "location": null,
+        "contentType": "image/webp"
+      }
+    }
+  ],
+  "body_images": [
+    {
+      "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-004-ao-bong-ro-tieu-hoc.webp",
+      "head": {
+        "status": 200,
+        "location": null,
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-004-ao-bong-ro-thpt.webp",
+      "head": {
+        "status": 200,
+        "location": null,
+        "contentType": "image/webp"
+      }
+    }
+  ],
+  "redirects": {
+    "ao-chay-bo-team-saigon-u60-gradient-hong-vang-xanh-duong-nang-dong": {
+      "status": 301,
+      "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-saigon-u60-gradient-x24-br-004/",
+      "contentType": "text/html; charset=UTF-8"
+    },
+    "bo-quan-ao-bong-ro-hoc-sinh-saigon-u60-gradient-x24-br-004": {
+      "status": 301,
+      "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-saigon-u60-gradient-x24-br-004/",
+      "contentType": "text/html; charset=UTF-8"
+    }
+  }
+}

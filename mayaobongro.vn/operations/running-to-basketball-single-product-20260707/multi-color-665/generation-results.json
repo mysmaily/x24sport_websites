@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 2,
+  "results": [
+    {
+      "ok": true,
+      "id": "multi-color-665-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-106-ao-bong-ro-tieu-hoc.png",
+      "seconds": 70.9
+    },
+    {
+      "ok": true,
+      "id": "multi-color-665-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-106-ao-bong-ro-thpt.png",
+      "seconds": 75.4
+    }
+  ]
+}

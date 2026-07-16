@@ -1,0 +1,53 @@
+{
+  "job_id": "product-1770-lo-dieu-xanh-single-age-gallery",
+  "created_at": "2026-07-07T13:31:00+07:00",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaobongro.vn",
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-xanh-duong-giai-chay-vuot-deo-lo-dieu-xanh-2026/",
+  "destination_product_id": 1770,
+  "edition_group": "lo-dieu-xanh-2026-blue-green-yellow",
+  "old_title": "Áo Chạy Bộ Xanh Dương - Giải Chạy Vượt Đèo Lộ Diêu Xanh 2026",
+  "new_title": "Bộ Quần Áo Bóng Rổ Lộ Diêu Xanh 2026 Xanh Dương X24-BR-006",
+  "old_slug": "ao-chay-bo-xanh-duong-giai-chay-vuot-deo-lo-dieu-xanh-2026",
+  "new_slug": "bo-quan-ao-bong-ro-lo-dieu-xanh-2026-xanh-duong-x24-br-006",
+  "source_image": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/lo-dieu-xanh-1770/source/lo-dieu-xanh-running-source.jpg",
+  "source_media_id": 2402,
+  "text_decisions": [
+    {"source": "HÒA NINH BÌNH", "action": "preserve", "target": "HÒA NINH BÌNH"},
+    {"source": "VƯỢT ĐÈO LỘ DIÊU XANH 2026", "action": "replace", "target": "LỘ DIÊU XANH 2026"},
+    {"source": "Vietnam flag mark", "action": "preserve", "target": "small Vietnam flag mark if it remains secondary"},
+    {"source": "blue base, yellow/green sweeping lower motif", "action": "preserve", "target": "blue base, yellow/green sweeping basketball uniform motif"},
+    {"source": "running road, mountain road scene, adult runner model", "action": "replace", "target": "generic school basketball court with fictional student"},
+    {"source": "mayaochaybo.vn / hotline / top and bottom frame", "action": "remove", "target": ""}
+  ],
+  "category_ids": [70, 97, 101, 102, 75, 95],
+  "outputs": {
+    "elementary": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/lo-dieu-xanh-1770/final/x24-br-006-ao-bong-ro-tieu-hoc.webp",
+    "high_school": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/lo-dieu-xanh-1770/final/x24-br-006-ao-bong-ro-thpt.webp"
+  },
+  "gallery_roles": {
+    "featured": "high_school",
+    "secondary": ["elementary"]
+  },
+  "seo_keywords": [
+    "bộ quần áo bóng rổ thiết kế riêng",
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ học sinh THCS",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT",
+    "đồng phục bóng rổ trường học"
+  ],
+  "new_media_ids": [2791, 2792],
+  "meta": {
+    "_mayaobongro_age_gallery_model": "single-product",
+    "_mayaobongro_age_image_tieu_hoc_id": 2791,
+    "_mayaobongro_age_image_thpt_id": 2792
+  },
+  "backup_path": "/Users/hoang/wordpress_websites/mayaobongro.vn/backups/running-to-basketball-single-product-20260707/lo-dieu-xanh-1770/product-1770-before-lo-dieu-xanh-single-gallery-20260707T064300Z.json",
+  "verification_report": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/lo-dieu-xanh-1770/verification/public-verification.json",
+  "status": "verified",
+  "verified_at": "2026-07-07T06:45:00Z",
+  "errors": []
+}

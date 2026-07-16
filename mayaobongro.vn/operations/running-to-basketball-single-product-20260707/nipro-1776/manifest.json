@@ -1,0 +1,55 @@
+{
+  "job_id": "product-1776-nipro-single-age-gallery",
+  "created_at": "2026-07-07T08:00:00+07:00",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaobongro.vn",
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-nipro-mau-hong-xanh-duong-noi-bat-fdl-song-khoe/",
+  "destination_product_id": 1776,
+  "edition_group": "nipro-fdl-song-khoe-hong-xanh",
+  "old_title": "Áo chạy bộ Nipro màu hồng-xanh dương nổi bật FDL Sống Khỏe",
+  "new_title": "Bộ Quần Áo Bóng Rổ Học Sinh Nipro FDL Sống Khỏe Hồng Xanh",
+  "old_slug": "ao-chay-bo-nipro-mau-hong-xanh-duong-noi-bat-fdl-song-khoe",
+  "new_slug": "bo-quan-ao-bong-ro-hoc-sinh-nipro-fdl-song-khoe-hong-xanh",
+  "source_image": "/Users/hoang/hacado/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/nipro-1776/source/nipro-running-source.jpg",
+  "source_media_id": 2400,
+  "text_decisions": [
+    {"source": "Nipro", "action": "preserve", "target": "Nipro"},
+    {"source": "FDL", "action": "preserve", "target": "FDL"},
+    {"source": "Sống Khỏe", "action": "preserve", "target": "Sống Khỏe"},
+    {"source": "áo chạy bộ / running concept", "action": "replace", "target": "bộ quần áo bóng rổ học sinh"},
+    {"source": "running pose/environment", "action": "replace", "target": "school basketball court"},
+    {"source": "mayaochaybo.vn / hotline / mockup frame", "action": "remove", "target": ""}
+  ],
+  "category_ids": [70, 97, 101, 102, 75, 95],
+  "outputs": {
+    "elementary": "/Users/hoang/hacado/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/nipro-1776/final/nipro-ao-bong-ro-tieu-hoc.webp",
+    "high_school": "/Users/hoang/hacado/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/nipro-1776/final/nipro-ao-bong-ro-thpt.webp"
+  },
+  "gallery_roles": {
+    "featured": "high_school",
+    "secondary": ["elementary"]
+  },
+  "wordpress_media_ids": {
+    "elementary": 2774,
+    "high_school": 2775,
+    "source_original": 2400
+  },
+  "public_urls": {
+    "product": "https://mayaobongro.vn/bo-quan-ao-bong-ro-hoc-sinh-nipro-fdl-song-khoe-hong-xanh/",
+    "old_redirect": "https://mayaobongro.vn/ao-chay-bo-nipro-mau-hong-xanh-duong-noi-bat-fdl-song-khoe/",
+    "elementary_image": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/nipro-ao-bong-ro-tieu-hoc.webp",
+    "high_school_image": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/nipro-ao-bong-ro-thpt.webp"
+  },
+  "seo_keywords": [
+    "bộ quần áo bóng rổ học sinh",
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ học sinh THCS",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT",
+    "đồng phục bóng rổ trường học"
+  ],
+  "status": "verified",
+  "errors": []
+}

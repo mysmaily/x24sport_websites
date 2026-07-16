@@ -1,0 +1,22 @@
+[
+  {
+    "id": "ho-da-1768-elementary",
+    "audience": "elementary",
+    "product_id": 1768,
+    "source": "source/ho-da-running-source.jpg",
+    "generated": "generated/x24-br-009-ao-bong-ro-tieu-hoc.png",
+    "final": "final/x24-br-009-ao-bong-ro-tieu-hoc.webp",
+    "title": "Bộ Quần Áo Bóng Rổ Hồ Đá Vàng Xanh X24-BR-009",
+    "prompt": "Use case: identity-preserve\nAsset type: square WooCommerce product image for mayaobongro.vn\n\nImage 1 is a garment-design reference only. Preserve the yellow upper body, green gradient lower body, layered mountain/forest motif, small red star, and HDR badge if readable. Replace HỒ ĐÁ RUNNERS text with HỒ ĐÁ or HĐR HOOPS. Remove mayaochaybo.vn, hotline, old running/lake road context, adult models, and running-shirt cut.\n\nConvert the garment into an authentic basketball uniform: wider basketball shoulders, rib-knit neckline and armholes, relaxed straight torso, longer hem covering the shorts waistband. Pair it with loose knee-length basketball shorts coordinated in yellow, green, teal, and mountain motif panels.\n\nScene: covered elementary school basketball court, soft daylight, generic hoop visible, no readable school identity.\n\nSubject: One fictional Vietnamese elementary-school basketball player, age 9-10, natural child proportions, friendly confident expression, holding a basketball at waist height.\n\nComposition: Square 1:1, three-quarter body, garment fully visible, thumbnail-readable front design and coordinated shorts.\n\nStyle: Photorealistic commercial Vietnamese school sportswear photography, realistic breathable mesh, natural folds, correct anatomy.\n\nConstraints: fictional student only, age-appropriate, non-sexualized, no exposed midriff, no real school identifiers, no extra logos, no running terminology, no watermark."
+  },
+  {
+    "id": "ho-da-1768-high-school",
+    "audience": "high_school",
+    "product_id": 1768,
+    "source": "source/ho-da-running-source.jpg",
+    "generated": "generated/x24-br-009-ao-bong-ro-thpt.png",
+    "final": "final/x24-br-009-ao-bong-ro-thpt.webp",
+    "title": "Bộ Quần Áo Bóng Rổ Hồ Đá Vàng Xanh X24-BR-009",
+    "prompt": "Use case: identity-preserve\nAsset type: square WooCommerce product image for mayaobongro.vn\n\nImage 1 is a garment-design reference only. Preserve the yellow upper body, green gradient lower body, layered mountain/forest motif, small red star, and HDR badge if readable. Replace HỒ ĐÁ RUNNERS text with HỒ ĐÁ or HĐR HOOPS. Remove mayaochaybo.vn, hotline, old running/lake road context, adult models, and running-shirt cut.\n\nConvert the garment into an authentic basketball uniform: wider basketball shoulders, rib-knit neckline and armholes, relaxed straight torso, longer hem covering the shorts waistband. Pair it with loose knee-length basketball shorts coordinated in yellow, green, teal, and mountain motif panels.\n\nScene: high-school basketball court after class, clean daylight, generic court lines and hoop, no readable school identity.\n\nSubject: One fictional Vietnamese high-school basketball player, age 16-17, athletic but age-appropriate, confident ready stance holding a basketball.\n\nComposition: Square 1:1, three-quarter body, garment fully visible, thumbnail-readable front design and coordinated shorts.\n\nStyle: Photorealistic commercial Vietnamese school sportswear photography, realistic breathable mesh, natural folds, correct anatomy.\n\nConstraints: fictional student only, age-appropriate, non-sexualized, no exposed midriff, no real school identifiers, no extra logos, no running terminology, no watermark."
+  }
+]

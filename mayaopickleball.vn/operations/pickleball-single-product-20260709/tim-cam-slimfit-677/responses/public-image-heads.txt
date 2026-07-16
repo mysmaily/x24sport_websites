@@ -1,0 +1,20 @@
+URL: https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-014-ao-pickleball-nam-nu-co-co-tay-ngan-tim-cam.webp
+HTTP/2 200 
+date: Wed, 08 Jul 2026 18:54:43 GMT
+content-type: image/webp
+content-length: 137296
+etag: "76a621bf8cb7c5c2f55af8346e243d1a"
+last-modified: Wed, 08 Jul 2026 18:52:17 GMT
+accept-ranges: bytes
+server: cloudflare
+
+URL: https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-014-ao-pickleball-nam-ba-lo-nu-khong-tay-co-co-tim-cam.webp
+HTTP/2 200 
+date: Wed, 08 Jul 2026 18:54:43 GMT
+content-type: image/webp
+content-length: 115902
+etag: "1c3cca3d7a71a54647858c13f5a302c1"
+last-modified: Wed, 08 Jul 2026 18:52:25 GMT
+accept-ranges: bytes
+server: cloudflare
+

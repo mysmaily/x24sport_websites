@@ -1,0 +1,46 @@
+{
+  "product_id": 1776,
+  "slug": "bo-quan-ao-bong-ro-hoc-sinh-nipro-fdl-song-khoe-hong-xanh",
+  "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-hoc-sinh-nipro-fdl-song-khoe-hong-xanh/",
+  "title": "Bộ Quần Áo Bóng Rổ Học Sinh Nipro FDL Sống Khỏe Hồng Xanh",
+  "status": 200,
+  "categories": [
+    101,
+    97,
+    102,
+    95,
+    70,
+    75
+  ],
+  "required_categories_present": true,
+  "category_100_absent": true,
+  "forbidden_terms_found": [],
+  "required_phrases_present": [
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT"
+  ],
+  "source_domain_in_html": false,
+  "featured_media": 2775,
+  "media": [
+    {
+      "id": 2775,
+      "alt_text": "Ảnh mẫu học sinh cấp 3 mặc bộ quần áo bóng rổ Nipro FDL Sống Khỏe hồng xanh",
+      "media_type": "image",
+      "mime_type": "image/webp",
+      "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/nipro-ao-bong-ro-thpt.webp",
+      "head": {
+        "status": 200,
+        "location": null,
+        "contentType": "image/webp"
+      }
+    }
+  ],
+  "old_url_head": {
+    "status": 301,
+    "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-hoc-sinh-nipro-fdl-song-khoe-hong-xanh/",
+    "contentType": "text/html; charset=UTF-8"
+  }
+}

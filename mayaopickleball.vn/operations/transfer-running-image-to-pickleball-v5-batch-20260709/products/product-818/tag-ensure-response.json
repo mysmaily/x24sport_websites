@@ -1,0 +1,32 @@
+[
+  {
+    "id": 108,
+    "name": "áo pickleball có cổ",
+    "slug": "ao-pickleball-co-co",
+    "created": false
+  },
+  {
+    "id": 136,
+    "name": "màu tím",
+    "slug": "mau-tim",
+    "created": false
+  },
+  {
+    "id": 123,
+    "name": "màu trắng",
+    "slug": "mau-trang",
+    "created": false
+  },
+  {
+    "id": 170,
+    "name": "màu xám nhạt",
+    "slug": "mau-xam-nhat",
+    "created": false
+  },
+  {
+    "id": 179,
+    "name": "tím trắng",
+    "slug": "tim-trang",
+    "created": true
+  }
+]

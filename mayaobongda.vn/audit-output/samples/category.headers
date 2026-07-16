@@ -1,0 +1,15 @@
+HTTP/2 200 
+date: Fri, 03 Jul 2026 08:09:03 GMT
+content-type: text/html; charset=UTF-8
+server: cloudflare
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+x-powered-by: PHP/8.2.30
+link: <https://mayaobongda.vn/wp-json/>; rel="https://api.w.org/"
+link: <https://mayaobongda.vn/wp-json/wp/v2/product_cat/70>; rel="alternate"; title="JSON"; type="application/json"
+x-fastcgi-cache: MISS
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=BIYpC62Yh%2FNK2HN%2B8SSLQK4o4sDWKEVq38HE43PkuAcGiJwjm2WBRFEqDf9Z6Duw1nbHPIg6tyUXIiPnRpqUFjA1rEFBUlTNm8DyVihzafM%2B764wL6RjJR%2Fq7mLaj%2BriSw%3D%3D"}]}
+cf-cache-status: DYNAMIC
+vary: accept-encoding
+cf-ray: a15467dd4b038491-HKG
+alt-svc: h3=":443"; ma=86400
+

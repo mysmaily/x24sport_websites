@@ -1,0 +1,15 @@
+Create a photorealistic square 1:1 product image for mayaocaulong.vn.
+
+Use the provided pickleball product image only as a garment and composition reference. Preserve the clothing design: colorway (nổi bật), panel placement, graphic flow, collar/sleeve shape, accents, fabric texture, and commercial product-selling clarity. Convert the sport world completely into badminton.
+
+Output requirement: Vietnamese badminton apparel catalog photo for product X24-CL-001. Replace pickleball paddles with badminton rackets, replace balls with shuttlecocks only if naturally present, replace the court with an unmistakable badminton court or indoor badminton hall: badminton net height and mesh, court boundary lines, polished indoor floor or dedicated badminton surface, sports hall lighting, and subtle club background. Do not show volleyball, pickleball, tennis, running, race, or outdoor road cues.
+
+Models and pose: keep a relaxed catalog/product posture. Avoid jump smash, lunging action, overdramatic athletic poses, or motion blur. If two models are visible in the source, use one fictional Vietnamese adult male and one fictional Vietnamese adult female together. If the source is single-model, keep a clean single-model catalog pose unless the user asks for a pair.
+
+Garment realism: the outfit must look like real sewn sportswear worn by the model, not a pasted graphic. Show believable seams, collar, sleeve openings, hems, fabric folds, body curvature, shadows, wrinkles, and natural light response. The pattern should bend with the body and fabric tension while preserving the source design map.
+
+Branding/text: add at most a small X24 chest mark if the source already suggests that placement. Do not add readable pickleball text, old website text, watermarks, product-code labels, phone numbers, or random background signage. Do not add official overlay badges or contact pills.
+
+Style: premium Vietnamese badminton sportswear photography, clean bright skin, accurate anatomy and hands, realistic badminton rackets physically held by the handles, apparel in sharp focus, background secondary and not cluttered.
+
+Avoid: pickleball court lines, pickleball paddles, tennis rackets, volleyball context, running cues, source site names, flat pasted shirt print, broken collars, distorted hands, floating rackets, unreadable random text, harsh cutout artifacts, and any shopper-facing old-source branding.

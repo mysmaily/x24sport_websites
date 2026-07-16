@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 1,
+  "results": [
+    {
+      "ok": true,
+      "id": "camlog-implant-1710-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-018-ao-bong-ro-tieu-hoc.png",
+      "seconds": 73.7
+    },
+    {
+      "ok": true,
+      "id": "camlog-implant-1710-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-018-ao-bong-ro-thpt.png",
+      "seconds": 71.4
+    }
+  ]
+}

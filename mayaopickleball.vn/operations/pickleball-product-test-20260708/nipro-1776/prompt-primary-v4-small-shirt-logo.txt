@@ -1,0 +1,88 @@
+Use case: product-mockup / identity-preserve / small-shirt-logo-rebrand
+Asset type: square WooCommerce product image for mayaopickleball.vn
+
+Primary request:
+Transform the current apparel reference into a realistic ecommerce/lifestyle
+product image for selling a custom pickleball outfit. Rebrand the shirt design:
+remove every old shirt logo or text mark from the reference, then add only a
+small mayaopickleball.vn team-style shirt logo/wordmark on each visible shirt.
+
+Input images:
+- Image 1 is the apparel color and pattern reference. Preserve the vivid pink,
+  blue, white, and navy palette, gradient, curved graphic shapes, dotted
+  accents, and overall design language.
+- Image 2 is the mayaopickleball.vn logo reference. Use it only as inspiration
+  for the small shirt mark. Do not copy its white background as a box.
+
+Mandatory rebranding:
+- Remove all old garment logos and text from Image 1, including "FDL", "Nipro",
+  "Song Khoe", "Sống Khỏe", X24 marks, running marks, or any other legacy shirt
+  logos/text.
+- Add a small mayaopickleball.vn shirt mark on every visible shirt. It should
+  look like a real team crest/club logo printed on fabric, about the size of a
+  normal chest logo, not a large poster or ad graphic.
+- If the full graphic logo becomes too detailed or messy at small size, use only
+  the clean readable wordmark text: "mayaopickleball.vn".
+- On the male front shirt, place the mark on the left or right chest only.
+- On the female back shirt, place a small mark high on the upper back or
+  shoulder-blade area only. Do not make it a large mid-back print.
+- The mark must contrast with the shirt color below it: use white/light text on
+  blue or navy areas, dark/navy text on light pink areas, or a thin contrasting
+  outline. It must remain visible at ecommerce thumbnail size.
+- The mark must follow fabric folds naturally and look printed into the shirt,
+  not pasted on top, not a sticker, not a white rectangle, not a floating
+  watermark.
+- Do not place old source logos on paddles, shorts, wristbands, backgrounds, or
+  court signage.
+
+Scene/backdrop:
+Bright outdoor pickleball court in Vietnam, clean daylight, court lines and net
+visible but softly secondary, polished ecommerce campaign feel.
+
+Subject:
+Use exactly two attractive adult Vietnamese pickleball models together: one male
+and one female. The male model is upright, strong, confident, broad-shouldered,
+fit but not bodybuilder-like, holding a pickleball paddle casually. The female
+model is athletic, graceful, pretty, naturally feminine, with tasteful waist/hip
+curve, relaxed shoulders, confident posture, and sporty tied-up hair/high
+ponytail. Both are adults and fictional.
+
+Composition/framing:
+Square ecommerce product image. Use a front/back pair composition: male model
+front-facing or three-quarter-front to show the shirt front clearly; female
+model 60% back-facing / three-quarter-back with a natural over-shoulder smile
+to show the shirt back design and small upper-back mark. Both models stand or
+pose casually on the court while holding paddles. Do not put either model in a
+deep ready stance, crouch, swing, lunge, or technical hitting pose. Keep posture
+upright, flattering, and apparel-focused. Crop from above heads to upper thighs
+or mid-thigh so the clothing dominates the frame and there is little empty
+background.
+
+Outfit:
+Both models wear the same pink-blue pickleball apparel design from the
+reference, now cleaned of old logos and rebranded with small
+mayaopickleball.vn marks. Male front shows the front design and small chest
+brand mark; female back shows the back design and small upper-back brand mark.
+Use coordinated dark navy or black athletic court shorts/skort that fit the
+outfit and do not hide the shirt hem.
+
+Materials/textures:
+Premium lightweight court-sport fabric, fine polyester knit/mesh texture,
+realistic collar seams, sleeve seams, hem stitching, wrinkles, stretch, shadows,
+and highlights. Printed graphic follows body folds naturally and stays crisp.
+
+Overlay/stamp:
+Do not generate any extra corner watermark or contact footer. The only brand
+marks should be the small shirt marks printed on the clothing itself.
+
+Avoid:
+Large logo on chest, large logo on back, poster/sticker look, white rectangle
+behind the logo, low-contrast logo, old FDL logo, old Nipro logo, old Song
+Khoe/Sống Khỏe text, old X24 marks, running logo/text, old source website
+footer, hunched posture, deep athletic ready stance, technical pickleball
+stroke, road running, jogging motion, marathon/race cues, finish line, medals,
+race bib, distorted hands, cut-off faces, changed shirt colors, fake flat
+overlay pattern, blurry fabric, plastic skin, extra people, childlike faces,
+oversexualized pose, pin-up glamour pose, unrealistic female curves,
+bodybuilder male proportions, stiff mannequin pose, copied mockup frame,
+third-party watermark.

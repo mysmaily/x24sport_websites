@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 1,
+  "results": [
+    {
+      "ok": true,
+      "id": "inox-hong-dat-1725-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-011-ao-bong-ro-tieu-hoc.png",
+      "seconds": 81.1
+    },
+    {
+      "ok": true,
+      "id": "inox-hong-dat-1725-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-011-ao-bong-ro-thpt.png",
+      "seconds": 88.8
+    }
+  ]
+}

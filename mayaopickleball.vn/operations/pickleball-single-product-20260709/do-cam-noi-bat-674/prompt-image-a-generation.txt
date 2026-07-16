@@ -1,0 +1,48 @@
+Create a square 1:1 photorealistic ecommerce product image for mayaopickleball.vn.
+
+Use case: identity-preserve
+Asset type: square WooCommerce product image for mayaopickleball.vn
+
+Image 1 is a garment-design reference only. Preserve its palette, gradient, and abstract geometric pattern language, but remove all old logos, text, mockup borders, side thumbnails, hotline/footer bars, and running-product framing.
+
+Design direction to preserve:
+- rich green upper body fading into creamy white at the hem;
+- sharp yellow accent shards and green abstract side graphics;
+- faint geometric linework across the body for a modern technical-sport look.
+
+Text/logo decisions:
+- remove "AO CHAY BO", "RUNNING", "SINGLET", "RUN FOR ALL", "RUN FOR LIFE", "0989.353.247", and "X24SPORT.COM";
+- add only one small X24 chest logo on visible shirt fronts;
+- do not place any text or logos on shirt backs;
+- do not place any text or logos on paddle faces.
+
+Scene:
+- outdoor Vietnamese pickleball court in soft morning daylight;
+- a small X24 SPORTS sign beyond the fence, secondary and softly blurred;
+- clean believable net geometry.
+
+Subject:
+- two fictional Vietnamese adult pickleball models together, one male and one female;
+- male stands front-left, upright, athletic, confident, paddle held low beside the thigh;
+- female stands back-right in a three-quarter-back pose with an over-shoulder smile, tied-up sporty hair, athletic but tasteful build;
+- this is a product-selling pose, not a lesson or match-action pose.
+
+Garment style for this image:
+- both models wear pickleball shirts with a neat sport collar and short sleeves;
+- the male and female tops are coordinated team-uniform versions of the same green, cream, and yellow source palette.
+
+Composition:
+- square 1:1, clean thumbnail readability, both garments fully visible;
+- three-quarter-body framing;
+- one model clearly shows the shirt front, one clearly shows the back or three-quarter back;
+- keep the models standing relaxed and upright.
+
+Style:
+- photorealistic commercial Vietnamese pickleball sportswear photography;
+- breathable fabric texture, natural folds, correct anatomy, plausible daylight.
+
+Constraints:
+- no running terminology, no marathon or race cues, no old mockup frame, no copied source background;
+- no text on paddles;
+- no back logos or back text;
+- no distorted hands, no impossible court lines, no extra people.

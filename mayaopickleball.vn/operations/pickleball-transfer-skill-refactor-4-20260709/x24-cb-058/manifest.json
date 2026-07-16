@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.4-safe",
+  "operation_mode": "update_existing_product",
+  "selection_mode": "single_url",
+  "destination_site": "mayaopickleball.vn",
+  "destination_product_id": 2105,
+  "product_url": "https://mayaopickleball.vn/ao-chay-bo-x24-cb-058-trang-xanh-kieu-2-nang-dong-ca-tinh/",
+  "old_title": "Áo Chạy Bộ X24 CB-058 Trắng Xanh Kiểu 2 – Năng Động &amp; Cá Tính",
+  "new_title": "Bộ Quần Áo Pickleball X24 PB-020 Trắng Xanh Đỏ Cá Tính",
+  "old_slug": "ao-chay-bo-x24-cb-058-trang-xanh-kieu-2-nang-dong-ca-tinh",
+  "new_slug": "bo-quan-ao-pickleball-x24-pb-020-trang-xanh-do-ca-tinh",
+  "product_code": "X24-PB-020",
+  "legacy_match_reasons": [
+    "name: chạy bộ",
+    "short_description: chạy bộ",
+    "description: chạy bộ"
+  ],
+  "text_decisions": [
+    {
+      "source": "X24",
+      "action": "preserve",
+      "target": "X24"
+    },
+    {
+      "source": "running / chạy bộ cues",
+      "action": "remove",
+      "target": ""
+    }
+  ],
+  "assets": {
+    "image_a": {
+      "style": "male_tank_no_collar_female_collared_no_sleeve",
+      "status": "media_uploaded",
+      "output": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-transfer-skill-refactor-4-20260709/x24-cb-058/final/x24-pb-020-image-a-male-tank-female-collared-nosleeve-v2.webp",
+      "media_id": 2656,
+      "image_filter_tags": [
+        "3 lỗ",
+        "không tay",
+        "nam không cổ",
+        "nữ có cổ"
+      ],
+      "branding": {
+        "logo_source": "png",
+        "logo_badge_shape": "perfect_circle",
+        "logo_trimmed_before_scale": true,
+        "contact_overlay_present": true,
+        "color_dots_present": true
+      }
+    },
+    "image_b": {
+      "style": "crew_short_sleeve",
+      "status": "media_uploaded",
+      "output": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-transfer-skill-refactor-4-20260709/x24-cb-058/final/x24-pb-020-image-b-crew-short-sleeve.webp",
+      "media_id": 2655,
+      "image_filter_tags": [
+        "ngắn tay",
+        "không cổ"
+      ],
+      "branding": {
+        "logo_source": "png",
+        "logo_badge_shape": "perfect_circle",
+        "logo_trimmed_before_scale": true,
+        "contact_overlay_present": true,
+        "color_dots_present": true
+      }
+    }
+  },
+  "category_ids": [
+    95,
+    96,
+    70,
+    71
+  ],
+  "old_product_records": {
+    "wc_product_path": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-transfer-skill-refactor-4-20260709/x24-cb-058/wc-product-current.json",
+    "wp_product_path": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-transfer-skill-refactor-4-20260709/x24-cb-058/wp-product-current.json",
+    "backup_dir": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-transfer-skill-refactor-4-20260709/x24-cb-058/backups/20260709-133153-before-product-update",
+    "male_no_collar_fix_backup_dir": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-transfer-skill-refactor-4-20260709/x24-cb-058/backups/20260709-135115-before-male-no-collar-fix"
+  },
+  "new_media_ids": [
+    2656,
+    2655
+  ],
+  "status": "verified",
+  "attempts": {
+    "image_a": 0,
+    "image_b": 0
+  },
+  "qa": {},
+  "errors": [],
+  "verification": {
+    "same_product_id_confirmed": true,
+    "public_html_checked": true,
+    "new_public_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-020-trang-xanh-do-ca-tinh/",
+    "media_ids": [
+      2656,
+      2655
+    ],
+    "male_no_sleeve_no_collar_confirmed_by_visual_review": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 1,
+  "results": [
+    {
+      "ok": true,
+      "id": "tuan-dan-1712-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-017-ao-bong-ro-tieu-hoc.png",
+      "seconds": 96
+    },
+    {
+      "ok": true,
+      "id": "tuan-dan-1712-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-017-ao-bong-ro-thpt.png",
+      "seconds": 86.3
+    }
+  ]
+}

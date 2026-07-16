@@ -1,0 +1,37 @@
+Create a square 1:1 photorealistic ecommerce product image for mayaopickleball.vn.
+
+Use the source running-shirt image only as a garment-design reference. Preserve this design identity:
+- bright white shirt base;
+- soft light-gray abstract swirl/camo pattern across the torso;
+- bold asymmetrical black-and-white symbol pattern covering one shoulder and sleeve panel;
+- a very small black X24 chest mark.
+
+Remove all old text, old mockup elements, size badges, hotline, footer website text, and running cues.
+
+Convert the design into authentic pickleball apparel for two fictional Vietnamese adult models, one male and one female. This image must sell the apparel, not a lesson or match action. Both models stand upright, relaxed, confident, and casually hold blank pickleball paddles.
+
+Garment style:
+- both models wear coordinated pickleball shirts with neat sport collars and short sleeves;
+- the male and female tops are team-uniform versions of the same white, gray, and black source palette.
+
+Pose:
+- male front-left standing tall with paddle held low beside thigh;
+- female back-right three-quarter-back with over-shoulder smile, one hand lightly near hip, showing collar, sleeves, and back panel.
+
+Crop:
+- three-quarter-body ecommerce framing;
+- garments large and readable at thumbnail scale.
+
+Scene:
+- outdoor Vietnamese pickleball court in soft morning daylight;
+- mountains or greenery softly blurred in the distance;
+- believable net geometry;
+- a very small secondary X24 SPORTS sign beyond the fence.
+
+Text/logo decisions:
+- remove ELARA, X24-CB-064, KEEP OF RUNNING, MAYAOCHAYBO.VN, 0989.353.247, and all other readable source text;
+- keep only a tiny X24 chest mark on visible shirt fronts;
+- do not place readable text on shirt backs or paddle faces;
+- do not put mayaopickleball.vn on the garments.
+
+Avoid running poses, race bibs, finish-line energy, copied seafront railing, mockup borders, distorted text, distorted hands, childlike faces, and impossible court geometry.

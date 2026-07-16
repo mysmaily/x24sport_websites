@@ -1,0 +1,35 @@
+[
+  {
+    "code": "X24-CL-006",
+    "name": "Áo Cầu Lông Đặt May X24-CL-006 Gradient Xanh Lá Xanh Dương",
+    "slug": "ao-cau-long-dat-may-x24-cl-006-gradient-xanh-la-xanh-duong",
+    "mainColors": ["xanh lá chanh", "xanh dương"],
+    "gradient": "gradient xanh lá chanh xanh dương",
+    "pattern": "chuyển sắc mềm",
+    "shape": "cổ bẻ tay ngắn",
+    "image": "products/x24-cl-006/x24-cl-006-badminton-1.webp",
+    "source": "/Users/hoang/.codex/generated_images/019f5720-f5cb-7c62-98a7-824439113481/call_g5EZaFFyqnZ4dHJuEUt4yvUt.png"
+  },
+  {
+    "code": "X24-CL-007",
+    "name": "Áo Cầu Lông Đặt May X24-CL-007 Gradient Xanh Navy Xanh Dương",
+    "slug": "ao-cau-long-dat-may-x24-cl-007-gradient-xanh-navy-xanh-duong",
+    "mainColors": ["xanh navy", "xanh dương", "xanh royal"],
+    "gradient": "gradient xanh navy xanh dương",
+    "pattern": "đường sọc chéo xanh hai bên sườn",
+    "shape": "nam cổ tròn không tay, nữ cổ bẻ không tay",
+    "image": "products/x24-cl-007/x24-cl-007-badminton-1.webp",
+    "source": "/Users/hoang/.codex/generated_images/019f5720-f5cb-7c62-98a7-824439113481/call_IUA6azZBRGLfYhci7JRimBWn.png"
+  },
+  {
+    "code": "X24-CL-008",
+    "name": "Áo Cầu Lông Đặt May X24-CL-008 Gradient Cam Đỏ",
+    "slug": "ao-cau-long-dat-may-x24-cl-008-gradient-cam-do",
+    "mainColors": ["cam", "đỏ"],
+    "gradient": "gradient cam đỏ",
+    "pattern": "họa tiết đường sóng đỏ",
+    "shape": "cổ bẻ tay ngắn",
+    "image": "products/x24-cl-008/x24-cl-008-badminton-1.webp",
+    "source": "/Users/hoang/.codex/generated_images/019f5720-f5cb-7c62-98a7-824439113481/call_vaQynC1H9PCQGNcfwkqH5aTE.png"
+  }
+]

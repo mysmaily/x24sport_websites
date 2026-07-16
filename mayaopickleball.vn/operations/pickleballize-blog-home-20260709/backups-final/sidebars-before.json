@@ -1,0 +1,370 @@
+[
+  {
+    "id": "wp_inactive_widgets",
+    "name": "Tiện ích không sử dụng",
+    "description": "",
+    "class": "",
+    "before_widget": "",
+    "after_widget": "",
+    "before_title": "",
+    "after_title": "",
+    "status": "inactive",
+    "widgets": [
+      "custom_html-4",
+      "block-2",
+      "block-3",
+      "block-4",
+      "block-5",
+      "block-6",
+      "woocommerce_product_tag_cloud-8",
+      "block_widget-3",
+      "pages-3",
+      "pages-5",
+      "pages-6",
+      "pages-8",
+      "calendar-3",
+      "calendar-5",
+      "archives-4",
+      "archives-6",
+      "search-4",
+      "text-4",
+      "categories-5",
+      "categories-7",
+      "recent-posts-4",
+      "recent-posts-6",
+      "recent-posts-8",
+      "recent-comments-4",
+      "tag_cloud-3",
+      "tag_cloud-8",
+      "woocommerce_widget_cart-3",
+      "woocommerce_widget_cart-5",
+      "woocommerce_layered_nav_filters-3",
+      "woocommerce_layered_nav_filters-5",
+      "woocommerce_layered_nav_filters-7",
+      "woocommerce_layered_nav_filters-9",
+      "woocommerce_layered_nav-3",
+      "woocommerce_layered_nav-5",
+      "woocommerce_layered_nav-7",
+      "woocommerce_layered_nav-10",
+      "woocommerce_price_filter-3",
+      "woocommerce_price_filter-5",
+      "woocommerce_price_filter-7",
+      "woocommerce_price_filter-11",
+      "woocommerce_product_categories-5",
+      "woocommerce_product_categories-7",
+      "woocommerce_product_categories-9",
+      "woocommerce_product_categories-10",
+      "woocommerce_product_categories-12",
+      "woocommerce_product_tag_cloud-3",
+      "woocommerce_product_tag_cloud-5",
+      "woocommerce_product_tag_cloud-6",
+      "woocommerce_product_tag_cloud-7",
+      "woocommerce_products-3",
+      "woocommerce_products-4",
+      "woocommerce_products-5",
+      "woocommerce_products-7",
+      "woocommerce_products-9",
+      "woocommerce_products-10",
+      "woocommerce_rating_filter-2",
+      "woocommerce_rating_filter-3",
+      "woocommerce_recent_reviews-3",
+      "woocommerce_recently_viewed_products-3",
+      "woocommerce_recently_viewed_products-5",
+      "woocommerce_recently_viewed_products-7",
+      "woocommerce_top_rated_products-2",
+      "flatsome_recent_posts-3",
+      "flatsome_recent_posts-5",
+      "flatsome_recent_posts-6",
+      "flatsome_recent_posts-8",
+      "flatsome_recent_posts-9",
+      "flatsome_recent_posts-11",
+      "flatsome_recent_posts-13",
+      "flatsome_recent_posts-14",
+      "flatsome_recent_posts-16",
+      "upsell_widget-3",
+      "upsell_widget-5",
+      "upsell_widget-7",
+      "flatsome_recent_posts-18"
+    ],
+    "_links": {
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars"
+        }
+      ],
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars/wp_inactive_widgets",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "wp:widget": [
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/widgets?sidebar=wp_inactive_widgets"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "sidebar-main",
+    "name": "Thanh bên",
+    "description": "",
+    "class": "",
+    "before_widget": "<aside id=\"%1$s\" class=\"widget %2$s\">",
+    "after_widget": "</aside>",
+    "before_title": "<span class=\"widget-title \"><span>",
+    "after_title": "</span></span><div class=\"is-divider small\"></div>",
+    "status": "active",
+    "widgets": [
+      "text-13",
+      "flatsome_recent_posts-17",
+      "recent-comments-5",
+      "tag_cloud-9",
+      "categories-14",
+      "archives-7"
+    ],
+    "_links": {
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars"
+        }
+      ],
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars/sidebar-main",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "wp:widget": [
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/widgets?sidebar=sidebar-main"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "sidebar-footer-1",
+    "name": "Chân trang 1",
+    "description": "",
+    "class": "",
+    "before_widget": "<div id=\"%1$s\" class=\"col pb-0 widget %2$s\">",
+    "after_widget": "</div>",
+    "before_title": "<span class=\"widget-title\">",
+    "after_title": "</span><div class=\"is-divider small\"></div>",
+    "status": "active",
+    "widgets": [
+      "woocommerce_products-12",
+      "woocommerce_products-11",
+      "woocommerce_products-13",
+      "woocommerce_top_rated_products-3"
+    ],
+    "_links": {
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars"
+        }
+      ],
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars/sidebar-footer-1",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "wp:widget": [
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/widgets?sidebar=sidebar-footer-1"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "sidebar-footer-2",
+    "name": "Chân trang 2",
+    "description": "",
+    "class": "",
+    "before_widget": "<div id=\"%1$s\" class=\"col pb-0 widget %2$s\">",
+    "after_widget": "</div>",
+    "before_title": "<span class=\"widget-title\">",
+    "after_title": "</span><div class=\"is-divider small\"></div>",
+    "status": "active",
+    "widgets": [
+      "block_widget-2",
+      "block_widget-5",
+      "custom_html-3"
+    ],
+    "_links": {
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars"
+        }
+      ],
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars/sidebar-footer-2",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "wp:widget": [
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/widgets?sidebar=sidebar-footer-2"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "shop-sidebar",
+    "name": "Thanh bên cửa hàng",
+    "description": "",
+    "class": "",
+    "before_widget": "<aside id=\"%1$s\" class=\"widget %2$s\">",
+    "after_widget": "</aside>",
+    "before_title": "<span class=\"widget-title shop-sidebar\">",
+    "after_title": "</span><div class=\"is-divider small\"></div>",
+    "status": "active",
+    "widgets": [
+      "woocommerce_layered_nav_filters-10",
+      "woocommerce_product_categories-13",
+      "woocommerce_layered_nav-11",
+      "woocommerce_price_filter-9",
+      "woocommerce_recently_viewed_products-8"
+    ],
+    "_links": {
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars"
+        }
+      ],
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars/shop-sidebar",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "wp:widget": [
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/widgets?sidebar=shop-sidebar"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "product-sidebar",
+    "name": "Thanh bên sản phẩm",
+    "description": "",
+    "class": "",
+    "before_widget": "<aside id=\"%1$s\" class=\"widget %2$s\">",
+    "after_widget": "</aside>",
+    "before_title": "<span class=\"widget-title shop-sidebar\">",
+    "after_title": "</span><div class=\"is-divider small\"></div>",
+    "status": "active",
+    "widgets": [],
+    "_links": {
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars"
+        }
+      ],
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/sidebars/product-sidebar",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH"
+            ]
+          }
+        }
+      ],
+      "wp:widget": [
+        {
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/widgets?sidebar=product-sidebar"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

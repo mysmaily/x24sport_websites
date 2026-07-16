@@ -1,0 +1,4 @@
+interface:
+  display_name: "Running To Pickleball V6"
+  short_description: "Create pickleball products from source images"
+  default_prompt: "Use $transfer-running-image-to-pickleball-v6 to create new mayaopickleball.vn pickleball products from approved mayaochaybo.vn source images."

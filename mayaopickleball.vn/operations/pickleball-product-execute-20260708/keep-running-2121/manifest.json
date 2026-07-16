@@ -1,0 +1,164 @@
+{
+  "job_id": "keep-running-2121",
+  "wave_id": "pickleball-product-execute-20260708",
+  "source_site": "mayaopickleball.vn",
+  "destination_site": "mayaopickleball.vn",
+  "source_product_url": "https://mayaopickleball.vn/ao-chay-bo-nam-x24-sports-gradient-trang-do-cam-vang-keep-running/",
+  "source_product_id": 2121,
+  "source_media_id": 2120,
+  "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/source/AoChayBo-X24-CB-059-Trang-Kieu2.jpg",
+  "old_title": "Áo Chạy Bộ Nam X24 Sports - Gradient Trắng Đỏ Cam Vàng KEEP RUNNING",
+  "draft_new_title": "Bộ Quần Áo Pickleball Nam Nữ X24 Trắng Đỏ Cam X24-PB-002",
+  "draft_new_slug": "bo-quan-ao-pickleball-nam-nu-x24-trang-do-cam-x24-pb-002",
+  "text_decisions": [
+    {
+      "source": "Just Keep Running",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "ZENIX",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "RUN",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "X24-CB-059",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "mayaochaybo.vn / hotline / Trắng",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "front chest logo",
+      "action": "replace",
+      "target": "small X24 chest mark"
+    }
+  ],
+  "outputs": {
+    "image_gen_png": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/generated/x24-pb-002-imagegen.png",
+    "final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/x24-pb-002-bo-quan-ao-pickleball-nam-nu-trang-do-cam.webp",
+    "contact_sheet": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/contact-sheet-x24-pb-002.jpg",
+    "uploaded_media_id": 2555,
+    "uploaded_media_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-002-bo-quan-ao-pickleball-nam-nu-trang-do-cam.webp",
+    "updated_product_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-trang-do-cam-x24-pb-002/",
+    "updated_product_id": 2121,
+    "image_a_collared_short_sleeve_png": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/generated/x24-pb-002-image-a-collared-short-sleeve-imagegen.png",
+    "image_a_collared_short_sleeve_final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/x24-pb-002-ao-pickleball-nam-nu-co-co-tay-ao-ngan-trang-do-cam.webp",
+    "image_b_sleeveless_deep_armhole_final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/x24-pb-002-bo-quan-ao-pickleball-nam-nu-trang-do-cam.webp",
+    "guide_v2_contact_sheet": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/contact-sheet-x24-pb-002-guide-v2.jpg",
+    "image_a_uploaded_media_id": 2556,
+    "image_a_uploaded_media_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-002-ao-pickleball-nam-nu-co-co-tay-ao-ngan-trang-do-cam.webp",
+    "image_b_uploaded_media_id": 2555,
+    "image_b_uploaded_media_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-002-bo-quan-ao-pickleball-nam-nu-trang-do-cam.webp",
+    "guide_v2_product_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-trang-do-cam-x24-pb-002/",
+    "image_a_pose_a2_png": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/generated/x24-pb-002-image-a-pose-a2-imagegen.png",
+    "image_a_pose_a2_final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/x24-pb-002-ao-pickleball-nam-nu-co-co-tay-ao-ngan-trang-do-cam-pose-a2.webp",
+    "image_b_pose_b1_png": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/generated/x24-pb-002-image-b-pose-b1-imagegen.png",
+    "image_b_pose_b1_final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/x24-pb-002-ao-pickleball-nam-ba-lo-nu-khoet-nach-trang-do-cam-pose-b1.webp",
+    "pose_v3_contact_sheet": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/contact-sheet-x24-pb-002-pose-v3.jpg",
+    "pose_v3_image_a_uploaded_media_id": 2557,
+    "pose_v3_image_a_uploaded_media_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-002-ao-pickleball-nam-nu-co-co-tay-ao-ngan-trang-do-cam-pose-a2.webp",
+    "pose_v3_image_b_uploaded_media_id": 2558,
+    "pose_v3_image_b_uploaded_media_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-002-ao-pickleball-nam-ba-lo-nu-khoet-nach-trang-do-cam-pose-b1.webp",
+    "pose_v3_product_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-trang-do-cam-x24-pb-002/",
+    "image_b_safe_armhole_png": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/generated/x24-pb-002-image-b-safe-armhole-imagegen.png",
+    "image_b_safe_armhole_final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/x24-pb-002-ao-pickleball-nam-ba-lo-nu-khoet-nach-trang-do-cam-safe-armhole.webp",
+    "safe_armhole_contact_sheet": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/contact-sheet-x24-pb-002-safe-armhole.jpg",
+    "safe_armhole_b_uploaded_media_id": 2559,
+    "safe_armhole_b_uploaded_media_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/07/x24-pb-002-ao-pickleball-nam-ba-lo-nu-khoet-nach-trang-do-cam-safe-armhole.webp"
+  },
+  "status": "safe_armhole_verified",
+  "attempts": {
+    "primary": 0,
+    "image_gen_retry": 1,
+    "image_a_collared_short_sleeve": 1
+  },
+  "wordpress_mutation": true,
+  "notes": [
+    "Used built-in image_gen retry output; added corner watermark and vertical color availability dots in post-processing.",
+    "Guide v2: generated image A collared short-sleeve; reused previous final image as image B sleeveless/deep-armhole candidate.",
+    "Pose v3: generated new A2 collared short-sleeve and B1 sleeveless/deep-armhole images with distinct poses.",
+    "Regenerated image B with high sport-safe female armhole covering side bust/underarm."
+  ],
+  "updated_at": "2026-07-08T18:23:39.690667",
+  "verification_file": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/verification-x24-pb-002.json",
+  "verified_at": "2026-07-08T14:47:13.739526",
+  "verification_summary": {
+    "new_url_status": "HTTP/2 200",
+    "old_url_redirect": "HTTP/2 301 to new slug",
+    "image_status": "HTTP/2 200 image/webp",
+    "product_fields_contain_chay_bo": false,
+    "og_twitter_image_updated": true
+  },
+  "guide_v2_backup_path": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/backups/20260708-163005-guide-v2",
+  "garment_styles": [
+    {
+      "slot": "A",
+      "style": "collared_short_sleeve",
+      "pose_slot": "A2",
+      "featured": true,
+      "media_id": 2557
+    },
+    {
+      "slot": "B",
+      "style": "male_sleeveless_sport_safe_armhole",
+      "pose_slot": "B1_safe",
+      "featured": false,
+      "media_id": 2559
+    }
+  ],
+  "guide_v2_verification_file": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/verification-x24-pb-002-guide-v2.json",
+  "guide_v2_verified_at": "2026-07-08T16:31:11.778819",
+  "guide_v2_verification_summary": {
+    "new_url_status": "HTTP/2 200 ",
+    "old_url_redirect": "HTTP/2 301  location: https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-trang-do-cam-x24-pb-002/",
+    "api_image_ids": [
+      2556,
+      2555
+    ],
+    "media_metadata_style_specific": true,
+    "public_html_references_both_images": true,
+    "og_uses_image_a": true,
+    "forbidden_running_terms_in_product_fields": false
+  },
+  "pose_slots": {
+    "image_a": "A2",
+    "image_b": "B1"
+  },
+  "pose_v3_backup_path": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/backups/20260708-180554-pose-v3",
+  "pose_v3_verification_file": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/verification-x24-pb-002-pose-v3.json",
+  "pose_v3_verified_at": "2026-07-08T18:07:07.636431",
+  "pose_v3_verification_summary": {
+    "new_url_status": "HTTP/2 200 ",
+    "old_url_redirect": "HTTP/2 301  location: https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-trang-do-cam-x24-pb-002/",
+    "api_image_ids": [
+      2557,
+      2558
+    ],
+    "public_html_references_both_images": true,
+    "og_uses_image_a": true,
+    "forbidden_running_terms_in_product_fields": false
+  },
+  "safe_armhole_backup_path": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/backups/20260708-182321-safe-armhole-b",
+  "safe_armhole_verification_file": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260708/keep-running-2121/final/verification-x24-pb-002-safe-armhole.json",
+  "safe_armhole_verified_at": "2026-07-08T18:24:46.926097",
+  "safe_armhole_verification_summary": {
+    "new_url_status": "HTTP/2 200 ",
+    "old_url_redirect": "HTTP/2 301  location: https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-trang-do-cam-x24-pb-002/",
+    "api_image_ids": [
+      2557,
+      2559
+    ],
+    "public_html_references_both_images": true,
+    "og_uses_image_a": true,
+    "forbidden_running_terms_in_product_fields": false
+  }
+}

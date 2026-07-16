@@ -1,0 +1,16 @@
+{
+  "products": 190,
+  "jobs": 380,
+  "source_download_failures": [
+    {
+      "id": 1826,
+      "url": "https://mayaobongro.vn/wp-content/uploads/2026/06/AoChayBo-X24-CB-052-XanhChuoi-Kieu1.jpg",
+      "error": "The read operation timed out"
+    }
+  ],
+  "sku_range": [
+    "X24-BR-106",
+    "X24-BR-295"
+  ],
+  "female_led_expected": 190
+}

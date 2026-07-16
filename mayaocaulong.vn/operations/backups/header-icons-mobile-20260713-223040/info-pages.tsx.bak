@@ -1,0 +1,202 @@
+import Link from 'next/link'
+import type { ReactNode } from 'react'
+import { ArrowRight, ChevronDown, Menu, Phone, Search } from 'lucide-react'
+import { catalogColorFilters, catalogTypeFilters } from '../../lib/content'
+
+export const phone = '0989.353.247'
+export const phoneHref = 'tel:0989353247'
+export const zaloHref = 'https://zalo.me/0989353247'
+
+const navigation = [
+  { label: 'Mẫu áo', href: '/san-pham' },
+  { label: 'Đặt may', href: '/dat-may-ao-cau-long' },
+  { label: 'Bảng giá', href: '/bang-gia-may-ao-cau-long' },
+  { label: 'Vải & Size', href: '/chat-lieu-va-bang-size-ao-cau-long' },
+  { label: 'Mẫu đã làm', href: '/mau-ao-cau-long-da-lam' },
+] as const
+
+export function SiteHeader() {
+  return (
+    <header className="site-header">
+      <Link className="brand-mark" href="/" aria-label="MayaoCauLong.vn">
+        <span>MC</span>
+        <strong>MayaoCauLong</strong>
+      </Link>
+
+      <nav className="site-nav" aria-label="Điều hướng chính">
+        {navigation.map((item) => (
+          item.label === 'Mẫu áo' ? (
+            <div className="nav-dropdown" key={item.label}>
+              <Link className="nav-dropdown-trigger" href={item.href}>
+                {item.label}
+                <ChevronDown size={14} strokeWidth={2.4} />
+              </Link>
+              <div className="nav-dropdown-panel" aria-label="Danh mục mẫu áo">
+                <div>
+                  <span className="nav-dropdown-title">Kiểu áo</span>
+                  {catalogTypeFilters.map((filter) => (
+                    <Link key={filter.slug} href={filter.href}>
+                      {filter.label}
+                    </Link>
+                  ))}
+                </div>
+                <div>
+                  <span className="nav-dropdown-title">Màu phổ biến</span>
+                  {catalogColorFilters.map((filter) => (
+                    <Link key={filter.slug} href={filter.href}>
+                      {filter.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <Link key={item.label} href={item.href}>
+              {item.label}
+            </Link>
+          )
+        ))}
+      </nav>
+
+      <div className="header-actions">
+        <a className="header-phone" href={phoneHref}>
+          <Phone size={17} />
+          <span>{phone}</span>
+        </a>
+        <Link className="icon-button" href="/san-pham" aria-label="Tìm mẫu áo">
+          <Search size={18} />
+        </Link>
+        <button className="icon-button menu-button" type="button" aria-label="Mở menu">
+          <Menu size={18} />
+        </button>
+      </div>
+    </header>
+  )
+}
+
+export function InfoHero({
+  kicker,
+  title,
+  description,
+  image,
+  stats,
+}: {
+  kicker: string
+  title: string
+  description: string
+  image: string
+  stats: Array<{ value: string; label: string }>
+}) {
+  return (
+    <section className="info-hero">
+      <div className="info-hero-copy">
+        <p className="hero-kicker">{kicker}</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
+        <div className="hero-actions">
+          <a className="primary-button" href={zaloHref}>
+            Tư vấn qua Zalo <ArrowRight size={18} />
+          </a>
+          <Link className="secondary-button" href="/san-pham">
+            Xem mẫu áo
+          </Link>
+        </div>
+      </div>
+      <div className="info-hero-media">
+        <img alt={title} height={960} src={image} width={1280} />
+        <div className="info-hero-badge">
+          <strong>Miễn phí thiết kế</strong>
+          <span>theo yêu cầu</span>
+        </div>
+      </div>
+      <div className="info-stat-row">
+        {stats.map((stat) => (
+          <div key={stat.label}>
+            <strong>{stat.value}</strong>
+            <span>{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+export function InfoFooter() {
+  return (
+    <>
+      <section className="final-cta info-final-cta">
+        <div>
+          <h2>Gửi logo, màu đội và số lượng. MayaoCauLong sẽ tư vấn hướng áo phù hợp.</h2>
+          <p>Thiết kế theo yêu cầu được hỗ trợ miễn phí trước khi sản xuất để đội dễ duyệt mẫu.</p>
+        </div>
+        <a className="primary-button" href={zaloHref}>
+          Nhận tư vấn <ArrowRight size={18} />
+        </a>
+      </section>
+
+      <footer className="site-footer">
+        <div>
+          <Link className="brand-mark footer-brand" href="/">
+            <span>MC</span>
+            <strong>MayaoCauLong</strong>
+          </Link>
+          <p>Đồng phục cầu lông đặt may cho CLB, đội phong trào, trường lớp và doanh nghiệp.</p>
+        </div>
+        <div>
+          <h3>Liên hệ</h3>
+          <p>Hotline: {phone}</p>
+          <p>Email: lienhe@mayaocaulong.vn</p>
+          <p>Thời gian tư vấn: 08:00 - 17:00 hàng ngày</p>
+        </div>
+        <div>
+          <h3>Trang chính</h3>
+          <p>
+            <Link href="/dat-may-ao-cau-long">Đặt may áo cầu lông</Link>
+          </p>
+          <p>
+            <Link href="/bang-gia-may-ao-cau-long">Bảng giá may áo cầu lông</Link>
+          </p>
+          <p>
+            <Link href="/chat-lieu-va-bang-size-ao-cau-long">Chất liệu & bảng size</Link>
+          </p>
+        </div>
+      </footer>
+
+      <div className="mobile-cta" aria-label="Liên hệ nhanh">
+        <a href={phoneHref}>Gọi ngay</a>
+        <a href={zaloHref}>Nhận báo giá</a>
+      </div>
+    </>
+  )
+}
+
+export function InfoPage({
+  children,
+  description,
+  image,
+  kicker,
+  stats,
+  title,
+}: {
+  children: ReactNode
+  description: string
+  image: string
+  kicker: string
+  stats: Array<{ value: string; label: string }>
+  title: string
+}) {
+  return (
+    <main className="site-page info-page">
+      <SiteHeader />
+      <InfoHero
+        description={description}
+        image={image}
+        kicker={kicker}
+        stats={stats}
+        title={title}
+      />
+      {children}
+      <InfoFooter />
+    </main>
+  )
+}

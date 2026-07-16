@@ -1,0 +1,29 @@
+{
+    "verified_at": "2026-07-07T01:12:20+00:00",
+    "ok": true,
+    "errors": [],
+    "plugin_active": true,
+    "product": {
+        "id": 1754,
+        "name": "Bộ Quần Áo Bóng Rổ Học Sinh Team HT Pickleball Đỏ Xanh Núi Việt Nam",
+        "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-hoc-sinh-team-ht-pickleball-do-xanh-nui-viet-nam/",
+        "status": "publish",
+        "model": "single-product",
+        "featured_media_id": 2773,
+        "featured_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/team-ht-pickleball-thpt.webp",
+        "gallery_media_ids": [
+            2772
+        ],
+        "age_image_tieu_hoc_id": 2772,
+        "age_image_thpt_id": 2773,
+        "category_ids": [
+            101,
+            97,
+            102,
+            95,
+            70,
+            75
+        ],
+        "keywords": "bộ quần áo bóng rổ học sinh, áo bóng rổ tiểu học, áo bóng rổ cho trẻ lớp 4-5, áo bóng rổ học sinh THCS, áo bóng rổ lớp 9, áo bóng rổ học sinh cấp 3, áo bóng rổ THPT, đồng phục bóng rổ trường học"
+    }
+}

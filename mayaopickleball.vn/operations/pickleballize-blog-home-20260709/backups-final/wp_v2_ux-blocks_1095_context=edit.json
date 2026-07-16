@@ -1,0 +1,223 @@
+{
+  "id": 1095,
+  "date": "2025-07-09T08:15:07",
+  "date_gmt": "2025-07-09T08:15:07",
+  "guid": {
+    "rendered": "https://mayaochaybo.vn/?post_type=blocks&#038;p=1095",
+    "raw": "https://mayaochaybo.vn/?post_type=blocks&#038;p=1095"
+  },
+  "modified": "2026-06-15T03:23:56",
+  "modified_gmt": "2026-06-15T03:23:56",
+  "password": "",
+  "slug": "footer-ket-noi-facebook",
+  "status": "publish",
+  "type": "blocks",
+  "link": "https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/",
+  "title": {
+    "raw": "Footer - Kết nối facebook",
+    "rendered": "Footer &#8211; Kết nối facebook"
+  },
+  "content": {
+    "raw": "<p style=\"text-align: center;\"><iframe style=\"border: none; overflow: hidden;\" src=\"https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/mayaochaybo&amp;tabs=timeline&amp;width=340&amp;height=320&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId\" width=\"340\" height=\"320\" frameborder=\"0\" scrolling=\"no\" allowfullscreen=\"allowfullscreen\"><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span></iframe></p>",
+    "rendered": "<p style=\"text-align: center;\"><iframe loading=\"lazy\" style=\"border: none; overflow: hidden;\" src=\"https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/mayaochaybo&amp;tabs=timeline&amp;width=340&amp;height=320&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId\" width=\"340\" height=\"320\" frameborder=\"0\" scrolling=\"no\" allowfullscreen=\"allowfullscreen\"><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span></iframe></p>\n",
+    "protected": false,
+    "block_version": 0
+  },
+  "featured_media": 0,
+  "parent": 0,
+  "template": "",
+  "meta": {
+    "footnotes": ""
+  },
+  "permalink_template": "https://mayaopickleball.vn/blocks/%pagename%/",
+  "generated_slug": "footer-ket-noi-facebook",
+  "class_list": [
+    "post-1095",
+    "blocks",
+    "type-blocks",
+    "status-publish",
+    "hentry"
+  ],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Footer - Kết nối facebook - May Áo Chạy Bộ - VN</title>\n<!-- Chú ý dành cho Admin: trang này không hiển thị thẻ meta mô tả vì nó không có, hoặc là thêm thẳng vào trang hoặc là vào menu [Yoast SEO - Thiết lập] và cài đặt một template. -->\n<meta name=\"robots\" content=\"noindex, follow\" />\n<meta property=\"og:locale\" content=\"vi_VN\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:type\" content=\"article\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:title\" content=\"Footer - Kết nối facebook\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:description\" content=\"﻿﻿﻿\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:url\" content=\"https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:site_name\" content=\"May Áo Chạy Bộ - VN\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"article:modified_time\" content=\"2026-06-15T03:23:56+00:00\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:image\" content=\"https://cdn.mayaochaybo.vn/wp-content/uploads/2026/05/x24.jpg\" class=\"yoast-seo-meta-tag\" />\n\t<meta property=\"og:image:width\" content=\"2000\" class=\"yoast-seo-meta-tag\" />\n\t<meta property=\"og:image:height\" content=\"857\" class=\"yoast-seo-meta-tag\" />\n\t<meta property=\"og:image:type\" content=\"image/jpeg\" class=\"yoast-seo-meta-tag\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" class=\"yoast-seo-meta-tag\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/\",\"url\":\"https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/\",\"name\":\"Footer - Kết nối facebook - May Áo Chạy Bộ - VN\",\"isPartOf\":{\"@id\":\"https://mayaopickleball.vn/#website\"},\"datePublished\":\"2025-07-09T08:15:07+00:00\",\"dateModified\":\"2026-06-15T03:23:56+00:00\",\"breadcrumb\":{\"@id\":\"https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/#breadcrumb\"},\"inLanguage\":\"vi\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://mayaopickleball.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Footer &#8211; Kết nối facebook\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaopickleball.vn/#website\",\"url\":\"https://mayaopickleball.vn/\",\"name\":\"May Áo Chạy Bộ - VN\",\"description\":\"Chuyên May Áo Chạy Bộ Cho Đội Nhóm, Giải Chạy\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaopickleball.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"},{\"@type\":\"LocalBusiness\",\"@id\":\"https://mayaopickleball.vn/#localbusiness\",\"name\":\"X24 Sport - May Áo Chạy Bộ\",\"description\":\"Xưởng may áo chạy bộ trực tiếp, thiết kế riêng miễn phí\",\"url\":\"https://mayaopickleball.vn/\",\"telephone\":\"+84977130115\",\"priceRange\":\"50.000đ - 500.000đ\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"1090/22D Quang Trung, Phường 14\",\"addressLocality\":\"Gò Vấp\",\"addressRegion\":\"TP. Hồ Chí Minh\",\"addressCountry\":\"VN\"},\"openingHoursSpecification\":[{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"],\"opens\":\"08:00\",\"closes\":\"18:00\"}]}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+  "yoast_head_json": {
+    "title": "Footer - Kết nối facebook - May Áo Chạy Bộ - VN",
+    "robots": {
+      "index": "noindex",
+      "follow": "follow"
+    },
+    "og_locale": "vi_VN",
+    "og_type": "article",
+    "og_title": "Footer - Kết nối facebook",
+    "og_description": "﻿﻿﻿",
+    "og_url": "https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/",
+    "og_site_name": "May Áo Chạy Bộ - VN",
+    "article_modified_time": "2026-06-15T03:23:56+00:00",
+    "og_image": [
+      {
+        "width": 2000,
+        "height": 857,
+        "url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/05/x24.jpg",
+        "type": "image/jpeg"
+      }
+    ],
+    "twitter_card": "summary_large_image",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/",
+          "url": "https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/",
+          "name": "Footer - Kết nối facebook - May Áo Chạy Bộ - VN",
+          "isPartOf": {
+            "@id": "https://mayaopickleball.vn/#website"
+          },
+          "datePublished": "2025-07-09T08:15:07+00:00",
+          "dateModified": "2026-06-15T03:23:56+00:00",
+          "breadcrumb": {
+            "@id": "https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/#breadcrumb"
+          },
+          "inLanguage": "vi",
+          "potentialAction": [
+            {
+              "@type": "ReadAction",
+              "target": [
+                "https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/"
+              ]
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://mayaopickleball.vn/blocks/footer-ket-noi-facebook/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://mayaopickleball.vn/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Footer &#8211; Kết nối facebook"
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mayaopickleball.vn/#website",
+          "url": "https://mayaopickleball.vn/",
+          "name": "May Áo Chạy Bộ - VN",
+          "description": "Chuyên May Áo Chạy Bộ Cho Đội Nhóm, Giải Chạy",
+          "potentialAction": [
+            {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://mayaopickleball.vn/?s={search_term_string}"
+              },
+              "query-input": {
+                "@type": "PropertyValueSpecification",
+                "valueRequired": true,
+                "valueName": "search_term_string"
+              }
+            }
+          ],
+          "inLanguage": "vi"
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://mayaopickleball.vn/#localbusiness",
+          "name": "X24 Sport - May Áo Chạy Bộ",
+          "description": "Xưởng may áo chạy bộ trực tiếp, thiết kế riêng miễn phí",
+          "url": "https://mayaopickleball.vn/",
+          "telephone": "+84977130115",
+          "priceRange": "50.000đ - 500.000đ",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1090/22D Quang Trung, Phường 14",
+            "addressLocality": "Gò Vấp",
+            "addressRegion": "TP. Hồ Chí Minh",
+            "addressCountry": "VN"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "08:00",
+              "closes": "18:00"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_links": {
+    "self": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks/1095",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/blocks"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 5,
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks/1095/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 2261,
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks/1095/revisions/2261"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/media?parent=1095"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks/1095"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/ux-blocks/1095"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,631 @@
+[
+  {
+    "id": 324,
+    "title": {
+      "rendered": "Trang Chủ"
+    },
+    "status": "publish",
+    "url": "https://mayaopickleball.vn/",
+    "attr_title": "",
+    "description": "",
+    "type": "post_type",
+    "type_label": "Trang",
+    "object": "page",
+    "object_id": 75,
+    "parent": 0,
+    "menu_order": 1,
+    "target": "",
+    "classes": [
+      ""
+    ],
+    "xfn": [
+      ""
+    ],
+    "invalid": false,
+    "meta": [],
+    "menus": 68,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/324",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/nav_menu_item"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "nav_menu",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus?post=324"
+        }
+      ],
+      "wp:menu-item-object": [
+        {
+          "post_type": "page",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/pages/75"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 343,
+    "title": {
+      "rendered": "Giới Thiệu"
+    },
+    "status": "publish",
+    "url": "https://mayaopickleball.vn/elements/pages/gioi-thieu/",
+    "attr_title": "",
+    "description": "",
+    "type": "post_type",
+    "type_label": "Trang",
+    "object": "page",
+    "object_id": 92,
+    "parent": 0,
+    "menu_order": 2,
+    "target": "",
+    "classes": [
+      ""
+    ],
+    "xfn": [
+      ""
+    ],
+    "invalid": false,
+    "meta": [],
+    "menus": 68,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/343",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/nav_menu_item"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "nav_menu",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus?post=343"
+        }
+      ],
+      "wp:menu-item-object": [
+        {
+          "post_type": "page",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/pages/92"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 234,
+    "title": {
+      "rendered": "Sản Phẩm"
+    },
+    "status": "publish",
+    "url": "https://mayaopickleball.vn/shop/",
+    "attr_title": "",
+    "description": "",
+    "type": "post_type",
+    "type_label": "Trang",
+    "object": "page",
+    "object_id": 9,
+    "parent": 0,
+    "menu_order": 3,
+    "target": "",
+    "classes": [
+      ""
+    ],
+    "xfn": [
+      ""
+    ],
+    "invalid": false,
+    "meta": [],
+    "menus": 68,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/234",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/nav_menu_item"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "nav_menu",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus?post=234"
+        }
+      ],
+      "wp:menu-item-object": [
+        {
+          "post_type": "page",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/pages/9"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 1311,
+    "title": {
+      "rendered": "Logo Đội Pickleball"
+    },
+    "status": "publish",
+    "url": "https://mayaopickleball.vn/logo-doi-pickleball/",
+    "attr_title": "",
+    "description": "",
+    "type": "taxonomy",
+    "type_label": "Danh mục",
+    "object": "product_cat",
+    "object_id": 73,
+    "parent": 0,
+    "menu_order": 4,
+    "target": "",
+    "classes": [
+      ""
+    ],
+    "xfn": [
+      ""
+    ],
+    "invalid": false,
+    "meta": [],
+    "menus": 68,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/1311",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/nav_menu_item"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "nav_menu",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus?post=1311"
+        }
+      ],
+      "wp:menu-item-object": [
+        {
+          "taxonomy": "product_cat",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/product_cat/73"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 2367,
+    "title": {
+      "rendered": "Áo Pickleball Cờ Đỏ Sao Vàng"
+    },
+    "status": "publish",
+    "url": "https://mayaopickleball.vn/shop/?s=ao+pickleball+co+do+sao+vang",
+    "attr_title": "",
+    "description": "",
+    "type": "custom",
+    "type_label": "Link tùy chọn",
+    "object": "custom",
+    "object_id": 2367,
+    "parent": 234,
+    "menu_order": 4,
+    "target": "",
+    "classes": [
+      ""
+    ],
+    "xfn": [
+      ""
+    ],
+    "invalid": false,
+    "meta": [],
+    "menus": 68,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/2367",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/nav_menu_item"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "nav_menu",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus?post=2367"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 251,
+    "title": {
+      "rendered": "Blog Pickleball"
+    },
+    "status": "publish",
+    "url": "https://mayaopickleball.vn/blog/",
+    "attr_title": "",
+    "description": "",
+    "type": "post_type",
+    "type_label": "Trang",
+    "object": "page",
+    "object_id": 91,
+    "parent": 0,
+    "menu_order": 5,
+    "target": "",
+    "classes": [
+      ""
+    ],
+    "xfn": [
+      ""
+    ],
+    "invalid": false,
+    "meta": [],
+    "menus": 68,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/251",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/nav_menu_item"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "nav_menu",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus?post=251"
+        }
+      ],
+      "wp:menu-item-object": [
+        {
+          "post_type": "page",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/pages/91"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 2368,
+    "title": {
+      "rendered": "Áo Pickleball Có Tay"
+    },
+    "status": "publish",
+    "url": "https://mayaopickleball.vn/ao-pickleball/",
+    "attr_title": "",
+    "description": "",
+    "type": "custom",
+    "type_label": "Link tùy chọn",
+    "object": "custom",
+    "object_id": 2368,
+    "parent": 234,
+    "menu_order": 5,
+    "target": "",
+    "classes": [
+      ""
+    ],
+    "xfn": [
+      ""
+    ],
+    "invalid": false,
+    "meta": [],
+    "menus": 68,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/2368",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/nav_menu_item"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "nav_menu",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus?post=2368"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 2369,
+    "title": {
+      "rendered": "Áo Pickleball Không Tay"
+    },
+    "status": "publish",
+    "url": "https://mayaopickleball.vn/shop/?s=pickleball+khong+tay",
+    "attr_title": "",
+    "description": "",
+    "type": "custom",
+    "type_label": "Link tùy chọn",
+    "object": "custom",
+    "object_id": 2369,
+    "parent": 234,
+    "menu_order": 6,
+    "target": "",
+    "classes": [
+      ""
+    ],
+    "xfn": [
+      ""
+    ],
+    "invalid": false,
+    "meta": [],
+    "menus": 68,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/2369",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/nav_menu_item"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "nav_menu",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus?post=2369"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 2370,
+    "title": {
+      "rendered": "Áo Pickleball Thiết Kế Riêng"
+    },
+    "status": "publish",
+    "url": "https://mayaopickleball.vn/ao-pickleball-thiet-ke-rieng/",
+    "attr_title": "",
+    "description": "",
+    "type": "custom",
+    "type_label": "Link tùy chọn",
+    "object": "custom",
+    "object_id": 2370,
+    "parent": 234,
+    "menu_order": 7,
+    "target": "",
+    "classes": [
+      ""
+    ],
+    "xfn": [
+      ""
+    ],
+    "invalid": false,
+    "meta": [],
+    "menus": 68,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/2370",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/nav_menu_item"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "nav_menu",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus?post=2370"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

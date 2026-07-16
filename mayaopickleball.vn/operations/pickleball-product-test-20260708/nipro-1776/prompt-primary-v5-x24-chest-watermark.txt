@@ -1,0 +1,86 @@
+Use case: product-mockup / identity-preserve / x24-chest-logo
+Asset type: square WooCommerce product image for mayaopickleball.vn
+
+Primary request:
+Transform the current apparel reference into a realistic ecommerce/lifestyle
+product image for selling a custom pickleball outfit. Remove everything related
+to running and remove all old logos/text from the garment. Add only a small X24
+logo/wordmark on the front chest of visible shirts. Do not print anything on the
+shirt back or paddle faces. The mayaopickleball.vn logo will be added later as a
+corner watermark, not printed on clothing.
+
+Input image:
+Image 1 is the apparel color and abstract pattern reference. Preserve the vivid
+pink, blue, white, and navy palette, gradient, curved graphic shapes, dotted
+accents, and overall design language. Remove all old logo/text elements.
+
+Mandatory cleanup:
+- Remove old garment logos/text: FDL, Nipro, Song Khoe, Sống Khỏe, X24 marks
+  from the old source, running marks, sponsor/event marks, old source-domain
+  text, and any running/race language.
+- Remove all running visual cues: jogging, race bibs, medals, finish lines,
+  marathon/race signage, road-running body language.
+- Do not place any readable logo/text on paddle faces, wristbands, shorts,
+  court boards, or background signage.
+
+Shirt logo rule:
+- Add only a small "X24" logo or wordmark to the left or right chest of the
+  male front-facing shirt, like a normal team crest.
+- If the female front chest is visible, add the same small X24 chest mark there
+  too.
+- Do not print any logo, wordmark, sponsor mark, or decorative text on the back
+  of the female shirt. The back should show only the color gradient and abstract
+  pattern continuation.
+- The X24 chest mark must contrast with the shirt background: use dark/navy on
+  light pink/white areas or white/light with thin dark outline on blue/dark
+  areas.
+- The X24 mark must look printed into the fabric, not pasted on top, not a
+  sticker, not a white rectangle, and not a large advertisement.
+
+Scene/backdrop:
+Bright outdoor pickleball court in Vietnam, clean daylight, court lines and net
+visible but secondary, polished ecommerce campaign feel.
+
+Subject:
+Use exactly two attractive adult Vietnamese pickleball models together: one male
+and one female. The male model is upright, strong, confident, broad-shouldered,
+fit but not bodybuilder-like, holding a blank pickleball paddle casually. The
+female model is athletic, graceful, pretty, naturally feminine, with tasteful
+waist/hip curve, relaxed shoulders, confident posture, and sporty tied-up
+hair/high ponytail. Both are adults and fictional.
+
+Composition/framing:
+Square ecommerce product image. Use a front/back pair composition: male model
+front-facing or three-quarter-front to show the shirt front and X24 chest logo
+clearly; female model 60% back-facing / three-quarter-back with a natural
+over-shoulder smile to show the clean back design without any back logo. Both
+models stand or pose casually on the court while holding blank paddles. Do not
+put either model in a deep ready stance, crouch, swing, lunge, or technical
+hitting pose. Keep posture upright, flattering, and apparel-focused. Crop from
+above heads to upper thighs or mid-thigh so the clothing dominates the frame.
+
+Outfit:
+Both models wear the same pink-blue pickleball apparel design from the
+reference, cleaned of all old logos/text. Use coordinated dark navy or black
+athletic court shorts/skort that fit the outfit and do not hide the shirt hem.
+
+Materials/textures:
+Premium lightweight court-sport fabric, fine polyester knit/mesh texture,
+realistic collar seams, sleeve seams, hem stitching, wrinkles, stretch, shadows,
+and highlights. Printed graphic follows body folds naturally and stays crisp.
+
+Overlay/stamp:
+Do not generate the mayaopickleball.vn watermark or contact footer. Do not print
+mayaopickleball.vn on the shirt. A corner watermark will be added later in
+post-processing.
+
+Avoid:
+FDL, Nipro, Song Khoe, Sống Khỏe, source X24 marks from shorts, running
+logo/text, any back logo/text, any paddle logo/text, mayaopickleball.vn printed
+on clothing, large logo on chest, poster/sticker look, white rectangle behind
+logo, low-contrast logo, hunched posture, technical pickleball stroke, road
+running, jogging motion, marathon/race cues, finish line, medals, race bib,
+distorted hands, cut-off faces, changed shirt colors, fake flat overlay pattern,
+blurry fabric, plastic skin, extra people, childlike faces, oversexualized pose,
+pin-up glamour pose, unrealistic female curves, bodybuilder male proportions,
+stiff mannequin pose, copied mockup frame, third-party watermark.

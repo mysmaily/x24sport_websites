@@ -1,0 +1,136 @@
+{
+  "id": 3940,
+  "date": "2026-07-12T17:56:09",
+  "date_gmt": "2026-07-12T17:56:09",
+  "guid": {
+    "rendered": "https://mayaopickleball.vn/wp-content/uploads/2026/07/bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co.webp",
+    "raw": "https://mayaopickleball.vn/wp-content/uploads/2026/07/bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co.webp"
+  },
+  "modified": "2026-07-12T17:56:09",
+  "modified_gmt": "2026-07-12T17:56:09",
+  "slug": "bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co/",
+  "title": {
+    "raw": "bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co",
+    "rendered": "bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co"
+  },
+  "author": 2,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://mayaopickleball.vn/?attachment_id=3940",
+  "generated_slug": "bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co",
+  "class_list": [
+    "post-3940",
+    "attachment",
+    "type-attachment",
+    "status-inherit",
+    "hentry"
+  ],
+  "description": {
+    "raw": "",
+    "rendered": "<p class=\"attachment\"><a href='https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co.webp'><img width=\"400\" height=\"400\" src=\"https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co.webp\" class=\"attachment-medium size-medium\" alt=\"\" decoding=\"async\" loading=\"lazy\" fetchpriority=\"low\" /></a></p>\n"
+  },
+  "caption": {
+    "raw": "",
+    "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/webp",
+  "media_details": {
+    "width": 1200,
+    "height": 1200,
+    "file": "2026/07/bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co.webp",
+    "filesize": 128218,
+    "sizes": {},
+    "image_meta": {
+      "aperture": "0",
+      "credit": "",
+      "camera": "",
+      "caption": "",
+      "created_timestamp": "0",
+      "copyright": "",
+      "focal_length": "0",
+      "iso": "0",
+      "shutter_speed": "0",
+      "title": "",
+      "orientation": "0",
+      "keywords": [],
+      "alt": ""
+    }
+  },
+  "post": null,
+  "source_url": "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co.webp",
+  "missing_image_sizes": [
+    "thumbnail",
+    "medium",
+    "medium_large",
+    "large",
+    "woocommerce_thumbnail",
+    "woocommerce_single",
+    "woocommerce_gallery_thumbnail"
+  ],
+  "filename": "bo-quan-ao-pickleball-x24-pb-277-noi-bat-nang-dong-ao-co-tay-co-co.webp",
+  "filesize": 128218,
+  "exif_orientation": 1,
+  "_links": {
+    "self": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/media/3940",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/media"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/attachment"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/users/2"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/comments?post=3940"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/media/3940"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/media/3940"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

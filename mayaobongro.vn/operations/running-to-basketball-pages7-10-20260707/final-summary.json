@@ -1,0 +1,866 @@
+[
+  {
+    "id": "x24-br-058-elementary",
+    "product_code": "X24-BR-058",
+    "audience": "elementary",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-058-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 118524
+  },
+  {
+    "id": "x24-br-058-high_school",
+    "product_code": "X24-BR-058",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-058-ao-bong-ro-thpt.webp",
+    "bytes": 104244
+  },
+  {
+    "id": "x24-br-059-elementary",
+    "product_code": "X24-BR-059",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-059-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 122622
+  },
+  {
+    "id": "x24-br-059-high_school",
+    "product_code": "X24-BR-059",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-059-ao-bong-ro-thpt.webp",
+    "bytes": 100416
+  },
+  {
+    "id": "x24-br-060-elementary",
+    "product_code": "X24-BR-060",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-060-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 105912
+  },
+  {
+    "id": "x24-br-060-high_school",
+    "product_code": "X24-BR-060",
+    "audience": "high_school",
+    "model_composition": "mixed_group_male_lead",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-060-ao-bong-ro-thpt.webp",
+    "bytes": 115220
+  },
+  {
+    "id": "x24-br-061-elementary",
+    "product_code": "X24-BR-061",
+    "audience": "elementary",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-061-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 79574
+  },
+  {
+    "id": "x24-br-061-high_school",
+    "product_code": "X24-BR-061",
+    "audience": "high_school",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-061-ao-bong-ro-thpt.webp",
+    "bytes": 97702
+  },
+  {
+    "id": "x24-br-062-elementary",
+    "product_code": "X24-BR-062",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-062-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 142372
+  },
+  {
+    "id": "x24-br-062-high_school",
+    "product_code": "X24-BR-062",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-062-ao-bong-ro-thpt.webp",
+    "bytes": 82130
+  },
+  {
+    "id": "x24-br-063-elementary",
+    "product_code": "X24-BR-063",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-063-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 97188
+  },
+  {
+    "id": "x24-br-063-high_school",
+    "product_code": "X24-BR-063",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-063-ao-bong-ro-thpt.webp",
+    "bytes": 95816
+  },
+  {
+    "id": "x24-br-064-elementary",
+    "product_code": "X24-BR-064",
+    "audience": "elementary",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-064-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 109966
+  },
+  {
+    "id": "x24-br-064-high_school",
+    "product_code": "X24-BR-064",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-064-ao-bong-ro-thpt.webp",
+    "bytes": 86190
+  },
+  {
+    "id": "x24-br-065-elementary",
+    "product_code": "X24-BR-065",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-065-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 102506
+  },
+  {
+    "id": "x24-br-065-high_school",
+    "product_code": "X24-BR-065",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-065-ao-bong-ro-thpt.webp",
+    "bytes": 82238
+  },
+  {
+    "id": "x24-br-066-elementary",
+    "product_code": "X24-BR-066",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-066-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 110702
+  },
+  {
+    "id": "x24-br-066-high_school",
+    "product_code": "X24-BR-066",
+    "audience": "high_school",
+    "model_composition": "mixed_group_male_lead",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-066-ao-bong-ro-thpt.webp",
+    "bytes": 96386
+  },
+  {
+    "id": "x24-br-067-elementary",
+    "product_code": "X24-BR-067",
+    "audience": "elementary",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-067-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 76838
+  },
+  {
+    "id": "x24-br-067-high_school",
+    "product_code": "X24-BR-067",
+    "audience": "high_school",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-067-ao-bong-ro-thpt.webp",
+    "bytes": 91500
+  },
+  {
+    "id": "x24-br-068-elementary",
+    "product_code": "X24-BR-068",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-068-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 108060
+  },
+  {
+    "id": "x24-br-068-high_school",
+    "product_code": "X24-BR-068",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-068-ao-bong-ro-thpt.webp",
+    "bytes": 77836
+  },
+  {
+    "id": "x24-br-069-elementary",
+    "product_code": "X24-BR-069",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-069-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 98832
+  },
+  {
+    "id": "x24-br-069-high_school",
+    "product_code": "X24-BR-069",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-069-ao-bong-ro-thpt.webp",
+    "bytes": 129302
+  },
+  {
+    "id": "x24-br-070-elementary",
+    "product_code": "X24-BR-070",
+    "audience": "elementary",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-070-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 128992
+  },
+  {
+    "id": "x24-br-070-high_school",
+    "product_code": "X24-BR-070",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-070-ao-bong-ro-thpt.webp",
+    "bytes": 82778
+  },
+  {
+    "id": "x24-br-071-elementary",
+    "product_code": "X24-BR-071",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-071-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 140972
+  },
+  {
+    "id": "x24-br-071-high_school",
+    "product_code": "X24-BR-071",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-071-ao-bong-ro-thpt.webp",
+    "bytes": 109470
+  },
+  {
+    "id": "x24-br-072-elementary",
+    "product_code": "X24-BR-072",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-072-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 121854
+  },
+  {
+    "id": "x24-br-072-high_school",
+    "product_code": "X24-BR-072",
+    "audience": "high_school",
+    "model_composition": "mixed_group_male_lead",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-072-ao-bong-ro-thpt.webp",
+    "bytes": 107920
+  },
+  {
+    "id": "x24-br-073-elementary",
+    "product_code": "X24-BR-073",
+    "audience": "elementary",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-073-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 82512
+  },
+  {
+    "id": "x24-br-073-high_school",
+    "product_code": "X24-BR-073",
+    "audience": "high_school",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-073-ao-bong-ro-thpt.webp",
+    "bytes": 98248
+  },
+  {
+    "id": "x24-br-074-elementary",
+    "product_code": "X24-BR-074",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-074-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 130674
+  },
+  {
+    "id": "x24-br-074-high_school",
+    "product_code": "X24-BR-074",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-074-ao-bong-ro-thpt.webp",
+    "bytes": 101684
+  },
+  {
+    "id": "x24-br-075-elementary",
+    "product_code": "X24-BR-075",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-075-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 96022
+  },
+  {
+    "id": "x24-br-075-high_school",
+    "product_code": "X24-BR-075",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-075-ao-bong-ro-thpt.webp",
+    "bytes": 102424
+  },
+  {
+    "id": "x24-br-076-elementary",
+    "product_code": "X24-BR-076",
+    "audience": "elementary",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-076-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 109152
+  },
+  {
+    "id": "x24-br-076-high_school",
+    "product_code": "X24-BR-076",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-076-ao-bong-ro-thpt.webp",
+    "bytes": 92924
+  },
+  {
+    "id": "x24-br-077-elementary",
+    "product_code": "X24-BR-077",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-077-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 129534
+  },
+  {
+    "id": "x24-br-077-high_school",
+    "product_code": "X24-BR-077",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-077-ao-bong-ro-thpt.webp",
+    "bytes": 105900
+  },
+  {
+    "id": "x24-br-078-elementary",
+    "product_code": "X24-BR-078",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-078-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 93256
+  },
+  {
+    "id": "x24-br-078-high_school",
+    "product_code": "X24-BR-078",
+    "audience": "high_school",
+    "model_composition": "mixed_group_male_lead",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-078-ao-bong-ro-thpt.webp",
+    "bytes": 85058
+  },
+  {
+    "id": "x24-br-079-elementary",
+    "product_code": "X24-BR-079",
+    "audience": "elementary",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-079-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 72804
+  },
+  {
+    "id": "x24-br-079-high_school",
+    "product_code": "X24-BR-079",
+    "audience": "high_school",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-079-ao-bong-ro-thpt.webp",
+    "bytes": 100862
+  },
+  {
+    "id": "x24-br-080-elementary",
+    "product_code": "X24-BR-080",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-080-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 137770
+  },
+  {
+    "id": "x24-br-080-high_school",
+    "product_code": "X24-BR-080",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-080-ao-bong-ro-thpt.webp",
+    "bytes": 95720
+  },
+  {
+    "id": "x24-br-081-elementary",
+    "product_code": "X24-BR-081",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-081-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 91590
+  },
+  {
+    "id": "x24-br-081-high_school",
+    "product_code": "X24-BR-081",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-081-ao-bong-ro-thpt.webp",
+    "bytes": 94342
+  },
+  {
+    "id": "x24-br-082-elementary",
+    "product_code": "X24-BR-082",
+    "audience": "elementary",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-082-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 128794
+  },
+  {
+    "id": "x24-br-082-high_school",
+    "product_code": "X24-BR-082",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-082-ao-bong-ro-thpt.webp",
+    "bytes": 111466
+  },
+  {
+    "id": "x24-br-083-elementary",
+    "product_code": "X24-BR-083",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-083-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 129430
+  },
+  {
+    "id": "x24-br-083-high_school",
+    "product_code": "X24-BR-083",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-083-ao-bong-ro-thpt.webp",
+    "bytes": 93042
+  },
+  {
+    "id": "x24-br-084-elementary",
+    "product_code": "X24-BR-084",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-084-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 133164
+  },
+  {
+    "id": "x24-br-084-high_school",
+    "product_code": "X24-BR-084",
+    "audience": "high_school",
+    "model_composition": "mixed_group_male_lead",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-084-ao-bong-ro-thpt.webp",
+    "bytes": 128888
+  },
+  {
+    "id": "x24-br-085-elementary",
+    "product_code": "X24-BR-085",
+    "audience": "elementary",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-085-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 70358
+  },
+  {
+    "id": "x24-br-085-high_school",
+    "product_code": "X24-BR-085",
+    "audience": "high_school",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-085-ao-bong-ro-thpt.webp",
+    "bytes": 105752
+  },
+  {
+    "id": "x24-br-086-elementary",
+    "product_code": "X24-BR-086",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-086-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 115082
+  },
+  {
+    "id": "x24-br-086-high_school",
+    "product_code": "X24-BR-086",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-086-ao-bong-ro-thpt.webp",
+    "bytes": 100668
+  },
+  {
+    "id": "x24-br-087-elementary",
+    "product_code": "X24-BR-087",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-087-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 92460
+  },
+  {
+    "id": "x24-br-087-high_school",
+    "product_code": "X24-BR-087",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-087-ao-bong-ro-thpt.webp",
+    "bytes": 114018
+  },
+  {
+    "id": "x24-br-088-elementary",
+    "product_code": "X24-BR-088",
+    "audience": "elementary",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-088-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 99212
+  },
+  {
+    "id": "x24-br-088-high_school",
+    "product_code": "X24-BR-088",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-088-ao-bong-ro-thpt.webp",
+    "bytes": 99620
+  },
+  {
+    "id": "x24-br-089-elementary",
+    "product_code": "X24-BR-089",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-089-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 133052
+  },
+  {
+    "id": "x24-br-089-high_school",
+    "product_code": "X24-BR-089",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-089-ao-bong-ro-thpt.webp",
+    "bytes": 91022
+  },
+  {
+    "id": "x24-br-090-elementary",
+    "product_code": "X24-BR-090",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-090-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 125928
+  },
+  {
+    "id": "x24-br-090-high_school",
+    "product_code": "X24-BR-090",
+    "audience": "high_school",
+    "model_composition": "mixed_group_male_lead",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-090-ao-bong-ro-thpt.webp",
+    "bytes": 91584
+  },
+  {
+    "id": "x24-br-091-elementary",
+    "product_code": "X24-BR-091",
+    "audience": "elementary",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-091-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 83844
+  },
+  {
+    "id": "x24-br-091-high_school",
+    "product_code": "X24-BR-091",
+    "audience": "high_school",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-091-ao-bong-ro-thpt.webp",
+    "bytes": 120196
+  },
+  {
+    "id": "x24-br-092-elementary",
+    "product_code": "X24-BR-092",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-092-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 113068
+  },
+  {
+    "id": "x24-br-092-high_school",
+    "product_code": "X24-BR-092",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-092-ao-bong-ro-thpt.webp",
+    "bytes": 107258
+  },
+  {
+    "id": "x24-br-093-elementary",
+    "product_code": "X24-BR-093",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-093-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 94344
+  },
+  {
+    "id": "x24-br-093-high_school",
+    "product_code": "X24-BR-093",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-093-ao-bong-ro-thpt.webp",
+    "bytes": 119506
+  },
+  {
+    "id": "x24-br-094-elementary",
+    "product_code": "X24-BR-094",
+    "audience": "elementary",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-094-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 106918
+  },
+  {
+    "id": "x24-br-094-high_school",
+    "product_code": "X24-BR-094",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-094-ao-bong-ro-thpt.webp",
+    "bytes": 94172
+  },
+  {
+    "id": "x24-br-095-elementary",
+    "product_code": "X24-BR-095",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-095-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 128768
+  },
+  {
+    "id": "x24-br-095-high_school",
+    "product_code": "X24-BR-095",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-095-ao-bong-ro-thpt.webp",
+    "bytes": 107178
+  },
+  {
+    "id": "x24-br-096-elementary",
+    "product_code": "X24-BR-096",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-096-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 121038
+  },
+  {
+    "id": "x24-br-096-high_school",
+    "product_code": "X24-BR-096",
+    "audience": "high_school",
+    "model_composition": "mixed_group_male_lead",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-096-ao-bong-ro-thpt.webp",
+    "bytes": 89004
+  },
+  {
+    "id": "x24-br-097-elementary",
+    "product_code": "X24-BR-097",
+    "audience": "elementary",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-097-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 86822
+  },
+  {
+    "id": "x24-br-097-high_school",
+    "product_code": "X24-BR-097",
+    "audience": "high_school",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-097-ao-bong-ro-thpt.webp",
+    "bytes": 89894
+  },
+  {
+    "id": "x24-br-098-elementary",
+    "product_code": "X24-BR-098",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-098-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 119594
+  },
+  {
+    "id": "x24-br-098-high_school",
+    "product_code": "X24-BR-098",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-098-ao-bong-ro-thpt.webp",
+    "bytes": 92042
+  },
+  {
+    "id": "x24-br-099-elementary",
+    "product_code": "X24-BR-099",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-099-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 102508
+  },
+  {
+    "id": "x24-br-099-high_school",
+    "product_code": "X24-BR-099",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-099-ao-bong-ro-thpt.webp",
+    "bytes": 112804
+  },
+  {
+    "id": "x24-br-100-elementary",
+    "product_code": "X24-BR-100",
+    "audience": "elementary",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-100-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 106340
+  },
+  {
+    "id": "x24-br-100-high_school",
+    "product_code": "X24-BR-100",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-100-ao-bong-ro-thpt.webp",
+    "bytes": 109600
+  },
+  {
+    "id": "x24-br-101-elementary",
+    "product_code": "X24-BR-101",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-101-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 125698
+  },
+  {
+    "id": "x24-br-101-high_school",
+    "product_code": "X24-BR-101",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-101-ao-bong-ro-thpt.webp",
+    "bytes": 85982
+  },
+  {
+    "id": "x24-br-102-elementary",
+    "product_code": "X24-BR-102",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-102-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 108498
+  },
+  {
+    "id": "x24-br-102-high_school",
+    "product_code": "X24-BR-102",
+    "audience": "high_school",
+    "model_composition": "mixed_group_male_lead",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-102-ao-bong-ro-thpt.webp",
+    "bytes": 107986
+  },
+  {
+    "id": "x24-br-103-elementary",
+    "product_code": "X24-BR-103",
+    "audience": "elementary",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-103-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 72132
+  },
+  {
+    "id": "x24-br-103-high_school",
+    "product_code": "X24-BR-103",
+    "audience": "high_school",
+    "model_composition": "female_lead_with_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-103-ao-bong-ro-thpt.webp",
+    "bytes": 110118
+  },
+  {
+    "id": "x24-br-104-elementary",
+    "product_code": "X24-BR-104",
+    "audience": "elementary",
+    "model_composition": "mixed_group_female_lead",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-104-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 141868
+  },
+  {
+    "id": "x24-br-104-high_school",
+    "product_code": "X24-BR-104",
+    "audience": "high_school",
+    "model_composition": "male_lead_with_teammate",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-104-ao-bong-ro-thpt.webp",
+    "bytes": 93110
+  },
+  {
+    "id": "x24-br-105-elementary",
+    "product_code": "X24-BR-105",
+    "audience": "elementary",
+    "model_composition": "female_front_with_male_teammate",
+    "expected_gender_lead": "female",
+    "final": "final/x24-br-105-ao-bong-ro-tieu-hoc.webp",
+    "bytes": 78644
+  },
+  {
+    "id": "x24-br-105-high_school",
+    "product_code": "X24-BR-105",
+    "audience": "high_school",
+    "model_composition": "male_solo",
+    "expected_gender_lead": "male",
+    "final": "final/x24-br-105-ao-bong-ro-thpt.webp",
+    "bytes": 87286
+  }
+]

@@ -1,0 +1,15 @@
+HTTP/2 200 
+date: Wed, 08 Jul 2026 18:10:53 GMT
+content-type: text/html; charset=UTF-8
+server: cloudflare
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+x-powered-by: PHP/8.2.31
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+link: <https://mayaopickleball.vn/wp-json/>; rel="https://api.w.org/"
+link: <https://mayaopickleball.vn/wp-json/wp/v2/product_cat/95>; rel="alternate"; title="JSON"; type="application/json"
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=2rzpbFHSuiQ5y12OIo6Ae1yk31N%2BSJfvT9zmxxRzPtHsYYXvd6gOtcLLRhZYRx07HBetObZDSuGEBWQGxCr2tq%2BY0dmHfOFzYZD2nQxPQGtCC9db6eNl%2FlwNGqQo%2FeZWivr7r18%3D"}]}
+cf-cache-status: DYNAMIC
+vary: accept-encoding
+cf-ray: a1810c54ccfc35b2-SIN
+alt-svc: h3=":443"; ma=86400
+

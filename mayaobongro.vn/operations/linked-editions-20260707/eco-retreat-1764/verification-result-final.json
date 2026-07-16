@@ -1,0 +1,83 @@
+{
+    "verified_at": "2026-07-06T19:46:48+00:00",
+    "ok": true,
+    "errors": [],
+    "plugin_active": true,
+    "expected_group": "eco-retreat-xanh-la-nhat",
+    "products": {
+        "elementary": {
+            "id": 2768,
+            "name": "Bộ Quần Áo Bóng Rổ Tiểu Học Lớp 4–5 ECO RETREAT Xanh Lá Nhạt",
+            "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-tieu-hoc-lop-4-5-eco-retreat-xanh-la-nhat/",
+            "status": "publish",
+            "level": "tieu-hoc",
+            "group": "eco-retreat-xanh-la-nhat",
+            "sibling_id": 1764,
+            "featured_media_id": 2769,
+            "featured_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/eco-retreat-tieu-hoc.webp",
+            "gallery_media_ids": [],
+            "category_ids": [
+                101,
+                97,
+                95,
+                70,
+                75
+            ],
+            "switcher_options": [
+                {
+                    "id": 2768,
+                    "level": "tieu-hoc",
+                    "label": "Tiểu học",
+                    "detail": "Lớp 4–5",
+                    "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-tieu-hoc-lop-4-5-eco-retreat-xanh-la-nhat/",
+                    "current": true
+                },
+                {
+                    "id": 1764,
+                    "level": "trung-hoc",
+                    "label": "Trung học",
+                    "detail": "Lớp 11–12",
+                    "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-trung-hoc-lop-11-12-eco-retreat-xanh-la-nhat/",
+                    "current": false
+                }
+            ]
+        },
+        "high_school": {
+            "id": 1764,
+            "name": "Bộ Quần Áo Bóng Rổ Trung Học Lớp 11–12 ECO RETREAT Xanh Lá Nhạt",
+            "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-trung-hoc-lop-11-12-eco-retreat-xanh-la-nhat/",
+            "status": "publish",
+            "level": "trung-hoc",
+            "group": "eco-retreat-xanh-la-nhat",
+            "sibling_id": 2768,
+            "featured_media_id": 2770,
+            "featured_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/eco-retreat-trung-hoc.webp",
+            "gallery_media_ids": [],
+            "category_ids": [
+                97,
+                102,
+                95,
+                70,
+                75
+            ],
+            "switcher_options": [
+                {
+                    "id": 2768,
+                    "level": "tieu-hoc",
+                    "label": "Tiểu học",
+                    "detail": "Lớp 4–5",
+                    "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-tieu-hoc-lop-4-5-eco-retreat-xanh-la-nhat/",
+                    "current": false
+                },
+                {
+                    "id": 1764,
+                    "level": "trung-hoc",
+                    "label": "Trung học",
+                    "detail": "Lớp 11–12",
+                    "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-trung-hoc-lop-11-12-eco-retreat-xanh-la-nhat/",
+                    "current": true
+                }
+            ]
+        }
+    }
+}

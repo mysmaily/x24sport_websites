@@ -1,0 +1,93 @@
+{
+  "payload": {
+    "url": "https://mayaopickleball.vn/ao-pickleball/",
+    "title": "Áo Pickleball Có Tay"
+  },
+  "response": {
+    "id": 2368,
+    "title": {
+      "raw": "Áo Pickleball Có Tay",
+      "rendered": "Áo Pickleball Có Tay"
+    },
+    "status": "publish",
+    "url": "https://mayaopickleball.vn/ao-pickleball/",
+    "attr_title": "",
+    "description": "",
+    "type": "custom",
+    "type_label": "Link tùy chọn",
+    "object": "custom",
+    "object_id": 2368,
+    "parent": 234,
+    "menu_order": 5,
+    "target": "",
+    "classes": [
+      ""
+    ],
+    "xfn": [
+      ""
+    ],
+    "invalid": false,
+    "meta": [],
+    "menus": 68,
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/2368",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/nav_menu_item"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "nav_menu",
+          "embeddable": true,
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menus?post=2368"
+        }
+      ],
+      "wp:action-publish": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/2368"
+        }
+      ],
+      "wp:action-unfiltered-html": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/2368"
+        }
+      ],
+      "wp:action-create-menus": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/2368"
+        }
+      ],
+      "wp:action-assign-menus": [
+        {
+          "href": "https://mayaopickleball.vn/wp-json/wp/v2/menu-items/2368"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+}

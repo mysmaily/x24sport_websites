@@ -1,0 +1,62 @@
+[
+  {
+    "id": 108,
+    "name": "áo pickleball có cổ",
+    "slug": "ao-pickleball-co-co",
+    "created": true
+  },
+  {
+    "id": 109,
+    "name": "áo pickleball cổ tròn",
+    "slug": "ao-pickleball-co-tron",
+    "created": true
+  },
+  {
+    "id": 110,
+    "name": "áo pickleball khoét nách",
+    "slug": "ao-pickleball-khoet-nach",
+    "created": true
+  },
+  {
+    "id": 106,
+    "name": "áo pickleball tank top",
+    "slug": "ao-pickleball-tank-top",
+    "created": false
+  },
+  {
+    "id": 105,
+    "name": "áo pickleball nam 3 lỗ",
+    "slug": "ao-pickleball-nam-3-lo",
+    "created": false
+  },
+  {
+    "id": 104,
+    "name": "áo pickleball nữ không tay",
+    "slug": "ao-pickleball-nu-khong-tay",
+    "created": false
+  },
+  {
+    "id": 111,
+    "name": "màu hồng",
+    "slug": "mau-hong",
+    "created": true
+  },
+  {
+    "id": 112,
+    "name": "màu vàng",
+    "slug": "mau-vang",
+    "created": true
+  },
+  {
+    "id": 113,
+    "name": "màu xanh",
+    "slug": "mau-xanh",
+    "created": true
+  },
+  {
+    "id": 114,
+    "name": "hồng vàng",
+    "slug": "hong-vang",
+    "created": true
+  }
+]

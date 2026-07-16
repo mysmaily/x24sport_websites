@@ -1,0 +1,61 @@
+{
+  "job_id": "x24-cb-062-2151",
+  "wave_id": "pickleball-product-execute-20260709",
+  "source_site": "mayaopickleball.vn existing product converted from running catalog data",
+  "destination_site": "mayaopickleball.vn",
+  "source_product_url": "https://mayaopickleball.vn/ao-chay-bo-nam-x24-cb-062-trang-gradient-the-thao-nang-dong/",
+  "destination_product_id": 2151,
+  "product_code": "X24-PB-008",
+  "new_title": "Bộ Quần Áo Pickleball Nam Nữ X24 Trắng Gradient Đỏ Xanh X24-PB-008",
+  "new_slug": "bo-quan-ao-pickleball-nam-nu-x24-trang-gradient-do-xanh-x24-pb-008",
+  "new_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-trang-gradient-do-xanh-x24-pb-008/",
+  "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-062/source/AoChayBo-X24-CB-062-Trang-Kieu2.jpg",
+  "backups": {
+    "wp_public_before": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-062/source/wp-product-2151-before-public.json",
+    "wc_before": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-062/backup/wc-product-2151-before.json",
+    "media_before": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-062/source/wp-media-2150-before-public.json"
+  },
+  "outputs": {
+    "image_a_generated": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-062/generated/x24-pb-004-image-a-collared.png",
+    "image_b_generated": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-062/generated/x24-pb-004-image-b-sleeveless.png",
+    "image_a_final": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-062/final/x24-pb-008-ao-pickleball-nam-nu-co-co-tay-ao-ngan-trang-gradient-do-xanh.webp",
+    "image_b_final": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-062/final/x24-pb-008-ao-pickleball-nam-nu-khong-tay-sat-nach-trang-gradient-do-xanh.webp",
+    "contact_sheet": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-062/final/contact-sheet-x24-pb-008.jpg",
+    "desktop_screenshot": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-062/verify/desktop-product-page.png",
+    "mobile_screenshot": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/x24-cb-062/verify/mobile-product-page.png"
+  },
+  "new_media_ids": [
+    2574,
+    2575
+  ],
+  "categories": [
+    {
+      "id": 95,
+      "name": "Áo Pickleball"
+    },
+    {
+      "id": 96,
+      "name": "Áo Pickleball Thiết Kế Riêng"
+    }
+  ],
+  "tags": [
+    "áo pickleball nam",
+    "áo pickleball nữ",
+    "bộ quần áo pickleball nam nữ",
+    "áo pickleball thiết kế riêng",
+    "đồng phục pickleball",
+    "áo pickleball nam có cổ",
+    "áo pickleball nữ sát nách"
+  ],
+  "verification": {
+    "new_product_html": "200 OK",
+    "old_url_behavior": "200 OK after redirect/canonical resolution to new URL",
+    "wc_product": "200 OK sku=X24-PB-008 categories=95,96 images=2574,2575 with alt text",
+    "wp_product": "200 OK slug updated featured_media=2574",
+    "wp_media": "2574 and 2575 image/webp 1200x1200 with alt text",
+    "browser_smoke": "Chrome desktop 1440x1200 and mobile 390x1000 screenshots saved; H1 has no running term and both images render",
+    "cache_services_touched": "none",
+    "remaining_site_level_legacy_text": "Global site identity, menus, footer, seller schema, and CDN host still contain mayaochaybo/running branding outside this product record."
+  },
+  "status": "verified"
+}

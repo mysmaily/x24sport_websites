@@ -1,0 +1,174 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 3,
+  "results": [
+    {
+      "ok": true,
+      "id": "x24-br-007-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-007-ao-bong-ro-thpt.png",
+      "seconds": 70.1
+    },
+    {
+      "ok": true,
+      "id": "x24-br-008-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-008-ao-bong-ro-tieu-hoc.png",
+      "seconds": 76.8
+    },
+    {
+      "ok": true,
+      "id": "x24-br-007-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-007-ao-bong-ro-tieu-hoc.png",
+      "seconds": 77.1
+    },
+    {
+      "ok": true,
+      "id": "x24-br-008-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-008-ao-bong-ro-thpt.png",
+      "seconds": 68.2
+    },
+    {
+      "ok": true,
+      "id": "x24-br-009-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-009-ao-bong-ro-thpt.png",
+      "seconds": 69.7
+    },
+    {
+      "ok": true,
+      "id": "x24-br-009-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-009-ao-bong-ro-tieu-hoc.png",
+      "seconds": 77.5
+    },
+    {
+      "ok": true,
+      "id": "x24-br-010-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-010-ao-bong-ro-tieu-hoc.png",
+      "seconds": 68.6
+    },
+    {
+      "ok": true,
+      "id": "x24-br-010-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-010-ao-bong-ro-thpt.png",
+      "seconds": 73.2
+    },
+    {
+      "ok": true,
+      "id": "x24-br-011-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-011-ao-bong-ro-tieu-hoc.png",
+      "seconds": 73.4
+    },
+    {
+      "ok": true,
+      "id": "x24-br-011-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-011-ao-bong-ro-thpt.png",
+      "seconds": 84.8
+    },
+    {
+      "ok": true,
+      "id": "x24-br-012-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-012-ao-bong-ro-tieu-hoc.png",
+      "seconds": 74.6
+    },
+    {
+      "ok": true,
+      "id": "x24-br-012-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-012-ao-bong-ro-thpt.png",
+      "seconds": 73.7
+    },
+    {
+      "ok": true,
+      "id": "x24-br-013-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-013-ao-bong-ro-tieu-hoc.png",
+      "seconds": 69.9
+    },
+    {
+      "ok": true,
+      "id": "x24-br-013-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-013-ao-bong-ro-thpt.png",
+      "seconds": 74.4
+    },
+    {
+      "ok": true,
+      "id": "x24-br-014-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-014-ao-bong-ro-tieu-hoc.png",
+      "seconds": 76.4
+    },
+    {
+      "ok": true,
+      "id": "x24-br-015-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-015-ao-bong-ro-thpt.png",
+      "seconds": 66.1
+    },
+    {
+      "ok": true,
+      "id": "x24-br-015-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-015-ao-bong-ro-tieu-hoc.png",
+      "seconds": 77.4
+    },
+    {
+      "ok": true,
+      "id": "x24-br-014-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-014-ao-bong-ro-thpt.png",
+      "seconds": 89.7
+    },
+    {
+      "ok": true,
+      "id": "x24-br-017-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-017-ao-bong-ro-tieu-hoc.png",
+      "seconds": 69.5
+    },
+    {
+      "ok": true,
+      "id": "x24-br-016-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-016-ao-bong-ro-thpt.png",
+      "seconds": 81.1
+    },
+    {
+      "ok": true,
+      "id": "x24-br-016-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-016-ao-bong-ro-tieu-hoc.png",
+      "seconds": 87.8
+    },
+    {
+      "ok": true,
+      "id": "x24-br-017-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-017-ao-bong-ro-thpt.png",
+      "seconds": 72.3
+    },
+    {
+      "ok": true,
+      "id": "x24-br-018-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-018-ao-bong-ro-tieu-hoc.png",
+      "seconds": 77.2
+    },
+    {
+      "ok": true,
+      "id": "x24-br-018-high_school",
+      "audience": "high_school",
+      "output": "generated/x24-br-018-ao-bong-ro-thpt.png",
+      "seconds": 74.8
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayaopickleball.vn/schemas/pickleball-transfer-manifest-v0.4-safe.json",
+  "title": "Pickleball Transfer Manifest Record v0.4-safe",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "operation_mode",
+    "selection_mode",
+    "destination_site",
+    "destination_product_id",
+    "assets",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.4-safe"},
+    "operation_mode": {"const": "update_existing_product"},
+    "selection_mode": {"enum": ["single_url", "bulk_scan"]},
+    "destination_site": {"const": "mayaopickleball.vn"},
+    "destination_product_id": {"type": "integer", "minimum": 1},
+    "product_url": {"type": "string"},
+    "product_code": {"type": "string", "pattern": "^X24-PB-[0-9]{3}$"},
+    "assets": {
+      "type": "object",
+      "required": ["image_a", "image_b"],
+      "properties": {
+        "image_a": {"$ref": "#/$defs/asset"},
+        "image_b": {"$ref": "#/$defs/asset"}
+      }
+    },
+    "status": {
+      "enum": [
+        "discovered",
+        "normalized",
+        "prompts_ready",
+        "images_generated",
+        "visual_approved",
+        "postprocessed",
+        "compressed",
+        "backed_up",
+        "media_uploaded",
+        "product_updated",
+        "verified",
+        "product_resolution_failed",
+        "manual_text_review",
+        "manual_visual_review",
+        "generation_failed_image_a",
+        "generation_failed_image_b",
+        "visual_rejected_image_a",
+        "visual_rejected_image_b",
+        "postprocess_failed",
+        "media_upload_failed",
+        "product_update_failed",
+        "verification_failed"
+      ]
+    }
+  },
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "required": ["style", "status", "image_filter_tags"],
+      "properties": {
+        "style": {"type": "string"},
+        "status": {"type": "string"},
+        "output": {"type": "string"},
+        "media_id": {"type": ["integer", "null"]},
+        "image_filter_tags": {"type": "array", "items": {"type": "string"}},
+        "branding": {
+          "type": "object",
+          "properties": {
+            "logo_source": {"enum": ["svg", "png"]},
+            "contact_overlay_present": {"type": "boolean"},
+            "color_dots_present": {"type": "boolean"}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 1,
+  "results": [
+    {
+      "ok": true,
+      "id": "lo-dieu-xanh-1770-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-006-ao-bong-ro-tieu-hoc.png",
+      "seconds": 82.5
+    },
+    {
+      "ok": true,
+      "id": "lo-dieu-xanh-1770-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-006-ao-bong-ro-thpt.png",
+      "seconds": 74.2
+    }
+  ]
+}

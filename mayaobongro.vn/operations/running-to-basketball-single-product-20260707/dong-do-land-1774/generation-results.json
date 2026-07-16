@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 2,
+  "results": [
+    {
+      "ok": true,
+      "id": "dong-do-land-1774-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-002-ao-bong-ro-tieu-hoc.png",
+      "seconds": 67.5
+    },
+    {
+      "ok": true,
+      "id": "dong-do-land-1774-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-002-ao-bong-ro-thpt.png",
+      "seconds": 73.6
+    }
+  ]
+}

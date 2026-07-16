@@ -1,0 +1,25 @@
+
+Warning: unlink(/var/www/mayaobongro.vn/wp-content/uploads/codex-ops/age-gallery-team-ht-1754/team-ht-pickleball-tieu-hoc.webp): Permission denied in /var/www/mayaobongro.vn/wp-admin/includes/file.php on line 1021
+
+Warning: unlink(/var/www/mayaobongro.vn/wp-content/uploads/codex-ops/age-gallery-team-ht-1754/team-ht-pickleball-thpt.webp): Permission denied in /var/www/mayaobongro.vn/wp-admin/includes/file.php on line 1021
+{
+    "product_id": 1754,
+    "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-hoc-sinh-team-ht-pickleball-do-xanh-nui-viet-nam/",
+    "old_slug": "ao-chay-bo-team-ht-pickleball-phoi-do-xanh-canh-nui-quoc-ky-viet-nam",
+    "featured_media_id": 2773,
+    "gallery_media_ids": [
+        2772
+    ],
+    "source_media_id": 2406,
+    "category_ids": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+    ],
+    "age_gallery_model": "single-product",
+    "age_image_tieu_hoc_id": 2772,
+    "age_image_thpt_id": 2773
+}

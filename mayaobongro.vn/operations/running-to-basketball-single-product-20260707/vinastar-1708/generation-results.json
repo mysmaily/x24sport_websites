@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 1,
+  "results": [
+    {
+      "ok": true,
+      "id": "vinastar-1708-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-019-ao-bong-ro-tieu-hoc.png",
+      "seconds": 68.3
+    },
+    {
+      "ok": true,
+      "id": "vinastar-1708-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-019-ao-bong-ro-thpt.png",
+      "seconds": 88.1
+    }
+  ]
+}

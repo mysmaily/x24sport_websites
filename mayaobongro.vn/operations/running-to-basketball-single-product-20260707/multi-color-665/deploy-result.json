@@ -1,0 +1,23 @@
+{
+    "product_id": 665,
+    "old_slug": "ao-chay-bo-nam-nhieu-mau-sac-nang-dong",
+    "new_slug": "bo-quan-ao-bong-ro-hoc-sinh-x24-nhieu-mau-x24-br-106",
+    "sku": "",
+    "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-hoc-sinh-x24-nhieu-mau-x24-br-106/",
+    "featured_media_id": 663,
+    "gallery_media_ids": [
+        664
+    ],
+    "elementary_media_id": 2995,
+    "high_school_media_id": 2996,
+    "category_ids": [
+        100
+    ],
+    "backup_path": "/var/www/mayaobongro.vn/wp-content/uploads/codex-multi-color-665/product-665-before-multi-color-conversion.json",
+    "meta": {
+        "_mayaobongro_edition_group": "x24-multi-color-splash",
+        "_mayaobongro_age_gallery_model": "single-product",
+        "_mayaobongro_age_image_tieu_hoc_id": 2995,
+        "_mayaobongro_age_image_thpt_id": 2996
+    }
+}

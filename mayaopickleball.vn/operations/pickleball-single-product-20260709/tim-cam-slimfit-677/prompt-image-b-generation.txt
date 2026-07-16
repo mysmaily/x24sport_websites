@@ -1,0 +1,22 @@
+Create a square 1:1 photorealistic ecommerce product image for mayaopickleball.vn.
+
+Design direction to preserve:
+- athletic pickleball team apparel inspired by a source shirt with a deep purple upper body fading into bright orange at the lower body;
+- thin abstract geometric linework spread across the shirt, especially visible through the midsection and lower area;
+- clean modern sportswear energy with no old product-frame graphics.
+
+Hard rules:
+- remove all running language and all old frame branding;
+- do not include "KEEP RUNNING", "RUN FOR ALL", "RUN FOR LIFE", side thumbnails, feature icons, banners, or mockup borders;
+- add only one small X24 chest logo on visible shirt fronts;
+- do not place any text or logos on shirt backs;
+- do not place any text or logos on paddle faces.
+
+Subjects and styling:
+- two fictional Vietnamese adult pickleball models together, one male and one female;
+- male wears a realistic purple-orange pickleball tank top and faces front or three-quarter-front;
+- female wears a collared no-sleeve pickleball top using the same design, with a straight modest armhole close to the armpit and full side-bust coverage;
+- do not make the female top look like a fashion tank or narrow strap garment;
+- both stand upright in a confident sales pose, with different body language from image A;
+- premium outdoor pickleball court, clean net geometry, soft daylight, high-end commercial sportswear photography;
+- square framing with the upper-body design clearly readable and the full garments still visible.

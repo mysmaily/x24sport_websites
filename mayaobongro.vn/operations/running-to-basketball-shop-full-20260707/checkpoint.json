@@ -1,0 +1,24 @@
+{
+  "updated_at": "2026-07-08T01:35:30.569968+00:00",
+  "products_to_convert": 190,
+  "jobs_total": 380,
+  "images_generated_ok": 380,
+  "images_failed": 0,
+  "images_remaining": 0,
+  "sku_range": "X24-BR-107 → X24-BR-296",
+  "next_step": "complete",
+  "resume_command": "cd /Users/hoang/hacado/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-shop-full-20260707 && IMAGE_CONCURRENCY=3 node generate-images.mjs",
+  "products_converted": 190,
+  "final_images": 380,
+  "sku_adjustment": "X24-BR-106 is retained by product 665; product 1943 uses X24-BR-296.",
+  "deployed": true,
+  "verification": {
+    "woocommerce_products": 190,
+    "unique_skus": 190,
+    "shop_full_attachments": 380,
+    "product_state_issues": 0,
+    "public_urls_checked": 380,
+    "public_url_issues": 0,
+    "remote_backups": 190
+  }
+}

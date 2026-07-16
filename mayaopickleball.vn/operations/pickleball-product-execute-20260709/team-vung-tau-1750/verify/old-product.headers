@@ -1,0 +1,30 @@
+HTTP/2 301 
+date: Wed, 08 Jul 2026 18:08:49 GMT
+content-type: text/html; charset=UTF-8
+location: https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-xanh-duong-trang-x24-pb-009/
+server: cloudflare
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+x-powered-by: PHP/8.2.31
+x-redirect-by: Yoast SEO Premium
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=kUAv1LeIeGCftKXsZ2lP9jIbf7XogkigEpSvCj4ne0jXyzyu6M85OLYSnVmNZ45tYMMWfmO2DNZGDemj5lkl4X6au7bPEVeVmqKnTqpQ45162hR%2FOOwMTEHzXESzR8pdhiXgwi4%3D"}]}
+cf-ray: a1810954eca35cde-SIN
+alt-svc: h3=":443"; ma=86400
+
+HTTP/2 200 
+date: Wed, 08 Jul 2026 18:08:51 GMT
+content-type: text/html; charset=UTF-8
+server: cloudflare
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+x-powered-by: PHP/8.2.31
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+link: <https://mayaopickleball.vn/wp-json/>; rel="https://api.w.org/"
+link: <https://mayaopickleball.vn/wp-json/wp/v2/product/1750>; rel="alternate"; title="JSON"; type="application/json"
+link: <https://mayaopickleball.vn/?p=1750>; rel=shortlink
+set-cookie: woocommerce_recently_viewed=1750; path=/
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=IeItHp2PwhCSy6fxzo9z5EN7n9MFVgxxacMboGg8EzsU8tN3wtkBmcMErg0VJsStFD8ozvzBnYF2zcUWLnWmF2rnGLxixPOzYzUDMP%2Bb%2FVLfwbAVgM1dhBhdvyOpz1SeiCVyVng%3D"}]}
+cf-cache-status: DYNAMIC
+vary: accept-encoding
+cf-ray: a1810958dea55cde-SIN
+alt-svc: h3=":443"; ma=86400
+

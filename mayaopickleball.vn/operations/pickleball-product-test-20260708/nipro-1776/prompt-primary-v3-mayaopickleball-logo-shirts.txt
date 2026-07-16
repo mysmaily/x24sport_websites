@@ -1,0 +1,79 @@
+Use case: product-mockup / identity-preserve / rebrand-shirt-logos
+Asset type: square WooCommerce product image for mayaopickleball.vn
+
+Primary request:
+Transform the current apparel reference into a realistic ecommerce/lifestyle
+product image for selling a custom pickleball outfit. Rebrand the shirt design:
+remove every old shirt logo or text mark from the reference, then place the
+mayaopickleball.vn brand logo/wordmark onto all visible shirts as printed
+garment artwork.
+
+Input images:
+- Image 1 is the apparel color and pattern reference. Preserve the vivid pink,
+  blue, white, and navy palette, gradient, curved graphic shapes, dotted
+  accents, and overall design language.
+- Image 2 is the mayaopickleball.vn logo reference. Use it only as the brand
+  artwork to print on the shirts. Do not copy its white background as a box.
+
+Mandatory rebranding:
+- Remove or replace all old garment logos and text from Image 1, including
+  "FDL", "Nipro", "Song Khoe", "Sống Khỏe", X24 marks, running marks, or any
+  other legacy shirt logos/text.
+- Print the mayaopickleball.vn logo/wordmark cleanly on every visible shirt.
+- On the male front shirt, place the mayaopickleball.vn mark as a readable
+  chest/front print that follows fabric folds naturally.
+- On the female back shirt, place the mayaopickleball.vn mark as a readable
+  upper-back or mid-back print, scaled tastefully and following the body angle.
+- The shirt should look like a real production pickleball uniform with the new
+  brand printed into the fabric, not a sticker pasted on top.
+- Do not place old source logos on paddles, wristbands, shorts, court boards, or
+  anywhere else.
+
+Scene/backdrop:
+Bright outdoor pickleball court in Vietnam, clean daylight, court lines and net
+visible but softly secondary, polished ecommerce campaign feel.
+
+Subject:
+Use exactly two attractive adult Vietnamese pickleball models together: one male
+and one female. The male model is upright, strong, confident, broad-shouldered,
+fit but not bodybuilder-like, holding a pickleball paddle casually. The female
+model is athletic, graceful, pretty, naturally feminine, with tasteful waist/hip
+curve, relaxed shoulders, confident posture, and sporty tied-up hair/high
+ponytail. Both are adults and fictional.
+
+Composition/framing:
+Square ecommerce product image. Use a front/back pair composition: male model
+front-facing or three-quarter-front to show the shirt front clearly; female
+model 60% back-facing / three-quarter-back with a natural over-shoulder smile
+to show the shirt back design and mayaopickleball.vn back print. Both models
+stand or pose casually on the court while holding paddles. Do not put either
+model in a deep ready stance, crouch, swing, lunge, or technical hitting pose.
+Keep posture upright, flattering, and apparel-focused. Crop from above heads to
+upper thighs or mid-thigh so the clothing dominates the frame and there is
+little empty background.
+
+Outfit:
+Both models wear the same pink-blue pickleball apparel design from the
+reference, now fully rebranded with mayaopickleball.vn marks. Male front shows
+the front design and front brand mark; female back shows the back design and
+back brand mark. Use coordinated dark navy or black athletic court shorts/skort
+that fit the outfit and do not hide the shirt hem.
+
+Materials/textures:
+Premium lightweight court-sport fabric, fine polyester knit/mesh texture,
+realistic collar seams, sleeve seams, hem stitching, wrinkles, stretch, shadows,
+and highlights. Printed graphic follows body folds naturally and stays crisp.
+
+Overlay/stamp:
+Do not generate any extra corner watermark or contact footer. The only brand
+marks should be printed on the clothing itself.
+
+Avoid:
+Old FDL logo, old Nipro logo, old Song Khoe/Sống Khỏe text, old X24 marks,
+running logo/text, old source website footer, white logo box on shirt, sticker
+look, hunched posture, deep athletic ready stance, technical pickleball stroke,
+road running, jogging motion, marathon/race cues, finish line, medals, race bib,
+distorted hands, cut-off faces, changed shirt colors, fake flat overlay pattern,
+blurry fabric, plastic skin, extra people, childlike faces, oversexualized pose,
+pin-up glamour pose, unrealistic female curves, bodybuilder male proportions,
+stiff mannequin pose, copied mockup frame, third-party watermark.

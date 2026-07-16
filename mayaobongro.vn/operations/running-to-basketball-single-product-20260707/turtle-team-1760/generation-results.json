@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 1,
+  "results": [
+    {
+      "ok": true,
+      "id": "turtle-team-1760-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-008-ao-bong-ro-tieu-hoc.png",
+      "seconds": 69.3
+    },
+    {
+      "ok": true,
+      "id": "turtle-team-1760-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-008-ao-bong-ro-thpt.png",
+      "seconds": 78.1
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "job_id": "team-vung-tau-1750",
+  "wave_id": "pickleball-product-execute-20260709",
+  "source_site": "mayaopickleball.vn existing product converted from running catalog data",
+  "destination_site": "mayaopickleball.vn",
+  "source_product_url": "https://mayaopickleball.vn/ao-chay-bo-mau-xanh-duong-team-vung-tau-g-o-thiet-ke-nang-dong-tien-dung-cho-runner/",
+  "destination_product_id": 1750,
+  "product_code": "X24-PB-009",
+  "new_title": "Bộ Quần Áo Pickleball Nam Nữ X24 Xanh Dương Trắng X24-PB-009",
+  "new_slug": "bo-quan-ao-pickleball-nam-nu-x24-xanh-duong-trang-x24-pb-009",
+  "new_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-xanh-duong-trang-x24-pb-009/",
+  "source_images": {
+    "model": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/source/ao-chay-bo-vung-tau-go-model-20260705.jpg",
+    "mockup_reference": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/source/ao-chay-bo-mau-xanh-team-Vung-Tau-Go.jpg"
+  },
+  "text_decisions": [
+    {
+      "source": "May Áo Chạy Bộ - Vn",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "Logo",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "Vũng Tàu GO!",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "mayaochaybo.vn",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "Hotline/Zalo 0989.353.247",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "runner/running/chạy bộ terms",
+      "action": "remove",
+      "target": ""
+    }
+  ],
+  "backups": {
+    "wp_product_before": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/source/wp-product-1750-before-edit.json",
+    "wc_product_before": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/backup/wc-product-1750-before.json",
+    "wp_media_before_public": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/source/wp-media-2413-before-public.json"
+  },
+  "outputs": {
+    "image_a_generated": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/generated/x24-pb-009-image-A.png",
+    "image_b_generated": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/generated/x24-pb-009-image-B.png",
+    "image_a_final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/final/x24-pb-009-ao-pickleball-nam-nu-co-co-tay-ao-ngan-xanh-duong-trang.webp",
+    "image_b_final_webp": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/final/x24-pb-009-ao-pickleball-nam-3-lo-nu-khong-tay-xanh-duong-trang.webp",
+    "image_a_upload_jpeg": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/final/x24-pb-009-ao-pickleball-nam-nu-co-co-tay-ao-ngan-xanh-duong-trang-upload.jpg",
+    "image_b_upload_jpeg": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/final/x24-pb-009-ao-pickleball-nam-3-lo-nu-khong-tay-xanh-duong-trang-upload.jpg",
+    "contact_sheet": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/final/contact-sheet-x24-pb-009.jpg",
+    "desktop_screenshot": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/verify/desktop-product-page.png",
+    "mobile_screenshot": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-execute-20260709/team-vung-tau-1750/verify/mobile-product-page.png"
+  },
+  "new_media_ids": [
+    2576,
+    2577
+  ],
+  "categories": [
+    {
+      "id": 95,
+      "name": "Áo Pickleball"
+    },
+    {
+      "id": 96,
+      "name": "Áo Pickleball Thiết Kế Riêng"
+    }
+  ],
+  "tags": [
+    "áo pickleball nam",
+    "áo pickleball nữ",
+    "bộ quần áo pickleball nam nữ",
+    "áo pickleball thiết kế riêng",
+    "đồng phục pickleball",
+    "áo pickleball nam có cổ",
+    "áo pickleball nữ không tay",
+    "áo pickleball nam 3 lỗ",
+    "áo pickleball tank top"
+  ],
+  "garment_styles": [
+    {
+      "slot": "A",
+      "style": "collared_short_sleeve",
+      "featured": true,
+      "image_filter_tags": [
+        "ngắn tay"
+      ],
+      "media_id": 2576
+    },
+    {
+      "slot": "B",
+      "style": "male_tank_top_female_collared_no_sleeve",
+      "female_variant": "female_collared_no_sleeve",
+      "featured": false,
+      "image_filter_tags": [
+        "3 lỗ",
+        "tank top"
+      ],
+      "media_id": 2577
+    }
+  ],
+  "verification": {
+    "rest_product": "200 OK; sku X24-PB-009; categories 95,96; images 2576,2577; pickleball tags assigned",
+    "wp_media": "2576 and 2577 image/jpeg 1000x1000 with style-specific alt/caption",
+    "public_new_url": "HTTP/2 200; H1 and canonical use new pickleball slug",
+    "public_old_url": "HTTP/2 200 after redirect/canonical resolution to new URL",
+    "public_images": "both CDN image URLs return HTTP/2 200 image/jpeg",
+    "description_embeds": "both inline figure images and figcaptions present in public HTML",
+    "category_page": "/ao-pickleball/ contains new slug and featured image",
+    "browser_smoke": "desktop 1440x1200 and mobile 390x1000 screenshots saved; console error count 0",
+    "copy_qa": "WooCommerce product fields have no running/runner terms; CDN/source URL still contains mayaochaybo.vn as existing site media infrastructure",
+    "cache_services_touched": "none"
+  },
+  "errors": [
+    {
+      "phase": "media_upload",
+      "detail": "multipart WordPress media upload failed with rest_upload_image_type_not_supported; raw binary WP REST upload succeeded. Uploaded JPEG derivatives because WebP upload failed on destination media endpoint."
+    }
+  ],
+  "status": "verified"
+}

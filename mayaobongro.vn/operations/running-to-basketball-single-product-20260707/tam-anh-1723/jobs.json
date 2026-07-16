@@ -1,0 +1,22 @@
+[
+  {
+    "id": "tam-anh-1723-elementary",
+    "audience": "elementary",
+    "product_id": 1723,
+    "source": "source/tam-anh-source.jpg",
+    "generated": "generated/x24-br-024-ao-bong-ro-tieu-hoc.png",
+    "final": "final/x24-br-024-ao-bong-ro-tieu-hoc.webp",
+    "title": "Bộ Quần Áo Bóng Rổ Tâm Anh Đen Vàng X24-BR-024",
+    "prompt": "Use case: identity-preserve\nAsset type: square WooCommerce product image for mayaobongro.vn\n\nImage 1 is a garment-design reference only. Preserve black base with yellow fireball accents, yellow fireball / energetic streak motif, and valid team/design marks for Tâm Anh. Text decisions: replace Tâm Anh Runners with Tâm Anh; replace Chạy cho Chữ with Học Cùng Bóng Rổ or Play for Learning. Remove adult models, road/park/lake running scene, mayaochaybo.vn, hotline, old running logo, footer/header frame, and running-shirt cut.\n\nConvert the garment into an authentic basketball uniform: wider basketball shoulders, rib-knit neckline and armholes, relaxed straight torso, longer hem covering the shorts waistband. Pair it with loose knee-length basketball shorts coordinated with the jersey palette, trim, panels, and motif. Never default to plain black shorts unless black is the intentional dominant design color and still add coordinated accents.\n\nComposition: Square 1:1, three-quarter body, garment fully visible, thumbnail-readable front design and coordinated shorts.\n\nStyle: Photorealistic commercial Vietnamese school sportswear photography, realistic breathable mesh, natural folds, correct anatomy.\n\nConstraints: fictional student only, age-appropriate, non-sexualized, no exposed midriff, no real school identifiers, no extra logos, no running terminology, no watermark.\n\nScene: covered elementary school basketball court, soft daylight, generic hoop visible, no readable school identity.\n\nSubject: One fictional Vietnamese elementary-school basketball player, age 9-10, natural child proportions, friendly confident expression, holding a basketball at waist height. The player must look like a child, not a scaled-down adult."
+  },
+  {
+    "id": "tam-anh-1723-high-school",
+    "audience": "high_school",
+    "product_id": 1723,
+    "source": "source/tam-anh-source.jpg",
+    "generated": "generated/x24-br-024-ao-bong-ro-thpt.png",
+    "final": "final/x24-br-024-ao-bong-ro-thpt.webp",
+    "title": "Bộ Quần Áo Bóng Rổ Tâm Anh Đen Vàng X24-BR-024",
+    "prompt": "Use case: identity-preserve\nAsset type: square WooCommerce product image for mayaobongro.vn\n\nImage 1 is a garment-design reference only. Preserve black base with yellow fireball accents, yellow fireball / energetic streak motif, and valid team/design marks for Tâm Anh. Text decisions: replace Tâm Anh Runners with Tâm Anh; replace Chạy cho Chữ with Học Cùng Bóng Rổ or Play for Learning. Remove adult models, road/park/lake running scene, mayaochaybo.vn, hotline, old running logo, footer/header frame, and running-shirt cut.\n\nConvert the garment into an authentic basketball uniform: wider basketball shoulders, rib-knit neckline and armholes, relaxed straight torso, longer hem covering the shorts waistband. Pair it with loose knee-length basketball shorts coordinated with the jersey palette, trim, panels, and motif. Never default to plain black shorts unless black is the intentional dominant design color and still add coordinated accents.\n\nComposition: Square 1:1, three-quarter body, garment fully visible, thumbnail-readable front design and coordinated shorts.\n\nStyle: Photorealistic commercial Vietnamese school sportswear photography, realistic breathable mesh, natural folds, correct anatomy.\n\nConstraints: fictional student only, age-appropriate, non-sexualized, no exposed midriff, no real school identifiers, no extra logos, no running terminology, no watermark.\n\nScene: high-school basketball court after class, clean daylight, generic court lines and hoop, no readable school identity.\n\nSubject: One fictional Vietnamese high-school basketball player, age 16-17, athletic but age-appropriate, confident ready stance holding a basketball. No adult bodybuilder proportions and no glamour styling."
+  }
+]

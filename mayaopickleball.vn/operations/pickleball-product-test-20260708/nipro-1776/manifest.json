@@ -1,0 +1,121 @@
+{
+  "job_id": "nipro-1776",
+  "wave_id": "pickleball-product-test-20260708",
+  "source_site": "mayaopickleball.vn",
+  "destination_site": "mayaopickleball.vn",
+  "source_product_url": "https://mayaopickleball.vn/ao-chay-bo-nipro-mau-hong-xanh-duong-noi-bat-fdl-song-khoe/",
+  "source_product_id": 1776,
+  "source_media_id": 2400,
+  "source_image": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/source/ao-chay-bo-nipro-hong-xanh-models-20260705.jpg",
+  "old_title": "Áo chạy bộ Nipro màu hồng-xanh dương nổi bật FDL Sống Khỏe",
+  "draft_new_title": "Bộ Quần Áo Pickleball Nipro Hồng Xanh X24-PB-001",
+  "draft_new_slug": "bo-quan-ao-pickleball-nipro-hong-xanh-x24-pb-001",
+  "text_decisions": [
+    {
+      "source": "Nipro",
+      "action": "preserve",
+      "target": "Nipro"
+    },
+    {
+      "source": "FDL",
+      "action": "preserve",
+      "target": "FDL"
+    },
+    {
+      "source": "Sống Khỏe / Song Khoe",
+      "action": "preserve",
+      "target": "Song Khoe"
+    },
+    {
+      "source": "áo chạy bộ / running / race terms",
+      "action": "replace",
+      "target": "pickleball apparel context"
+    }
+  ],
+  "outputs": {
+    "generated_primary": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/generated/x24-pb-001-nipro-pickleball-unbranded.webp",
+    "final_primary": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/final/x24-pb-001-nipro-pickleball-final.webp",
+    "contact_sheet": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/final/nipro-1776-contact-sheet.webp",
+    "generated_primary_v2": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/generated/x24-pb-001-nipro-pickleball-v2-unbranded.webp",
+    "final_primary_v2": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/final/x24-pb-001-nipro-pickleball-v2-final.webp",
+    "contact_sheet_v2": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/final/nipro-1776-contact-sheet-v2.webp",
+    "generated_primary_v3_logo_shirts": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/generated/x24-pb-001-nipro-pickleball-v3-logo-shirts-unbranded.webp",
+    "contact_sheet_v3_logo_shirts": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/final/nipro-1776-contact-sheet-v3-logo-shirts.webp",
+    "generated_primary_v4_small_logo": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/generated/x24-pb-001-nipro-pickleball-v4-small-logo-unbranded.webp",
+    "contact_sheet_v4_small_logo": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/final/nipro-1776-contact-sheet-v4-small-logo.webp",
+    "generated_primary_v5_x24_chest": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/generated/x24-pb-001-nipro-pickleball-v5-x24-chest-unbranded.webp",
+    "final_primary_v5_x24_chest_watermarked": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/final/x24-pb-001-nipro-pickleball-v5-x24-chest-watermarked.webp",
+    "contact_sheet_v5_x24_chest": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/final/nipro-1776-contact-sheet-v5-x24-chest.webp",
+    "final_primary_v6_watermark_dots": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/final/x24-pb-001-nipro-pickleball-v6-x24-chest-watermark-dots.webp",
+    "contact_sheet_v6_dots": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/final/nipro-1776-contact-sheet-v6-dots.webp",
+    "uploaded_media_v6_id": 2554,
+    "product_update_v6_response": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/product-update-v6-response.json"
+  },
+  "status": "verified_via_api_public_html",
+  "attempts": {
+    "primary": 5
+  },
+  "wordpress_mutation": true,
+  "notes": [
+    "Public WordPress REST read succeeded for product 1776 and media 2400.",
+    "WooCommerce REST namespace exists but unauthenticated product listing returned 401; write/update test needs WooCommerce credentials.",
+    "No WordPress upload/update performed in this demo."
+  ],
+  "qa": {
+    "public_page_http": 200,
+    "wp_product_rest": "read_ok product_id=1776 featured_media=2400",
+    "wc_rest_public": "401 unauthenticated; credentials required for write/batch update",
+    "generated_image": "1024x1024 webp; pickleball court and paddle present",
+    "known_issue": "Generated image preserves palette and FDL mark but simplifies lower-shirt graphics and moves Nipro/Song Khoe marks onto accessories instead of preserving all source placement on garment.",
+    "v2_feedback_applied": "male/female together; apparel-focused standing pose; female three-quarter-back around 60%; male front-facing upright and stronger; no technical hitting stance.",
+    "v2_known_issue": "Back design is inferred from front because no source back image was available; detailed back text/logos were intentionally not invented.",
+    "v3_logo_rebrand_applied": "Old garment logos/text removed from shirts; mayaopickleball.vn logo/wordmark printed on both male front shirt and female back shirt; no separate corner watermark/contact footer added.",
+    "v3_known_issue": "Logo text is readable enough for demo but should be checked at product-card thumbnail size before production; source back design is inferred because only front source image was available.",
+    "v4_small_logo_feedback_applied": "Logo is chest-crest scale on male front and small upper-back mark on female; old garment logos removed; dark mark contrasts against pink shirt areas; no poster/sticker/white-box look.",
+    "v4_known_issue": "Wordmark is small, appropriate for shirt logo scale but should be checked at product-card thumbnail size; if stronger readability is needed, use wordmark-only and increase mark size about 15-20%.",
+    "v5_final_policy_applied": "Removed running-related garment marks; small X24 chest logo only; clean back with no logo; blank paddle faces; mayaopickleball.vn used only as corner watermark.",
+    "v5_known_issue": "X24 chest mark is small and appropriate; production should still spot-check thumbnail readability per product.",
+    "v6_color_dots_applied": "Added vertical color-availability dots for Trắng, Đen, Hồng, Đỏ, Vàng, Xanh Blue, Green, and + as post-processing overlay; X24 chest logo, clean back, blank paddles, and mayaopickleball corner watermark retained."
+  },
+  "woocommerce_api": {
+    "auth_get_product_1776": "200 OK",
+    "backup_path": "/Users/hoang/wordpress_websites/mayaopickleball.vn/operations/pickleball-product-test-20260708/nipro-1776/baseline/wc-product-1776-auth.json",
+    "mutation_performed": true,
+    "note": "WooCommerce API key/secret can read product metadata. No live update was performed because local image upload requires WordPress media auth or a public image URL.",
+    "uploaded_media_id": 2554,
+    "product_update": "200 OK",
+    "created_category_ids": [
+      95,
+      96
+    ],
+    "tag_ids": [
+      97,
+      98,
+      99,
+      100
+    ],
+    "created_tag_ids": [
+      97,
+      98,
+      99,
+      100
+    ]
+  },
+  "new_media_ids": [
+    2554
+  ],
+  "destination_product_id": 1776,
+  "verification": {
+    "product_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-nam-nu-x24-hong-xanh-x24-pb-001/",
+    "product_html": "200 OK",
+    "wc_product": "200 OK product_id=1776 image_id=2554 categories=95,96 sku=X24-PB-001",
+    "wp_media": "200 OK media_id=2554 image/webp 1024x1024",
+    "yoast_og_image": "updated to media 2554 URL",
+    "new_categories_created": [
+      95,
+      96
+    ],
+    "cache_services_touched": "none",
+    "remaining_global_site_text": "Header/footer/menu still contain legacy running-site branding and links outside this product record."
+  }
+}

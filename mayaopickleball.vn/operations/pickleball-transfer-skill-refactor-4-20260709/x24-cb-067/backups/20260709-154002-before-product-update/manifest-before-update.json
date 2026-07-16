@@ -1,0 +1,111 @@
+{
+  "schema_version": "0.4-safe",
+  "operation_mode": "update_existing_product",
+  "selection_mode": "single_url",
+  "destination_site": "mayaopickleball.vn",
+  "destination_product_id": 2218,
+  "product_url": "https://mayaopickleball.vn/ao-chay-bo-x24-cb-067-den-hoa-tiet-vang-do-nang-dong/",
+  "old_title": "Áo Chạy Bộ X24 CB-067 Đen – Họa Tiết Vàng Đỏ Năng Động",
+  "new_title": "Bộ Quần Áo Pickleball X24 PB-021 Đen Vàng Đỏ Năng Động",
+  "old_slug": "ao-chay-bo-x24-cb-067-den-hoa-tiet-vang-do-nang-dong",
+  "new_slug": "bo-quan-ao-pickleball-x24-pb-021-den-vang-do-nang-dong",
+  "product_code": "X24-PB-021",
+  "legacy_match_reasons": [
+    "title: chạy bộ",
+    "slug: ao-chay-bo",
+    "content: chạy bộ",
+    "tag: áo chạy bộ thể thao",
+    "featured_image: AoChayBo filename",
+    "public_html: chạy bộ x39"
+  ],
+  "text_decisions": [
+    {
+      "source": "RUN",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "RUNNING SHIRT",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "MAYAOCHAYBO.VN",
+      "action": "remove",
+      "target": ""
+    },
+    {
+      "source": "X24-CB-067",
+      "action": "replace",
+      "target": "X24-PB-021"
+    }
+  ],
+  "assets": {
+    "image_a": {
+      "style": "collared_short_sleeve",
+      "status": "postprocessed_visual_approved_local",
+      "generated": "generated/x24-pb-021-image-a-collared-short-sleeve.png",
+      "output": "final/x24-pb-021-image-a-collared-short-sleeve.webp",
+      "media_id": null,
+      "image_filter_tags": [
+        "ngắn tay",
+        "có cổ",
+        "nam nữ"
+      ],
+      "branding": {
+        "logo_source": "png",
+        "contact_overlay_present": true,
+        "color_dots_present": true
+      }
+    },
+    "image_b": {
+      "style": "male_tank_no_collar_female_collared_no_sleeve",
+      "status": "postprocessed_visual_approved_local",
+      "generated": "generated/x24-pb-021-image-b-male-tank-female-collared-nosleeve.png",
+      "output": "final/x24-pb-021-image-b-male-tank-female-collared-nosleeve.webp",
+      "media_id": null,
+      "image_filter_tags": [
+        "3 lỗ",
+        "không tay",
+        "nam không cổ",
+        "nữ có cổ",
+        "sát nách"
+      ],
+      "branding": {
+        "logo_source": "png",
+        "contact_overlay_present": true,
+        "color_dots_present": true
+      }
+    }
+  },
+  "category_ids": [
+    95,
+    70,
+    71,
+    96
+  ],
+  "old_product_records": {
+    "wp": "wp-product-current.json",
+    "wc": "wc-product-current.json",
+    "public_html": "public-before.html"
+  },
+  "new_media_ids": [],
+  "status": "postprocessed",
+  "attempts": {
+    "image_a": 1,
+    "image_b": 1
+  },
+  "qa": {
+    "fixed_assets": "passed: logo png fallback, contact present, color dots present",
+    "runtime_env": "passed redacted auth env check",
+    "sku_check": "X24-PB-021 unused via WC API",
+    "visual_local": "both final images visually checked; no running text visible; overlays present",
+    "public_before_forbidden_terms": {
+      "chạy bộ": 39
+    }
+  },
+  "errors": [
+    "ImageMagick postprocess failed locally due unavailable DejaVu-Sans-Bold font; Pillow bundled-runtime fallback succeeded."
+  ],
+  "created_at": "2026-07-09T15:40:00+07:00"
+}

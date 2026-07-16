@@ -1,0 +1,34 @@
+Use case: identity-preserve
+Asset type: square WooCommerce product image for mayaopickleball.vn
+
+Image 1 is a garment-design reference only. Preserve its purple to orange gradient palette and the thin geometric line pattern across the shirt body, but remove all old logos and all old text. Do not preserve the top-left corner logo banner, the top-right slogan block, the left-side mini color thumbnails, the right-side feature icons, the grey mockup background, or any catalog frame elements.
+
+Text and logo decisions:
+- Remove the large X24 corner mark and all frame graphics from the reference.
+- Remove all readable running text, especially "KEEP RUNNING", "RUN FOR ALL", and "RUN FOR LIFE".
+- Keep only one small X24 chest logo on visible shirt fronts.
+- Do not add any logo or text to shirt backs.
+- Do not add any text or logo to paddle faces.
+
+Convert the garment into an authentic pickleball apparel product: breathable court-sport fabric, relaxed athletic torso, natural folds, and a design that feels made for pickleball movement rather than road running. Preserve the source design concept without inventing sponsor marks.
+
+Scene:
+Premium outdoor pickleball court in soft daylight, clean fencing and net geometry, modern Vietnamese sportswear ecommerce photo.
+
+Subject:
+Two fictional Vietnamese adult pickleball models together, one male and one female. This is a product-selling pose, not a lesson or match-action pose. The male model is upright, athletic, confident, and front-facing to clearly show the shirt front. The female model is athletic and graceful with tied-up sporty hair, standing in a relaxed three-quarter-back pose with a natural over-shoulder smile so the gallery feels warm and premium. Both may hold pickleball paddles casually.
+
+Garment style for this image:
+Male and female both wear a collared short-sleeve pickleball shirt with a clean team-uniform look.
+
+Pose slot for this image:
+Front-and-back pair composition, relaxed standing pose, not crouched, not swinging, no coaching posture.
+
+Camera and crop slot:
+Medium full-body framing, square 1:1, garment fully visible, clear thumbnail readability.
+
+Composition:
+One model clearly shows the front, one model clearly shows the back or three-quarter back. Keep the body language natural, upright, attractive, and sport-appropriate. The shirt design should stay readable at product-card scale.
+
+Style:
+Photorealistic commercial Vietnamese pickleball sportswear photography, realistic breathable fabric, correct anatomy, soft daylight, high-end ecommerce polish.

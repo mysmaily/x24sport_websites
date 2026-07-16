@@ -1,0 +1,52 @@
+[
+  {
+    "code": "X24-CL-001",
+    "name": "Áo Cầu Lông Đặt May X24-CL-001 Gradient Xanh Hồng Cam",
+    "slug": "ao-cau-long-dat-may-x24-cl-001-gradient-xanh-hong-cam",
+    "mainColors": ["xanh da trời", "hồng", "cam"],
+    "gradient": "gradient xanh da trời hồng cam",
+    "pattern": "chuyển sắc mềm",
+    "shape": "nam cổ tròn không tay, nữ cổ bẻ không tay",
+    "image": "products/x24-cl-001/x24-cl-001-badminton-1.webp"
+  },
+  {
+    "code": "X24-CL-002",
+    "name": "Áo Cầu Lông Đặt May X24-CL-002 Gradient Vàng Trắng Núi Xanh",
+    "slug": "ao-cau-long-dat-may-x24-cl-002-gradient-vang-trang-nui-xanh",
+    "mainColors": ["vàng", "trắng", "xanh ngọc", "xanh đậm"],
+    "gradient": "gradient vàng trắng",
+    "pattern": "họa tiết núi xanh ngọc xanh đậm",
+    "shape": "nam cổ tròn không tay, nữ cổ bẻ không tay",
+    "image": "products/x24-cl-002/x24-cl-002-badminton-1.webp"
+  },
+  {
+    "code": "X24-CL-003",
+    "name": "Áo Cầu Lông Đặt May X24-CL-003 Gradient Vàng Cam",
+    "slug": "ao-cau-long-dat-may-x24-cl-003-gradient-vang-cam",
+    "mainColors": ["vàng", "cam"],
+    "gradient": "gradient vàng cam",
+    "pattern": "họa tiết mũi tên cam",
+    "shape": "cổ bẻ tay ngắn",
+    "image": "products/x24-cl-003/x24-cl-003-badminton-1.webp"
+  },
+  {
+    "code": "X24-CL-004",
+    "name": "Áo Cầu Lông Đặt May X24-CL-004 Gradient Xanh Navy Xanh Ngọc",
+    "slug": "ao-cau-long-dat-may-x24-cl-004-gradient-xanh-navy-xanh-ngoc",
+    "mainColors": ["xanh navy", "xanh ngọc"],
+    "gradient": "gradient xanh navy xanh ngọc",
+    "pattern": "đường sóng xanh ngọc hai bên sườn",
+    "shape": "nam cổ tròn không tay, nữ cổ bẻ không tay",
+    "image": "products/x24-cl-004/x24-cl-004-badminton-1.webp"
+  },
+  {
+    "code": "X24-CL-005",
+    "name": "Áo Cầu Lông Đặt May X24-CL-005 Gradient Trắng Đỏ",
+    "slug": "ao-cau-long-dat-may-x24-cl-005-gradient-trang-do",
+    "mainColors": ["trắng", "đỏ", "hồng nhạt"],
+    "gradient": "gradient trắng đỏ",
+    "pattern": "họa tiết ngôi sao đỏ hồng",
+    "shape": "nam cổ tròn không tay, nữ cổ bẻ không tay",
+    "image": "products/x24-cl-005/x24-cl-005-badminton-1.webp"
+  }
+]

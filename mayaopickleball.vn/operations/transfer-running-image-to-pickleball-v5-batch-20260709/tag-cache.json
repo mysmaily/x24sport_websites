@@ -1,0 +1,254 @@
+[
+  {
+    "id": 108,
+    "name": "áo pickleball có cổ",
+    "slug": "ao-pickleball-co-co",
+    "created": false
+  },
+  {
+    "id": 109,
+    "name": "áo pickleball cổ tròn",
+    "slug": "ao-pickleball-co-tron",
+    "created": false
+  },
+  {
+    "id": 110,
+    "name": "áo pickleball khoét nách",
+    "slug": "ao-pickleball-khoet-nach",
+    "created": false
+  },
+  {
+    "id": 106,
+    "name": "áo pickleball tank top",
+    "slug": "ao-pickleball-tank-top",
+    "created": false
+  },
+  {
+    "id": 105,
+    "name": "áo pickleball nam 3 lỗ",
+    "slug": "ao-pickleball-nam-3-lo",
+    "created": false
+  },
+  {
+    "id": 104,
+    "name": "áo pickleball nữ không tay",
+    "slug": "ao-pickleball-nu-khong-tay",
+    "created": false
+  },
+  {
+    "id": 115,
+    "name": "màu đen",
+    "slug": "mau-den",
+    "created": false
+  },
+  {
+    "id": 127,
+    "name": "màu xanh lá",
+    "slug": "mau-xanh-la",
+    "created": true
+  },
+  {
+    "id": 112,
+    "name": "màu vàng",
+    "slug": "mau-vang",
+    "created": false
+  },
+  {
+    "id": 128,
+    "name": "đen xanh",
+    "slug": "den-xanh",
+    "created": true
+  },
+  {
+    "id": 129,
+    "name": "vàng đen",
+    "slug": "vang-den",
+    "created": true
+  },
+  {
+    "id": 111,
+    "name": "màu hồng",
+    "slug": "mau-hong",
+    "created": false
+  },
+  {
+    "id": 113,
+    "name": "màu xanh",
+    "slug": "mau-xanh",
+    "created": false
+  },
+  {
+    "id": 121,
+    "name": "màu xanh ngọc",
+    "slug": "mau-xanh-ngoc",
+    "created": false
+  },
+  {
+    "id": 122,
+    "name": "xanh xanh",
+    "slug": "xanh-xanh",
+    "created": false
+  },
+  {
+    "id": 130,
+    "name": "màu vàng nghệ",
+    "slug": "mau-vang-nghe",
+    "created": true
+  },
+  {
+    "id": 116,
+    "name": "màu cam",
+    "slug": "mau-cam",
+    "created": false
+  },
+  {
+    "id": 131,
+    "name": "vàng vàng",
+    "slug": "vang-vang",
+    "created": true
+  },
+  {
+    "id": 132,
+    "name": "hồng xanh",
+    "slug": "hong-xanh",
+    "created": true
+  },
+  {
+    "id": 133,
+    "name": "màu xanh bích đậm",
+    "slug": "mau-xanh-bich-dam",
+    "created": true
+  },
+  {
+    "id": 134,
+    "name": "màu xanh mint",
+    "slug": "mau-xanh-mint",
+    "created": true
+  },
+  {
+    "id": 135,
+    "name": "màu xanh đậm",
+    "slug": "mau-xanh-dam",
+    "created": true
+  },
+  {
+    "id": 123,
+    "name": "màu trắng",
+    "slug": "mau-trang",
+    "created": false
+  },
+  {
+    "id": 136,
+    "name": "màu tím",
+    "slug": "mau-tim",
+    "created": true
+  },
+  {
+    "id": 137,
+    "name": "trắng xanh",
+    "slug": "trang-xanh",
+    "created": true
+  },
+  {
+    "id": 119,
+    "name": "màu đỏ",
+    "slug": "mau-do",
+    "created": false
+  },
+  {
+    "id": 138,
+    "name": "hồng tím",
+    "slug": "hong-tim",
+    "created": true
+  },
+  {
+    "id": 114,
+    "name": "hồng vàng",
+    "slug": "hong-vang",
+    "created": false
+  },
+  {
+    "id": 139,
+    "name": "vàng xanh",
+    "slug": "vang-xanh",
+    "created": true
+  },
+  {
+    "id": 140,
+    "name": "đỏ tím",
+    "slug": "do-tim",
+    "created": true
+  },
+  {
+    "id": 141,
+    "name": "cam tím",
+    "slug": "cam-tim",
+    "created": true
+  },
+  {
+    "id": 142,
+    "name": "hồng đỏ",
+    "slug": "hong-do",
+    "created": true
+  },
+  {
+    "id": 143,
+    "name": "đỏ trắng",
+    "slug": "do-trang",
+    "created": true
+  },
+  {
+    "id": 144,
+    "name": "vàng cam",
+    "slug": "vang-cam",
+    "created": true
+  },
+  {
+    "id": 145,
+    "name": "cam xanh",
+    "slug": "cam-xanh",
+    "created": true
+  },
+  {
+    "id": 146,
+    "name": "đỏ đen",
+    "slug": "do-den",
+    "created": true
+  },
+  {
+    "id": 147,
+    "name": "đỏ xanh",
+    "slug": "do-xanh",
+    "created": true
+  },
+  {
+    "id": 148,
+    "name": "đen tím",
+    "slug": "den-tim",
+    "created": true
+  },
+  {
+    "id": 120,
+    "name": "đỏ vàng",
+    "slug": "do-vang",
+    "created": false
+  },
+  {
+    "id": 149,
+    "name": "hồng trắng",
+    "slug": "hong-trang",
+    "created": true
+  },
+  {
+    "id": 150,
+    "name": "đỏ cam",
+    "slug": "do-cam",
+    "created": true
+  },
+  {
+    "id": 151,
+    "name": "hồng đen",
+    "slug": "hong-den",
+    "created": true
+  }
+]

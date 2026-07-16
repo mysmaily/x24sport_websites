@@ -1,0 +1,248 @@
+{
+  "id": 91,
+  "date": "2013-08-11T19:17:44",
+  "date_gmt": "2013-08-11T19:17:44",
+  "guid": {
+    "rendered": "http://localhost:8888/test/?page_id=530",
+    "raw": "http://localhost:8888/test/?page_id=530"
+  },
+  "modified": "2026-06-16T01:54:26",
+  "modified_gmt": "2026-06-16T01:54:26",
+  "password": "",
+  "slug": "blog",
+  "status": "publish",
+  "type": "page",
+  "link": "https://mayaopickleball.vn/blog/",
+  "title": {
+    "raw": "Blog",
+    "rendered": "Blog"
+  },
+  "content": {
+    "raw": "Take a look here on how to setup your blog page: http://docs.uxthemes.com/article/243-how-to-setup-your-blog-page",
+    "rendered": "<p>Take a look here on how to setup your blog page: http://docs.uxthemes.com/article/243-how-to-setup-your-blog-page</p>\n",
+    "protected": false,
+    "block_version": 0
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>Take a look here on how to setup your blog page: http://docs.uxthemes.com/article/243-how-to-setup-your-blog-page</p>\n",
+    "protected": false
+  },
+  "author": 1,
+  "featured_media": 0,
+  "parent": 0,
+  "menu_order": 0,
+  "comment_status": "closed",
+  "ping_status": "closed",
+  "template": "",
+  "meta": {
+    "footnotes": ""
+  },
+  "permalink_template": "https://mayaopickleball.vn/%pagename%/",
+  "generated_slug": "blog",
+  "class_list": [
+    "post-91",
+    "page",
+    "type-page",
+    "status-publish",
+    "hentry"
+  ],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Blog - May Áo Chạy Bộ - VN</title>\n<!-- Chú ý dành cho Admin: trang này không hiển thị thẻ meta mô tả vì nó không có, hoặc là thêm thẳng vào trang hoặc là vào menu [Yoast SEO - Thiết lập] và cài đặt một template. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaopickleball.vn/blog/\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:locale\" content=\"vi_VN\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:type\" content=\"article\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:title\" content=\"Blog\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:description\" content=\"Take a look here on how to setup your blog page: http://docs.uxthemes.com/article/243-how-to-setup-your-blog-page\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:url\" content=\"https://mayaopickleball.vn/blog/\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:site_name\" content=\"May Áo Chạy Bộ - VN\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"article:modified_time\" content=\"2026-06-16T01:54:26+00:00\" class=\"yoast-seo-meta-tag\" />\n<meta property=\"og:image\" content=\"https://cdn.mayaochaybo.vn/wp-content/uploads/2026/05/x24.jpg\" class=\"yoast-seo-meta-tag\" />\n\t<meta property=\"og:image:width\" content=\"2000\" class=\"yoast-seo-meta-tag\" />\n\t<meta property=\"og:image:height\" content=\"857\" class=\"yoast-seo-meta-tag\" />\n\t<meta property=\"og:image:type\" content=\"image/jpeg\" class=\"yoast-seo-meta-tag\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" class=\"yoast-seo-meta-tag\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":[\"WebPage\",\"CollectionPage\"],\"@id\":\"https://mayaopickleball.vn/blog/\",\"url\":\"https://mayaopickleball.vn/blog/\",\"name\":\"Blog - May Áo Chạy Bộ - VN\",\"isPartOf\":{\"@id\":\"https://mayaopickleball.vn/#website\"},\"datePublished\":\"2013-08-11T19:17:44+00:00\",\"dateModified\":\"2026-06-16T01:54:26+00:00\",\"breadcrumb\":{\"@id\":\"https://mayaopickleball.vn/blog/#breadcrumb\"},\"inLanguage\":\"vi\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaopickleball.vn/blog/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://mayaopickleball.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaopickleball.vn/#website\",\"url\":\"https://mayaopickleball.vn/\",\"name\":\"May Áo Chạy Bộ - VN\",\"description\":\"Chuyên May Áo Chạy Bộ Cho Đội Nhóm, Giải Chạy\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaopickleball.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"},{\"@type\":\"LocalBusiness\",\"@id\":\"https://mayaopickleball.vn/#localbusiness\",\"name\":\"X24 Sport - May Áo Chạy Bộ\",\"description\":\"Xưởng may áo chạy bộ trực tiếp, thiết kế riêng miễn phí\",\"url\":\"https://mayaopickleball.vn/\",\"telephone\":\"+84977130115\",\"priceRange\":\"50.000đ - 500.000đ\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"1090/22D Quang Trung, Phường 14\",\"addressLocality\":\"Gò Vấp\",\"addressRegion\":\"TP. Hồ Chí Minh\",\"addressCountry\":\"VN\"},\"openingHoursSpecification\":[{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"],\"opens\":\"08:00\",\"closes\":\"18:00\"}]}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+  "yoast_head_json": {
+    "title": "Blog - May Áo Chạy Bộ - VN",
+    "robots": {
+      "index": "index",
+      "follow": "follow",
+      "max-snippet": "max-snippet:-1",
+      "max-image-preview": "max-image-preview:large",
+      "max-video-preview": "max-video-preview:-1"
+    },
+    "canonical": "https://mayaopickleball.vn/blog/",
+    "og_locale": "vi_VN",
+    "og_type": "article",
+    "og_title": "Blog",
+    "og_description": "Take a look here on how to setup your blog page: http://docs.uxthemes.com/article/243-how-to-setup-your-blog-page",
+    "og_url": "https://mayaopickleball.vn/blog/",
+    "og_site_name": "May Áo Chạy Bộ - VN",
+    "article_modified_time": "2026-06-16T01:54:26+00:00",
+    "og_image": [
+      {
+        "width": 2000,
+        "height": 857,
+        "url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/05/x24.jpg",
+        "type": "image/jpeg"
+      }
+    ],
+    "twitter_card": "summary_large_image",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": [
+            "WebPage",
+            "CollectionPage"
+          ],
+          "@id": "https://mayaopickleball.vn/blog/",
+          "url": "https://mayaopickleball.vn/blog/",
+          "name": "Blog - May Áo Chạy Bộ - VN",
+          "isPartOf": {
+            "@id": "https://mayaopickleball.vn/#website"
+          },
+          "datePublished": "2013-08-11T19:17:44+00:00",
+          "dateModified": "2026-06-16T01:54:26+00:00",
+          "breadcrumb": {
+            "@id": "https://mayaopickleball.vn/blog/#breadcrumb"
+          },
+          "inLanguage": "vi"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://mayaopickleball.vn/blog/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://mayaopickleball.vn/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog"
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mayaopickleball.vn/#website",
+          "url": "https://mayaopickleball.vn/",
+          "name": "May Áo Chạy Bộ - VN",
+          "description": "Chuyên May Áo Chạy Bộ Cho Đội Nhóm, Giải Chạy",
+          "potentialAction": [
+            {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://mayaopickleball.vn/?s={search_term_string}"
+              },
+              "query-input": {
+                "@type": "PropertyValueSpecification",
+                "valueRequired": true,
+                "valueName": "search_term_string"
+              }
+            }
+          ],
+          "inLanguage": "vi"
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://mayaopickleball.vn/#localbusiness",
+          "name": "X24 Sport - May Áo Chạy Bộ",
+          "description": "Xưởng may áo chạy bộ trực tiếp, thiết kế riêng miễn phí",
+          "url": "https://mayaopickleball.vn/",
+          "telephone": "+84977130115",
+          "priceRange": "50.000đ - 500.000đ",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1090/22D Quang Trung, Phường 14",
+            "addressLocality": "Gò Vấp",
+            "addressRegion": "TP. Hồ Chí Minh",
+            "addressCountry": "VN"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "08:00",
+              "closes": "18:00"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_links": {
+    "self": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/pages/91",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/pages"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/types/page"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/users/1"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/comments?post=91"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 1,
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/pages/91/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 2262,
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/pages/91/revisions/2262"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/media?parent=91"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/pages/91"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/pages/91"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wp/v2/pages/91"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

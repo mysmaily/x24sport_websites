@@ -1,0 +1,93 @@
+{
+    "verified_at": "2026-07-06T18:56:37+00:00",
+    "ok": true,
+    "errors": [],
+    "plugin_active": true,
+    "categories": {
+        "parent": 97,
+        "elementary": {
+            "id": 101,
+            "parent": 97
+        },
+        "high_school": {
+            "id": 102,
+            "parent": 97
+        }
+    },
+    "products": {
+        "elementary": {
+            "id": 2763,
+            "name": "Bộ Quần Áo Bóng Rổ Tiểu Học Lớp 4–5 X24 CB-059 Trắng Cam Đỏ",
+            "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-tieu-hoc-lop-4-5-x24-cb-059-trang-cam-do/",
+            "status": "publish",
+            "level": "tieu-hoc",
+            "group": "x24-cb-059",
+            "sibling_id": 2121,
+            "featured_media_id": "2764",
+            "gallery_media_ids": [
+                2120
+            ],
+            "category_ids": [
+                101,
+                97,
+                95,
+                70
+            ],
+            "switcher_options": [
+                {
+                    "id": 2763,
+                    "level": "tieu-hoc",
+                    "label": "Tiểu học",
+                    "detail": "Lớp 4–5",
+                    "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-tieu-hoc-lop-4-5-x24-cb-059-trang-cam-do/",
+                    "current": true
+                },
+                {
+                    "id": 2121,
+                    "level": "trung-hoc",
+                    "label": "Trung học",
+                    "detail": "Lớp 11–12",
+                    "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-trung-hoc-lop-11-12-x24-cb-059-trang-cam-do/",
+                    "current": false
+                }
+            ]
+        },
+        "high_school": {
+            "id": 2121,
+            "name": "Bộ Quần Áo Bóng Rổ Trung Học Lớp 11–12 X24 CB-059 Trắng Cam Đỏ",
+            "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-trung-hoc-lop-11-12-x24-cb-059-trang-cam-do/",
+            "status": "publish",
+            "level": "trung-hoc",
+            "group": "x24-cb-059",
+            "sibling_id": 2763,
+            "featured_media_id": "2765",
+            "gallery_media_ids": [
+                2120
+            ],
+            "category_ids": [
+                97,
+                102,
+                95,
+                70
+            ],
+            "switcher_options": [
+                {
+                    "id": 2763,
+                    "level": "tieu-hoc",
+                    "label": "Tiểu học",
+                    "detail": "Lớp 4–5",
+                    "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-tieu-hoc-lop-4-5-x24-cb-059-trang-cam-do/",
+                    "current": false
+                },
+                {
+                    "id": 2121,
+                    "level": "trung-hoc",
+                    "label": "Trung học",
+                    "detail": "Lớp 11–12",
+                    "url": "https://mayaobongro.vn/bo-quan-ao-bong-ro-trung-hoc-lop-11-12-x24-cb-059-trang-cam-do/",
+                    "current": true
+                }
+            ]
+        }
+    }
+}

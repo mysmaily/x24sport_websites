@@ -1,0 +1,145 @@
+import { headers } from 'next/headers'
+
+type ApiList<T> = { docs: T[] }
+
+export type Tenant = {
+  id: string
+  name: string
+  slug: string
+  brand?: {
+    headline?: string
+    subheadline?: string
+    accentColor?: string
+  }
+}
+
+export type Product = {
+  id: string
+  name: string
+  slug: string
+  sku: string
+  price: number
+  compareAtPrice?: number
+  shortDescription: string
+  badges?: Array<{ label: string }>
+}
+
+type RichTextNode = {
+  text?: string
+  children?: RichTextNode[]
+}
+
+type ProductMedia = {
+  id: number
+  url?: string
+  alt?: string
+  width?: number
+  height?: number
+}
+
+export type ProductDetail = Product & {
+  description?: {
+    root?: RichTextNode
+  }
+  gallery?: ProductMedia[]
+  sport?: string
+}
+
+export type Post = {
+  id: string
+  title: string
+  slug: string
+  excerpt: string
+}
+
+const fallbackTenant: Tenant = {
+  id: 'fallback-mayaocaulong',
+  name: 'May Ao Cau Long',
+  slug: 'mayaocaulong',
+  brand: {
+    headline: 'Ao cau long dat may cho doi hinh thi dau',
+    subheadline: 'Form nhe, mau sac sac net, in ten so va logo cho cau lac bo.',
+    accentColor: '#f43f5e',
+  },
+}
+
+const fallbackProducts: Product[] = [
+  { id: '1', name: 'Falcon Court Jersey', slug: 'falcon-court-jersey', sku: 'MCL-FALCON-01', price: 189000, compareAtPrice: 239000, shortDescription: 'Ao cau long co tron, vai nhe, phoi mau manh.', badges: [{ label: 'Dat may' }] },
+  { id: '2', name: 'Smash Pro Polo', slug: 'smash-pro-polo', sku: 'MCL-SMASH-02', price: 229000, compareAtPrice: 279000, shortDescription: 'Polo thi dau mat chim, co dung, in ten so.', badges: [{ label: 'Polo' }] },
+  { id: '3', name: 'Feather Team Set', slug: 'feather-team-set', sku: 'MCL-FEATHER-03', price: 249000, compareAtPrice: 299000, shortDescription: 'Bo dong phuc cau long cho giai va CLB.', badges: [{ label: 'Team set' }] },
+]
+
+const fallbackPosts: Post[] = [
+  { id: '1', title: 'Cach chon vai ao cau long', slug: 'vai-ao-cau-long', excerpt: 'Goi y chat vai thoang, nhe va giu form khi thi dau lien tuc.' },
+  { id: '2', title: 'Checklist dat ao cho CLB', slug: 'checklist-dat-ao', excerpt: 'Can chot size, logo, mau chu dao va deadline truoc khi len mau.' },
+]
+
+const apiUrl = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
+
+async function fetchDocs<T>(path: string): Promise<T[]> {
+  const response = await fetch(`${apiUrl}${path}`, { next: { revalidate: 60 } })
+  if (!response.ok) return []
+  const data = (await response.json()) as ApiList<T>
+  return data.docs || []
+}
+
+export async function getTenantSlug() {
+  const headerStore = await headers()
+  const host = headerStore.get('host')?.replace(/^www\./, '')
+  if (host?.includes('mayaocaulong.vn')) return 'mayaocaulong'
+  return process.env.TENANT_SLUG || 'mayaocaulong'
+}
+
+export async function getHomeData() {
+  const slug = await getTenantSlug()
+
+  try {
+    const [tenant] = await fetchDocs<Tenant>(`/api/tenants?where[slug][equals]=${slug}&limit=1`)
+    const tenantFilter = `where[tenant.slug][equals]=${slug}`
+    const [products, posts] = await Promise.all([
+      fetchDocs<Product>(`/api/products?${tenantFilter}&where[featured][equals]=true&limit=6`),
+      fetchDocs<Post>(`/api/posts?${tenantFilter}&sort=-publishedAt&limit=3`),
+    ])
+
+    return {
+      tenant: tenant || fallbackTenant,
+      products: products.length ? products : fallbackProducts,
+      posts: posts.length ? posts : fallbackPosts,
+    }
+  } catch {
+    return { tenant: fallbackTenant, products: fallbackProducts, posts: fallbackPosts }
+  }
+}
+
+function flattenRichText(node?: RichTextNode): string[] {
+  if (!node) return []
+  if (node.text?.trim()) return [node.text.trim()]
+  return (node.children || []).flatMap(flattenRichText)
+}
+
+export function getProductDescriptionParagraphs(product: ProductDetail) {
+  const rootChildren = product.description?.root?.children || []
+  return rootChildren
+    .map((child) => flattenRichText(child).join(' ').trim())
+    .filter(Boolean)
+}
+
+export const formatPrice = (value: number) =>
+  new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value)
+
+export async function getProductBySlug(slug: string) {
+  const tenantSlug = await getTenantSlug()
+
+  try {
+    const params = new URLSearchParams({
+      'where[slug][equals]': slug,
+      'where[tenant.slug][equals]': tenantSlug,
+      depth: '2',
+      limit: '1',
+    })
+    const [product] = await fetchDocs<ProductDetail>(`/api/products?${params.toString()}`)
+    return product || null
+  } catch {
+    return null
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "0.5-image-only",
+  "operation_mode": "create_new_product",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaopickleball.vn",
+  "source_image_url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/06/AoChayBo-X24-CB-059-XanhNgoc-Kieu3.jpg",
+  "source_image": "mayaopickleball.vn/operations/transfer-running-image-to-pickleball-v5-test-20260709/x24-cb-059/source/AoChayBo-X24-CB-059-XanhNgoc-Kieu3.jpg",
+  "product_code": "X24-PB-022",
+  "model_references": {
+    "female": "mayaopickleball.vn/transfer-running-image-to-pickleball-v5/model-references/female/x24-pb-021-female-face-reference.png",
+    "male": null,
+    "selection_seed": "X24-PB-022"
+  },
+  "visual_analysis": {
+    "base_colors": [
+      "xanh ngọc",
+      "cam",
+      "đỏ cam",
+      "đen"
+    ],
+    "design_notes": [
+      "giữ nền xanh ngọc",
+      "giữ vai cam đỏ",
+      "giữ chuyển sắc cam thân dưới",
+      "giữ texture chấm",
+      "loại bỏ toàn bộ chữ và domain nguồn"
+    ]
+  },
+  "new_title": "Bộ Quần Áo Pickleball X24 PB-022 Xanh Ngọc Cam Năng Động",
+  "new_slug": "bo-quan-ao-pickleball-x24-pb-022-xanh-ngoc-cam-nang-dong",
+  "assets": {
+    "image_a": {
+      "local": "mayaopickleball.vn/operations/transfer-running-image-to-pickleball-v5-test-20260709/x24-cb-059/final/x24-pb-022-anh-1.webp",
+      "media_id": 2662,
+      "url": "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-022-anh-1.webp"
+    },
+    "image_b": {
+      "local": "mayaopickleball.vn/operations/transfer-running-image-to-pickleball-v5-test-20260709/x24-cb-059/final/x24-pb-022-anh-2.webp",
+      "media_id": 2663,
+      "url": "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-022-anh-2.webp"
+    }
+  },
+  "category_ids": [
+    95,
+    96,
+    71,
+    70
+  ],
+  "tag_ids": [
+    97,
+    105,
+    98,
+    107,
+    104,
+    100,
+    99,
+    101
+  ],
+  "new_media_ids": [
+    2662,
+    2663
+  ],
+  "new_product_id": 2664,
+  "product_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-022-xanh-ngoc-cam-nang-dong/",
+  "status": "verified",
+  "qa": {
+    "rest_product_status": 200,
+    "public_product_status": 200,
+    "media_status": "both 200 image/webp",
+    "category_url": "https://mayaopickleball.vn/product-category/ao-pickleball/",
+    "category_contains_product_slug": true,
+    "shopper_fields_forbidden_hits": [],
+    "public_forbidden_note": "Public full-page text contains old running terms only from global related-product blocks, not from the new product fields."
+  },
+  "backup_required": false,
+  "cache_or_services_touched": false,
+  "errors": []
+}

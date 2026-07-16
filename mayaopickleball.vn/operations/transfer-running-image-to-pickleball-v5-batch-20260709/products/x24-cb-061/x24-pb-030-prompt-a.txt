@@ -1,0 +1,19 @@
+Create a photorealistic square 1:1 WooCommerce product image for mayaopickleball.vn.
+
+Use image 1 only as a garment-design reference. Preserve the apparel design language: dominant colors vàng, source-like graphic map, gradients, splatter/texture density, panel placement, accent placement, and small X24 chest mark area. Remove and do not recreate all source text/logos/domains/watermarks including RUN, Running Shirt Collection, source product code X24-CB-061, mayaochaybo, old hotline, color label, old catalog footer/header, and running cues.
+
+Use image 2 as the female identity anchor only. Selected female identity reference: /Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/transfer-running-image-to-pickleball-v5/model-references/female/female-face-reference-6.png. Preserve the recognizable female facial identity in spirit, but adapt it naturally to the new body pose, head angle, camera lens, expression, hairstyle movement, scene lighting, and sport context. Match the face, neck, jawline, ears, hairline, skin tone, and body skin under the same daylight and white balance so the model looks like one real person in one photograph, not a pasted face or head swap. Create a fictional adult Vietnamese male model beside her.
+
+Face/body integration rule: the female head size, neck length, shoulder connection, skin color, and facial lighting must be anatomically coherent with her standing pose. Avoid mismatched head-neck-body combinations, face pasted onto a different body, different skin tones between face/neck/arms, stiff cutout hair, broken jawline, or the Vietnamese “đầu dê cổ bò” look.
+
+Garment style: both models wear coordinated collared short-sleeve pickleball polo shirts with real folded collars and clean short plackets. Both wear matching black pickleball shorts/skort. Authentic court-sport fabric, realistic folds, relaxed athletic torso, shoulder and armhole shape suited to paddle swings. Add only a small X24 mark on visible shirt fronts; no other readable garment text.
+
+Neckline quality rule: do not create a round/crew neck with a zipper, buttons, vertical slit, faux placket, mandarin tab, or hybrid opening. If a center placket is visible, it must belong to a true folded polo collar only.
+
+Scene: minimal clean court background, strong net and court-line geometry, distant Vietnamese street edge softened by depth of field. The pickleball court must be unmistakable through net, court lines, fencing, and court surface. Do not reuse the same storefront/scooter/X24 Sport background by default. An incidental "X24 Sport" sign is optional, not required, and if present it must stay small, off to the side, and secondary. No other readable background text.
+
+Pose/crop: walking slowly along the net after practice, natural smiles, apparel fully visible from thighs upward. Product-selling posture, relaxed confidence, blank pickleball paddle optional with no logos/text. Apparel is the main focus.
+
+Style: photorealistic commercial Vietnamese pickleball sportswear photography, natural daylight, realistic anatomy/hands/fabric. Do not add official logo badge, bottom contact pill, color dots, or watermark; these are added later.
+
+Avoid: running pose, race bib, finish line, medals, old catalog frame, source logos/text, oversexualized pose, distorted hands, random unreadable text, crew-neck zipper hybrid, round-neck placket hybrid.

@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 1,
+  "results": [
+    {
+      "ok": true,
+      "id": "elite-vietnam-1721-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-013-ao-bong-ro-tieu-hoc.png",
+      "seconds": 77.4
+    },
+    {
+      "ok": true,
+      "id": "elite-vietnam-1721-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-013-ao-bong-ro-thpt.png",
+      "seconds": 90.9
+    }
+  ]
+}

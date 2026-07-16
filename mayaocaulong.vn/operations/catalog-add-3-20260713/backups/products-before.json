@@ -1,0 +1,1100 @@
+{
+  "docs": [
+    {
+      "id": 22,
+      "tenant": {
+        "id": 1,
+        "name": "May Ao Cau Long",
+        "slug": "mayaocaulong",
+        "domains": [
+          {
+            "id": "6a533d8665fe2a004c06cec7",
+            "domain": "mayaocaulong.vn"
+          }
+        ],
+        "brand": {
+          "headline": "Ao cau long dat may cho doi hinh thi dau",
+          "subheadline": "Thiet ke sac net, chat vai thoang, form chuyen dong cho cau lac bo va giai phong trao.",
+          "primaryColor": "#111827",
+          "accentColor": "#f43f5e",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-12T07:08:54.793Z",
+        "createdAt": "2026-07-12T07:08:54.791Z"
+      },
+      "name": "Áo Cầu Lông Đặt May X24-CL-005 Gradient Trắng Đỏ",
+      "slug": "ao-cau-long-dat-may-x24-cl-005-gradient-trang-do",
+      "sku": "X24-CL-005",
+      "sport": "badminton",
+      "price": 135000,
+      "compareAtPrice": 200000,
+      "shortDescription": "Mẫu áo cầu lông đặt may X24-CL-005 với gradient trắng đỏ, tông chính trắng, đỏ, hồng nhạt, họa tiết ngôi sao đỏ hồng; phù hợp đồng phục đội và in tên số.",
+      "description": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Áo Cầu Lông Đặt May X24-CL-005 Gradient Trắng Đỏ nổi bật với gradient trắng đỏ, tông chính trắng, đỏ, hồng nhạt và họa tiết ngôi sao đỏ hồng.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Phom nam cổ tròn không tay, nữ cổ bẻ không tay phù hợp làm đồng phục cầu lông cho câu lạc bộ, đội thi đấu và nhóm phong trào.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Có thể đặt in tên, số và logo đội theo yêu cầu để hoàn thiện bộ nhận diện riêng.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "searchTags": [
+        {
+          "id": "6a5484fd5983a4000179596e",
+          "value": "cầu lông"
+        },
+        {
+          "id": "6a5484fd5983a4000179596f",
+          "value": "áo cầu lông đặt may"
+        },
+        {
+          "id": "6a5484fd5983a40001795970",
+          "value": "đồng phục cầu lông"
+        },
+        {
+          "id": "6a5484fd5983a40001795971",
+          "value": "in tên số"
+        },
+        {
+          "id": "6a5484fd5983a40001795972",
+          "value": "đội thi đấu"
+        },
+        {
+          "id": "6a5484fd5983a40001795973",
+          "value": "câu lạc bộ"
+        },
+        {
+          "id": "6a5484fd5983a40001795974",
+          "value": "trắng"
+        },
+        {
+          "id": "6a5484fd5983a40001795975",
+          "value": "đỏ"
+        },
+        {
+          "id": "6a5484fd5983a40001795976",
+          "value": "hồng nhạt"
+        },
+        {
+          "id": "6a5484fd5983a40001795977",
+          "value": "gradient trắng đỏ"
+        },
+        {
+          "id": "6a5484fd5983a40001795978",
+          "value": "họa tiết ngôi sao đỏ hồng"
+        },
+        {
+          "id": "6a5484fd5983a40001795979",
+          "value": "nam cổ tròn không tay, nữ cổ bẻ không tay"
+        }
+      ],
+      "categories": [],
+      "badges": [
+        {
+          "id": "6a5484fd5983a4000179597a",
+          "label": "Mới"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 29,
+          "tenant": {
+            "id": 1,
+            "name": "May Ao Cau Long",
+            "slug": "mayaocaulong",
+            "domains": [
+              {
+                "id": "6a533d8665fe2a004c06cec7",
+                "domain": "mayaocaulong.vn"
+              }
+            ],
+            "brand": {
+              "headline": "Ao cau long dat may cho doi hinh thi dau",
+              "subheadline": "Thiet ke sac net, chat vai thoang, form chuyen dong cho cau lac bo va giai phong trao.",
+              "primaryColor": "#111827",
+              "accentColor": "#f43f5e",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-12T07:08:54.793Z",
+            "createdAt": "2026-07-12T07:08:54.791Z"
+          },
+          "alt": "Áo Cầu Lông Đặt May X24-CL-005 Gradient Trắng Đỏ - gradient trắng đỏ - ảnh sản phẩm",
+          "searchTags": [
+            {
+              "id": "6a5484fa5983a40001795932",
+              "value": "cầu lông"
+            },
+            {
+              "id": "6a5484fa5983a40001795933",
+              "value": "trắng"
+            },
+            {
+              "id": "6a5484fa5983a40001795934",
+              "value": "đỏ"
+            },
+            {
+              "id": "6a5484fa5983a40001795935",
+              "value": "hồng nhạt"
+            },
+            {
+              "id": "6a5484fa5983a40001795936",
+              "value": "gradient trắng đỏ"
+            },
+            {
+              "id": "6a5484fa5983a40001795937",
+              "value": "họa tiết ngôi sao đỏ hồng"
+            },
+            {
+              "id": "6a5484fa5983a40001795938",
+              "value": "nam cổ tròn không tay, nữ cổ bẻ không tay"
+            },
+            {
+              "id": "6a5484fa5983a40001795939",
+              "value": "ảnh sản phẩm"
+            },
+            {
+              "id": "6a5484fa5983a4000179593a",
+              "value": "x24-cl-005"
+            }
+          ],
+          "prefix": "mayaocaulong",
+          "updatedAt": "2026-07-13T06:26:02.458Z",
+          "createdAt": "2026-07-13T06:26:02.023Z",
+          "url": "https://static.x24sport.vn/mayaocaulong/x24-cl-005-badminton-2.webp",
+          "thumbnailURL": null,
+          "filename": "x24-cl-005-badminton-2.webp",
+          "mimeType": "application/octet-stream",
+          "filesize": 203526,
+          "width": null,
+          "height": null,
+          "focalX": null,
+          "focalY": null
+        }
+      ],
+      "featured": false,
+      "updatedAt": "2026-07-13T06:26:05.994Z",
+      "createdAt": "2026-07-13T06:26:05.994Z"
+    },
+    {
+      "id": 21,
+      "tenant": {
+        "id": 1,
+        "name": "May Ao Cau Long",
+        "slug": "mayaocaulong",
+        "domains": [
+          {
+            "id": "6a533d8665fe2a004c06cec7",
+            "domain": "mayaocaulong.vn"
+          }
+        ],
+        "brand": {
+          "headline": "Ao cau long dat may cho doi hinh thi dau",
+          "subheadline": "Thiet ke sac net, chat vai thoang, form chuyen dong cho cau lac bo va giai phong trao.",
+          "primaryColor": "#111827",
+          "accentColor": "#f43f5e",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-12T07:08:54.793Z",
+        "createdAt": "2026-07-12T07:08:54.791Z"
+      },
+      "name": "Áo Cầu Lông Đặt May X24-CL-004 Gradient Xanh Navy Xanh Ngọc",
+      "slug": "ao-cau-long-dat-may-x24-cl-004-gradient-xanh-navy-xanh-ngoc",
+      "sku": "X24-CL-004",
+      "sport": "badminton",
+      "price": 135000,
+      "compareAtPrice": 200000,
+      "shortDescription": "Mẫu áo cầu lông đặt may X24-CL-004 với gradient xanh navy xanh ngọc, tông chính xanh navy, xanh ngọc, đường sóng xanh ngọc hai bên sườn; phù hợp đồng phục đội và in tên số.",
+      "description": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Áo Cầu Lông Đặt May X24-CL-004 Gradient Xanh Navy Xanh Ngọc nổi bật với gradient xanh navy xanh ngọc, tông chính xanh navy, xanh ngọc và đường sóng xanh ngọc hai bên sườn.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Phom nam cổ tròn không tay, nữ cổ bẻ không tay phù hợp làm đồng phục cầu lông cho câu lạc bộ, đội thi đấu và nhóm phong trào.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Có thể đặt in tên, số và logo đội theo yêu cầu để hoàn thiện bộ nhận diện riêng.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "searchTags": [
+        {
+          "id": "6a5484fd5983a40001795962",
+          "value": "cầu lông"
+        },
+        {
+          "id": "6a5484fd5983a40001795963",
+          "value": "áo cầu lông đặt may"
+        },
+        {
+          "id": "6a5484fd5983a40001795964",
+          "value": "đồng phục cầu lông"
+        },
+        {
+          "id": "6a5484fd5983a40001795965",
+          "value": "in tên số"
+        },
+        {
+          "id": "6a5484fd5983a40001795966",
+          "value": "đội thi đấu"
+        },
+        {
+          "id": "6a5484fd5983a40001795967",
+          "value": "câu lạc bộ"
+        },
+        {
+          "id": "6a5484fd5983a40001795968",
+          "value": "xanh navy"
+        },
+        {
+          "id": "6a5484fd5983a40001795969",
+          "value": "xanh ngọc"
+        },
+        {
+          "id": "6a5484fd5983a4000179596a",
+          "value": "gradient xanh navy xanh ngọc"
+        },
+        {
+          "id": "6a5484fd5983a4000179596b",
+          "value": "đường sóng xanh ngọc hai bên sườn"
+        },
+        {
+          "id": "6a5484fd5983a4000179596c",
+          "value": "nam cổ tròn không tay, nữ cổ bẻ không tay"
+        }
+      ],
+      "categories": [],
+      "badges": [
+        {
+          "id": "6a5484fd5983a4000179596d",
+          "label": "Mới"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 28,
+          "tenant": {
+            "id": 1,
+            "name": "May Ao Cau Long",
+            "slug": "mayaocaulong",
+            "domains": [
+              {
+                "id": "6a533d8665fe2a004c06cec7",
+                "domain": "mayaocaulong.vn"
+              }
+            ],
+            "brand": {
+              "headline": "Ao cau long dat may cho doi hinh thi dau",
+              "subheadline": "Thiet ke sac net, chat vai thoang, form chuyen dong cho cau lac bo va giai phong trao.",
+              "primaryColor": "#111827",
+              "accentColor": "#f43f5e",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-12T07:08:54.793Z",
+            "createdAt": "2026-07-12T07:08:54.791Z"
+          },
+          "alt": "Áo Cầu Lông Đặt May X24-CL-004 Gradient Xanh Navy Xanh Ngọc - gradient xanh navy xanh ngọc - ảnh sản phẩm",
+          "searchTags": [
+            {
+              "id": "6a5484f85983a4000179592a",
+              "value": "cầu lông"
+            },
+            {
+              "id": "6a5484f85983a4000179592b",
+              "value": "xanh navy"
+            },
+            {
+              "id": "6a5484f85983a4000179592c",
+              "value": "xanh ngọc"
+            },
+            {
+              "id": "6a5484f85983a4000179592d",
+              "value": "gradient xanh navy xanh ngọc"
+            },
+            {
+              "id": "6a5484f85983a4000179592e",
+              "value": "đường sóng xanh ngọc hai bên sườn"
+            },
+            {
+              "id": "6a5484f85983a4000179592f",
+              "value": "nam cổ tròn không tay, nữ cổ bẻ không tay"
+            },
+            {
+              "id": "6a5484f85983a40001795930",
+              "value": "ảnh sản phẩm"
+            },
+            {
+              "id": "6a5484f85983a40001795931",
+              "value": "x24-cl-004"
+            }
+          ],
+          "prefix": "mayaocaulong",
+          "updatedAt": "2026-07-13T06:26:01.682Z",
+          "createdAt": "2026-07-13T06:26:00.855Z",
+          "url": "https://static.x24sport.vn/mayaocaulong/x24-cl-004-badminton-2.webp",
+          "thumbnailURL": null,
+          "filename": "x24-cl-004-badminton-2.webp",
+          "mimeType": "application/octet-stream",
+          "filesize": 240142,
+          "width": null,
+          "height": null,
+          "focalX": null,
+          "focalY": null
+        }
+      ],
+      "featured": false,
+      "updatedAt": "2026-07-13T06:26:05.828Z",
+      "createdAt": "2026-07-13T06:26:05.828Z"
+    },
+    {
+      "id": 20,
+      "tenant": {
+        "id": 1,
+        "name": "May Ao Cau Long",
+        "slug": "mayaocaulong",
+        "domains": [
+          {
+            "id": "6a533d8665fe2a004c06cec7",
+            "domain": "mayaocaulong.vn"
+          }
+        ],
+        "brand": {
+          "headline": "Ao cau long dat may cho doi hinh thi dau",
+          "subheadline": "Thiet ke sac net, chat vai thoang, form chuyen dong cho cau lac bo va giai phong trao.",
+          "primaryColor": "#111827",
+          "accentColor": "#f43f5e",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-12T07:08:54.793Z",
+        "createdAt": "2026-07-12T07:08:54.791Z"
+      },
+      "name": "Áo Cầu Lông Đặt May X24-CL-003 Gradient Vàng Cam",
+      "slug": "ao-cau-long-dat-may-x24-cl-003-gradient-vang-cam",
+      "sku": "X24-CL-003",
+      "sport": "badminton",
+      "price": 135000,
+      "compareAtPrice": 200000,
+      "shortDescription": "Mẫu áo cầu lông đặt may X24-CL-003 với gradient vàng cam, tông chính vàng, cam, họa tiết mũi tên cam; phù hợp đồng phục đội và in tên số.",
+      "description": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Áo Cầu Lông Đặt May X24-CL-003 Gradient Vàng Cam nổi bật với gradient vàng cam, tông chính vàng, cam và họa tiết mũi tên cam.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Phom cổ bẻ tay ngắn phù hợp làm đồng phục cầu lông cho câu lạc bộ, đội thi đấu và nhóm phong trào.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Có thể đặt in tên, số và logo đội theo yêu cầu để hoàn thiện bộ nhận diện riêng.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "searchTags": [
+        {
+          "id": "6a5484fd5983a40001795956",
+          "value": "cầu lông"
+        },
+        {
+          "id": "6a5484fd5983a40001795957",
+          "value": "áo cầu lông đặt may"
+        },
+        {
+          "id": "6a5484fd5983a40001795958",
+          "value": "đồng phục cầu lông"
+        },
+        {
+          "id": "6a5484fd5983a40001795959",
+          "value": "in tên số"
+        },
+        {
+          "id": "6a5484fd5983a4000179595a",
+          "value": "đội thi đấu"
+        },
+        {
+          "id": "6a5484fd5983a4000179595b",
+          "value": "câu lạc bộ"
+        },
+        {
+          "id": "6a5484fd5983a4000179595c",
+          "value": "vàng"
+        },
+        {
+          "id": "6a5484fd5983a4000179595d",
+          "value": "cam"
+        },
+        {
+          "id": "6a5484fd5983a4000179595e",
+          "value": "gradient vàng cam"
+        },
+        {
+          "id": "6a5484fd5983a4000179595f",
+          "value": "họa tiết mũi tên cam"
+        },
+        {
+          "id": "6a5484fd5983a40001795960",
+          "value": "cổ bẻ tay ngắn"
+        }
+      ],
+      "categories": [],
+      "badges": [
+        {
+          "id": "6a5484fd5983a40001795961",
+          "label": "Mới"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 27,
+          "tenant": {
+            "id": 1,
+            "name": "May Ao Cau Long",
+            "slug": "mayaocaulong",
+            "domains": [
+              {
+                "id": "6a533d8665fe2a004c06cec7",
+                "domain": "mayaocaulong.vn"
+              }
+            ],
+            "brand": {
+              "headline": "Ao cau long dat may cho doi hinh thi dau",
+              "subheadline": "Thiet ke sac net, chat vai thoang, form chuyen dong cho cau lac bo va giai phong trao.",
+              "primaryColor": "#111827",
+              "accentColor": "#f43f5e",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-12T07:08:54.793Z",
+            "createdAt": "2026-07-12T07:08:54.791Z"
+          },
+          "alt": "Áo Cầu Lông Đặt May X24-CL-003 Gradient Vàng Cam - gradient vàng cam - ảnh sản phẩm",
+          "searchTags": [
+            {
+              "id": "6a5484f85983a40001795922",
+              "value": "cầu lông"
+            },
+            {
+              "id": "6a5484f85983a40001795923",
+              "value": "vàng"
+            },
+            {
+              "id": "6a5484f85983a40001795924",
+              "value": "cam"
+            },
+            {
+              "id": "6a5484f85983a40001795925",
+              "value": "gradient vàng cam"
+            },
+            {
+              "id": "6a5484f85983a40001795926",
+              "value": "họa tiết mũi tên cam"
+            },
+            {
+              "id": "6a5484f85983a40001795927",
+              "value": "cổ bẻ tay ngắn"
+            },
+            {
+              "id": "6a5484f85983a40001795928",
+              "value": "ảnh sản phẩm"
+            },
+            {
+              "id": "6a5484f85983a40001795929",
+              "value": "x24-cl-003"
+            }
+          ],
+          "prefix": "mayaocaulong",
+          "updatedAt": "2026-07-13T06:26:00.514Z",
+          "createdAt": "2026-07-13T06:26:00.093Z",
+          "url": "https://static.x24sport.vn/mayaocaulong/x24-cl-003-badminton-2.webp",
+          "thumbnailURL": null,
+          "filename": "x24-cl-003-badminton-2.webp",
+          "mimeType": "application/octet-stream",
+          "filesize": 225904,
+          "width": null,
+          "height": null,
+          "focalX": null,
+          "focalY": null
+        }
+      ],
+      "featured": false,
+      "updatedAt": "2026-07-13T06:26:05.650Z",
+      "createdAt": "2026-07-13T06:26:05.649Z"
+    },
+    {
+      "id": 19,
+      "tenant": {
+        "id": 1,
+        "name": "May Ao Cau Long",
+        "slug": "mayaocaulong",
+        "domains": [
+          {
+            "id": "6a533d8665fe2a004c06cec7",
+            "domain": "mayaocaulong.vn"
+          }
+        ],
+        "brand": {
+          "headline": "Ao cau long dat may cho doi hinh thi dau",
+          "subheadline": "Thiet ke sac net, chat vai thoang, form chuyen dong cho cau lac bo va giai phong trao.",
+          "primaryColor": "#111827",
+          "accentColor": "#f43f5e",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-12T07:08:54.793Z",
+        "createdAt": "2026-07-12T07:08:54.791Z"
+      },
+      "name": "Áo Cầu Lông Đặt May X24-CL-002 Gradient Vàng Trắng Núi Xanh",
+      "slug": "ao-cau-long-dat-may-x24-cl-002-gradient-vang-trang-nui-xanh",
+      "sku": "X24-CL-002",
+      "sport": "badminton",
+      "price": 135000,
+      "compareAtPrice": 200000,
+      "shortDescription": "Mẫu áo cầu lông đặt may X24-CL-002 với gradient vàng trắng, tông chính vàng, trắng, xanh ngọc, xanh đậm, họa tiết núi xanh ngọc xanh đậm; phù hợp đồng phục đội và in tên số.",
+      "description": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Áo Cầu Lông Đặt May X24-CL-002 Gradient Vàng Trắng Núi Xanh nổi bật với gradient vàng trắng, tông chính vàng, trắng, xanh ngọc, xanh đậm và họa tiết núi xanh ngọc xanh đậm.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Phom nam cổ tròn không tay, nữ cổ bẻ không tay phù hợp làm đồng phục cầu lông cho câu lạc bộ, đội thi đấu và nhóm phong trào.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Có thể đặt in tên, số và logo đội theo yêu cầu để hoàn thiện bộ nhận diện riêng.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "searchTags": [
+        {
+          "id": "6a5484fd5983a40001795948",
+          "value": "cầu lông"
+        },
+        {
+          "id": "6a5484fd5983a40001795949",
+          "value": "áo cầu lông đặt may"
+        },
+        {
+          "id": "6a5484fd5983a4000179594a",
+          "value": "đồng phục cầu lông"
+        },
+        {
+          "id": "6a5484fd5983a4000179594b",
+          "value": "in tên số"
+        },
+        {
+          "id": "6a5484fd5983a4000179594c",
+          "value": "đội thi đấu"
+        },
+        {
+          "id": "6a5484fd5983a4000179594d",
+          "value": "câu lạc bộ"
+        },
+        {
+          "id": "6a5484fd5983a4000179594e",
+          "value": "vàng"
+        },
+        {
+          "id": "6a5484fd5983a4000179594f",
+          "value": "trắng"
+        },
+        {
+          "id": "6a5484fd5983a40001795950",
+          "value": "xanh ngọc"
+        },
+        {
+          "id": "6a5484fd5983a40001795951",
+          "value": "xanh đậm"
+        },
+        {
+          "id": "6a5484fd5983a40001795952",
+          "value": "gradient vàng trắng"
+        },
+        {
+          "id": "6a5484fd5983a40001795953",
+          "value": "họa tiết núi xanh ngọc xanh đậm"
+        },
+        {
+          "id": "6a5484fd5983a40001795954",
+          "value": "nam cổ tròn không tay, nữ cổ bẻ không tay"
+        }
+      ],
+      "categories": [],
+      "badges": [
+        {
+          "id": "6a5484fd5983a40001795955",
+          "label": "Mới"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 26,
+          "tenant": {
+            "id": 1,
+            "name": "May Ao Cau Long",
+            "slug": "mayaocaulong",
+            "domains": [
+              {
+                "id": "6a533d8665fe2a004c06cec7",
+                "domain": "mayaocaulong.vn"
+              }
+            ],
+            "brand": {
+              "headline": "Ao cau long dat may cho doi hinh thi dau",
+              "subheadline": "Thiet ke sac net, chat vai thoang, form chuyen dong cho cau lac bo va giai phong trao.",
+              "primaryColor": "#111827",
+              "accentColor": "#f43f5e",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-12T07:08:54.793Z",
+            "createdAt": "2026-07-12T07:08:54.791Z"
+          },
+          "alt": "Áo Cầu Lông Đặt May X24-CL-002 Gradient Vàng Trắng Núi Xanh - gradient vàng trắng - ảnh sản phẩm",
+          "searchTags": [
+            {
+              "id": "6a5484f75983a40001795918",
+              "value": "cầu lông"
+            },
+            {
+              "id": "6a5484f75983a40001795919",
+              "value": "vàng"
+            },
+            {
+              "id": "6a5484f75983a4000179591a",
+              "value": "trắng"
+            },
+            {
+              "id": "6a5484f75983a4000179591b",
+              "value": "xanh ngọc"
+            },
+            {
+              "id": "6a5484f75983a4000179591c",
+              "value": "xanh đậm"
+            },
+            {
+              "id": "6a5484f75983a4000179591d",
+              "value": "gradient vàng trắng"
+            },
+            {
+              "id": "6a5484f75983a4000179591e",
+              "value": "họa tiết núi xanh ngọc xanh đậm"
+            },
+            {
+              "id": "6a5484f75983a4000179591f",
+              "value": "nam cổ tròn không tay, nữ cổ bẻ không tay"
+            },
+            {
+              "id": "6a5484f75983a40001795920",
+              "value": "ảnh sản phẩm"
+            },
+            {
+              "id": "6a5484f75983a40001795921",
+              "value": "x24-cl-002"
+            }
+          ],
+          "prefix": "mayaocaulong",
+          "updatedAt": "2026-07-13T06:25:59.764Z",
+          "createdAt": "2026-07-13T06:25:59.065Z",
+          "url": "https://static.x24sport.vn/mayaocaulong/x24-cl-002-badminton-4.webp",
+          "thumbnailURL": null,
+          "filename": "x24-cl-002-badminton-4.webp",
+          "mimeType": "application/octet-stream",
+          "filesize": 238002,
+          "width": null,
+          "height": null,
+          "focalX": null,
+          "focalY": null
+        }
+      ],
+      "featured": false,
+      "updatedAt": "2026-07-13T06:26:05.479Z",
+      "createdAt": "2026-07-13T06:26:05.479Z"
+    },
+    {
+      "id": 18,
+      "tenant": {
+        "id": 1,
+        "name": "May Ao Cau Long",
+        "slug": "mayaocaulong",
+        "domains": [
+          {
+            "id": "6a533d8665fe2a004c06cec7",
+            "domain": "mayaocaulong.vn"
+          }
+        ],
+        "brand": {
+          "headline": "Ao cau long dat may cho doi hinh thi dau",
+          "subheadline": "Thiet ke sac net, chat vai thoang, form chuyen dong cho cau lac bo va giai phong trao.",
+          "primaryColor": "#111827",
+          "accentColor": "#f43f5e",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-12T07:08:54.793Z",
+        "createdAt": "2026-07-12T07:08:54.791Z"
+      },
+      "name": "Áo Cầu Lông Đặt May X24-CL-001 Gradient Xanh Hồng Cam",
+      "slug": "ao-cau-long-dat-may-x24-cl-001-gradient-xanh-hong-cam",
+      "sku": "X24-CL-001",
+      "sport": "badminton",
+      "price": 135000,
+      "compareAtPrice": 200000,
+      "shortDescription": "Mẫu áo cầu lông đặt may X24-CL-001 với gradient xanh da trời hồng cam, tông chính xanh da trời, hồng, cam, chuyển sắc mềm; phù hợp đồng phục đội và in tên số.",
+      "description": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Áo Cầu Lông Đặt May X24-CL-001 Gradient Xanh Hồng Cam nổi bật với gradient xanh da trời hồng cam, tông chính xanh da trời, hồng, cam và chuyển sắc mềm.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Phom nam cổ tròn không tay, nữ cổ bẻ không tay phù hợp làm đồng phục cầu lông cho câu lạc bộ, đội thi đấu và nhóm phong trào.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "text": "Có thể đặt in tên, số và logo đội theo yêu cầu để hoàn thiện bộ nhận diện riêng.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "searchTags": [
+        {
+          "id": "6a5484fd5983a4000179593b",
+          "value": "cầu lông"
+        },
+        {
+          "id": "6a5484fd5983a4000179593c",
+          "value": "áo cầu lông đặt may"
+        },
+        {
+          "id": "6a5484fd5983a4000179593d",
+          "value": "đồng phục cầu lông"
+        },
+        {
+          "id": "6a5484fd5983a4000179593e",
+          "value": "in tên số"
+        },
+        {
+          "id": "6a5484fd5983a4000179593f",
+          "value": "đội thi đấu"
+        },
+        {
+          "id": "6a5484fd5983a40001795940",
+          "value": "câu lạc bộ"
+        },
+        {
+          "id": "6a5484fd5983a40001795941",
+          "value": "xanh da trời"
+        },
+        {
+          "id": "6a5484fd5983a40001795942",
+          "value": "hồng"
+        },
+        {
+          "id": "6a5484fd5983a40001795943",
+          "value": "cam"
+        },
+        {
+          "id": "6a5484fd5983a40001795944",
+          "value": "gradient xanh da trời hồng cam"
+        },
+        {
+          "id": "6a5484fd5983a40001795945",
+          "value": "chuyển sắc mềm"
+        },
+        {
+          "id": "6a5484fd5983a40001795946",
+          "value": "nam cổ tròn không tay, nữ cổ bẻ không tay"
+        }
+      ],
+      "categories": [],
+      "badges": [
+        {
+          "id": "6a5484fd5983a40001795947",
+          "label": "Mới"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 25,
+          "tenant": {
+            "id": 1,
+            "name": "May Ao Cau Long",
+            "slug": "mayaocaulong",
+            "domains": [
+              {
+                "id": "6a533d8665fe2a004c06cec7",
+                "domain": "mayaocaulong.vn"
+              }
+            ],
+            "brand": {
+              "headline": "Ao cau long dat may cho doi hinh thi dau",
+              "subheadline": "Thiet ke sac net, chat vai thoang, form chuyen dong cho cau lac bo va giai phong trao.",
+              "primaryColor": "#111827",
+              "accentColor": "#f43f5e",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-12T07:08:54.793Z",
+            "createdAt": "2026-07-12T07:08:54.791Z"
+          },
+          "alt": "Áo Cầu Lông Đặt May X24-CL-001 Gradient Xanh Hồng Cam - gradient xanh da trời hồng cam - ảnh sản phẩm",
+          "searchTags": [
+            {
+              "id": "6a5484f65983a4000179590f",
+              "value": "cầu lông"
+            },
+            {
+              "id": "6a5484f65983a40001795910",
+              "value": "xanh da trời"
+            },
+            {
+              "id": "6a5484f65983a40001795911",
+              "value": "hồng"
+            },
+            {
+              "id": "6a5484f65983a40001795912",
+              "value": "cam"
+            },
+            {
+              "id": "6a5484f65983a40001795913",
+              "value": "gradient xanh da trời hồng cam"
+            },
+            {
+              "id": "6a5484f65983a40001795914",
+              "value": "chuyển sắc mềm"
+            },
+            {
+              "id": "6a5484f65983a40001795915",
+              "value": "nam cổ tròn không tay, nữ cổ bẻ không tay"
+            },
+            {
+              "id": "6a5484f65983a40001795916",
+              "value": "ảnh sản phẩm"
+            },
+            {
+              "id": "6a5484f65983a40001795917",
+              "value": "x24-cl-001"
+            }
+          ],
+          "prefix": "mayaocaulong",
+          "updatedAt": "2026-07-13T06:25:58.742Z",
+          "createdAt": "2026-07-13T06:25:58.136Z",
+          "url": "https://static.x24sport.vn/mayaocaulong/x24-cl-001-badminton-1.webp",
+          "thumbnailURL": null,
+          "filename": "x24-cl-001-badminton-1.webp",
+          "mimeType": "application/octet-stream",
+          "filesize": 200028,
+          "width": null,
+          "height": null,
+          "focalX": null,
+          "focalY": null
+        }
+      ],
+      "featured": false,
+      "updatedAt": "2026-07-13T06:26:05.307Z",
+      "createdAt": "2026-07-13T06:26:05.306Z"
+    }
+  ],
+  "hasNextPage": false,
+  "hasPrevPage": false,
+  "limit": 100,
+  "nextPage": null,
+  "page": 1,
+  "pagingCounter": 1,
+  "prevPage": null,
+  "totalDocs": 5,
+  "totalPages": 1
+}

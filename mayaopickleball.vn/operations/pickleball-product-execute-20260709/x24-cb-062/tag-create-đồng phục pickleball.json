@@ -1,0 +1,142 @@
+{
+  "id": 101,
+  "name": "đồng phục pickleball",
+  "slug": "dong-phuc-pickleball",
+  "description": "",
+  "count": 0,
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>đồng phục pickleball Archives - May Áo Chạy Bộ - VN</title>\n<!-- Chú ý dành cho Admin: trang này không hiển thị thẻ meta mô tả vì nó không có, hoặc là thêm thẳng vào trang hoặc là vào menu [Yoast SEO - Thiết lập] và cài đặt một template. -->\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"đồng phục pickleball Archives\" />\n<meta property=\"og:url\" content=\"https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/\" />\n<meta property=\"og:site_name\" content=\"May Áo Chạy Bộ - VN\" />\n<meta property=\"og:image\" content=\"https://cdn.mayaochaybo.vn/wp-content/uploads/2026/05/x24.jpg\" />\n\t<meta property=\"og:image:width\" content=\"2000\" />\n\t<meta property=\"og:image:height\" content=\"857\" />\n\t<meta property=\"og:image:type\" content=\"image/jpeg\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/\",\"url\":\"https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/\",\"name\":\"đồng phục pickleball Archives - May Áo Chạy Bộ - VN\",\"isPartOf\":{\"@id\":\"https://mayaopickleball.vn/#website\"},\"breadcrumb\":{\"@id\":\"https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/#breadcrumb\"},\"inLanguage\":\"vi\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://mayaopickleball.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"đồng phục pickleball\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaopickleball.vn/#website\",\"url\":\"https://mayaopickleball.vn/\",\"name\":\"May Áo Chạy Bộ - VN\",\"description\":\"Chuyên May Áo Chạy Bộ Cho Đội Nhóm, Giải Chạy\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaopickleball.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"},{\"@type\":\"LocalBusiness\",\"@id\":\"https://mayaopickleball.vn/#localbusiness\",\"name\":\"X24 Sport - May Áo Chạy Bộ\",\"description\":\"Xưởng may áo chạy bộ trực tiếp, thiết kế riêng miễn phí\",\"url\":\"https://mayaopickleball.vn/\",\"telephone\":\"+84977130115\",\"priceRange\":\"50.000đ - 500.000đ\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"1090/22D Quang Trung, Phường 14\",\"addressLocality\":\"Gò Vấp\",\"addressRegion\":\"TP. Hồ Chí Minh\",\"addressCountry\":\"VN\"},\"openingHoursSpecification\":[{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"],\"opens\":\"08:00\",\"closes\":\"18:00\"}]}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+  "yoast_head_json": {
+    "title": "đồng phục pickleball Archives - May Áo Chạy Bộ - VN",
+    "robots": {
+      "index": "index",
+      "follow": "follow",
+      "max-snippet": "max-snippet:-1",
+      "max-image-preview": "max-image-preview:large",
+      "max-video-preview": "max-video-preview:-1"
+    },
+    "canonical": "https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/",
+    "og_locale": "vi_VN",
+    "og_type": "article",
+    "og_title": "đồng phục pickleball Archives",
+    "og_url": "https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/",
+    "og_site_name": "May Áo Chạy Bộ - VN",
+    "og_image": [
+      {
+        "width": 2000,
+        "height": 857,
+        "url": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/05/x24.jpg",
+        "type": "image/jpeg"
+      }
+    ],
+    "twitter_card": "summary_large_image",
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/",
+          "url": "https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/",
+          "name": "đồng phục pickleball Archives - May Áo Chạy Bộ - VN",
+          "isPartOf": {
+            "@id": "https://mayaopickleball.vn/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/#breadcrumb"
+          },
+          "inLanguage": "vi"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://mayaopickleball.vn/tu-khoa/dong-phuc-pickleball/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://mayaopickleball.vn/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "đồng phục pickleball"
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mayaopickleball.vn/#website",
+          "url": "https://mayaopickleball.vn/",
+          "name": "May Áo Chạy Bộ - VN",
+          "description": "Chuyên May Áo Chạy Bộ Cho Đội Nhóm, Giải Chạy",
+          "potentialAction": [
+            {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://mayaopickleball.vn/?s={search_term_string}"
+              },
+              "query-input": {
+                "@type": "PropertyValueSpecification",
+                "valueRequired": true,
+                "valueName": "search_term_string"
+              }
+            }
+          ],
+          "inLanguage": "vi"
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://mayaopickleball.vn/#localbusiness",
+          "name": "X24 Sport - May Áo Chạy Bộ",
+          "description": "Xưởng may áo chạy bộ trực tiếp, thiết kế riêng miễn phí",
+          "url": "https://mayaopickleball.vn/",
+          "telephone": "+84977130115",
+          "priceRange": "50.000đ - 500.000đ",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1090/22D Quang Trung, Phường 14",
+            "addressLocality": "Gò Vấp",
+            "addressRegion": "TP. Hồ Chí Minh",
+            "addressCountry": "VN"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "08:00",
+              "closes": "18:00"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_links": {
+    "self": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wc/v3/products/tags/101",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wc/v3/products/tags"
+      }
+    ]
+  }
+}

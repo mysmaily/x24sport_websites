@@ -1,0 +1,71 @@
+Use case: product-mockup / identity-preserve
+Asset type: square WooCommerce product image for mayaopickleball.vn
+
+Primary request:
+Transform the current apparel reference into a realistic ecommerce/lifestyle
+product image for selling a custom pickleball outfit. This is a product photo,
+not a coaching lesson, match-action shot, or technical stroke demonstration.
+
+Input image:
+Image 1 is the exact apparel design reference. Preserve the vivid pink, blue,
+white, and navy palette, the FDL chest mark, the Nipro / Song Khoe design
+identity where it is visible, the gradient, curved graphic shapes, dotted
+accents, and overall design language as closely as possible. Do not copy the
+running path, running pose, old website branding, mockup frame, footer, hotline,
+size label, or any running-specific context.
+
+Text decisions:
+- Preserve likely team/sponsor/design marks: "Nipro", "FDL", and "Song Khoe"
+  only if they are already visible in the reference and can remain readable.
+- Replace running/race context with pickleball context.
+- Remove or avoid any running-specific website, race, marathon, bib, finisher,
+  5K, 10K, or road-running text.
+
+Scene/backdrop:
+Bright outdoor pickleball court in Vietnam, clean daylight, court lines and net
+visible but softly secondary, polished ecommerce campaign feel.
+
+Subject:
+Use exactly two attractive adult Vietnamese pickleball models together: one male
+and one female. The male model is upright, strong, confident, broad-shouldered,
+fit but not bodybuilder-like, holding a pickleball paddle casually. The female
+model is athletic, graceful, pretty, naturally feminine, with tasteful waist/hip
+curve, relaxed shoulders, confident posture, and sporty tied-up hair/high
+ponytail. Both are adults and fictional.
+
+Composition/framing:
+Square ecommerce product image. Use a front/back pair composition: male model
+front-facing or three-quarter-front to show the shirt front clearly; female
+model 60% back-facing / three-quarter-back with a natural over-shoulder smile
+to show the shirt back design and silhouette. Both models stand or pose
+casually on the court while holding paddles. Do not put either model in a deep
+ready stance, crouch, swing, lunge, or technical hitting pose. Keep posture
+upright, flattering, and apparel-focused. Crop from above heads to upper thighs
+or mid-thigh so the clothing dominates the frame and there is little empty
+background.
+
+Outfit:
+Both models wear the same pink-blue pickleball apparel design from the
+reference. Male front shows the front design; female back shows a restrained
+back continuation of the same palette, gradient, curves, and dotted accents.
+Because the source only shows the front, do not invent detailed back sponsor
+text or large new logos. Use coordinated dark navy or black athletic court
+shorts/skort that fit the outfit and do not hide the shirt hem.
+
+Materials/textures:
+Premium lightweight court-sport fabric, fine polyester knit/mesh texture,
+realistic collar seams, sleeve seams, hem stitching, wrinkles, stretch, shadows,
+and highlights. Printed graphic follows body folds naturally and stays crisp.
+
+Overlay/stamp:
+Do not generate the mayaopickleball.vn watermark or contact footer. The official
+site logo and contact pill will be added later in post-processing.
+
+Avoid:
+Hunched posture, deep athletic ready stance, technical pickleball stroke, road
+running, jogging motion, marathon/race cues, finish line, medals, race bib,
+distorted hands, cut-off faces, changed shirt colors, fake flat overlay pattern,
+blurry fabric, plastic skin, extra people, childlike faces, oversexualized pose,
+pin-up glamour pose, unrealistic female curves, bodybuilder male proportions,
+stiff mannequin pose, copied mockup frame, third-party watermark, old source
+website footer.

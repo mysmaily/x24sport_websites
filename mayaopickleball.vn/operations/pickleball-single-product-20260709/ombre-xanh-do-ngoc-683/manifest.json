@@ -1,0 +1,73 @@
+{
+  "job_id": "ombre-xanh-do-ngoc-683",
+  "source_site": "mayaopickleball.vn",
+  "destination_site": "mayaopickleball.vn",
+  "source_product_id": 683,
+  "target_product_id": 683,
+  "source_url": "https://mayaopickleball.vn/ao-chay-bo-ombre-xanh-do-ngoc-thoang-khi-khang-khuan-thoi-trang/",
+  "source_slug": "ao-chay-bo-ombre-xanh-do-ngoc-thoang-khi-khang-khuan-thoi-trang",
+  "source_title": "Ao chay bo ombre xanh do ngoc - Thoang khi, khang khuan, thoi trang",
+  "source_image_urls": [
+    "https://mayaopickleball.vn/wp-content/uploads/2025/05/ao-chay-bo-chat-vai-thoang.jpg",
+    "https://mayaopickleball.vn/wp-content/uploads/2025/05/ao-chay-bo-chat-vai-thoang-1.jpg"
+  ],
+  "source_local": [
+    "source/ao-chay-bo-chat-vai-thoang.jpg",
+    "source/ao-chay-bo-chat-vai-thoang-1.jpg"
+  ],
+  "new_product_code": "X24-PB-016",
+  "new_title": "Bo Quan Ao Pickleball Nam Nu X24 Xanh Do Ngoc X24-PB-016",
+  "new_slug": "bo-quan-ao-pickleball-nam-nu-x24-xanh-do-ngoc-x24-pb-016",
+  "status": "local_qa_ready_waiting_for_wp_credentials",
+  "female_variant": "female_collared_no_sleeve",
+  "text_decisions": [
+    {"source": "KEEP RUNNING", "action": "remove", "target": ""},
+    {"source": "RUN FOR ALL", "action": "remove", "target": ""},
+    {"source": "RUN FOR LIFE", "action": "remove", "target": ""},
+    {"source": "BUT PHA MOI GIOI HAN", "action": "remove", "target": ""},
+    {"source": "CHAT VAI CO GIAN", "action": "remove", "target": ""},
+    {"source": "THOANG KHI", "action": "remove", "target": ""},
+    {"source": "KHO NHANH", "action": "remove", "target": ""},
+    {"source": "KHANG KHUAN", "action": "remove", "target": ""}
+  ],
+  "palette_notes": [
+    "dark navy upper chest and sleeves",
+    "red ombre center band",
+    "turquoise/aqua lower body",
+    "subtle thin geometric line network",
+    "small X24 chest mark"
+  ],
+  "garment_styles": [
+    {
+      "slot": "A",
+      "style": "collared_short_sleeve",
+      "featured": true,
+      "pose_slot": "male front, female three-quarter back",
+      "crop_slot": "three-quarter body"
+    },
+    {
+      "slot": "B",
+      "style": "male_tank_top_female_collared_no_sleeve",
+      "featured": false,
+      "pose_slot": "both front/three-quarter front",
+      "crop_slot": "medium product portrait"
+    }
+  ],
+  "outputs": {
+    "image_a_generated": "generated/x24-pb-016-image-a.png",
+    "image_b_generated": "generated/x24-pb-016-image-b.png",
+    "image_a_final": "final/x24-pb-016-ao-pickleball-nam-nu-co-co-tay-ngan-xanh-do-ngoc.webp",
+    "image_b_final": "final/x24-pb-016-ao-pickleball-nam-3-lo-nu-khong-tay-co-co-xanh-do-ngoc.webp",
+    "contact_sheet": "final/contact-sheet.jpg",
+    "draft_product_payload": "responses/product-update-x24-pb-016-draft-payload.json"
+  },
+  "qa": [
+    "Image A shows adult male and female Vietnamese pickleball models in collared short-sleeve shirts.",
+    "Image B shows adult male tank-top style and female collared no-sleeve style with modest armholes.",
+    "Both images preserve the navy, red, and turquoise ombre graphic map and geometric linework.",
+    "No running slogans, race cues, old product-frame icons, or old layout elements are visible in the final images.",
+    "Both final images include the site watermark badge and vertical color-dot overlay."
+  ],
+  "blocked_live_update_reason": "No valid WordPress Application Password, WooCommerce key/secret, or successful admin cookie session was available in the runtime. Registry admin/private credentials did not authenticate a REST session; website_configs has no wp_admin credential.",
+  "cache_services_touched": "none"
+}

@@ -1,0 +1,7 @@
+{
+  "updated_at": "2026-07-08T08:29:23.561Z",
+  "status": "billing_hard_limit_reached",
+  "failed_job": "x24-br-457-high_school",
+  "error": "HTTP 400: {\n  \"error\": {\n    \"message\": \"Billing hard limit has been reached.\",\n    \"type\": \"billing_limit_user_error\",\n    \"param\": null,\n    \"code\": \"billing_hard_limit_reached\"\n  }\n}",
+  "remaining": 12
+}

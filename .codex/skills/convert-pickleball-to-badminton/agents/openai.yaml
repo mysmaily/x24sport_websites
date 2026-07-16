@@ -1,0 +1,4 @@
+interface:
+  display_name: "Convert Pickleball To Badminton"
+  short_description: "Convert paired Woo images into badminton products"
+  default_prompt: "Use $convert-pickleball-to-badminton to discover mayaopickleball.vn products through the Woo Store API, convert each ordered two-image gallery into one badminton product, and prevent duplicate work by source product ID."

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>X24 Bento Selling Points Preview</title>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:root {
+  --x24-accent: #c51f2a;
+  --x24-accent-dark: #9d1720;
+  --x24-ink: #17181a;
+  --x24-muted: #62666d;
+  --x24-line: #e3e5e8;
+  --x24-surface: #f5f6f7;
+  --x24-white: #fcfcfd;
+  --x24-container: 1280px;
+  --x24-shadow: 0 12px 30px rgba(23, 24, 26, 0.08);
+}
+* { box-sizing: border-box; }
+body {
+  background: #fff;
+  color: var(--x24-ink);
+  font-family: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  margin: 0;
+}
+/* Hero mock */
+.hero-mock {
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  aspect-ratio: 21/6;
+  max-width: var(--x24-container);
+  margin: 24px auto 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 14px;
+}
+/* Bento */
+.x24-bento {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: var(--x24-container);
+  padding: 28px 20px 40px;
+}
+.x24-bento-cell {
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms ease;
+}
+.x24-bento-cell:hover { transform: translateY(-2px); }
+.x24-bento-hero {
+  background: var(--x24-ink);
+  grid-column: span 6;
+  grid-row: span 2;
+  min-height: 340px;
+  padding: 30px 30px 26px;
+}
+.x24-bento-hero::after {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(197, 31, 42, 0.30), transparent 55%),
+    radial-gradient(circle at 12% 92%, rgba(255, 255, 255, 0.07), transparent 60%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+.x24-bento-hero > * { position: relative; z-index: 1; }
+.x24-bento-eyebrow {
+  align-items: center;
+  color: #ff6972;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 800;
+  gap: 8px;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.x24-bento-eyebrow::before {
+  background: var(--x24-accent);
+  border-radius: 999px;
+  content: "";
+  display: inline-block;
+  height: 7px;
+  width: 7px;
+}
+.x24-bento-hero h2 {
+  color: #fff;
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.08;
+  margin: 0 0 12px;
+}
+.x24-bento-hero .x24-bento-desc {
+  color: #c9ccd1;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  max-width: 42ch;
+}
+.x24-bento-fabrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+  padding: 0;
+}
+.x24-bento-fabrics li {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: #f1f2f4;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 700;
+  gap: 6px;
+  list-style: none;
+  padding: 7px 14px;
+}
+.x24-bento-fabrics li i { color: #ff6972; font-size: 14px; }
+.x24-bento-cta {
+  align-items: center;
+  background: var(--x24-accent);
+  border-radius: 999px;
+  color: #fff !important;
+  display: inline-flex;
+  font-size: 15px;
+  font-weight: 800;
+  gap: 8px;
+  padding: 13px 22px;
+  text-decoration: none;
+  text-transform: none;
+  white-space: nowrap;
+  width: max-content;
+}
+.x24-bento-cta:hover { background: var(--x24-accent-dark); }
+.x24-bento-cta i { font-size: 18px; transition: transform 220ms ease; }
+.x24-bento-cta:hover i { transform: translateX(3px); }
+.x24-bento-fast {
+  align-items: flex-start;
+  background: var(--x24-accent);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  grid-column: span 6;
+  grid-row: span 1;
+  justify-content: center;
+  min-height: 162px;
+  overflow: hidden;
+  padding: 24px 28px;
+  position: relative;
+}
+.x24-bento-fast::after {
+  background: radial-gradient(circle at 92% 90%, rgba(255, 255, 255, 0.16), transparent 60%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+.x24-bento-fast > * { position: relative; z-index: 1; }
+.x24-bento-fast-row { align-items: center; display: flex; gap: 16px; }
+.x24-bento-fast-icon {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  display: flex;
+  flex: 0 0 auto;
+  font-size: 26px;
+  height: 52px;
+  justify-content: center;
+  width: 52px;
+}
+.x24-bento-fast-title { color: #fff; font-size: clamp(20px, 1.8vw, 26px); font-weight: 800; line-height: 1.1; margin: 0; }
+.x24-bento-fast-desc { color: rgba(255, 255, 255, 0.92); font-size: 14px; line-height: 1.5; margin: 0; }
+.x24-bento-mini {
+  align-items: flex-start;
+  background: var(--x24-surface);
+  border: 1px solid var(--x24-line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  grid-column: span 2;
+  grid-row: span 1;
+  justify-content: center;
+  min-height: 162px;
+  padding: 20px 18px;
+}
+.x24-bento-mini-icon {
+  align-items: center;
+  background: rgba(197, 31, 42, 0.10);
+  border-radius: 10px;
+  color: var(--x24-accent);
+  display: flex;
+  font-size: 20px;
+  height: 42px;
+  justify-content: center;
+  margin-bottom: 2px;
+  width: 42px;
+}
+.x24-bento-mini h3 {
+  color: var(--x24-ink);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-transform: uppercase;
+}
+.x24-bento-mini p { color: var(--x24-muted); font-size: 12.5px; line-height: 1.45; margin: 0; }
+
+@media (max-width: 1024px) {
+  .x24-bento-hero, .x24-bento-fast { grid-column: span 12; }
+  .x24-bento-hero { grid-row: span 1; min-height: 0; }
+  .x24-bento-fast { min-height: 132px; }
+  .x24-bento-mini { grid-column: span 4; }
+}
+@media (max-width: 768px) {
+  .x24-bento { gap: 12px; padding: 22px 16px 32px; }
+  .x24-bento-hero { padding: 24px 22px 22px; }
+  .x24-bento-hero h2 { font-size: 24px; }
+  .x24-bento-hero .x24-bento-desc { font-size: 14px; margin-bottom: 16px; }
+  .x24-bento-fabrics { gap: 6px; margin-bottom: 18px; }
+  .x24-bento-fabrics li { font-size: 12px; padding: 6px 11px; }
+  .x24-bento-fast, .x24-bento-mini { grid-column: span 12; min-height: 0; padding: 18px 20px; }
+  .x24-bento-mini { flex-direction: row; gap: 14px; }
+  .x24-bento-mini-icon { flex: 0 0 auto; height: 40px; margin-bottom: 0; width: 40px; }
+  .x24-bento-mini h3 { font-size: 13px; }
+  .x24-bento-mini p { font-size: 12px; }
+}
+@media (max-width: 549px) {
+  .x24-bento { padding: 18px 14px 26px; }
+  .x24-bento-fast-row { gap: 12px; }
+  .x24-bento-fast-icon { font-size: 22px; height: 44px; width: 44px; }
+  .x24-bento-fast-title { font-size: 18px; }
+  .x24-bento-fast-desc { font-size: 13px; }
+}
+</style>
+</head>
+<body>
+<div class="hero-mock">[ Hero banner — 21:6 ]</div>
+<div class="x24-bento">
+  <div class="x24-bento-cell x24-bento-hero">
+    <span class="x24-bento-eyebrow">Chất liệu cao cấp</span>
+    <h2>5+ chất liệu vải cho đội bóng lựa chọn</h2>
+    <p class="x24-bento-desc">Từ two-way thoáng mát đến coolmax khô nhanh. Mỗi vải được tuyển chọn cho từng điều kiện sân, vị trí và ngân sách.</p>
+    <ul class="x24-bento-fabrics">
+      <li><i class="ri-check-line"></i>Two-way thoáng mát</li>
+      <li><i class="ri-check-line"></i>Vải lon bò</li>
+      <li><i class="ri-check-line"></i>Peached mềm mại</li>
+      <li><i class="ri-check-line"></i>Coolmax khô nhanh</li>
+      <li><i class="ri-check-line"></i>Mesh lưới thoáng</li>
+    </ul>
+    <a class="x24-bento-cta" href="#">Xem chi tiết chất liệu <i class="ri-arrow-right-line"></i></a>
+  </div>
+  <div class="x24-bento-cell x24-bento-fast">
+    <div class="x24-bento-fast-row">
+      <span class="x24-bento-fast-icon"><i class="ri-flashlight-fill"></i></span>
+      <h3 class="x24-bento-fast-title">May siêu nhanh</h3>
+    </div>
+    <p class="x24-bento-fast-desc">Giao trong 1-3 ngày sau khi chốt thiết kế. Xưởng may trực tiếp, không qua trung gian.</p>
+  </div>
+  <div class="x24-bento-cell x24-bento-mini">
+    <span class="x24-bento-mini-icon"><i class="ri-truck-line"></i></span>
+    <h3>Giao hàng miễn phí</h3>
+    <p>Miễn phí đơn trên 1 triệu, toàn quốc.</p>
+  </div>
+  <div class="x24-bento-cell x24-bento-mini">
+    <span class="x24-bento-mini-icon"><i class="ri-exchange-line"></i></span>
+    <h3>Đổi trả linh hoạt</h3>
+    <p>Lỗi nhà sản xuất được đổi ngay.</p>
+  </div>
+  <div class="x24-bento-cell x24-bento-mini">
+    <span class="x24-bento-mini-icon"><i class="ri-customer-service-2-line"></i></span>
+    <h3>Tư vấn nhanh</h3>
+    <p>Hỗ trợ 7h30 - 23h mỗi ngày.</p>
+  </div>
+</div>
+</body>
+</html>

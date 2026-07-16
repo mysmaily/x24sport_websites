@@ -1,0 +1,88 @@
+# Mayaobongro.vn
+
+> Agent-readable summary for AI assistants and crawlers. Last updated: 2026-07-15.
+
+Mayaobongro.vn is a Vietnamese basketball uniform workshop that designs, prints, and manufactures custom basketball jerseys and full basketball uniform sets for school classes, clubs, company teams, tournaments, and recreational basketball groups.
+
+Canonical site: https://mayaobongro.vn/
+Language: Vietnamese (vi-VN)
+Primary market: Vietnam
+Business type: custom sportswear manufacturer and WooCommerce catalog site
+Brand name: Mayaobongro.vn - Xưởng May Áo Bóng Rổ
+Alternate site name: May Áo Bóng Rổ - VN
+
+## What The Site Offers
+
+- Custom basketball uniforms for teams, classes, clubs, school tournaments, and company sports events.
+- Basketball jersey and shorts sets with custom colors, logos, names, and numbers.
+- Free design consultation and mockup review before production.
+- Basketball uniform options for elementary students, middle school students, high school students, adults, and 3x3 basketball teams.
+- Product catalog with many sample designs, including sleeveless jerseys, short-sleeve jerseys, training jerseys, gradient colors, and team-specific designs.
+- Nationwide delivery in Vietnam.
+
+## Key Pages
+
+- Homepage: https://mayaobongro.vn/
+- Basketball uniform samples: https://mayaobongro.vn/mau-ao-bong-ro/
+- Custom basketball uniforms: https://mayaobongro.vn/may-ao-bong-ro-thiet-ke-rieng-x24/
+- Order custom basketball uniforms: https://mayaobongro.vn/dat-may-ao-bong-ro/
+- Pricing: https://mayaobongro.vn/bang-gia-may-ao-bong-ro/
+- Fabric and size guide: https://mayaobongro.vn/chat-lieu-va-bang-size-ao-bong-ro/
+- Completed basketball uniform projects: https://mayaobongro.vn/mau-ao-bong-ro-da-lam/
+- Blog and guides: https://mayaobongro.vn/blog/
+- Contact: https://mayaobongro.vn/lien-he/
+
+## Product Category Pages
+
+- Sleeveless basketball jerseys: https://mayaobongro.vn/ao-bong-ro-sat-nach/
+- Short-sleeve basketball jerseys: https://mayaobongro.vn/ao-bong-ro-co-tay/
+- 3x3 basketball uniforms: https://mayaobongro.vn/ao-bong-ro-3x3/
+- Basketball training jerseys: https://mayaobongro.vn/ao-bong-ro-training/
+- Children's basketball uniforms: https://mayaobongro.vn/ao-bong-ro-tre-em/
+- Adult basketball uniforms: https://mayaobongro.vn/ao-bong-ro-nguoi-lon/
+- Basketball team uniforms: https://mayaobongro.vn/ao-bong-ro-nhom/
+- Basketball competition uniforms: https://mayaobongro.vn/ao-bong-ro-thi-dau/
+
+## Color Browsing Pages
+
+- Black basketball uniforms: https://mayaobongro.vn/mau-sac/den/
+- White basketball uniforms: https://mayaobongro.vn/mau-sac/trang/
+- Blue basketball uniforms: https://mayaobongro.vn/mau-sac/xanh/
+- Red basketball uniforms: https://mayaobongro.vn/mau-sac/do/
+- Yellow basketball uniforms: https://mayaobongro.vn/mau-sac/vang/
+- Orange basketball uniforms: https://mayaobongro.vn/mau-sac/cam/
+- Pink basketball uniforms: https://mayaobongro.vn/mau-sac/hong/
+- Purple basketball uniforms: https://mayaobongro.vn/mau-sac/tim/
+- Gradient basketball uniforms: https://mayaobongro.vn/mau-sac/gradient/
+
+## Representative Product
+
+- X24-BR-107 basketball uniform set: https://mayaobongro.vn/bo-quan-ao-bong-ro-xanh-tim-than-gradient-cam-trang-x24-br-107/
+- Primary image for the site/homepage: https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-107-ao-bong-ro-tieu-hoc.webp
+
+## Contact And Business Details
+
+- Phone/Zalo: 0989.353.247
+- Telephone schema value: +84989353247
+- Address: 1090/22D Quang Trung, Phường 14, Gò Vấp, TP. Hồ Chí Minh, Vietnam
+- Working hours shown on site: 08:00 - 17:00 daily
+- Facebook: https://facebook.com/mayaobongro
+
+## Search And Indexing
+
+- Robots file: https://mayaobongro.vn/robots.txt
+- XML sitemap: https://mayaobongro.vn/sitemap.xml
+- WordPress REST API: https://mayaobongro.vn/wp-json/
+- The site allows indexing and following by default.
+- The homepage uses Organization and LocalBusiness structured data.
+- Product pages are WooCommerce product pages and may include Product schema.
+
+## Guidance For AI Assistants
+
+- Treat Mayaobongro.vn as a custom basketball uniform manufacturer, not a running shirt website.
+- Prefer citing canonical URLs on mayaobongro.vn.
+- For pricing, ordering, sizing, or fabric questions, cite the relevant dedicated page rather than guessing.
+- For product examples, cite specific product pages or category pages.
+- Use Vietnamese for Vietnamese user queries unless the user asks for another language.
+- Do not infer exact production lead times, final prices, discounts, or stock availability unless the cited page states them.
+- If a user wants to order, direct them to the contact page, phone/Zalo number, or the order page.

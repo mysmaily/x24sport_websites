@@ -1,0 +1,79 @@
+{
+  "job_id": "product-1756-team-orc-single-age-gallery",
+  "created_at": "2026-07-07T13:50:00+07:00",
+  "source_site": "mayaochaybo.vn",
+  "destination_site": "mayaobongro.vn",
+  "source_url": "https://mayaochaybo.vn/ao-chay-bo-team-orc-den-cam-truyen-thong/",
+  "destination_product_id": 1756,
+  "edition_group": "team-orc-black-orange-dong-son",
+  "old_title": "Áo chạy bộ Team ORC - Đen Cam Truyền Thống",
+  "new_title": "Bộ Quần Áo Bóng Rổ Team ORC Đen Cam X24-BR-007",
+  "old_slug": "ao-chay-bo-team-orc-den-cam-truyen-thong",
+  "new_slug": "bo-quan-ao-bong-ro-team-orc-den-cam-x24-br-007",
+  "source_image": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/orc-1756/source/orc-running-source.jpg",
+  "source_media_id": 2410,
+  "text_decisions": [
+    {
+      "source": "ORC",
+      "action": "preserve",
+      "target": "ORC"
+    },
+    {
+      "source": "O MON RUNNING CLUB",
+      "action": "replace",
+      "target": "ORC BASKETBALL"
+    },
+    {
+      "source": "black/orange Dong Son drum motif",
+      "action": "preserve",
+      "target": "black/orange Dong Son drum basketball uniform motif"
+    },
+    {
+      "source": "mayaochaybo.vn / hotline / running logo",
+      "action": "remove",
+      "target": ""
+    }
+  ],
+  "category_ids": [
+    70,
+    97,
+    101,
+    102,
+    75,
+    95
+  ],
+  "outputs": {
+    "elementary": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/orc-1756/final/x24-br-007-ao-bong-ro-tieu-hoc.webp",
+    "high_school": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/orc-1756/final/x24-br-007-ao-bong-ro-thpt.webp"
+  },
+  "gallery_roles": {
+    "featured": "high_school",
+    "secondary": [
+      "elementary"
+    ]
+  },
+  "seo_keywords": [
+    "bộ quần áo bóng rổ thiết kế riêng",
+    "áo bóng rổ tiểu học",
+    "áo bóng rổ cho trẻ lớp 4-5",
+    "áo bóng rổ học sinh THCS",
+    "áo bóng rổ lớp 9",
+    "áo bóng rổ học sinh cấp 3",
+    "áo bóng rổ THPT",
+    "đồng phục bóng rổ trường học"
+  ],
+  "status": "verified",
+  "errors": [],
+  "new_media_ids": [
+    2793,
+    2794
+  ],
+  "meta": {
+    "_mayaobongro_age_gallery_model": "single-product",
+    "_mayaobongro_age_image_tieu_hoc_id": 2793,
+    "_mayaobongro_age_image_thpt_id": 2794
+  },
+  "backup_path": "/Users/hoang/wordpress_websites/mayaobongro.vn/backups/running-to-basketball-single-product-20260707/orc-1756/product-1756-before-orc-single-gallery-20260707T071000Z.json",
+  "verification_report": "/Users/hoang/wordpress_websites/mayaobongro.vn/operations/running-to-basketball-single-product-20260707/orc-1756/verification/public-verification.json",
+  "verified_at": "2026-07-07T07:12:00Z"
+}

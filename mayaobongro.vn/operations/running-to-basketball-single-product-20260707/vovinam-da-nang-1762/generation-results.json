@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 2,
+  "results": [
+    {
+      "ok": true,
+      "id": "vovinam-da-nang-1762-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-005-ao-bong-ro-thpt.png",
+      "seconds": 71.6
+    },
+    {
+      "ok": true,
+      "id": "vovinam-da-nang-1762-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-005-ao-bong-ro-tieu-hoc.png",
+      "seconds": 84.8
+    }
+  ]
+}

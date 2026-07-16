@@ -1,0 +1,20 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 1,
+  "results": [
+    {
+      "ok": true,
+      "id": "ho-da-1768-elementary",
+      "audience": "elementary",
+      "output": "generated/x24-br-009-ao-bong-ro-tieu-hoc.png",
+      "seconds": 69.8
+    },
+    {
+      "ok": true,
+      "id": "ho-da-1768-high-school",
+      "audience": "high_school",
+      "output": "generated/x24-br-009-ao-bong-ro-thpt.png",
+      "seconds": 80.7
+    }
+  ]
+}

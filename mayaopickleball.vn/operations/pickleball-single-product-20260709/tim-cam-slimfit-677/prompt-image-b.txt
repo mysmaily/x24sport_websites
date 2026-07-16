@@ -1,0 +1,34 @@
+Use case: identity-preserve
+Asset type: square WooCommerce product image for mayaopickleball.vn
+
+Image 1 is a garment-design reference only. Preserve its purple to orange gradient palette and the thin geometric line pattern across the shirt body, but remove all old logos and all old text. Do not preserve the top-left corner logo banner, the top-right slogan block, the left-side mini color thumbnails, the right-side feature icons, the grey mockup background, or any catalog frame elements.
+
+Text and logo decisions:
+- Remove the large X24 corner mark and all frame graphics from the reference.
+- Remove all readable running text, especially "KEEP RUNNING", "RUN FOR ALL", and "RUN FOR LIFE".
+- Keep only one small X24 chest logo on visible shirt fronts.
+- Do not add any logo or text to shirt backs.
+- Do not add any text or logo to paddle faces.
+
+Convert the garment into an authentic pickleball apparel product: breathable court-sport fabric, relaxed athletic torso, natural folds, and a design that feels made for pickleball movement rather than road running. Preserve the source design concept without inventing sponsor marks.
+
+Scene:
+Premium outdoor pickleball court in soft daylight, clean fencing and net geometry, modern Vietnamese sportswear ecommerce photo.
+
+Subject:
+Two fictional Vietnamese adult pickleball models together, one male and one female. This is a product-selling pose, not a lesson or match-action pose. The male model is upright, athletic, confident, and front-facing or three-quarter-front to clearly show the shirt front. The female model is athletic and graceful with tied-up sporty hair, facing front or three-quarter-front in a polished ecommerce pose.
+
+Garment style for this image:
+The male model wears a realistic pickleball tank top. The female model wears a collared no-sleeve pickleball top with a straight, modest armhole that stays close to the natural armpit, covers the side bust and bra line, and looks like workshop-realistic sportswear rather than a fashion tank.
+
+Pose slot for this image:
+Do not repeat image A. Use a confident front-facing sales pose with both models standing upright and relaxed.
+
+Camera and crop slot:
+Three-quarter framing, square 1:1, garment fully visible, chest and upper-body design very clear.
+
+Composition:
+Keep the same color system and design language as image A, but adapt panel placement naturally to the sleeveless cuts. The female top must not scoop inward at the armhole. Avoid glamour posing, active swing mechanics, or exaggerated body display.
+
+Style:
+Photorealistic commercial Vietnamese pickleball sportswear photography, realistic breathable fabric, correct anatomy, soft daylight, high-end ecommerce polish.

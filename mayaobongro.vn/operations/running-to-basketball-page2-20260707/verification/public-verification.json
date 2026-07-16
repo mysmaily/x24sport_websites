@@ -1,0 +1,761 @@
+{
+  "count": 12,
+  "reports": [
+    {
+      "product_id": 1752,
+      "slug": "bo-quan-ao-bong-ro-team-cong-chao-xanh-x24-br-010",
+      "title": "Bộ Quần Áo Bóng Rổ Team Cộng Chào Xanh X24-BR-010",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-cong-chao-xanh-x24-br-010/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2802,
+      "media": {
+        "id": 2802,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ Team Cộng Chào Xanh X24-BR-010",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-010-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-010-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-010-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-cong-chao-xanh-x24-br-010/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "product_id": 1750,
+      "slug": "bo-quan-ao-bong-ro-team-vung-tau-g-o-xanh-duong-x24-br-011",
+      "title": "Bộ Quần Áo Bóng Rổ Team Vũng Tàu G.O Xanh Dương X24-BR-011",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-vung-tau-g-o-xanh-duong-x24-br-011/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2804,
+      "media": {
+        "id": 2804,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ Team Vũng Tàu G.O Xanh Dương X24-BR-011",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-011-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-011-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-011-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-vung-tau-g-o-xanh-duong-x24-br-011/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "product_id": 1748,
+      "slug": "bo-quan-ao-bong-ro-altios-xanh-duong-cam-x24-br-012",
+      "title": "Bộ Quần Áo Bóng Rổ Altios Xanh Dương Cam X24-BR-012",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-altios-xanh-duong-cam-x24-br-012/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2806,
+      "media": {
+        "id": 2806,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ Altios Xanh Dương Cam X24-BR-012",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-012-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-012-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-012-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-altios-xanh-duong-cam-x24-br-012/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "product_id": 1746,
+      "slug": "bo-quan-ao-bong-ro-team-taekwondo-vang-xanh-x24-br-013",
+      "title": "Bộ Quần Áo Bóng Rổ Team Taekwondo Vàng Xanh X24-BR-013",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-taekwondo-vang-xanh-x24-br-013/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2808,
+      "media": {
+        "id": 2808,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ Team Taekwondo Vàng Xanh X24-BR-013",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-013-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-013-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-013-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-taekwondo-vang-xanh-x24-br-013/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "product_id": 1744,
+      "slug": "bo-quan-ao-bong-ro-binh-minh-vang-xanh-x24-br-014",
+      "title": "Bộ Quần Áo Bóng Rổ Bình Minh Vàng Xanh X24-BR-014",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-binh-minh-vang-xanh-x24-br-014/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2810,
+      "media": {
+        "id": 2810,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ Bình Minh Vàng Xanh X24-BR-014",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-014-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-014-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-014-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-binh-minh-vang-xanh-x24-br-014/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "product_id": 1742,
+      "slug": "bo-quan-ao-bong-ro-team-finish-vang-gradient-x24-br-015",
+      "title": "Bộ Quần Áo Bóng Rổ Team Finish Vàng Gradient X24-BR-015",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-finish-vang-gradient-x24-br-015/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2812,
+      "media": {
+        "id": 2812,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ Team Finish Vàng Gradient X24-BR-015",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-015-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-015-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-015-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-finish-vang-gradient-x24-br-015/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "product_id": 1740,
+      "slug": "bo-quan-ao-bong-ro-team-ho-da-vang-x24-br-016",
+      "title": "Bộ Quần Áo Bóng Rổ Team Hồ Đá Vàng X24-BR-016",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-ho-da-vang-x24-br-016/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2814,
+      "media": {
+        "id": 2814,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ Team Hồ Đá Vàng X24-BR-016",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-016-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-016-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-016-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-ho-da-vang-x24-br-016/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "product_id": 1738,
+      "slug": "bo-quan-ao-bong-ro-speed-coffee-trang-x24-br-017",
+      "title": "Bộ Quần Áo Bóng Rổ Speed Coffee Trắng X24-BR-017",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-speed-coffee-trang-x24-br-017/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2816,
+      "media": {
+        "id": 2816,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ Speed Coffee Trắng X24-BR-017",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-017-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-017-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-017-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-speed-coffee-trang-x24-br-017/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "product_id": 1736,
+      "slug": "bo-quan-ao-bong-ro-team-review-hn-tim-x24-br-018",
+      "title": "Bộ Quần Áo Bóng Rổ Team Review HN Tím X24-BR-018",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-review-hn-tim-x24-br-018/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2818,
+      "media": {
+        "id": 2818,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ Team Review HN Tím X24-BR-018",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-018-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-018-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-018-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-review-hn-tim-x24-br-018/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "product_id": 1733,
+      "slug": "bo-quan-ao-bong-ro-vinastar-hong-xanh-x24-br-019",
+      "title": "Bộ Quần Áo Bóng Rổ VINASTAR Hồng Xanh X24-BR-019",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-vinastar-hong-xanh-x24-br-019/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2820,
+      "media": {
+        "id": 2820,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ VINASTAR Hồng Xanh X24-BR-019",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-019-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-019-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-019-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-vinastar-hong-xanh-x24-br-019/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "product_id": 1731,
+      "slug": "bo-quan-ao-bong-ro-gradient-nang-luong-hong-vang-x24-br-020",
+      "title": "Bộ Quần Áo Bóng Rổ Gradient Năng Lượng Hồng Vàng X24-BR-020",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-gradient-nang-luong-hong-vang-x24-br-020/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2822,
+      "media": {
+        "id": 2822,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ Gradient Năng Lượng Hồng Vàng X24-BR-020",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-020-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-020-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-020-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-gradient-nang-luong-hong-vang-x24-br-020/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "product_id": 1729,
+      "slug": "bo-quan-ao-bong-ro-team-review-ha-noi-hong-x24-br-021",
+      "title": "Bộ Quần Áo Bóng Rổ Team Review Hà Nội Hồng X24-BR-021",
+      "link": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-review-ha-noi-hong-x24-br-021/",
+      "status": 200,
+      "categories": [
+        101,
+        97,
+        102,
+        95,
+        70,
+        75
+      ],
+      "required_categories_present": true,
+      "category_100_absent": true,
+      "forbidden_terms_found": [],
+      "title_audience_terms_found": [],
+      "required_phrases_present": [
+        "áo bóng rổ tiểu học",
+        "áo bóng rổ cho trẻ lớp 4-5",
+        "áo bóng rổ lớp 9",
+        "áo bóng rổ học sinh cấp 3",
+        "áo bóng rổ THPT"
+      ],
+      "has_age_fit_box": false,
+      "featured_media": 2824,
+      "media": {
+        "id": 2824,
+        "alt_text": "Ảnh mẫu học sinh cấp 3 mặc Bộ Quần Áo Bóng Rổ Team Review Hà Nội Hồng X24-BR-021",
+        "media_type": "image",
+        "mime_type": "image/webp",
+        "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-021-ao-bong-ro-thpt.webp",
+        "head": {
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      },
+      "body_images": [
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-021-ao-bong-ro-tieu-hoc.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        },
+        {
+          "source_url": "https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/x24-br-021-ao-bong-ro-thpt.webp",
+          "head": {
+            "status": 200,
+            "location": null,
+            "contentType": "image/webp"
+          }
+        }
+      ],
+      "old_url_head": {
+        "status": 301,
+        "location": "https://mayaobongro.vn/bo-quan-ao-bong-ro-team-review-ha-noi-hong-x24-br-021/",
+        "contentType": "text/html; charset=UTF-8"
+      }
+    }
+  ]
+}

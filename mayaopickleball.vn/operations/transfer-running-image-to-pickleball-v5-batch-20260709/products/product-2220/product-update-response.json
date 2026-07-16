@@ -1,0 +1,415 @@
+{
+  "id": 2869,
+  "name": "Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động",
+  "slug": "bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong",
+  "permalink": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/",
+  "date_created": "2026-07-10T10:06:48",
+  "date_created_gmt": "2026-07-10T10:06:48",
+  "date_modified": "2026-07-10T10:15:08",
+  "date_modified_gmt": "2026-07-10T10:15:08",
+  "type": "simple",
+  "status": "publish",
+  "featured": false,
+  "catalog_visibility": "visible",
+  "description": "<p><strong>Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động</strong> được phát triển từ ngôn ngữ thiết kế thể thao nổi bật với tông tím. Bố cục họa tiết được làm mới cho pickleball, giữ cảm giác năng lượng trên sân nhưng loại bỏ toàn bộ dấu hiệu của ảnh nguồn cũ.</p>\n<figure><img src=\"https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-1.webp\" alt=\"Bộ quần áo pickleball X24-PB-086 tím áo có tay có cổ\" /></figure>\n<p>Ảnh A thể hiện biến thể áo có tay có cổ cho cả nam và nữ, giữ cảm giác lịch sự, dễ mặc khi làm đồng phục câu lạc bộ hoặc đội nhóm.</p>\n<p>Ảnh B thể hiện biến thể không ống tay: nam cổ tròn, nữ thường có cổ áo và có thể xuất hiện biến thể cổ tròn với tỷ lệ thấp hơn. Hai ảnh vẫn giữ cùng tông màu, cùng bố cục họa tiết và cùng nhận diện X24 để khách dễ hiểu đây là cùng một mã thiết kế.</p>\n<figure><img src=\"https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-2.webp\" alt=\"Bộ quần áo pickleball X24-PB-086 tím biến thể không ống tay\" /></figure>\n<p>X24-PB-086 phù hợp cho nhóm bạn, câu lạc bộ pickleball, đội phong trào hoặc sự kiện nội bộ cần đồng phục riêng. X24 Sport có thể tư vấn phối size nam nữ, thêm tên đội, số áo hoặc logo để tạo bộ trang phục đồng nhất và chuyên nghiệp.</p>",
+  "short_description": "Bộ quần áo pickleball X24-PB-086 nổi bật với tông tím, gồm biến thể áo có tay có cổ và áo không ống tay cho nam nữ, phù hợp luyện tập, câu lạc bộ hoặc đồng phục đội nhóm.",
+  "sku": "X24-PB-086",
+  "price": "135000",
+  "regular_price": "200000",
+  "sale_price": "135000",
+  "date_on_sale_from": null,
+  "date_on_sale_from_gmt": null,
+  "date_on_sale_to": null,
+  "date_on_sale_to_gmt": null,
+  "on_sale": true,
+  "purchasable": false,
+  "total_sales": 0,
+  "virtual": false,
+  "downloadable": false,
+  "downloads": [],
+  "download_limit": -1,
+  "download_expiry": -1,
+  "external_url": "",
+  "button_text": "",
+  "tax_status": "taxable",
+  "tax_class": "",
+  "manage_stock": false,
+  "stock_quantity": null,
+  "backorders": "no",
+  "backorders_allowed": false,
+  "backordered": false,
+  "low_stock_amount": null,
+  "sold_individually": false,
+  "weight": "",
+  "dimensions": {
+    "length": "",
+    "width": "",
+    "height": ""
+  },
+  "shipping_required": true,
+  "shipping_taxable": true,
+  "shipping_class": "",
+  "shipping_class_id": 0,
+  "reviews_allowed": true,
+  "average_rating": "0",
+  "rating_count": 0,
+  "upsell_ids": [],
+  "cross_sell_ids": [],
+  "parent_id": 0,
+  "purchase_note": "",
+  "categories": [
+    {
+      "id": 95,
+      "name": "Áo Pickleball",
+      "slug": "ao-pickleball"
+    },
+    {
+      "id": 96,
+      "name": "Áo Pickleball Thiết Kế Riêng",
+      "slug": "ao-pickleball-thiet-ke-rieng"
+    },
+    {
+      "id": 71,
+      "name": "Áo Pickleball Có Tay",
+      "slug": "ao-pickleball-co-tay"
+    },
+    {
+      "id": 70,
+      "name": "Áo Pickleball Không Tay",
+      "slug": "ao-pickleball-khong-tay"
+    }
+  ],
+  "brands": [],
+  "tags": [
+    {
+      "id": 108,
+      "name": "áo pickleball có cổ",
+      "slug": "ao-pickleball-co-co"
+    },
+    {
+      "id": 97,
+      "name": "áo pickleball nam",
+      "slug": "ao-pickleball-nam"
+    },
+    {
+      "id": 98,
+      "name": "áo pickleball nữ",
+      "slug": "ao-pickleball-nu"
+    },
+    {
+      "id": 100,
+      "name": "áo pickleball thiết kế riêng",
+      "slug": "ao-pickleball-thiet-ke-rieng"
+    },
+    {
+      "id": 99,
+      "name": "bộ quần áo pickleball nam nữ",
+      "slug": "bo-quan-ao-pickleball-nam-nu"
+    },
+    {
+      "id": 101,
+      "name": "đồng phục pickleball",
+      "slug": "dong-phuc-pickleball"
+    },
+    {
+      "id": 136,
+      "name": "màu tím",
+      "slug": "mau-tim"
+    }
+  ],
+  "images": [
+    {
+      "id": 2985,
+      "date_created": "2026-07-10T10:14:45",
+      "date_created_gmt": "2026-07-10T10:14:45",
+      "date_modified": "2026-07-10T10:15:08",
+      "date_modified_gmt": "2026-07-10T10:15:08",
+      "src": "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-1.webp",
+      "name": "x24-pb-086-anh-1",
+      "alt": "Bộ quần áo pickleball X24-PB-086 tím áo có tay có cổ"
+    },
+    {
+      "id": 2993,
+      "date_created": "2026-07-10T10:14:55",
+      "date_created_gmt": "2026-07-10T10:14:55",
+      "date_modified": "2026-07-10T10:14:55",
+      "date_modified_gmt": "2026-07-10T10:14:55",
+      "src": "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-2.webp",
+      "name": "x24-pb-086-anh-2",
+      "alt": "Bộ quần áo pickleball X24-PB-086 tím biến thể không ống tay"
+    }
+  ],
+  "attributes": [],
+  "default_attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "menu_order": 0,
+  "price_html": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><bdi>200.000&nbsp;<span class=\"woocommerce-Price-currencySymbol\">&#8363;</span></bdi></span></del> <span class=\"screen-reader-text\">Giá gốc là: 200.000&nbsp;&#8363;.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><bdi>135.000&nbsp;<span class=\"woocommerce-Price-currencySymbol\">&#8363;</span></bdi></span></ins><span class=\"screen-reader-text\">Giá hiện tại là: 135.000&nbsp;&#8363;.</span>",
+  "related_ids": [
+    2685,
+    2676,
+    2697,
+    2673,
+    2688
+  ],
+  "meta_data": [
+    {
+      "id": 28084,
+      "key": "_x24_transfer_source_image_url",
+      "value": "https://cdn.mayaochaybo.vn/wp-content/uploads/2026/06/AoChayBo-X24-CB-067-Tim-Kieu2.jpg"
+    },
+    {
+      "id": 28085,
+      "key": "_x24_transfer_source_product_key",
+      "value": "product-2220"
+    },
+    {
+      "id": 28086,
+      "key": "_x24_transfer_source_product_id",
+      "value": "2220"
+    },
+    {
+      "id": 28087,
+      "key": "_x24_transfer_source_product_url",
+      "value": "https://mayaochaybo.vn/ao-chay-bo-altis-x24-tim-kieu-2-nang-dong-ca-tinh-danh-cho-dan-chay-bo/"
+    },
+    {
+      "id": 28088,
+      "key": "_x24_transfer_source_signature",
+      "value": "89de668ceddf59c0a68e48434aed0aeabee6f7c5e3716f32f21cc42d9773d7a5"
+    },
+    {
+      "id": 28089,
+      "key": "_x24_transfer_schema",
+      "value": "transfer-running-image-to-pickleball-v5"
+    },
+    {
+      "id": 28090,
+      "key": "_x24_transfer_claim_status",
+      "value": "completed"
+    },
+    {
+      "id": 28091,
+      "key": "_x24_transfer_claim_updated_at",
+      "value": "2026-07-10T10:15:03+00:00"
+    },
+    {
+      "id": 31191,
+      "key": "_yoast_wpseo_focuskw",
+      "value": "bộ quần áo pickleball tím"
+    },
+    {
+      "id": 31192,
+      "key": "_yoast_wpseo_metadesc",
+      "value": "Bộ quần áo pickleball X24-PB-086 tông tím, có biến thể áo có tay có cổ và không ống tay cho nam nữ, phù hợp câu lạc bộ và đồng phục đội nhóm."
+    },
+    {
+      "id": 31193,
+      "key": "_yoast_wpseo_opengraph-title",
+      "value": "Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động"
+    },
+    {
+      "id": 31194,
+      "key": "_yoast_wpseo_opengraph-description",
+      "value": "Trang phục pickleball X24-PB-086 tông tím, dễ tùy chỉnh cho đội nhóm."
+    },
+    {
+      "id": 31195,
+      "key": "_yoast_wpseo_twitter-title",
+      "value": "Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động"
+    },
+    {
+      "id": 31196,
+      "key": "_yoast_wpseo_twitter-description",
+      "value": "Bộ quần áo pickleball X24-PB-086 cho nam nữ, nổi bật trên sân và phù hợp đồng phục câu lạc bộ."
+    },
+    {
+      "id": 31198,
+      "key": "_x24_transfer_featured_slot",
+      "value": "A"
+    }
+  ],
+  "stock_status": "instock",
+  "has_options": false,
+  "post_password": "",
+  "global_unique_id": "",
+  "permalink_template": "https://mayaopickleball.vn/%pagename%/",
+  "generated_slug": "bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong",
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động - May Áo Pickleball - VN</title>\n<meta name=\"description\" content=\"Bộ quần áo pickleball X24-PB-086 tông tím, có biến thể áo có tay có cổ và không ống tay cho nam nữ, phù hợp câu lạc bộ và đồng phục đội nhóm.\" />\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động\" />\n<meta property=\"og:description\" content=\"Trang phục pickleball X24-PB-086 tông tím, dễ tùy chỉnh cho đội nhóm.\" />\n<meta property=\"og:url\" content=\"https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/\" />\n<meta property=\"og:site_name\" content=\"May Áo Pickleball - VN\" />\n<meta property=\"article:modified_time\" content=\"2026-07-10T10:15:08+00:00\" />\n<meta property=\"og:image\" content=\"https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-1.webp\" />\n\t<meta property=\"og:image:width\" content=\"1200\" />\n\t<meta property=\"og:image:height\" content=\"1200\" />\n\t<meta property=\"og:image:type\" content=\"image/webp\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:title\" content=\"Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động\" />\n<meta name=\"twitter:description\" content=\"Bộ quần áo pickleball X24-PB-086 cho nam nữ, nổi bật trên sân và phù hợp đồng phục câu lạc bộ.\" />\n<meta name=\"twitter:label1\" content=\"Ước tính thời gian đọc\" />\n\t<meta name=\"twitter:data1\" content=\"1 phút\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/\",\"url\":\"https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/\",\"name\":\"Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động - May Áo Pickleball - VN\",\"isPartOf\":{\"@id\":\"https://mayaopickleball.vn/#website\"},\"primaryImageOfPage\":{\"@id\":\"https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/#primaryimage\"},\"image\":{\"@id\":\"https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/#primaryimage\"},\"thumbnailUrl\":\"https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-1.webp\",\"datePublished\":\"2026-07-10T10:06:48+00:00\",\"dateModified\":\"2026-07-10T10:15:08+00:00\",\"description\":\"Bộ quần áo pickleball X24-PB-086 tông tím, có biến thể áo có tay có cổ và không ống tay cho nam nữ, phù hợp câu lạc bộ và đồng phục đội nhóm.\",\"breadcrumb\":{\"@id\":\"https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/#breadcrumb\"},\"inLanguage\":\"vi\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/\"]}]},{\"@type\":\"ImageObject\",\"inLanguage\":\"vi\",\"@id\":\"https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/#primaryimage\",\"url\":\"https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-1.webp\",\"contentUrl\":\"https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-1.webp\",\"width\":1200,\"height\":1200,\"caption\":\"Bộ quần áo pickleball X24-PB-086 tím áo có tay có cổ\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://mayaopickleball.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Shop\",\"item\":\"https://mayaopickleball.vn/shop/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaopickleball.vn/#website\",\"url\":\"https://mayaopickleball.vn/\",\"name\":\"May Áo Pickleball - VN\",\"description\":\"Chuyên May Áo Pickleball Cho Đội Nhóm, CLB và Giải Giao Hữu\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaopickleball.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"},{\"@type\":\"LocalBusiness\",\"@id\":\"https://mayaopickleball.vn/#localbusiness\",\"name\":\"X24 Sport - May Áo Pickleball\",\"description\":\"Xưởng may áo pickleball trực tiếp, thiết kế riêng miễn phí\",\"url\":\"https://mayaopickleball.vn/\",\"telephone\":\"+84977130115\",\"priceRange\":\"50.000đ - 500.000đ\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"1090/22D Quang Trung, Phường 14\",\"addressLocality\":\"Gò Vấp\",\"addressRegion\":\"TP. Hồ Chí Minh\",\"addressCountry\":\"VN\"},\"openingHoursSpecification\":[{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"],\"opens\":\"08:00\",\"closes\":\"18:00\"}]}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+  "yoast_head_json": {
+    "title": "Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động - May Áo Pickleball - VN",
+    "description": "Bộ quần áo pickleball X24-PB-086 tông tím, có biến thể áo có tay có cổ và không ống tay cho nam nữ, phù hợp câu lạc bộ và đồng phục đội nhóm.",
+    "robots": {
+      "index": "index",
+      "follow": "follow",
+      "max-snippet": "max-snippet:-1",
+      "max-image-preview": "max-image-preview:large",
+      "max-video-preview": "max-video-preview:-1"
+    },
+    "canonical": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/",
+    "og_locale": "vi_VN",
+    "og_type": "article",
+    "og_title": "Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động",
+    "og_description": "Trang phục pickleball X24-PB-086 tông tím, dễ tùy chỉnh cho đội nhóm.",
+    "og_url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/",
+    "og_site_name": "May Áo Pickleball - VN",
+    "article_modified_time": "2026-07-10T10:15:08+00:00",
+    "og_image": [
+      {
+        "width": 1200,
+        "height": 1200,
+        "url": "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-1.webp",
+        "type": "image/webp"
+      }
+    ],
+    "twitter_card": "summary_large_image",
+    "twitter_title": "Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động",
+    "twitter_description": "Bộ quần áo pickleball X24-PB-086 cho nam nữ, nổi bật trên sân và phù hợp đồng phục câu lạc bộ.",
+    "twitter_misc": {
+      "Ước tính thời gian đọc": "1 phút"
+    },
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/",
+          "url": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/",
+          "name": "Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động - May Áo Pickleball - VN",
+          "isPartOf": {
+            "@id": "https://mayaopickleball.vn/#website"
+          },
+          "primaryImageOfPage": {
+            "@id": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/#primaryimage"
+          },
+          "image": {
+            "@id": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/#primaryimage"
+          },
+          "thumbnailUrl": "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-1.webp",
+          "datePublished": "2026-07-10T10:06:48+00:00",
+          "dateModified": "2026-07-10T10:15:08+00:00",
+          "description": "Bộ quần áo pickleball X24-PB-086 tông tím, có biến thể áo có tay có cổ và không ống tay cho nam nữ, phù hợp câu lạc bộ và đồng phục đội nhóm.",
+          "breadcrumb": {
+            "@id": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/#breadcrumb"
+          },
+          "inLanguage": "vi",
+          "potentialAction": [
+            {
+              "@type": "ReadAction",
+              "target": [
+                "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/"
+              ]
+            }
+          ]
+        },
+        {
+          "@type": "ImageObject",
+          "inLanguage": "vi",
+          "@id": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/#primaryimage",
+          "url": "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-1.webp",
+          "contentUrl": "https://cdn.mayaopickleball.vn/wp-content/uploads/2026/07/x24-pb-086-anh-1.webp",
+          "width": 1200,
+          "height": 1200,
+          "caption": "Bộ quần áo pickleball X24-PB-086 tím áo có tay có cổ"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://mayaopickleball.vn/bo-quan-ao-pickleball-x24-pb-086-tim-nang-dong/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://mayaopickleball.vn/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Shop",
+              "item": "https://mayaopickleball.vn/shop/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Bộ Quần Áo Pickleball X24-PB-086 Tím Năng Động"
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mayaopickleball.vn/#website",
+          "url": "https://mayaopickleball.vn/",
+          "name": "May Áo Pickleball - VN",
+          "description": "Chuyên May Áo Pickleball Cho Đội Nhóm, CLB và Giải Giao Hữu",
+          "potentialAction": [
+            {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://mayaopickleball.vn/?s={search_term_string}"
+              },
+              "query-input": {
+                "@type": "PropertyValueSpecification",
+                "valueRequired": true,
+                "valueName": "search_term_string"
+              }
+            }
+          ],
+          "inLanguage": "vi"
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://mayaopickleball.vn/#localbusiness",
+          "name": "X24 Sport - May Áo Pickleball",
+          "description": "Xưởng may áo pickleball trực tiếp, thiết kế riêng miễn phí",
+          "url": "https://mayaopickleball.vn/",
+          "telephone": "+84977130115",
+          "priceRange": "50.000đ - 500.000đ",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1090/22D Quang Trung, Phường 14",
+            "addressLocality": "Gò Vấp",
+            "addressRegion": "TP. Hồ Chí Minh",
+            "addressCountry": "VN"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "08:00",
+              "closes": "18:00"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_links": {
+    "self": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wc/v3/products/2869",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://mayaopickleball.vn/wp-json/wc/v3/products"
+      }
+    ]
+  }
+}

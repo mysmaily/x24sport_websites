@@ -1,0 +1,24 @@
+Use case: identity-preserve
+Asset type: square WooCommerce product image for mayaobongro.vn
+
+Image 1 is a garment-design reference only. Preserve the useful palette, gradient, graphic motif, valid team/design marks, number placement, and approved decorative text from the source design. Remove the adult/running model, running pose, road/track/race context, old promotional frame, old footer, mayaochaybo.vn, old hotline, size label, and running-shirt cut.
+
+Convert the garment into an authentic basketball uniform: wider basketball shoulders, rib-knit neckline and armholes, relaxed straight torso, and a hem 5-8 cm longer than a running or football shirt. The hem must cover the shorts waistband. Pair it with loose knee-length basketball shorts whose palette, gradient, trim, panels, player number, and restrained pattern visibly coordinate with the jersey. Never default the shorts to black solely because the running reference used black shorts.
+
+Text decisions: Replace or remove running/race words. If the source has RUN, RUNNER, marathon, race, road, or running slogans, remove them or convert to neutral team/basketball identity. Keep non-running team names and abstract logos when they look like valid design marks.
+
+Scene: clean indoor school gym, generic Vietnamese school basketball setting, no readable real school identity.
+
+Subject: High-school version, fictional Vietnamese student(s), age 16-17, athletic but age-appropriate.
+
+Model composition: One fictional Vietnamese high-school, age 16-17 basketball female student as the only product model, confident and age-appropriate, clearly showing the jersey front and coordinated shorts.
+
+Action/pose: controlled dribble. The main product model must be front-facing or three-quarter facing, and the jersey plus coordinated shorts must be clearly visible.
+
+Composition: Square 1:1, garment fully visible, clean category-thumbnail readability, natural basketball-ready pose. Supporting teammates, if any, must not hide the design.
+
+Style: Photorealistic commercial Vietnamese school sportswear photography, realistic breathable mesh, natural folds, correct anatomy, plausible daylight.
+
+Constraints: fictional student only, age-appropriate, non-sexualized, no exposed midriff, no real school identifiers, no extra logos, no running terminology. The mayaobongro.vn logo and contact overlay will be added later in post-processing; do not generate a watermark or footer.
+
+Avoid: running pose, track, road race, marathon cues, running shorts, tight singlet fit, cropped jersey, adult glamour styling, bodybuilder physique, distorted text, distorted hands, copied mockup frame, third-party watermark.
