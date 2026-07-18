@@ -1,0 +1,5328 @@
+{
+    "schemaVersion": 1,
+    "source": "wordpress",
+    "tenantSlug": "mayaobongro",
+    "exportedAt": "2026-07-16T15:09:24+00:00",
+    "products": [
+        {
+            "sourceId": "611",
+            "slug": "bo-quan-ao-bong-ro-mau-ombre-do-xanh-navy-x24-br-295",
+            "sku": "X24-BR-295",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "614",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-bien-thiet-ke-nhe-mat-chuyen-dung-cho-x24-br-294",
+            "sku": "X24-BR-294",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "617",
+            "slug": "bo-quan-ao-bong-ro-ombre-hong-pastel-xanh-duong-thoang-mat-nang-dong-x24-br-293",
+            "sku": "X24-BR-293",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "620",
+            "slug": "bo-quan-ao-bong-ro-mau-vang-ombre-thoi-trang-nang-dong-x24-br-292",
+            "sku": "X24-BR-292",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "623",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-ya-chuyen-mau-thoi-trang-x24-br-291",
+            "sku": "X24-BR-291",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "626",
+            "slug": "bo-quan-ao-bong-ro-do-phoi-xanh-la-gradient-nang-dong-x24-br-290",
+            "sku": "X24-BR-290",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "629",
+            "slug": "bo-quan-ao-bong-ro-xanh-tim-chuyen-sac-thiet-ke-the-thao-nang-dong-x24-br-289",
+            "sku": "X24-BR-289",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "632",
+            "slug": "bo-quan-ao-bong-ro-mau-vang-xanh-chuyen-sac-thoi-trang-x24-br-288",
+            "sku": "X24-BR-288",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "635",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-hong-tim-nang-dong-thiet-ke-chuyen-sac-noi-bat-x24-br-287",
+            "sku": "X24-BR-287",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "638",
+            "slug": "bo-quan-ao-bong-ro-tay-ngan-chuyen-mau-do-vang-xanh-noi-bat-x24-br-286",
+            "sku": "X24-BR-286",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "641",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-ombre-vang-nhe-tenh-chuan-form-the-thao-x24-br-285",
+            "sku": "X24-BR-285",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "644",
+            "slug": "bo-quan-ao-bong-ro-mau-tim-than-phoi-do-ruou-vang-thoi-trang-the-thao-x24-br-284",
+            "sku": "X24-BR-284",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "647",
+            "slug": "bo-quan-ao-bong-ro-phoi-tim-hong-loang-thoi-trang-va-nang-dong-x24-br-283",
+            "sku": "X24-BR-283",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "650",
+            "slug": "bo-quan-ao-bong-ro-mau-vang-xanh-ombre-thoi-trang-nang-dong-x24-br-282",
+            "sku": "X24-BR-282",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "653",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-chuoi-nang-dong-x24-br-281",
+            "sku": "X24-BR-281",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "656",
+            "slug": "bo-quan-ao-bong-ro-mau-do-phoi-gradient-xanh-la-xanh-duong-den-x24-br-280",
+            "sku": "X24-BR-280",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "659",
+            "slug": "bo-quan-ao-bong-ro-mau-vang-hoa-tiet-rung-nui-nang-dong-ma-06-x24-br-279",
+            "sku": "X24-BR-279",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "662",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-bich-phoi-gradient-nang-dong-x24-br-278",
+            "sku": "X24-BR-278",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "665",
+            "slug": "bo-quan-ao-bong-ro-hoc-sinh-x24-nhieu-mau-x24-br-106",
+            "sku": "X24-BR-106",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "668",
+            "slug": "bo-quan-ao-bong-ro-mau-cam-chuyen-sac-sat-nach-noi-bat-nang-dong",
+            "sku": "X24-BR-277",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "671",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-la-nang-dong-kieu-dang-sat-nach-nhe-thoang",
+            "sku": "X24-BR-276",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "674",
+            "slug": "bo-quan-ao-bong-ro-phong-cach-nang-dong-mau-do-cam-noi-bat-x24-br-275",
+            "sku": "X24-BR-275",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "677",
+            "slug": "bo-quan-ao-bong-ro-mau-tim-cam-form-slimfit-x24-br-274",
+            "sku": "X24-BR-274",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "680",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-gradient-nang-dong-cho-x24-br-264",
+            "sku": "X24-BR-264",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "683",
+            "slug": "bo-quan-ao-bong-ro-ombre-xanh-do-ngoc-khang-khuan-thoi-trang-x24-br-273",
+            "sku": "X24-BR-273",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "686",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-duong-bien-chuyen-xanh-la-thiet-ke-gradient-nang-dong-x24-br-272",
+            "sku": "X24-BR-272",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "689",
+            "slug": "bo-quan-ao-bong-ro-mau-hong-cam-nang-dong-thoi-trang-x24-br-271",
+            "sku": "X24-BR-271",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "692",
+            "slug": "bo-quan-ao-bong-ro-mau-vang-nghe-thiet-ke-the-thao-noi-bat-x24-br-270",
+            "sku": "X24-BR-270",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "695",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-ket-chuyen-sac-hien-dai-x24-br-269",
+            "sku": "X24-BR-269",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "698",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-gradient-mat-me-05-x24-br-268",
+            "sku": "X24-BR-268",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "701",
+            "slug": "bo-quan-ao-bong-ro-t-shirt-lux-phoi-mau-gradient-do-vang-xanh-x24-br-267",
+            "sku": "X24-BR-267",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "704",
+            "slug": "bo-quan-ao-bong-ro-phoi-mau-gradient-nang-dong-x24-br-265",
+            "sku": "X24-BR-265",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "707",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-duong-phoi-do-cam-vang-gradient-hien-dai-x24-br-266",
+            "sku": "X24-BR-266",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "710",
+            "slug": "bo-quan-ao-bong-ro-den-cam-nang-dong-x24-br-600",
+            "sku": "X24-BR-600",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "713",
+            "slug": "bo-quan-ao-bong-ro-do-phoi-xanh-vang-nang-dong-x24-br-599",
+            "sku": "X24-BR-599",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "716",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-phoi-trang-hoa-tiet-x24-br-598",
+            "sku": "X24-BR-598",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "719",
+            "slug": "bo-quan-ao-bong-ro-xanh-ket-hoa-tiet-sam-chop-x24-br-597",
+            "sku": "X24-BR-597",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "722",
+            "slug": "bo-quan-ao-bong-ro-do-cam-vang-nang-dong-x24-br-596",
+            "sku": "X24-BR-596",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "725",
+            "slug": "bo-quan-ao-bong-ro-vang-noi-bat-voi-hoa-x24-br-595",
+            "sku": "X24-BR-595",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "728",
+            "slug": "bo-quan-ao-bong-ro-xanh-ket-ombre-vang-thoang-x24-br-594",
+            "sku": "X24-BR-594",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "731",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-hoa-tiet-chuyen-sac-x24-br-593",
+            "sku": "X24-BR-593",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "734",
+            "slug": "bo-quan-ao-bong-ro-xanh-ya-phoi-gradient-thiet-x24-br-592",
+            "sku": "X24-BR-592",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "737",
+            "slug": "bo-quan-ao-bong-ro-do-vang-nang-dong-x24-br-591",
+            "sku": "X24-BR-591",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "740",
+            "slug": "bo-quan-ao-bong-ro-hong-nhat-chuyen-sac-trang-x24-br-590",
+            "sku": "X24-BR-590",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "743",
+            "slug": "bo-quan-ao-bong-ro-tim-than-hoa-x24-br-589",
+            "sku": "X24-BR-589",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "746",
+            "slug": "bo-quan-ao-bong-ro-xanh-ya-nang-x24-br-588",
+            "sku": "X24-BR-588",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "749",
+            "slug": "bo-quan-ao-bong-ro-chuyen-mau-xanh-navy-do-xanh-x24-br-587",
+            "sku": "X24-BR-587",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "752",
+            "slug": "bo-quan-ao-bong-ro-phoi-mau-do-vang-xanh-noi-x24-br-586",
+            "sku": "X24-BR-586",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "755",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-chuyen-sac-noi-bat-x24-br-585",
+            "sku": "X24-BR-585",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "758",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-ombre-nang-dong-x24-br-584",
+            "sku": "X24-BR-584",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "761",
+            "slug": "bo-quan-ao-bong-ro-do-do-phoi-den-thiet-x24-br-583",
+            "sku": "X24-BR-583",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "764",
+            "slug": "bo-quan-ao-bong-ro-trang-phoi-xanh-navy-thiet-x24-br-582",
+            "sku": "X24-BR-582",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "767",
+            "slug": "bo-quan-ao-bong-ro-vang-chuyen-cam-do-nang-x24-br-581",
+            "sku": "X24-BR-581",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "770",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-phoi-tim-hong-thoang-x24-br-580",
+            "sku": "X24-BR-580",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "773",
+            "slug": "bo-quan-ao-bong-ro-tim-trang-kieu-dang-x24-br-579",
+            "sku": "X24-BR-579",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "776",
+            "slug": "bo-quan-ao-bong-ro-vang-chuyen-sac-cam-trang-x24-br-578",
+            "sku": "X24-BR-578",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "779",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-va-x24-br-577",
+            "sku": "X24-BR-577",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "782",
+            "slug": "bo-quan-ao-bong-ro-xanh-ket-ket-hop-xam-x24-br-576",
+            "sku": "X24-BR-576",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "785",
+            "slug": "bo-quan-ao-bong-ro-hong-ombre-tim-noi-bat-x24-br-575",
+            "sku": "X24-BR-575",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "788",
+            "slug": "bo-quan-ao-bong-ro-tim-ombre-thiet-ke-thoi-x24-br-574",
+            "sku": "X24-BR-574",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "791",
+            "slug": "bo-quan-ao-bong-ro-gradient-vang-cam-do-noi-x24-br-573",
+            "sku": "X24-BR-573",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "794",
+            "slug": "bo-quan-ao-bong-ro-xanh-gradient-hoa-tiet-doi-x24-br-572",
+            "sku": "X24-BR-572",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "797",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-gradient-thiet-ke-khong-x24-br-571",
+            "sku": "X24-BR-571",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "800",
+            "slug": "bo-quan-ao-bong-ro-trang-phoi-soc-x24-br-570",
+            "sku": "X24-BR-570",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "803",
+            "slug": "bo-quan-ao-bong-ro-trang-phoi-tim-vang-x24-br-569",
+            "sku": "X24-BR-569",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "806",
+            "slug": "bo-quan-ao-bong-ro-trang-soc-tim-than-va-x24-br-568",
+            "sku": "X24-BR-568",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "809",
+            "slug": "bo-quan-ao-bong-ro-trang-phoi-xanh-thiet-ke-x24-br-567",
+            "sku": "X24-BR-567",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "812",
+            "slug": "bo-quan-ao-bong-ro-do-trang-nang-dong-va-x24-br-566",
+            "sku": "X24-BR-566",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "815",
+            "slug": "bo-quan-ao-bong-ro-do-do-chuyen-sac-x24-br-565",
+            "sku": "X24-BR-565",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "818",
+            "slug": "bo-quan-ao-bong-ro-tim-phoi-trang-thiet-ke-x24-br-564",
+            "sku": "X24-BR-564",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "821",
+            "slug": "bo-quan-ao-bong-ro-xanh-ly-phoi-trang-thiet-ke-x24-br-563",
+            "sku": "X24-BR-563",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "824",
+            "slug": "bo-quan-ao-bong-ro-do-chuyen-vang-thiet-ke-x24-br-562",
+            "sku": "X24-BR-562",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "827",
+            "slug": "bo-quan-ao-bong-ro-tim-phoi-trang-hoa-tiet-x24-br-561",
+            "sku": "X24-BR-561",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "830",
+            "slug": "bo-quan-ao-bong-ro-tim-than-phoi-camo-trang-mat-x24-br-560",
+            "sku": "X24-BR-560",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "833",
+            "slug": "bo-quan-ao-bong-ro-xanh-ya-chuyen-sac-thiet-x24-br-559",
+            "sku": "X24-BR-559",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "836",
+            "slug": "bo-quan-ao-bong-ro-do-gradient-dang-sat-nach-thoang-mat",
+            "sku": "X24-BR-558",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "839",
+            "slug": "bo-quan-ao-bong-ro-sat-nach-kem-chuyen-sac-xanh-thoi-trang",
+            "sku": "X24-BR-557",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "842",
+            "slug": "bo-quan-ao-bong-ro-tim-ombre-thoi-trang-thoang-x24-br-556",
+            "sku": "X24-BR-556",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "845",
+            "slug": "bo-quan-ao-bong-ro-trang-phoi-cam-vang-vien-ca-x24-br-555",
+            "sku": "X24-BR-555",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "849",
+            "slug": "bo-quan-ao-bong-ro-kem-phoi-xanh-x24-br-554",
+            "sku": "X24-BR-554",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "852",
+            "slug": "bo-quan-ao-bong-ro-vang-nang-dong-phoi-nau-x24-br-553",
+            "sku": "X24-BR-553",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "856",
+            "slug": "bo-quan-ao-bong-ro-trang-phoi-xam-vang-ca-x24-br-552",
+            "sku": "X24-BR-552",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "859",
+            "slug": "bo-quan-ao-bong-ro-do-phoi-xanh-vang-nang-x24-br-551",
+            "sku": "X24-BR-551",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "862",
+            "slug": "bo-quan-ao-bong-ro-trang-phoi-xam-cam-x24-br-550",
+            "sku": "X24-BR-550",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "865",
+            "slug": "bo-quan-ao-bong-ro-vang-tuoi-phoi-x24-br-549",
+            "sku": "X24-BR-549",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "868",
+            "slug": "bo-quan-ao-bong-ro-vang-tuoi-thoang-khi-x24-br-548",
+            "sku": "X24-BR-548",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "871",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-x24-br-547",
+            "sku": "X24-BR-547",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "874",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-phoi-soc-trang-vang-x24-br-546",
+            "sku": "X24-BR-546",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "877",
+            "slug": "bo-quan-ao-bong-ro-xanh-ya-tham-x24-br-545",
+            "sku": "X24-BR-545",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "880",
+            "slug": "bo-quan-ao-bong-ro-cam-dat-phoi-trang-vang-x24-br-544",
+            "sku": "X24-BR-544",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "883",
+            "slug": "bo-quan-ao-bong-ro-den-phoi-cam-trang-x24-br-543",
+            "sku": "X24-BR-543",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "886",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-phoi-soc-vang-cao-x24-br-542",
+            "sku": "X24-BR-542",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "889",
+            "slug": "bo-quan-ao-bong-ro-xanh-ket-phoi-vang-nang-x24-br-541",
+            "sku": "X24-BR-541",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "892",
+            "slug": "bo-quan-ao-bong-ro-cam-do-noi-bat-x24-br-540",
+            "sku": "X24-BR-540",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "895",
+            "slug": "bo-quan-ao-bong-ro-ombre-den-do-thoang-khi-x24-br-539",
+            "sku": "X24-BR-539",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "898",
+            "slug": "bo-quan-ao-bong-ro-tim-than-chuyen-sac-x24-br-538",
+            "sku": "X24-BR-538",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "901",
+            "slug": "bo-quan-ao-bong-ro-trang-xanh-ombre-dang-suong-thoang-x24-br-537",
+            "sku": "X24-BR-537",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "904",
+            "slug": "bo-quan-ao-bong-ro-do-nang-dong-kieu-dang-x24-br-536",
+            "sku": "X24-BR-536",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "907",
+            "slug": "bo-quan-ao-bong-ro-vang-nang-dong-voi-hoa-x24-br-535",
+            "sku": "X24-BR-535",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "910",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-nang-dong-x24-br-534",
+            "sku": "X24-BR-534",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "913",
+            "slug": "bo-quan-ao-bong-ro-xanh-ya-phoi-hoa-tiet-x24-br-533",
+            "sku": "X24-BR-533",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "916",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-ombre-x24-br-532",
+            "sku": "X24-BR-532",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "919",
+            "slug": "bo-quan-ao-bong-ro-phoi-mau-gradient-xanh-duong-trang-x24-br-531",
+            "sku": "X24-BR-531",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "922",
+            "slug": "bo-quan-ao-bong-ro-gradient-do-cam-vang-nang-dong-x24-br-530",
+            "sku": "X24-BR-530",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "925",
+            "slug": "bo-quan-ao-bong-ro-sat-nach-xanh-duong-xanh-ngoc-nang-dong",
+            "sku": "X24-BR-529",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "928",
+            "slug": "bo-quan-ao-bong-ro-ombre-xanh-la-kem-nang-dong-x24-br-528",
+            "sku": "X24-BR-528",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "931",
+            "slug": "bo-quan-ao-bong-ro-sac-da-dang-xanh-duong-x24-br-437",
+            "sku": "X24-BR-437",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "934",
+            "slug": "bo-quan-ao-bong-ro-gradient-do-cam-vang-thiet-x24-br-527",
+            "sku": "X24-BR-527",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "937",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-mau-gradient-xanh-duong-x24-br-526",
+            "sku": "X24-BR-526",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "940",
+            "slug": "bo-quan-ao-bong-ro-gradient-nang-dong-do-vang-x24-br-436",
+            "sku": "X24-BR-436",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "944",
+            "slug": "bo-quan-ao-bong-ro-su-kien-tong-xanh-hong-trang-x24-br-525",
+            "sku": "X24-BR-525",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "947",
+            "slug": "bo-quan-ao-bong-ro-chuyen-sac-do-vang-xanh-noi-x24-br-524",
+            "sku": "X24-BR-524",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "950",
+            "slug": "bo-quan-ao-bong-ro-tim-hong-cam-thiet-ke-gradient-x24-br-523",
+            "sku": "X24-BR-523",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "953",
+            "slug": "bo-quan-ao-bong-ro-chuyen-sac-xanh-dam-lam-nhat-x24-br-522",
+            "sku": "X24-BR-522",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "956",
+            "slug": "bo-quan-ao-bong-ro-xanh-bien-do-den-chuyen-x24-br-435",
+            "sku": "X24-BR-435",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "959",
+            "slug": "bo-quan-ao-bong-ro-phoi-mau-do-cam-tim-chuyen-x24-br-521",
+            "sku": "X24-BR-521",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "962",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-hoa-tiet-loang-x24-br-520",
+            "sku": "X24-BR-520",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "965",
+            "slug": "bo-quan-ao-bong-ro-cam-nang-dong-form-sat-nach",
+            "sku": "X24-BR-519",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "968",
+            "slug": "bo-quan-ao-bong-ro-do-chuyen-sac-hoa-tiet-ke-x24-br-518",
+            "sku": "X24-BR-518",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "971",
+            "slug": "bo-quan-ao-bong-ro-vang-ombre-hoa-tiet-chuyen-x24-br-517",
+            "sku": "X24-BR-517",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "974",
+            "slug": "bo-quan-ao-bong-ro-xanh-ve-chai-hoa-tiet-chuyen-x24-br-516",
+            "sku": "X24-BR-516",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "977",
+            "slug": "bo-quan-ao-bong-ro-trang-hoa-tiet-cam-do-chuyen-x24-br-515",
+            "sku": "X24-BR-515",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "980",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-thiet-ke-nang-dong-x24-br-514",
+            "sku": "X24-BR-514",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "983",
+            "slug": "bo-quan-ao-bong-ro-trang-phoi-xanh-ket-phong-cach-x24-br-513",
+            "sku": "X24-BR-513",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "986",
+            "slug": "bo-quan-ao-bong-ro-trang-xanh-duong-chuyen-x24-br-512",
+            "sku": "X24-BR-512",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "989",
+            "slug": "bo-quan-ao-bong-ro-hong-nang-dong-hoa-tiet-luc-x24-br-511",
+            "sku": "X24-BR-511",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "992",
+            "slug": "bo-quan-ao-bong-ro-vang-ombre-nang-x24-br-510",
+            "sku": "X24-BR-510",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "995",
+            "slug": "bo-quan-ao-bong-ro-sat-nach-lux-phoi-mau-do-cam",
+            "sku": "X24-BR-509",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "998",
+            "slug": "bo-quan-ao-bong-ro-sat-nach-lux-phoi-mau-gradient-noi-bat",
+            "sku": "X24-BR-508",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1004",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-nang-dong-x24-br-507",
+            "sku": "X24-BR-507",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1114",
+            "slug": "bo-quan-ao-bong-ro-atlas-teams-trang-nga-phoi-tim-hong-cam-x24-br-105",
+            "sku": "X24-BR-105",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1116",
+            "slug": "bo-quan-ao-bong-ro-xanh-duong-vang-gradient-nang-dong-ca-tinh-x24-br-104",
+            "sku": "X24-BR-104",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1118",
+            "slug": "bo-quan-ao-bong-ro-tay-au-ceramics-gradient-xanh-la-cam-vang-x24-br-103",
+            "sku": "X24-BR-103",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1120",
+            "slug": "bo-quan-ao-bong-ro-viet-nam-thiet-ke-trang-nang-dong-tinh-than-the-thao-manh-me-x24-br-102",
+            "sku": "X24-BR-102",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1122",
+            "slug": "bo-quan-ao-bong-ro-hong-den-blink-kids-dance-team-gradient-ca-tinh-cho-be-nang-dong-x24-br-101",
+            "sku": "X24-BR-101",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1124",
+            "slug": "bo-quan-ao-bong-ro-nam-mau-xanh-la-play-faster-nang-luong-tu-tu-nhien-x24-br-100",
+            "sku": "X24-BR-100",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1126",
+            "slug": "bo-quan-ao-bong-ro-an-bien-team-xanh-bien-do-den-x24-br-099",
+            "sku": "X24-BR-099",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1128",
+            "slug": "bo-quan-ao-bong-ro-five-fit-gradient-hong-xanh-duong-x24-br-098",
+            "sku": "X24-BR-098",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1130",
+            "slug": "bo-quan-ao-bong-ro-sat-nach-do-cam-vietnam-thiet-ke-nang-dong-cho-doi-nhom-x24-br-097",
+            "sku": "X24-BR-097",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1132",
+            "slug": "bo-quan-ao-bong-ro-sunday-team-xanh-duong-chuyen-sac-x24-br-096",
+            "sku": "X24-BR-096",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1135",
+            "slug": "bo-quan-ao-bong-ro-an-bien-team-xanh-bien-do-cam-x24-br-095",
+            "sku": "X24-BR-095",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1137",
+            "slug": "bo-quan-ao-bong-ro-trang-hong-xanh-gradient-nang-dong-thoi-trang-x24-br-094",
+            "sku": "X24-BR-094",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1139",
+            "slug": "bo-quan-ao-bong-ro-nui-hieu-sac-mau-thien-nhien-ruc-ro-x24-br-093",
+            "sku": "X24-BR-093",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1141",
+            "slug": "bo-quan-ao-bong-ro-team-team-trang-xanh-gradient-nang-dong-x24-br-092",
+            "sku": "X24-BR-092",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1143",
+            "slug": "bo-quan-ao-bong-ro-chuyen-sac-vang-cam-do-nang-luong-tu-hao-x24-br-091",
+            "sku": "X24-BR-091",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1145",
+            "slug": "bo-quan-ao-bong-ro-gradient-hong-tim-xanh-nang-dong-ca-tinh-x24-br-090",
+            "sku": "X24-BR-090",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1147",
+            "slug": "bo-quan-ao-bong-ro-trang-thiet-ke-rieng-nang-dong-thoang-mat-x24-br-089",
+            "sku": "X24-BR-089",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1149",
+            "slug": "bo-quan-ao-bong-ro-you-got-this-mau-ombre-ca-tinh-x24-br-088",
+            "sku": "X24-BR-088",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1151",
+            "slug": "bo-quan-ao-bong-ro-phoi-mau-chuyen-sac-xanh-bien-do-cam-xanh-ngoc-x24-br-087",
+            "sku": "X24-BR-087",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1154",
+            "slug": "bo-quan-ao-bong-ro-xanh-duong-trang-speedy-mat-me-the-thao-tinh-than-viet-x24-br-086",
+            "sku": "X24-BR-086",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1156",
+            "slug": "bo-quan-ao-bong-ro-nam-mau-den-tu-hao-viet-nam-x24-br-085",
+            "sku": "X24-BR-085",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1158",
+            "slug": "bo-quan-ao-bong-ro-vang-gradient-rung-nui-niem-tu-hao-viet-nam-x24-br-084",
+            "sku": "X24-BR-084",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1160",
+            "slug": "bo-quan-ao-bong-ro-xanh-bien-ombre-play-when-you-can-sat-nach-x24-br-083",
+            "sku": "X24-BR-083",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1166",
+            "slug": "bo-quan-ao-bong-ro-mau-do-tu-hao-viet-nam-thiet-ke-nghe-thuat-tinh-than-the-thao-x24-br-082",
+            "sku": "X24-BR-082",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1168",
+            "slug": "bo-quan-ao-bong-ro-co-do-sao-vang-tu-hao-x24-br-506",
+            "sku": "X24-BR-506",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1170",
+            "slug": "bo-quan-ao-bong-ro-viet-mau-do-tu-hao-dan-x24-br-492",
+            "sku": "X24-BR-492",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1172",
+            "slug": "bo-quan-ao-bong-ro-do-tu-hao-viet-nang-luong-x24-br-505",
+            "sku": "X24-BR-505",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1174",
+            "slug": "bo-quan-ao-bong-ro-chien-thang-viet-mau-do-tuoi-x24-br-504",
+            "sku": "X24-BR-504",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1176",
+            "slug": "bo-quan-ao-bong-ro-do-tuoi-tu-hao-viet-tren-x24-br-503",
+            "sku": "X24-BR-503",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1178",
+            "slug": "bo-quan-ao-bong-ro-hanh-trinh-viet-do-trang-tu-x24-br-502",
+            "sku": "X24-BR-502",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1181",
+            "slug": "bo-quan-ao-bong-ro-sao-vang-mau-do-tu-hao-x24-br-489",
+            "sku": "X24-BR-489",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1183",
+            "slug": "bo-quan-ao-bong-ro-trai-tim-viet-do-tuoi-tu-x24-br-501",
+            "sku": "X24-BR-501",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1185",
+            "slug": "bo-quan-ao-bong-ro-tu-hao-viet-do-trang-vang-x24-br-500",
+            "sku": "X24-BR-500",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1187",
+            "slug": "bo-quan-ao-bong-ro-hoa-binh-viet-trang-do-sao-x24-br-491",
+            "sku": "X24-BR-491",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1189",
+            "slug": "bo-quan-ao-bong-ro-do-sao-vang-chay-cung-to-x24-br-499",
+            "sku": "X24-BR-499",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1191",
+            "slug": "bo-quan-ao-bong-ro-hung-khi-viet-trang-do-tinh-x24-br-490",
+            "sku": "X24-BR-490",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1193",
+            "slug": "bo-quan-ao-bong-ro-trang-tu-hao-viet-thiet-ke-x24-br-498",
+            "sku": "X24-BR-498",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1195",
+            "slug": "bo-quan-ao-bong-ro-quyet-thang-do-cam-tu-hao-x24-br-497",
+            "sku": "X24-BR-497",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1197",
+            "slug": "bo-quan-ao-bong-ro-sao-vang-chien-thang-mau-do-x24-br-496",
+            "sku": "X24-BR-496",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1199",
+            "slug": "bo-quan-ao-bong-ro-nation-of-vietnam-mau-do-tinh-x24-br-495",
+            "sku": "X24-BR-495",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1201",
+            "slug": "bo-quan-ao-bong-ro-do-thiet-ke-viet-mung-quoc-x24-br-494",
+            "sku": "X24-BR-494",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1203",
+            "slug": "bo-quan-ao-bong-ro-toi-yeu-viet-do-trang-nang-x24-br-488",
+            "sku": "X24-BR-488",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1205",
+            "slug": "bo-quan-ao-bong-ro-do-tu-hao-viet-voi-hoa-x24-br-493",
+            "sku": "X24-BR-493",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1209",
+            "slug": "bo-quan-ao-bong-ro-logo-doi-bong-ro-ca-tinh",
+            "sku": "X24-BR-487",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1211",
+            "slug": "bo-quan-ao-bong-ro-logo-sport-center-mau-xanh-duong-nang-x24-br-486",
+            "sku": "X24-BR-486",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1213",
+            "slug": "bo-quan-ao-bong-ro-logo-doi-bong-ro-don-gian-den-trang-hien-dai",
+            "sku": "X24-BR-485",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1215",
+            "slug": "bo-quan-ao-bong-ro-logo-sport-den-trang-thiet-ke-toi-x24-br-484",
+            "sku": "X24-BR-484",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1217",
+            "slug": "bo-quan-ao-bong-ro-logo-mau-hong-noi-bat-thiet-ke-x24-br-483",
+            "sku": "X24-BR-483",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1219",
+            "slug": "bo-quan-ao-bong-ro-logo-doi-bong-ro-manh-me-tong-do-nang-dong",
+            "sku": "X24-BR-482",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1221",
+            "slug": "bo-quan-ao-bong-ro-logo-trang-xam-chuyen-nghiep-va-hien-dai-x24-br-481",
+            "sku": "X24-BR-481",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1223",
+            "slug": "bo-quan-ao-bong-ro-logo-for-health-x24-br-480",
+            "sku": "X24-BR-480",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1225",
+            "slug": "bo-quan-ao-bong-ro-logo-doc-quyen-danh-cho-nhom-chay-mau-den-x24-br-479",
+            "sku": "X24-BR-479",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1227",
+            "slug": "bo-quan-ao-bong-ro-logo-club-cam-do-gach-nang-dong-x24-br-478",
+            "sku": "X24-BR-478",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1229",
+            "slug": "bo-quan-ao-bong-ro-logo-thiet-ke-nang-dong-voi-tong-x24-br-477",
+            "sku": "X24-BR-477",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1231",
+            "slug": "bo-quan-ao-bong-ro-logo-club-nang-luong-cam-do-x24-br-476",
+            "sku": "X24-BR-476",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1233",
+            "slug": "bo-quan-ao-bong-ro-logo-thun-doi-chay-club-xanh-navy-x24-br-475",
+            "sku": "X24-BR-475",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1235",
+            "slug": "bo-quan-ao-bong-ro-logo-cam-doi-nhom-athletics-nang-luong-x24-br-474",
+            "sku": "X24-BR-474",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1237",
+            "slug": "bo-quan-ao-bong-ro-logo-club-sport-center-tong-den-cam-x24-br-473",
+            "sku": "X24-BR-473",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1239",
+            "slug": "bo-quan-ao-bong-ro-logo-club-sport-center-phoi-mau-x24-br-472",
+            "sku": "X24-BR-472",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1241",
+            "slug": "bo-quan-ao-bong-ro-logo-clb-doi-buoc-xanh-duong-dam-x24-br-471",
+            "sku": "X24-BR-471",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1243",
+            "slug": "bo-quan-ao-bong-ro-logo-nhom-tong-cam-do-thiet-ke-x24-br-470",
+            "sku": "X24-BR-470",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1245",
+            "slug": "bo-quan-ao-bong-ro-logo-mau-do-manh-me-nhiet-huyet-x24-br-469",
+            "sku": "X24-BR-469",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1247",
+            "slug": "bo-quan-ao-bong-ro-logo-doi-bong-ro-viet-nang-luong-sac-do-cam",
+            "sku": "X24-BR-468",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1249",
+            "slug": "bo-quan-ao-bong-ro-logo-doi-bong-ro-den-trang-nang-dong",
+            "sku": "X24-BR-467",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1251",
+            "slug": "bo-quan-ao-bong-ro-logo-xanh-thien-nhien-nang-dong-logo-x24-br-466",
+            "sku": "X24-BR-466",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1253",
+            "slug": "bo-quan-ao-bong-ro-logo-doi-bong-ro-thiet-ke-mau-do-nang-dong",
+            "sku": "X24-BR-465",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1255",
+            "slug": "bo-quan-ao-bong-ro-logo-club-cam-nang-dong-21km-x24-br-464",
+            "sku": "X24-BR-464",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1257",
+            "slug": "bo-quan-ao-bong-ro-logo-thiet-ke-nang-dong-logo-doi-x24-br-463",
+            "sku": "X24-BR-463",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1259",
+            "slug": "bo-quan-ao-bong-ro-logo-doi-bong-ro-tim-hong-gradient",
+            "sku": "X24-BR-462",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1261",
+            "slug": "bo-quan-ao-bong-ro-logo-bo-nhom-ket-noi-mau-tim-gradient-bieu-x24-br-461",
+            "sku": "X24-BR-461",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1263",
+            "slug": "bo-quan-ao-bong-ro-logo-sang-tao-mau-do-noi-x24-br-460",
+            "sku": "X24-BR-460",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1265",
+            "slug": "bo-quan-ao-bong-ro-logo-xanh-navy-logo-nang-dong-nhom-x24-br-459",
+            "sku": "X24-BR-459",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1267",
+            "slug": "bo-quan-ao-bong-ro-logo-xanh-la-pastel-x24-br-458",
+            "sku": "X24-BR-458",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1269",
+            "slug": "bo-quan-ao-bong-ro-logo-xanh-duong-manh-me-x24-br-457",
+            "sku": "X24-BR-457",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1271",
+            "slug": "bo-quan-ao-bong-ro-logo-sang-tao-nang-luong-do-noi-x24-br-456",
+            "sku": "X24-BR-456",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1273",
+            "slug": "bo-quan-ao-bong-ro-logo-xanh-navy-cam-thoang-khi-nang-x24-br-455",
+            "sku": "X24-BR-455",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1275",
+            "slug": "bo-quan-ao-bong-ro-logo-dong-phuc-thiet-ke-mau-do-x24-br-454",
+            "sku": "X24-BR-454",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1277",
+            "slug": "bo-quan-ao-bong-ro-logo-cao-cap-xanh-duong-nang-dong-x24-br-453",
+            "sku": "X24-BR-453",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1279",
+            "slug": "bo-quan-ao-bong-ro-logo-nhiet-huyet-do-cam-nang-luong-x24-br-452",
+            "sku": "X24-BR-452",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1281",
+            "slug": "bo-quan-ao-bong-ro-logo-den-logo-i-%e2%9d%a4%ef%b8%8f-noi-bat-x24-br-451",
+            "sku": "X24-BR-451",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1283",
+            "slug": "bo-quan-ao-bong-ro-logo-thiet-ke-logo-rieng-mau-xanh-x24-br-450",
+            "sku": "X24-BR-450",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1285",
+            "slug": "bo-quan-ao-bong-ro-logo-nhom-doan-ket-mau-xanh-navy-x24-br-449",
+            "sku": "X24-BR-449",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1287",
+            "slug": "bo-quan-ao-bong-ro-logo-club-cong-ty-gradient-xanh-la-x24-br-448",
+            "sku": "X24-BR-448",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1289",
+            "slug": "bo-quan-ao-bong-ro-logo-xanh-duong-trang-nang-dong-danh-x24-br-447",
+            "sku": "X24-BR-447",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1291",
+            "slug": "bo-quan-ao-bong-ro-logo-doi-bong-ro-hien-dai-cam-vang-nang-dong",
+            "sku": "X24-BR-446",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1293",
+            "slug": "bo-quan-ao-bong-ro-logo-sport-mau-do-dam-me-thiet-ke-nang-x24-br-445",
+            "sku": "X24-BR-445",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1295",
+            "slug": "bo-quan-ao-bong-ro-logo-club-cam-sang-nang-dong-x24-br-444",
+            "sku": "X24-BR-444",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1297",
+            "slug": "bo-quan-ao-bong-ro-logo-club-xanh-navy-va-cam-nang-dong-x24-br-443",
+            "sku": "X24-BR-443",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1299",
+            "slug": "bo-quan-ao-bong-ro-logo-club-10km-tong-xanh-nang-dong-x24-br-442",
+            "sku": "X24-BR-442",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1301",
+            "slug": "bo-quan-ao-bong-ro-logo-dep-su-ca-tinh-va-ben-bi-trong-x24-br-441",
+            "sku": "X24-BR-441",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1304",
+            "slug": "bo-quan-ao-bong-ro-logo-nhom-doc-la-gradient-nang-dong-x24-br-440",
+            "sku": "X24-BR-440",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1306",
+            "slug": "bo-quan-ao-bong-ro-logo-nhom-mau-den-tren-nen-hong-x24-br-439",
+            "sku": "X24-BR-439",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1308",
+            "slug": "bo-quan-ao-bong-ro-logo-trang-den-xam-just-keep-x24-br-438",
+            "sku": "X24-BR-438",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1320",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-ngoc-chuyen-sac-x24-br-263",
+            "sku": "X24-BR-263",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1322",
+            "slug": "bo-quan-ao-bong-ro-sport-mau-xanh-ombre-nang-dong-thoang-mat-x24-br-262",
+            "sku": "X24-BR-262",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1324",
+            "slug": "bo-quan-ao-bong-ro-cam-nang-dong-x24-br-261",
+            "sku": "X24-BR-261",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1326",
+            "slug": "bo-quan-ao-bong-ro-mau-tim-than-chuyen-sac-thiet-ke-gon-song-an-tuong-x24-br-260",
+            "sku": "X24-BR-260",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1328",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-ket-nang-dong-toa-sang-x24-br-259",
+            "sku": "X24-BR-259",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1330",
+            "slug": "bo-quan-ao-bong-ro-sports-xanh-ly-nang-dong-x24-br-258",
+            "sku": "X24-BR-258",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1332",
+            "slug": "bo-quan-ao-bong-ro-xanh-duong-gradient-thiet-ke-dong-phuc-doi-nhom-x24-br-257",
+            "sku": "X24-BR-257",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1334",
+            "slug": "bo-quan-ao-bong-ro-sports-tim-gradient-ca-tinh-x24-br-256",
+            "sku": "X24-BR-256",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1336",
+            "slug": "bo-quan-ao-bong-ro-sports-xanh-ngoc-gradient-nang-dong-sang-khoai-x24-br-255",
+            "sku": "X24-BR-255",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1338",
+            "slug": "bo-quan-ao-bong-ro-sports-xanh-duong-nang-dong-va-khoe-khoan-x24-br-254",
+            "sku": "X24-BR-254",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1340",
+            "slug": "bo-quan-ao-bong-ro-event-xanh-duong-nang-dong-x24-br-253",
+            "sku": "X24-BR-253",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1342",
+            "slug": "bo-quan-ao-bong-ro-gradient-hong-xanh-bien-thiet-ke-hoa-tiet-song-doc-dao-x24-br-252",
+            "sku": "X24-BR-252",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1344",
+            "slug": "bo-quan-ao-bong-ro-sports-xanh-duong-nang-dong-va-ca-tinh-x24-br-251",
+            "sku": "X24-BR-251",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1346",
+            "slug": "bo-quan-ao-bong-ro-sports-vang-neon-noi-bat-cho-van-dong-ngoai-troi-x24-br-250",
+            "sku": "X24-BR-250",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1348",
+            "slug": "bo-quan-ao-bong-ro-do-cam-gradient-nang-luong-bung-no-x24-br-249",
+            "sku": "X24-BR-249",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1350",
+            "slug": "bo-quan-ao-bong-ro-tim-than-phoi-hong-ombre-sports-x24-br-248",
+            "sku": "X24-BR-248",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1352",
+            "slug": "bo-quan-ao-bong-ro-vang-xanh-chuyen-nghiep-x24-br-247",
+            "sku": "X24-BR-247",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1354",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-chuoi-ombre-x24-br-246",
+            "sku": "X24-BR-246",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1356",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-chat-lieu-thun-4-chieu-x24-br-245",
+            "sku": "X24-BR-245",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1358",
+            "slug": "bo-quan-ao-bong-ro-xanh-ya-chuyen-hong-tim-nang-dong-va-hien-dai-x24-br-244",
+            "sku": "X24-BR-244",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1360",
+            "slug": "bo-quan-ao-bong-ro-cam-nang-dong-x24-br-243",
+            "sku": "X24-BR-243",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1362",
+            "slug": "bo-quan-ao-bong-ro-mau-hong-pastel-thiet-ke-nang-dong-cho-su-kien-dong-phuc-x24-br-242",
+            "sku": "X24-BR-242",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1364",
+            "slug": "bo-quan-ao-bong-ro-tim-than-x24-br-241",
+            "sku": "X24-BR-241",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1366",
+            "slug": "bo-quan-ao-bong-ro-trang-x24-br-240",
+            "sku": "X24-BR-240",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1368",
+            "slug": "bo-quan-ao-bong-ro-mau-vang-nang-dong-an-toan-x24-br-239",
+            "sku": "X24-BR-239",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1370",
+            "slug": "bo-quan-ao-bong-ro-sports-xanh-ngoc-x24-br-238",
+            "sku": "X24-BR-238",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1372",
+            "slug": "bo-quan-ao-bong-ro-den-trang-hoa-tiet-hinh-hoc-thoi-trang-the-thao-x24-br-237",
+            "sku": "X24-BR-237",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1374",
+            "slug": "bo-quan-ao-bong-ro-so-45-tim-than-phoi-hong-pastel-x24-br-236",
+            "sku": "X24-BR-236",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1376",
+            "slug": "bo-quan-ao-bong-ro-mau-45-xanh-bich-nang-dong-x24-br-235",
+            "sku": "X24-BR-235",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1378",
+            "slug": "bo-quan-ao-bong-ro-ma-45-xanh-ly-nang-dong-x24-br-234",
+            "sku": "X24-BR-234",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1380",
+            "slug": "bo-quan-ao-bong-ro-hoopsning-keep-moving-mau-xanh-ve-chai-x24-br-233",
+            "sku": "X24-BR-233",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1382",
+            "slug": "bo-quan-ao-bong-ro-keep-moving-xanh-ya-x24-br-232",
+            "sku": "X24-BR-232",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1384",
+            "slug": "bo-quan-ao-bong-ro-do-trang-nang-dong-x24-br-231",
+            "sku": "X24-BR-231",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1386",
+            "slug": "bo-quan-ao-bong-ro-nhom-mau-vang-phoi-xanh-noi-bat-thoang-mat-de-nhan-dien-khi-tap-luyen-x24-br-230",
+            "sku": "X24-BR-230",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1388",
+            "slug": "bo-quan-ao-bong-ro-mau-xam-den-x24-br-229",
+            "sku": "X24-BR-229",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1390",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-in-logo-team-nang-dong-thoai-mai-tot-dinh-x24-br-228",
+            "sku": "X24-BR-228",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1392",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-chuoi-navy-nang-dong-an-toan-cho-moi-cung-duong-x24-br-227",
+            "sku": "X24-BR-227",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1394",
+            "slug": "bo-quan-ao-bong-ro-xanh-da-troi-x24-br-226",
+            "sku": "X24-BR-226",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1396",
+            "slug": "bo-quan-ao-bong-ro-sports-mau-hong-nang-dong-x24-br-225",
+            "sku": "X24-BR-225",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1398",
+            "slug": "bo-quan-ao-bong-ro-cam-xanh-gradient-cuc-chat-x24-br-224",
+            "sku": "X24-BR-224",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1400",
+            "slug": "bo-quan-ao-bong-ro-ombre-do-trang-vang-x24-br-223",
+            "sku": "X24-BR-223",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1402",
+            "slug": "bo-quan-ao-bong-ro-nhom-gradient-hong-vang-xanh-nang-luong-but-pha-x24-br-222",
+            "sku": "X24-BR-222",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1404",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-chuoi-ombre-x24-br-221",
+            "sku": "X24-BR-221",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1406",
+            "slug": "bo-quan-ao-bong-ro-vang-nghe-phoi-xanh-reu-nang-x24-br-434",
+            "sku": "X24-BR-434",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1408",
+            "slug": "bo-quan-ao-bong-ro-mau-xam-nang-dong-x24-br-433",
+            "sku": "X24-BR-433",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1410",
+            "slug": "bo-quan-ao-bong-ro-vang-do-nang-dong-x24-br-432",
+            "sku": "X24-BR-432",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1412",
+            "slug": "bo-quan-ao-bong-ro-mau-kem-ke-soc-navy-x24-br-431",
+            "sku": "X24-BR-431",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1414",
+            "slug": "bo-quan-ao-bong-ro-vang-phoi-den-nang-x24-br-430",
+            "sku": "X24-BR-430",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1416",
+            "slug": "bo-quan-ao-bong-ro-kem-pixel-xanh-x24-br-429",
+            "sku": "X24-BR-429",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1418",
+            "slug": "bo-quan-ao-bong-ro-xanh-navy-x24-br-428",
+            "sku": "X24-BR-428",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1420",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-xanh-la-nang-dong-x24-br-427",
+            "sku": "X24-BR-427",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1422",
+            "slug": "bo-quan-ao-bong-ro-mau-trang-xam-x24-br-426",
+            "sku": "X24-BR-426",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1424",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-noi-bat-nang-dong-x24-br-425",
+            "sku": "X24-BR-425",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1426",
+            "slug": "bo-quan-ao-bong-ro-trang-xanh-sports-nang-dong-tre-x24-br-424",
+            "sku": "X24-BR-424",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1428",
+            "slug": "bo-quan-ao-bong-ro-hong-nhat-nang-dong-x24-br-423",
+            "sku": "X24-BR-423",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1438",
+            "slug": "bo-quan-ao-bong-ro-gradient-tim-cam-thiet-ke-song-cho-team-bec-mex-x24-br-081",
+            "sku": "X24-BR-081",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1441",
+            "slug": "bo-quan-ao-bong-ro-nang-dong-mau-cam-do-sunpro-nang-tam-khi-chat-the-thao-x24-br-080",
+            "sku": "X24-BR-080",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1443",
+            "slug": "bo-quan-ao-bong-ro-ba-lo-gradient-do-cam-one-shot-can-change-your-day-x24-br-079",
+            "sku": "X24-BR-079",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1445",
+            "slug": "bo-quan-ao-bong-ro-gradient-do-trang-vang-thiet-ke-ngoi-sao-viet-nam-nang-dong-x24-br-078",
+            "sku": "X24-BR-078",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1447",
+            "slug": "bo-quan-ao-bong-ro-xanh-duong-thiet-ke-dai-hoc-bach-khoa-the-thao-suc-khoe-x24-br-077",
+            "sku": "X24-BR-077",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1449",
+            "slug": "bo-quan-ao-bong-ro-ombre-xanh-la-xanh-duong-nang-dong-x24-br-076",
+            "sku": "X24-BR-076",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1451",
+            "slug": "bo-quan-ao-bong-ro-xanh-duong-nui-team-team-nang-dong-va-noi-bat-x24-br-075",
+            "sku": "X24-BR-075",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1453",
+            "slug": "bo-quan-ao-bong-ro-team-bvf-mau-den-cam-nang-dong-x24-br-074",
+            "sku": "X24-BR-074",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1455",
+            "slug": "bo-quan-ao-bong-ro-xanh-navy-logo-cam-thiet-ke-cho-team-altios-x24-br-073",
+            "sku": "X24-BR-073",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1457",
+            "slug": "bo-quan-ao-bong-ro-xanh-la-cho-team-ba-con-nhai-team-nang-dong-noi-bat-mua-he-x24-br-072",
+            "sku": "X24-BR-072",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1459",
+            "slug": "bo-quan-ao-bong-ro-xanh-duong-happy-hoops-thiet-ke-hien-dai-x24-br-071",
+            "sku": "X24-BR-071",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1461",
+            "slug": "bo-quan-ao-bong-ro-cam-do-chuyen-sac-doc-dao-cho-team-bds-x24-br-070",
+            "sku": "X24-BR-070",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1463",
+            "slug": "bo-quan-ao-bong-ro-team-can-gio-team-mau-xanh-duong-nhat-x24-br-069",
+            "sku": "X24-BR-069",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1466",
+            "slug": "bo-quan-ao-bong-ro-team-chien-bien-2-xanh-dam-hong-noi-bat-x24-br-068",
+            "sku": "X24-BR-068",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1468",
+            "slug": "bo-quan-ao-bong-ro-navy-gradient-keep-hooping-team-dong-no-team-x24-br-067",
+            "sku": "X24-BR-067",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1470",
+            "slug": "bo-quan-ao-bong-ro-green-nutri-xanh-la-nang-dong-thoi-thuong-x24-br-066",
+            "sku": "X24-BR-066",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1472",
+            "slug": "bo-quan-ao-bong-ro-team-k32-phoi-do-vang-nang-dong-x24-br-065",
+            "sku": "X24-BR-065",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1474",
+            "slug": "bo-quan-ao-bong-ro-team-mau-den-hoop-to-win-manh-me-tu-hao-viet-nam-x24-br-064",
+            "sku": "X24-BR-064",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1476",
+            "slug": "bo-quan-ao-bong-ro-gradient-tim-hong-cam-fun-hoops-2026-team-mot-chut-x24-br-063",
+            "sku": "X24-BR-063",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1478",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-la-thiet-ke-team-nguoi-tai-xe-thoang-mat-nang-dong-x24-br-062",
+            "sku": "X24-BR-062",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1480",
+            "slug": "bo-quan-ao-bong-ro-nha-trang-phuot-mau-vang-nang-dong-x24-br-061",
+            "sku": "X24-BR-061",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1482",
+            "slug": "bo-quan-ao-bong-ro-doi-nhom-nipro-team-mau-hong-xanh-duong-gradient-nang-dong-x24-br-060",
+            "sku": "X24-BR-060",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1484",
+            "slug": "bo-quan-ao-bong-ro-team-hoop-to-win-den-dau-lau-do-x24-br-059",
+            "sku": "X24-BR-059",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1486",
+            "slug": "bo-quan-ao-bong-ro-hoop-to-win-mau-den-thiet-ke-doc-dao-bieu-tuong-hop-so-quoc-ky-viet-nam-x24-br-058",
+            "sku": "X24-BR-058",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1488",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-doi-nhom-run-to-rise-tong-den-cam-xanh-an-tuong-x24-br-057",
+            "sku": "X24-BR-057",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1490",
+            "slug": "bo-quan-ao-bong-ro-run-to-rise-mau-den-hoa-tiet-cam-xanh-chat-lieu-thun-lanh-cao-cap-x24-br-056",
+            "sku": "X24-BR-056",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1492",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-do-cam-gradient-team-nang-dong-x24-br-055",
+            "sku": "X24-BR-055",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1494",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-team-sao-bien-da-nang-trang-hong-xanh-bien-nang-dong-x24-br-054",
+            "sku": "X24-BR-054",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1496",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-team-sevens-mau-do-vang-nang-dong-x24-br-053",
+            "sku": "X24-BR-053",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1498",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-do-trang-vang-son-thuy-nang-dong-va-noi-bat-x24-br-052",
+            "sku": "X24-BR-052",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1500",
+            "slug": "bo-quan-ao-bong-ro-xanh-song-tra-5h-thiet-ke-nghe-thuat-thoang-khi-danh-cho-team-x24-br-051",
+            "sku": "X24-BR-051",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1502",
+            "slug": "bo-quan-ao-bong-ro-trang-thiet-ke-team-speed-coffee-nang-dong-x24-br-050",
+            "sku": "X24-BR-050",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1504",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-chuyen-mau-cam-vang-xanh-duong-team-thach-that-x24-br-049",
+            "sku": "X24-BR-049",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1506",
+            "slug": "bo-quan-ao-bong-ro-tri-an-mau-gradient-xanh-hong-vang-noi-bat-x24-br-048",
+            "sku": "X24-BR-048",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1508",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-gradient-xanh-dam-trang-cho-doi-nhom-uong-bi-x24-br-047",
+            "sku": "X24-BR-047",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1510",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-doi-vo-duong-hong-nghia-trang-do-nang-dong-x24-br-046",
+            "sku": "X24-BR-046",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1513",
+            "slug": "bo-quan-ao-bong-ro-twin-team-do-vang-thiet-ke-noi-bat-cho-doi-nhom-x24-br-045",
+            "sku": "X24-BR-045",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1515",
+            "slug": "bo-quan-ao-bong-ro-cao-bang-phoi-vang-xanh-nang-dong-thiet-ke-dep-2026-x24-br-044",
+            "sku": "X24-BR-044",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1517",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-xanh-cam-tre-trung-chuyen-nghiep-nang-dong-x24-br-043",
+            "sku": "X24-BR-043",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1519",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-gradient-nang-dong-xanh-cam-vang-x24-br-042",
+            "sku": "X24-BR-042",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1521",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-don-gian-mau-trang-logo-xanh-navy-x24-br-041",
+            "sku": "X24-BR-041",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1523",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-mau-den-ca-tinh-in-ten-theo-yeu-cau-x24-br-040",
+            "sku": "X24-BR-040",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1525",
+            "slug": "bo-quan-ao-bong-ro-rvc-thiet-ke-vang-cam-nang-dong-va-chuyen-nghiep-x24-br-039",
+            "sku": "X24-BR-039",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1527",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-xanh-nhat-rvc-tu-hao-viet-nam-chinh-phuc-moi-x24-br-038",
+            "sku": "X24-BR-038",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1529",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-gia-dinh-la-so-1-vang-noi-bat-thoang-mat-x24-br-037",
+            "sku": "X24-BR-037",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1531",
+            "slug": "bo-quan-ao-bong-ro-gradient-xanh-la-vang-thiet-ke-thien-nhien-cao-bang-x24-br-036",
+            "sku": "X24-BR-036",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1533",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-rieng-mau-trang-xanh-nang-dong-thoai-mai-cho-hoat-dong-the-thao-x24-br-035",
+            "sku": "X24-BR-035",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1535",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-sat-nach-mau-gradient-vang-xanh-nang-dong-thoang-mat-x24-br-034",
+            "sku": "X24-BR-034",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1679",
+            "slug": "bo-quan-ao-bong-ro-den-team-moonie-don-x24-br-422",
+            "sku": "X24-BR-422",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1681",
+            "slug": "bo-quan-ao-bong-ro-thiet-ke-rieng-mau-den-sang-x24-br-421",
+            "sku": "X24-BR-421",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1683",
+            "slug": "bo-quan-ao-bong-ro-turtle-team-mau-den-x24-br-420",
+            "sku": "X24-BR-420",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1685",
+            "slug": "bo-quan-ao-bong-ro-team-tam-anh-runners-mau-cam-x24-br-419",
+            "sku": "X24-BR-419",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1687",
+            "slug": "bo-quan-ao-bong-ro-ao-thun-mau-do-quoc-gia-hoa-x24-br-418",
+            "sku": "X24-BR-418",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1690",
+            "slug": "bo-quan-ao-bong-ro-do-va-vang-nang-luong-x24-br-417",
+            "sku": "X24-BR-417",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1692",
+            "slug": "bo-quan-ao-bong-ro-den-team-kaoya-sang-trong-nang-x24-br-416",
+            "sku": "X24-BR-416",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1694",
+            "slug": "bo-quan-ao-bong-ro-team-ho-nuoc-ngot-xanh-thien-x24-br-415",
+            "sku": "X24-BR-415",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1696",
+            "slug": "bo-quan-ao-bong-ro-xanh-dam-trong-tai-x24-br-414",
+            "sku": "X24-BR-414",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1698",
+            "slug": "bo-quan-ao-bong-ro-doan-ket-2026-xanh-x24-br-413",
+            "sku": "X24-BR-413",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1700",
+            "slug": "bo-quan-ao-bong-ro-gradient-xanh-duong-hong-logo-vang-x24-br-412",
+            "sku": "X24-BR-412",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1702",
+            "slug": "bo-quan-ao-bong-ro-chuyen-mau-vang-xanh-la-swim-x24-br-411",
+            "sku": "X24-BR-411",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1704",
+            "slug": "bo-quan-ao-bong-ro-uong-bi-do-x24-br-033",
+            "sku": "X24-BR-033",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1706",
+            "slug": "bo-quan-ao-bong-ro-fortuna-xanh-hong-tim-x24-br-032",
+            "sku": "X24-BR-032",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1708",
+            "slug": "bo-quan-ao-bong-ro-vinastar-hong-xanh-x24-br-031",
+            "sku": "X24-BR-031",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1710",
+            "slug": "bo-quan-ao-bong-ro-camlog-implant-cam-xanh-x24-br-030",
+            "sku": "X24-BR-030",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1712",
+            "slug": "bo-quan-ao-bong-ro-tuan-dan-xanh-duong-x24-br-029",
+            "sku": "X24-BR-029",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1714",
+            "slug": "bo-quan-ao-bong-ro-hong-nghia-taekwondo-xanh-do-x24-br-028",
+            "sku": "X24-BR-028",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1716",
+            "slug": "bo-quan-ao-bong-ro-camlog-cam-xanh-vang-x24-br-027",
+            "sku": "X24-BR-027",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1719",
+            "slug": "bo-quan-ao-bong-ro-ke-sat-cam-x24-br-026",
+            "sku": "X24-BR-026",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1721",
+            "slug": "bo-quan-ao-bong-ro-elite-viet-nam-den-x24-br-025",
+            "sku": "X24-BR-025",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1723",
+            "slug": "bo-quan-ao-bong-ro-tam-anh-den-vang-x24-br-024",
+            "sku": "X24-BR-024",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1725",
+            "slug": "bo-quan-ao-bong-ro-inox-hong-dat-do-cam-gradient-x24-br-023",
+            "sku": "X24-BR-023",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1727",
+            "slug": "bo-quan-ao-bong-ro-review-ha-noi-do-x24-br-022",
+            "sku": "X24-BR-022",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1729",
+            "slug": "bo-quan-ao-bong-ro-team-review-ha-noi-hong-x24-br-021",
+            "sku": "X24-BR-021",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1731",
+            "slug": "bo-quan-ao-bong-ro-gradient-nang-luong-hong-vang-x24-br-020",
+            "sku": "X24-BR-020",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1733",
+            "slug": "bo-quan-ao-bong-ro-vinastar-hong-xanh-x24-br-019",
+            "sku": "X24-BR-019",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1736",
+            "slug": "bo-quan-ao-bong-ro-team-review-hn-tim-x24-br-018",
+            "sku": "X24-BR-018",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1738",
+            "slug": "bo-quan-ao-bong-ro-speed-coffee-trang-x24-br-017",
+            "sku": "X24-BR-017",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1740",
+            "slug": "bo-quan-ao-bong-ro-team-ho-da-vang-x24-br-016",
+            "sku": "X24-BR-016",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1742",
+            "slug": "bo-quan-ao-bong-ro-team-finish-vang-gradient-x24-br-015",
+            "sku": "X24-BR-015",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1744",
+            "slug": "bo-quan-ao-bong-ro-binh-minh-vang-xanh-x24-br-014",
+            "sku": "X24-BR-014",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1746",
+            "slug": "bo-quan-ao-bong-ro-team-taekwondo-vang-xanh-x24-br-013",
+            "sku": "X24-BR-013",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1748",
+            "slug": "bo-quan-ao-bong-ro-altios-xanh-duong-cam-x24-br-012",
+            "sku": "X24-BR-012",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1750",
+            "slug": "bo-quan-ao-bong-ro-team-vung-tau-g-o-xanh-duong-x24-br-011",
+            "sku": "X24-BR-011",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1752",
+            "slug": "bo-quan-ao-bong-ro-team-cong-chao-xanh-x24-br-010",
+            "sku": "X24-BR-010",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1754",
+            "slug": "bo-quan-ao-bong-ro-team-ht-pickleball-do-xanh-nui-viet-nam-x24-br-001",
+            "sku": "X24-BR-001",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1756",
+            "slug": "bo-quan-ao-bong-ro-team-orc-den-cam-x24-br-007",
+            "sku": "X24-BR-007",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1758",
+            "slug": "bo-quan-ao-bong-ro-saigon-u60-gradient-x24-br-004",
+            "sku": "X24-BR-004",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1760",
+            "slug": "bo-quan-ao-bong-ro-turtle-team-den-do-x24-br-008",
+            "sku": "X24-BR-008",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1762",
+            "slug": "bo-quan-ao-bong-ro-vovinam-da-nang-vang-xanh-x24-br-005",
+            "sku": "X24-BR-005",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1764",
+            "slug": "bo-quan-ao-bong-ro-trung-hoc-lop-11-12-eco-retreat-xanh-la-nhat",
+            "sku": "",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1766",
+            "slug": "bo-quan-ao-bong-ro-hoc-sinh-team-building-trang-xanh-x24-br-003",
+            "sku": "X24-BR-003",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1768",
+            "slug": "bo-quan-ao-bong-ro-ho-da-vang-xanh-x24-br-009",
+            "sku": "X24-BR-009",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1770",
+            "slug": "bo-quan-ao-bong-ro-lo-dieu-xanh-2026-xanh-duong-x24-br-006",
+            "sku": "X24-BR-006",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1774",
+            "slug": "bo-quan-ao-bong-ro-hoc-sinh-dong-do-land-cam-x24-br-002",
+            "sku": "X24-BR-002",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1776",
+            "slug": "bo-quan-ao-bong-ro-hoc-sinh-nipro-fdl-song-khoe-hong-xanh",
+            "sku": "",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1780",
+            "slug": "bo-quan-ao-bong-ro-cam-nang-dong-thoang-mat-chat-luong-x24-br-220",
+            "sku": "X24-BR-220",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1782",
+            "slug": "bo-quan-ao-bong-ro-xanh-tham-soc-trang-thiet-ke-nang-dong-co-gian-cuc-dinh-x24-br-219",
+            "sku": "X24-BR-219",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1784",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-chuoi-nang-dong-x24-br-218",
+            "sku": "X24-BR-218",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1786",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-ngoc-soc-tre-trung-x24-br-217",
+            "sku": "X24-BR-217",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1788",
+            "slug": "bo-quan-ao-bong-ro-xanh-nhat-nang-dong-thoang-mat-cho-moi-cuoc-dua-x24-br-216",
+            "sku": "X24-BR-216",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1790",
+            "slug": "bo-quan-ao-bong-ro-da-quang-mau-vang-noi-bat-x24-br-215",
+            "sku": "X24-BR-215",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1792",
+            "slug": "bo-quan-ao-bong-ro-aeris-mau-kem-xanh-ngoc-phong-cach-tre-trung-chat-lieu-x24-br-214",
+            "sku": "X24-BR-214",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1794",
+            "slug": "bo-quan-ao-bong-ro-mau-vang-nang-dong-x24-br-213",
+            "sku": "X24-BR-213",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1796",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-phong-cach-nang-dong-thoang-mat-cho-mua-he-x24-br-212",
+            "sku": "X24-BR-212",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1798",
+            "slug": "bo-quan-ao-bong-ro-xanh-ket-nang-dong-dot-pha-phong-cach-x24-br-211",
+            "sku": "X24-BR-211",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1800",
+            "slug": "bo-quan-ao-bong-ro-cam-do-but-pha-nang-luong-noi-bat-phong-cach-x24-br-210",
+            "sku": "X24-BR-210",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1802",
+            "slug": "bo-quan-ao-bong-ro-velour-gradient-xanh-duong-hong-nhat-phien-ban-2026-x24-br-209",
+            "sku": "X24-BR-209",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1804",
+            "slug": "bo-quan-ao-bong-ro-chuyen-sac-xanh-tim-thoi-trang-da-nang-x24-br-208",
+            "sku": "X24-BR-208",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1806",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-nang-dong-x24-br-207",
+            "sku": "X24-BR-207",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1808",
+            "slug": "bo-quan-ao-bong-ro-xanh-ya-nang-dong-thoi-trang-cho-moi-hoat-dong-x24-br-206",
+            "sku": "X24-BR-206",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1810",
+            "slug": "bo-quan-ao-bong-ro-ao-thun-stride-cam-tim-than-thiet-ke-nang-dong-dinh-cao-tien-dung-x24-br-205",
+            "sku": "X24-BR-205",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1812",
+            "slug": "bo-quan-ao-bong-ro-do-tim-tham-kieu-1-phoi-mau-gradient-thoi-thuong-thoang-mat-tien-dung-x24-br-204",
+            "sku": "X24-BR-204",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1814",
+            "slug": "bo-quan-ao-bong-ro-vang-xanh-lo-nang-dong-sieu-nhe-x24-br-203",
+            "sku": "X24-BR-203",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1816",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-phoi-xanh-duong-nang-dong-noi-bat-cho-mua-he-x24-br-202",
+            "sku": "X24-BR-202",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1818",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-gradient-chuan-the-thao-x24-br-201",
+            "sku": "X24-BR-201",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1820",
+            "slug": "bo-quan-ao-bong-ro-hong-vang-gradient-just-team-nang-dong-x24-br-200",
+            "sku": "X24-BR-200",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1822",
+            "slug": "bo-quan-ao-bong-ro-flux-tim-than-hong-just-keep-hooping-x24-br-199",
+            "sku": "X24-BR-199",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1824",
+            "slug": "bo-quan-ao-bong-ro-vang-cam-dam-khoi-nguon-nang-luong-moi-sang-x24-br-198",
+            "sku": "X24-BR-198",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1826",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-nang-dong-but-pha-x24-br-122",
+            "sku": "X24-BR-122",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1828",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-hong-nang-dong-thoi-trang-x24-br-197",
+            "sku": "X24-BR-197",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1830",
+            "slug": "bo-quan-ao-bong-ro-cam-nang-dong-thiet-ke-noi-bat-an-toan-khi-chay-ngoai-troi-x24-br-121",
+            "sku": "X24-BR-121",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1832",
+            "slug": "bo-quan-ao-bong-ro-mau-tim-than-hoa-tiet-nang-dong-x24-br-196",
+            "sku": "X24-BR-196",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1834",
+            "slug": "bo-quan-ao-bong-ro-trang-thoang-mat-nang-dong-x24-br-195",
+            "sku": "X24-BR-195",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1836",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-do-hoa-nang-dong-x24-br-194",
+            "sku": "X24-BR-194",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1838",
+            "slug": "bo-quan-ao-bong-ro-mau-xanh-ya-in-keep-hooping-nang-dong-x24-br-193",
+            "sku": "X24-BR-193",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1840",
+            "slug": "bo-quan-ao-bong-ro-bo-do-nang-dong-cam-trang-vang-mau-sac-ruc-ro-suc-song-tran-day-x24-br-192",
+            "sku": "X24-BR-192",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1842",
+            "slug": "bo-quan-ao-bong-ro-hong-nang-dong-thoang-mat-dam-phong-cach-the-thao-x24-br-191",
+            "sku": "X24-BR-191",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1844",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-nang-dong-x24-br-120",
+            "sku": "X24-BR-120",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1846",
+            "slug": "bo-quan-ao-bong-ro-xanh-nhat-nang-dong-thoang-mat-x24-br-190",
+            "sku": "X24-BR-190",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1848",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-nang-dong-mat-me-thoai-mai-x24-br-189",
+            "sku": "X24-BR-189",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1850",
+            "slug": "bo-quan-ao-bong-ro-den-diem-nhan-cam-do-nang-dong-x24-br-188",
+            "sku": "X24-BR-188",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1852",
+            "slug": "bo-quan-ao-bong-ro-lume-mau-hong-pastel-nang-dong-va-phong-cach-x24-br-187",
+            "sku": "X24-BR-187",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1854",
+            "slug": "bo-quan-ao-bong-ro-mau-kem-nang-dong-x24-br-119",
+            "sku": "X24-BR-119",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1856",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-dam-nang-dong-x24-br-186",
+            "sku": "X24-BR-186",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1858",
+            "slug": "bo-quan-ao-bong-ro-mau-kem-phoi-mau-nang-dong-thoi-trang-x24-br-185",
+            "sku": "X24-BR-185",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1860",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-sac-mau-nang-dong-toi-uu-x24-br-118",
+            "sku": "X24-BR-118",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1862",
+            "slug": "bo-quan-ao-bong-ro-kem-ombre-vang-xanh-nang-dong-x24-br-184",
+            "sku": "X24-BR-184",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1864",
+            "slug": "bo-quan-ao-bong-ro-trang-chuyen-sac-do-cam-nang-dong-x24-br-108",
+            "sku": "X24-BR-108",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1866",
+            "slug": "bo-quan-ao-bong-ro-aurora-den-phoi-gradient-xanh-vang-thoi-thuong-x24-br-117",
+            "sku": "X24-BR-117",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1868",
+            "slug": "bo-quan-ao-bong-ro-the-thao-aurel-mau-tim-gradient-ca-tinh-thoang-mat-nang-dong-x24-br-183",
+            "sku": "X24-BR-183",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1870",
+            "slug": "bo-quan-ao-bong-ro-vang-nghe-thiet-ke-loang-mau-the-thao-nang-dong-x24-br-182",
+            "sku": "X24-BR-182",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1872",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-nang-dong-x24-br-181",
+            "sku": "X24-BR-181",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1874",
+            "slug": "bo-quan-ao-bong-ro-mau-tim-pastel-thoang-mat-phoi-logo-trang-x24-br-180",
+            "sku": "X24-BR-180",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1876",
+            "slug": "bo-quan-ao-bong-ro-the-thao-mau-xanh-chuoi-noi-bat-mau-x24-br-179",
+            "sku": "X24-BR-179",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1878",
+            "slug": "bo-quan-ao-bong-ro-xanh-duong-nhat-thiet-ke-nang-dong-tham-hut-tot-x24-br-178",
+            "sku": "X24-BR-178",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1881",
+            "slug": "bo-quan-ao-bong-ro-cam-noi-bat-phoi-sac-gradient-nang-dong-thoang-mat-x24-br-177",
+            "sku": "X24-BR-177",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1883",
+            "slug": "bo-quan-ao-bong-ro-den-neon-manh-me-nang-dong-x24-br-116",
+            "sku": "X24-BR-116",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1885",
+            "slug": "bo-quan-ao-bong-ro-hong-kieu-nang-dong-ca-tinh-x24-br-176",
+            "sku": "X24-BR-176",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1887",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-sac-mau-nang-dong-danh-cho-tin-do-the-thao-x24-br-175",
+            "sku": "X24-BR-175",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1889",
+            "slug": "bo-quan-ao-bong-ro-xanh-ket-nang-dong-x24-br-174",
+            "sku": "X24-BR-174",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1891",
+            "slug": "bo-quan-ao-bong-ro-den-phoi-do-xanh-hien-dai-nang-dong-x24-br-173",
+            "sku": "X24-BR-173",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1893",
+            "slug": "bo-quan-ao-bong-ro-xanh-dam-phoi-cam-nang-dong-x24-br-172",
+            "sku": "X24-BR-172",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1895",
+            "slug": "bo-quan-ao-bong-ro-mau-trang-xanh-nang-dong-thoi-trang-x24-br-171",
+            "sku": "X24-BR-171",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1897",
+            "slug": "bo-quan-ao-bong-ro-vang-toa-sang-nang-dong-x24-br-170",
+            "sku": "X24-BR-170",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1899",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-hoa-tiet-hinh-hoc-x24-br-115",
+            "sku": "X24-BR-115",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1901",
+            "slug": "bo-quan-ao-bong-ro-trang-xanh-do-thiet-ke-the-thao-nang-dong-x24-br-169",
+            "sku": "X24-BR-169",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1903",
+            "slug": "bo-quan-ao-bong-ro-xanh-lo-hong-nang-dong-thoi-trang-x24-br-168",
+            "sku": "X24-BR-168",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1905",
+            "slug": "bo-quan-ao-bong-ro-kinetix-c-xanh-nang-dong-lua-chon-dinh-cao-cho-nguoi-yeu-the-thao-x24-br-167",
+            "sku": "X24-BR-167",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1907",
+            "slug": "bo-quan-ao-bong-ro-hong-pastel-nang-dong-thoi-trang-cho-moi-cuoc-dua-x24-br-166",
+            "sku": "X24-BR-166",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1909",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-phoi-gradient-nang-dong-x24-br-165",
+            "sku": "X24-BR-165",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1911",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-chuyen-cam-vang-the-thao-dinh-cao-x24-br-164",
+            "sku": "X24-BR-164",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1913",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-thiet-ke-nang-dong-da-nang-cho-the-thao-x24-br-163",
+            "sku": "X24-BR-163",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1915",
+            "slug": "bo-quan-ao-bong-ro-nang-dong-mau-hong-tuoi-hoops-ca-tinh-thoat-mo-hoi-sieu-nhanh-x24-br-162",
+            "sku": "X24-BR-162",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1917",
+            "slug": "bo-quan-ao-bong-ro-zephyr-vang-mo-ga-nang-dong-va-thoai-mai-toi-uu-x24-br-161",
+            "sku": "X24-BR-161",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1919",
+            "slug": "bo-quan-ao-bong-ro-do-nhat-kieu-1-nang-dong-ca-tinh-x24-br-160",
+            "sku": "X24-BR-160",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1921",
+            "slug": "bo-quan-ao-bong-ro-tim-nhat-xanh-pastel-thiet-ke-thoang-mat-thoi-trang-x24-br-159",
+            "sku": "X24-BR-159",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1923",
+            "slug": "bo-quan-ao-bong-ro-xanh-tim-than-gradient-cam-trang-x24-br-107",
+            "sku": "X24-BR-107",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1925",
+            "slug": "bo-quan-ao-bong-ro-trang-phoi-den-do-nang-dong-x24-br-158",
+            "sku": "X24-BR-158",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1927",
+            "slug": "bo-quan-ao-bong-ro-ao-the-thao-orbis-mau-vang-dam-gym-cao-cap-x24-br-157",
+            "sku": "X24-BR-157",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1929",
+            "slug": "bo-quan-ao-bong-ro-den-mau-sac-nang-dong-thoang-mat-x24-br-114",
+            "sku": "X24-BR-114",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1931",
+            "slug": "bo-quan-ao-bong-ro-tim-argentina-su-ket-hop-hoan-hao-giua-phong-cach-va-tien-loi-x24-br-156",
+            "sku": "X24-BR-156",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1933",
+            "slug": "bo-quan-ao-bong-ro-vang-nang-dong-x24-br-155",
+            "sku": "X24-BR-155",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1935",
+            "slug": "bo-quan-ao-bong-ro-xanh-ve-chai-nang-dong-thoang-mat-va-thoi-trang-x24-br-154",
+            "sku": "X24-BR-154",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1937",
+            "slug": "bo-quan-ao-bong-ro-xanh-ya-nang-dong-x24-br-153",
+            "sku": "X24-BR-153",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1939",
+            "slug": "bo-quan-ao-bong-ro-mau-cam-nang-dong-ket-hop-quan-den-x24-br-152",
+            "sku": "X24-BR-152",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1941",
+            "slug": "bo-quan-ao-bong-ro-bo-do-the-thao-mau-hong-pastel-kieu-1-nang-dong-thoi-trang-xu-huong-moi-x24-br-151",
+            "sku": "X24-BR-151",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1943",
+            "slug": "bo-quan-ao-bong-ro-trang-nang-dong-thanh-lich-x24-br-296",
+            "sku": "X24-BR-296",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1945",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-nhat-thiet-ke-hoa-tiet-vai-ca-tinh-x24-br-150",
+            "sku": "X24-BR-150",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1947",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-thiet-ke-nang-dong-hoa-tiet-trang-x24-br-149",
+            "sku": "X24-BR-149",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1950",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-noi-bat-nang-dong-x24-br-148",
+            "sku": "X24-BR-148",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1953",
+            "slug": "bo-quan-ao-bong-ro-elara-xanh-la-nang-dong-x24-br-113",
+            "sku": "X24-BR-113",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1955",
+            "slug": "bo-quan-ao-bong-ro-den-cam-noi-bat-suc-song-thoang-mat-sieu-tien-loi-x24-br-147",
+            "sku": "X24-BR-147",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1957",
+            "slug": "bo-quan-ao-bong-ro-solace-den-nang-dong-x24-br-146",
+            "sku": "X24-BR-146",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1959",
+            "slug": "bo-quan-ao-bong-ro-tim-than-phoi-hoa-tiet-nang-dong-x24-br-112",
+            "sku": "X24-BR-112",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1961",
+            "slug": "bo-quan-ao-bong-ro-xam-nhat-hoa-tiet-da-sac-x24-br-145",
+            "sku": "X24-BR-145",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1963",
+            "slug": "bo-quan-ao-bong-ro-xanh-ket-nang-dong-hoops-day-cam-hung-x24-br-144",
+            "sku": "X24-BR-144",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1965",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-nang-dong-x24-br-143",
+            "sku": "X24-BR-143",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1967",
+            "slug": "bo-quan-ao-bong-ro-tong-den-phoi-vang-do-nang-dong-x24-br-142",
+            "sku": "X24-BR-142",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1969",
+            "slug": "bo-quan-ao-bong-ro-tim-do-nang-dong-chat-the-thao-tien-loi-x24-br-141",
+            "sku": "X24-BR-141",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1971",
+            "slug": "bo-quan-ao-bong-ro-xanh-tim-than-hoa-tiet-lime-green-the-thao-nang-dong-x24-br-111",
+            "sku": "X24-BR-111",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1973",
+            "slug": "bo-quan-ao-bong-ro-xanh-ly-nang-dong-thoi-trang-cho-nguoi-yeu-thich-x24-br-140",
+            "sku": "X24-BR-140",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1975",
+            "slug": "bo-quan-ao-bong-ro-xanh-la-nang-dong-loang-vang-kieu-1-x24-br-139",
+            "sku": "X24-BR-139",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1977",
+            "slug": "bo-quan-ao-bong-ro-set-do-the-thao-mau-den-xanh-den-kieu-1-x24-br-138",
+            "sku": "X24-BR-138",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1979",
+            "slug": "bo-quan-ao-bong-ro-omnia-mau-hong-nang-dong-x24-br-110",
+            "sku": "X24-BR-110",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1981",
+            "slug": "bo-quan-ao-bong-ro-ao-the-thao-vang-nang-dong-chinh-phuc-moi-duong-dua-x24-br-137",
+            "sku": "X24-BR-137",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1983",
+            "slug": "bo-quan-ao-bong-ro-mau-vang-nghe-nang-dong-bat-mat-x24-br-136",
+            "sku": "X24-BR-136",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1985",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-tre-trung-nang-dong-cho-moi-cuoc-chay-x24-br-135",
+            "sku": "X24-BR-135",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1987",
+            "slug": "bo-quan-ao-bong-ro-hong-pastel-kieu-dang-the-thao-x24-br-134",
+            "sku": "X24-BR-134",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1989",
+            "slug": "bo-quan-ao-bong-ro-trang-xanh-mat-me-thoai-mai-toi-da-x24-br-133",
+            "sku": "X24-BR-133",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1991",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-thiet-ke-hien-dai-thoang-mat-da-nang-x24-br-132",
+            "sku": "X24-BR-132",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1993",
+            "slug": "bo-quan-ao-bong-ro-den-xanh-phong-cach-nang-dong-da-dung-cho-moi-hoat-dong-the-thao-x24-br-123",
+            "sku": "X24-BR-123",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1995",
+            "slug": "bo-quan-ao-bong-ro-do-nang-dong-ca-tinh-va-x24-br-131",
+            "sku": "X24-BR-131",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1997",
+            "slug": "bo-quan-ao-bong-ro-den-diem-nhan-cam-trang-thoang-mat-nang-dong-x24-br-109",
+            "sku": "X24-BR-109",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "1999",
+            "slug": "bo-quan-ao-bong-ro-tim-mau-sac-noi-bat-kieu-dang-the-thao-x24-br-130",
+            "sku": "X24-BR-130",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2001",
+            "slug": "bo-quan-ao-bong-ro-ao-the-thao-sports-sylph-mau-tim-than-nang-dong-tre-trung-x24-br-129",
+            "sku": "X24-BR-129",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2003",
+            "slug": "bo-quan-ao-bong-ro-vang-nang-dong-thiet-ke-duong-chay-ca-tinh-x24-br-128",
+            "sku": "X24-BR-128",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2005",
+            "slug": "bo-quan-ao-bong-ro-xanh-ve-chai-dot-pha-thoi-trang-the-thao-x24-br-127",
+            "sku": "X24-BR-127",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2007",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-nang-dong-thoi-trang-cho-nguoi-dam-me-x24-br-126",
+            "sku": "X24-BR-126",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2009",
+            "slug": "bo-quan-ao-bong-ro-tim-than-thiet-ke-nang-dong-chat-lieu-thoang-mat-x24-br-125",
+            "sku": "X24-BR-125",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2011",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-nang-dong-vuot-moi-gioi-han-sac-mau-x24-br-124",
+            "sku": "X24-BR-124",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2013",
+            "slug": "bo-quan-ao-bong-ro-vang-cam-nang-dong-x24-br-311",
+            "sku": "X24-BR-311",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2015",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-dam-ca-tinh-x24-br-310",
+            "sku": "X24-BR-310",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2017",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-nang-dong-x24-br-309",
+            "sku": "X24-BR-309",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2019",
+            "slug": "bo-quan-ao-bong-ro-vanta-cam-nang-dong-x24-br-308",
+            "sku": "X24-BR-308",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2021",
+            "slug": "bo-quan-ao-bong-ro-sports-cam-nang-dong-x24-br-307",
+            "sku": "X24-BR-307",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2023",
+            "slug": "bo-quan-ao-bong-ro-vanta-tim-than-soc-x24-br-306",
+            "sku": "X24-BR-306",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2025",
+            "slug": "bo-quan-ao-bong-ro-vanta-xanh-chuoi-nang-dong-x24-br-305",
+            "sku": "X24-BR-305",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2027",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-nang-dong-x24-br-304",
+            "sku": "X24-BR-304",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2029",
+            "slug": "bo-quan-ao-bong-ro-vanta-xanh-ya-ke-soc-x24-br-303",
+            "sku": "X24-BR-303",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2031",
+            "slug": "bo-quan-ao-bong-ro-aeris-da-quang-but-pha-x24-br-302",
+            "sku": "X24-BR-302",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2033",
+            "slug": "bo-quan-ao-bong-ro-kem-xanh-co-vit-pha-cach-x24-br-301",
+            "sku": "X24-BR-301",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2035",
+            "slug": "bo-quan-ao-bong-ro-hong-gradient-nang-dong-x24-br-300",
+            "sku": "X24-BR-300",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2037",
+            "slug": "bo-quan-ao-bong-ro-velour-tim-ombre-hien-dai-noi-bat-x24-br-299",
+            "sku": "X24-BR-299",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2039",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-nang-dong-dot-pha-x24-br-298",
+            "sku": "X24-BR-298",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2041",
+            "slug": "bo-quan-ao-bong-ro-xanh-ya-nang-dong-x24-br-297",
+            "sku": "X24-BR-297",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2043",
+            "slug": "bo-quan-ao-bong-ro-cam-tim-than-nang-dong-thoai-x24-br-410",
+            "sku": "X24-BR-410",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2045",
+            "slug": "bo-quan-ao-bong-ro-do-tim-than-nang-dong-sang-x24-br-409",
+            "sku": "X24-BR-409",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2047",
+            "slug": "bo-quan-ao-bong-ro-vang-xanh-ly-su-ket-hop-x24-br-408",
+            "sku": "X24-BR-408",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2049",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-nang-dong-dinh-cao-x24-br-407",
+            "sku": "X24-BR-407",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2051",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-bich-thiet-ke-khong-x24-br-406",
+            "sku": "X24-BR-406",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2053",
+            "slug": "bo-quan-ao-bong-ro-ao-gradient-xanh-ngoc-hong-x24-br-405",
+            "sku": "X24-BR-405",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2055",
+            "slug": "bo-quan-ao-bong-ro-hong-vang-su-ket-hop-nang-x24-br-404",
+            "sku": "X24-BR-404",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2057",
+            "slug": "bo-quan-ao-bong-ro-tim-hong-gradient-ca-x24-br-403",
+            "sku": "X24-BR-403",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2060",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-nang-dong-x24-br-402",
+            "sku": "X24-BR-402",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2062",
+            "slug": "bo-quan-ao-bong-ro-cam-chuyen-sac-thiet-ke-gradient-x24-br-401",
+            "sku": "X24-BR-401",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2064",
+            "slug": "bo-quan-ao-bong-ro-xanh-tim-than-x24-br-400",
+            "sku": "X24-BR-400",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2066",
+            "slug": "bo-quan-ao-bong-ro-trang-hoa-tiet-x24-br-319",
+            "sku": "X24-BR-319",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2069",
+            "slug": "bo-quan-ao-bong-ro-xanh-duong-nhat-nang-dong-va-x24-br-399",
+            "sku": "X24-BR-399",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2071",
+            "slug": "bo-quan-ao-bong-ro-cam-nang-dong-thoai-mai-cho-x24-br-398",
+            "sku": "X24-BR-398",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2074",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-bung-sang-suc-song-x24-br-397",
+            "sku": "X24-BR-397",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2076",
+            "slug": "bo-quan-ao-bong-ro-xanh-duong-phoi-trang-xanh-la-x24-br-396",
+            "sku": "X24-BR-396",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2079",
+            "slug": "bo-quan-ao-bong-ro-lume-den-nang-luong-hien-dai-x24-br-395",
+            "sku": "X24-BR-395",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2081",
+            "slug": "bo-quan-ao-bong-ro-hong-nang-dong-thoi-trang-x24-br-394",
+            "sku": "X24-BR-394",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2083",
+            "slug": "bo-quan-ao-bong-ro-lume-sports-mau-kem-x24-br-393",
+            "sku": "X24-BR-393",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2086",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-nang-dong-x24-br-392",
+            "sku": "X24-BR-392",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2088",
+            "slug": "bo-quan-ao-bong-ro-cam-gradient-nang-dong-x24-br-391",
+            "sku": "X24-BR-391",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2090",
+            "slug": "bo-quan-ao-bong-ro-den-noi-bat-voi-hoa-tiet-x24-br-318",
+            "sku": "X24-BR-318",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2093",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-nang-dong-in-3d-x24-br-390",
+            "sku": "X24-BR-390",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2095",
+            "slug": "bo-quan-ao-bong-ro-xanh-ket-nang-dong-dam-chat-x24-br-389",
+            "sku": "X24-BR-389",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2097",
+            "slug": "bo-quan-ao-bong-ro-den-sang-trong-nang-dong-cho-x24-br-388",
+            "sku": "X24-BR-388",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2099",
+            "slug": "bo-quan-ao-bong-ro-trang-thiet-ke-hinh-hoc-x24-br-387",
+            "sku": "X24-BR-387",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2101",
+            "slug": "bo-quan-ao-bong-ro-vang-song-dong-va-dang-cap-x24-br-317",
+            "sku": "X24-BR-317",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2103",
+            "slug": "bo-quan-ao-bong-ro-kinetix-kem-nang-dong-x24-br-386",
+            "sku": "X24-BR-386",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2105",
+            "slug": "bo-quan-ao-bong-ro-trang-xanh-nang-dong-ca-tinh-x24-br-316",
+            "sku": "X24-BR-316",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2107",
+            "slug": "bo-quan-ao-bong-ro-tim-than-nang-dong-cho-nguoi-x24-br-385",
+            "sku": "X24-BR-385",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2109",
+            "slug": "bo-quan-ao-bong-ro-xanh-ya-thiet-ke-nang-dong-x24-br-384",
+            "sku": "X24-BR-384",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2111",
+            "slug": "bo-quan-ao-bong-ro-xanh-ly-phong-cach-nang-dong-x24-br-383",
+            "sku": "X24-BR-383",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2113",
+            "slug": "bo-quan-ao-bong-ro-xanh-mat-nang-dong-x24-br-382",
+            "sku": "X24-BR-382",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2115",
+            "slug": "bo-quan-ao-bong-ro-sports-xanh-ngoc-thoang-khi-nang-x24-br-381",
+            "sku": "X24-BR-381",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2117",
+            "slug": "bo-quan-ao-bong-ro-hong-phan-gradient-x24-br-380",
+            "sku": "X24-BR-380",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2119",
+            "slug": "bo-quan-ao-bong-ro-kem-hoa-tiet-gradient-nang-dong-x24-br-379",
+            "sku": "X24-BR-379",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2121",
+            "slug": "bo-quan-ao-bong-ro-trung-hoc-lop-11-12-x24-cb-059-trang-cam-do",
+            "sku": "",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2123",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-thiet-ke-nang-dong-x24-br-378",
+            "sku": "X24-BR-378",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2125",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-thiet-ke-nang-dong-x24-br-377",
+            "sku": "X24-BR-377",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2127",
+            "slug": "bo-quan-ao-bong-ro-ao-ba-lo-aurora-den-ca-tinh-noi-bat-x24-br-376",
+            "sku": "X24-BR-376",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2129",
+            "slug": "bo-quan-ao-bong-ro-tim-phoi-xanh-hong-nang-x24-br-315",
+            "sku": "X24-BR-315",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2132",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-nang-dong-x24-br-375",
+            "sku": "X24-BR-375",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2134",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-hoa-tiet-loang-dot-x24-br-374",
+            "sku": "X24-BR-374",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2136",
+            "slug": "bo-quan-ao-bong-ro-hong-nang-dong-va-cho-moi-x24-br-373",
+            "sku": "X24-BR-373",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2138",
+            "slug": "bo-quan-ao-bong-ro-tim-sieu-nhe-x24-br-372",
+            "sku": "X24-BR-372",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2141",
+            "slug": "bo-quan-ao-bong-ro-xanh-chuoi-nang-dong-noi-bat-x24-br-371",
+            "sku": "X24-BR-371",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2143",
+            "slug": "bo-quan-ao-bong-ro-xanh-ya-thiet-ke-nang-dong-x24-br-370",
+            "sku": "X24-BR-370",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2145",
+            "slug": "bo-quan-ao-bong-ro-do-nhat-vang-thiet-ke-x24-br-369",
+            "sku": "X24-BR-369",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2147",
+            "slug": "bo-quan-ao-bong-ro-tim-nhat-thiet-ke-chuyen-sac-x24-br-368",
+            "sku": "X24-BR-368",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2149",
+            "slug": "bo-quan-ao-bong-ro-tim-than-nang-dong-x24-br-367",
+            "sku": "X24-BR-367",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2151",
+            "slug": "bo-quan-ao-bong-ro-trang-gradient-nang-dong-x24-br-312",
+            "sku": "X24-BR-312",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2153",
+            "slug": "bo-quan-ao-bong-ro-vang-dam-nang-dong-thoang-khi-x24-br-366",
+            "sku": "X24-BR-366",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2162",
+            "slug": "bo-quan-ao-bong-ro-vang-nang-dong-x24-br-328",
+            "sku": "X24-BR-328",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2164",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-nang-dong-x24-br-365",
+            "sku": "X24-BR-365",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2166",
+            "slug": "bo-quan-ao-bong-ro-hong-gradient-nang-dong-x24-br-364",
+            "sku": "X24-BR-364",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2168",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-x24-br-327",
+            "sku": "X24-BR-327",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2170",
+            "slug": "bo-quan-ao-bong-ro-lume-xanh-bich-dam-kieu-nang-x24-br-326",
+            "sku": "X24-BR-326",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2172",
+            "slug": "bo-quan-ao-bong-ro-hong-loang-nang-dong-x24-br-363",
+            "sku": "X24-BR-363",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2174",
+            "slug": "bo-quan-ao-bong-ro-vang-nghe-chuyen-sac-nang-x24-br-362",
+            "sku": "X24-BR-362",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2176",
+            "slug": "bo-quan-ao-bong-ro-vang-mo-ga-nang-dong-tre-x24-br-361",
+            "sku": "X24-BR-361",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2178",
+            "slug": "bo-quan-ao-bong-ro-tim-argentina-thiet-ke-nang-dong-x24-br-360",
+            "sku": "X24-BR-360",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2180",
+            "slug": "bo-quan-ao-bong-ro-vang-nang-dong-x24-br-325",
+            "sku": "X24-BR-325",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2182",
+            "slug": "bo-quan-ao-bong-ro-xanh-ve-chai-nang-dong-va-x24-br-359",
+            "sku": "X24-BR-359",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2184",
+            "slug": "bo-quan-ao-bong-ro-xanh-duong-dam-thiet-ke-nang-x24-br-358",
+            "sku": "X24-BR-358",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2186",
+            "slug": "bo-quan-ao-bong-ro-den-nang-dong-thanh-lich-chuan-x24-br-357",
+            "sku": "X24-BR-357",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2188",
+            "slug": "bo-quan-ao-bong-ro-cam-nang-dong-elara-x24-br-314",
+            "sku": "X24-BR-314",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2190",
+            "slug": "bo-quan-ao-bong-ro-hong-nhat-phong-cach-nang-x24-br-356",
+            "sku": "X24-BR-356",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2192",
+            "slug": "bo-quan-ao-bong-ro-ao-thun-elara-x-trang-thanh-lich-nang-dong-x24-br-355",
+            "sku": "X24-BR-355",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2194",
+            "slug": "bo-quan-ao-bong-ro-elara-xanh-bich-nhat-x24-br-354",
+            "sku": "X24-BR-354",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2196",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-x24-br-353",
+            "sku": "X24-BR-353",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2198",
+            "slug": "bo-quan-ao-bong-ro-xanh-bien-den-thiet-ke-nang-x24-br-324",
+            "sku": "X24-BR-324",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2200",
+            "slug": "bo-quan-ao-bong-ro-xanh-bich-nang-dong-x24-br-352",
+            "sku": "X24-BR-352",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2202",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-nang-dong-phong-cach-x24-br-351",
+            "sku": "X24-BR-351",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2204",
+            "slug": "bo-quan-ao-bong-ro-xanh-la-thiet-ke-nang-dong-x24-br-350",
+            "sku": "X24-BR-350",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2206",
+            "slug": "bo-quan-ao-bong-ro-cam-trang-den-nang-dong-cam-x24-br-349",
+            "sku": "X24-BR-349",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2208",
+            "slug": "bo-quan-ao-bong-ro-den-nang-dong-thiet-ke-loang-x24-br-323",
+            "sku": "X24-BR-323",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2210",
+            "slug": "bo-quan-ao-bong-ro-solace-tim-than-hien-dai-nang-x24-br-348",
+            "sku": "X24-BR-348",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2212",
+            "slug": "bo-quan-ao-bong-ro-xam-hoa-tiet-nang-x24-br-347",
+            "sku": "X24-BR-347",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2214",
+            "slug": "bo-quan-ao-bong-ro-xanh-ket-noi-bat-x24-br-346",
+            "sku": "X24-BR-346",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2216",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-nang-dong-danh-cho-x24-br-345",
+            "sku": "X24-BR-345",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2218",
+            "slug": "bo-quan-ao-bong-ro-den-hoa-tiet-vang-do-nang-x24-br-322",
+            "sku": "X24-BR-322",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2220",
+            "slug": "bo-quan-ao-bong-ro-altis-tim-nang-dong-ca-tinh-x24-br-344",
+            "sku": "X24-BR-344",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2222",
+            "slug": "bo-quan-ao-bong-ro-xanh-tim-than-hoa-tiet-vang-x24-br-343",
+            "sku": "X24-BR-343",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2224",
+            "slug": "bo-quan-ao-bong-ro-xanh-la-vang-cam-x24-br-342",
+            "sku": "X24-BR-342",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2226",
+            "slug": "bo-quan-ao-bong-ro-xanh-ve-chai-dam-nang-dong-x24-br-341",
+            "sku": "X24-BR-341",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2228",
+            "slug": "bo-quan-ao-bong-ro-den-nang-dong-manh-me-cho-x24-br-321",
+            "sku": "X24-BR-321",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2230",
+            "slug": "bo-quan-ao-bong-ro-vang-nang-dong-day-ca-x24-br-340",
+            "sku": "X24-BR-340",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2232",
+            "slug": "bo-quan-ao-bong-ro-vang-nghe-nang-dong-omnia-x24-br-339",
+            "sku": "X24-BR-339",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2234",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-hoa-tiet-sac-x24-br-338",
+            "sku": "X24-BR-338",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2236",
+            "slug": "bo-quan-ao-bong-ro-hong-sang-hoa-tiet-to-ong-x24-br-337",
+            "sku": "X24-BR-337",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2238",
+            "slug": "bo-quan-ao-bong-ro-trang-xanh-phong-cach-thanh-lich-x24-br-336",
+            "sku": "X24-BR-336",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2240",
+            "slug": "bo-quan-ao-bong-ro-den-hoa-tiet-xanh-thoang-khi-x24-br-335",
+            "sku": "X24-BR-335",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2242",
+            "slug": "bo-quan-ao-bong-ro-sports-tim-dot-pha-phong-cach-x24-br-334",
+            "sku": "X24-BR-334",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2244",
+            "slug": "bo-quan-ao-bong-ro-tim-than-diem-nhan-neon-x24-br-333",
+            "sku": "X24-BR-333",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2246",
+            "slug": "bo-quan-ao-bong-ro-vang-nang-dong-in-noi-bat-x24-br-332",
+            "sku": "X24-BR-332",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2248",
+            "slug": "bo-quan-ao-bong-ro-xanh-ve-chai-thiet-ke-nang-x24-br-331",
+            "sku": "X24-BR-331",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2250",
+            "slug": "bo-quan-ao-bong-ro-xanh-ngoc-hien-dai-x24-br-330",
+            "sku": "X24-BR-330",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2252",
+            "slug": "bo-quan-ao-bong-ro-do-ruc-ro-su-but-x24-br-320",
+            "sku": "X24-BR-320",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2254",
+            "slug": "bo-quan-ao-bong-ro-den-nang-dong-dot-x24-br-313",
+            "sku": "X24-BR-313",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2256",
+            "slug": "bo-quan-ao-bong-ro-hong-neon-thiet-ke-khong-x24-br-329",
+            "sku": "X24-BR-329",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2763",
+            "slug": "bo-quan-ao-bong-ro-tieu-hoc-lop-4-5-x24-cb-059-trang-cam-do",
+            "sku": "",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "2768",
+            "slug": "bo-quan-ao-bong-ro-tieu-hoc-lop-4-5-eco-retreat-xanh-la-nhat",
+            "sku": "",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "3997",
+            "slug": "logo-bong-ro-meo-hong-de-thuong-01",
+            "sku": "LBR-001",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "3999",
+            "slug": "logo-bong-ro-don-gian-ma-dep-02",
+            "sku": "LBR-002",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4001",
+            "slug": "logo-bong-ro-dep-theu-vi-tinh-03",
+            "sku": "LBR-003",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4003",
+            "slug": "logo-bong-ro-dep-in-chuyen-nhiet-04",
+            "sku": "LBR-004",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4005",
+            "slug": "logo-bong-ro-dep-in-tren-ao-hinh-rong-05",
+            "sku": "LBR-005",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4007",
+            "slug": "logo-bong-ro-dep-thiet-ke-nhanh-06",
+            "sku": "LBR-006",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4009",
+            "slug": "logo-bong-ro-dep-in-an-chat-luong-07",
+            "sku": "LBR-007",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4011",
+            "slug": "logo-bong-ro-hinh-baby-mascot-08",
+            "sku": "LBR-008",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4013",
+            "slug": "logo-bong-ro-hinh-su-tu-quyen-luc-09",
+            "sku": "LBR-009",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4015",
+            "slug": "logo-bong-ro-hinh-dau-trau-an-tuong-10",
+            "sku": "LBR-010",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4017",
+            "slug": "logo-bong-ro-dep-tai-ha-noi-11",
+            "sku": "LBR-011",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4019",
+            "slug": "logo-bong-ro-dep-cho-cau-lac-bo-12",
+            "sku": "LBR-012",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4021",
+            "slug": "logo-bong-ro-dep-xu-huong-13",
+            "sku": "LBR-013",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4023",
+            "slug": "logo-bong-ro-dep-doc-quyen-14",
+            "sku": "LBR-014",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4025",
+            "slug": "logo-bong-ro-meo-hong-mau-hong-trang-15",
+            "sku": "LBR-015",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4027",
+            "slug": "logo-bong-ro-dep-hinh-khi-dang-yeu-16",
+            "sku": "LBR-016",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4029",
+            "slug": "logo-bong-ro-dep-hot-nhat-17",
+            "sku": "LBR-017",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4031",
+            "slug": "logo-bong-ro-hinh-soi-noi-bat-18",
+            "sku": "LBR-018",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4033",
+            "slug": "logo-bong-ro-dep-thiet-ke-rieng-19",
+            "sku": "LBR-019",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4035",
+            "slug": "logo-bong-ro-hinh-dau-trau-ngo-nghinh-20",
+            "sku": "LBR-020",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4037",
+            "slug": "logo-bong-ro-mien-phi-cho-lop-21",
+            "sku": "LBR-021",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4039",
+            "slug": "logo-bong-ro-mien-phi-cho-sinh-vien-22",
+            "sku": "LBR-022",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4041",
+            "slug": "logo-bong-ro-mien-phi-cho-hoc-sinh-23",
+            "sku": "LBR-023",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4043",
+            "slug": "logo-bong-ro-mien-phi-theo-yeu-cau-24",
+            "sku": "LBR-024",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4045",
+            "slug": "thiet-ke-logo-bong-ro-mien-phi-theo-yeu-cau-25",
+            "sku": "LBR-025",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4047",
+            "slug": "logo-bong-ro-hinh-ho-cuc-ngau-26",
+            "sku": "LBR-026",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4049",
+            "slug": "logo-bong-ro-mau-do-trang-duoc-yeu-thich-nhat-27",
+            "sku": "LBR-027",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4051",
+            "slug": "logo-bong-ro-hinh-su-tu-cuc-chat-28",
+            "sku": "LBR-028",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4053",
+            "slug": "logo-bong-ro-cho-anh-em-sinh-vien-29",
+            "sku": "LBR-029",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4055",
+            "slug": "logo-bong-ro-lop-cute-hinh-cun-30",
+            "sku": "LBR-030",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4057",
+            "slug": "logo-bong-ro-dep-sang-trong-31",
+            "sku": "LBR-031",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4059",
+            "slug": "logo-bong-ro-dep-ca-tinh-32",
+            "sku": "LBR-032",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4061",
+            "slug": "logo-bong-ro-hinh-soi-ngau-33",
+            "sku": "LBR-033",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4063",
+            "slug": "logo-bong-ro-lop-co-hinh-vuong-mien-34",
+            "sku": "LBR-034",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4065",
+            "slug": "logo-bong-ro-mau-xanh-trang-noi-bat-35",
+            "sku": "LBR-035",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4067",
+            "slug": "logo-bong-ro-dep-co-dien-36",
+            "sku": "LBR-036",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4069",
+            "slug": "logo-bong-ro-dep-hien-dai-37",
+            "sku": "LBR-037",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4071",
+            "slug": "logo-bong-ro-hinh-soi-noi-bat-38",
+            "sku": "LBR-038",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4073",
+            "slug": "logo-bong-ro-hinh-rong-an-tuong-39",
+            "sku": "LBR-039",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4075",
+            "slug": "logo-bong-ro-phong-cach-40",
+            "sku": "LBR-040",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4077",
+            "slug": "top-nhung-mau-logo-bong-ro-dep-nhat-tai-mayaobongro-vn-41",
+            "sku": "LBR-041",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4079",
+            "slug": "tong-hop-nhung-mau-logo-bong-ro-tron-sieu-dep-42",
+            "sku": "LBR-042",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4081",
+            "slug": "logo-bong-ro-de-thuong-mau-hong-hinh-tho-43",
+            "sku": "LBR-043",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4083",
+            "slug": "bo-suu-tap-logo-bong-ro-dep-nhat-44",
+            "sku": "LBR-044",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4085",
+            "slug": "logo-bong-ro-doi-canh-doc-dao-45",
+            "sku": "LBR-045",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4087",
+            "slug": "logo-bong-ro-hinh-chim-dai-bang-46",
+            "sku": "LBR-046",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4089",
+            "slug": "logo-bong-ro-hinh-soi-doc-dao-47",
+            "sku": "LBR-047",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4091",
+            "slug": "logo-bong-ro-dep-48",
+            "sku": "LBR-048",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4093",
+            "slug": "logo-in-ao-bong-ro-dep-hinh-tho-hong-49",
+            "sku": "LBR-049",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4095",
+            "slug": "goi-y-60-mau-logo-bong-ro-dep-doc-la-nhat-50",
+            "sku": "LBR-050",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4097",
+            "slug": "logo-bong-ro-dep-nhat-tai-mayaobongro-vn-51",
+            "sku": "LBR-051",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4099",
+            "slug": "mau-logo-bong-ro-cho-lop-dep-sang-tao-nhat-52",
+            "sku": "LBR-052",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4101",
+            "slug": "tong-hop-mau-logo-bong-ro-dep-nhat-53",
+            "sku": "LBR-053",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4103",
+            "slug": "logo-bong-ro-tu-thiet-ke-theo-yeu-cau-54",
+            "sku": "LBR-054",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4105",
+            "slug": "logo-bong-ro-meo-hong-cho-hoc-sinh-55",
+            "sku": "LBR-055",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4107",
+            "slug": "logo-bong-ro-mau-hong-dep-cho-lop-56",
+            "sku": "LBR-056",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4109",
+            "slug": "logo-bong-ro-sang-tao-tuyet-dinh-57",
+            "sku": "LBR-057",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4111",
+            "slug": "logo-bong-ro-doc-dao-nhat-58",
+            "sku": "LBR-058",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4113",
+            "slug": "logo-bong-ro-thiet-ke-dep-mat-59",
+            "sku": "LBR-059",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        },
+        {
+            "sourceId": "4115",
+            "slug": "logo-bong-ro-dep-nhat-2025-60",
+            "sku": "LBR-060",
+            "productType": "simple",
+            "price": 169000,
+            "compareAtPrice": 200000
+        }
+    ]
+}

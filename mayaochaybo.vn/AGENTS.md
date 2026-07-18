@@ -5,7 +5,39 @@
 > `../AGENTS.md`. Load `../WEBSITE-OPTIMIZATION-GUIDE.md` only when the current
 > request matches a guide-loading trigger defined by the root instructions.
 
-## System overview
+## Active tenant identity
+
+| Field | Value |
+|---|---|
+| Domain | `mayaochaybo.vn` |
+| Payload tenant slug | None — this website is not a Payload tenant |
+| Active platform | WordPress |
+| Migration status | Not migrated; no Next.js source in this website folder |
+
+`mayaochaybo.vn` remains an active WordPress website. Use this profile's
+WordPress server, containers, database, and proxy for requested maintenance.
+Do not send its content to `cms-api` or use `mayaochaybo` as a tenant slug unless
+a future migration creates the Next.js source, deployed runtime, and tenant
+record.
+
+## Runtime management
+
+| Field | Value |
+|---|---|
+| Application host | `root@10.10.0.26` |
+| Application root | `/root/websites/sites/mayaochaybo.vn` |
+| Docker Compose | `/root/websites/docker-compose.yml` |
+| Runtime containers | `wp-nginx`, `wp-php` |
+| Published application port | `10.10.0.26:80` |
+| Proxy host | `root@10.10.0.56` (`103.147.35.95`) |
+| Proxy config | `/etc/nginx/conf.d/mayaochaybo.vn.conf` |
+| Public upstream | `http://10.10.0.26:80` |
+| Request path | Proxy → `wp-nginx` → `wp-php` → WordPress database |
+
+The WordPress, PHP, MySQL, theme, plugin, cache, Nginx, and filesystem details
+below describe the active website runtime.
+
+## Active WordPress system overview
 
 | Section | Value |
 |-----|--------|

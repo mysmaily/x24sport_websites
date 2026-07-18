@@ -1,0 +1,7 @@
+interface:
+  display_name: "WordPress Tenant Migration"
+  short_description: "URL-safe WordPress to Next.js migration"
+  brand_color: "#E65100"
+  default_prompt: "Use $migrate-wordpress-to-x24sport-tenant to plan a reversible, URL-preserving migration into cms-api."
+policy:
+  allow_implicit_invocation: true

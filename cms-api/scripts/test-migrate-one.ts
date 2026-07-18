@@ -162,7 +162,7 @@ async function run() {
   const finalDir = path.join(productDir, 'final')
   const imageFiles = fs.readdirSync(finalDir).filter((f) => f.endsWith('.webp'))
 
-  const mediaIds: Array<number | string> = []
+  const mediaIds: number[] = []
   for (const imgFile of imageFiles) {
     const imgPath = path.join(finalDir, imgFile)
     const buffer = fs.readFileSync(imgPath)
@@ -185,7 +185,7 @@ async function run() {
     })
 
     console.log(`    → Media id=${media.id} url=${(media as any).url}`)
-    mediaIds.push(media.id)
+    mediaIds.push(Number(media.id))
   }
 
   // Build description in Lexical format

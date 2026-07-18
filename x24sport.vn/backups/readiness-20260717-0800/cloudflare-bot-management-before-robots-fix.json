@@ -1,0 +1,16 @@
+{
+  "capturedAt": "2026-07-17T01:41:00Z",
+  "zone": "x24sport.vn",
+  "enable_js": false,
+  "fight_mode": false,
+  "ai_bots_protection": "disabled",
+  "content_bots_protection": "disabled",
+  "crawler_protection": "disabled",
+  "ai_training": "disabled",
+  "ai_search": "disabled",
+  "ai_user": "disabled",
+  "is_robots_txt_managed": true,
+  "cf_robots_variant": "off",
+  "ai_bots_migration_opt_out": false,
+  "using_latest_model": true
+}

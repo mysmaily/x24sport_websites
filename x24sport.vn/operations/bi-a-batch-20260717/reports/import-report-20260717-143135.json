@@ -1,0 +1,188 @@
+{
+  "apply": true,
+  "errors": [],
+  "media": [
+    {
+      "action": "unchanged",
+      "code": "541",
+      "id": 3096
+    },
+    {
+      "action": "unchanged",
+      "code": "534",
+      "id": 3097
+    },
+    {
+      "action": "unchanged",
+      "code": "119",
+      "id": 3098
+    },
+    {
+      "action": "unchanged",
+      "code": "051",
+      "id": 3099
+    },
+    {
+      "action": "unchanged",
+      "code": "126",
+      "id": 3100
+    },
+    {
+      "action": "unchanged",
+      "code": "171",
+      "id": 3101
+    },
+    {
+      "action": "unchanged",
+      "code": "175",
+      "id": 3102
+    },
+    {
+      "action": "unchanged",
+      "code": "176",
+      "id": 3103
+    },
+    {
+      "action": "unchanged",
+      "code": "217",
+      "id": 3104
+    },
+    {
+      "action": "unchanged",
+      "code": "406",
+      "id": 3105
+    },
+    {
+      "action": "unchanged",
+      "code": "327",
+      "id": 3106
+    },
+    {
+      "action": "unchanged",
+      "code": "493",
+      "id": 3107
+    },
+    {
+      "action": "unchanged",
+      "code": "507",
+      "id": 3108
+    },
+    {
+      "action": "unchanged",
+      "code": "509",
+      "id": 3109
+    },
+    {
+      "action": "unchanged",
+      "code": "551",
+      "id": 3110
+    }
+  ],
+  "products": [
+    {
+      "action": "updated",
+      "code": "541",
+      "id": 2611,
+      "name": "Áo bi-a X24 BA-541 Trắng Đen Xám",
+      "slug": "ao-bi-a-x24-ba-541-trang-den-xam"
+    },
+    {
+      "action": "updated",
+      "code": "534",
+      "id": 2612,
+      "name": "Áo bi-a X24 BA-534 Đen Trắng Cam",
+      "slug": "ao-bi-a-x24-ba-534-den-trang-cam"
+    },
+    {
+      "action": "updated",
+      "code": "119",
+      "id": 2613,
+      "name": "Áo bi-a X24 BA-119 Đen Đỏ Xanh",
+      "slug": "ao-bi-a-x24-ba-119-den-do-xanh"
+    },
+    {
+      "action": "updated",
+      "code": "051",
+      "id": 2614,
+      "name": "Áo bi-a X24 BA-051 Đen Xanh Vàng Tím",
+      "slug": "ao-bi-a-x24-ba-051-den-xanh-vang-tim"
+    },
+    {
+      "action": "updated",
+      "code": "126",
+      "id": 2615,
+      "name": "Áo bi-a X24 BA-126 Đen Cam Xám",
+      "slug": "ao-bi-a-x24-ba-126-den-cam-xam"
+    },
+    {
+      "action": "updated",
+      "code": "171",
+      "id": 2616,
+      "name": "Áo bi-a X24 BA-171 Đen Vàng Cam",
+      "slug": "ao-bi-a-x24-ba-171-den-vang-cam"
+    },
+    {
+      "action": "updated",
+      "code": "175",
+      "id": 2617,
+      "name": "Áo bi-a X24 BA-175 Đen Cam Xanh",
+      "slug": "ao-bi-a-x24-ba-175-den-cam-xanh"
+    },
+    {
+      "action": "updated",
+      "code": "176",
+      "id": 2618,
+      "name": "Áo bi-a X24 BA-176 Đen Trắng Cam",
+      "slug": "ao-bi-a-x24-ba-176-den-trang-cam-2"
+    },
+    {
+      "action": "updated",
+      "code": "217",
+      "id": 2619,
+      "name": "Áo bi-a X24 BA-217 Đen Xám Xanh",
+      "slug": "ao-bi-a-x24-ba-217-den-xam-xanh"
+    },
+    {
+      "action": "updated",
+      "code": "406",
+      "id": 2620,
+      "name": "Áo bi-a X24 BA-406 Đen Tím",
+      "slug": "ao-bi-a-x24-ba-406-den-tim"
+    },
+    {
+      "action": "updated",
+      "code": "327",
+      "id": 2621,
+      "name": "Áo bi-a X24 BA-327 Đen Đỏ",
+      "slug": "ao-bi-a-x24-ba-327-den-do"
+    },
+    {
+      "action": "updated",
+      "code": "493",
+      "id": 2622,
+      "name": "Áo bi-a X24 BA-493 Hồng Đen",
+      "slug": "ao-bi-a-x24-ba-493-hong-den"
+    },
+    {
+      "action": "updated",
+      "code": "507",
+      "id": 2623,
+      "name": "Áo bi-a X24 BA-507 Trắng Xanh Mint Xanh Ve Chai",
+      "slug": "ao-bi-a-x24-ba-507-trang-xanh-mint-xanh-ve-chai"
+    },
+    {
+      "action": "updated",
+      "code": "509",
+      "id": 2624,
+      "name": "Áo bi-a X24 BA-509 Trắng Hồng Nhạt Đỏ",
+      "slug": "ao-bi-a-x24-ba-509-trang-hong-nhat-do"
+    },
+    {
+      "action": "updated",
+      "code": "551",
+      "id": 2625,
+      "name": "Áo bi-a X24 BA-551 Tím Than Xanh Dương Trắng",
+      "slug": "ao-bi-a-x24-ba-551-tim-than-xanh-duong-trang"
+    }
+  ]
+}

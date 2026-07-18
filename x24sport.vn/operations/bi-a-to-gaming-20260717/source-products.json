@@ -1,0 +1,3632 @@
+[
+  {
+    "attributes": [
+      {
+        "id": "6a59da57cdc41600015472ec",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da57cdc41600015472eb",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da57cdc41600015472ee",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da57cdc41600015472ed",
+            "value": "Tím Than Xanh Dương Trắng"
+          }
+        ]
+      },
+      {
+        "id": "6a59da57cdc41600015472f0",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da57cdc41600015472ef",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da57cdc41600015472f1",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472f2",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-551</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-551</h2>\n<ul>\n  <li>Phối màu tím than xanh dương trắng dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Áo bi-a tím than xanh dương chuyển trắng, cảm giác mát, sạch và hiện đại khi phối quần dài đen. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:38.072Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-551 màu Tím Than Xanh Dương Trắng phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:37.385Z",
+        "filename": "x24-ba-551.png",
+        "filesize": 1893515,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3110,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d699cdc4160001547200",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d699cdc4160001547201",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d699cdc4160001547202",
+            "value": "tím than xanh dương trắng"
+          }
+        ],
+        "sourceChecksum": "bf72cb81e1c48e240c178a81e89d4b70b82db6d6aafe06a7b65b726bd65c5aa4",
+        "sourceId": "x24-ba-551",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-551.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-551",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:37.914Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-551.png",
+        "width": 1254
+      }
+    ],
+    "id": 2625,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-551-tim-than-xanh-duong-trang/",
+    "metaDescription": "Áo bi-a X24 BA-551 Tím Than Xanh Dương Trắng: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-551 Tím Than Xanh Dương Trắng",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da57cdc41600015472e4",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472e5",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da57cdc41600015472e6",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472e7",
+        "value": "tím than xanh dương trắng"
+      },
+      {
+        "id": "6a59da57cdc41600015472e8",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-551 Tím Than Xanh Dương Trắng | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Áo bi-a tím than xanh dương chuyển trắng, cảm giác mát, sạch và hiện đại khi phối quần dài đen. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-551",
+    "slug": "ao-bi-a-x24-ba-551-tim-than-xanh-duong-trang",
+    "sourceChecksum": "4b88ed2147fbedbf725fdb9499d294b2fa064482614d0c36c72bdb4ccfdff6d4",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "551",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da57cdc41600015472e9",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472ea",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-551-tim-than-xanh-duong-trang/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-551-tim-than-xanh-duong-trang",
+    "tenantSourceKey": "6:x24-billiards-batch:551",
+    "updatedAt": "2026-07-17T07:31:35.933Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da57cdc41600015472dd",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da57cdc41600015472dc",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da57cdc41600015472df",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da57cdc41600015472de",
+            "value": "Trắng Hồng Nhạt Đỏ"
+          }
+        ]
+      },
+      {
+        "id": "6a59da57cdc41600015472e1",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da57cdc41600015472e0",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da57cdc41600015472e2",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472e3",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-509</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-509</h2>\n<ul>\n  <li>Phối màu trắng hồng nhạt đỏ dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Polo bi-a trắng hồng nhạt chuyển đỏ, mềm mắt và nổi bật trong ảnh đội, giải đấu hoặc sự kiện câu lạc bộ. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:36.928Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-509 màu Trắng Hồng Nhạt Đỏ phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:36.156Z",
+        "filename": "x24-ba-509.png",
+        "filesize": 1865254,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3109,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d698cdc41600015471ee",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d698cdc41600015471ef",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d698cdc41600015471f0",
+            "value": "trắng hồng nhạt đỏ"
+          }
+        ],
+        "sourceChecksum": "2ab2a79693d47f84b9dca0fff6ffbead480eae28d22ebf2bf84d18af5b68e683",
+        "sourceId": "x24-ba-509",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-509.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-509",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:36.780Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-509.png",
+        "width": 1254
+      }
+    ],
+    "id": 2624,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-509-trang-hong-nhat-do/",
+    "metaDescription": "Áo bi-a X24 BA-509 Trắng Hồng Nhạt Đỏ: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-509 Trắng Hồng Nhạt Đỏ",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da57cdc41600015472d5",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472d6",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da57cdc41600015472d7",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472d8",
+        "value": "trắng hồng nhạt đỏ"
+      },
+      {
+        "id": "6a59da57cdc41600015472d9",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-509 Trắng Hồng Nhạt Đỏ | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Polo bi-a trắng hồng nhạt chuyển đỏ, mềm mắt và nổi bật trong ảnh đội, giải đấu hoặc sự kiện câu lạc bộ. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-509",
+    "slug": "ao-bi-a-x24-ba-509-trang-hong-nhat-do",
+    "sourceChecksum": "3c6d8e74e79c4bbfc97fc84f71f1c2c2fb0b434346e4228b5f7f9d3190bb2884",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "509",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da57cdc41600015472da",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472db",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-509-trang-hong-nhat-do/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-509-trang-hong-nhat-do",
+    "tenantSourceKey": "6:x24-billiards-batch:509",
+    "updatedAt": "2026-07-17T07:31:35.423Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da57cdc41600015472ce",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da57cdc41600015472cd",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da57cdc41600015472d0",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da57cdc41600015472cf",
+            "value": "Trắng Xanh Mint Xanh Ve Chai"
+          }
+        ]
+      },
+      {
+        "id": "6a59da57cdc41600015472d2",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da57cdc41600015472d1",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da57cdc41600015472d3",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472d4",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-507</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-507</h2>\n<ul>\n  <li>Phối màu trắng xanh mint xanh ve chai dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Áo bi-a trắng xanh mint và xanh ve chai, sáng sạch, hợp đội nhóm thích phong cách tươi nhưng vẫn chuyên nghiệp. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:35.704Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-507 màu Trắng Xanh Mint Xanh Ve Chai phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:35.047Z",
+        "filename": "x24-ba-507.png",
+        "filesize": 1858210,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3108,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d697cdc41600015471dc",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d697cdc41600015471dd",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d697cdc41600015471de",
+            "value": "trắng xanh mint xanh ve chai"
+          }
+        ],
+        "sourceChecksum": "fd8557237c9d71d94079f8af9c138bb8bb315dc53c50be33827ab5b63a4d128c",
+        "sourceId": "x24-ba-507",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-507.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-507",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:35.556Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-507.png",
+        "width": 1254
+      }
+    ],
+    "id": 2623,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-507-trang-xanh-mint-xanh-ve-chai/",
+    "metaDescription": "Áo bi-a X24 BA-507 Trắng Xanh Mint Xanh Ve Chai: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-507 Trắng Xanh Mint Xanh Ve Chai",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da57cdc41600015472c6",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472c7",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da57cdc41600015472c8",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472c9",
+        "value": "trắng xanh mint xanh ve chai"
+      },
+      {
+        "id": "6a59da57cdc41600015472ca",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-507 Trắng Xanh Mint Xanh Ve Chai | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Áo bi-a trắng xanh mint và xanh ve chai, sáng sạch, hợp đội nhóm thích phong cách tươi nhưng vẫn chuyên nghiệp. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-507",
+    "slug": "ao-bi-a-x24-ba-507-trang-xanh-mint-xanh-ve-chai",
+    "sourceChecksum": "8e9569bd7ee7084574757ee3c2bc4bda70fa5dfbdc26774e722c90ef393d8739",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "507",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da57cdc41600015472cb",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da57cdc41600015472cc",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-507-trang-xanh-mint-xanh-ve-chai/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-507-trang-xanh-mint-xanh-ve-chai",
+    "tenantSourceKey": "6:x24-billiards-batch:507",
+    "updatedAt": "2026-07-17T07:31:35.037Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da56cdc41600015472bf",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da56cdc41600015472be",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da56cdc41600015472c1",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da56cdc41600015472c0",
+            "value": "Hồng Đen"
+          }
+        ]
+      },
+      {
+        "id": "6a59da56cdc41600015472c3",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da56cdc41600015472c2",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da56cdc41600015472c4",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da56cdc41600015472c5",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-493</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-493</h2>\n<ul>\n  <li>Phối màu hồng đen dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Polo bi-a hồng đen chuyển sắc, nổi bật vừa đủ cho đội nam nữ muốn hình ảnh trẻ trung trong phòng bi-a. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:34.597Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-493 màu Hồng Đen phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:33.868Z",
+        "filename": "x24-ba-493.png",
+        "filesize": 1872559,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3107,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d695cdc41600015471ca",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d695cdc41600015471cb",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d695cdc41600015471cc",
+            "value": "hồng đen"
+          }
+        ],
+        "sourceChecksum": "280c894a548b8c11073ecf662843aaadf96fc030cad952a2ee94125bf406ddd4",
+        "sourceId": "x24-ba-493",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-493.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-493",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:34.397Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-493.png",
+        "width": 1254
+      }
+    ],
+    "id": 2622,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-493-hong-den/",
+    "metaDescription": "Áo bi-a X24 BA-493 Hồng Đen: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-493 Hồng Đen",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da56cdc41600015472b7",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da56cdc41600015472b8",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da56cdc41600015472b9",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da56cdc41600015472ba",
+        "value": "hồng đen"
+      },
+      {
+        "id": "6a59da56cdc41600015472bb",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-493 Hồng Đen | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Polo bi-a hồng đen chuyển sắc, nổi bật vừa đủ cho đội nam nữ muốn hình ảnh trẻ trung trong phòng bi-a. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-493",
+    "slug": "ao-bi-a-x24-ba-493-hong-den",
+    "sourceChecksum": "bb8a79bcdf304d34a1c7364fe5b4369612390b06bf93596389e9be210aafbbc7",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "493",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da56cdc41600015472bc",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da56cdc41600015472bd",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-493-hong-den/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-493-hong-den",
+    "tenantSourceKey": "6:x24-billiards-batch:493",
+    "updatedAt": "2026-07-17T07:31:34.410Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da56cdc41600015472b0",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da56cdc41600015472af",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da56cdc41600015472b2",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da56cdc41600015472b1",
+            "value": "Đen Đỏ"
+          }
+        ]
+      },
+      {
+        "id": "6a59da56cdc41600015472b4",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da56cdc41600015472b3",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da56cdc41600015472b5",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da56cdc41600015472b6",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-327</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-327</h2>\n<ul>\n  <li>Phối màu đen đỏ dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Áo bi-a đen đỏ thiên tối, dễ mặc, phù hợp đội cần đồng phục có điểm nhấn nhưng không quá rực. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:33.408Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-327 màu Đen Đỏ phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:32.677Z",
+        "filename": "x24-ba-327.png",
+        "filesize": 1991968,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3106,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d694cdc41600015471b8",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d694cdc41600015471b9",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d694cdc41600015471ba",
+            "value": "đen đỏ"
+          }
+        ],
+        "sourceChecksum": "80a42d5c1f04d1770fe25422be90d02aa8a28433b668e53b5e19c5fe81a6fc9c",
+        "sourceId": "x24-ba-327",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-327.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-327",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:33.164Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-327.png",
+        "width": 1254
+      }
+    ],
+    "id": 2621,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-327-den-do/",
+    "metaDescription": "Áo bi-a X24 BA-327 Đen Đỏ: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-327 Đen Đỏ",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da56cdc41600015472a8",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da56cdc41600015472a9",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da56cdc41600015472aa",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da56cdc41600015472ab",
+        "value": "đen đỏ"
+      },
+      {
+        "id": "6a59da56cdc41600015472ac",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-327 Đen Đỏ | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Áo bi-a đen đỏ thiên tối, dễ mặc, phù hợp đội cần đồng phục có điểm nhấn nhưng không quá rực. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-327",
+    "slug": "ao-bi-a-x24-ba-327-den-do",
+    "sourceChecksum": "31767ca039ceb5585eabf742018304dfe6ebe74ed6077e624a80783763ff0b73",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "327",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da56cdc41600015472ad",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da56cdc41600015472ae",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-327-den-do/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-327-den-do",
+    "tenantSourceKey": "6:x24-billiards-batch:327",
+    "updatedAt": "2026-07-17T07:31:34.125Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da55cdc41600015472a1",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da55cdc41600015472a0",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da55cdc41600015472a3",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da55cdc41600015472a2",
+            "value": "Đen Tím"
+          }
+        ]
+      },
+      {
+        "id": "6a59da55cdc41600015472a5",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da55cdc41600015472a4",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da55cdc41600015472a6",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da55cdc41600015472a7",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-406</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-406</h2>\n<ul>\n  <li>Phối màu đen tím dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Polo bi-a đen tím với phom gọn, tạo vẻ lịch lãm và khác biệt cho đội nhóm khi thi đấu. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:32.213Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-406 màu Đen Tím phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:31.373Z",
+        "filename": "x24-ba-406.png",
+        "filesize": 1893219,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3105,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d693cdc41600015471a6",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d693cdc41600015471a7",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d693cdc41600015471a8",
+            "value": "đen tím"
+          }
+        ],
+        "sourceChecksum": "e28fd078afa31460835ac28e2a75a23a49d6179f94c06d043eeba22375b8f2c7",
+        "sourceId": "x24-ba-406",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-406.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-406",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:32.063Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-406.png",
+        "width": 1254
+      }
+    ],
+    "id": 2620,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-406-den-tim/",
+    "metaDescription": "Áo bi-a X24 BA-406 Đen Tím: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-406 Đen Tím",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da55cdc4160001547299",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da55cdc416000154729a",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da55cdc416000154729b",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da55cdc416000154729c",
+        "value": "đen tím"
+      },
+      {
+        "id": "6a59da55cdc416000154729d",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-406 Đen Tím | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Polo bi-a đen tím với phom gọn, tạo vẻ lịch lãm và khác biệt cho đội nhóm khi thi đấu. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-406",
+    "slug": "ao-bi-a-x24-ba-406-den-tim",
+    "sourceChecksum": "55b0f2479aab54800db7ddaa59b2dc8109e036218cfdb49f460c91704057a3e7",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "406",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da55cdc416000154729e",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da55cdc416000154729f",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-406-den-tim/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-406-den-tim",
+    "tenantSourceKey": "6:x24-billiards-batch:406",
+    "updatedAt": "2026-07-17T07:31:33.861Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da55cdc4160001547292",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da55cdc4160001547291",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da55cdc4160001547294",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da55cdc4160001547293",
+            "value": "Đen Xám Xanh"
+          }
+        ]
+      },
+      {
+        "id": "6a59da55cdc4160001547296",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da55cdc4160001547295",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da55cdc4160001547297",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da55cdc4160001547298",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-217</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-217</h2>\n<ul>\n  <li>Phối màu đen xám xanh dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Áo bi-a tông đen xám điểm xanh, tối giản và lịch sự cho câu lạc bộ, đội thi đấu hoặc nhân sự phòng bi-a. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:30.919Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-217 màu Đen Xám Xanh phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:30.294Z",
+        "filename": "x24-ba-217.png",
+        "filesize": 1985298,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3104,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d692cdc4160001547194",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d692cdc4160001547195",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d692cdc4160001547196",
+            "value": "đen xám xanh"
+          }
+        ],
+        "sourceChecksum": "a3e0f7916d1bb7aa75bae52db1b9faa1e6ca44eee1e74b8819157d05c01c8f76",
+        "sourceId": "x24-ba-217",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-217.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-217",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:30.772Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-217.png",
+        "width": 1254
+      }
+    ],
+    "id": 2619,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-217-den-xam-xanh/",
+    "metaDescription": "Áo bi-a X24 BA-217 Đen Xám Xanh: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-217 Đen Xám Xanh",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da55cdc416000154728a",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da55cdc416000154728b",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da55cdc416000154728c",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da55cdc416000154728d",
+        "value": "đen xám xanh"
+      },
+      {
+        "id": "6a59da55cdc416000154728e",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-217 Đen Xám Xanh | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Áo bi-a tông đen xám điểm xanh, tối giản và lịch sự cho câu lạc bộ, đội thi đấu hoặc nhân sự phòng bi-a. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-217",
+    "slug": "ao-bi-a-x24-ba-217-den-xam-xanh",
+    "sourceChecksum": "68be02065a2a79ecdc48b6e5f194929f5140d4393b6dd49f42539a075a4995c7",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "217",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da55cdc416000154728f",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da55cdc4160001547290",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-217-den-xam-xanh/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-217-den-xam-xanh",
+    "tenantSourceKey": "6:x24-billiards-batch:217",
+    "updatedAt": "2026-07-17T07:31:33.564Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da55cdc4160001547283",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da55cdc4160001547282",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da55cdc4160001547285",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da55cdc4160001547284",
+            "value": "Đen Trắng Cam"
+          }
+        ]
+      },
+      {
+        "id": "6a59da55cdc4160001547287",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da55cdc4160001547286",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da55cdc4160001547288",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da55cdc4160001547289",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-176</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-176</h2>\n<ul>\n  <li>Phối màu đen trắng cam dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Polo bi-a phối đen, trắng và cam với đường nét thể thao, hợp đội nam nữ mặc đồng bộ quần dài. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:29.833Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-176 màu Đen Trắng Cam phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:29.230Z",
+        "filename": "x24-ba-176.png",
+        "filesize": 2044295,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3103,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d691cdc4160001547182",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d691cdc4160001547183",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d691cdc4160001547184",
+            "value": "đen trắng cam"
+          }
+        ],
+        "sourceChecksum": "59b5a52260abc928afed49bb204aa01f497b98643cdefac1bbd3bc91f7d429db",
+        "sourceId": "x24-ba-176",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-176.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-176",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:29.686Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-176.png",
+        "width": 1254
+      }
+    ],
+    "id": 2618,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-176-den-trang-cam-2/",
+    "metaDescription": "Áo bi-a X24 BA-176 Đen Trắng Cam: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-176 Đen Trắng Cam",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da55cdc416000154727b",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da55cdc416000154727c",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da55cdc416000154727d",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da55cdc416000154727e",
+        "value": "đen trắng cam"
+      },
+      {
+        "id": "6a59da55cdc416000154727f",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-176 Đen Trắng Cam | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Polo bi-a phối đen, trắng và cam với đường nét thể thao, hợp đội nam nữ mặc đồng bộ quần dài. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-176",
+    "slug": "ao-bi-a-x24-ba-176-den-trang-cam-2",
+    "sourceChecksum": "8fc1f61aab204aff2a05a98ffe22c893ed834a1c2a8f38b412c599448ca6c846",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "176",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da55cdc4160001547280",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da55cdc4160001547281",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-176-den-trang-cam-2/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-176-den-trang-cam-2",
+    "tenantSourceKey": "6:x24-billiards-batch:176",
+    "updatedAt": "2026-07-17T07:31:33.353Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da54cdc4160001547274",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da54cdc4160001547273",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da54cdc4160001547276",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da54cdc4160001547275",
+            "value": "Đen Cam Xanh"
+          }
+        ]
+      },
+      {
+        "id": "6a59da54cdc4160001547278",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da54cdc4160001547277",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da54cdc4160001547279",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da54cdc416000154727a",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-175</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-175</h2>\n<ul>\n  <li>Phối màu đen cam xanh dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Mẫu áo bi-a nền đen với mảng cam, xanh và vàng, tạo điểm nhấn hiện đại khi đứng cạnh bàn xanh. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:28.744Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-175 màu Đen Cam Xanh phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:28.080Z",
+        "filename": "x24-ba-175.png",
+        "filesize": 2019683,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3102,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d690cdc4160001547170",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d690cdc4160001547171",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d690cdc4160001547172",
+            "value": "đen cam xanh"
+          }
+        ],
+        "sourceChecksum": "fdbd9ba74e8696b49dae5539ae0c860fa0ae6d98ab7de40512a7efc4e1370e88",
+        "sourceId": "x24-ba-175",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-175.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-175",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:28.567Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-175.png",
+        "width": 1254
+      }
+    ],
+    "id": 2617,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-175-den-cam-xanh/",
+    "metaDescription": "Áo bi-a X24 BA-175 Đen Cam Xanh: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-175 Đen Cam Xanh",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da54cdc416000154726c",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da54cdc416000154726d",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da54cdc416000154726e",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da54cdc416000154726f",
+        "value": "đen cam xanh"
+      },
+      {
+        "id": "6a59da54cdc4160001547270",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-175 Đen Cam Xanh | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Mẫu áo bi-a nền đen với mảng cam, xanh và vàng, tạo điểm nhấn hiện đại khi đứng cạnh bàn xanh. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-175",
+    "slug": "ao-bi-a-x24-ba-175-den-cam-xanh",
+    "sourceChecksum": "86f4b3b1239701a1a6b726ebdac838124d6b31718f7339f518f6cdf5299cdbc4",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "175",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da54cdc4160001547271",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da54cdc4160001547272",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-175-den-cam-xanh/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-175-den-cam-xanh",
+    "tenantSourceKey": "6:x24-billiards-batch:175",
+    "updatedAt": "2026-07-17T07:31:32.764Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da53cdc4160001547265",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da53cdc4160001547264",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da53cdc4160001547267",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da53cdc4160001547266",
+            "value": "Đen Vàng Cam"
+          }
+        ]
+      },
+      {
+        "id": "6a59da53cdc4160001547269",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da53cdc4160001547268",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da53cdc416000154726a",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da53cdc416000154726b",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-171</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-171</h2>\n<ul>\n  <li>Phối màu đen vàng cam dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Áo bi-a đen vàng cam mang năng lượng thi đấu rõ nét, phù hợp đồng phục câu lạc bộ và đội giải. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:27.633Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-171 màu Đen Vàng Cam phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:26.920Z",
+        "filename": "x24-ba-171.png",
+        "filesize": 2025846,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3101,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d68ecdc416000154715e",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d68ecdc416000154715f",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d68ecdc4160001547160",
+            "value": "đen vàng cam"
+          }
+        ],
+        "sourceChecksum": "4d1991be71826940b1f07d49bbf8079b5ea1e638ff91ff8ba4cb69a723c9617c",
+        "sourceId": "x24-ba-171",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-171.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-171",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:27.434Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-171.png",
+        "width": 1254
+      }
+    ],
+    "id": 2616,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-171-den-vang-cam/",
+    "metaDescription": "Áo bi-a X24 BA-171 Đen Vàng Cam: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-171 Đen Vàng Cam",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da53cdc416000154725d",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da53cdc416000154725e",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da53cdc416000154725f",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da53cdc4160001547260",
+        "value": "đen vàng cam"
+      },
+      {
+        "id": "6a59da53cdc4160001547261",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-171 Đen Vàng Cam | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Áo bi-a đen vàng cam mang năng lượng thi đấu rõ nét, phù hợp đồng phục câu lạc bộ và đội giải. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-171",
+    "slug": "ao-bi-a-x24-ba-171-den-vang-cam",
+    "sourceChecksum": "993b96b6761728d6d09788af3724e4cee04cf14678bb532bd6ef171b953abeb8",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "171",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da53cdc4160001547262",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da53cdc4160001547263",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-171-den-vang-cam/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-171-den-vang-cam",
+    "tenantSourceKey": "6:x24-billiards-batch:171",
+    "updatedAt": "2026-07-17T07:31:31.808Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da52cdc4160001547256",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da52cdc4160001547255",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da52cdc4160001547258",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da52cdc4160001547257",
+            "value": "Đen Cam Xám"
+          }
+        ]
+      },
+      {
+        "id": "6a59da52cdc416000154725a",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da52cdc4160001547259",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da52cdc416000154725b",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da52cdc416000154725c",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-126</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-126</h2>\n<ul>\n  <li>Phối màu đen cam xám dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Polo bi-a đen cam với họa tiết chuyển động, dễ phối quần dài đen cho luyện tập và thi đấu. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:26.411Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-126 màu Đen Cam Xám phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:25.301Z",
+        "filename": "x24-ba-126.png",
+        "filesize": 1966810,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3100,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d68dcdc416000154714c",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d68dcdc416000154714d",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d68dcdc416000154714e",
+            "value": "đen cam xám"
+          }
+        ],
+        "sourceChecksum": "6313b506543a5221de721c110ba3581dad5b6dc79ed26dd538f51db7edd2a889",
+        "sourceId": "x24-ba-126",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-126.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-126",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:26.256Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-126.png",
+        "width": 1254
+      }
+    ],
+    "id": 2615,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-126-den-cam-xam/",
+    "metaDescription": "Áo bi-a X24 BA-126 Đen Cam Xám: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-126 Đen Cam Xám",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da52cdc416000154724e",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da52cdc416000154724f",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da52cdc4160001547250",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da52cdc4160001547251",
+        "value": "đen cam xám"
+      },
+      {
+        "id": "6a59da52cdc4160001547252",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-126 Đen Cam Xám | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Polo bi-a đen cam với họa tiết chuyển động, dễ phối quần dài đen cho luyện tập và thi đấu. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-126",
+    "slug": "ao-bi-a-x24-ba-126-den-cam-xam",
+    "sourceChecksum": "7522af64f4ffa36ade2f2ea7183851a60818ea20adafbf6f6eb6ed66cb2fc5dc",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "126",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da52cdc4160001547253",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da52cdc4160001547254",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-126-den-cam-xam/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-126-den-cam-xam",
+    "tenantSourceKey": "6:x24-billiards-batch:126",
+    "updatedAt": "2026-07-17T07:31:30.741Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da52cdc4160001547247",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da52cdc4160001547246",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da52cdc4160001547249",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da52cdc4160001547248",
+            "value": "Đen Xanh Vàng Tím"
+          }
+        ]
+      },
+      {
+        "id": "6a59da52cdc416000154724b",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da52cdc416000154724a",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da52cdc416000154724c",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da52cdc416000154724d",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-051</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-051</h2>\n<ul>\n  <li>Phối màu đen xanh vàng tím dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Áo bi-a nền đen chuyển sắc xanh, vàng và tím, phù hợp đội nhóm muốn mẫu áo nổi bật dưới ánh đèn phòng bi-a. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:24.849Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-051 màu Đen Xanh Vàng Tím phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:24.205Z",
+        "filename": "x24-ba-051.png",
+        "filesize": 1969005,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3099,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d68ccdc416000154713a",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d68ccdc416000154713b",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d68ccdc416000154713c",
+            "value": "đen xanh vàng tím"
+          }
+        ],
+        "sourceChecksum": "ad301560f9eed031170838cf0ad81720b420decd29a5c9547f1ae103ff034666",
+        "sourceId": "x24-ba-051",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-051.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-051",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:24.695Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-051.png",
+        "width": 1254
+      }
+    ],
+    "id": 2614,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-051-den-xanh-vang-tim/",
+    "metaDescription": "Áo bi-a X24 BA-051 Đen Xanh Vàng Tím: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-051 Đen Xanh Vàng Tím",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da52cdc416000154723f",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da52cdc4160001547240",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da52cdc4160001547241",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da52cdc4160001547242",
+        "value": "đen xanh vàng tím"
+      },
+      {
+        "id": "6a59da52cdc4160001547243",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-051 Đen Xanh Vàng Tím | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Áo bi-a nền đen chuyển sắc xanh, vàng và tím, phù hợp đội nhóm muốn mẫu áo nổi bật dưới ánh đèn phòng bi-a. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-051",
+    "slug": "ao-bi-a-x24-ba-051-den-xanh-vang-tim",
+    "sourceChecksum": "82dc7744e845a19880c6c8cb307dfcf132ae2fe104dc1a8f5a8aa4b095d53caa",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "051",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da52cdc4160001547244",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da52cdc4160001547245",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-051-den-xanh-vang-tim/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-051-den-xanh-vang-tim",
+    "tenantSourceKey": "6:x24-billiards-batch:051",
+    "updatedAt": "2026-07-17T07:31:30.036Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da51cdc4160001547238",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da51cdc4160001547237",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da51cdc416000154723a",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da51cdc4160001547239",
+            "value": "Đen Đỏ Xanh"
+          }
+        ]
+      },
+      {
+        "id": "6a59da51cdc416000154723c",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da51cdc416000154723b",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da51cdc416000154723d",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da51cdc416000154723e",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-119</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-119</h2>\n<ul>\n  <li>Phối màu đen đỏ xanh dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Áo bi-a nền đen với mảng đỏ, xanh và trắng sắc nét, tạo cảm giác mạnh mẽ nhưng vẫn lịch sự khi lên bàn đấu. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:23.723Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-119 màu Đen Đỏ Xanh phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:23.072Z",
+        "filename": "x24-ba-119.png",
+        "filesize": 2000139,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3098,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d68bcdc4160001547128",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d68bcdc4160001547129",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d68bcdc416000154712a",
+            "value": "đen đỏ xanh"
+          }
+        ],
+        "sourceChecksum": "52fd98e34a5a4cb94b3bfade09d1c909c680d221face1960aedfd9fbdf88d0ec",
+        "sourceId": "x24-ba-119",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-119.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-119",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:23.567Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-119.png",
+        "width": 1254
+      }
+    ],
+    "id": 2613,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-119-den-do-xanh/",
+    "metaDescription": "Áo bi-a X24 BA-119 Đen Đỏ Xanh: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-119 Đen Đỏ Xanh",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da51cdc4160001547230",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da51cdc4160001547231",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da51cdc4160001547232",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da51cdc4160001547233",
+        "value": "đen đỏ xanh"
+      },
+      {
+        "id": "6a59da51cdc4160001547234",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-119 Đen Đỏ Xanh | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Áo bi-a nền đen với mảng đỏ, xanh và trắng sắc nét, tạo cảm giác mạnh mẽ nhưng vẫn lịch sự khi lên bàn đấu. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-119",
+    "slug": "ao-bi-a-x24-ba-119-den-do-xanh",
+    "sourceChecksum": "08c21a02e5dbf21ca9ef2ab6c6e4285795aa443aabb0ce0c2a3564238c143bdf",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "119",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da51cdc4160001547235",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da51cdc4160001547236",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-119-den-do-xanh/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-119-den-do-xanh",
+    "tenantSourceKey": "6:x24-billiards-batch:119",
+    "updatedAt": "2026-07-17T07:31:29.586Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da51cdc4160001547229",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da51cdc4160001547228",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da51cdc416000154722b",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da51cdc416000154722a",
+            "value": "Đen Trắng Cam"
+          }
+        ]
+      },
+      {
+        "id": "6a59da51cdc416000154722d",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da51cdc416000154722c",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da51cdc416000154722e",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da51cdc416000154722f",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-534</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-534</h2>\n<ul>\n  <li>Phối màu đen trắng cam dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Polo bi-a phối trắng đen cùng dải cam nổi bật, hợp làm đồng phục thi đấu câu lạc bộ và giải phong trào. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:22.512Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-534 màu Đen Trắng Cam phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:21.920Z",
+        "filename": "x24-ba-534.png",
+        "filesize": 1777058,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3097,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d689cdc4160001547116",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d689cdc4160001547117",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d689cdc4160001547118",
+            "value": "đen trắng cam"
+          }
+        ],
+        "sourceChecksum": "ee48340b9e9242895294bc3c3092909d0a1fd41dac0de60218156ea466efc5ef",
+        "sourceId": "x24-ba-534",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-534.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-534",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:22.366Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-534.png",
+        "width": 1254
+      }
+    ],
+    "id": 2612,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-534-den-trang-cam/",
+    "metaDescription": "Áo bi-a X24 BA-534 Đen Trắng Cam: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-534 Đen Trắng Cam",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da51cdc4160001547221",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da51cdc4160001547222",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da51cdc4160001547223",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da51cdc4160001547224",
+        "value": "đen trắng cam"
+      },
+      {
+        "id": "6a59da51cdc4160001547225",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-534 Đen Trắng Cam | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Polo bi-a phối trắng đen cùng dải cam nổi bật, hợp làm đồng phục thi đấu câu lạc bộ và giải phong trào. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-534",
+    "slug": "ao-bi-a-x24-ba-534-den-trang-cam",
+    "sourceChecksum": "aab107b902cae179971e50567fcda06450b9c0e56e33077bc87f7b1819581e04",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "534",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da51cdc4160001547226",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da51cdc4160001547227",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-534-den-trang-cam/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-534-den-trang-cam",
+    "tenantSourceKey": "6:x24-billiards-batch:534",
+    "updatedAt": "2026-07-17T07:31:29.227Z"
+  },
+  {
+    "attributes": [
+      {
+        "id": "6a59da50cdc416000154721a",
+        "name": "Bộ môn",
+        "values": [
+          {
+            "id": "6a59da50cdc4160001547219",
+            "value": "Bi-a"
+          }
+        ]
+      },
+      {
+        "id": "6a59da50cdc416000154721c",
+        "name": "Màu sắc",
+        "values": [
+          {
+            "id": "6a59da50cdc416000154721b",
+            "value": "Trắng Đen Xám"
+          }
+        ]
+      },
+      {
+        "id": "6a59da50cdc416000154721e",
+        "name": "Trang phục phối cùng",
+        "values": [
+          {
+            "id": "6a59da50cdc416000154721d",
+            "value": "Quần dài đen"
+          }
+        ]
+      }
+    ],
+    "badges": [
+      {
+        "id": "6a59da50cdc416000154721f",
+        "label": "Bi-a"
+      },
+      {
+        "id": "6a59da50cdc4160001547220",
+        "label": "Polo có cổ"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.507Z",
+        "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+        "group": "sport",
+        "id": 118,
+        "legacyPath": "/danh-muc/bi-a/",
+        "name": "Áo Bi-a",
+        "order": 90,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-bi-a",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-bi-a",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+        "tenantSlugKey": "6:ao-bi-a",
+        "tenantSourceKey": "6:manual:x24-home-bi-a",
+        "updatedAt": "2026-07-17T08:39:54.891Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": "<p><strong>Áo bi-a X24 BA-541</strong> là mẫu polo thể thao dành cho câu lạc bộ bi-a, đội thi đấu phong trào và nhóm người chơi muốn đồng phục lịch sự khi ra bàn. Thiết kế giữ phom áo có cổ gọn gàng, phối cùng quần dài đen để phù hợp không gian billiards.</p>\n<h2>Điểm nổi bật của mẫu BA-541</h2>\n<ul>\n  <li>Phối màu trắng đen xám dễ nhận diện, phù hợp chụp ảnh đội và thi đấu câu lạc bộ.</li>\n  <li>Họa tiết lấy cảm hứng từ bi-a: đường cơ, bóng 8 và các nét chuyển động tinh tế trên thân áo.</li>\n  <li>Phom polo ngắn tay gọn, dễ mặc cho nam và nữ khi kết hợp quần dài đen.</li>\n  <li>Phù hợp đặt đồng phục bi-a theo nhóm, câu lạc bộ, giải đấu hoặc nhân sự phòng bi-a.</li>\n</ul>\n<h2>Gợi ý sử dụng</h2>\n<p>Polo bi-a sáng màu với mảng trắng chủ đạo, điểm nhấn đen, xám và cam cho đội câu lạc bộ thích phong cách gọn gàng. Shop có thể tư vấn thêm size, màu in, tên đội, logo câu lạc bộ và số lượng theo nhu cầu thực tế.</p>",
+    "createdAt": "2026-07-17T07:15:21.453Z",
+    "currency": "VND",
+    "description": null,
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo bi-a X24 BA-541 màu Trắng Đen Xám phối quần dài đen",
+        "createdAt": "2026-07-17T07:15:20.551Z",
+        "filename": "x24-ba-541.png",
+        "filesize": 1883956,
+        "focalX": 50,
+        "focalY": 50,
+        "height": 1254,
+        "id": 3096,
+        "mimeType": "image/png",
+        "prefix": "x24sport",
+        "searchTags": [
+          {
+            "id": "6a59d688cdc4160001547104",
+            "value": "bi-a"
+          },
+          {
+            "id": "6a59d688cdc4160001547105",
+            "value": "polo bi-a"
+          },
+          {
+            "id": "6a59d688cdc4160001547106",
+            "value": "trắng đen xám"
+          }
+        ],
+        "sourceChecksum": "f64e7c289c3d32967847be9b7e213ad2e6f00f2e1bfdd57ba05008b868dc7647",
+        "sourceId": "x24-ba-541",
+        "sourceSystem": "x24-billiards-imagegen",
+        "sourceUrl": "local-generated:x24-ba-541.png",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-imagegen:x24-ba-541",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T07:15:21.300Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-ba-541.png",
+        "width": 1254
+      }
+    ],
+    "id": 2611,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": "/ao-bi-a-x24-ba-541-trang-den-xam/",
+    "metaDescription": "Áo bi-a X24 BA-541 Trắng Đen Xám: polo bi-a nam nữ phối quần dài đen, họa tiết bóng 8 và đường cơ tinh tế cho câu lạc bộ, đội nhóm, giải đấu.",
+    "name": "Áo bi-a X24 BA-541 Trắng Đen Xám",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a59da50cdc4160001547212",
+        "value": "bi-a"
+      },
+      {
+        "id": "6a59da50cdc4160001547213",
+        "value": "billiards"
+      },
+      {
+        "id": "6a59da50cdc4160001547214",
+        "value": "polo bi-a"
+      },
+      {
+        "id": "6a59da50cdc4160001547215",
+        "value": "trắng đen xám"
+      },
+      {
+        "id": "6a59da50cdc4160001547216",
+        "value": "quần dài"
+      }
+    ],
+    "seoTitle": "Áo bi-a X24 BA-541 Trắng Đen Xám | Polo bi-a nam nữ X24Sport",
+    "shortDescription": "Polo bi-a sáng màu với mảng trắng chủ đạo, điểm nhấn đen, xám và cam cho đội câu lạc bộ thích phong cách gọn gàng. Mẫu polo bi-a nam nữ phối quần dài đen, phù hợp câu lạc bộ và giải đấu.",
+    "sku": "X24-BA-541",
+    "slug": "ao-bi-a-x24-ba-541-trang-den-xam",
+    "sourceChecksum": "68fd6e641a7a52b1541e580ecdb63b32795d091b4749befbf5529aadfcb9eccd",
+    "sourceCreatedAt": "2026-07-17T07:15:00.000Z",
+    "sourceId": "541",
+    "sourceModifiedAt": "2026-07-17T07:15:00.000Z",
+    "sourceSystem": "x24-billiards-batch",
+    "sourceTags": [
+      {
+        "id": "6a59da50cdc4160001547217",
+        "name": "Áo bi-a",
+        "slug": "ao-bi-a"
+      },
+      {
+        "id": "6a59da50cdc4160001547218",
+        "name": "Đồng phục bi-a",
+        "slug": "dong-phuc-bi-a"
+      }
+    ],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/ao-bi-a-x24-ba-541-trang-den-xam/",
+    "tenantSlugKey": "6:ao-bi-a-x24-ba-541-trang-den-xam",
+    "tenantSourceKey": "6:x24-billiards-batch:541",
+    "updatedAt": "2026-07-17T07:31:28.816Z"
+  }
+]

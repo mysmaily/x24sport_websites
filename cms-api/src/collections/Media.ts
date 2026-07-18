@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { adminsOnly, publicRead } from '../access/roles'
 import { resolveTenantUploadPrefix } from '../storage/r2'
+import { buildTenantIdentity } from '../util/tenantIdentity'
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -15,6 +16,12 @@ export const Media: CollectionConfig = {
     update: adminsOnly,
   },
   hooks: {
+    beforeValidate: [
+      ({ data, originalDoc }) => ({
+        ...data,
+        ...buildTenantIdentity({ data, originalDoc }),
+      }),
+    ],
     beforeChange: [
       async ({ data, originalDoc, req }) => {
         const tenant = data?.tenant || originalDoc?.tenant
@@ -27,6 +34,11 @@ export const Media: CollectionConfig = {
     ],
   },
   fields: [
+    { name: 'sourceSystem', type: 'text', admin: { hidden: true } },
+    { name: 'sourceId', type: 'text', index: true, admin: { hidden: true } },
+    { name: 'sourceUrl', type: 'text', admin: { hidden: true } },
+    { name: 'sourceChecksum', type: 'text', admin: { hidden: true } },
+    { name: 'tenantSourceKey', type: 'text', unique: true, admin: { hidden: true } },
     {
       name: 'alt',
       type: 'text',

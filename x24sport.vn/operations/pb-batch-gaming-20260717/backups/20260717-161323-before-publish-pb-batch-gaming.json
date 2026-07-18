@@ -1,0 +1,134 @@
+{
+  "category": {
+    "createdAt": "2026-07-17T02:18:48.243Z",
+    "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+    "group": "sport",
+    "id": 117,
+    "legacyPath": "/danh-muc/gaming/",
+    "name": "Áo Gaming",
+    "order": 80,
+    "parent": null,
+    "productCount": 16,
+    "slug": "ao-gaming",
+    "sourceChecksum": null,
+    "sourceId": "x24-home-gaming",
+    "sourceSystem": "manual",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+    "tenantSlugKey": "6:ao-gaming",
+    "tenantSourceKey": "6:manual:x24-home-gaming",
+    "updatedAt": "2026-07-17T15:35:38.481Z"
+  },
+  "records": [
+    {
+      "mediaMatches": [],
+      "sku": "X24-GM-516",
+      "skuMatches": [],
+      "slug": "ao-thi-dau-gaming-x24-gm-516-xanh-cyan-hong-magenta-xanh-tim-nhat",
+      "slugMatches": []
+    },
+    {
+      "mediaMatches": [],
+      "sku": "X24-GM-403",
+      "skuMatches": [],
+      "slug": "ao-thi-dau-gaming-x24-gm-403-trang-xanh-bien-nhat",
+      "slugMatches": []
+    },
+    {
+      "mediaMatches": [],
+      "sku": "X24-GM-525",
+      "skuMatches": [],
+      "slug": "ao-thi-dau-gaming-x24-gm-525-xanh-bich-vang-xam-bac",
+      "slugMatches": []
+    },
+    {
+      "mediaMatches": [],
+      "sku": "X24-GM-527",
+      "skuMatches": [],
+      "slug": "ao-thi-dau-gaming-x24-gm-527-do-ruby-do-burgundy",
+      "slugMatches": []
+    },
+    {
+      "mediaMatches": [],
+      "sku": "X24-GM-536",
+      "skuMatches": [],
+      "slug": "ao-thi-dau-gaming-x24-gm-536-xanh-duong-trang-xanh-la-nhat",
+      "slugMatches": []
+    },
+    {
+      "mediaMatches": [],
+      "sku": "X24-GM-537",
+      "skuMatches": [],
+      "slug": "ao-thi-dau-gaming-x24-gm-537-xanh-ngoc-vang-trang",
+      "slugMatches": []
+    },
+    {
+      "mediaMatches": [],
+      "sku": "X24-GM-555",
+      "skuMatches": [],
+      "slug": "ao-thi-dau-gaming-x24-gm-555-tim-trang-xam-nhat",
+      "slugMatches": []
+    },
+    {
+      "mediaMatches": [],
+      "sku": "X24-GM-554",
+      "skuMatches": [],
+      "slug": "ao-thi-dau-gaming-x24-gm-554-xanh-ngoc-trang-xam-nhat",
+      "slugMatches": []
+    },
+    {
+      "mediaMatches": [],
+      "sku": "X24-GM-583",
+      "skuMatches": [],
+      "slug": "ao-thi-dau-gaming-x24-gm-583-xanh-cyan-hong-nhat-trang",
+      "slugMatches": []
+    }
+  ],
+  "tenant": {
+    "brand": {
+      "accentColor": "#ed642d",
+      "headline": "Trang phục cho mọi chuyển động",
+      "primaryColor": "#080808",
+      "style": "arenix-inspired",
+      "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+    },
+    "createdAt": "2026-07-16T17:15:58.240Z",
+    "domains": [
+      {
+        "domain": "x24sport.vn",
+        "id": "6a5911ce99f4c00024cb8934"
+      },
+      {
+        "domain": "next.x24sport.vn",
+        "id": "6a5911ce99f4c00024cb8935"
+      }
+    ],
+    "id": 6,
+    "name": "X24Sport",
+    "slug": "x24sport",
+    "updatedAt": "2026-07-16T17:15:58.241Z"
+  }
+}

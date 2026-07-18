@@ -4,6 +4,38 @@
 > Shared routing is defined in `../AGENTS.md`. Load the optimization guide only
 > when the current request matches a guide-loading trigger.
 
+## Active tenant identity
+
+| Field | Value |
+|---|---|
+| Domain | `mayaobongda.vn` |
+| Payload tenant slug | None — this website is not a Payload tenant |
+| Active platform | WordPress |
+| Migration status | Not migrated; no Next.js source in this website folder |
+
+`mayaobongda.vn` remains an active WordPress website. Use this profile's
+WordPress server, containers, database, and proxy for requested maintenance.
+Do not send its content to `cms-api` or use `mayaobongda` as a tenant slug unless
+a future migration creates the Next.js source, deployed runtime, and tenant
+record.
+
+## Runtime management
+
+| Field | Value |
+|---|---|
+| Application host | `root@10.10.0.58` |
+| Application root | `/root/websites/sites/mayaobongda.vn` |
+| Docker Compose | `/root/websites/docker-compose.yml` |
+| Runtime containers | `wp-nginx`, `wp-php` |
+| Published application port | `10.10.0.58:80` |
+| Proxy host | `root@10.10.0.56` (`103.147.35.95`) |
+| Proxy config | `/etc/nginx/conf.d/mayaobongda.vn.conf` |
+| Public upstream | `http://10.10.0.58:80` |
+| Request path | Proxy → `wp-nginx` → `wp-php` → WordPress database |
+
+The generated registry block below describes this website's active WordPress
+infrastructure.
+
 <!-- WEBSITE_REGISTRY_START -->
 ## Central website registry
 

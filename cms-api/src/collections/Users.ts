@@ -15,7 +15,9 @@ export const Users: CollectionConfig = {
     read: ({ req }) => Boolean(req.user),
     update: ({ req, id }) => req.user?.id === id || req.user?.role === 'super_admin',
   },
-  auth: true,
+  auth: {
+    useAPIKey: true,
+  },
   fields: [
     { name: 'name', type: 'text' },
     {

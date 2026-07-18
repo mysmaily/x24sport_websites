@@ -126,10 +126,17 @@ or Chrome headless.
 
 ## Tenants
 
-Initial tenants:
+Website tenant contract:
 
+- `x24sport` for `x24sport.vn` and preview `next.x24sport.vn`
 - `mayaocaulong` for `mayaocaulong.vn`
 - `mayaobongchuyen` for `mayaobongchuyen.vn`
+- `mayaopickleball` for `mayaopickleball.vn`
+- `mayaobongro` for `mayaobongro.vn`
+
+`mayaobongda.vn` and `mayaochaybo.vn` have no Next.js source in this repository
+and no Payload tenant record. They remain active WordPress websites and are not
+CMS tenants. Do not invent `mayaobongda` or `mayaochaybo` tenant filters.
 
 Tenant records live in `src/collections/Tenants.ts` and include:
 

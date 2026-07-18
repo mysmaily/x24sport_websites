@@ -1,0 +1,4 @@
+interface:
+  display_name: "Convert Pickleball To Billiards"
+  short_description: "Create billiards apparel catalog products"
+  default_prompt: "Use $convert-pickleball-to-billiards to convert these pickleball apparel images into billiards products on next.x24sport.vn."

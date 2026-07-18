@@ -1,0 +1,732 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Bỏ qua điều hướng" [ref=e3] [cursor=pointer]:
+      - /url: "#noi-dung"
+    - generic [ref=e4]: X24SPORT — TRANG PHỤC THỂ THAO THIẾT KẾ
+    - banner [ref=e5]:
+      - generic [ref=e6]:
+        - link [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "X24Sport" [ref=e8]
+        - search [ref=e9]:
+          - searchbox "Tìm sản phẩm" [ref=e10]
+          - button "Tìm kiếm" [ref=e11] [cursor=pointer]
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - text: Thứ 2 - Chủ nhật
+            - generic [ref=e17]: 08:00 - 22:00
+          - link "Hotline 0989 353 247" [ref=e18] [cursor=pointer]:
+            - /url: tel:0989353247
+            - generic [ref=e21]:
+              - text: Hotline
+              - generic [ref=e22]: 0989 353 247
+      - navigation "Điều hướng chính" [ref=e23]:
+        - generic [ref=e24]:
+          - link "Trang chủ" [ref=e25] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e26]:
+            - link "Sản phẩm" [ref=e27] [cursor=pointer]:
+              - /url: /san-pham/
+            - menu:
+              - generic:
+                - generic: Danh mục X24Sport
+                - strong: Chọn theo bộ môn
+              - generic:
+                - generic:
+                  - link "Bóng đá":
+                    - /url: /danh-muc/bong-da/
+                  - link "Áo bóng đá":
+                    - /url: /danh-muc/ao-bong-da/
+                  - link "Giày bóng đá":
+                    - /url: /danh-muc/giay-bong-da/
+                  - link "Quả bóng đá":
+                    - /url: /danh-muc/qua-bong-da/
+                  - link "Phụ kiện bóng đá":
+                    - /url: /danh-muc/phu-kien-bong-da/
+                - generic:
+                  - link "Bóng chuyền":
+                    - /url: /danh-muc/bong-chuyen/
+                  - link "Áo bóng chuyền":
+                    - /url: /danh-muc/ao-bong-chuyen/
+                  - link "Giày bóng chuyền":
+                    - /url: /danh-muc/giay-bong-chuyen/
+                  - link "Quả bóng chuyền":
+                    - /url: /danh-muc/qua-bong-chuyen/
+                  - link "Phụ kiện bóng chuyền":
+                    - /url: /danh-muc/phu-kien-bong-chuyen/
+                - generic:
+                  - link "Bóng rổ":
+                    - /url: /danh-muc/bong-ro/
+                  - link "Áo bóng rổ":
+                    - /url: /danh-muc/ao-bong-ro/
+                  - link "Giày bóng rổ":
+                    - /url: /danh-muc/giay-bong-ro/
+                  - link "Quả bóng rổ":
+                    - /url: /danh-muc/qua-bong-ro/
+                  - link "Phụ kiện bóng rổ":
+                    - /url: /danh-muc/phu-kien-bong-ro/
+                - generic:
+                  - link "Cầu lông":
+                    - /url: /danh-muc/cau-long/
+                  - link "Áo cầu lông":
+                    - /url: /danh-muc/ao-cau-long/
+                  - link "Giày cầu lông":
+                    - /url: /danh-muc/giay-cau-long/
+                  - link "Phụ kiện cầu lông":
+                    - /url: /danh-muc/phu-kien-cau-long/
+                - generic:
+                  - link "Pickleball":
+                    - /url: /danh-muc/pickleball/
+                  - link "Áo pickleball":
+                    - /url: /danh-muc/ao-pickleball/
+                  - link "Giày pickleball":
+                    - /url: /danh-muc/giay-pickleball/
+                  - link "Phụ kiện pickleball":
+                    - /url: /danh-muc/phu-kien-pickleball/
+                - generic:
+                  - link "Chạy bộ":
+                    - /url: /danh-muc/chay-bo/
+                  - link "Áo chạy bộ":
+                    - /url: /danh-muc/ao-chay-bo/
+                  - link "Giày chạy bộ":
+                    - /url: /danh-muc/giay-chay-bo/
+                  - link "Phụ kiện chạy bộ":
+                    - /url: /danh-muc/phu-kien-chay-bo/
+          - link "Bóng đá" [ref=e28] [cursor=pointer]:
+            - /url: /danh-muc/bong-da/
+          - link "Cầu lông" [ref=e29] [cursor=pointer]:
+            - /url: /danh-muc/cau-long/
+          - link "Bóng chuyền" [ref=e30] [cursor=pointer]:
+            - /url: /danh-muc/bong-chuyen/
+          - link "Pickleball" [ref=e31] [cursor=pointer]:
+            - /url: /danh-muc/pickleball/
+          - link "Chạy bộ" [ref=e32] [cursor=pointer]:
+            - /url: /danh-muc/chay-bo/
+          - link "Bóng Rổ" [ref=e33] [cursor=pointer]:
+            - /url: /danh-muc/bong-ro/
+          - link "Blog" [ref=e34] [cursor=pointer]:
+            - /url: /blog/
+          - link "Liên hệ" [ref=e35] [cursor=pointer]:
+            - /url: /#lien-he
+    - main [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - img "Đội ngũ vận động viên mặc trang phục thể thao thiết kế" [ref=e39]
+          - generic [ref=e41]:
+            - generic [ref=e42]: X24SPORT / CUSTOM TEAMWEAR
+            - heading "TRANG PHỤC CHO MỌI CHUYỂN ĐỘNG" [level=1] [ref=e43]: TRANG PHỤCCHO MỌICHUYỂN ĐỘNG
+            - paragraph [ref=e44]: Thiết kế đồng phục thể thao theo màu sắc và tinh thần riêng của đội bạn.
+            - link "Khám phá ngay" [ref=e45] [cursor=pointer]:
+              - /url: "#san-pham"
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - text: CHỌN THEO BỘ MÔN
+            - heading "BẠN ĐANG TÌM KIẾM GÌ?" [level=2] [ref=e50]
+          - generic [ref=e51]:
+            - link "BÓNG ĐÁ" [ref=e52] [cursor=pointer]:
+              - /url: /danh-muc/bong-da/
+            - link "CẦU LÔNG" [ref=e54] [cursor=pointer]:
+              - /url: /danh-muc/cau-long/
+            - link "BÓNG CHUYỀN" [ref=e56] [cursor=pointer]:
+              - /url: /danh-muc/bong-chuyen/
+            - link "PICKLEBALL" [ref=e58] [cursor=pointer]:
+              - /url: /danh-muc/pickleball/
+            - link "CHẠY BỘ" [ref=e60] [cursor=pointer]:
+              - /url: /danh-muc/chay-bo/
+            - link "BÓNG RỔ" [ref=e62] [cursor=pointer]:
+              - /url: /danh-muc/bong-ro/
+            - link "GAMING" [ref=e64] [cursor=pointer]:
+              - /url: /danh-muc/gaming/
+            - link "BI-A" [ref=e66] [cursor=pointer]:
+              - /url: /danh-muc/bi-a/
+            - link "ĐỒNG PHỤC" [ref=e68] [cursor=pointer]:
+              - /url: /danh-muc/dong-phuc/
+      - region [ref=e70]:
+        - generic [ref=e71]:
+          - img "Đội nhóm trong bộ đồng phục thể thao thiết kế đồng bộ" [ref=e72]
+          - generic [ref=e73]:
+            - generic [ref=e74]: X24SPORT CUSTOM TEAMWEAR
+            - strong [ref=e75]: THIẾT KẾ · IN ẤN · SẢN XUẤT
+        - generic [ref=e76]:
+          - paragraph [ref=e77]: GIỚI THIỆU THƯƠNG HIỆU
+          - heading "X24Sport — Đồng hành cùng bản sắc của mỗi đội" [level=2] [ref=e79]
+          - paragraph [ref=e80]: X24Sport xây dựng trang phục thể thao theo yêu cầu, từ màu sắc, họa tiết đến logo, tên và số áo. Mỗi thiết kế hướng tới sự đồng bộ, thoải mái khi vận động và khả năng nhận diện rõ ràng cho đội nhóm.
+          - generic [ref=e81]:
+            - generic [ref=e82]:
+              - strong [ref=e87]: "9"
+              - generic [ref=e88]: Nhóm sản phẩm
+            - generic [ref=e89]:
+              - strong [ref=e92]: 694+
+              - generic [ref=e93]: Mẫu tham khảo
+            - generic [ref=e94]:
+              - strong [ref=e98]: Riêng
+              - generic [ref=e99]: Thiết kế theo yêu cầu
+            - generic [ref=e100]:
+              - strong [ref=e104]: 08–22h
+              - generic [ref=e105]: Tư vấn mỗi ngày
+          - link "Khám phá quy trình" [ref=e106] [cursor=pointer]:
+            - /url: "#quy-trinh"
+      - region "Dịch vụ X24Sport" [ref=e109]:
+        - generic [ref=e116]:
+          - strong [ref=e117]: Giao hàng toàn quốc
+          - generic [ref=e118]: Tư vấn lịch nhận theo đơn
+        - generic [ref=e125]:
+          - strong [ref=e126]: Đóng gói theo đội
+          - generic [ref=e127]: Sắp xếp rõ ràng, dễ kiểm tra
+        - generic [ref=e131]:
+          - strong [ref=e132]: Thiết kế theo yêu cầu
+          - generic [ref=e133]: Màu sắc, logo, tên và số áo
+        - generic [ref=e137]:
+          - strong [ref=e138]: Hỗ trợ trực tiếp
+          - generic [ref=e139]: Hotline 0989 353 247
+      - generic [ref=e140]:
+        - generic [ref=e141]:
+          - link "Trang phục Bóng đá X24Sport X24 COLLECTION Bóng đá Xem bộ sưu tập" [ref=e142] [cursor=pointer]:
+            - /url: /danh-muc/bong-da/
+            - img "Trang phục Bóng đá X24Sport" [ref=e143]
+            - generic [ref=e144]:
+              - generic [ref=e145]: X24 COLLECTION
+              - strong [ref=e146]: Bóng đá
+              - generic [ref=e147]: Xem bộ sưu tập
+          - generic [ref=e150]:
+            - generic [ref=e151]:
+              - generic [ref=e152]:
+                - paragraph [ref=e153]: Tốc độ · Đồng đội
+                - heading "Sản phẩm Bóng đá" [level=2] [ref=e154]
+              - link "Xem tất cả" [ref=e155] [cursor=pointer]:
+                - /url: /san-pham/
+            - generic [ref=e158]:
+              - article [ref=e159]:
+                - link [ref=e160] [cursor=pointer]:
+                  - /url: /ao-bong-da-thiet-ke-x24-shadow-mau-vang-chanh-noi-bat/
+                  - img "Áo Bóng Đá Thiết Kế X24 SHADOW – Màu Vàng Chanh Nổi Bật" [ref=e161]
+                - generic [ref=e162]:
+                  - heading [level=3] [ref=e163]:
+                    - link "Áo Bóng Đá Thiết Kế X24 SHADOW – Màu Vàng Chanh Nổi Bật" [ref=e164] [cursor=pointer]:
+                      - /url: /ao-bong-da-thiet-ke-x24-shadow-mau-vang-chanh-noi-bat/
+                  - strong [ref=e166]: 125.000 ₫
+              - article [ref=e167]:
+                - link [ref=e168] [cursor=pointer]:
+                  - /url: /ao-the-thao-x24-sports-flash-collection-hong-pastel/
+                  - img "Áo Thể Thao X24 Sports FLASH Collection – Hồng Pastel" [ref=e169]
+                - generic [ref=e170]:
+                  - heading [level=3] [ref=e171]:
+                    - link "Áo Thể Thao X24 Sports FLASH Collection – Hồng Pastel" [ref=e172] [cursor=pointer]:
+                      - /url: /ao-the-thao-x24-sports-flash-collection-hong-pastel/
+                  - strong [ref=e174]: 125.000 ₫
+              - article [ref=e175]:
+                - link [ref=e176] [cursor=pointer]:
+                  - /url: /ao-da-banh-flash-new-collection-do-tuoi/
+                  - img "Áo đá banh FLASH New Collection – Đỏ tươi" [ref=e177]
+                - generic [ref=e178]:
+                  - heading [level=3] [ref=e179]:
+                    - link "Áo đá banh FLASH New Collection – Đỏ tươi" [ref=e180] [cursor=pointer]:
+                      - /url: /ao-da-banh-flash-new-collection-do-tuoi/
+                  - strong [ref=e182]: 125.000 ₫
+              - article [ref=e183]:
+                - link [ref=e184] [cursor=pointer]:
+                  - /url: /ao-the-thao-nam-x24-flash-xanh-ya-nang-dong/
+                  - img "Áo thể thao nam X24 FLASH – Xanh Ya Năng Động" [ref=e185]
+                - generic [ref=e186]:
+                  - heading [level=3] [ref=e187]:
+                    - link "Áo thể thao nam X24 FLASH – Xanh Ya Năng Động" [ref=e188] [cursor=pointer]:
+                      - /url: /ao-the-thao-nam-x24-flash-xanh-ya-nang-dong/
+                  - strong [ref=e190]: 125.000 ₫
+        - generic [ref=e191]:
+          - link "Trang phục Cầu lông X24Sport X24 COLLECTION Cầu lông Xem bộ sưu tập" [ref=e192] [cursor=pointer]:
+            - /url: /danh-muc/cau-long/
+            - img "Trang phục Cầu lông X24Sport" [ref=e193]
+            - generic [ref=e194]:
+              - generic [ref=e195]: X24 COLLECTION
+              - strong [ref=e196]: Cầu lông
+              - generic [ref=e197]: Xem bộ sưu tập
+          - generic [ref=e200]:
+            - generic [ref=e201]:
+              - generic [ref=e202]:
+                - paragraph [ref=e203]: Linh hoạt · Nhẹ thoáng
+                - heading "Sản phẩm Cầu lông" [level=2] [ref=e204]
+              - link "Xem tất cả" [ref=e205] [cursor=pointer]:
+                - /url: /san-pham/
+            - generic [ref=e208]:
+              - article [ref=e209]:
+                - link [ref=e210] [cursor=pointer]:
+                  - /url: /ao-cau-long-zinex-z500/
+                  - img "Áo Cầu Lông Zinex Z500" [ref=e211]
+                - generic [ref=e212]:
+                  - heading [level=3] [ref=e213]:
+                    - link "Áo Cầu Lông Zinex Z500" [ref=e214] [cursor=pointer]:
+                      - /url: /ao-cau-long-zinex-z500/
+                  - generic [ref=e215]:
+                    - deletion [ref=e216]: 160.000 ₫
+                    - strong [ref=e217]: 145.000 ₫
+              - article [ref=e218]:
+                - link [ref=e219] [cursor=pointer]:
+                  - /url: /ao-cau-long-zinex-z400/
+                  - img "Áo Cầu Lông Zinex Z400" [ref=e220]
+                - generic [ref=e221]:
+                  - heading [level=3] [ref=e222]:
+                    - link "Áo Cầu Lông Zinex Z400" [ref=e223] [cursor=pointer]:
+                      - /url: /ao-cau-long-zinex-z400/
+                  - generic [ref=e224]:
+                    - deletion [ref=e225]: 170.000 ₫
+                    - strong [ref=e226]: 150.000 ₫
+              - article [ref=e227]:
+                - link [ref=e228] [cursor=pointer]:
+                  - /url: /ao-cau-long-zinex-z300/
+                  - img "Áo Cầu Lông Zinex Z300" [ref=e229]
+                - generic [ref=e230]:
+                  - heading [level=3] [ref=e231]:
+                    - link "Áo Cầu Lông Zinex Z300" [ref=e232] [cursor=pointer]:
+                      - /url: /ao-cau-long-zinex-z300/
+                  - generic [ref=e233]:
+                    - deletion [ref=e234]: 149.000 ₫
+                    - strong [ref=e235]: 139.000 ₫
+              - article [ref=e236]:
+                - link [ref=e237] [cursor=pointer]:
+                  - /url: /ao-cau-long-zinex-z200-nu/
+                  - img "Áo Cầu Lông Zinex Z200 Nữ" [ref=e238]
+                - generic [ref=e239]:
+                  - heading [level=3] [ref=e240]:
+                    - link "Áo Cầu Lông Zinex Z200 Nữ" [ref=e241] [cursor=pointer]:
+                      - /url: /ao-cau-long-zinex-z200-nu/
+                  - generic [ref=e242]:
+                    - deletion [ref=e243]: 199.000 ₫
+                    - strong [ref=e244]: 189.000 ₫
+        - generic [ref=e245]:
+          - link "Trang phục Bóng chuyền X24Sport X24 COLLECTION Bóng chuyền Xem bộ sưu tập" [ref=e246] [cursor=pointer]:
+            - /url: /danh-muc/bong-chuyen/
+            - img "Trang phục Bóng chuyền X24Sport" [ref=e247]
+            - generic [ref=e248]:
+              - generic [ref=e249]: X24 COLLECTION
+              - strong [ref=e250]: Bóng chuyền
+              - generic [ref=e251]: Xem bộ sưu tập
+          - generic [ref=e254]:
+            - generic [ref=e255]:
+              - generic [ref=e256]:
+                - paragraph [ref=e257]: Bứt phá · Bền bỉ
+                - heading "Sản phẩm Bóng chuyền" [level=2] [ref=e258]
+              - link "Xem tất cả" [ref=e259] [cursor=pointer]:
+                - /url: /san-pham/
+            - generic [ref=e262]:
+              - article [ref=e263]:
+                - link [ref=e264] [cursor=pointer]:
+                  - /url: /ao-bong-chuyen-xanh-ngoc-x24-06-thiet-ke-nang-dong-phu-hop-ca-nam-nu/
+                  - img "Áo Bóng Chuyền Xanh Ngọc X24-06 – Thiết Kế Năng Động, Phù Hợp Cả Nam & Nữ" [ref=e265]
+                - generic [ref=e266]:
+                  - heading [level=3] [ref=e267]:
+                    - link "Áo Bóng Chuyền Xanh Ngọc X24-06 – Thiết Kế Năng Động, Phù Hợp Cả Nam & Nữ" [ref=e268] [cursor=pointer]:
+                      - /url: /ao-bong-chuyen-xanh-ngoc-x24-06-thiet-ke-nang-dong-phu-hop-ca-nam-nu/
+                  - generic [ref=e269]:
+                    - deletion [ref=e270]: 189.000 ₫
+                    - strong [ref=e271]: 125.000 ₫
+              - article [ref=e272]:
+                - link [ref=e273] [cursor=pointer]:
+                  - /url: /ao-bong-chuyen-x24-06-mau-xanh-ket-nang-dong/
+                  - img "Áo Bóng Chuyền X24 – 06 Màu Xanh Két Năng Động" [ref=e274]
+                - generic [ref=e275]:
+                  - heading [level=3] [ref=e276]:
+                    - link "Áo Bóng Chuyền X24 – 06 Màu Xanh Két Năng Động" [ref=e277] [cursor=pointer]:
+                      - /url: /ao-bong-chuyen-x24-06-mau-xanh-ket-nang-dong/
+                  - generic [ref=e278]:
+                    - deletion [ref=e279]: 189.000 ₫
+                    - strong [ref=e280]: 125.000 ₫
+              - article [ref=e281]:
+                - link [ref=e282] [cursor=pointer]:
+                  - /url: /ao-bong-chuyen-x24-06-mau-vang-phoi-do-cam-nang-luong-ca-tinh/
+                  - img "Áo bóng chuyền X24-06 màu vàng phối đỏ cam | Năng lượng & Cá tính" [ref=e283]
+                - generic [ref=e284]:
+                  - heading [level=3] [ref=e285]:
+                    - link "Áo bóng chuyền X24-06 màu vàng phối đỏ cam | Năng lượng & Cá tính" [ref=e286] [cursor=pointer]:
+                      - /url: /ao-bong-chuyen-x24-06-mau-vang-phoi-do-cam-nang-luong-ca-tinh/
+                  - generic [ref=e287]:
+                    - deletion [ref=e288]: 189.000 ₫
+                    - strong [ref=e289]: 125.000 ₫
+              - article [ref=e290]:
+                - link [ref=e291] [cursor=pointer]:
+                  - /url: /ao-bong-chuyen-x24-06-trang-xanh-bich-thiet-ke-ombre-the-thao-vai-cao-cap-thoang-khi/
+                  - img "Áo bóng chuyền X24-06 trắng xanh bích – Thiết kế ombre thể thao, vải cao cấp thoáng khí" [ref=e292]
+                - generic [ref=e293]:
+                  - heading [level=3] [ref=e294]:
+                    - link "Áo bóng chuyền X24-06 trắng xanh bích – Thiết kế ombre thể thao, vải cao cấp thoáng khí" [ref=e295] [cursor=pointer]:
+                      - /url: /ao-bong-chuyen-x24-06-trang-xanh-bich-thiet-ke-ombre-the-thao-vai-cao-cap-thoang-khi/
+                  - generic [ref=e296]:
+                    - deletion [ref=e297]: 189.000 ₫
+                    - strong [ref=e298]: 125.000 ₫
+        - generic [ref=e299]:
+          - link "Trang phục Pickleball X24Sport X24 COLLECTION Pickleball Xem bộ sưu tập" [ref=e300] [cursor=pointer]:
+            - /url: /danh-muc/pickleball/
+            - img "Trang phục Pickleball X24Sport" [ref=e301]
+            - generic [ref=e302]:
+              - generic [ref=e303]: X24 COLLECTION
+              - strong [ref=e304]: Pickleball
+              - generic [ref=e305]: Xem bộ sưu tập
+          - generic [ref=e308]:
+            - generic [ref=e309]:
+              - generic [ref=e310]:
+                - paragraph [ref=e311]: Hiện đại · Kết nối
+                - heading "Sản phẩm Pickleball" [level=2] [ref=e312]
+              - link "Xem tất cả" [ref=e313] [cursor=pointer]:
+                - /url: /san-pham/
+            - generic [ref=e316]:
+              - article [ref=e317]:
+                - link [ref=e318] [cursor=pointer]:
+                  - /url: /qua-bong-pickleball-thi-dau-foxace-40l-hop-3-qua/
+                  - img "Quả Bóng Pickleball Thi Đấu FoxAce 40L (Hộp 3 quả)" [ref=e319]
+                - generic [ref=e320]:
+                  - heading [level=3] [ref=e321]:
+                    - link "Quả Bóng Pickleball Thi Đấu FoxAce 40L (Hộp 3 quả)" [ref=e322] [cursor=pointer]:
+                      - /url: /qua-bong-pickleball-thi-dau-foxace-40l-hop-3-qua/
+                  - generic [ref=e323]:
+                    - deletion [ref=e324]: 180.000 ₫
+                    - strong [ref=e325]: 165.000 ₫
+              - article [ref=e326]:
+                - link [ref=e327] [cursor=pointer]:
+                  - /url: /qua-bong-pickleball-cmk-26l-tui-12-qua/
+                  - img "Quả Bóng Pickleball CMK 26L (Túi 12 quả)" [ref=e328]
+                - generic [ref=e329]:
+                  - heading [level=3] [ref=e330]:
+                    - link "Quả Bóng Pickleball CMK 26L (Túi 12 quả)" [ref=e331] [cursor=pointer]:
+                      - /url: /qua-bong-pickleball-cmk-26l-tui-12-qua/
+                  - generic [ref=e332]:
+                    - deletion [ref=e333]: 380.000 ₫
+                    - strong [ref=e334]: 360.000 ₫
+              - article [ref=e335]:
+                - link [ref=e336] [cursor=pointer]:
+                  - /url: /qua-bong-pickleball-thi-dau-kamito-40l-tui-12-qua/
+                  - img "Quả Bóng Pickleball Thi Đấu Kamito 40L (Túi 12 quả)" [ref=e337]
+                - generic [ref=e338]:
+                  - heading [level=3] [ref=e339]:
+                    - link "Quả Bóng Pickleball Thi Đấu Kamito 40L (Túi 12 quả)" [ref=e340] [cursor=pointer]:
+                      - /url: /qua-bong-pickleball-thi-dau-kamito-40l-tui-12-qua/
+                  - generic [ref=e341]:
+                    - deletion [ref=e342]: 499.000 ₫
+                    - strong [ref=e343]: 468.000 ₫
+              - article [ref=e344]:
+                - link [ref=e345] [cursor=pointer]:
+                  - /url: /qua-bong-pickleball-kaiwin-26l-hop-6-qua/
+                  - img "Quả Bóng Pickleball Kaiwin 26L (Hộp 6 quả)" [ref=e346]
+                - generic [ref=e347]:
+                  - heading [level=3] [ref=e348]:
+                    - link "Quả Bóng Pickleball Kaiwin 26L (Hộp 6 quả)" [ref=e349] [cursor=pointer]:
+                      - /url: /qua-bong-pickleball-kaiwin-26l-hop-6-qua/
+                  - generic [ref=e350]:
+                    - deletion [ref=e351]: 132.000 ₫
+                    - strong [ref=e352]: 119.000 ₫
+        - generic [ref=e353]:
+          - link "Trang phục Chạy bộ X24Sport X24 COLLECTION Chạy bộ Xem bộ sưu tập" [ref=e354] [cursor=pointer]:
+            - /url: /danh-muc/chay-bo/
+            - img "Trang phục Chạy bộ X24Sport" [ref=e355]
+            - generic [ref=e356]:
+              - generic [ref=e357]: X24 COLLECTION
+              - strong [ref=e358]: Chạy bộ
+              - generic [ref=e359]: Xem bộ sưu tập
+          - generic [ref=e362]:
+            - generic [ref=e363]:
+              - generic [ref=e364]:
+                - paragraph [ref=e365]: Chuyển động · Tự do
+                - heading "Sản phẩm Chạy bộ" [level=2] [ref=e366]
+              - link "Xem tất cả" [ref=e367] [cursor=pointer]:
+                - /url: /san-pham/
+            - generic [ref=e370]:
+              - article [ref=e371]:
+                - link [ref=e372] [cursor=pointer]:
+                  - /url: /ao-chay-bo-thiet-ke-mau-xanh-ya/
+                  - img "Áo Chạy Bộ Thiết Kế Màu Xanh Ya" [ref=e373]
+                - generic [ref=e374]:
+                  - heading [level=3] [ref=e375]:
+                    - link "Áo Chạy Bộ Thiết Kế Màu Xanh Ya" [ref=e376] [cursor=pointer]:
+                      - /url: /ao-chay-bo-thiet-ke-mau-xanh-ya/
+                  - generic [ref=e377]:
+                    - deletion [ref=e378]: 139.000 ₫
+                    - strong [ref=e379]: 99.000 ₫
+              - article [ref=e380]:
+                - link [ref=e381] [cursor=pointer]:
+                  - /url: /ao-chay-bo-thiet-ke-mau-trang/
+                  - img "Áo Chạy Bộ Thiết Kế Màu Trắng" [ref=e382]
+                - generic [ref=e383]:
+                  - heading [level=3] [ref=e384]:
+                    - link "Áo Chạy Bộ Thiết Kế Màu Trắng" [ref=e385] [cursor=pointer]:
+                      - /url: /ao-chay-bo-thiet-ke-mau-trang/
+                  - generic [ref=e386]:
+                    - deletion [ref=e387]: 139.000 ₫
+                    - strong [ref=e388]: 99.000 ₫
+              - article [ref=e389]:
+                - link [ref=e390] [cursor=pointer]:
+                  - /url: /ao-chay-bo-thiet-ke-mau-tim-than/
+                  - img "Áo Chạy Bộ Thiết Kế Màu Tím Than" [ref=e391]
+                - generic [ref=e392]:
+                  - heading [level=3] [ref=e393]:
+                    - link "Áo Chạy Bộ Thiết Kế Màu Tím Than" [ref=e394] [cursor=pointer]:
+                      - /url: /ao-chay-bo-thiet-ke-mau-tim-than/
+                  - generic [ref=e395]:
+                    - deletion [ref=e396]: 139.000 ₫
+                    - strong [ref=e397]: 99.000 ₫
+              - article [ref=e398]:
+                - link [ref=e399] [cursor=pointer]:
+                  - /url: /ao-chay-bo-thiet-ke-mau-hong/
+                  - img "Áo Chạy Bộ Thiết Kế Màu Hồng" [ref=e400]
+                - generic [ref=e401]:
+                  - heading [level=3] [ref=e402]:
+                    - link "Áo Chạy Bộ Thiết Kế Màu Hồng" [ref=e403] [cursor=pointer]:
+                      - /url: /ao-chay-bo-thiet-ke-mau-hong/
+                  - generic [ref=e404]:
+                    - deletion [ref=e405]: 139.000 ₫
+                    - strong [ref=e406]: 99.000 ₫
+        - generic [ref=e407]:
+          - link "Trang phục Bóng Rổ X24Sport X24 COLLECTION Bóng Rổ Xem bộ sưu tập" [ref=e408] [cursor=pointer]:
+            - /url: /danh-muc/bong-ro/
+            - img "Trang phục Bóng Rổ X24Sport" [ref=e409]
+            - generic [ref=e410]:
+              - generic [ref=e411]: X24 COLLECTION
+              - strong [ref=e412]: Bóng Rổ
+              - generic [ref=e413]: Xem bộ sưu tập
+          - generic [ref=e416]:
+            - generic [ref=e417]:
+              - generic [ref=e418]:
+                - paragraph [ref=e419]: Năng lượng · Cá tính
+                - heading "Sản phẩm Bóng Rổ" [level=2] [ref=e420]
+              - link "Xem tất cả" [ref=e421] [cursor=pointer]:
+                - /url: /san-pham/
+            - generic [ref=e424]:
+              - article [ref=e425]:
+                - link [ref=e426] [cursor=pointer]:
+                  - /url: /ao-bong-ro-grizzlies-xanh-ngoc-lam-thiet-ke-graffiti-ca-tinh/
+                  - img "Áo Bóng Rổ Grizzlies Xanh Ngọc Lam – Thiết Kế Graffiti Cá Tính" [ref=e427]
+                - generic [ref=e428]:
+                  - heading [level=3] [ref=e429]:
+                    - link "Áo Bóng Rổ Grizzlies Xanh Ngọc Lam – Thiết Kế Graffiti Cá Tính" [ref=e430] [cursor=pointer]:
+                      - /url: /ao-bong-ro-grizzlies-xanh-ngoc-lam-thiet-ke-graffiti-ca-tinh/
+                  - generic [ref=e431]:
+                    - deletion [ref=e432]: 199.000 ₫
+                    - strong [ref=e433]: 169.000 ₫
+              - article [ref=e434]:
+                - link [ref=e435] [cursor=pointer]:
+                  - /url: /ao-bong-ro-cam-hong-loang-nghe-thuat-x24-sport/
+                  - img "Áo Bóng Rổ Cam Hồng Loang Nghệ Thuật X24 Sport" [ref=e436]
+                - generic [ref=e437]:
+                  - heading [level=3] [ref=e438]:
+                    - link "Áo Bóng Rổ Cam Hồng Loang Nghệ Thuật X24 Sport" [ref=e439] [cursor=pointer]:
+                      - /url: /ao-bong-ro-cam-hong-loang-nghe-thuat-x24-sport/
+                  - generic [ref=e440]:
+                    - deletion [ref=e441]: 199.000 ₫
+                    - strong [ref=e442]: 169.000 ₫
+              - article [ref=e443]:
+                - link [ref=e444] [cursor=pointer]:
+                  - /url: /dong-phuc-bong-ro-x24-flame-vang-cam-do-suc-nong-ruc-chay/
+                  - img "Đồng phục bóng rổ X24 Flame Vàng Cam Đỏ – Sức Nóng Rực Cháy" [ref=e445]
+                - generic [ref=e446]:
+                  - heading [level=3] [ref=e447]:
+                    - link "Đồng phục bóng rổ X24 Flame Vàng Cam Đỏ – Sức Nóng Rực Cháy" [ref=e448] [cursor=pointer]:
+                      - /url: /dong-phuc-bong-ro-x24-flame-vang-cam-do-suc-nong-ruc-chay/
+                  - generic [ref=e449]:
+                    - deletion [ref=e450]: 199.000 ₫
+                    - strong [ref=e451]: 169.000 ₫
+              - article [ref=e452]:
+                - link [ref=e453] [cursor=pointer]:
+                  - /url: /dong-phuc-bong-ro-tre-em-x24-sport-mau-xanh-ngoc-thiet-ke-hien-dai/
+                  - img "Đồng phục bóng rổ trẻ em X24 Sport màu xanh ngọc thiết kế hiện đại" [ref=e454]
+                - generic [ref=e455]:
+                  - heading [level=3] [ref=e456]:
+                    - link "Đồng phục bóng rổ trẻ em X24 Sport màu xanh ngọc thiết kế hiện đại" [ref=e457] [cursor=pointer]:
+                      - /url: /dong-phuc-bong-ro-tre-em-x24-sport-mau-xanh-ngoc-thiet-ke-hien-dai/
+                  - generic [ref=e458]:
+                    - deletion [ref=e459]: 199.000 ₫
+                    - strong [ref=e460]: 169.000 ₫
+        - generic [ref=e461]:
+          - link "Trang phục Gaming X24Sport X24 COLLECTION Gaming Xem bộ sưu tập" [ref=e462] [cursor=pointer]:
+            - /url: /danh-muc/gaming/
+            - img "Trang phục Gaming X24Sport" [ref=e463]
+            - generic [ref=e464]:
+              - generic [ref=e465]: X24 COLLECTION
+              - strong [ref=e466]: Gaming
+              - generic [ref=e467]: Xem bộ sưu tập
+          - generic [ref=e470]:
+            - generic [ref=e471]:
+              - generic [ref=e472]:
+                - paragraph [ref=e473]: Thi đấu · Bản sắc
+                - heading "Sản phẩm Gaming" [level=2] [ref=e474]
+              - link "Xem tất cả" [ref=e475] [cursor=pointer]:
+                - /url: /san-pham/
+            - generic [ref=e478]:
+              - article [ref=e479]:
+                - link [ref=e480] [cursor=pointer]:
+                  - /url: /ao-bong-ro-hong-den-nang-dong-thiet-ke-gradient-ca-tinh/
+                  - img "Áo Bóng Rổ Hồng Đen Năng Động – Thiết Kế Gradient Cá Tính" [ref=e481]
+                - generic [ref=e482]:
+                  - heading [level=3] [ref=e483]:
+                    - link "Áo Bóng Rổ Hồng Đen Năng Động – Thiết Kế Gradient Cá Tính" [ref=e484] [cursor=pointer]:
+                      - /url: /ao-bong-ro-hong-den-nang-dong-thiet-ke-gradient-ca-tinh/
+                  - generic [ref=e485]:
+                    - deletion [ref=e486]: 199.000 ₫
+                    - strong [ref=e487]: 169.000 ₫
+              - article [ref=e488]:
+                - link [ref=e489] [cursor=pointer]:
+                  - /url: /dong-phuc-bong-ro-cam-den-gradient-pixel-thiet-ke-ca-tinh-noi-bat/
+                  - img "Đồng phục bóng rổ cam đen gradient pixel – Thiết kế cá tính nổi bật" [ref=e490]
+                - generic [ref=e491]:
+                  - heading [level=3] [ref=e492]:
+                    - link "Đồng phục bóng rổ cam đen gradient pixel – Thiết kế cá tính nổi bật" [ref=e493] [cursor=pointer]:
+                      - /url: /dong-phuc-bong-ro-cam-den-gradient-pixel-thiet-ke-ca-tinh-noi-bat/
+                  - generic [ref=e494]:
+                    - deletion [ref=e495]: 199.000 ₫
+                    - strong [ref=e496]: 169.000 ₫
+        - generic [ref=e497]:
+          - link "Trang phục Bi-a X24Sport X24 COLLECTION Bi-a Xem bộ sưu tập" [ref=e498] [cursor=pointer]:
+            - /url: /danh-muc/bi-a/
+            - img "Trang phục Bi-a X24Sport" [ref=e499]
+            - generic [ref=e500]:
+              - generic [ref=e501]: X24 COLLECTION
+              - strong [ref=e502]: Bi-a
+              - generic [ref=e503]: Xem bộ sưu tập
+          - generic [ref=e506]:
+            - generic [ref=e507]:
+              - generic [ref=e508]:
+                - paragraph [ref=e509]: Tập trung · Lịch lãm
+                - heading "Sản phẩm Bi-a" [level=2] [ref=e510]
+              - link "Xem tất cả" [ref=e511] [cursor=pointer]:
+                - /url: /san-pham/
+            - generic [ref=e514]:
+              - generic [ref=e517]:
+                - strong [ref=e518]: Sản phẩm đang được cập nhật từ CMS
+                - paragraph [ref=e519]: Danh mục Bi-a đã sẵn sàng. Sản phẩm sẽ xuất hiện tại đây sau khi được xuất bản.
+              - link "Xem danh mục" [ref=e520] [cursor=pointer]:
+                - /url: /danh-muc/bi-a/
+        - generic [ref=e523]:
+          - link "Trang phục Đồng Phục X24Sport X24 COLLECTION Đồng Phục Xem bộ sưu tập" [ref=e524] [cursor=pointer]:
+            - /url: /danh-muc/dong-phuc/
+            - img "Trang phục Đồng Phục X24Sport" [ref=e525]
+            - generic [ref=e526]:
+              - generic [ref=e527]: X24 COLLECTION
+              - strong [ref=e528]: Đồng Phục
+              - generic [ref=e529]: Xem bộ sưu tập
+          - generic [ref=e532]:
+            - generic [ref=e533]:
+              - generic [ref=e534]:
+                - paragraph [ref=e535]: Đồng bộ · Nhận diện
+                - heading "Sản phẩm Đồng Phục" [level=2] [ref=e536]
+              - link "Xem tất cả" [ref=e537] [cursor=pointer]:
+                - /url: /san-pham/
+            - generic [ref=e540]:
+              - article [ref=e541]:
+                - link [ref=e542] [cursor=pointer]:
+                  - /url: /ao-bong-ro-cam-hong-loang-nghe-thuat-x24-sport/
+                  - img "Áo Bóng Rổ Cam Hồng Loang Nghệ Thuật X24 Sport" [ref=e543]
+                - generic [ref=e544]:
+                  - heading [level=3] [ref=e545]:
+                    - link "Áo Bóng Rổ Cam Hồng Loang Nghệ Thuật X24 Sport" [ref=e546] [cursor=pointer]:
+                      - /url: /ao-bong-ro-cam-hong-loang-nghe-thuat-x24-sport/
+                  - generic [ref=e547]:
+                    - deletion [ref=e548]: 199.000 ₫
+                    - strong [ref=e549]: 169.000 ₫
+              - article [ref=e550]:
+                - link [ref=e551] [cursor=pointer]:
+                  - /url: /dong-phuc-bong-ro-x24-flame-vang-cam-do-suc-nong-ruc-chay/
+                  - img "Đồng phục bóng rổ X24 Flame Vàng Cam Đỏ – Sức Nóng Rực Cháy" [ref=e552]
+                - generic [ref=e553]:
+                  - heading [level=3] [ref=e554]:
+                    - link "Đồng phục bóng rổ X24 Flame Vàng Cam Đỏ – Sức Nóng Rực Cháy" [ref=e555] [cursor=pointer]:
+                      - /url: /dong-phuc-bong-ro-x24-flame-vang-cam-do-suc-nong-ruc-chay/
+                  - generic [ref=e556]:
+                    - deletion [ref=e557]: 199.000 ₫
+                    - strong [ref=e558]: 169.000 ₫
+              - article [ref=e559]:
+                - link [ref=e560] [cursor=pointer]:
+                  - /url: /dong-phuc-bong-ro-tre-em-x24-sport-mau-xanh-ngoc-thiet-ke-hien-dai/
+                  - img "Đồng phục bóng rổ trẻ em X24 Sport màu xanh ngọc thiết kế hiện đại" [ref=e561]
+                - generic [ref=e562]:
+                  - heading [level=3] [ref=e563]:
+                    - link "Đồng phục bóng rổ trẻ em X24 Sport màu xanh ngọc thiết kế hiện đại" [ref=e564] [cursor=pointer]:
+                      - /url: /dong-phuc-bong-ro-tre-em-x24-sport-mau-xanh-ngoc-thiet-ke-hien-dai/
+                  - generic [ref=e565]:
+                    - deletion [ref=e566]: 199.000 ₫
+                    - strong [ref=e567]: 169.000 ₫
+              - article [ref=e568]:
+                - link [ref=e569] [cursor=pointer]:
+                  - /url: /dong-phuc-bong-ro-den-trang-warriors-so-23-versatile/
+                  - img "Đồng Phục Bóng Rổ Đen Trắng Warriors – Số 23 Versatile" [ref=e570]
+                - generic [ref=e571]:
+                  - heading [level=3] [ref=e572]:
+                    - link "Đồng Phục Bóng Rổ Đen Trắng Warriors – Số 23 Versatile" [ref=e573] [cursor=pointer]:
+                      - /url: /dong-phuc-bong-ro-den-trang-warriors-so-23-versatile/
+                  - generic [ref=e574]:
+                    - deletion [ref=e575]: 199.000 ₫
+                    - strong [ref=e576]: 169.000 ₫
+      - generic [ref=e577]:
+        - text: X24SPORT CUSTOM TEAMWEAR
+        - heading "TỪ Ý TƯỞNG CỦA ĐỘI ĐẾN BỘ TRANG PHỤC HOÀN CHỈNH" [level=2] [ref=e578]: TỪ Ý TƯỞNG CỦA ĐỘIĐẾN BỘ TRANG PHỤC HOÀN CHỈNH
+        - paragraph [ref=e579]: Chọn bộ môn — gửi màu sắc và logo — duyệt thiết kế — chốt size và sản xuất.
+        - link "Bắt đầu với X24Sport" [ref=e580] [cursor=pointer]:
+          - /url: tel:0989353247
+    - contentinfo [ref=e583]:
+      - generic [ref=e584]:
+        - search [ref=e585]:
+          - textbox "Tìm sản phẩm" [ref=e586]:
+            - /placeholder: Tìm kiếm sản phẩm…
+          - button "Tìm kiếm" [ref=e587]
+        - generic [ref=e591]:
+          - generic [ref=e592]:
+            - link [ref=e593] [cursor=pointer]:
+              - /url: /
+              - img "X24Sport" [ref=e594]
+            - paragraph [ref=e595]: X24Sport cung cấp trang phục thể thao thiết kế theo yêu cầu cho đội bóng, câu lạc bộ và cộng đồng vận động.
+            - link "0989 353 247" [ref=e596] [cursor=pointer]:
+              - /url: tel:0989353247
+          - generic [ref=e599]:
+            - heading "Danh mục" [level=3] [ref=e600]
+            - link "Bóng đá" [ref=e601] [cursor=pointer]:
+              - /url: /danh-muc/bong-da/
+            - link "Cầu lông" [ref=e602] [cursor=pointer]:
+              - /url: /danh-muc/cau-long/
+            - link "Bóng chuyền" [ref=e603] [cursor=pointer]:
+              - /url: /danh-muc/bong-chuyen/
+            - link "Pickleball" [ref=e604] [cursor=pointer]:
+              - /url: /danh-muc/pickleball/
+          - generic [ref=e605]:
+            - heading "Khám phá" [level=3] [ref=e606]
+            - link "Chạy bộ" [ref=e607] [cursor=pointer]:
+              - /url: /danh-muc/chay-bo/
+            - link "Bóng Rổ" [ref=e608] [cursor=pointer]:
+              - /url: /danh-muc/bong-ro/
+            - link "Gaming" [ref=e609] [cursor=pointer]:
+              - /url: /danh-muc/gaming/
+            - link "Bi-a" [ref=e610] [cursor=pointer]:
+              - /url: /danh-muc/bi-a/
+            - link "Đồng Phục" [ref=e611] [cursor=pointer]:
+              - /url: /danh-muc/dong-phuc/
+            - link "Tất cả sản phẩm" [ref=e612] [cursor=pointer]:
+              - /url: /san-pham/
+            - link "Blog thể thao" [ref=e613] [cursor=pointer]:
+              - /url: /blog/
+          - generic [ref=e614]:
+            - heading "Hỗ trợ" [level=3] [ref=e615]
+            - link "Cách đặt hàng" [ref=e616] [cursor=pointer]:
+              - /url: "#quy-trinh"
+            - link "Tư vấn thiết kế" [ref=e617] [cursor=pointer]:
+              - /url: tel:0989353247
+            - link "Kênh liên hệ" [ref=e618] [cursor=pointer]:
+              - /url: "#lien-he"
+        - generic [ref=e619]:
+          - link "Tư vấn nhanh 0989 353 247" [ref=e620] [cursor=pointer]:
+            - /url: tel:0989353247
+            - generic [ref=e623]:
+              - generic [ref=e624]: Tư vấn nhanh
+              - strong [ref=e625]: 0989 353 247
+          - link "Trao đổi yêu cầu Tư vấn đội nhóm" [ref=e626] [cursor=pointer]:
+            - /url: tel:0989353247
+            - generic [ref=e629]:
+              - generic [ref=e630]: Trao đổi yêu cầu
+              - strong [ref=e631]: Tư vấn đội nhóm
+          - link "Khám phá 9 nhóm sản phẩm" [ref=e632] [cursor=pointer]:
+            - /url: "#bo-mon"
+            - generic [ref=e635]:
+              - generic [ref=e636]: Khám phá
+              - strong [ref=e637]: 9 nhóm sản phẩm
+        - generic [ref=e638]:
+          - generic [ref=e639]: © 2026 X24Sport. All rights reserved.
+          - generic [ref=e640]: Trang phục cho mọi chuyển động.
+    - generic "Liên hệ nhanh" [ref=e641]:
+      - link "Gọi X24Sport" [ref=e642] [cursor=pointer]:
+        - /url: tel:0989353247
+      - link "Xem kênh liên hệ X24Sport" [ref=e645] [cursor=pointer]:
+        - /url: "#lien-he"
+  - alert [ref=e648]

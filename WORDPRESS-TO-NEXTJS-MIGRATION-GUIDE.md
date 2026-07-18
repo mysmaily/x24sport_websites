@@ -3,6 +3,13 @@
 > Hướng dẫn chuyển website WordPress/WooCommerce sang hệ thống multi-tenant Next.js + Payload CMS.
 > **Nguyên tắc:** Migrate trực tiếp từ website WordPress đang chạy — lấy đúng URL, tiêu đề, nội dung, ảnh, tag.
 
+> [!IMPORTANT]
+> Đây là tài liệu thiết kế lịch sử, không phải production runbook. Với migration
+> `mayao*.vn`, phải dùng
+> `.codex/skills/migrate-wordpress-to-x24sport-tenant/SKILL.md`. Nếu URL hiện tại
+> có thể tái tạo trên Next.js, URL đó phải được phục vụ trực tiếp bằng `200`; không
+> chuyển sang cấu trúc `/san-pham/<slug>/` chỉ để khớp template mới.
+
 ## Mục lục
 
 1. [Tổng quan](#1-tổng-quan)
@@ -905,7 +912,7 @@ if __name__ == '__main__':
 ```bash
 export WC_KEY=ck_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 export WC_SECRET=cs_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-export CMS_PASSWORD=kGdDkLLFPXGriFevAHalCocCUAeEih2j
+export CMS_PASSWORD='<retrieve-from-approved-secret-source>'
 ```
 
 ---

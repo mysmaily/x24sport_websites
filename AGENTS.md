@@ -3,8 +3,9 @@
 ## Purpose
 
 This repository is the dedicated workspace for operating the X24Sport
-`mayao*.vn` websites, including WordPress sites, Next.js tenant frontends, and
-their shared Payload CMS. Coding agents must:
+`mayao*.vn` websites. Migrated websites use Next.js tenant frontends backed by
+the shared Payload CMS in `cms-api/`; websites without Next.js source remain on
+their active WordPress runtime. Coding agents must:
 
 - use infrastructure data only from the website currently in scope;
 - make safe, backed-up, verifiable, and reversible changes;
@@ -17,8 +18,10 @@ their shared Payload CMS. Coding agents must:
 x24sport_websites/
 ├── AGENTS.md                         # Shared routing, safety, and workflow rules
 ├── CLAUDE.md                         # Imports AGENTS.md
+├── PAYLOAD-REST-API-GUIDE.md         # Shared tenant-safe Payload REST runbook
 ├── WEBSITE-OPTIMIZATION-GUIDE.md     # Lazily loaded criteria for triggered requests
 ├── .codex/skills/develop-x24sport-websites/ # Website development skill
+├── .codex/skills/migrate-wordpress-to-x24sport-tenant/ # Migration skill
 ├── cms-api/                         # Shared Payload CMS for Next.js tenants
 ├── docker-compose.yml               # Shared CMS and tenant frontend services
 ├── scripts/                         # Registry and operational utilities
@@ -26,6 +29,59 @@ x24sport_websites/
 ```
 
 Every `CLAUDE.md` is only a loader. It must not duplicate instructions or website data.
+
+## Shared Payload REST API
+
+For any tenant content operation through the shared Payload REST API, read
+`PAYLOAD-REST-API-GUIDE.md` after this file and the target domain's `AGENTS.md`.
+The root guide defines the common request, authentication, media, idempotency,
+backup, and verification contract. The target profile remains authoritative for
+the tenant slug, service-account secret location, frontend cache behavior, and
+site-specific restrictions. Never reuse credentials or numeric relationship IDs
+between tenants.
+
+## Platform identity and runtime inventory
+
+Every website profile must state its tenant slug near the top of the file and
+must include the operational inventory needed to manage that tenant:
+
+- application SSH host and deployed source path;
+- Docker Compose project/file and service name, or the exact standalone
+  container name and run method;
+- container port and published host port;
+- proxy SSH host, Nginx config path, and upstream origin;
+- shared CMS host, service, and public/internal origins;
+- current public cutover state when it differs from the intended platform.
+
+Never infer a Next.js runtime from a WordPress registry block. Verify platform
+and runtime values from the source tree, Docker labels/environment, deployed
+Compose file, Nginx configuration, and—only for migrated sites—the Payload
+tenant API before documenting or using them.
+
+Tenant identities used by this repository are:
+
+| Domain | Payload tenant slug | Status |
+|---|---|---|
+| `x24sport.vn` | `x24sport` | Active |
+| `mayaocaulong.vn` | `mayaocaulong` | Active |
+| `mayaobongchuyen.vn` | `mayaobongchuyen` | Active |
+| `mayaopickleball.vn` | `mayaopickleball` | Active |
+| `mayaobongro.vn` | `mayaobongro` | Active |
+| `mayaobongda.vn` | None | Active WordPress website; no Next.js source and no Payload tenant |
+| `mayaochaybo.vn` | None | Active WordPress website; no Next.js source and no Payload tenant |
+
+Determine the active platform from the website folder:
+
+- If the folder contains the Next.js application source and the local profile
+  documents its deployed runtime, use Next.js + Payload. WordPress information
+  for that website is legacy/restore only.
+- If the folder does not contain Next.js application source, the website remains
+  an active WordPress website. Use its documented WordPress server, containers,
+  database, and proxy; do not invent a Payload tenant slug.
+
+Do not infer migration completion from a planned slug, a registry flag, or a
+public HTTP 200 response. Migration is established by the presence of the
+Next.js source plus its deployed runtime and tenant record.
 
 ## Website routing modes
 
@@ -100,7 +156,10 @@ Instruction priority:
 3. Routing and safety rules in root `AGENTS.md`.
 4. For website-development requests, the scoped workflow and quality gates in
    `.codex/skills/develop-x24sport-websites/SKILL.md`.
-5. For a managed site with a matching guide trigger only, criteria in
+5. For WordPress-to-Next.js/Payload migrations, the URL, data, cutover, and
+   rollback gates in
+   `.codex/skills/migrate-wordpress-to-x24sport-tenant/SKILL.md`.
+6. For a managed site with a matching guide trigger only, criteria in
    `WEBSITE-OPTIMIZATION-GUIDE.md`.
 
 Guide values are placeholders unless the target website profile confirms them.
@@ -133,6 +192,26 @@ routed by `SKILL.md`.
   or Core Web Vitals success without corresponding evidence.
 - Do not apply the skill to product-image generation or catalog migration alone
   unless the request also changes a public website experience, content, or SEO.
+
+## Required WordPress migration skill
+
+For any request that migrates a `mayao*.vn` WordPress website to the shared
+Next.js and Payload CMS platform, load and follow:
+
+```text
+.codex/skills/migrate-wordpress-to-x24sport-tenant/SKILL.md
+```
+
+Use it together with `develop-x24sport-websites` when the migration includes the
+public frontend. The migration skill is authoritative for URL preservation,
+tenant-scoped identity, source-data reconciliation, cutover, and rollback.
+
+- Preserve the complete public path and query contract, not only product slug
+  strings. A same-domain platform migration should serve unchanged URLs directly
+  whenever the route can be reproduced.
+- Do not delete, overwrite, or expose the WordPress source during migration.
+- Do not perform production import or traffic cutover without the phase-specific
+  backup, validation, and rollback gates defined by the skill.
 
 ## Shared execution workflow
 

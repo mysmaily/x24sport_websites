@@ -1,0 +1,3921 @@
+[
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a2812570cdc000196f837",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a2812570cdc000196f838",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:14.167Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-551 Tím Than, Xanh Dương, Trắng, Tím giữ tinh thần phối màu Tím Than, Xanh Dương, Trắng, Tím và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-551 Tím Than, Xanh Dương, Trắng, Tím",
+        "createdAt": "2026-07-17T13:03:13.049Z",
+        "filename": "x24-gm-551-gaming.webp",
+        "filesize": 177640,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3154,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "2efbc34b740f2b35e64e45aacf1605f1b411b28ee2d459493c27c6fe5cf9b873",
+        "sourceId": "2625:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2625:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:13.988Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-551-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2649,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-551 Tím Than, Xanh Dương, Trắng, Tím: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-551 Tím Than, Xanh Dương, Trắng, Tím",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a2812570cdc000196f839",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a2812570cdc000196f83a",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a2812570cdc000196f83b",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a2812570cdc000196f83c",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a2812570cdc000196f83d",
+        "value": "Tím Than"
+      },
+      {
+        "id": "6a5a2812570cdc000196f83e",
+        "value": "Xanh Dương"
+      },
+      {
+        "id": "6a5a2812570cdc000196f83f",
+        "value": "Trắng"
+      },
+      {
+        "id": "6a5a2812570cdc000196f840",
+        "value": "Tím"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-551 Tím Than, Xanh Dương, Trắng, Tím | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-551 tông Tím Than, Xanh Dương, Trắng, Tím, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-551",
+    "slug": "ao-thi-dau-gaming-x24-gm-551-tim-than-xanh-duong-trang-tim",
+    "sourceChecksum": "bf72cb81e1c48e240c178a81e89d4b70b82db6d6aafe06a7b65b726bd65c5aa4",
+    "sourceCreatedAt": null,
+    "sourceId": "2625",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-551-tim-than-xanh-duong-trang-tim",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2625",
+    "updatedAt": "2026-07-17T13:03:14.168Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a2813570cdc000196f841",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a2813570cdc000196f842",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:15.268Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-509 Hồng Nhạt, Trắng, Hồng, Đỏ giữ tinh thần phối màu Hồng Nhạt, Trắng, Hồng, Đỏ và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-509 Hồng Nhạt, Trắng, Hồng, Đỏ",
+        "createdAt": "2026-07-17T13:03:14.690Z",
+        "filename": "x24-gm-509-gaming.webp",
+        "filesize": 154008,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3155,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "3d2dfd7bbc7bf5bcdd84d472459de5796d498290fe6c905f356607210b491f1c",
+        "sourceId": "2624:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2624:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:15.096Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-509-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2650,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-509 Hồng Nhạt, Trắng, Hồng, Đỏ: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-509 Hồng Nhạt, Trắng, Hồng, Đỏ",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a2813570cdc000196f843",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a2813570cdc000196f844",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a2813570cdc000196f845",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a2813570cdc000196f846",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a2813570cdc000196f847",
+        "value": "Hồng Nhạt"
+      },
+      {
+        "id": "6a5a2813570cdc000196f848",
+        "value": "Trắng"
+      },
+      {
+        "id": "6a5a2813570cdc000196f849",
+        "value": "Hồng"
+      },
+      {
+        "id": "6a5a2813570cdc000196f84a",
+        "value": "Đỏ"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-509 Hồng Nhạt, Trắng, Hồng, Đỏ | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-509 tông Hồng Nhạt, Trắng, Hồng, Đỏ, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-509",
+    "slug": "ao-thi-dau-gaming-x24-gm-509-hong-nhat-trang-hong-do",
+    "sourceChecksum": "2ab2a79693d47f84b9dca0fff6ffbead480eae28d22ebf2bf84d18af5b68e683",
+    "sourceCreatedAt": null,
+    "sourceId": "2624",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-509-hong-nhat-trang-hong-do",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2624",
+    "updatedAt": "2026-07-17T13:03:15.268Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a2814570cdc000196f84b",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a2814570cdc000196f84c",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:16.755Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-507 Xanh Mint, Xanh Ve Chai, Trắng, Xanh giữ tinh thần phối màu Xanh Mint, Xanh Ve Chai, Trắng, Xanh và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-507 Xanh Mint, Xanh Ve Chai, Trắng, Xanh",
+        "createdAt": "2026-07-17T13:03:16.125Z",
+        "filename": "x24-gm-507-gaming.webp",
+        "filesize": 166610,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3156,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "f062bcb524f449427853f88a5d32b330ec37ae174fca31c9f74eadc7bf100f97",
+        "sourceId": "2623:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2623:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:16.588Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-507-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2651,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-507 Xanh Mint, Xanh Ve Chai, Trắng, Xanh: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-507 Xanh Mint, Xanh Ve Chai, Trắng, Xanh",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a2814570cdc000196f84d",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a2814570cdc000196f84e",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a2814570cdc000196f84f",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a2814570cdc000196f850",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a2814570cdc000196f851",
+        "value": "Xanh Mint"
+      },
+      {
+        "id": "6a5a2814570cdc000196f852",
+        "value": "Xanh Ve Chai"
+      },
+      {
+        "id": "6a5a2814570cdc000196f853",
+        "value": "Trắng"
+      },
+      {
+        "id": "6a5a2814570cdc000196f854",
+        "value": "Xanh"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-507 Xanh Mint, Xanh Ve Chai, Trắng, Xanh | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-507 tông Xanh Mint, Xanh Ve Chai, Trắng, Xanh, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-507",
+    "slug": "ao-thi-dau-gaming-x24-gm-507-xanh-mint-xanh-ve-chai-trang-xanh",
+    "sourceChecksum": "fd8557237c9d71d94079f8af9c138bb8bb315dc53c50be33827ab5b63a4d128c",
+    "sourceCreatedAt": null,
+    "sourceId": "2623",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-507-xanh-mint-xanh-ve-chai-trang-xanh",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2623",
+    "updatedAt": "2026-07-17T13:03:16.756Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a2815570cdc000196f855",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a2815570cdc000196f856",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:17.785Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-493 Đen, Hồng giữ tinh thần phối màu Đen, Hồng và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-493 Đen, Hồng",
+        "createdAt": "2026-07-17T13:03:17.242Z",
+        "filename": "x24-gm-493-gaming.webp",
+        "filesize": 146368,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3157,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "25787dd371532a0da13f67d96747abd36671659bfb00067bffdf75a6f786ed18",
+        "sourceId": "2622:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2622:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:17.632Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-493-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2652,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-493 Đen, Hồng: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-493 Đen, Hồng",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a2815570cdc000196f857",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a2815570cdc000196f858",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a2815570cdc000196f859",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a2815570cdc000196f85a",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a2815570cdc000196f85b",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a2815570cdc000196f85c",
+        "value": "Hồng"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-493 Đen, Hồng | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-493 tông Đen, Hồng, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-493",
+    "slug": "ao-thi-dau-gaming-x24-gm-493-den-hong",
+    "sourceChecksum": "280c894a548b8c11073ecf662843aaadf96fc030cad952a2ee94125bf406ddd4",
+    "sourceCreatedAt": null,
+    "sourceId": "2622",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-493-den-hong",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2622",
+    "updatedAt": "2026-07-17T13:03:17.785Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a2818570cdc000196f85d",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a2818570cdc000196f85e",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:20.720Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-327 Đen, Đỏ giữ tinh thần phối màu Đen, Đỏ và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-327 Đen, Đỏ",
+        "createdAt": "2026-07-17T13:03:18.409Z",
+        "filename": "x24-gm-327-gaming.webp",
+        "filesize": 152582,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3158,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "f9b4cd00605a9e3948d1439d557405ca69c3e476270c1ff2d1e115c32740a112",
+        "sourceId": "2621:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2621:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:20.461Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-327-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2653,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-327 Đen, Đỏ: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-327 Đen, Đỏ",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a2818570cdc000196f85f",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a2818570cdc000196f860",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a2818570cdc000196f861",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a2818570cdc000196f862",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a2818570cdc000196f863",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a2818570cdc000196f864",
+        "value": "Đỏ"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-327 Đen, Đỏ | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-327 tông Đen, Đỏ, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-327",
+    "slug": "ao-thi-dau-gaming-x24-gm-327-den-do",
+    "sourceChecksum": "80a42d5c1f04d1770fe25422be90d02aa8a28433b668e53b5e19c5fe81a6fc9c",
+    "sourceCreatedAt": null,
+    "sourceId": "2621",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-327-den-do",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2621",
+    "updatedAt": "2026-07-17T13:03:20.720Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a2819570cdc000196f865",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a2819570cdc000196f866",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:21.912Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-406 Đen, Tím giữ tinh thần phối màu Đen, Tím và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-406 Đen, Tím",
+        "createdAt": "2026-07-17T13:03:21.185Z",
+        "filename": "x24-gm-406-gaming.webp",
+        "filesize": 134536,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3159,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "9d950b1a7c0a431437e93a24e710ffe7b97c58407d769ff74e4f5eb2b1c3216b",
+        "sourceId": "2620:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2620:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:21.658Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-406-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2654,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-406 Đen, Tím: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-406 Đen, Tím",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a2819570cdc000196f867",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a2819570cdc000196f868",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a2819570cdc000196f869",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a2819570cdc000196f86a",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a2819570cdc000196f86b",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a2819570cdc000196f86c",
+        "value": "Tím"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-406 Đen, Tím | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-406 tông Đen, Tím, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-406",
+    "slug": "ao-thi-dau-gaming-x24-gm-406-den-tim",
+    "sourceChecksum": "e28fd078afa31460835ac28e2a75a23a49d6179f94c06d043eeba22375b8f2c7",
+    "sourceCreatedAt": null,
+    "sourceId": "2620",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-406-den-tim",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2620",
+    "updatedAt": "2026-07-17T13:03:21.912Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a281b570cdc000196f86d",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a281b570cdc000196f86e",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:23.078Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-217 Đen, Xám, Xanh giữ tinh thần phối màu Đen, Xám, Xanh và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-217 Đen, Xám, Xanh",
+        "createdAt": "2026-07-17T13:03:22.310Z",
+        "filename": "x24-gm-217-gaming.webp",
+        "filesize": 143018,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3160,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "3873736db7f612f6b40fec032956ca0d90b1cd8af4b07a6df3926a7af0ae152d",
+        "sourceId": "2619:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2619:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:22.821Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-217-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2655,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-217 Đen, Xám, Xanh: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-217 Đen, Xám, Xanh",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a281b570cdc000196f86f",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a281b570cdc000196f870",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a281b570cdc000196f871",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a281b570cdc000196f872",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a281b570cdc000196f873",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a281b570cdc000196f874",
+        "value": "Xám"
+      },
+      {
+        "id": "6a5a281b570cdc000196f875",
+        "value": "Xanh"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-217 Đen, Xám, Xanh | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-217 tông Đen, Xám, Xanh, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-217",
+    "slug": "ao-thi-dau-gaming-x24-gm-217-den-xam-xanh",
+    "sourceChecksum": "a3e0f7916d1bb7aa75bae52db1b9faa1e6ca44eee1e74b8819157d05c01c8f76",
+    "sourceCreatedAt": null,
+    "sourceId": "2619",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-217-den-xam-xanh",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2619",
+    "updatedAt": "2026-07-17T13:03:23.078Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a281c570cdc000196f876",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a281c570cdc000196f877",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:24.201Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-176 Đen, Trắng, Cam giữ tinh thần phối màu Đen, Trắng, Cam và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-176 Đen, Trắng, Cam",
+        "createdAt": "2026-07-17T13:03:23.599Z",
+        "filename": "x24-gm-176-gaming.webp",
+        "filesize": 191818,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3161,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "20ad8120a1a92b4d0cb4c49d0f158d72fcc21cd0c28c21f9468583e46d7c1503",
+        "sourceId": "2618:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2618:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:23.975Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-176-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2656,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-176 Đen, Trắng, Cam: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-176 Đen, Trắng, Cam",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a281c570cdc000196f878",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a281c570cdc000196f879",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a281c570cdc000196f87a",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a281c570cdc000196f87b",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a281c570cdc000196f87c",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a281c570cdc000196f87d",
+        "value": "Trắng"
+      },
+      {
+        "id": "6a5a281c570cdc000196f87e",
+        "value": "Cam"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-176 Đen, Trắng, Cam | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-176 tông Đen, Trắng, Cam, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-176",
+    "slug": "ao-thi-dau-gaming-x24-gm-176-den-trang-cam",
+    "sourceChecksum": "59b5a52260abc928afed49bb204aa01f497b98643cdefac1bbd3bc91f7d429db",
+    "sourceCreatedAt": null,
+    "sourceId": "2618",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-176-den-trang-cam",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2618",
+    "updatedAt": "2026-07-17T13:03:24.201Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a281d570cdc000196f87f",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a281d570cdc000196f880",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:25.240Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-175 Đen, Xanh, Cam giữ tinh thần phối màu Đen, Xanh, Cam và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-175 Đen, Xanh, Cam",
+        "createdAt": "2026-07-17T13:03:24.694Z",
+        "filename": "x24-gm-175-gaming.webp",
+        "filesize": 173068,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3162,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "fd460c3bbe07ef9c06d6f7a2084b21568b1108cfd021ac3bbe1271c91c9b0d9e",
+        "sourceId": "2617:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2617:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:25.085Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-175-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2657,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-175 Đen, Xanh, Cam: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-175 Đen, Xanh, Cam",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a281d570cdc000196f881",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a281d570cdc000196f882",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a281d570cdc000196f883",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a281d570cdc000196f884",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a281d570cdc000196f885",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a281d570cdc000196f886",
+        "value": "Xanh"
+      },
+      {
+        "id": "6a5a281d570cdc000196f887",
+        "value": "Cam"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-175 Đen, Xanh, Cam | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-175 tông Đen, Xanh, Cam, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-175",
+    "slug": "ao-thi-dau-gaming-x24-gm-175-den-xanh-cam",
+    "sourceChecksum": "fdbd9ba74e8696b49dae5539ae0c860fa0ae6d98ab7de40512a7efc4e1370e88",
+    "sourceCreatedAt": null,
+    "sourceId": "2617",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-175-den-xanh-cam",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2617",
+    "updatedAt": "2026-07-17T13:03:25.240Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a281e570cdc000196f888",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a281e570cdc000196f889",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:26.450Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-171 Đen, Cam, Vàng giữ tinh thần phối màu Đen, Cam, Vàng và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-171 Đen, Cam, Vàng",
+        "createdAt": "2026-07-17T13:03:25.740Z",
+        "filename": "x24-gm-171-gaming.webp",
+        "filesize": 190612,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3163,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "6a39505007c3265768491a63940cea2f78e192aca600df66830f4334aecaa2df",
+        "sourceId": "2616:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2616:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:26.251Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-171-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2658,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-171 Đen, Cam, Vàng: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-171 Đen, Cam, Vàng",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a281e570cdc000196f88a",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a281e570cdc000196f88b",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a281e570cdc000196f88c",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a281e570cdc000196f88d",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a281e570cdc000196f88e",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a281e570cdc000196f88f",
+        "value": "Cam"
+      },
+      {
+        "id": "6a5a281e570cdc000196f890",
+        "value": "Vàng"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-171 Đen, Cam, Vàng | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-171 tông Đen, Cam, Vàng, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-171",
+    "slug": "ao-thi-dau-gaming-x24-gm-171-den-cam-vang",
+    "sourceChecksum": "4d1991be71826940b1f07d49bbf8079b5ea1e638ff91ff8ba4cb69a723c9617c",
+    "sourceCreatedAt": null,
+    "sourceId": "2616",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-171-den-cam-vang",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2616",
+    "updatedAt": "2026-07-17T13:03:26.451Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a281f570cdc000196f891",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a281f570cdc000196f892",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:27.751Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-126 Đen, Xám, Cam giữ tinh thần phối màu Đen, Xám, Cam và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-126 Đen, Xám, Cam",
+        "createdAt": "2026-07-17T13:03:26.927Z",
+        "filename": "x24-gm-126-gaming.webp",
+        "filesize": 170280,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3164,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "526d71f2fe820ce745bcbc63e4c3902dd1c7ef79984347f3f5b7dfc56c95268c",
+        "sourceId": "2615:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2615:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:27.555Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-126-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2659,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-126 Đen, Xám, Cam: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-126 Đen, Xám, Cam",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a281f570cdc000196f893",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a281f570cdc000196f894",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a281f570cdc000196f895",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a281f570cdc000196f896",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a281f570cdc000196f897",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a281f570cdc000196f898",
+        "value": "Xám"
+      },
+      {
+        "id": "6a5a281f570cdc000196f899",
+        "value": "Cam"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-126 Đen, Xám, Cam | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-126 tông Đen, Xám, Cam, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-126",
+    "slug": "ao-thi-dau-gaming-x24-gm-126-den-xam-cam",
+    "sourceChecksum": "6313b506543a5221de721c110ba3581dad5b6dc79ed26dd538f51db7edd2a889",
+    "sourceCreatedAt": null,
+    "sourceId": "2615",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-126-den-xam-cam",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2615",
+    "updatedAt": "2026-07-17T13:03:27.751Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a2820570cdc000196f89a",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a2820570cdc000196f89b",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:28.881Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-051 Đen, Tím, Xanh, Vàng giữ tinh thần phối màu Đen, Tím, Xanh, Vàng và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-051 Đen, Tím, Xanh, Vàng",
+        "createdAt": "2026-07-17T13:03:28.217Z",
+        "filename": "x24-gm-051-gaming.webp",
+        "filesize": 185812,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3165,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "954ffddf5955daa6de74739f2756e26e527d45d568987ebb35d96253589dbc4f",
+        "sourceId": "2614:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2614:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:28.731Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-051-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2660,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-051 Đen, Tím, Xanh, Vàng: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-051 Đen, Tím, Xanh, Vàng",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a2820570cdc000196f89c",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a2820570cdc000196f89d",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a2820570cdc000196f89e",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a2820570cdc000196f89f",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a2820570cdc000196f8a0",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a2820570cdc000196f8a1",
+        "value": "Tím"
+      },
+      {
+        "id": "6a5a2820570cdc000196f8a2",
+        "value": "Xanh"
+      },
+      {
+        "id": "6a5a2820570cdc000196f8a3",
+        "value": "Vàng"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-051 Đen, Tím, Xanh, Vàng | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-051 tông Đen, Tím, Xanh, Vàng, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-051",
+    "slug": "ao-thi-dau-gaming-x24-gm-051-den-tim-xanh-vang",
+    "sourceChecksum": "ad301560f9eed031170838cf0ad81720b420decd29a5c9547f1ae103ff034666",
+    "sourceCreatedAt": null,
+    "sourceId": "2614",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-051-den-tim-xanh-vang",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2614",
+    "updatedAt": "2026-07-17T13:03:28.881Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a2822570cdc000196f8a4",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a2822570cdc000196f8a5",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:30.028Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-119 Đen, Đỏ, Xanh giữ tinh thần phối màu Đen, Đỏ, Xanh và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-119 Đen, Đỏ, Xanh",
+        "createdAt": "2026-07-17T13:03:29.354Z",
+        "filename": "x24-gm-119-gaming.webp",
+        "filesize": 174936,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3166,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "a0c35ac2fc836460116510a2ae2c2800a82495b1baf6ba4fd08a7ee53eae2dfc",
+        "sourceId": "2613:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2613:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:29.838Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-119-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2661,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-119 Đen, Đỏ, Xanh: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-119 Đen, Đỏ, Xanh",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a2822570cdc000196f8a6",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a2822570cdc000196f8a7",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a2822570cdc000196f8a8",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a2822570cdc000196f8a9",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a2822570cdc000196f8aa",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a2822570cdc000196f8ab",
+        "value": "Đỏ"
+      },
+      {
+        "id": "6a5a2822570cdc000196f8ac",
+        "value": "Xanh"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-119 Đen, Đỏ, Xanh | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-119 tông Đen, Đỏ, Xanh, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-119",
+    "slug": "ao-thi-dau-gaming-x24-gm-119-den-do-xanh",
+    "sourceChecksum": "52fd98e34a5a4cb94b3bfade09d1c909c680d221face1960aedfd9fbdf88d0ec",
+    "sourceCreatedAt": null,
+    "sourceId": "2613",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-119-den-do-xanh",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2613",
+    "updatedAt": "2026-07-17T13:03:30.028Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a2823570cdc000196f8ad",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a2823570cdc000196f8ae",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:31.126Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-534 Đen, Trắng, Cam giữ tinh thần phối màu Đen, Trắng, Cam và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-534 Đen, Trắng, Cam",
+        "createdAt": "2026-07-17T13:03:30.486Z",
+        "filename": "x24-gm-534-gaming.webp",
+        "filesize": 135302,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3167,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "998a38f5a55e665ae3c5a8240e0b60e1ee8b5da1603ab3568307c680d7d09b95",
+        "sourceId": "2612:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2612:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:30.976Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-534-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2662,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-534 Đen, Trắng, Cam: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-534 Đen, Trắng, Cam",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a2823570cdc000196f8af",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a2823570cdc000196f8b0",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a2823570cdc000196f8b1",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a2823570cdc000196f8b2",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a2823570cdc000196f8b3",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a2823570cdc000196f8b4",
+        "value": "Trắng"
+      },
+      {
+        "id": "6a5a2823570cdc000196f8b5",
+        "value": "Cam"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-534 Đen, Trắng, Cam | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-534 tông Đen, Trắng, Cam, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-534",
+    "slug": "ao-thi-dau-gaming-x24-gm-534-den-trang-cam",
+    "sourceChecksum": "ee48340b9e9242895294bc3c3092909d0a1fd41dac0de60218156ea466efc5ef",
+    "sourceCreatedAt": null,
+    "sourceId": "2612",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-534-den-trang-cam",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2612",
+    "updatedAt": "2026-07-17T13:03:31.126Z"
+  },
+  {
+    "attributes": [],
+    "badges": [
+      {
+        "id": "6a5a2824570cdc000196f8b6",
+        "label": "Gaming"
+      },
+      {
+        "id": "6a5a2824570cdc000196f8b7",
+        "label": "Jersey team"
+      }
+    ],
+    "canonicalOverride": null,
+    "categories": [
+      {
+        "createdAt": "2026-07-17T02:18:48.243Z",
+        "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+        "group": "sport",
+        "id": 117,
+        "legacyPath": "/danh-muc/gaming/",
+        "name": "Áo Gaming",
+        "order": 80,
+        "parent": null,
+        "productCount": 15,
+        "slug": "ao-gaming",
+        "sourceChecksum": null,
+        "sourceId": "x24-home-gaming",
+        "sourceSystem": "manual",
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+        "tenantSlugKey": "6:ao-gaming",
+        "tenantSourceKey": "6:manual:x24-home-gaming",
+        "updatedAt": "2026-07-17T13:08:05.412Z"
+      }
+    ],
+    "compareAtPrice": null,
+    "contentHtml": null,
+    "createdAt": "2026-07-17T13:03:32.187Z",
+    "currency": "VND",
+    "description": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Áo Gaming X24-GM-541 Đen, Trắng, Xám giữ tinh thần phối màu Đen, Trắng, Xám và bố cục đồ họa của mẫu áo gốc, nhưng được trình bày theo phong cách đội tuyển gaming/esports.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Hình ảnh sản phẩm thể hiện nhóm game thủ mặc jersey đồng đội trong bối cảnh sân khấu esports, giúp đội nhóm dễ hình dung khi đặt may áo thi đấu hoặc áo sự kiện.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "X24 nhận tùy chỉnh nickname, số áo, logo team, vị trí sponsor và màu nhận diện theo file thiết kế khách hàng xác nhận.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "text": "Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ áp dụng khi có thông số được xác nhận riêng.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ],
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "featured": false,
+    "gallery": [
+      {
+        "alt": "Áo thi đấu gaming X24-GM-541 Đen, Trắng, Xám",
+        "createdAt": "2026-07-17T13:03:31.602Z",
+        "filename": "x24-gm-541-gaming.webp",
+        "filesize": 147830,
+        "focalX": null,
+        "focalY": null,
+        "height": null,
+        "id": 3168,
+        "mimeType": "application/octet-stream",
+        "prefix": "x24sport",
+        "searchTags": [],
+        "sourceChecksum": "9fbf8ca0828877a29e3d48e2b990a48496a3c764f7ec34df971019e75a31d3d8",
+        "sourceId": "2611:image",
+        "sourceSystem": "x24-billiards-to-gaming",
+        "sourceUrl": null,
+        "tenant": {
+          "brand": {
+            "accentColor": "#ed642d",
+            "headline": "Trang phục cho mọi chuyển động",
+            "primaryColor": "#080808",
+            "style": "arenix-inspired",
+            "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+          },
+          "createdAt": "2026-07-16T17:15:58.240Z",
+          "domains": [
+            {
+              "domain": "x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8934"
+            },
+            {
+              "domain": "next.x24sport.vn",
+              "id": "6a5911ce99f4c00024cb8935"
+            }
+          ],
+          "id": 6,
+          "name": "X24Sport",
+          "slug": "x24sport",
+          "updatedAt": "2026-07-16T17:15:58.241Z"
+        },
+        "tenantSourceKey": "6:x24-billiards-to-gaming:2611:image",
+        "thumbnailURL": null,
+        "updatedAt": "2026-07-17T13:03:31.959Z",
+        "url": "https://static.x24sport.vn/x24sport/x24-gm-541-gaming.webp",
+        "width": null
+      }
+    ],
+    "id": 2663,
+    "isOnBackorder": false,
+    "isPurchasable": false,
+    "legacyImages": [],
+    "legacyPath": null,
+    "metaDescription": "Áo Gaming X24-GM-541 Đen, Trắng, Xám: jersey esports đồng đội, phong cách gaming sân khấu, nhận in nickname, số áo, logo team và sponsor theo yêu cầu.",
+    "name": "Áo Gaming X24-GM-541 Đen, Trắng, Xám",
+    "price": null,
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "regularPrice": null,
+    "salePrice": null,
+    "searchTags": [
+      {
+        "id": "6a5a2824570cdc000196f8b8",
+        "value": "áo thi đấu gaming"
+      },
+      {
+        "id": "6a5a2824570cdc000196f8b9",
+        "value": "áo esports"
+      },
+      {
+        "id": "6a5a2824570cdc000196f8ba",
+        "value": "đồng phục gaming"
+      },
+      {
+        "id": "6a5a2824570cdc000196f8bb",
+        "value": "gaming team jersey"
+      },
+      {
+        "id": "6a5a2824570cdc000196f8bc",
+        "value": "Đen"
+      },
+      {
+        "id": "6a5a2824570cdc000196f8bd",
+        "value": "Trắng"
+      },
+      {
+        "id": "6a5a2824570cdc000196f8be",
+        "value": "Xám"
+      }
+    ],
+    "seoTitle": "Áo Gaming X24-GM-541 Đen, Trắng, Xám | Áo thi đấu gaming đặt may X24Sport",
+    "shortDescription": "Áo thi đấu gaming đặt may X24-GM-541 tông Đen, Trắng, Xám, chuyển thể từ thiết kế áo bi-a sang jersey esports, nhận in nickname, số và logo team.",
+    "sku": "X24-GM-541",
+    "slug": "ao-thi-dau-gaming-x24-gm-541-den-trang-xam",
+    "sourceChecksum": "f64e7c289c3d32967847be9b7e213ad2e6f00f2e1bfdd57ba05008b868dc7647",
+    "sourceCreatedAt": null,
+    "sourceId": "2611",
+    "sourceModifiedAt": null,
+    "sourceSystem": "x24-billiards-to-gaming",
+    "sourceTags": [],
+    "sport": "other",
+    "stockStatus": "instock",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": null,
+    "tenantSlugKey": "6:ao-thi-dau-gaming-x24-gm-541-den-trang-xam",
+    "tenantSourceKey": "6:x24-billiards-to-gaming:2611",
+    "updatedAt": "2026-07-17T13:03:32.187Z"
+  }
+]

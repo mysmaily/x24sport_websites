@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-07-17T02:18:48.507Z",
+  "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+  "group": "sport",
+  "id": 118,
+  "legacyPath": "/danh-muc/bi-a/",
+  "name": "Áo Bi-a",
+  "order": 90,
+  "parent": null,
+  "productCount": 15,
+  "slug": "ao-bi-a",
+  "sourceChecksum": null,
+  "sourceId": "x24-home-bi-a",
+  "sourceSystem": "manual",
+  "tenant": 6,
+  "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+  "tenantSlugKey": "6:ao-bi-a",
+  "tenantSourceKey": "6:manual:x24-home-bi-a",
+  "updatedAt": "2026-07-17T08:39:54.891Z"
+}

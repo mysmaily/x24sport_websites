@@ -1,0 +1,4 @@
+interface:
+  display_name: "Convert Pickleball To Gaming"
+  short_description: "Create gaming jersey products from source apparel"
+  default_prompt: "Use $convert-pickleball-to-gaming to turn this source apparel image into a branded esports jersey product and publish it."

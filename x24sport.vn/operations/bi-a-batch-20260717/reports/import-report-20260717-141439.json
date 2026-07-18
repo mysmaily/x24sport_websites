@@ -1,0 +1,188 @@
+{
+  "apply": false,
+  "errors": [],
+  "media": [
+    {
+      "action": "created",
+      "code": "541",
+      "id": "dry-media-541"
+    },
+    {
+      "action": "created",
+      "code": "534",
+      "id": "dry-media-534"
+    },
+    {
+      "action": "created",
+      "code": "119",
+      "id": "dry-media-119"
+    },
+    {
+      "action": "created",
+      "code": "051",
+      "id": "dry-media-051"
+    },
+    {
+      "action": "created",
+      "code": "126",
+      "id": "dry-media-126"
+    },
+    {
+      "action": "created",
+      "code": "171",
+      "id": "dry-media-171"
+    },
+    {
+      "action": "created",
+      "code": "175",
+      "id": "dry-media-175"
+    },
+    {
+      "action": "created",
+      "code": "176",
+      "id": "dry-media-176"
+    },
+    {
+      "action": "created",
+      "code": "217",
+      "id": "dry-media-217"
+    },
+    {
+      "action": "created",
+      "code": "406",
+      "id": "dry-media-406"
+    },
+    {
+      "action": "created",
+      "code": "327",
+      "id": "dry-media-327"
+    },
+    {
+      "action": "created",
+      "code": "493",
+      "id": "dry-media-493"
+    },
+    {
+      "action": "created",
+      "code": "507",
+      "id": "dry-media-507"
+    },
+    {
+      "action": "created",
+      "code": "509",
+      "id": "dry-media-509"
+    },
+    {
+      "action": "created",
+      "code": "551",
+      "id": "dry-media-551"
+    }
+  ],
+  "products": [
+    {
+      "action": "created",
+      "code": "541",
+      "id": "dry-product-541",
+      "name": "Áo bi-a X24 BA-541 Trắng Đen Xám",
+      "slug": "ao-bi-a-x24-ba-541-trang-den-xam"
+    },
+    {
+      "action": "created",
+      "code": "534",
+      "id": "dry-product-534",
+      "name": "Áo bi-a X24 BA-534 Đen Trắng Cam",
+      "slug": "ao-bi-a-x24-ba-534-den-trang-cam"
+    },
+    {
+      "action": "created",
+      "code": "119",
+      "id": "dry-product-119",
+      "name": "Áo bi-a X24 BA-119 Đen Đỏ Xanh",
+      "slug": "ao-bi-a-x24-ba-119-den-do-xanh"
+    },
+    {
+      "action": "created",
+      "code": "051",
+      "id": "dry-product-051",
+      "name": "Áo bi-a X24 BA-051 Đen Xanh Vàng Tím",
+      "slug": "ao-bi-a-x24-ba-051-den-xanh-vang-tim"
+    },
+    {
+      "action": "created",
+      "code": "126",
+      "id": "dry-product-126",
+      "name": "Áo bi-a X24 BA-126 Đen Cam Xám",
+      "slug": "ao-bi-a-x24-ba-126-den-cam-xam"
+    },
+    {
+      "action": "created",
+      "code": "171",
+      "id": "dry-product-171",
+      "name": "Áo bi-a X24 BA-171 Đen Vàng Cam",
+      "slug": "ao-bi-a-x24-ba-171-den-vang-cam"
+    },
+    {
+      "action": "created",
+      "code": "175",
+      "id": "dry-product-175",
+      "name": "Áo bi-a X24 BA-175 Đen Cam Xanh",
+      "slug": "ao-bi-a-x24-ba-175-den-cam-xanh"
+    },
+    {
+      "action": "created",
+      "code": "176",
+      "id": "dry-product-176",
+      "name": "Áo bi-a X24 BA-176 Đen Trắng Cam",
+      "slug": "ao-bi-a-x24-ba-176-den-trang-cam-2"
+    },
+    {
+      "action": "created",
+      "code": "217",
+      "id": "dry-product-217",
+      "name": "Áo bi-a X24 BA-217 Đen Xám Xanh",
+      "slug": "ao-bi-a-x24-ba-217-den-xam-xanh"
+    },
+    {
+      "action": "created",
+      "code": "406",
+      "id": "dry-product-406",
+      "name": "Áo bi-a X24 BA-406 Đen Tím",
+      "slug": "ao-bi-a-x24-ba-406-den-tim"
+    },
+    {
+      "action": "created",
+      "code": "327",
+      "id": "dry-product-327",
+      "name": "Áo bi-a X24 BA-327 Đen Đỏ",
+      "slug": "ao-bi-a-x24-ba-327-den-do"
+    },
+    {
+      "action": "created",
+      "code": "493",
+      "id": "dry-product-493",
+      "name": "Áo bi-a X24 BA-493 Hồng Đen",
+      "slug": "ao-bi-a-x24-ba-493-hong-den"
+    },
+    {
+      "action": "created",
+      "code": "507",
+      "id": "dry-product-507",
+      "name": "Áo bi-a X24 BA-507 Trắng Xanh Mint Xanh Ve Chai",
+      "slug": "ao-bi-a-x24-ba-507-trang-xanh-mint-xanh-ve-chai"
+    },
+    {
+      "action": "created",
+      "code": "509",
+      "id": "dry-product-509",
+      "name": "Áo bi-a X24 BA-509 Trắng Hồng Nhạt Đỏ",
+      "slug": "ao-bi-a-x24-ba-509-trang-hong-nhat-do"
+    },
+    {
+      "action": "created",
+      "code": "551",
+      "id": "dry-product-551",
+      "name": "Áo bi-a X24 BA-551 Tím Than Xanh Dương Trắng",
+      "slug": "ao-bi-a-x24-ba-551-tim-than-xanh-duong-trang"
+    }
+  ]
+}

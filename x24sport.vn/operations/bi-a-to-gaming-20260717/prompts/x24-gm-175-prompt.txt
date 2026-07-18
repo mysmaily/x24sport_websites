@@ -1,0 +1,10 @@
+Use case: ads-marketing
+Asset type: 1000x1000 ecommerce product image for an esports jersey category
+Primary request: Transform the source billiards jersey design into a dramatic gaming/esports team jersey product image.
+Input image role: garment-design reference only. Preserve the source jersey colorway (Đen, Xanh, Cam), panel map, line accents, collar/sleeve construction, logo/crest placement logic, sewn hems, and overall design language. Do not preserve billiards cues, pool table, balls, old product context, source text, or any watermarks.
+Subject: five Vietnamese/Asian esports players, mixed male and female if natural, wearing matching jerseys derived from the source. Central captain slightly forward, teammates staggered in a powerful V formation. Intense confident expressions, crossed arms or hands near gaming headsets/controllers, championship-ready team reveal.
+Scene/backdrop: dark cyber esports arena, LED wall, blue/orange/yellow rim lights adapted to the jersey palette, light smoke, cinematic shadows, premium roster photoshoot.
+Jersey requirements: modern short-sleeve gaming jersey, athletic fit, black gaming pants, realistic sublimated fabric, folds, seams, collar and sleeve openings. Add only blank abstract crest/sponsor patch shapes; no readable text, fake words, team names, numbers, or real brands.
+Composition: square 1:1, web catalog hero crop, faces and upper bodies clear, jersey front pattern readable on most players, leave modest safe space in top-left/top-right and bottom for post-process logo/product-code/hotline overlays.
+Style: photorealistic high-end esports team advertising photo, sharp faces, accurate anatomy and hands, realistic fabric texture, dramatic but clean lighting.
+Avoid: billiards cues, pool balls, pool table, sports courts, rackets, readable text, fake logos, phone numbers, watermarks, duplicated faces, deformed hands, cartoon/anime look, flat pasted shirt print, garment color drift, old source branding.

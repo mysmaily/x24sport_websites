@@ -70,10 +70,12 @@ export interface Config {
     users: User;
     tenants: Tenant;
     media: Media;
+    'migration-runs': MigrationRun;
     'product-categories': ProductCategory;
     products: Product;
     pages: Page;
     posts: Post;
+    'web-content': WebContent;
     'store-settings': StoreSetting;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -85,10 +87,12 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     tenants: TenantsSelect<false> | TenantsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'migration-runs': MigrationRunsSelect<false> | MigrationRunsSelect<true>;
     'product-categories': ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    'web-content': WebContentSelect<false> | WebContentSelect<true>;
     'store-settings': StoreSettingsSelect<false> | StoreSettingsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -145,6 +149,9 @@ export interface User {
     | null;
   updatedAt: string;
   createdAt: string;
+  enableAPIKey?: boolean | null;
+  apiKey?: string | null;
+  apiKeyIndex?: string | null;
   email: string;
   resetPasswordToken?: string | null;
   resetPasswordExpiration?: string | null;
@@ -191,6 +198,11 @@ export interface Tenant {
 export interface Media {
   id: number;
   tenant?: (number | null) | Tenant;
+  sourceSystem?: string | null;
+  sourceId?: string | null;
+  sourceUrl?: string | null;
+  sourceChecksum?: string | null;
+  tenantSourceKey?: string | null;
   alt: string;
   /**
    * Internal search helpers for tone, gradient, pose, and sport.
@@ -216,6 +228,42 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "migration-runs".
+ */
+export interface MigrationRun {
+  id: number;
+  tenant?: (number | null) | Tenant;
+  runId: string;
+  tenantRunKey?: string | null;
+  mode: 'snapshot' | 'dry-run' | 'import' | 'delta';
+  status: 'running' | 'completed' | 'failed' | 'rolled-back';
+  sourceUrl: string;
+  snapshotChecksum?: string | null;
+  startedAt: string;
+  finishedAt?: string | null;
+  counts?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  errors?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "product-categories".
  */
 export interface ProductCategory {
@@ -223,8 +271,20 @@ export interface ProductCategory {
   tenant?: (number | null) | Tenant;
   name: string;
   slug: string;
-  group: 'type' | 'color';
+  tenantSlugKey?: string | null;
+  /**
+   * Danh mục cha trong cây taxonomy của tenant.
+   */
+  parent?: (number | null) | ProductCategory;
+  group: 'sport' | 'type' | 'color';
   description?: string | null;
+  legacyPath?: string | null;
+  tenantLegacyPathKey?: string | null;
+  sourceSystem?: string | null;
+  sourceId?: string | null;
+  tenantSourceKey?: string | null;
+  sourceChecksum?: string | null;
+  productCount?: number | null;
   order?: number | null;
   updatedAt: string;
   createdAt: string;
@@ -237,12 +297,35 @@ export interface Product {
   id: number;
   tenant?: (number | null) | Tenant;
   name: string;
+  /**
+   * Đường dẫn sản phẩm, nên giữ ngắn gọn và ổn định.
+   */
   slug: string;
-  sku: string;
-  sport: 'badminton' | 'volleyball' | 'football' | 'basketball' | 'running' | 'pickleball';
-  price: number;
+  tenantSlugKey?: string | null;
+  sku?: string | null;
+  sport: 'badminton' | 'volleyball' | 'football' | 'basketball' | 'running' | 'pickleball' | 'other';
+  productType?: ('simple' | 'variable' | 'grouped' | 'external') | null;
+  publicationStatus?: ('publish' | 'draft' | 'private' | 'pending') | null;
+  featured?: boolean | null;
+  /**
+   * Chọn danh mục hiển thị trên website.
+   */
+  categories?: (number | ProductCategory)[] | null;
+  price?: number | null;
+  regularPrice?: number | null;
+  salePrice?: number | null;
   compareAtPrice?: number | null;
-  shortDescription: string;
+  currency?: string | null;
+  stockStatus?: ('instock' | 'outofstock' | 'onbackorder') | null;
+  isPurchasable?: boolean | null;
+  isOnBackorder?: boolean | null;
+  /**
+   * Tóm tắt ngắn hiển thị ở thẻ sản phẩm hoặc đầu trang.
+   */
+  shortDescription?: string | null;
+  /**
+   * Nội dung biên tập chính bằng Lexical Rich Text.
+   */
   description?: {
     root: {
       type: string;
@@ -258,8 +341,26 @@ export interface Product {
     };
     [k: string]: unknown;
   } | null;
+  attributes?:
+    | {
+        name: string;
+        values?:
+          | {
+              value: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  badges?:
+    | {
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
   /**
-   * Non-shopper search keywords such as colors, gradients, sport, and fit.
+   * Từ khóa nội bộ như màu sắc, chất liệu, môn thể thao, dáng áo.
    */
   searchTags?:
     | {
@@ -267,15 +368,44 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
-  categories?: (number | ProductCategory)[] | null;
-  badges?:
+  /**
+   * Ảnh sản phẩm đang dùng trên frontend mới.
+   */
+  gallery?: (number | Media)[] | null;
+  legacyImages?:
     | {
-        label: string;
+        url: string;
+        alt?: string | null;
+        width?: number | null;
+        height?: number | null;
         id?: string | null;
       }[]
     | null;
-  gallery?: (number | Media)[] | null;
-  featured?: boolean | null;
+  seoTitle?: string | null;
+  metaDescription?: string | null;
+  canonicalOverride?: string | null;
+  /**
+   * Đường dẫn canonical gốc của website cũ.
+   */
+  legacyPath?: string | null;
+  tenantLegacyPathKey?: string | null;
+  /**
+   * HTML gốc đã sanitize từ WordPress. Dùng để đối chiếu/migration, không phải nội dung biên tập chính.
+   */
+  contentHtml?: string | null;
+  sourceTags?:
+    | {
+        name: string;
+        slug: string;
+        id?: string | null;
+      }[]
+    | null;
+  sourceSystem?: string | null;
+  sourceId?: string | null;
+  tenantSourceKey?: string | null;
+  sourceModifiedAt?: string | null;
+  sourceCreatedAt?: string | null;
+  sourceChecksum?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -326,6 +456,30 @@ export interface Post {
     [k: string]: unknown;
   } | null;
   publishedAt: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "web-content".
+ */
+export interface WebContent {
+  id: number;
+  tenant?: (number | null) | Tenant;
+  title: string;
+  slug: string;
+  tenantSlugKey?: string | null;
+  kind: 'page' | 'post';
+  legacyPath: string;
+  tenantLegacyPathKey?: string | null;
+  contentHtml?: string | null;
+  excerpt?: string | null;
+  publicationStatus?: ('publish' | 'draft' | 'private' | 'pending') | null;
+  sourceSystem?: string | null;
+  sourceId?: string | null;
+  tenantSourceKey?: string | null;
+  sourceModifiedAt?: string | null;
+  sourceChecksum?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -386,6 +540,10 @@ export interface PayloadLockedDocument {
         value: number | Media;
       } | null)
     | ({
+        relationTo: 'migration-runs';
+        value: number | MigrationRun;
+      } | null)
+    | ({
         relationTo: 'product-categories';
         value: number | ProductCategory;
       } | null)
@@ -400,6 +558,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'posts';
         value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'web-content';
+        value: number | WebContent;
       } | null)
     | ({
         relationTo: 'store-settings';
@@ -462,6 +624,9 @@ export interface UsersSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+  enableAPIKey?: T;
+  apiKey?: T;
+  apiKeyIndex?: T;
   email?: T;
   resetPasswordToken?: T;
   resetPasswordExpiration?: T;
@@ -508,6 +673,11 @@ export interface TenantsSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   tenant?: T;
+  sourceSystem?: T;
+  sourceId?: T;
+  sourceUrl?: T;
+  sourceChecksum?: T;
+  tenantSourceKey?: T;
   alt?: T;
   searchTags?:
     | T
@@ -530,14 +700,42 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "migration-runs_select".
+ */
+export interface MigrationRunsSelect<T extends boolean = true> {
+  tenant?: T;
+  runId?: T;
+  tenantRunKey?: T;
+  mode?: T;
+  status?: T;
+  sourceUrl?: T;
+  snapshotChecksum?: T;
+  startedAt?: T;
+  finishedAt?: T;
+  counts?: T;
+  errors?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "product-categories_select".
  */
 export interface ProductCategoriesSelect<T extends boolean = true> {
   tenant?: T;
   name?: T;
   slug?: T;
+  tenantSlugKey?: T;
+  parent?: T;
   group?: T;
   description?: T;
+  legacyPath?: T;
+  tenantLegacyPathKey?: T;
+  sourceSystem?: T;
+  sourceId?: T;
+  tenantSourceKey?: T;
+  sourceChecksum?: T;
+  productCount?: T;
   order?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -550,27 +748,76 @@ export interface ProductsSelect<T extends boolean = true> {
   tenant?: T;
   name?: T;
   slug?: T;
+  tenantSlugKey?: T;
   sku?: T;
   sport?: T;
+  productType?: T;
+  publicationStatus?: T;
+  featured?: T;
+  categories?: T;
   price?: T;
+  regularPrice?: T;
+  salePrice?: T;
   compareAtPrice?: T;
+  currency?: T;
+  stockStatus?: T;
+  isPurchasable?: T;
+  isOnBackorder?: T;
   shortDescription?: T;
   description?: T;
-  searchTags?:
+  attributes?:
     | T
     | {
-        value?: T;
+        name?: T;
+        values?:
+          | T
+          | {
+              value?: T;
+              id?: T;
+            };
         id?: T;
       };
-  categories?: T;
   badges?:
     | T
     | {
         label?: T;
         id?: T;
       };
+  searchTags?:
+    | T
+    | {
+        value?: T;
+        id?: T;
+      };
   gallery?: T;
-  featured?: T;
+  legacyImages?:
+    | T
+    | {
+        url?: T;
+        alt?: T;
+        width?: T;
+        height?: T;
+        id?: T;
+      };
+  seoTitle?: T;
+  metaDescription?: T;
+  canonicalOverride?: T;
+  legacyPath?: T;
+  tenantLegacyPathKey?: T;
+  contentHtml?: T;
+  sourceTags?:
+    | T
+    | {
+        name?: T;
+        slug?: T;
+        id?: T;
+      };
+  sourceSystem?: T;
+  sourceId?: T;
+  tenantSourceKey?: T;
+  sourceModifiedAt?: T;
+  sourceCreatedAt?: T;
+  sourceChecksum?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -605,6 +852,29 @@ export interface PostsSelect<T extends boolean = true> {
   excerpt?: T;
   body?: T;
   publishedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "web-content_select".
+ */
+export interface WebContentSelect<T extends boolean = true> {
+  tenant?: T;
+  title?: T;
+  slug?: T;
+  tenantSlugKey?: T;
+  kind?: T;
+  legacyPath?: T;
+  tenantLegacyPathKey?: T;
+  contentHtml?: T;
+  excerpt?: T;
+  publicationStatus?: T;
+  sourceSystem?: T;
+  sourceId?: T;
+  tenantSourceKey?: T;
+  sourceModifiedAt?: T;
+  sourceChecksum?: T;
   updatedAt?: T;
   createdAt?: T;
 }

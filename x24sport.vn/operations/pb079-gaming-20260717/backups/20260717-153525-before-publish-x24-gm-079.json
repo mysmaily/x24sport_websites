@@ -1,0 +1,74 @@
+{
+  "category": {
+    "createdAt": "2026-07-17T02:18:48.243Z",
+    "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+    "group": "sport",
+    "id": 117,
+    "legacyPath": "/danh-muc/gaming/",
+    "name": "Áo Gaming",
+    "order": 80,
+    "parent": null,
+    "productCount": 15,
+    "slug": "ao-gaming",
+    "sourceChecksum": null,
+    "sourceId": "x24-home-gaming",
+    "sourceSystem": "manual",
+    "tenant": {
+      "brand": {
+        "accentColor": "#ed642d",
+        "headline": "Trang phục cho mọi chuyển động",
+        "primaryColor": "#080808",
+        "style": "arenix-inspired",
+        "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+      },
+      "createdAt": "2026-07-16T17:15:58.240Z",
+      "domains": [
+        {
+          "domain": "x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8934"
+        },
+        {
+          "domain": "next.x24sport.vn",
+          "id": "6a5911ce99f4c00024cb8935"
+        }
+      ],
+      "id": 6,
+      "name": "X24Sport",
+      "slug": "x24sport",
+      "updatedAt": "2026-07-16T17:15:58.241Z"
+    },
+    "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+    "tenantSlugKey": "6:ao-gaming",
+    "tenantSourceKey": "6:manual:x24-home-gaming",
+    "updatedAt": "2026-07-17T13:08:05.412Z"
+  },
+  "finalImage": "/Users/hoang/hacado/x24sport_websites/x24sport.vn/operations/pb079-gaming-20260717/final/x24-gm-079-gaming-hq.webp",
+  "mediaMatches": [],
+  "skuMatches": [],
+  "slugMatches": [],
+  "sourceImage": "/Users/hoang/hacado/x24sport_websites/x24sport.vn/operations/pb079-gaming-20260717/source/x24-pb-079-anh-1.webp",
+  "tenant": {
+    "brand": {
+      "accentColor": "#ed642d",
+      "headline": "Trang phục cho mọi chuyển động",
+      "primaryColor": "#080808",
+      "style": "arenix-inspired",
+      "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+    },
+    "createdAt": "2026-07-16T17:15:58.240Z",
+    "domains": [
+      {
+        "domain": "x24sport.vn",
+        "id": "6a5911ce99f4c00024cb8934"
+      },
+      {
+        "domain": "next.x24sport.vn",
+        "id": "6a5911ce99f4c00024cb8935"
+      }
+    ],
+    "id": 6,
+    "name": "X24Sport",
+    "slug": "x24sport",
+    "updatedAt": "2026-07-16T17:15:58.241Z"
+  }
+}

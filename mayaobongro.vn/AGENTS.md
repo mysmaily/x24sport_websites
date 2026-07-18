@@ -4,6 +4,50 @@
 > Shared routing is defined in `../AGENTS.md`. Load the optimization guide only
 > when the current request matches a guide-loading trigger.
 
+## Active tenant identity
+
+| Field | Value |
+|---|---|
+| Domain | `mayaobongro.vn` |
+| Payload tenant slug | `mayaobongro` |
+| Active development platform | Next.js frontend + shared Payload CMS |
+| Payload CMS | `https://cms.x24sport.vn` |
+| WordPress status | Legacy/restore source only; never use for active development or content updates |
+
+The generated registry block below describes the old WordPress installation.
+Keep it for restore, rollback, and source reconciliation only. New products,
+categories, media, content, code, and deployments must target Payload tenant
+`mayaobongro` and its Next.js frontend.
+
+## Runtime management
+
+| Field | Value |
+|---|---|
+| Application host | `root@10.10.0.28` |
+| Deployed source | `/opt/sports-cms/mayaobongro.vn` |
+| Compose project/file | `/opt/sports-cms` / `docker-compose.yml` |
+| Compose service | `mayaobongro` |
+| Runtime container | `sports-cms-mayaobongro-1` |
+| Container/published port | `3005` / `10.10.0.28:3005` |
+| CMS service/origin | `cms-api` / `http://cms-api:3001` |
+| Proxy host | `root@10.10.0.56` (`103.147.35.95`) |
+| Proxy config | `/etc/nginx/conf.d/mayaobongro.vn.conf` |
+| Public upstream | `http://10.10.0.28:3005` (`mayaobongro_nextjs`) |
+| Public site | `https://mayaobongro.vn` |
+
+The values above were verified from the live Compose project and proxy config
+on 17/07/2026. The proxy keeps historical `/wp-content/uploads/` media readable,
+but blocks WordPress execution/admin routes on the apex domain.
+
+Read-only runtime checks:
+
+```bash
+ssh root@10.10.0.28 'cd /opt/sports-cms && docker compose ps mayaobongro'
+curl -I http://10.10.0.28:3005/
+ssh root@10.10.0.56 'nginx -t'
+curl -I https://mayaobongro.vn/
+```
+
 <!-- WEBSITE_REGISTRY_START -->
 ## Central website registry
 

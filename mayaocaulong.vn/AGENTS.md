@@ -4,6 +4,39 @@
 > tenant `mayaocaulong`. Use this profile when changing layout, visual design,
 > copy, SEO metadata, or frontend data fetching for `mayaocaulong.vn`.
 
+## Active tenant identity
+
+| Field | Value |
+|---|---|
+| Domain | `mayaocaulong.vn` |
+| Payload tenant slug | `mayaocaulong` |
+| Active development platform | Next.js frontend + shared Payload CMS |
+| WordPress status | Legacy/restore source only; never use for active development or content updates |
+
+Any WordPress credentials, paths, database records, or media references found in
+older documentation are retained only for recovery and source reconciliation.
+All new development and content work must target tenant `mayaocaulong`.
+
+## Runtime management
+
+| Field | Value |
+|---|---|
+| Application host | `root@10.10.0.28` |
+| Deployed source | `/opt/sports-cms/mayaocaulong.vn` |
+| Compose project/file | `/opt/sports-cms` / `docker-compose.yml` |
+| Compose service | `mayaocaulong` |
+| Runtime container | `sports-cms-mayaocaulong-1` |
+| Container/published port | `3002` / `10.10.0.28:3002` |
+| CMS service/origin | `cms-api` / `http://cms-api:3001` |
+| Proxy host | `root@10.10.0.56` (`103.147.35.95`) |
+| Proxy config | `/etc/nginx/conf.d/mayaocaulong.vn.conf` |
+| Public upstream | `http://10.10.0.28:3002` |
+| Public site | `https://mayaocaulong.vn` |
+
+The values above were verified from the live Compose project and proxy config
+on 17/07/2026. Use the Compose service name for deploy/log commands; the
+generated container name may change if the Compose project is recreated.
+
 ## Current Stack
 
 - Framework: Next.js app router.

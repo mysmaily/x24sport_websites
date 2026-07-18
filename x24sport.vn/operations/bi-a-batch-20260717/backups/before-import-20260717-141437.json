@@ -1,0 +1,49 @@
+{
+  "category": {
+    "createdAt": "2026-07-17T02:18:48.507Z",
+    "description": "Áo Bi-a và polo thi đấu với phom gọn, lịch sự, phù hợp câu lạc bộ và giải đấu.",
+    "group": "sport",
+    "id": 118,
+    "legacyPath": "/danh-muc/bi-a/",
+    "name": "Bi-a",
+    "order": 90,
+    "parent": null,
+    "productCount": 0,
+    "slug": "bi-a",
+    "sourceChecksum": null,
+    "sourceId": "x24-home-bi-a",
+    "sourceSystem": "manual",
+    "tenant": 6,
+    "tenantLegacyPathKey": "6:/danh-muc/bi-a/",
+    "tenantSlugKey": "6:bi-a",
+    "tenantSourceKey": "6:manual:x24-home-bi-a",
+    "updatedAt": "2026-07-17T02:29:59.954Z"
+  },
+  "createdAt": "2026-07-17T07:14:37.466183+00:00",
+  "existingMedia": [],
+  "existingProducts": [],
+  "tenant": {
+    "brand": {
+      "accentColor": "#ed642d",
+      "headline": "Trang phục cho mọi chuyển động",
+      "primaryColor": "#080808",
+      "style": "arenix-inspired",
+      "subheadline": "Trang phục thể thao thiết kế theo yêu cầu cho đội nhóm và câu lạc bộ."
+    },
+    "createdAt": "2026-07-16T17:15:58.240Z",
+    "domains": [
+      {
+        "domain": "x24sport.vn",
+        "id": "6a5911ce99f4c00024cb8934"
+      },
+      {
+        "domain": "next.x24sport.vn",
+        "id": "6a5911ce99f4c00024cb8935"
+      }
+    ],
+    "id": 6,
+    "name": "X24Sport",
+    "slug": "x24sport",
+    "updatedAt": "2026-07-16T17:15:58.241Z"
+  }
+}

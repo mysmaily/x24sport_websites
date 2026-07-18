@@ -42,3 +42,16 @@ services:
       TENANT_SLUG: mayaobongchuyen
     ports:
       - "3003:3003"
+
+  mayaobongro:
+    build:
+      context: ./mayaobongro.vn
+    restart: unless-stopped
+    depends_on:
+      - cms-api
+    environment:
+      PAYLOAD_API_URL: http://cms-api:3001
+      PORT: 3005
+      TENANT_SLUG: mayaobongro
+    ports:
+      - "3005:3005"

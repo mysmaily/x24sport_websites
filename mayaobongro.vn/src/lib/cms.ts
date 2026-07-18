@@ -1,0 +1,198 @@
+import { cache } from 'react'
+
+const API_URL = process.env.PAYLOAD_API_URL || 'http://10.10.0.28:3001'
+const TENANT_SLUG = process.env.TENANT_SLUG || 'mayaobongro'
+
+export type LegacyImage = {
+  url: string
+  alt?: string | null
+  width?: number | null
+  height?: number | null
+}
+
+export type Product = {
+  id: number
+  name: string
+  slug: string
+  price?: number | null
+  compareAtPrice?: number | null
+  legacyPath?: string | null
+  shortDescription?: string | null
+  contentHtml?: string | null
+  legacyImages?: LegacyImage[] | null
+  categories?: number[] | null
+  sourceModifiedAt?: string | null
+}
+
+export type ProductCategory = {
+  id: number
+  name: string
+  slug: string
+}
+
+export type WebContent = {
+  id: number
+  title: string
+  slug: string
+  legacyPath: string
+  kind: 'page' | 'post'
+  contentHtml?: string | null
+  excerpt?: string | null
+  sourceModifiedAt?: string | null
+}
+
+type Paginated<T> = {
+  docs: T[]
+  totalDocs: number
+  totalPages: number
+  page: number
+  hasNextPage: boolean
+}
+
+async function api<T>(path: string, revalidate = 300): Promise<T> {
+  const response = await fetch(`${API_URL}${path}`, {
+    next: { revalidate },
+    headers: { Accept: 'application/json' },
+  })
+  if (!response.ok) throw new Error(`CMS request failed: ${response.status} ${path}`)
+  return response.json() as Promise<T>
+}
+
+export const getTenant = cache(async () => {
+  const params = new URLSearchParams({
+    'where[slug][equals]': TENANT_SLUG,
+    limit: '1',
+    depth: '0',
+  })
+  const result = await api<Paginated<{ id: number; slug: string }>>(`/api/tenants?${params}`)
+  if (result.docs.length !== 1) throw new Error(`Tenant ${TENANT_SLUG} was not found`)
+  return result.docs[0]
+})
+
+export async function getProducts({
+  page = 1,
+  limit = 12,
+  search,
+  categorySlug,
+}: {
+  page?: number
+  limit?: number
+  search?: string
+  categorySlug?: string
+} = {}) {
+  const tenant = await getTenant()
+  const category = categorySlug ? await getProductCategory(categorySlug) : null
+  if (categorySlug && !category) {
+    return { docs: [], totalDocs: 0, totalPages: 0, page, hasNextPage: false }
+  }
+  const params = new URLSearchParams({
+    'where[and][0][tenant][equals]': String(tenant.id),
+    'where[and][1][publicationStatus][equals]': 'publish',
+    limit: String(limit),
+    page: String(page),
+    depth: '0',
+    sort: '-sourceModifiedAt',
+  })
+  let conditionIndex = 2
+  if (category) {
+    params.set(`where[and][${conditionIndex}][categories][equals]`, String(category.id))
+    conditionIndex += 1
+  }
+  if (search?.trim()) params.set(`where[and][${conditionIndex}][name][contains]`, search.trim())
+  return api<Paginated<Product>>(`/api/products?${params}`)
+}
+
+export const getProductCategory = cache(async (slug: string) => {
+  const tenant = await getTenant()
+  const params = new URLSearchParams({
+    'where[and][0][tenant][equals]': String(tenant.id),
+    'where[and][1][slug][equals]': slug,
+    limit: '1',
+    depth: '0',
+  })
+  const result = await api<Paginated<ProductCategory>>(`/api/product-categories?${params}`)
+  return result.docs[0] ?? null
+})
+
+export const resolveProductPath = cache(async (legacyPath: string) => {
+  const tenant = await getTenant()
+  const params = new URLSearchParams({
+    'where[and][0][tenant][equals]': String(tenant.id),
+    'where[and][1][legacyPath][equals]': legacyPath,
+    'where[and][2][publicationStatus][equals]': 'publish',
+    limit: '1',
+    depth: '0',
+  })
+  const result = await api<Paginated<Product>>(`/api/products?${params}`)
+  return result.docs[0] ?? null
+})
+
+export const resolveProductSlug = cache(async (slug: string) => {
+  const tenant = await getTenant()
+  const params = new URLSearchParams({
+    'where[and][0][tenant][equals]': String(tenant.id),
+    'where[and][1][slug][equals]': slug,
+    'where[and][2][publicationStatus][equals]': 'publish',
+    limit: '1',
+    depth: '0',
+  })
+  const result = await api<Paginated<Product>>(`/api/products?${params}`)
+  return result.docs[0] ?? null
+})
+
+export const resolveContentPath = cache(async (legacyPath: string) => {
+  const tenant = await getTenant()
+  const params = new URLSearchParams({
+    'where[and][0][tenant][equals]': String(tenant.id),
+    'where[and][1][legacyPath][equals]': legacyPath,
+    'where[and][2][publicationStatus][equals]': 'publish',
+    limit: '1',
+    depth: '0',
+  })
+  const result = await api<Paginated<WebContent>>(`/api/web-content?${params}`)
+  return result.docs[0] ?? null
+})
+
+export async function getLatestPosts(limit = 3) {
+  const tenant = await getTenant()
+  const params = new URLSearchParams({
+    'where[and][0][tenant][equals]': String(tenant.id),
+    'where[and][1][kind][equals]': 'post',
+    'where[and][2][publicationStatus][equals]': 'publish',
+    limit: String(limit),
+    depth: '0',
+    sort: '-sourceModifiedAt',
+  })
+  return api<Paginated<WebContent>>(`/api/web-content?${params}`)
+}
+
+export async function getAllCanonicalRoutes() {
+  const tenant = await getTenant()
+  const load = async <T>(collection: 'products' | 'web-content') => {
+    const records: T[] = []
+    let page = 1
+    while (true) {
+      const params = new URLSearchParams({
+        'where[and][0][tenant][equals]': String(tenant.id),
+        'where[and][1][publicationStatus][equals]': 'publish',
+        limit: '100',
+        page: String(page),
+        depth: '0',
+        'select[legacyPath]': 'true',
+        'select[slug]': 'true',
+        'select[sourceModifiedAt]': 'true',
+      })
+      // The sitemap must reflect newly published products on its next request.
+      // A zero revalidation window bypasses Next's data cache for this route list.
+      const result = await api<Paginated<T>>(`/api/${collection}?${params}`, 0)
+      records.push(...result.docs)
+      if (!result.hasNextPage) return records
+      page += 1
+    }
+  }
+  const [products, content] = await Promise.all([
+    load<Product>('products'),
+    load<WebContent>('web-content'),
+  ])
+  return { products, content }
+}

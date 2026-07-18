@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-07-17T02:18:48.243Z",
+  "description": "Áo gaming và esports thiết kế theo màu sắc, logo và nhận diện riêng của đội tuyển.",
+  "group": "sport",
+  "id": 117,
+  "legacyPath": "/danh-muc/gaming/",
+  "name": "Áo Gaming",
+  "order": 80,
+  "parent": null,
+  "productCount": 2,
+  "slug": "ao-gaming",
+  "sourceChecksum": null,
+  "sourceId": "x24-home-gaming",
+  "sourceSystem": "manual",
+  "tenant": 6,
+  "tenantLegacyPathKey": "6:/danh-muc/gaming/",
+  "tenantSlugKey": "6:ao-gaming",
+  "tenantSourceKey": "6:manual:x24-home-gaming",
+  "updatedAt": "2026-07-17T08:39:32.533Z"
+}

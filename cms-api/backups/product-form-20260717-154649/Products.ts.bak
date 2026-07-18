@@ -1,0 +1,154 @@
+import type { CollectionConfig } from 'payload'
+
+import { adminsOnly, publicRead } from '../access/roles'
+import { buildTenantIdentity } from '../util/tenantIdentity'
+
+export const Products: CollectionConfig = {
+  slug: 'products',
+  admin: {
+    defaultColumns: ['name', 'sku', 'sport', 'price', 'featured'],
+    group: 'Catalog',
+    useAsTitle: 'name',
+  },
+  access: {
+    create: adminsOnly,
+    delete: adminsOnly,
+    read: publicRead,
+    update: adminsOnly,
+  },
+  hooks: {
+    beforeValidate: [
+      ({ data, originalDoc }) => ({
+        ...data,
+        ...buildTenantIdentity({ data, originalDoc }),
+      }),
+    ],
+  },
+  fields: [
+    { name: 'name', type: 'text', required: true },
+    { name: 'slug', type: 'text', required: true, index: true },
+    { name: 'tenantSlugKey', type: 'text', unique: true, admin: { hidden: true } },
+    { name: 'sku', type: 'text', index: true },
+    {
+      name: 'sport',
+      type: 'select',
+      required: true,
+      options: [
+        'badminton',
+        'volleyball',
+        'football',
+        'basketball',
+        'running',
+        'pickleball',
+        'other',
+      ],
+    },
+    {
+      name: 'productType',
+      type: 'select',
+      options: ['simple', 'variable', 'grouped', 'external'],
+      defaultValue: 'simple',
+    },
+    { name: 'price', type: 'number', min: 0 },
+    { name: 'compareAtPrice', type: 'number', min: 0 },
+    { name: 'regularPrice', type: 'number', min: 0 },
+    { name: 'salePrice', type: 'number', min: 0 },
+    { name: 'currency', type: 'text', defaultValue: 'VND' },
+    {
+      name: 'stockStatus',
+      type: 'select',
+      options: ['instock', 'outofstock', 'onbackorder'],
+      defaultValue: 'instock',
+    },
+    { name: 'isPurchasable', type: 'checkbox', defaultValue: false },
+    { name: 'isOnBackorder', type: 'checkbox', defaultValue: false },
+    { name: 'shortDescription', type: 'textarea' },
+    { name: 'description', type: 'richText' },
+    {
+      name: 'contentHtml',
+      type: 'textarea',
+      maxLength: 2_000_000,
+      admin: {
+        description: 'Sanitized source HTML retained for lossless WordPress migrations.',
+      },
+    },
+    {
+      name: 'legacyPath',
+      type: 'text',
+      index: true,
+      admin: { description: 'Exact canonical path accepted by the source website.' },
+    },
+    { name: 'tenantLegacyPathKey', type: 'text', unique: true, admin: { hidden: true } },
+    {
+      name: 'publicationStatus',
+      type: 'select',
+      defaultValue: 'publish',
+      options: ['publish', 'draft', 'private', 'pending'],
+    },
+    { name: 'sourceSystem', type: 'text', admin: { hidden: true } },
+    { name: 'sourceId', type: 'text', index: true, admin: { hidden: true } },
+    { name: 'tenantSourceKey', type: 'text', unique: true, admin: { hidden: true } },
+    { name: 'sourceModifiedAt', type: 'date', admin: { hidden: true } },
+    { name: 'sourceCreatedAt', type: 'date', admin: { hidden: true } },
+    { name: 'sourceChecksum', type: 'text', admin: { hidden: true } },
+    { name: 'seoTitle', type: 'text' },
+    { name: 'metaDescription', type: 'textarea' },
+    { name: 'canonicalOverride', type: 'text' },
+    {
+      name: 'legacyImages',
+      type: 'array',
+      fields: [
+        { name: 'url', type: 'text', required: true },
+        { name: 'alt', type: 'text' },
+        { name: 'width', type: 'number', min: 1 },
+        { name: 'height', type: 'number', min: 1 },
+      ],
+    },
+    {
+      name: 'searchTags',
+      type: 'array',
+      admin: {
+        description: 'Non-shopper search keywords such as colors, gradients, sport, and fit.',
+      },
+      fields: [{ name: 'value', type: 'text', required: true }],
+    },
+    {
+      name: 'sourceTags',
+      type: 'array',
+      fields: [
+        { name: 'name', type: 'text', required: true },
+        { name: 'slug', type: 'text', required: true },
+      ],
+    },
+    {
+      name: 'attributes',
+      type: 'array',
+      fields: [
+        { name: 'name', type: 'text', required: true },
+        {
+          name: 'values',
+          type: 'array',
+          fields: [{ name: 'value', type: 'text', required: true }],
+        },
+      ],
+    },
+    {
+      name: 'categories',
+      type: 'relationship',
+      relationTo: 'product-categories',
+      hasMany: true,
+    },
+    {
+      name: 'badges',
+      type: 'array',
+      fields: [{ name: 'label', type: 'text', required: true }],
+    },
+    {
+      name: 'gallery',
+      type: 'relationship',
+      relationTo: 'media',
+      hasMany: true,
+    },
+    { name: 'featured', type: 'checkbox', defaultValue: false },
+  ],
+}

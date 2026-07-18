@@ -8,7 +8,9 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
 import { Users } from './collections/Users'
+import { WebContent } from './collections/WebContent'
 import { Media } from './collections/Media'
+import { MigrationRuns } from './collections/MigrationRuns'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { ProductCategories } from './collections/ProductCategories'
@@ -17,6 +19,7 @@ import { StoreSettings } from './collections/StoreSettings'
 import { Tenants } from './collections/Tenants'
 import type { Config } from './payload-types'
 import { isSuperAdmin } from './access/roles'
+import { migrations } from './migrations'
 import { generateR2FileURL, getR2Endpoint, isR2StorageEnabled } from './storage/r2'
 
 const filename = fileURLToPath(import.meta.url)
@@ -29,7 +32,18 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Tenants, Media, ProductCategories, Products, Pages, Posts, StoreSettings],
+  collections: [
+    Users,
+    Tenants,
+    Media,
+    MigrationRuns,
+    ProductCategories,
+    Products,
+    Pages,
+    Posts,
+    WebContent,
+    StoreSettings,
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'http://localhost:3001',
@@ -37,6 +51,7 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: postgresAdapter({
+    prodMigrations: migrations,
     pool: {
       connectionString: process.env.DATABASE_URL || '',
     },
@@ -47,8 +62,10 @@ export default buildConfig({
       cleanupAfterTenantDelete: false,
       collections: {
         media: {},
+        'migration-runs': {},
         pages: {},
         posts: {},
+        'web-content': {},
         'product-categories': {},
         products: {},
         'store-settings': { isGlobal: true },

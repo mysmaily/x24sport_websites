@@ -32,3 +32,6 @@ __pycache__/
 **/ig_*.png
 **/*-imagegen.*
 **/*-image_gen.*
+
+# Runtime migration snapshots and reconciliation output
+**/migration-data/

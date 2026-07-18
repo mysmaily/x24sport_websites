@@ -1,0 +1,126 @@
+# x24sport.vn — Managed Website Profile
+
+> Scope: This file contains only data and runbooks specific to `x24sport.vn`.
+> Shared routing is defined in `../AGENTS.md`. Load the optimization guide only
+> when the current request matches a guide-loading trigger.
+
+<!-- WEBSITE_REGISTRY_START -->
+## Central website registry
+
+Generated from the latest `website_configs` record. From this website folder,
+run `ruby ../scripts/website_registry.rb sync domain=x24sport.vn` to refresh only this website block. Local notes outside
+the markers are preserved.
+
+| Field | Value |
+|-------|-------|
+| Website registry ID | 27 |
+| Configuration registry ID | 145 |
+| Configuration status | pending |
+| Display name | x24sport-vn |
+| Brand name | Not configured |
+| WordPress | Yes |
+| CDN enabled | Yes |
+| N8N capable | Yes |
+| Nginx cache status | Not configured |
+| Cloudflare cache status | Not configured |
+| Application port | 8000 |
+| Root directory | /root/websites |
+| WordPress content directory | /root/websites/sites/x24sport.vn/wp-content |
+| Source directory | /root/websites/sites/x24sport.vn |
+| Root folder | Not configured |
+| Source folder | Not configured |
+| WordPress content folder | Not configured |
+| Website host registry ID | 17 |
+| Website host private IP | 10.10.0.25 |
+| Website host public IP | Not configured |
+| Website host setup complete | Not configured |
+| Proxy registry ID | 14 |
+| Proxy private IP | 10.10.0.56 |
+| Proxy public IP | 103.147.35.95 |
+| Database host registry ID | 3 |
+| Database endpoint | Not configured |
+| Database host private IP | 10.10.0.52 |
+| Database host public IP | Not configured |
+| Database host type | local |
+| Database container | ukw8w004c0s88gosw88ggswk |
+| Cloudflare account registry ID | 4 |
+| Cloudflare account ID | 31f48e75fd61f2011365efe121e99942 |
+
+### Credential availability
+
+| Credential | Stored in registry |
+|------------|--------------------|
+| Website admin credentials | Yes |
+| Website database password | Yes |
+| Database root password | Yes |
+| Cloudflare API token | Yes |
+| Cloudflare global API key | Yes |
+| Cloudflare R2 credentials | Yes |
+
+Credentials are intentionally excluded from documentation. Retrieve a
+Cloudflare API token only when an explicit task requires it:
+
+```bash
+ruby ../scripts/website_registry.rb cloudflare-token x24sport.vn
+```
+
+Do not paste runtime secrets into `AGENTS.md`, logs, commits, or handoff messages.
+<!-- WEBSITE_REGISTRY_END -->
+
+## Next.js preview deployment
+
+| Field | Value |
+|-------|-------|
+| Public preview URL | `https://next.x24sport.vn` |
+| Application host | `root@10.10.0.58` |
+| Application path | `/root/websites/next.x24sport.vn` |
+| Compose file | `compose.production.yml` |
+| Container | `next-x24sport` |
+| Published port | `3010` |
+| Proxy host | `root@10.10.0.56` |
+| Proxy config | `/etc/nginx/conf.d/next.x24sport.vn.conf` |
+| Search visibility | Preview is intentionally `noindex, nofollow` |
+
+Deploy or rebuild the preview from the application host:
+
+```bash
+cd /root/websites/next.x24sport.vn
+docker compose -f compose.production.yml up -d --build
+```
+
+Verify the container and proxy:
+
+```bash
+docker inspect --format '{{.State.Status}} {{.State.Health.Status}}' next-x24sport
+curl -I http://127.0.0.1:3010/
+ssh root@10.10.0.56 'nginx -t'
+curl -I https://next.x24sport.vn/
+```
+
+Rollback the preview without touching `x24sport.vn` WordPress:
+
+```bash
+ssh root@10.10.0.56 'rm -f /etc/nginx/conf.d/next.x24sport.vn.conf && nginx -t && systemctl reload nginx'
+ssh root@10.10.0.58 'cd /root/websites/next.x24sport.vn && docker compose -f compose.production.yml down'
+```
+
+Pre-deployment snapshots from the first deployment are stored at
+`/root/backups/next.x24sport.vn-20260716-2205` on both the application and proxy
+hosts.
+
+## Payload tenant integration
+
+| Field | Value |
+|-------|-------|
+| Tenant slug | `x24sport` |
+| CMS origin | `http://10.10.0.28:3001` |
+| Public CMS | `https://cms.x24sport.vn` |
+| Tenant domains | `x24sport.vn`, `next.x24sport.vn` |
+| Category collection | `product-categories` with `group=sport` |
+| Product collection | `products` |
+
+Every catalog request must include `where[tenant.slug][equals]=x24sport`.
+Category and product slugs are resolved only inside this tenant. The preview may
+show local product presentation data when the tenant has no published products;
+`SITE_ENV=production` disables that fallback so the future `x24sport.vn` only
+renders published CMS records.

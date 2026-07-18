@@ -1,0 +1,33 @@
+{
+  "docs": [
+    {
+      "id": 1,
+      "name": "May Ao Cau Long",
+      "slug": "mayaocaulong",
+      "domains": [
+        {
+          "id": "6a533d8665fe2a004c06cec7",
+          "domain": "mayaocaulong.vn"
+        }
+      ],
+      "brand": {
+        "headline": "Ao cau long dat may cho doi hinh thi dau",
+        "subheadline": "Thiet ke sac net, chat vai thoang, form chuyen dong cho cau lac bo va giai phong trao.",
+        "primaryColor": "#111827",
+        "accentColor": "#f43f5e",
+        "style": "flevo-inspired"
+      },
+      "updatedAt": "2026-07-12T07:08:54.793Z",
+      "createdAt": "2026-07-12T07:08:54.791Z"
+    }
+  ],
+  "hasNextPage": false,
+  "hasPrevPage": false,
+  "limit": 100,
+  "nextPage": null,
+  "page": 1,
+  "pagingCounter": 1,
+  "prevPage": null,
+  "totalDocs": 1,
+  "totalPages": 1
+}
