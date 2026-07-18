@@ -8,7 +8,7 @@
 
 | Field | Value |
 |---|---|
-| Domain | `x24sport.vn` |
+| Domain | `x24sport.vn` (`next.x24sport.vn` while in preview) |
 | Payload tenant slug | `x24sport` |
 | Active development platform | Next.js frontend + shared Payload CMS |
 | Payload CMS | `https://cms.x24sport.vn` |
@@ -89,11 +89,11 @@ used to guess the new stack's application, CMS, or database host.
 
 | Requested work | Local source of truth | Remote runtime / action |
 |---|---|---|
-| Public UI, routes, SEO templates, catalog rendering | `x24sport.vn/` | Deploy to `root@10.10.0.58:/root/websites/x24sport.vn` |
+| Public UI, routes, SEO templates, catalog rendering | `x24sport.vn/` | Deploy to `root@10.10.0.58:/root/websites/next.x24sport.vn` |
 | Add or edit a product/category/post/media record | Payload admin or a backed-up tenant-scoped API migration | `https://cms.x24sport.vn/admin`; select tenant `x24sport` |
 | CMS schema, collection, admin UI, API, storage adapter | `cms-api/` | Deploy to `root@10.10.0.28:/opt/sports-cms/cms-api` |
 | Payload data inspection or controlled DB backup | Do not use direct SQL for ordinary content editing | PostgreSQL `sports_cms` on `root@10.10.0.17` |
-| Public reverse proxy | `x24sport.vn/deploy/x24sport.vn.conf` | `root@10.10.0.56:/etc/nginx/conf.d/x24sport.vn.conf` |
+| Preview reverse proxy | `x24sport.vn/deploy/next.x24sport.vn.conf` | `root@10.10.0.56:/etc/nginx/conf.d/next.x24sport.vn.conf` |
 | DNS, zone cache, or Cloudflare settings | Central registry credential command below | Cloudflare account from the registry block; never store the token in this file |
 | Legacy WordPress reconciliation only | Read-only source unless the user explicitly requests a WordPress change | `root@10.10.0.25:/root/websites/sites/x24sport.vn` |
 
@@ -124,8 +124,8 @@ block.
 |---|---|---|
 | X24Sport frontend | `x24sport.vn/` | Next.js 16, React 19, TypeScript, pnpm |
 | Shared CMS | `cms-api/` | Payload CMS 3 + Next.js, PostgreSQL |
-| Frontend production compose | `x24sport.vn/compose.production.yml` | Published port `3010` |
-| Frontend proxy source | `x24sport.vn/deploy/x24sport.vn.conf` | Nginx |
+| Frontend production compose | `x24sport.vn/compose.production.yml` | Preview port `3010` |
+| Frontend proxy source | `x24sport.vn/deploy/next.x24sport.vn.conf` | Nginx |
 
 Frontend checks:
 
@@ -147,13 +147,13 @@ pnpm payload generate:importmap
 pnpm run build
 ```
 
-## Next.js production deployment
+## Next.js preview deployment
 
 | Field | Value |
 |-------|-------|
-| Public URL | `https://x24sport.vn` |
+| Public preview URL | `https://next.x24sport.vn` |
 | Application host | `root@10.10.0.58` |
-| Application path | `/root/websites/x24sport.vn` |
+| Application path | `/root/websites/next.x24sport.vn` |
 | Compose file | `compose.production.yml` |
 | Compose service | `web` |
 | Container | `next-x24sport` |
@@ -161,16 +161,17 @@ pnpm run build
 | Tenant environment | `TENANT_SLUG=x24sport` |
 | CMS origin | `http://10.10.0.28:3001` |
 | Proxy host | `root@10.10.0.56` |
-| Proxy config | `/etc/nginx/conf.d/x24sport.vn.conf` |
-| Public upstream | `http://10.10.0.58:3010` |
-| Public cutover state | `x24sport.vn` targets the Next.js frontend |
-| Search visibility | Production indexing is controlled by `SITE_ENV=production`; do not add `noindex` headers to `x24sport.vn` |
+| Proxy config | `/etc/nginx/conf.d/next.x24sport.vn.conf` |
+| Preview upstream | `http://10.10.0.58:3010` |
+| Apex proxy config | `/etc/nginx/conf.d/x24sport.vn.conf` |
+| Apex cutover state | `x24sport.vn` still targets legacy `http://10.10.0.25:80`; do not change without explicit cutover authorization |
+| Search visibility | Preview is intentionally `noindex, nofollow` |
 
 Back up and deploy the frontend from the repository root:
 
 ```bash
 ssh root@10.10.0.58 \
-  'ts=$(date +%Y%m%d-%H%M%S); mkdir -p /root/backups; cp -a /root/websites/x24sport.vn /root/backups/x24sport.vn-before-deploy-$ts'
+  'ts=$(date +%Y%m%d-%H%M%S); mkdir -p /root/backups; cp -a /root/websites/next.x24sport.vn /root/backups/next.x24sport.vn-before-deploy-$ts'
 
 rsync -az --delete \
   --exclude node_modules \
@@ -179,16 +180,16 @@ rsync -az --delete \
   --exclude .env.local \
   --exclude backups \
   --exclude operations \
-  x24sport.vn/ root@10.10.0.58:/root/websites/x24sport.vn/
+  x24sport.vn/ root@10.10.0.58:/root/websites/next.x24sport.vn/
 
 ssh root@10.10.0.58 \
-  'cd /root/websites/x24sport.vn && docker compose -f compose.production.yml up -d --build'
+  'cd /root/websites/next.x24sport.vn && docker compose -f compose.production.yml up -d --build'
 ```
 
-Rebuild an already synchronized production frontend from the application host:
+Rebuild an already synchronized preview from the application host:
 
 ```bash
-cd /root/websites/x24sport.vn
+cd /root/websites/next.x24sport.vn
 docker compose -f compose.production.yml up -d --build
 ```
 
@@ -198,22 +199,26 @@ Verify the container and proxy:
 docker inspect --format '{{.State.Status}} {{.State.Health.Status}}' next-x24sport
 curl -I http://127.0.0.1:3010/
 ssh root@10.10.0.56 'nginx -t'
-curl -I https://x24sport.vn/
+curl -I https://next.x24sport.vn/
 ```
 
 Also inspect recent application logs after every deploy:
 
 ```bash
 ssh root@10.10.0.58 \
-  'cd /root/websites/x24sport.vn && docker compose -f compose.production.yml logs --tail=120 web'
+  'cd /root/websites/next.x24sport.vn && docker compose -f compose.production.yml logs --tail=120 web'
 ```
 
-Rollback to the legacy WordPress origin only with explicit rollback authorization:
+Rollback the preview without touching `x24sport.vn` WordPress:
 
 ```bash
-ssh root@10.10.0.56 'cp /root/backups/x24sport.vn.conf-before-production-change-YYYYMMDD-HHMMSS /etc/nginx/conf.d/x24sport.vn.conf && nginx -t && systemctl reload nginx'
-ssh root@10.10.0.58 'cd /root/websites/x24sport.vn && docker compose -f compose.production.yml down'
+ssh root@10.10.0.56 'rm -f /etc/nginx/conf.d/next.x24sport.vn.conf && nginx -t && systemctl reload nginx'
+ssh root@10.10.0.58 'cd /root/websites/next.x24sport.vn && docker compose -f compose.production.yml down'
 ```
+
+Pre-deployment snapshots from the first deployment are stored at
+`/root/backups/next.x24sport.vn-20260716-2205` on both the application and proxy
+hosts.
 
 ## Payload tenant integration
 
@@ -229,13 +234,14 @@ ssh root@10.10.0.58 'cd /root/websites/x24sport.vn && docker compose -f compose.
 | Admin login | `https://cms.x24sport.vn/admin/login` |
 | Payload database | PostgreSQL `sports_cms` on `10.10.0.17` |
 | Public media base | `https://static.x24sport.vn/x24sport/` |
-| Tenant domains | `x24sport.vn` |
+| Tenant domains | `x24sport.vn`, `next.x24sport.vn` |
 | Category collection | `product-categories` with `group=sport` |
 | Product collection | `products` |
 
 Every catalog request must include `where[tenant.slug][equals]=x24sport`.
-Category and product slugs are resolved only inside this tenant.
-`SITE_ENV=production` disables local presentation fallback so `x24sport.vn`
+Category and product slugs are resolved only inside this tenant. The preview may
+show local product presentation data when the tenant has no published products;
+`SITE_ENV=production` disables that fallback so the future `x24sport.vn` only
 renders published CMS records.
 
 The frontend fetch layer uses a 60-second Next.js revalidation window. A normal
@@ -332,14 +338,19 @@ sudo -u postgres psql -d sports_cms
 
 Never restart PostgreSQL for an ordinary content or application deployment.
 
-## Proxy and Cloudflare
+## Proxy, Cloudflare, and future cutover
 
-- Proxy host: `root@10.10.0.56`.
-- Active public config: `/etc/nginx/conf.d/x24sport.vn.conf`.
-- Public logs: `/var/log/nginx/x24sport.vn_access.log` and
-  `/var/log/nginx/x24sport.vn_error.log`.
-- Validate with `nginx -t` before every reload; a normal frontend deploy needs
-  no Nginx reload and no Cloudflare purge when the upstream is unchanged.
+- Preview proxy host: `root@10.10.0.56`.
+- Active preview config: `/etc/nginx/conf.d/next.x24sport.vn.conf`.
+- Preview logs: `/var/log/nginx/next.x24sport.vn_access.log` and
+  `/var/log/nginx/next.x24sport.vn_error.log`.
+- Validate with `nginx -t` before every reload; a frontend deploy normally needs
+  no Nginx reload and no Cloudflare purge.
 - Retrieve the Cloudflare API token at runtime only with
   `ruby ../scripts/website_registry.rb cloudflare-token x24sport.vn` from this
   folder. Never print it in handoff output or persist it in code/docs.
+- `next.x24sport.vn` must remain `noindex` until cutover. Moving to the primary
+  hostname requires an explicit cutover task: backup/delta reconciliation,
+  `NEXT_PUBLIC_SITE_URL=https://x24sport.vn`, `SITE_ENV=production`, proxy/DNS
+  switch, removal of preview indexing blocks, full URL-contract crawl, and a
+  tested rollback. Do not infer cutover authorization from an ordinary deploy.

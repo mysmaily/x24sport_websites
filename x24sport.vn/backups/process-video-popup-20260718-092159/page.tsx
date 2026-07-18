@@ -5,7 +5,6 @@ import { ArrowRight, ChevronRight, Clock3, Headphones, Layers3, MessageCircle, P
 import { ProductCard } from './_components/product-card'
 import { JsonLd } from './_components/json-ld'
 import { Logo, SiteHeader } from './_components/site-header'
-import { ProcessVideoButton } from './_components/process-video-button'
 import type { ProductPreview, SportCategory } from '../lib/catalog'
 import { contactItems } from '../lib/contact'
 import { getCatalogData } from '../lib/content'
@@ -121,7 +120,7 @@ export default async function HomePage() {
               <div><Sparkles /><strong>Riêng</strong><span>Thiết kế theo yêu cầu</span></div>
               <div><Clock3 /><strong>08–22h</strong><span>Tư vấn mỗi ngày</span></div>
             </div>
-            <ProcessVideoButton />
+            <a className="brand-story-link" href="#quy-trinh">Khám phá quy trình <ArrowRight size={18} /></a>
           </div>
         </section>
 
