@@ -19,6 +19,8 @@ Treat migration as a reversible data and routing program, not a bulk copy script
    extractor, importer, media, or reconciliation work.
 5. For `mayaobongro.vn`, read
    [references/mayaobongro-plan.md](references/mayaobongro-plan.md).
+6. For `mayaochaybo.vn`, read
+   [references/mayaochaybo-plan.md](references/mayaochaybo-plan.md).
 
 Do not treat `WORDPRESS-TO-NEXTJS-MIGRATION-GUIDE.md` as an executable runbook.
 It is historical design material; this skill's direct-URL and gate requirements

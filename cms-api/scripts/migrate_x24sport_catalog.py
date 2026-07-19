@@ -232,9 +232,27 @@ def price_value(prices: dict[str, Any], field: str) -> float | None:
     return float(raw) / (10 ** int(prices.get("currency_minor_unit") or 0))
 
 
-def safe_product(product: dict[str, Any], meta: dict[str, Any], category_ids: list[Any], sport: str) -> dict[str, Any]:
-    description, _ = sanitize_html(str(product.get("description") or ""))
-    short_html, _ = sanitize_html(str(product.get("short_description") or ""))
+def rewrite_media_urls(value: str, media_map: dict[str, str]) -> str:
+    rewritten = value
+    for source_url, target_url in media_map.items():
+        if source_url in rewritten:
+            rewritten = rewritten.replace(source_url, target_url)
+    return rewritten
+
+
+def safe_product(
+    product: dict[str, Any],
+    meta: dict[str, Any],
+    category_ids: list[Any],
+    sport: str,
+    media_map: dict[str, str],
+) -> dict[str, Any]:
+    description, _ = sanitize_html(
+        rewrite_media_urls(str(product.get("description") or ""), media_map)
+    )
+    short_html, _ = sanitize_html(
+        rewrite_media_urls(str(product.get("short_description") or ""), media_map)
+    )
     prices = product.get("prices") or {}
     current = price_value(prices, "price")
     regular = price_value(prices, "regular_price")
@@ -299,6 +317,21 @@ def collect_images(products: list[dict[str, Any]]) -> dict[int, dict[str, Any]]:
     return images
 
 
+def collect_color_terms(products: list[dict[str, Any]]) -> tuple[dict[int, dict[str, Any]], dict[int, set[int]]]:
+    terms: dict[int, dict[str, Any]] = {}
+    product_terms: dict[int, set[int]] = {}
+    for product in products:
+        product_id = int(product["id"])
+        for attribute in product.get("attributes", []):
+            if attribute.get("taxonomy") != "pa_mau-sac":
+                continue
+            for term in attribute.get("terms", []):
+                term_id = int(term["id"])
+                terms[term_id] = term
+                product_terms.setdefault(product_id, set()).add(term_id)
+    return terms, product_terms
+
+
 def upload_media(target: Payload, tenant_id: Any, image: dict[str, Any]) -> tuple[int, str, Any]:
     source_id = int(image["id"])
     identity = f"{tenant_id}:{MEDIA_SOURCE_SYSTEM}:{source_id}"
@@ -314,13 +347,14 @@ def upload_media(target: Payload, tenant_id: Any, image: dict[str, Any]) -> tupl
         extension = mimetypes.guess_extension(download.headers.get("Content-Type", "")) or ".jpg"
     filename = f"wp-{source_id}{extension[:8]}"
     content_type = download.headers.get("Content-Type") or mimetypes.guess_type(filename)[0] or "image/jpeg"
+    content_checksum = hashlib.sha256(download.content).hexdigest()
     payload = {
         "tenant": tenant_id,
         "alt": image.get("alt") or image.get("fallbackAlt") or f"X24Sport image {source_id}",
         "sourceSystem": MEDIA_SOURCE_SYSTEM,
         "sourceId": str(source_id),
         "sourceUrl": image["src"],
-        "sourceChecksum": checksum({"id": source_id, "src": image["src"]}),
+        "sourceChecksum": content_checksum,
     }
     response = requests.post(
         f"{target.base_url}/api/media",
@@ -341,7 +375,7 @@ def migrate(args: argparse.Namespace) -> int:
     if not tenant:
         raise RuntimeError(f"Tenant does not exist: {args.tenant_slug}")
     tenant_id = tenant["id"]
-    run_key = f"x24-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}"
+    run_key = f"{args.tenant_slug}-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}"
     run = target.create_run({
         "tenant": tenant_id, "runId": run_key, "mode": "dry-run" if args.dry_run else "import",
         "status": "running", "sourceUrl": manifest["sourceUrl"],
@@ -355,6 +389,15 @@ def migrate(args: argparse.Namespace) -> int:
         counts[key] = counts.get(key, 0) + 1
 
     try:
+        media_map: dict[str, str] = {}
+        if args.media_map:
+            media_records = json.loads(args.media_map.read_text(encoding="utf-8"))
+            media_map = {
+                str(item["sourceUrl"]): str(item["targetUrl"])
+                for item in media_records
+                if item.get("sourceUrl") and item.get("targetUrl")
+            }
+
         by_id = {int(item["id"]): item for item in categories}
         category_docs: dict[int, Any] = {}
         for category in sorted(categories, key=lambda item: (category_depth(item, by_id), int(item["id"]))):
@@ -365,7 +408,11 @@ def migrate(args: argparse.Namespace) -> int:
                 "name": plain_text(str(category.get("name") or "")),
                 "slug": category["slug"],
                 "parent": category_docs.get(parent_id),
-                "group": "sport" if category["slug"] in {slug for _, slug in SPORT_ROOTS.values()} else "type",
+                "group": (
+                    "type"
+                    if args.default_sport
+                    else ("sport" if category["slug"] in {slug for _, slug in SPORT_ROOTS.values()} else "type")
+                ),
                 "description": plain_text(str(category.get("description") or ""))[:4000],
                 "legacyPath": category_path(category),
                 "sourceSystem": "wordpress-product-category",
@@ -389,6 +436,30 @@ def migrate(args: argparse.Namespace) -> int:
             broad = target.find("product-categories", "tenantSlugKey", f"{tenant_id}:{slug}")
             if broad:
                 broad_ids[sport] = broad["id"]
+
+        color_terms, product_color_terms = collect_color_terms(products)
+        color_docs: dict[int, Any] = {}
+        for term_id, term in sorted(color_terms.items()):
+            data = {
+                "tenant": tenant_id,
+                "name": plain_text(str(term.get("name") or "")),
+                "slug": term["slug"],
+                "group": "color",
+                "legacyPath": f"/mau-sac/{term['slug']}/",
+                "sourceSystem": "wordpress-product-attribute",
+                "sourceId": str(term_id),
+                "productCount": sum(term_id in values for values in product_color_terms.values()),
+                "order": 5000 + term_id,
+            }
+            data["sourceChecksum"] = checksum(data)
+            existing = target.find(
+                "product-categories",
+                "tenantSourceKey",
+                f"{tenant_id}:wordpress-product-attribute:{term_id}",
+            )
+            outcome, doc = target.upsert("product-categories", data, existing)
+            color_docs[term_id] = doc["id"]
+            mark("colors", outcome)
 
         images = collect_images(products)
         media_ids: dict[int, Any] = {}
@@ -416,12 +487,22 @@ def migrate(args: argparse.Namespace) -> int:
                     if int(item["id"]) in category_docs
                 ]
                 roots = [root_category(item, by_id) for item in source_category_ids]
-                sport = next((SPORT_ROOTS[root][0] for root in roots if root in SPORT_ROOTS), "other")
+                sport = args.default_sport or next(
+                    (SPORT_ROOTS[root][0] for root in roots if root in SPORT_ROOTS),
+                    "other",
+                )
                 relation_ids = list(dict.fromkeys(
                     [category_docs[item] for item in source_category_ids]
+                    + [color_docs[item] for item in product_color_terms.get(source_id, set())]
                     + ([broad_ids[sport]] if sport in broad_ids else [])
                 ))
-                data = safe_product(product, meta_by_id[source_id], relation_ids, sport)
+                data = safe_product(
+                    product,
+                    meta_by_id[source_id],
+                    relation_ids,
+                    sport,
+                    media_map,
+                )
                 data["tenant"] = tenant_id
                 data["gallery"] = [
                     media_ids[int(image["id"])] for image in product.get("images", [])
@@ -469,6 +550,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--snapshot-only", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--skip-media", action="store_true")
+    parser.add_argument(
+        "--default-sport",
+        choices=("badminton", "volleyball", "football", "basketball", "running", "pickleball", "other"),
+    )
+    parser.add_argument("--media-map", type=Path)
     parser.add_argument("--media-workers", type=int, default=4)
     parser.add_argument("--credentials", type=Path, default=Path("/root/sports-cms/admin-credentials.txt"))
     parser.add_argument("--report", type=Path, default=Path("x24sport-migration-report.json"))

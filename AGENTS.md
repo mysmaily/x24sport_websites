@@ -68,7 +68,7 @@ Tenant identities used by this repository are:
 | `mayaopickleball.vn` | `mayaopickleball` | Active |
 | `mayaobongro.vn` | `mayaobongro` | Active |
 | `mayaobongda.vn` | None | Active WordPress website; no Next.js source and no Payload tenant |
-| `mayaochaybo.vn` | None | Active WordPress website; no Next.js source and no Payload tenant |
+| `mayaochaybo.vn` | `mayaochaybo` | Active WordPress apex; Next.js + Payload preview at `next.mayaochaybo.vn` |
 
 Determine the active platform from the website folder:
 

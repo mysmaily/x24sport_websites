@@ -10,15 +10,64 @@
 | Field | Value |
 |---|---|
 | Domain | `mayaochaybo.vn` |
-| Payload tenant slug | None — this website is not a Payload tenant |
-| Active platform | WordPress |
-| Migration status | Not migrated; no Next.js source in this website folder |
+| Payload tenant slug | `mayaochaybo` |
+| Active platform | WordPress on apex; Next.js + Payload on preview |
+| Migration status | Preview deployed at `https://next.mayaochaybo.vn`; production cutover not performed |
 
-`mayaochaybo.vn` remains an active WordPress website. Use this profile's
-WordPress server, containers, database, and proxy for requested maintenance.
-Do not send its content to `cms-api` or use `mayaochaybo` as a tenant slug unless
-a future migration creates the Next.js source, deployed runtime, and tenant
-record.
+`mayaochaybo.vn` remains the active public WordPress website. The tenant-scoped
+Next.js/Payload replacement is live only on the non-indexable preview hostname.
+Do not switch the apex proxy or DNS without the explicit production cutover gate.
+
+## Active migration preview runtime
+
+The July 19, 2026 migration created the `mayaochaybo` Payload tenant, tenant R2
+media prefix, Next.js frontend, proxy, and Cloudflare preview DNS record. The
+apex site remains on the WordPress runtime documented below.
+
+For every migration task for this domain:
+
+1. Load `../.codex/skills/migrate-wordpress-to-x24sport-tenant/SKILL.md`, its
+   `references/mayaochaybo-plan.md`, and the references routed by that skill.
+2. Load `../.codex/skills/develop-x24sport-websites/SKILL.md` for the public
+   frontend and its routed Next.js, SEO, accessibility, and quality references.
+3. Read `../cms-api/AGENTS.md` and `../PAYLOAD-REST-API-GUIDE.md` before any
+   shared CMS schema, tenant, content, or media mutation.
+4. Use the following verified preview inventory:
+
+| Field | Verified value |
+|---|---|
+| Payload tenant slug | `mayaochaybo` |
+| Tenant domains | `mayaochaybo.vn`, `next.mayaochaybo.vn` |
+| Preview URL | `https://next.mayaochaybo.vn` |
+| Frontend host | `root@10.10.0.58` |
+| Frontend path | `/root/websites/next.mayaochaybo.vn` |
+| Container / service | `next-mayaochaybo` / `web` |
+| Container and host port | `3011` / `10.10.0.58:3011` |
+| Preview proxy | `root@10.10.0.56` → `http://10.10.0.58:3011` |
+| CMS origin | `http://10.10.0.28:3001` |
+
+The frontend contract is full request-time SSR: use Next.js App Router Server
+Components by default, force dynamic rendering, fetch CMS data without ISR or
+static generation, and keep client components limited to interactive islands.
+Do not cache HTML at Cloudflare or Nginx during preview. Static build assets and
+tenant media may use immutable cache rules.
+
+Preserve every accepted WordPress product, product-category, post, page, media,
+pagination, and meaningful query URL directly whenever technically possible.
+Products and several product categories currently occupy root-level paths, so
+resolve by exact tenant-scoped `legacyPath`, not by slug or a new `/san-pham/`
+prefix. Fail import/build on any unresolved route collision.
+
+Keep `next.mayaochaybo.vn` non-indexable and canonicalized to the corresponding
+production URL until cutover. Inventory and reproduce Google Ads landing pages,
+GTM/GA/Ads tags, consent behavior, conversion events, forms, phone/Zalo actions,
+and order/contact success states before declaring preview parity. Do not change
+the apex DNS or proxy upstream without the explicit cutover gate.
+
+The repository root `.env` is the approved runtime source for Cloudflare account
+and API-token variables for this migration. Source it only inside a command that
+does not print values. Never place Cloudflare, R2, WordPress, Payload, database,
+or analytics secrets in arguments, source, artifacts, logs, or handoff text.
 
 ## Runtime management
 

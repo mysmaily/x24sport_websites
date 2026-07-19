@@ -133,10 +133,11 @@ Website tenant contract:
 - `mayaobongchuyen` for `mayaobongchuyen.vn`
 - `mayaopickleball` for `mayaopickleball.vn`
 - `mayaobongro` for `mayaobongro.vn`
+- `mayaochaybo` for the `next.mayaochaybo.vn` migration preview; the apex remains WordPress until cutover
 
-`mayaobongda.vn` and `mayaochaybo.vn` have no Next.js source in this repository
-and no Payload tenant record. They remain active WordPress websites and are not
-CMS tenants. Do not invent `mayaobongda` or `mayaochaybo` tenant filters.
+`mayaobongda.vn` has no Next.js source in this repository and no Payload tenant
+record. It remains an active WordPress website and is not a CMS tenant. Do not
+invent a `mayaobongda` tenant filter.
 
 Tenant records live in `src/collections/Tenants.ts` and include:
 

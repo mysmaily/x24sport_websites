@@ -266,7 +266,20 @@ class PayloadTarget:
         response.raise_for_status()
         self.session.headers["Authorization"] = f"Bearer {response.json()['token']}"
 
-    def ensure_tenant(self, slug: str, domain: str, dry_run: bool = False) -> dict[str, Any]:
+    def ensure_tenant(
+        self,
+        slug: str,
+        domain: str,
+        dry_run: bool = False,
+        *,
+        extra_domains: list[str],
+        name: str,
+        headline: str,
+        subheadline: str,
+        primary_color: str,
+        accent_color: str,
+        brand_style: str,
+    ) -> dict[str, Any]:
         response = self.session.get(
             f"{self.base_url}/api/tenants",
             params={"where[slug][equals]": slug, "limit": 1, "depth": 0},
@@ -281,15 +294,19 @@ class PayloadTarget:
         response = self.session.post(
             f"{self.base_url}/api/tenants",
             json={
-                "name": "May Áo Bóng Rổ",
+                "name": name,
                 "slug": slug,
-                "domains": [{"domain": domain}],
+                "domains": [
+                    {"domain": item}
+                    for item in dict.fromkeys([domain, *extra_domains])
+                    if item
+                ],
                 "brand": {
-                    "headline": "Trang phục bóng rổ thiết kế riêng",
-                    "subheadline": "Thiết kế và đặt may đồng phục bóng rổ cho đội, câu lạc bộ và trường học.",
-                    "primaryColor": "#111827",
-                    "accentColor": "#e65100",
-                    "style": "flevo-inspired",
+                    "headline": headline,
+                    "subheadline": subheadline,
+                    "primaryColor": primary_color,
+                    "accentColor": accent_color,
+                    "style": brand_style,
                 },
             },
             timeout=30,
@@ -348,10 +365,25 @@ def featured_images(record: dict[str, Any]) -> list[dict[str, Any]]:
     return images
 
 
-def normalize_record(record: dict[str, Any], content_type: str) -> tuple[dict[str, Any], set[str]]:
+def rewrite_media_urls(value: str, media_map: dict[str, str]) -> str:
+    rewritten = value
+    for source_url, target_url in media_map.items():
+        if source_url in rewritten:
+            rewritten = rewritten.replace(source_url, target_url)
+    return rewritten
+
+
+def normalize_record(
+    record: dict[str, Any],
+    content_type: str,
+    *,
+    default_sport: str = "other",
+    media_map: dict[str, str] | None = None,
+) -> tuple[dict[str, Any], set[str]]:
     title = plain_text(text_value(record.get("title")))
-    raw_content = text_value(record.get("content"))
-    raw_excerpt = text_value(record.get("excerpt"))
+    media_map = media_map or {}
+    raw_content = rewrite_media_urls(text_value(record.get("content")), media_map)
+    raw_excerpt = rewrite_media_urls(text_value(record.get("excerpt")), media_map)
     clean_content, removed_tags = sanitize_html(raw_content)
     clean_excerpt, excerpt_removed = sanitize_html(raw_excerpt)
     removed_tags.update(excerpt_removed)
@@ -376,7 +408,7 @@ def normalize_record(record: dict[str, Any], content_type: str) -> tuple[dict[st
         data: dict[str, Any] = {
             "name": common.pop("title"),
             **{key: value for key, value in common.items() if key != "excerpt"},
-            "sport": "basketball",
+            "sport": default_sport,
             "shortDescription": plain_text(clean_excerpt)[:1000]
             or plain_text(clean_content)[:1000],
             "legacyImages": featured_images(record),
@@ -402,6 +434,23 @@ def read_snapshot(directory: Path, content_type: str) -> list[dict[str, Any]]:
         return [json.loads(line) for line in handle if line.strip()]
 
 
+def parse_credentials(path: Path) -> tuple[str, str]:
+    raw = path.read_text(encoding="utf-8").strip()
+    try:
+        data = json.loads(raw)
+        email, password = data.get("email"), data.get("password")
+    except json.JSONDecodeError:
+        fields: dict[str, str] = {}
+        for line in raw.splitlines():
+            match = re.match(r"\s*(email|password)\s*[:=]\s*(.+?)\s*$", line, re.I)
+            if match:
+                fields[match.group(1).lower()] = match.group(2)
+        email, password = fields.get("email"), fields.get("password")
+    if not email or not password:
+        raise RuntimeError(f"Could not parse CMS credentials file: {path}")
+    return str(email), str(password)
+
+
 def self_test() -> None:
     dirty = '<h2 class="x" onclick="bad()">Title</h2><script>alert(1)</script><p>A <a href="javascript:bad()">link</a></p>'
     clean, removed = sanitize_html(dirty)
@@ -420,12 +469,29 @@ def arguments() -> argparse.Namespace:
     parser.add_argument("--cms-api", default="http://10.10.0.28:3001")
     parser.add_argument("--tenant-slug", default="mayaobongro")
     parser.add_argument("--tenant-domain", default="mayaobongro.vn")
+    parser.add_argument("--tenant-extra-domain", action="append", default=[])
     parser.add_argument("--types", default="product,page,post")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--snapshot-dir", type=Path)
     parser.add_argument("--snapshot-input", type=Path)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--snapshot-only", action="store_true")
+    parser.add_argument("--default-sport", default="other")
+    parser.add_argument("--media-map", type=Path)
+    parser.add_argument("--credentials", type=Path)
+    parser.add_argument("--tenant-name", default="May Áo Bóng Rổ")
+    parser.add_argument("--tenant-headline", default="Trang phục thể thao thiết kế riêng")
+    parser.add_argument(
+        "--tenant-subheadline",
+        default="Thiết kế và đặt may trang phục thể thao cho đội, câu lạc bộ và sự kiện.",
+    )
+    parser.add_argument("--tenant-primary-color", default="#111827")
+    parser.add_argument("--tenant-accent-color", default="#e65100")
+    parser.add_argument(
+        "--tenant-brand-style",
+        choices=("flevo-inspired", "arenix-inspired"),
+        default="flevo-inspired",
+    )
     parser.add_argument("--self-test", action="store_true")
     return parser.parse_args()
 
@@ -459,11 +525,25 @@ def main() -> int:
         if args.snapshot_dir:
             write_snapshot(args.snapshot_dir, content_type, records)
 
+    media_map: dict[str, str] = {}
+    if args.media_map:
+        media_records = json.loads(args.media_map.read_text(encoding="utf-8"))
+        media_map = {
+            str(item["sourceUrl"]): str(item["targetUrl"])
+            for item in media_records
+            if item.get("sourceUrl") and item.get("targetUrl")
+        }
+
     normalized: list[tuple[str, dict[str, Any], set[str]]] = []
     paths: dict[str, str] = {}
     for content_type, records in source_records.items():
         for record in records:
-            data, removed = normalize_record(record, content_type)
+            data, removed = normalize_record(
+                record,
+                content_type,
+                default_sport=args.default_sport,
+                media_map=media_map,
+            )
             path = data["legacyPath"]
             identity = f"{content_type}:{data['sourceId']}"
             if path == "/" and content_type == "page":
@@ -479,11 +559,24 @@ def main() -> int:
 
     email = os.environ.get("CMS_EMAIL")
     password = os.environ.get("CMS_PASSWORD")
+    if args.credentials and (not email or not password):
+        email, password = parse_credentials(args.credentials)
     if not email or not password:
         raise SystemExit("CMS_EMAIL and CMS_PASSWORD are required outside snapshot-only mode")
 
     target = PayloadTarget(args.cms_api, email, password)
-    tenant = target.ensure_tenant(args.tenant_slug, args.tenant_domain, args.dry_run)
+    tenant = target.ensure_tenant(
+        args.tenant_slug,
+        args.tenant_domain,
+        args.dry_run,
+        extra_domains=args.tenant_extra_domain,
+        name=args.tenant_name,
+        headline=args.tenant_headline,
+        subheadline=args.tenant_subheadline,
+        primary_color=args.tenant_primary_color,
+        accent_color=args.tenant_accent_color,
+        brand_style=args.tenant_brand_style,
+    )
     tenant_id = tenant["id"]
     stats = MigrationStats()
 
