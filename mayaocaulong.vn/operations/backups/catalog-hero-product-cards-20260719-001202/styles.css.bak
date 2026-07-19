@@ -710,13 +710,6 @@ img {
   line-height: 1.25;
 }
 
-.catalog-card h2 a {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
 .product-card p,
 .catalog-card p,
 .buyer-grid p,
@@ -1215,27 +1208,47 @@ img {
 }
 
 .catalog-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: 28px;
+  align-items: end;
   padding: clamp(42px, 7vw, 96px) clamp(20px, 5vw, 72px);
   border-bottom: 1px solid var(--line);
 }
 
-.catalog-hero-copy {
-  display: grid;
-  gap: 12px;
+.catalog-hero h1 {
   max-width: 900px;
 }
 
-.catalog-hero h1 {
-  max-width: none;
+.catalog-hero p {
+  margin-top: 18px;
 }
 
-.catalog-hero h2 {
-  max-width: 680px;
-  margin: 0;
+.catalog-hero aside {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--line);
+}
+
+.catalog-hero aside div {
+  padding: 24px;
+  background: white;
+}
+
+.catalog-hero aside strong {
+  display: block;
+  font-family: var(--font-display), sans-serif;
+  font-size: 38px;
+  line-height: 0.95;
+}
+
+.catalog-hero aside span {
+  display: block;
+  margin-top: 8px;
   color: var(--muted);
-  font-size: 17px;
-  font-weight: 500;
-  line-height: 1.65;
+  font-weight: 800;
 }
 
 .catalog-toolbar {

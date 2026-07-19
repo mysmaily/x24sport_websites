@@ -29,20 +29,42 @@ export function CatalogPageContent({
   activeFilter?: CatalogFilter | null
   products: Product[]
 }) {
-  const heroTitle = activeFilter ? activeFilter.label.replace(/^Áo /, 'Áo cầu lông ') : 'Toàn bộ mẫu áo cầu lông đang có trên MayaoCauLong'
-  const heroSubtitle = activeFilter
-    ? activeFilter.description
-    : 'Xem nhanh mẫu đang có, mã sản phẩm và giá tham khảo để chọn hướng đặt may phù hợp cho đội của bạn.'
+  const catalogStats = [
+    { value: '135.000đ', label: 'giá tham khảo từ' },
+    { value: `${products.length}+`, label: 'mẫu đang có trên CMS' },
+    { value: '24h', label: 'phản hồi yêu cầu nhanh' },
+  ] as const
 
   return (
     <main className="site-page catalog-page">
       <SiteHeader />
 
       <section className="catalog-hero">
-        <div className="catalog-hero-copy">
-          <h1>{heroTitle}</h1>
-          <h2>{heroSubtitle}</h2>
+        <div>
+          <p className="hero-kicker">Danh mục sản phẩm</p>
+          <h1>{activeFilter ? activeFilter.label.replace(/^Áo /, 'Áo cầu lông ') : 'Toàn bộ mẫu áo cầu lông đang có trên MayaoCauLong'}</h1>
+          <p>
+            {activeFilter
+              ? activeFilter.description
+              : 'Lọc nhanh mẫu đặt may, xem mã sản phẩm, giá tham khảo và gửi mẫu để nhận tư vấn theo số lượng.'}
+          </p>
+          <div className="catalog-actions">
+            <a className="primary-button" href={zaloHref}>
+              Nhận báo giá theo mẫu <ArrowRight size={18} />
+            </a>
+            <Link className="secondary-button" href="/">
+              Về trang chủ
+            </Link>
+          </div>
         </div>
+        <aside>
+          {catalogStats.map((stat) => (
+            <div key={stat.label}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </aside>
       </section>
 
       <section className="catalog-toolbar" id="bo-loc" aria-label="Bộ lọc mẫu áo">
@@ -94,6 +116,7 @@ export function CatalogPageContent({
                   <h2>
                     <Link href={`/san-pham/${product.slug}`}>{product.name}</Link>
                   </h2>
+                  <p>{product.shortDescription}</p>
                   <div className="catalog-price">
                     <strong>{formatPrice(product.price)}</strong>
                     {product.compareAtPrice ? <span>{formatPrice(product.compareAtPrice)}</span> : null}
