@@ -25,6 +25,7 @@ export type Product = {
   slug: string
   sku: string
   price: number
+  publicationStatus?: 'publish' | 'draft' | 'private' | 'pending' | null
   compareAtPrice?: number
   shortDescription: string
   badges?: Array<{ label: string }>
@@ -87,6 +88,7 @@ const fallbackPosts: Post[] = [
 ]
 
 const apiUrl = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
+const catalogProductLimit = '500'
 
 async function fetchDocs<T>(path: string): Promise<T[]> {
   const response = await fetch(`${apiUrl}${path}`, { next: { revalidate: 60 } })
@@ -102,6 +104,20 @@ export async function getTenantSlug() {
   return process.env.TENANT_SLUG || 'mayaocaulong'
 }
 
+function hasGalleryImage(product: Product) {
+  return Boolean(product.gallery?.some((media) => media?.url))
+}
+
+function isPlaceholderProduct(product: Product) {
+  const sku = product.sku?.toLowerCase() || ''
+  const slug = product.slug?.toLowerCase() || ''
+  return product.name.startsWith('[Đang tạo]') || slug.startsWith('dang-tao-') || sku.startsWith('x24-cl-transfer')
+}
+
+function isVisibleCatalogProduct(product: Product) {
+  return product.publicationStatus === 'publish' && hasGalleryImage(product) && !isPlaceholderProduct(product)
+}
+
 export async function getHomeData() {
   const slug = await getTenantSlug()
 
@@ -109,11 +125,13 @@ export async function getHomeData() {
     const [tenant] = await fetchDocs<Tenant>(`/api/tenants?where[slug][equals]=${slug}&limit=1`)
     const tenantFilter = `where[tenant.slug][equals]=${slug}`
     const [featuredProducts, allProducts, posts] = await Promise.all([
-      fetchDocs<Product>(`/api/products?${tenantFilter}&where[featured][equals]=true&depth=1&limit=8`),
-      fetchDocs<Product>(`/api/products?${tenantFilter}&depth=1&limit=24`),
+      fetchDocs<Product>(`/api/products?${tenantFilter}&where[publicationStatus][equals]=publish&where[featured][equals]=true&depth=1&limit=24`),
+      fetchDocs<Product>(`/api/products?${tenantFilter}&where[publicationStatus][equals]=publish&depth=1&limit=60&sort=-createdAt`),
       fetchDocs<Post>(`/api/posts?${tenantFilter}&sort=-publishedAt&limit=3`),
     ])
-    const products = featuredProducts.length ? featuredProducts : allProducts
+    const visibleFeaturedProducts = featuredProducts.filter(isVisibleCatalogProduct).slice(0, 8)
+    const visibleProducts = allProducts.filter(isVisibleCatalogProduct)
+    const products = visibleFeaturedProducts.length ? visibleFeaturedProducts : visibleProducts
 
     return {
       tenant: tenant || fallbackTenant,
@@ -131,12 +149,14 @@ export async function getAllProducts() {
   try {
     const params = new URLSearchParams({
       'where[tenant.slug][equals]': tenantSlug,
+      'where[publicationStatus][equals]': 'publish',
       depth: '1',
-      limit: '120',
+      limit: catalogProductLimit,
       sort: '-createdAt',
     })
     const products = await fetchDocs<Product>(`/api/products?${params.toString()}`)
-    return products.length ? products : fallbackProducts
+    const visibleProducts = products.filter(isVisibleCatalogProduct)
+    return visibleProducts.length ? visibleProducts : fallbackProducts
   } catch {
     return fallbackProducts
   }
@@ -146,9 +166,10 @@ async function getProductsBySearchTag(tag: string, field: 'gallery.searchTags.va
   const tenantSlug = await getTenantSlug()
   const params = new URLSearchParams({
     'where[tenant.slug][equals]': tenantSlug,
+    'where[publicationStatus][equals]': 'publish',
     [`where[${field}][contains]`]: tag,
     depth: '2',
-    limit: '120',
+    limit: catalogProductLimit,
     sort: '-createdAt',
   })
 
@@ -158,10 +179,12 @@ async function getProductsBySearchTag(tag: string, field: 'gallery.searchTags.va
 export async function getProductsByCatalogFilter(filter: CatalogFilter) {
   try {
     const mediaTaggedProducts = await getProductsBySearchTag(filter.tag, 'gallery.searchTags.value')
-    if (mediaTaggedProducts.length) return mediaTaggedProducts
+    const visibleMediaTaggedProducts = mediaTaggedProducts.filter(isVisibleCatalogProduct)
+    if (visibleMediaTaggedProducts.length) return visibleMediaTaggedProducts
 
     const productTaggedProducts = await getProductsBySearchTag(filter.tag, 'searchTags.value')
-    return productTaggedProducts.length ? productTaggedProducts : fallbackProducts
+    const visibleProductTaggedProducts = productTaggedProducts.filter(isVisibleCatalogProduct)
+    return visibleProductTaggedProducts.length ? visibleProductTaggedProducts : fallbackProducts
   } catch {
     return fallbackProducts
   }
@@ -269,11 +292,12 @@ export async function getProductBySlug(slug: string) {
     const params = new URLSearchParams({
       'where[slug][equals]': slug,
       'where[tenant.slug][equals]': tenantSlug,
+      'where[publicationStatus][equals]': 'publish',
       depth: '2',
       limit: '1',
     })
     const [product] = await fetchDocs<ProductDetail>(`/api/products?${params.toString()}`)
-    return product || fallbackProduct || null
+    return product && isVisibleCatalogProduct(product) ? product : fallbackProduct || null
   } catch {
     return fallbackProduct || null
   }

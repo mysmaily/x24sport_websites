@@ -14,6 +14,9 @@ import {
 export const metadata: Metadata = {
   title: 'Sản phẩm áo cầu lông | MayaoCauLong',
   description: 'Tổng hợp mẫu áo cầu lông đặt may, in tên số và logo cho CLB, đội phong trào, trường lớp.',
+  alternates: {
+    canonical: 'https://mayaocaulong.vn/san-pham',
+  },
 }
 
 export default async function ProductsPage() {
