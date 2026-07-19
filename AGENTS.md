@@ -217,6 +217,26 @@ it; otherwise product templates and product-list components must follow it.
 - Verify these rules from rendered computed styles at mobile and desktop widths,
   not only from source classes or design files.
 
+## Shared customer-facing copy contract
+
+This contract applies to every public-facing X24Sport website experience unless
+the user explicitly requests otherwise for a specific task.
+
+- Do not expose internal implementation, migration, staging, preview, CMS,
+  WordPress, Payload, AI, SEO, cache, contract-testing, or developer workflow
+  language in customer-facing UI copy, helper text, banners, captions, menus,
+  footnotes, placeholders, empty states, or calls to action.
+- Customer-facing copy must help a shopper browse products, understand options,
+  choose sizes/materials, customize, order, or contact support. If a sentence
+  does not help that journey, do not ship it to the page.
+- Replace technical/internal labels with shopper language grounded in the
+  website's business context. For example, prefer intent-based headings such as
+  ordering guidance, quality, materials, or inspiration over operational labels
+  such as staging, preview, mapping, migration, or route parity.
+- Keep internal notes, migration explanations, QA markers, and implementation
+  rationale in code comments, runbooks, commits, tickets, or handoff notes, not
+  in rendered website content.
+
 ## Shared catalog density and filtering contract
 
 This contract applies to every X24Sport product catalog, category, collection,

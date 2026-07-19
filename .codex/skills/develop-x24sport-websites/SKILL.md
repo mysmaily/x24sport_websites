@@ -56,6 +56,10 @@ engineering constraints, never as a promise of ranking.
 
 - Preserve the site's brand while creating a clear visual hierarchy, predictable
   navigation, readable typography, and purposeful calls to action.
+- Keep every customer-visible word shopper-facing. Do not place technical,
+  internal, staging, preview, migration, CMS, WordPress, AI, SEO, QA, or
+  developer-process language in rendered UI copy unless the user explicitly asks
+  for that wording on the page.
 - Design mobile-first without reducing primary content or metadata relative to
   desktop. Responsive layout may differ; meaning and capability must remain.
 - Make product discovery possible through crawlable category and product links.
@@ -70,6 +74,9 @@ engineering constraints, never as a promise of ranking.
 
 - Reuse existing tokens, components, templates, data functions, and CMS fields
   before adding new abstractions.
+- Strip internal rationale from public copy. Put implementation notes in code
+  comments, task handoff, or runbooks instead of helper text, captions, menu
+  headings, or empty states seen by shoppers.
 - Render primary page content and metadata on the server when the platform
   supports it. Limit client JavaScript to real interaction needs.
 - Use crawlable `<a href>` links for navigation. Buttons perform actions; links

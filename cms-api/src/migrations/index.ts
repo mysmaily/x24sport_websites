@@ -3,6 +3,7 @@ import * as migration_20260716_172821_x24_catalog_fields from './20260716_172821
 import * as migration_20260717_001500_product_categories_tenant_identity from './20260717_001500_product_categories_tenant_identity';
 import * as migration_20260717_173000_users_api_keys from './20260717_173000_users_api_keys';
 import * as migration_20260717_173500_fix_users_api_key_column from './20260717_173500_fix_users_api_key_column';
+import * as migration_20260719_152500_product_categories_tag_group from './20260719_152500_product_categories_tag_group';
 
 export const migrations = [
   {
@@ -29,5 +30,10 @@ export const migrations = [
     up: migration_20260717_173500_fix_users_api_key_column.up,
     down: migration_20260717_173500_fix_users_api_key_column.down,
     name: '20260717_173500_fix_users_api_key_column'
+  },
+  {
+    up: migration_20260719_152500_product_categories_tag_group.up,
+    down: migration_20260719_152500_product_categories_tag_group.down,
+    name: '20260719_152500_product_categories_tag_group'
   },
 ];
