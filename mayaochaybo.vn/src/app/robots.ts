@@ -1,2 +1,3 @@
 import type { MetadataRoute } from 'next'
-export default function robots(): MetadataRoute.Robots { return { rules: { userAgent: '*', disallow: '/' } } }
+import { canonical } from '@/lib/site'
+export default function robots(): MetadataRoute.Robots { return { rules: { userAgent: '*', allow: '/', disallow: '/api/' }, sitemap: canonical('/sitemap.xml') } }

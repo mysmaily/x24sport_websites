@@ -11,18 +11,19 @@
 |---|---|
 | Domain | `mayaochaybo.vn` |
 | Payload tenant slug | `mayaochaybo` |
-| Active platform | WordPress on apex; Next.js + Payload on preview |
-| Migration status | Preview deployed at `https://next.mayaochaybo.vn`; production cutover not performed |
+| Active platform | Next.js SSR + Payload CMS on apex |
+| Migration status | Production cutover completed July 19, 2026; WordPress archived at `https://wp.mayaochaybo.vn` |
 
-`mayaochaybo.vn` remains the active public WordPress website. The tenant-scoped
-Next.js/Payload replacement is live only on the non-indexable preview hostname.
-Do not switch the apex proxy or DNS without the explicit production cutover gate.
+`mayaochaybo.vn` is the active public Next.js/Payload website. The former
+WordPress runtime remains available only at the non-indexable archive hostname
+`wp.mayaochaybo.vn`; do not route public apex traffic back to it except for a
+documented rollback.
 
-## Active migration preview runtime
+## Active production tenant runtime
 
 The July 19, 2026 migration created the `mayaochaybo` Payload tenant, tenant R2
-media prefix, Next.js frontend, proxy, and Cloudflare preview DNS record. The
-apex site remains on the WordPress runtime documented below.
+media prefix, Next.js frontend, proxy, and Cloudflare DNS records. Production
+cutover moved the apex proxy to Next.js on July 19, 2026.
 
 For every migration task for this domain:
 
@@ -38,18 +39,22 @@ For every migration task for this domain:
 |---|---|
 | Payload tenant slug | `mayaochaybo` |
 | Tenant domains | `mayaochaybo.vn`, `next.mayaochaybo.vn` |
-| Preview URL | `https://next.mayaochaybo.vn` |
+| Production URL | `https://mayaochaybo.vn` |
+| Non-indexable preview URL | `https://next.mayaochaybo.vn` |
+| Non-indexable WordPress archive | `https://wp.mayaochaybo.vn` |
 | Frontend host | `root@10.10.0.58` |
 | Frontend path | `/root/websites/next.mayaochaybo.vn` |
 | Container / service | `next-mayaochaybo` / `web` |
 | Container and host port | `3011` / `10.10.0.58:3011` |
 | Preview proxy | `root@10.10.0.56` → `http://10.10.0.58:3011` |
+| Apex proxy config / upstream | `/etc/nginx/conf.d/mayaochaybo.vn.conf` → `http://10.10.0.58:3011` |
+| WordPress archive proxy config / upstream | `/etc/nginx/conf.d/wp.mayaochaybo.vn.conf` → `http://10.10.0.26:80` |
 | CMS origin | `http://10.10.0.28:3001` |
 
 The frontend contract is full request-time SSR: use Next.js App Router Server
 Components by default, force dynamic rendering, fetch CMS data without ISR or
 static generation, and keep client components limited to interactive islands.
-Do not cache HTML at Cloudflare or Nginx during preview. Static build assets and
+Do not cache HTML at Cloudflare or Nginx. Static build assets and
 tenant media may use immutable cache rules.
 
 Preserve every accepted WordPress product, product-category, post, page, media,
@@ -58,11 +63,9 @@ Products and several product categories currently occupy root-level paths, so
 resolve by exact tenant-scoped `legacyPath`, not by slug or a new `/san-pham/`
 prefix. Fail import/build on any unresolved route collision.
 
-Keep `next.mayaochaybo.vn` non-indexable and canonicalized to the corresponding
-production URL until cutover. Inventory and reproduce Google Ads landing pages,
+Keep `next.mayaochaybo.vn` and `wp.mayaochaybo.vn` non-indexable. Inventory and reproduce Google Ads landing pages,
 GTM/GA/Ads tags, consent behavior, conversion events, forms, phone/Zalo actions,
-and order/contact success states before declaring preview parity. Do not change
-the apex DNS or proxy upstream without the explicit cutover gate.
+and order/contact success states before future material releases.
 
 The repository root `.env` is the approved runtime source for Cloudflare account
 and API-token variables for this migration. Source it only inside a command that
@@ -73,20 +76,20 @@ or analytics secrets in arguments, source, artifacts, logs, or handoff text.
 
 | Field | Value |
 |---|---|
-| Application host | `root@10.10.0.26` |
-| Application root | `/root/websites/sites/mayaochaybo.vn` |
-| Docker Compose | `/root/websites/docker-compose.yml` |
-| Runtime containers | `wp-nginx`, `wp-php` |
-| Published application port | `10.10.0.26:80` |
+| Application host | `root@10.10.0.58` |
+| Application root | `/root/websites/next.mayaochaybo.vn` |
+| Docker Compose | `/root/websites/next.mayaochaybo.vn/compose.production.yml` |
+| Runtime container / service | `next-mayaochaybo` / `web` |
+| Published application port | `10.10.0.58:3011` |
 | Proxy host | `root@10.10.0.56` (`103.147.35.95`) |
 | Proxy config | `/etc/nginx/conf.d/mayaochaybo.vn.conf` |
-| Public upstream | `http://10.10.0.26:80` |
-| Request path | Proxy → `wp-nginx` → `wp-php` → WordPress database |
+| Public upstream | `http://10.10.0.58:3011` |
+| Request path | Cloudflare → proxy → Next.js SSR → Payload CMS |
 
 The WordPress, PHP, MySQL, theme, plugin, cache, Nginx, and filesystem details
-below describe the active website runtime.
+below describe the archived rollback runtime at `wp.mayaochaybo.vn`.
 
-## Active WordPress system overview
+## Archived WordPress system overview
 
 | Section | Value |
 |-----|--------|
@@ -124,9 +127,9 @@ below describe the active website runtime.
 
 | Section | Value |
 |-----|--------|
-| URL | `https://mayaochaybo.vn/wp-admin` |
-| Site URL | `http://mayaochaybo.vn` |
-| Home URL | `https://mayaochaybo.vn` |
+| Archive admin URL | `https://wp.mayaochaybo.vn/wp-admin/` |
+| Internal Site URL | `http://mayaochaybo.vn` (preserved for origin routing; proxy rewrites public links) |
+| Internal Home URL | `https://mayaochaybo.vn` (preserved for origin routing; proxy rewrites public links) |
 | Username | `Hienx24` |
 | Password | Stored outside repository |
 | FS_METHOD | `direct` (allows writing directly from WP admin) |

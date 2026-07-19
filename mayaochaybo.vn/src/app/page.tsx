@@ -6,7 +6,7 @@ import { HeroGallery, type HeroSlide } from '@/components/hero-gallery'
 import { JsonLd } from '@/components/json-ld'
 import { ProductGrid } from '@/components/product-grid'
 import { getCategories, getLatestPosts, getProducts, productImages } from '@/lib/cms'
-import { excerpt, SITE_URL, ZALO_URL } from '@/lib/site'
+import { excerpt, LOGO_URL, SITE_URL, ZALO_URL } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default async function HomePage() {
   const categories = categoryResult.docs.filter((item) => item.group !== 'color').slice(0, 5)
 
   return <>
-    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'OnlineStore', name: 'May Áo Chạy Bộ', url: SITE_URL, telephone: '+84989353247' }} />
+    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'OnlineStore', name: 'May Áo Chạy Bộ', url: SITE_URL, logo: LOGO_URL, telephone: '+84989353247' }} />
     <section className="relative overflow-hidden bg-[#0b1220] text-white">
       <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:56px_56px]" />
       <div className="section-shell relative grid min-h-[720px] items-center gap-10 py-12 lg:grid-cols-[.94fr_1.06fr] lg:py-16 xl:gap-14">

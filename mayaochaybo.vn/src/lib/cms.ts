@@ -17,6 +17,8 @@ export type Product = {
   slug: string
   price?: number | null
   compareAtPrice?: number | null
+  sku?: string | null
+  stockStatus?: string | null
   legacyPath?: string | null
   shortDescription?: string | null
   contentHtml?: string | null
@@ -155,6 +157,12 @@ export async function getLatestPosts(limit = 3, page = 1) {
     'where[and][2][publicationStatus][equals]': 'publish', limit: String(limit), page: String(page), depth: '0', sort: '-sourceModifiedAt',
   })
   return api<Paginated<WebContent>>(`/api/web-content?${params}`)
+}
+
+export async function getPostsBySlugs(slugs: string[]) {
+  const result = await getLatestPosts(100)
+  const wanted = new Set(slugs)
+  return result.docs.filter((post) => wanted.has(post.slug))
 }
 
 export function productImages(product: Product): MediaImage[] {

@@ -193,6 +193,55 @@ routed by `SKILL.md`.
 - Do not apply the skill to product-image generation or catalog migration alone
   unless the request also changes a public website experience, content, or SEO.
 
+## Shared product typography contract
+
+This contract applies to every current and future X24Sport website in this
+repository, regardless of whether the frontend uses Next.js/Payload or
+WordPress. A later explicit user instruction for a specific task may override
+it; otherwise product templates and product-list components must follow it.
+
+- On every product-detail page, render the product-name `h1` immediately below
+  the breadcrumb in both DOM order and visual order. Do not place the gallery,
+  description, price, variant controls, or calls to action between the
+  breadcrumb and the `h1`.
+- The product-detail `h1` font size is exactly `20px` below the site's desktop
+  breakpoint and exactly `22px` at and above the desktop breakpoint. Do not use
+  fluid typography such as `clamp()` for this heading.
+- Every product name shown in a product card or product item within a product
+  list uses a font size of exactly `18px`.
+- When a product item shows both an original price and a discounted price, keep
+  both prices on one non-wrapping row. Style the original price with a
+  line-through, and make the discounted price exactly `2px` larger than the
+  original price. If space is tight, reduce the gap or adjust the card layout;
+  do not wrap, overlap, truncate, or split the two prices across lines.
+- Verify these rules from rendered computed styles at mobile and desktop widths,
+  not only from source classes or design files.
+
+## Shared catalog density and filtering contract
+
+This contract applies to every X24Sport product catalog, category, collection,
+and search-results page unless the user's latest explicit instruction overrides
+it for a specific task.
+
+- When products exist, the start of the first product row must appear within the
+  initial viewport at both `390x844` and `1440x900`. Breadcrumbs, introductory
+  copy, search, results metadata, and filters must not consume a full screen
+  before products begin.
+- Never render filter choices as a multi-row wrapping chip cloud. Put the primary
+  category or product-type choices in one non-wrapping, horizontally scrollable
+  row with visible active state, touch scrolling, keyboard-accessible links, and
+  no document-level horizontal overflow.
+- Put secondary or larger option sets such as colors in a compact dropdown next
+  to the horizontal row. The dropdown must overlay content instead of increasing
+  the closed toolbar height, remain keyboard operable, and use crawlable
+  `<a href>` links for indexable landing pages.
+- Keep the closed filter toolbar to one visual row. Filter chips and the dropdown
+  trigger use a `40px` control height; do not use oversized pills or excessive
+  vertical padding.
+- Preserve the complete heading and useful catalog description on mobile, but
+  use compact spacing and line-height. Do not hide essential content merely to
+  move products upward.
+
 ## Required WordPress migration skill
 
 For any request that migrates a `mayao*.vn` WordPress website to the shared

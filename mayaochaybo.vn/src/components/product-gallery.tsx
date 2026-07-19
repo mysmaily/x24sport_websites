@@ -58,7 +58,6 @@ export function ProductGallery({ images, productName }: { images: MediaImage[]; 
           src={activeImage.url}
         />
 
-        <span className="absolute bottom-4 left-4 rounded-full bg-slate-950/90 px-3 py-1.5 text-[11px] font-black uppercase tracking-wider text-white backdrop-blur">X24 / Running</span>
         {imageCount > 1 ? (
           <>
             <span className="absolute right-4 top-4 rounded-full bg-white/92 px-3 py-1.5 text-[11px] font-black text-slate-950 shadow-sm backdrop-blur">{activeIndex + 1} / {imageCount}</span>

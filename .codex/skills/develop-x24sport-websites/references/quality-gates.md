@@ -28,6 +28,18 @@ gate before claiming completion.
 
 - Verify representative widths around 320, 375/390, 768, 1024, 1440, and a wide
   desktop; add task-specific breakpoints when the layout changes there.
+- On product pages, verify that the product `h1` is immediately below the
+  breadcrumb in DOM and visual order, with a computed font size of `20px` below
+  the desktop breakpoint and `22px` at and above it.
+- In product lists, verify a computed `18px` product-name size. When original and
+  discounted prices are both present, verify that they remain on one line and
+  that the discounted price computes exactly `2px` larger than the original.
+- On catalog and category pages with results, verify that the first product row
+  starts inside the initial viewport at `390x844` and `1440x900`.
+- Verify that primary filter chips stay in one `40px`-high horizontal scroll row,
+  the document itself has no horizontal overflow, and the secondary dropdown is
+  closed without adding page height. Open and operate the dropdown with keyboard
+  controls and confirm every indexable option remains a real anchor link.
 - No horizontal overflow, clipped controls, hidden primary content, unreadable
   line lengths, broken sticky elements, or overlapping contact widgets.
 - Images preserve intended crop and subject; text remains legible over media.

@@ -114,6 +114,16 @@ tenant isolation using representative records from every affected tenant.
 
 ## 5. Ecommerce page contracts
 
+All product-detail and product-list implementations must follow the repository
+`AGENTS.md` **Shared product typography contract**. Treat its heading position,
+fixed responsive font sizes, and single-line price treatment as cross-platform
+requirements, not optional visual guidance.
+
+Catalog, category, collection, and search-results implementations must also
+follow the repository **Shared catalog density and filtering contract**. Reuse
+its single-row horizontal primary filter and overlay dropdown pattern across
+platform adapters rather than rebuilding multi-row filter clouds per site.
+
 ### Home
 
 - State the sport, product/service, differentiator, and next action above the
@@ -125,6 +135,9 @@ tenant isolation using representative records from every affected tenant.
 
 - Provide a descriptive heading and useful context, crawlable product links,
   usable filters, explicit result state, and crawlable pagination.
+- Keep product discovery above the fold by combining a horizontally scrollable
+  primary filter row with a compact secondary dropdown; both must retain real
+  crawlable landing-page links.
 - Decide which filter combinations deserve indexable landing pages. Do not expose
   every UI state as an indexable URL.
 

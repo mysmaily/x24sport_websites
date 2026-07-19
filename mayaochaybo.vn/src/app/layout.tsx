@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   description: 'Mẫu áo chạy bộ và dịch vụ đặt may thiết kế riêng cho câu lạc bộ, giải chạy, đội nhóm và doanh nghiệp.',
   alternates: { canonical: '/' },
   icons: { icon: '/site-mark.svg' },
+  verification: { google: 'fnhKiL9Rctw1zJnJ1zCk8LW29qner565-foaFXo2Vug' },
   openGraph: { locale: 'vi_VN', siteName: 'May Áo Chạy Bộ', type: 'website' },
 }
 

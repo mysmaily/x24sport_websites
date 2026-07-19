@@ -35,8 +35,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1220]/95 text-white backdrop-blur-xl">
       <div className="mx-auto grid min-h-18 w-full max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-6 lg:grid-cols-[minmax(220px,1fr)_auto_minmax(220px,1fr)] lg:px-8">
-        <Link className="inline-flex w-fit items-center rounded bg-white px-2.5 py-1.5" href="/" aria-label="May Áo Chạy Bộ — Trang chủ">
-          <img alt="May Áo Chạy Bộ" className="h-7 w-auto max-w-[190px] sm:h-8" height="48" src={LOGO_URL} width="310" />
+        <Link className="inline-flex w-fit items-center" href="/" aria-label="May Áo Chạy Bộ — Trang chủ">
+          <img alt="May Áo Chạy Bộ" className="h-auto w-[228px] max-w-[calc(100vw-96px)]" height="58" src={LOGO_URL} width="372" />
         </Link>
         <nav className="hidden items-center justify-center gap-5 text-sm font-extrabold text-slate-300 lg:flex xl:gap-7" aria-label="Điều hướng chính">
           <div
