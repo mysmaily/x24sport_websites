@@ -17,6 +17,7 @@ import { ProductCategories } from './collections/ProductCategories'
 import { Products } from './collections/Products'
 import { StoreSettings } from './collections/StoreSettings'
 import { Tenants } from './collections/Tenants'
+import { TenantPinterestConnections } from './collections/TenantPinterestConnections'
 import type { Config } from './payload-types'
 import { isSuperAdmin } from './access/roles'
 import { migrations } from './migrations'
@@ -35,6 +36,7 @@ export default buildConfig({
   collections: [
     Users,
     Tenants,
+    TenantPinterestConnections,
     Media,
     MigrationRuns,
     ProductCategories,
@@ -65,6 +67,7 @@ export default buildConfig({
         'migration-runs': {},
         pages: {},
         posts: {},
+        'tenant-pinterest-connections': {},
         'web-content': {},
         'product-categories': {},
         products: {},

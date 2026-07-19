@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     tenants: Tenant;
+    'tenant-pinterest-connections': TenantPinterestConnection;
     media: Media;
     'migration-runs': MigrationRun;
     'product-categories': ProductCategory;
@@ -86,6 +87,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     tenants: TenantsSelect<false> | TenantsSelect<true>;
+    'tenant-pinterest-connections': TenantPinterestConnectionsSelect<false> | TenantPinterestConnectionsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'migration-runs': MigrationRunsSelect<false> | MigrationRunsSelect<true>;
     'product-categories': ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
@@ -193,6 +195,44 @@ export interface Tenant {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tenant-pinterest-connections".
+ */
+export interface TenantPinterestConnection {
+  id: number;
+  tenant?: (number | null) | Tenant;
+  tenantConnectionKey?: string | null;
+  /**
+   * ID tài khoản Pinterest được trả về sau khi OAuth thành công.
+   */
+  pinterestAccountId?: string | null;
+  /**
+   * Username tài khoản Pinterest hiện đang liên kết với tenant này.
+   */
+  pinterestUsername?: string | null;
+  /**
+   * Board mặc định để đăng sản phẩm. Nếu bỏ trống, hệ thống sẽ tự tạo board khi đăng lần đầu.
+   */
+  defaultBoardId?: string | null;
+  /**
+   * Tên board đang dùng để đăng sản phẩm.
+   */
+  defaultBoardName?: string | null;
+  /**
+   * Danh sách scope OAuth đã cấp cho tenant này.
+   */
+  scope?: string | null;
+  accessToken?: string | null;
+  refreshToken?: string | null;
+  tokenExpiresAt?: string | null;
+  refreshTokenExpiresAt?: string | null;
+  lastPublishedPinId?: string | null;
+  lastPublishedProductId?: string | null;
+  lastPublishedAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
@@ -276,7 +316,7 @@ export interface ProductCategory {
    * Danh mục cha trong cây taxonomy của tenant.
    */
   parent?: (number | null) | ProductCategory;
-  group: 'sport' | 'type' | 'color';
+  group: 'sport' | 'type' | 'color' | 'tag';
   description?: string | null;
   legacyPath?: string | null;
   tenantLegacyPathKey?: string | null;
@@ -536,6 +576,10 @@ export interface PayloadLockedDocument {
         value: number | Tenant;
       } | null)
     | ({
+        relationTo: 'tenant-pinterest-connections';
+        value: number | TenantPinterestConnection;
+      } | null)
+    | ({
         relationTo: 'media';
         value: number | Media;
       } | null)
@@ -664,6 +708,28 @@ export interface TenantsSelect<T extends boolean = true> {
         accentColor?: T;
         style?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tenant-pinterest-connections_select".
+ */
+export interface TenantPinterestConnectionsSelect<T extends boolean = true> {
+  tenant?: T;
+  tenantConnectionKey?: T;
+  pinterestAccountId?: T;
+  pinterestUsername?: T;
+  defaultBoardId?: T;
+  defaultBoardName?: T;
+  scope?: T;
+  accessToken?: T;
+  refreshToken?: T;
+  tokenExpiresAt?: T;
+  refreshTokenExpiresAt?: T;
+  lastPublishedPinId?: T;
+  lastPublishedProductId?: T;
+  lastPublishedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }

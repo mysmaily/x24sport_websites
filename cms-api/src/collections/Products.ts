@@ -48,7 +48,15 @@ const uniqueTenantSKU: TextFieldValidation = async (value, { data, id, req, sibl
 export const Products: CollectionConfig = {
   slug: 'products',
   admin: {
-    defaultColumns: ['name', 'sku', 'sport', 'price', 'publicationStatus', 'featured'],
+    defaultColumns: [
+      'name',
+      'sku',
+      'sport',
+      'price',
+      'publicationStatus',
+      'featured',
+      'pinterestPublishAction',
+    ],
     group: 'Catalog',
     useAsTitle: 'name',
   },
@@ -321,6 +329,17 @@ export const Products: CollectionConfig = {
           ],
         },
       ],
+    },
+    {
+      name: 'pinterestPublishAction',
+      type: 'ui',
+      label: 'Pinterest',
+      admin: {
+        components: {
+          Cell: '/components/pinterest/ProductPinterestPublishCell#ProductPinterestPublishCell',
+          Field: '/components/pinterest/EmptyUIField',
+        },
+      },
     },
   ],
 }
