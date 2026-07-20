@@ -90,8 +90,8 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 2px 2px 18px;
-  padding-bottom: 18px;
+  margin: 2px 2px 12px;
+  padding-bottom: 12px;
   border-bottom: 1px solid rgb(148 163 184 / 18%);
 }
 
@@ -134,8 +134,8 @@ body {
 
 .nav .tenant-selector {
   width: 100%;
-  margin: 0 0 22px;
-  padding: 0 2px 20px;
+  margin: 0 0 12px;
+  padding: 0 2px 12px;
   border-bottom: 1px solid rgb(148 163 184 / 18%);
 }
 
@@ -208,17 +208,17 @@ body {
 
 .nav .nav-group {
   margin: 0;
-  padding: 0 2px 16px;
+  padding: 0 2px 8px;
 }
 
 .nav .nav-group + .nav-group {
-  padding-top: 18px;
+  padding-top: 8px;
   border-top: 1px solid rgb(148 163 184 / 18%);
 }
 
 .nav .nav-group__toggle {
-  min-height: 24px;
-  margin: 0 0 7px;
+  min-height: 20px;
+  margin: 0 0 4px;
   padding: 0 10px;
   color: #899ab0;
   font-size: 10px;
@@ -246,11 +246,11 @@ body {
 .nav .nav__link {
   --x24-nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5h16v14H4zM8 9h8M8 13h5'/%3E%3C/svg%3E");
   display: flex;
-  min-height: 42px;
+  min-height: 36px;
   align-items: center;
-  gap: 11px;
-  margin: 2px 0;
-  padding: 0 11px;
+  gap: 9px;
+  margin: 0;
+  padding: 0 10px;
   border: 1px solid transparent;
   border-radius: 8px;
   color: #c9d4e2;
@@ -261,9 +261,9 @@ body {
 .nav .nav__link::before {
   content: '';
   display: block;
-  flex: 0 0 20px;
-  width: 20px;
-  height: 20px;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
   background: currentColor;
   mask: var(--x24-nav-icon) center / contain no-repeat;
   opacity: 0.88;
@@ -341,7 +341,7 @@ body {
 
 .nav__controls {
   width: 100%;
-  padding: 16px 10px 0;
+  padding: 10px 10px 0;
   border-top: 1px solid rgb(148 163 184 / 18%);
 }
 
@@ -633,6 +633,10 @@ a:focus-visible {
   .x24-current-tenant strong {
     max-width: 118px;
     font-size: 11px;
+  }
+
+  .nav .nav__link {
+    min-height: 44px;
   }
 
   .x24-dashboard-welcome {
