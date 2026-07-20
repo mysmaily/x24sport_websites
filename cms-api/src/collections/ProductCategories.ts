@@ -32,7 +32,7 @@ export const ProductCategories: CollectionConfig = {
       name: 'parent',
       type: 'relationship',
       relationTo: 'product-categories',
-      admin: { description: 'Danh mục cha trong cây taxonomy của tenant.' },
+      admin: { description: 'Danh mục cha trong cây phân loại của website.' },
     },
     {
       name: 'group',

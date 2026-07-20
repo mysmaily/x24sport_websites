@@ -1,0 +1,199 @@
+- generic [active] [ref=f10e1]:
+  - link "Bỏ qua đến nội dung" [ref=f10e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f10e3]:
+    - generic [ref=f10e4]:
+      - link "May Áo Chạy Bộ — Trang chủ" [ref=f10e5] [cursor=pointer]:
+        - /url: /
+        - img "May Áo Chạy Bộ" [ref=f10e6]
+      - button "Mở menu" [ref=f10e7] [cursor=pointer]
+  - main [ref=f10e9]:
+    - article [ref=f10e10]:
+      - navigation "Đường dẫn" [ref=f10e11]:
+        - link "Trang chủ" [ref=f10e12] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f10e13]: /
+        - link "Mẫu áo chạy bộ" [ref=f10e14] [cursor=pointer]:
+          - /url: /san-pham/
+        - generic [ref=f10e15]: /
+        - generic [ref=f10e16]: Áo chạy bộ gradient hồng tím xanh – Năng động & cá tính
+      - heading "Áo chạy bộ gradient hồng tím xanh – Năng động & cá tính" [level=1] [ref=f10e17]
+      - generic [ref=f10e18]:
+        - region "Ảnh sản phẩm Áo chạy bộ gradient hồng tím xanh – Năng động & cá tính" [ref=f10e19]:
+          - generic [ref=f10e20]:
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ gradient hồng tím xanh - Năng động & cá tính" [ref=f10e21]
+            - generic [ref=f10e22]: Đang xem ảnh 1 trên 1
+        - generic [ref=f10e23]:
+          - paragraph [ref=f10e24]: Mẫu áo chạy bộ
+          - paragraph [ref=f10e25]: Áo chạy bộ thiết kế đẹp với tone màu gradient hồng-tím-xanh mang lại phong cách trẻ trung, hiện đại. Chất liệu co giãn, thấm hút mồ hôi tốt, phù hợp cho mọi hoạt động thể thao ngoài trời.
+          - paragraph [ref=f10e26]:
+            - text: "Giá tham khảo:"
+            - strong [ref=f10e27]: 200.000 ₫
+          - generic [ref=f10e28]:
+            - generic [ref=f10e29]: Có thể thiết kế theo yêu cầu
+            - paragraph [ref=f10e30]: Trao đổi màu sắc, logo, tên đội và thông tin cự ly trước khi xác nhận đặt may.
+            - list [ref=f10e31]:
+              - listitem [ref=f10e32]: Đổi màu theo đội
+              - listitem [ref=f10e34]: Thêm logo riêng
+              - listitem [ref=f10e36]: In tên & cự ly
+              - listitem [ref=f10e38]: Tư vấn size
+          - generic [ref=f10e40]:
+            - link "Gửi mẫu này qua Zalo" [ref=f10e41] [cursor=pointer]:
+              - /url: https://zalo.me/0989353247
+            - link "Gọi 0989 353 247" [ref=f10e44] [cursor=pointer]:
+              - /url: tel:0989353247
+      - generic [ref=f10e47]:
+        - generic [ref=f10e48]:
+          - text: Thông tin mẫu
+          - generic [ref=f10e49]: Details / ng-ca-tinh
+        - generic [ref=f10e50]:
+          - blockquote [ref=f10e51]:
+            - paragraph [ref=f10e52]: "Áo chạy bộ phong cách trẻ trung với sắc màu gradient hồng – tím – xanh, kết hợp slogan truyền cảm hứng mạnh mẽ: “WORK HARD RUN Faster” – lựa chọn hoàn hảo cho các tín đồ thể thao yêu thích sự năng động và cá tính!"
+          - figure "Áo chạy bộ gradient hồng tím xanh" [ref=f10e53]:
+            - img "Áo chạy bộ tone gradient trắng hồng tím xanh thiết kế đẹp, năng động" [ref=f10e54]
+          - heading "🎽 Thiết Kế Màu Sắc Trẻ Trung, Nổi Bật" [level=2] [ref=f10e56]
+          - paragraph [ref=f10e57]:
+            - text: Mẫu áo chạy bộ này nổi bật với
+            - strong [ref=f10e58]: tone màu Gradient
+            - text: từ trắng sang hồng – tím – xanh dương, tạo nên một tổng thể hài hòa nhưng vẫn rất cá tính. Phần thân áo chuyển màu mượt mà, mang lại cảm giác chuyển động linh hoạt và hiện đại.
+          - paragraph [ref=f10e59]:
+            - strong [ref=f10e60]: Phần vai và ngực trắng
+            - text: tinh tế giúp logo thương hiệu nổi bật, tạo điểm nhấn sạch sẽ và chuyên nghiệp. Mảng màu
+            - strong [ref=f10e61]: hồng – tím
+            - text: thể hiện sự nhiệt huyết, tinh thần thể thao bùng cháy – đặc biệt phù hợp cho các sự kiện chạy bộ, team building, marathon hoặc các hoạt động ngoài trời.
+          - paragraph [ref=f10e62]:
+            - text: Phía sau áo là dòng slogan
+            - strong [ref=f10e63]: “WORK HARD RUN Faster” in kiểu font đậm, phá cách
+            - text: ", không chỉ truyền động lực mà còn tăng vẻ năng động, giúp bạn trở thành tâm điểm trên mỗi cung đường chạy."
+          - heading "🌟 Tính Năng Ưu Việt – Lý Tưởng Cho Vận Động" [level=2] [ref=f10e64]
+          - paragraph [ref=f10e65]:
+            - text: Không chỉ ghi điểm ở màu sắc, mẫu áo còn nổi bật với
+            - strong [ref=f10e66]: chất liệu cao cấp
+            - text: ":"
+          - list [ref=f10e67]:
+            - listitem [ref=f10e68]: Thấm hút mồ hôi nhanh, giúp cơ thể luôn khô ráo và thoải mái suốt thời gian vận động.
+            - listitem [ref=f10e69]:
+              - text: Bề mặt vải mềm mại,
+              - strong [ref=f10e70]: co giãn 4 chiều
+              - text: ", không gây cấn hay khó chịu khi cử động."
+            - listitem [ref=f10e71]:
+              - strong [ref=f10e72]: Form ôm nhẹ
+              - text: – tôn dáng nhưng vẫn đảm bảo độ linh hoạt tối đa, phù hợp cho cả nam và nữ.
+          - heading "📌 Thông Tin Sản Phẩm" [level=2] [ref=f10e73]
+          - list [ref=f10e74]:
+            - listitem [ref=f10e75]:
+              - strong [ref=f10e76]: "Chất liệu:"
+              - text: Vải thể thao cao cấp, co giãn, thoáng khí
+            - listitem [ref=f10e77]:
+              - strong [ref=f10e78]: "Màu sắc:"
+              - text: Gradient trắng – hồng – tím – xanh
+            - listitem [ref=f10e79]:
+              - strong [ref=f10e80]: "Size:"
+              - text: Đa dạng (S – M – L – XL – XXL)
+            - listitem [ref=f10e81]:
+              - strong [ref=f10e82]: "Phù hợp:"
+              - text: Chạy bộ đường dài, sự kiện thể thao, tập luyện hàng ngày
+          - paragraph [ref=f10e83]:
+            - strong [ref=f10e84]: Hãy chọn ngay mẫu áo chạy bộ thiết kế đẹp mắt, hiện đại này để nâng tầm phong cách thể thao của bạn!
+    - generic [ref=f10e86]:
+      - generic [ref=f10e87]:
+        - generic [ref=f10e88]:
+          - paragraph [ref=f10e89]: Tiếp tục khám phá
+          - heading "Mẫu mới cập nhật." [level=2] [ref=f10e90]
+        - link "Tất cả mẫu áo chạy bộ" [ref=f10e91] [cursor=pointer]:
+          - /url: /san-pham/
+      - generic [ref=f10e95]:
+        - article [ref=f10e96]:
+          - link "Xem Áo Chạy Bộ Thiết Kế Sát Nách Màu Gradient Vàng Xanh – Năng Động, Thoáng Mát" [ref=f10e97] [cursor=pointer]:
+            - /url: /ao-chay-bo-thiet-ke-sat-nach-mau-gradient-vang-xanh-nang-dong-thoang-mat/
+            - img "Áo chạy bộ sát nách gradient vàng xanh trên người mẫu nam nữ" [ref=f10e98]
+          - generic [ref=f10e99]:
+            - heading [level=3] [ref=f10e100]:
+              - link "Áo Chạy Bộ Thiết Kế Sát Nách Màu Gradient Vàng Xanh – Năng Động, Thoáng Mát" [ref=f10e101] [cursor=pointer]:
+                - /url: /ao-chay-bo-thiet-ke-sat-nach-mau-gradient-vang-xanh-nang-dong-thoang-mat/
+            - generic [ref=f10e102]:
+              - generic [ref=f10e103]:
+                - deletion [ref=f10e104]: 200.000đ
+                - strong [ref=f10e105]: 135.000đ
+              - link "Xem mẫu" [ref=f10e106] [cursor=pointer]:
+                - /url: /ao-chay-bo-thiet-ke-sat-nach-mau-gradient-vang-xanh-nang-dong-thoang-mat/
+        - article [ref=f10e109]:
+          - link "Xem Áo chạy bộ Atlas Runners trắng ngà phối tím hồng cam" [ref=f10e110] [cursor=pointer]:
+            - /url: /ao-chay-bo-atlas-runners-trang-nga-phoi-tim-hong-cam/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ Atlas Runners trắng ngà phối tím hồng cam" [ref=f10e111]
+          - generic [ref=f10e112]:
+            - heading [level=3] [ref=f10e113]:
+              - link "Áo chạy bộ Atlas Runners trắng ngà phối tím hồng cam" [ref=f10e114] [cursor=pointer]:
+                - /url: /ao-chay-bo-atlas-runners-trang-nga-phoi-tim-hong-cam/
+            - generic [ref=f10e115]:
+              - generic [ref=f10e116]:
+                - deletion [ref=f10e117]: 240.000đ
+                - strong [ref=f10e118]: 200.000đ
+              - link "Xem mẫu" [ref=f10e119] [cursor=pointer]:
+                - /url: /ao-chay-bo-atlas-runners-trang-nga-phoi-tim-hong-cam/
+        - article [ref=f10e122]:
+          - link "Xem Áo chạy bộ xanh dương vàng Gradient – Năng động & Cá tính" [ref=f10e123] [cursor=pointer]:
+            - /url: /ao-chay-bo-xanh-duong-vang-gradient-nang-dong-ca-tinh/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ xanh dương vàng Gradient - Năng động & Cá tính" [ref=f10e124]
+          - generic [ref=f10e125]:
+            - heading [level=3] [ref=f10e126]:
+              - link "Áo chạy bộ xanh dương vàng Gradient – Năng động & Cá tính" [ref=f10e127] [cursor=pointer]:
+                - /url: /ao-chay-bo-xanh-duong-vang-gradient-nang-dong-ca-tinh/
+            - generic [ref=f10e128]:
+              - generic [ref=f10e129]:
+                - deletion [ref=f10e130]: 240.000đ
+                - strong [ref=f10e131]: 200.000đ
+              - link "Xem mẫu" [ref=f10e132] [cursor=pointer]:
+                - /url: /ao-chay-bo-xanh-duong-vang-gradient-nang-dong-ca-tinh/
+        - article [ref=f10e135]:
+          - link "Xem Áo chạy bộ Tay Âu Ceramics – Gradient xanh lá cam vàng" [ref=f10e136] [cursor=pointer]:
+            - /url: /ao-chay-bo-tay-au-ceramics-gradient-xanh-la-cam-vang/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ Tay Âu Ceramics - Gradient xanh lá cam vàng" [ref=f10e137]
+          - generic [ref=f10e138]:
+            - heading [level=3] [ref=f10e139]:
+              - link "Áo chạy bộ Tay Âu Ceramics – Gradient xanh lá cam vàng" [ref=f10e140] [cursor=pointer]:
+                - /url: /ao-chay-bo-tay-au-ceramics-gradient-xanh-la-cam-vang/
+            - generic [ref=f10e141]:
+              - generic [ref=f10e142]:
+                - deletion [ref=f10e143]: 240.000đ
+                - strong [ref=f10e144]: 200.000đ
+              - link "Xem mẫu" [ref=f10e145] [cursor=pointer]:
+                - /url: /ao-chay-bo-tay-au-ceramics-gradient-xanh-la-cam-vang/
+  - generic [ref=f10e149]:
+    - generic [ref=f10e150]:
+      - paragraph [ref=f10e151]: Đội chạy đã có ý tưởng?
+      - heading "Gửi logo, màu sắc và số lượng. Chúng tôi cùng bạn hoàn thiện mẫu áo." [level=2] [ref=f10e152]
+    - link "Nhận tư vấn" [ref=f10e153] [cursor=pointer]:
+      - /url: https://zalo.me/0989353247
+  - contentinfo [ref=f10e156]:
+    - generic [ref=f10e157]:
+      - generic [ref=f10e158]:
+        - img "May Áo Chạy Bộ" [ref=f10e159]
+        - paragraph [ref=f10e160]: Thiết kế và may áo chạy bộ theo yêu cầu cho câu lạc bộ, giải chạy, doanh nghiệp và nhóm phong trào.
+      - generic [ref=f10e161]:
+        - heading "Khám phá" [level=3] [ref=f10e162]
+        - navigation [ref=f10e163]:
+          - link "Toàn bộ mẫu áo" [ref=f10e164] [cursor=pointer]:
+            - /url: /san-pham/
+          - link "Áo chạy bộ sát nách" [ref=f10e165] [cursor=pointer]:
+            - /url: /ao-chay-bo-sat-nach/
+          - link "Áo chạy bộ có tay" [ref=f10e166] [cursor=pointer]:
+            - /url: /ao-chay-bo-co-tay/
+          - link "Kinh nghiệm chạy bộ" [ref=f10e167] [cursor=pointer]:
+            - /url: /blog/
+      - generic [ref=f10e168]:
+        - heading "Liên hệ" [level=3] [ref=f10e169]
+        - generic [ref=f10e170]:
+          - link "0989 353 247" [ref=f10e171] [cursor=pointer]:
+            - /url: tel:0989353247
+          - link "Zalo tư vấn" [ref=f10e174] [cursor=pointer]:
+            - /url: https://zalo.me/0989353247
+          - link "Facebook" [ref=f10e177] [cursor=pointer]:
+            - /url: https://facebook.com/mayaochaybo
+    - generic [ref=f10e180]: © 2026 MayAoChayBo.vn · X24 Sport
+  - generic [ref=f10e181]:
+    - link "Gọi ngay" [ref=f10e182] [cursor=pointer]:
+      - /url: tel:0989353247
+    - link "Tư vấn mẫu" [ref=f10e185] [cursor=pointer]:
+      - /url: https://zalo.me/0989353247
+  - alert [ref=f10e188]

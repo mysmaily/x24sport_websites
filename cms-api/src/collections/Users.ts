@@ -28,7 +28,11 @@ export const Users: CollectionConfig = {
         update: superAdminFieldOnly,
       },
       defaultValue: 'editor',
-      options: ['super_admin', 'tenant_admin', 'editor'],
+      options: [
+        { label: 'Quản trị hệ thống', value: 'super_admin' },
+        { label: 'Quản trị website', value: 'tenant_admin' },
+        { label: 'Biên tập viên', value: 'editor' },
+      ],
       required: true,
     },
   ],

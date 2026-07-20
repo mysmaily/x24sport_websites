@@ -43,7 +43,10 @@ export default async function HomePage() {
       <div className="section-shell relative grid min-h-[720px] items-center gap-10 py-12 lg:grid-cols-[.94fr_1.06fr] lg:py-16 xl:gap-14">
         <div className="z-10 min-w-0 max-w-3xl">
           <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-[.1em] text-orange-200 sm:text-xs sm:tracking-[.16em]"><TimerReset className="shrink-0" size={16} /><span className="sm:hidden">Thiết kế riêng · Duyệt maket</span><span className="hidden sm:inline">May theo nhận diện riêng · Duyệt maket trước</span></p>
-          <h1 className="mt-7 max-w-[760px] font-display text-[3.25rem] font-extrabold leading-[.9] tracking-[.012em] sm:text-[4.75rem] lg:text-[clamp(4.4rem,5.25vw,6.15rem)]">ÁO CHẠY BỘ<br /><span className="text-brand">THIẾT KẾ RIÊNG</span></h1>
+          <h1 className="mt-7 max-w-[760px] font-display text-[3.25rem] font-extrabold leading-none tracking-[.012em] sm:text-[4.75rem] lg:text-[clamp(4.4rem,5.25vw,6.15rem)]">
+            <span className="block">ÁO CHẠY BỘ</span>
+            <span className="mt-[.2em] block text-brand">THIẾT KẾ RIÊNG</span>
+          </h1>
           <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">Thiết kế đồng bộ với màu sắc, logo và tinh thần của tổ chức — từ buổi chạy nội bộ đến ngày diễn ra sự kiện.</p>
 
           <ul className="mt-6 grid gap-2 sm:grid-cols-3" aria-label="Đối tượng khách hàng chính">

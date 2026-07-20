@@ -1,35 +1,95 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { ArrowRight, Filter, Shirt, Sparkles } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ChevronDown, Filter, Palette, Shirt, Sparkles } from 'lucide-react'
+import { notFound } from 'next/navigation'
 import { SiteHeader, phoneHref, zaloHref } from '../_components/info-pages'
 import {
-  catalogFilters,
+  catalogColorFilters,
+  catalogTypeFilters,
   formatPrice,
-  getAllProducts,
+  getProductsPage,
   getProductImageForFilter,
   type CatalogFilter,
   type Product,
 } from '../../lib/content'
 
-export const metadata: Metadata = {
-  title: 'Sản phẩm áo cầu lông | MayaoCauLong',
-  description: 'Tổng hợp mẫu áo cầu lông đặt may, in tên số và logo cho CLB, đội phong trào, trường lớp.',
-  alternates: {
-    canonical: 'https://mayaocaulong.vn/san-pham',
-  },
+type ProductsPageProps = {
+  searchParams: Promise<{ page?: string | string[] }>
 }
 
-export default async function ProductsPage() {
-  const products = await getAllProducts()
+function parsePageNumber(value?: string | string[]) {
+  const rawValue = Array.isArray(value) ? value[0] : value
+  if (!rawValue || !/^\d+$/.test(rawValue)) return 1
+  return Math.max(1, Number.parseInt(rawValue, 10))
+}
 
-  return <CatalogPageContent products={products} />
+function getProductsPageHref(page: number) {
+  return page <= 1 ? '/san-pham' : `/san-pham?page=${page}`
+}
+
+function getPaginationItems(currentPage: number, totalPages: number) {
+  const visiblePages = new Set([1, totalPages])
+  for (let page = Math.max(1, currentPage - 2); page <= Math.min(totalPages, currentPage + 2); page += 1) {
+    visiblePages.add(page)
+  }
+
+  const pages = [...visiblePages].sort((a, b) => a - b)
+  const items: Array<number | string> = []
+  pages.forEach((page, index) => {
+    if (index > 0 && page - pages[index - 1] > 1) items.push(`ellipsis-${page}`)
+    items.push(page)
+  })
+  return items
+}
+
+export async function generateMetadata({ searchParams }: ProductsPageProps): Promise<Metadata> {
+  const { page } = await searchParams
+  const currentPage = parsePageNumber(page)
+  const pageSuffix = currentPage > 1 ? ` - Trang ${currentPage}` : ''
+  const canonical = `https://mayaocaulong.vn${getProductsPageHref(currentPage)}`
+
+  return {
+    title: `Sản phẩm áo cầu lông${pageSuffix} | MayaoCauLong`,
+    description: `Tổng hợp mẫu áo cầu lông đặt may, in tên số và logo cho CLB, đội phong trào, trường lớp${currentPage > 1 ? ` - trang ${currentPage}.` : '.'}`,
+    alternates: { canonical },
+    openGraph: {
+      title: `Sản phẩm áo cầu lông${pageSuffix} | MayaoCauLong`,
+      description: 'Chọn mẫu áo cầu lông đặt may, in tên số và logo theo màu đội.',
+      url: canonical,
+    },
+  }
+}
+
+export default async function ProductsPage({ searchParams }: ProductsPageProps) {
+  const { page } = await searchParams
+  const requestedPage = parsePageNumber(page)
+  const catalogPage = await getProductsPage(requestedPage)
+
+  if (requestedPage > catalogPage.totalPages) notFound()
+
+  return (
+    <CatalogPageContent
+      pagination={{
+        currentPage: catalogPage.page,
+        totalPages: catalogPage.totalPages,
+        totalProducts: catalogPage.totalProducts,
+      }}
+      products={catalogPage.products}
+    />
+  )
 }
 
 export function CatalogPageContent({
   activeFilter,
+  pagination,
   products,
 }: {
   activeFilter?: CatalogFilter | null
+  pagination?: {
+    currentPage: number
+    totalPages: number
+    totalProducts: number
+  }
   products: Product[]
 }) {
   const heroTitle = activeFilter ? activeFilter.label.replace(/^Áo /, 'Áo cầu lông ') : 'Toàn bộ mẫu áo cầu lông đang có trên MayaoCauLong'
@@ -49,20 +109,34 @@ export function CatalogPageContent({
       </section>
 
       <section className="catalog-toolbar" id="bo-loc" aria-label="Bộ lọc mẫu áo">
-        <div>
+        <div className="catalog-filter-label">
           <Filter size={18} />
-          <strong>Lọc theo nhu cầu</strong>
+          <strong>Kiểu áo</strong>
         </div>
-        <div className="filter-chips">
+        <nav className="filter-chips" aria-label="Lọc theo kiểu áo">
           <Link className={!activeFilter ? 'active' : ''} href="/san-pham">
             Tất cả mẫu
           </Link>
-          {catalogFilters.map((filter) => (
+          {catalogTypeFilters.map((filter) => (
             <Link className={activeFilter?.slug === filter.slug ? 'active' : ''} href={filter.href} key={filter.slug}>
               {filter.label}
             </Link>
           ))}
-        </div>
+        </nav>
+        <details className={`catalog-color-filter${activeFilter?.group === 'color' ? ' is-active' : ''}`}>
+          <summary>
+            <Palette aria-hidden="true" size={17} />
+            <span>{activeFilter?.group === 'color' ? activeFilter.label : 'Màu áo'}</span>
+            <ChevronDown aria-hidden="true" size={16} />
+          </summary>
+          <nav aria-label="Lọc theo màu áo">
+            {catalogColorFilters.map((filter) => (
+              <Link className={activeFilter?.slug === filter.slug ? 'active' : ''} href={filter.href} key={filter.slug}>
+                {filter.label}
+              </Link>
+            ))}
+          </nav>
+        </details>
       </section>
 
       <section className="catalog-grid-section" id="danh-sach">
@@ -109,7 +183,57 @@ export function CatalogPageContent({
               </article>
             )
           })}
+          {!products.length ? (
+            <p className="catalog-empty-state">Chưa có mẫu phù hợp với bộ lọc này. Hãy xem tất cả mẫu hoặc gửi màu đội để được tư vấn.</p>
+          ) : null}
         </div>
+
+        {pagination && pagination.totalPages > 1 ? (
+          <nav className="catalog-pagination" aria-label="Phân trang sản phẩm">
+            {pagination.currentPage > 1 ? (
+              <Link className="pagination-direction" href={getProductsPageHref(pagination.currentPage - 1)} rel="prev">
+                <ArrowLeft aria-hidden="true" size={16} />
+                Trang trước
+              </Link>
+            ) : (
+              <span aria-disabled="true" className="pagination-direction is-disabled">
+                <ArrowLeft aria-hidden="true" size={16} />
+                Trang trước
+              </span>
+            )}
+
+            <div className="pagination-pages">
+              {getPaginationItems(pagination.currentPage, pagination.totalPages).map((item) =>
+                typeof item === 'number' ? (
+                  <Link
+                    aria-current={item === pagination.currentPage ? 'page' : undefined}
+                    className={item === pagination.currentPage ? 'is-current' : ''}
+                    href={getProductsPageHref(item)}
+                    key={item}
+                  >
+                    <span className="sr-only">Trang </span>
+                    {item}
+                  </Link>
+                ) : (
+                  <span aria-hidden="true" className="pagination-ellipsis" key={item}>…</span>
+                ),
+              )}
+            </div>
+
+            {pagination.currentPage < pagination.totalPages ? (
+              <Link className="pagination-direction" href={getProductsPageHref(pagination.currentPage + 1)} rel="next">
+                Trang sau
+                <ArrowRight aria-hidden="true" size={16} />
+              </Link>
+            ) : (
+              <span aria-disabled="true" className="pagination-direction is-disabled">
+                Trang sau
+                <ArrowRight aria-hidden="true" size={16} />
+              </span>
+            )}
+            <p>{pagination.totalProducts} mẫu · Trang {pagination.currentPage}/{pagination.totalPages}</p>
+          </nav>
+        ) : null}
       </section>
 
       <section className="catalog-bottom-cta">

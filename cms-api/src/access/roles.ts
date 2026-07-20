@@ -2,10 +2,20 @@ import type { Access, FieldAccess } from 'payload'
 
 type Role = 'super_admin' | 'tenant_admin' | 'editor'
 
-type UserWithRole = {
+export type UserWithRole = {
+  id?: number | string
   role?: Role
   tenants?: Array<{ tenant?: number | string | { id?: number | string } }> | null
 }
+
+export const userTenantIDs = (user?: UserWithRole | null) =>
+  (user?.tenants || [])
+    .map((entry) => {
+      const tenant = entry?.tenant
+      if (typeof tenant === 'number' || typeof tenant === 'string') return tenant
+      return tenant?.id
+    })
+    .filter((id): id is number | string => id !== undefined && id !== null)
 
 export const isSuperAdmin = (user?: UserWithRole | null) => user?.role === 'super_admin'
 

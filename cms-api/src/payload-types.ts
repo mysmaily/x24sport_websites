@@ -259,6 +259,10 @@ export interface Media {
   sourceUrl?: string | null;
   sourceChecksum?: string | null;
   tenantSourceKey?: string | null;
+  /**
+   * Tenant khác được phép gắn cùng media record và cùng R2 object. Chỉ super admin được thay đổi.
+   */
+  sharedWithTenants?: (number | Tenant)[] | null;
   alt: string;
   /**
    * Internal search helpers for tone, gradient, pose, and sport.
@@ -791,6 +795,7 @@ export interface MediaSelect<T extends boolean = true> {
   sourceUrl?: T;
   sourceChecksum?: T;
   tenantSourceKey?: T;
+  sharedWithTenants?: T;
   alt?: T;
   searchTags?:
     | T

@@ -19,6 +19,10 @@ const buildTenantConnectionKey = ({
 
 export const TenantPinterestConnections: CollectionConfig = {
   slug: 'tenant-pinterest-connections',
+  labels: {
+    plural: 'Kết nối Pinterest theo website',
+    singular: 'Kết nối Pinterest theo website',
+  },
   admin: {
     defaultColumns: [
       'tenant',
@@ -69,7 +73,7 @@ export const TenantPinterestConnections: CollectionConfig = {
       name: 'pinterestUsername',
       type: 'text',
       admin: {
-        description: 'Username tài khoản Pinterest hiện đang liên kết với tenant này.',
+        description: 'Username tài khoản Pinterest hiện đang liên kết với website này.',
       },
     },
     {
@@ -105,7 +109,7 @@ export const TenantPinterestConnections: CollectionConfig = {
       name: 'scope',
       type: 'text',
       admin: {
-        description: 'Danh sách scope OAuth đã cấp cho tenant này.',
+        description: 'Danh sách scope OAuth đã cấp cho website này.',
         readOnly: true,
       },
     },
@@ -113,7 +117,7 @@ export const TenantPinterestConnections: CollectionConfig = {
       name: 'sandboxScope',
       type: 'text',
       admin: {
-        description: 'Danh sách scope OAuth sandbox đã cấp cho tenant này.',
+        description: 'Danh sách scope OAuth sandbox đã cấp cho website này.',
         readOnly: true,
       },
     },

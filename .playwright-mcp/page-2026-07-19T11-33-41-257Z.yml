@@ -1,0 +1,53 @@
+- generic [active] [ref=f12e1]:
+  - link "Bỏ qua đến nội dung" [ref=f12e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f12e3]:
+    - generic [ref=f12e4]:
+      - link "May Áo Chạy Bộ — Trang chủ" [ref=f12e5] [cursor=pointer]:
+        - /url: /
+        - img "May Áo Chạy Bộ" [ref=f12e6]
+      - button "Mở menu" [ref=f12e7] [cursor=pointer]
+  - main [ref=f12e9]:
+    - alert [ref=f12e10]:
+      - generic [ref=f12e11]: "24"
+      - paragraph [ref=f12e12]: Đường truyền vừa gián đoạn.
+      - heading "Chưa thể tải nội dung." [level=1] [ref=f12e13]
+      - button "Thử lại" [ref=f12e14] [cursor=pointer]
+  - generic [ref=f12e16]:
+    - generic [ref=f12e17]:
+      - paragraph [ref=f12e18]: Đội chạy đã có ý tưởng?
+      - heading "Gửi logo, màu sắc và số lượng. Chúng tôi cùng bạn hoàn thiện mẫu áo." [level=2] [ref=f12e19]
+    - link "Nhận tư vấn" [ref=f12e20] [cursor=pointer]:
+      - /url: https://zalo.me/0989353247
+  - contentinfo [ref=f12e23]:
+    - generic [ref=f12e24]:
+      - generic [ref=f12e25]:
+        - img "May Áo Chạy Bộ" [ref=f12e26]
+        - paragraph [ref=f12e27]: Thiết kế và may áo chạy bộ theo yêu cầu cho câu lạc bộ, giải chạy, doanh nghiệp và nhóm phong trào.
+      - generic [ref=f12e28]:
+        - heading "Khám phá" [level=3] [ref=f12e29]
+        - navigation [ref=f12e30]:
+          - link "Toàn bộ mẫu áo" [ref=f12e31] [cursor=pointer]:
+            - /url: /san-pham/
+          - link "Áo chạy bộ sát nách" [ref=f12e32] [cursor=pointer]:
+            - /url: /ao-chay-bo-sat-nach/
+          - link "Áo chạy bộ có tay" [ref=f12e33] [cursor=pointer]:
+            - /url: /ao-chay-bo-co-tay/
+          - link "Kinh nghiệm chạy bộ" [ref=f12e34] [cursor=pointer]:
+            - /url: /blog/
+      - generic [ref=f12e35]:
+        - heading "Liên hệ" [level=3] [ref=f12e36]
+        - generic [ref=f12e37]:
+          - link "0989 353 247" [ref=f12e38] [cursor=pointer]:
+            - /url: tel:0989353247
+          - link "Zalo tư vấn" [ref=f12e41] [cursor=pointer]:
+            - /url: https://zalo.me/0989353247
+          - link "Facebook" [ref=f12e44] [cursor=pointer]:
+            - /url: https://facebook.com/mayaochaybo
+    - generic [ref=f12e47]: © 2026 MayAoChayBo.vn · X24 Sport
+  - generic [ref=f12e48]:
+    - link "Gọi ngay" [ref=f12e49] [cursor=pointer]:
+      - /url: tel:0989353247
+    - link "Tư vấn mẫu" [ref=f12e52] [cursor=pointer]:
+      - /url: https://zalo.me/0989353247
+  - alert [ref=f12e55]

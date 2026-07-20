@@ -175,6 +175,12 @@ Media uploads use one R2 bucket with tenant prefixes:
 - `https://static.x24sport.vn/mayaocaulong/...`
 - `https://static.x24sport.vn/mayaobongchuyen/...`
 
+One media record may be consumed by additional tenants without copying the R2
+object when its `sharedWithTenants` relationship explicitly includes those
+tenants. The original `tenant` remains the owner. Only a super admin may change
+sharing; tenant admins may update or delete only owner-tenant media. Deletion is
+blocked while a product gallery still references the media record.
+
 Relevant files:
 
 - `src/collections/Media.ts`

@@ -1,0 +1,474 @@
+- generic [active] [ref=f4e1]:
+  - link "Bỏ qua đến nội dung" [ref=f4e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f4e3]:
+    - generic [ref=f4e4]:
+      - link "May Áo Chạy Bộ — Trang chủ" [ref=f4e5] [cursor=pointer]:
+        - /url: /
+        - img "May Áo Chạy Bộ" [ref=f4e6]
+      - button "Mở menu" [ref=f4e7] [cursor=pointer]
+  - main [ref=f4e9]:
+    - generic [ref=f4e10]:
+      - navigation [ref=f4e11]:
+        - link "Trang chủ" [ref=f4e12] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f4e15]: Mẫu áo chạy bộ
+      - generic [ref=f4e16]:
+        - heading "Toàn bộ mẫu áo chạy bộ." [level=1] [ref=f4e18]
+        - paragraph [ref=f4e19]: Chọn một thiết kế làm điểm bắt đầu. Màu sắc, logo và nội dung có thể điều chỉnh theo nhu cầu thực tế.
+      - search [ref=f4e20]:
+        - generic [ref=f4e24]: Tìm mẫu áo
+        - searchbox "Tìm mẫu áo" [ref=f4e25]
+        - button "Tìm" [ref=f4e26]
+      - navigation "Lọc mẫu áo theo kiểu và màu sắc" [ref=f4e27]:
+        - generic [ref=f4e28]:
+          - link "Tất cả kiểu" [ref=f4e29] [cursor=pointer]:
+            - /url: /san-pham/
+          - link "Áo cờ đỏ sao vàng 19" [ref=f4e30] [cursor=pointer]:
+            - /url: /ao-chay-bo-co-do-sao-vang/
+            - text: Áo cờ đỏ sao vàng
+            - generic [ref=f4e31]: "19"
+          - link "Áo chạy bộ có tay 191" [ref=f4e32] [cursor=pointer]:
+            - /url: /ao-chay-bo-co-tay/
+            - text: Áo chạy bộ có tay
+            - generic [ref=f4e33]: "191"
+          - link "Áo chạy bộ sát nách 224" [ref=f4e34] [cursor=pointer]:
+            - /url: /ao-chay-bo-sat-nach/
+            - text: Áo chạy bộ sát nách
+            - generic [ref=f4e35]: "224"
+          - link "Áo chạy bộ thiết kế riêng 119" [ref=f4e36] [cursor=pointer]:
+            - /url: /may-ao-chay-bo-thiet-ke-rieng-x24/
+            - text: Áo chạy bộ thiết kế riêng
+            - generic [ref=f4e37]: "119"
+        - group [ref=f4e38]:
+          - generic "Màu sắc" [ref=f4e39] [cursor=pointer]
+      - generic [ref=f4e43]:
+        - generic [ref=f4e44]: 603 mẫu phù hợp
+        - generic [ref=f4e45]: Trang 1/26
+      - generic [ref=f4e46]:
+        - article [ref=f4e47]:
+          - link "Xem Áo Chạy Bộ Thiết Kế Sát Nách Màu Gradient Vàng Xanh – Năng Động, Thoáng Mát" [ref=f4e48] [cursor=pointer]:
+            - /url: /ao-chay-bo-thiet-ke-sat-nach-mau-gradient-vang-xanh-nang-dong-thoang-mat/
+            - img "Áo chạy bộ sát nách gradient vàng xanh trên người mẫu nam nữ" [ref=f4e49]
+            - generic [ref=f4e50]: Running / X24
+          - generic [ref=f4e51]:
+            - paragraph [ref=f4e52]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e53]:
+              - link "Áo Chạy Bộ Thiết Kế Sát Nách Màu Gradient Vàng Xanh – Năng Động, Thoáng Mát" [ref=f4e54] [cursor=pointer]:
+                - /url: /ao-chay-bo-thiet-ke-sat-nach-mau-gradient-vang-xanh-nang-dong-thoang-mat/
+            - generic [ref=f4e55]:
+              - generic [ref=f4e56]:
+                - deletion [ref=f4e57]: 200.000đ
+                - strong [ref=f4e58]: 135.000đ
+              - link "Xem mẫu" [ref=f4e59] [cursor=pointer]:
+                - /url: /ao-chay-bo-thiet-ke-sat-nach-mau-gradient-vang-xanh-nang-dong-thoang-mat/
+        - article [ref=f4e62]:
+          - link "Xem Áo chạy bộ Atlas Runners trắng ngà phối tím hồng cam" [ref=f4e63] [cursor=pointer]:
+            - /url: /ao-chay-bo-atlas-runners-trang-nga-phoi-tim-hong-cam/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ Atlas Runners trắng ngà phối tím hồng cam" [ref=f4e64]
+            - generic [ref=f4e65]: Running / X24
+          - generic [ref=f4e66]:
+            - paragraph [ref=f4e67]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e68]:
+              - link "Áo chạy bộ Atlas Runners trắng ngà phối tím hồng cam" [ref=f4e69] [cursor=pointer]:
+                - /url: /ao-chay-bo-atlas-runners-trang-nga-phoi-tim-hong-cam/
+            - generic [ref=f4e70]:
+              - generic [ref=f4e71]:
+                - deletion [ref=f4e72]: 240.000đ
+                - strong [ref=f4e73]: 200.000đ
+              - link "Xem mẫu" [ref=f4e74] [cursor=pointer]:
+                - /url: /ao-chay-bo-atlas-runners-trang-nga-phoi-tim-hong-cam/
+        - article [ref=f4e77]:
+          - link "Xem Áo chạy bộ xanh dương vàng Gradient – Năng động & Cá tính" [ref=f4e78] [cursor=pointer]:
+            - /url: /ao-chay-bo-xanh-duong-vang-gradient-nang-dong-ca-tinh/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ xanh dương vàng Gradient - Năng động & Cá tính" [ref=f4e79]
+            - generic [ref=f4e80]: Running / X24
+          - generic [ref=f4e81]:
+            - paragraph [ref=f4e82]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e83]:
+              - link "Áo chạy bộ xanh dương vàng Gradient – Năng động & Cá tính" [ref=f4e84] [cursor=pointer]:
+                - /url: /ao-chay-bo-xanh-duong-vang-gradient-nang-dong-ca-tinh/
+            - generic [ref=f4e85]:
+              - generic [ref=f4e86]:
+                - deletion [ref=f4e87]: 240.000đ
+                - strong [ref=f4e88]: 200.000đ
+              - link "Xem mẫu" [ref=f4e89] [cursor=pointer]:
+                - /url: /ao-chay-bo-xanh-duong-vang-gradient-nang-dong-ca-tinh/
+        - article [ref=f4e92]:
+          - link "Xem Áo chạy bộ Tay Âu Ceramics – Gradient xanh lá cam vàng" [ref=f4e93] [cursor=pointer]:
+            - /url: /ao-chay-bo-tay-au-ceramics-gradient-xanh-la-cam-vang/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ Tay Âu Ceramics - Gradient xanh lá cam vàng" [ref=f4e94]
+            - generic [ref=f4e95]: Running / X24
+          - generic [ref=f4e96]:
+            - paragraph [ref=f4e97]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e98]:
+              - link "Áo chạy bộ Tay Âu Ceramics – Gradient xanh lá cam vàng" [ref=f4e99] [cursor=pointer]:
+                - /url: /ao-chay-bo-tay-au-ceramics-gradient-xanh-la-cam-vang/
+            - generic [ref=f4e100]:
+              - generic [ref=f4e101]:
+                - deletion [ref=f4e102]: 240.000đ
+                - strong [ref=f4e103]: 200.000đ
+              - link "Xem mẫu" [ref=f4e104] [cursor=pointer]:
+                - /url: /ao-chay-bo-tay-au-ceramics-gradient-xanh-la-cam-vang/
+        - article [ref=f4e107]:
+          - link "Xem Áo chạy bộ Việt Nam – Thiết kế trắng năng động, tinh thần thể thao mạnh mẽ" [ref=f4e108] [cursor=pointer]:
+            - /url: /ao-chay-bo-viet-nam-thiet-ke-trang-nang-dong-tinh-than-the-thao-manh-me/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ Việt Nam - Thiết kế trắng năng động, tinh thần thể thao mạnh mẽ" [ref=f4e109]
+            - generic [ref=f4e110]: Running / X24
+          - generic [ref=f4e111]:
+            - paragraph [ref=f4e112]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e113]:
+              - link "Áo chạy bộ Việt Nam – Thiết kế trắng năng động, tinh thần thể thao mạnh mẽ" [ref=f4e114] [cursor=pointer]:
+                - /url: /ao-chay-bo-viet-nam-thiet-ke-trang-nang-dong-tinh-than-the-thao-manh-me/
+            - generic [ref=f4e115]:
+              - generic [ref=f4e116]:
+                - deletion [ref=f4e117]: 240.000đ
+                - strong [ref=f4e118]: 200.000đ
+              - link "Xem mẫu" [ref=f4e119] [cursor=pointer]:
+                - /url: /ao-chay-bo-viet-nam-thiet-ke-trang-nang-dong-tinh-than-the-thao-manh-me/
+        - article [ref=f4e122]:
+          - link "Xem Áo Chạy Bộ Hồng Đen Blink Kids Dance Team – Gradient Cá Tính Cho Bé Năng Động" [ref=f4e123] [cursor=pointer]:
+            - /url: /ao-chay-bo-hong-den-blink-kids-dance-team-gradient-ca-tinh-cho-be-nang-dong/
+            - img "Người mẫu mặc áo chạy bộ Áo Chạy Bộ Hồng Đen Blink Kids Dance Team – Gradient Cá Tính Cho Bé Năng Động" [ref=f4e124]
+            - generic [ref=f4e125]: Running / X24
+          - generic [ref=f4e126]:
+            - paragraph [ref=f4e127]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e128]:
+              - link "Áo Chạy Bộ Hồng Đen Blink Kids Dance Team – Gradient Cá Tính Cho Bé Năng Động" [ref=f4e129] [cursor=pointer]:
+                - /url: /ao-chay-bo-hong-den-blink-kids-dance-team-gradient-ca-tinh-cho-be-nang-dong/
+            - generic [ref=f4e130]:
+              - generic [ref=f4e131]:
+                - deletion [ref=f4e132]: 240.000đ
+                - strong [ref=f4e133]: 200.000đ
+              - link "Xem mẫu" [ref=f4e134] [cursor=pointer]:
+                - /url: /ao-chay-bo-hong-den-blink-kids-dance-team-gradient-ca-tinh-cho-be-nang-dong/
+        - article [ref=f4e137]:
+          - link "Xem Áo Chạy Bộ Nam Màu Xanh Lá RUN FASTER – Năng Lượng Từ Tự Nhiên" [ref=f4e138] [cursor=pointer]:
+            - /url: /ao-chay-bo-nam-mau-xanh-la-run-faster-nang-luong-tu-tu-nhien/
+            - img "Người mẫu mặc áo chạy bộ Áo Chạy Bộ Nam Màu Xanh Lá RUN FASTER – Năng Lượng Từ Tự Nhiên" [ref=f4e139]
+            - generic [ref=f4e140]: Running / X24
+          - generic [ref=f4e141]:
+            - paragraph [ref=f4e142]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e143]:
+              - link "Áo Chạy Bộ Nam Màu Xanh Lá RUN FASTER – Năng Lượng Từ Tự Nhiên" [ref=f4e144] [cursor=pointer]:
+                - /url: /ao-chay-bo-nam-mau-xanh-la-run-faster-nang-luong-tu-tu-nhien/
+            - generic [ref=f4e145]:
+              - generic [ref=f4e146]:
+                - deletion [ref=f4e147]: 240.000đ
+                - strong [ref=f4e148]: 200.000đ
+              - link "Xem mẫu" [ref=f4e149] [cursor=pointer]:
+                - /url: /ao-chay-bo-nam-mau-xanh-la-run-faster-nang-luong-tu-tu-nhien/
+        - article [ref=f4e152]:
+          - link "Xem Áo Chạy Bộ An Biên Runner – Xanh Biển Đỏ Đen" [ref=f4e153] [cursor=pointer]:
+            - /url: /ao-chay-bo-an-bien-runner-xanh-bien-do-den/
+            - img "Người mẫu mặc áo chạy bộ Áo Chạy Bộ An Biên Runner - Xanh Biển Đỏ Đen" [ref=f4e154]
+            - generic [ref=f4e155]: Running / X24
+          - generic [ref=f4e156]:
+            - paragraph [ref=f4e157]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e158]:
+              - link "Áo Chạy Bộ An Biên Runner – Xanh Biển Đỏ Đen" [ref=f4e159] [cursor=pointer]:
+                - /url: /ao-chay-bo-an-bien-runner-xanh-bien-do-den/
+            - generic [ref=f4e160]:
+              - generic [ref=f4e161]:
+                - deletion [ref=f4e162]: 240.000đ
+                - strong [ref=f4e163]: 200.000đ
+              - link "Xem mẫu" [ref=f4e164] [cursor=pointer]:
+                - /url: /ao-chay-bo-an-bien-runner-xanh-bien-do-den/
+        - article [ref=f4e167]:
+          - link "Xem Áo Chạy Bộ FIVE FIT Gradient Hồng Xanh Dương" [ref=f4e168] [cursor=pointer]:
+            - /url: /ao-chay-bo-five-fit-gradient-hong-xanh-duong/
+            - img "Người mẫu mặc áo chạy bộ Áo Chạy Bộ FIVE FIT Gradient Hồng Xanh Dương" [ref=f4e169]
+            - generic [ref=f4e170]: Running / X24
+          - generic [ref=f4e171]:
+            - paragraph [ref=f4e172]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e173]:
+              - link "Áo Chạy Bộ FIVE FIT Gradient Hồng Xanh Dương" [ref=f4e174] [cursor=pointer]:
+                - /url: /ao-chay-bo-five-fit-gradient-hong-xanh-duong/
+            - generic [ref=f4e175]:
+              - generic [ref=f4e176]:
+                - deletion [ref=f4e177]: 240.000đ
+                - strong [ref=f4e178]: 200.000đ
+              - link "Xem mẫu" [ref=f4e179] [cursor=pointer]:
+                - /url: /ao-chay-bo-five-fit-gradient-hong-xanh-duong/
+        - article [ref=f4e182]:
+          - link "Xem Áo Chạy Bộ Sát Nách Đỏ Cam Vietnam – Thiết Kế Năng Động, Dành Cho Người Yêu Thể Thao" [ref=f4e183] [cursor=pointer]:
+            - /url: /ao-chay-bo-sat-nach-do-cam-vietnam-thiet-ke-nang-dong-danh-cho-nguoi-yeu-the-thao/
+            - img "Người mẫu mặc áo chạy bộ Áo Chạy Bộ Sát Nách Đỏ Cam Vietnam – Thiết Kế Năng Động, Dành Cho Người Yêu Thể Thao" [ref=f4e184]
+            - generic [ref=f4e185]: Running / X24
+          - generic [ref=f4e186]:
+            - paragraph [ref=f4e187]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e188]:
+              - link "Áo Chạy Bộ Sát Nách Đỏ Cam Vietnam – Thiết Kế Năng Động, Dành Cho Người Yêu Thể Thao" [ref=f4e189] [cursor=pointer]:
+                - /url: /ao-chay-bo-sat-nach-do-cam-vietnam-thiet-ke-nang-dong-danh-cho-nguoi-yeu-the-thao/
+            - generic [ref=f4e190]:
+              - generic [ref=f4e191]:
+                - deletion [ref=f4e192]: 240.000đ
+                - strong [ref=f4e193]: 200.000đ
+              - link "Xem mẫu" [ref=f4e194] [cursor=pointer]:
+                - /url: /ao-chay-bo-sat-nach-do-cam-vietnam-thiet-ke-nang-dong-danh-cho-nguoi-yeu-the-thao/
+        - article [ref=f4e197]:
+          - link "Xem Áo Chạy Bộ Sunday Team Xanh Dương Chuyển Sắc" [ref=f4e198] [cursor=pointer]:
+            - /url: /ao-chay-bo-sunday-team-xanh-duong-chuyen-sac/
+            - img "Người mẫu mặc áo chạy bộ Áo Chạy Bộ Sunday Team Xanh Dương Chuyển Sắc" [ref=f4e199]
+            - generic [ref=f4e200]: Running / X24
+          - generic [ref=f4e201]:
+            - paragraph [ref=f4e202]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e203]:
+              - link "Áo Chạy Bộ Sunday Team Xanh Dương Chuyển Sắc" [ref=f4e204] [cursor=pointer]:
+                - /url: /ao-chay-bo-sunday-team-xanh-duong-chuyen-sac/
+            - generic [ref=f4e205]:
+              - generic [ref=f4e206]:
+                - deletion [ref=f4e207]: 240.000đ
+                - strong [ref=f4e208]: 200.000đ
+              - link "Xem mẫu" [ref=f4e209] [cursor=pointer]:
+                - /url: /ao-chay-bo-sunday-team-xanh-duong-chuyen-sac/
+        - article [ref=f4e212]:
+          - link "Xem Áo chạy bộ An Biên Runner – Xanh biển đỏ cam" [ref=f4e213] [cursor=pointer]:
+            - /url: /ao-chay-bo-an-bien-runner-xanh-bien-do-cam/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ An Biên Runner - Xanh biển đỏ cam" [ref=f4e214]
+            - generic [ref=f4e215]: Running / X24
+          - generic [ref=f4e216]:
+            - paragraph [ref=f4e217]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e218]:
+              - link "Áo chạy bộ An Biên Runner – Xanh biển đỏ cam" [ref=f4e219] [cursor=pointer]:
+                - /url: /ao-chay-bo-an-bien-runner-xanh-bien-do-cam/
+            - generic [ref=f4e220]:
+              - generic [ref=f4e221]:
+                - deletion [ref=f4e222]: 240.000đ
+                - strong [ref=f4e223]: 200.000đ
+              - link "Xem mẫu" [ref=f4e224] [cursor=pointer]:
+                - /url: /ao-chay-bo-an-bien-runner-xanh-bien-do-cam/
+        - article [ref=f4e227]:
+          - link "Xem Áo Chạy Bộ Trắng Hồng Xanh Gradient – Năng Động & Thời Trang" [ref=f4e228] [cursor=pointer]:
+            - /url: /ao-chay-bo-trang-hong-xanh-gradient-nang-dong-thoi-trang/
+            - img "Người mẫu mặc áo chạy bộ Áo Chạy Bộ Trắng Hồng Xanh Gradient - Năng Động & Thời Trang" [ref=f4e229]
+            - generic [ref=f4e230]: Running / X24
+          - generic [ref=f4e231]:
+            - paragraph [ref=f4e232]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e233]:
+              - link "Áo Chạy Bộ Trắng Hồng Xanh Gradient – Năng Động & Thời Trang" [ref=f4e234] [cursor=pointer]:
+                - /url: /ao-chay-bo-trang-hong-xanh-gradient-nang-dong-thoi-trang/
+            - generic [ref=f4e235]:
+              - generic [ref=f4e236]:
+                - deletion [ref=f4e237]: 240.000đ
+                - strong [ref=f4e238]: 200.000đ
+              - link "Xem mẫu" [ref=f4e239] [cursor=pointer]:
+                - /url: /ao-chay-bo-trang-hong-xanh-gradient-nang-dong-thoi-trang/
+        - article [ref=f4e242]:
+          - link "Xem Áo chạy bộ Running Núi Hiểu – Sắc màu thiên nhiên rực rỡ" [ref=f4e243] [cursor=pointer]:
+            - /url: /ao-chay-bo-running-nui-hieu-sac-mau-thien-nhien-ruc-ro/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ Running Núi Hiểu – Sắc màu thiên nhiên rực rỡ" [ref=f4e244]
+            - generic [ref=f4e245]: Running / X24
+          - generic [ref=f4e246]:
+            - paragraph [ref=f4e247]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e248]:
+              - link "Áo chạy bộ Running Núi Hiểu – Sắc màu thiên nhiên rực rỡ" [ref=f4e249] [cursor=pointer]:
+                - /url: /ao-chay-bo-running-nui-hieu-sac-mau-thien-nhien-ruc-ro/
+            - generic [ref=f4e250]:
+              - generic [ref=f4e251]:
+                - deletion [ref=f4e252]: 240.000đ
+                - strong [ref=f4e253]: 200.000đ
+              - link "Xem mẫu" [ref=f4e254] [cursor=pointer]:
+                - /url: /ao-chay-bo-running-nui-hieu-sac-mau-thien-nhien-ruc-ro/
+        - article [ref=f4e257]:
+          - link "Xem Áo Chạy Bộ Team Finisher Trắng Xanh Gradient Năng Động" [ref=f4e258] [cursor=pointer]:
+            - /url: /ao-chay-bo-team-finisher-trang-xanh-gradient-nang-dong/
+            - img "Người mẫu mặc áo chạy bộ Áo Chạy Bộ Team Finisher Trắng Xanh Gradient Năng Động" [ref=f4e259]
+            - generic [ref=f4e260]: Running / X24
+          - generic [ref=f4e261]:
+            - paragraph [ref=f4e262]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e263]:
+              - link "Áo Chạy Bộ Team Finisher Trắng Xanh Gradient Năng Động" [ref=f4e264] [cursor=pointer]:
+                - /url: /ao-chay-bo-team-finisher-trang-xanh-gradient-nang-dong/
+            - generic [ref=f4e265]:
+              - generic [ref=f4e266]:
+                - deletion [ref=f4e267]: 240.000đ
+                - strong [ref=f4e268]: 200.000đ
+              - link "Xem mẫu" [ref=f4e269] [cursor=pointer]:
+                - /url: /ao-chay-bo-team-finisher-trang-xanh-gradient-nang-dong/
+        - article [ref=f4e272]:
+          - link "Xem Áo chạy bộ chuyển sắc vàng cam đỏ – Năng lượng & Tự hào" [ref=f4e273] [cursor=pointer]:
+            - /url: /ao-chay-bo-chuyen-sac-vang-cam-do-nang-luong-tu-hao/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ chuyển sắc vàng cam đỏ – Năng lượng & Tự hào" [ref=f4e274]
+            - generic [ref=f4e275]: Running / X24
+          - generic [ref=f4e276]:
+            - paragraph [ref=f4e277]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e278]:
+              - link "Áo chạy bộ chuyển sắc vàng cam đỏ – Năng lượng & Tự hào" [ref=f4e279] [cursor=pointer]:
+                - /url: /ao-chay-bo-chuyen-sac-vang-cam-do-nang-luong-tu-hao/
+            - generic [ref=f4e280]:
+              - generic [ref=f4e281]:
+                - deletion [ref=f4e282]: 240.000đ
+                - strong [ref=f4e283]: 200.000đ
+              - link "Xem mẫu" [ref=f4e284] [cursor=pointer]:
+                - /url: /ao-chay-bo-chuyen-sac-vang-cam-do-nang-luong-tu-hao/
+        - article [ref=f4e287]:
+          - link "Xem Áo chạy bộ gradient hồng tím xanh – Năng động & cá tính" [ref=f4e288] [cursor=pointer]:
+            - /url: /ao-chay-bo-gradient-hong-tim-xanh-nang-dong-ca-tinh/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ gradient hồng tím xanh - Năng động & cá tính" [ref=f4e289]
+            - generic [ref=f4e290]: Running / X24
+          - generic [ref=f4e291]:
+            - paragraph [ref=f4e292]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e293]:
+              - link "Áo chạy bộ gradient hồng tím xanh – Năng động & cá tính" [ref=f4e294] [cursor=pointer]:
+                - /url: /ao-chay-bo-gradient-hong-tim-xanh-nang-dong-ca-tinh/
+            - generic [ref=f4e295]:
+              - generic [ref=f4e296]:
+                - deletion [ref=f4e297]: 240.000đ
+                - strong [ref=f4e298]: 200.000đ
+              - link "Xem mẫu" [ref=f4e299] [cursor=pointer]:
+                - /url: /ao-chay-bo-gradient-hong-tim-xanh-nang-dong-ca-tinh/
+        - article [ref=f4e302]:
+          - link "Xem Áo Chạy Bộ Trắng Thiết Kế Riêng – Năng Động & Thoáng Mát" [ref=f4e303] [cursor=pointer]:
+            - /url: /ao-chay-bo-trang-thiet-ke-rieng-nang-dong-thoang-mat/
+            - img "Người mẫu mặc áo chạy bộ Áo Chạy Bộ Trắng Thiết Kế Riêng – Năng Động & Thoáng Mát" [ref=f4e304]
+            - generic [ref=f4e305]: Running / X24
+          - generic [ref=f4e306]:
+            - paragraph [ref=f4e307]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e308]:
+              - link "Áo Chạy Bộ Trắng Thiết Kế Riêng – Năng Động & Thoáng Mát" [ref=f4e309] [cursor=pointer]:
+                - /url: /ao-chay-bo-trang-thiet-ke-rieng-nang-dong-thoang-mat/
+            - generic [ref=f4e310]:
+              - generic [ref=f4e311]:
+                - deletion [ref=f4e312]: 240.000đ
+                - strong [ref=f4e313]: 200.000đ
+              - link "Xem mẫu" [ref=f4e314] [cursor=pointer]:
+                - /url: /ao-chay-bo-trang-thiet-ke-rieng-nang-dong-thoang-mat/
+        - article [ref=f4e317]:
+          - link "Xem Áo Chạy Bộ You Got This Màu Ombre Cá Tính" [ref=f4e318] [cursor=pointer]:
+            - /url: /ao-chay-bo-you-got-this-mau-ombre-ca-tinh/
+            - img "Người mẫu mặc áo chạy bộ Áo Chạy Bộ You Got This Màu Ombre Cá Tính" [ref=f4e319]
+            - generic [ref=f4e320]: Running / X24
+          - generic [ref=f4e321]:
+            - paragraph [ref=f4e322]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e323]:
+              - link "Áo Chạy Bộ You Got This Màu Ombre Cá Tính" [ref=f4e324] [cursor=pointer]:
+                - /url: /ao-chay-bo-you-got-this-mau-ombre-ca-tinh/
+            - generic [ref=f4e325]:
+              - generic [ref=f4e326]:
+                - deletion [ref=f4e327]: 240.000đ
+                - strong [ref=f4e328]: 200.000đ
+              - link "Xem mẫu" [ref=f4e329] [cursor=pointer]:
+                - /url: /ao-chay-bo-you-got-this-mau-ombre-ca-tinh/
+        - article [ref=f4e332]:
+          - link "Xem Áo chạy bộ phối màu chuyển sắc xanh biển – đỏ – cam – xanh ngọc" [ref=f4e333] [cursor=pointer]:
+            - /url: /ao-chay-bo-phoi-mau-chuyen-sac-xanh-bien-do-cam-xanh-ngoc/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ phối màu chuyển sắc xanh biển – đỏ – cam – xanh ngọc" [ref=f4e334]
+            - generic [ref=f4e335]: Running / X24
+          - generic [ref=f4e336]:
+            - paragraph [ref=f4e337]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e338]:
+              - link "Áo chạy bộ phối màu chuyển sắc xanh biển – đỏ – cam – xanh ngọc" [ref=f4e339] [cursor=pointer]:
+                - /url: /ao-chay-bo-phoi-mau-chuyen-sac-xanh-bien-do-cam-xanh-ngoc/
+            - generic [ref=f4e340]:
+              - generic [ref=f4e341]:
+                - deletion [ref=f4e342]: 240.000đ
+                - strong [ref=f4e343]: 200.000đ
+              - link "Xem mẫu" [ref=f4e344] [cursor=pointer]:
+                - /url: /ao-chay-bo-phoi-mau-chuyen-sac-xanh-bien-do-cam-xanh-ngoc/
+        - article [ref=f4e347]:
+          - link "Xem Áo chạy bộ xanh dương trắng SPEEDY – Mát mẻ, thể thao, tinh thần Việt" [ref=f4e348] [cursor=pointer]:
+            - /url: /ao-chay-bo-xanh-duong-trang-speedy-mat-me-the-thao-tinh-than-viet/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ xanh dương trắng SPEEDY – Mát mẻ, thể thao, tinh thần Việt" [ref=f4e349]
+            - generic [ref=f4e350]: Running / X24
+          - generic [ref=f4e351]:
+            - paragraph [ref=f4e352]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e353]:
+              - link "Áo chạy bộ xanh dương trắng SPEEDY – Mát mẻ, thể thao, tinh thần Việt" [ref=f4e354] [cursor=pointer]:
+                - /url: /ao-chay-bo-xanh-duong-trang-speedy-mat-me-the-thao-tinh-than-viet/
+            - generic [ref=f4e355]:
+              - generic [ref=f4e356]:
+                - deletion [ref=f4e357]: 240.000đ
+                - strong [ref=f4e358]: 200.000đ
+              - link "Xem mẫu" [ref=f4e359] [cursor=pointer]:
+                - /url: /ao-chay-bo-xanh-duong-trang-speedy-mat-me-the-thao-tinh-than-viet/
+        - article [ref=f4e362]:
+          - link "Xem Áo chạy bộ nam màu đen – Tự hào Việt Nam" [ref=f4e363] [cursor=pointer]:
+            - /url: /ao-chay-bo-nam-mau-den-tu-hao-viet-nam/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ nam màu đen – Tự hào Việt Nam" [ref=f4e364]
+            - generic [ref=f4e365]: Running / X24
+          - generic [ref=f4e366]:
+            - paragraph [ref=f4e367]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e368]:
+              - link "Áo chạy bộ nam màu đen – Tự hào Việt Nam" [ref=f4e369] [cursor=pointer]:
+                - /url: /ao-chay-bo-nam-mau-den-tu-hao-viet-nam/
+            - generic [ref=f4e370]:
+              - generic [ref=f4e371]:
+                - deletion [ref=f4e372]: 240.000đ
+                - strong [ref=f4e373]: 200.000đ
+              - link "Xem mẫu" [ref=f4e374] [cursor=pointer]:
+                - /url: /ao-chay-bo-nam-mau-den-tu-hao-viet-nam/
+        - article [ref=f4e377]:
+          - link "Xem Áo Chạy Bộ Vàng Gradient Rừng Núi – NIỀM TỰ HÀO VIỆT NAM" [ref=f4e378] [cursor=pointer]:
+            - /url: /ao-chay-bo-vang-gradient-rung-nui-niem-tu-hao-viet-nam/
+            - img "Người mẫu mặc áo chạy bộ Áo Chạy Bộ Vàng Gradient Rừng Núi – NIỀM TỰ HÀO VIỆT NAM" [ref=f4e379]
+            - generic [ref=f4e380]: Running / X24
+          - generic [ref=f4e381]:
+            - paragraph [ref=f4e382]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e383]:
+              - link "Áo Chạy Bộ Vàng Gradient Rừng Núi – NIỀM TỰ HÀO VIỆT NAM" [ref=f4e384] [cursor=pointer]:
+                - /url: /ao-chay-bo-vang-gradient-rung-nui-niem-tu-hao-viet-nam/
+            - generic [ref=f4e385]:
+              - generic [ref=f4e386]:
+                - deletion [ref=f4e387]: 240.000đ
+                - strong [ref=f4e388]: 200.000đ
+              - link "Xem mẫu" [ref=f4e389] [cursor=pointer]:
+                - /url: /ao-chay-bo-vang-gradient-rung-nui-niem-tu-hao-viet-nam/
+        - article [ref=f4e392]:
+          - link "Xem Áo chạy bộ xanh biển ombre ‘Run When You Can’ sát nách thoáng mát" [ref=f4e393] [cursor=pointer]:
+            - /url: /ao-chay-bo-xanh-bien-ombre-run-when-you-can-sat-nach-thoang-mat/
+            - img "Người mẫu mặc áo chạy bộ Áo chạy bộ xanh biển ombre 'Run When You Can' sát nách thoáng mát" [ref=f4e394]
+            - generic [ref=f4e395]: Running / X24
+          - generic [ref=f4e396]:
+            - paragraph [ref=f4e397]: May theo màu, logo & cự ly của đội
+            - heading [level=3] [ref=f4e398]:
+              - link "Áo chạy bộ xanh biển ombre ‘Run When You Can’ sát nách thoáng mát" [ref=f4e399] [cursor=pointer]:
+                - /url: /ao-chay-bo-xanh-bien-ombre-run-when-you-can-sat-nach-thoang-mat/
+            - generic [ref=f4e400]:
+              - generic [ref=f4e401]:
+                - deletion [ref=f4e402]: 240.000đ
+                - strong [ref=f4e403]: 200.000đ
+              - link "Xem mẫu" [ref=f4e404] [cursor=pointer]:
+                - /url: /ao-chay-bo-xanh-bien-ombre-run-when-you-can-sat-nach-thoang-mat/
+      - navigation "Phân trang" [ref=f4e407]:
+        - generic [ref=f4e408]: 1 / 26
+        - link "Trang sau" [ref=f4e409] [cursor=pointer]:
+          - /url: /san-pham/?page=2
+  - generic [ref=f4e413]:
+    - generic [ref=f4e414]:
+      - paragraph [ref=f4e415]: Đội chạy đã có ý tưởng?
+      - heading "Gửi logo, màu sắc và số lượng. Chúng tôi cùng bạn hoàn thiện mẫu áo." [level=2] [ref=f4e416]
+    - link "Nhận tư vấn" [ref=f4e417] [cursor=pointer]:
+      - /url: https://zalo.me/0989353247
+  - contentinfo [ref=f4e420]:
+    - generic [ref=f4e421]:
+      - generic [ref=f4e422]:
+        - img "May Áo Chạy Bộ" [ref=f4e423]
+        - paragraph [ref=f4e424]: Thiết kế và may áo chạy bộ theo yêu cầu cho câu lạc bộ, giải chạy, doanh nghiệp và nhóm phong trào.
+      - generic [ref=f4e425]:
+        - heading "Khám phá" [level=3] [ref=f4e426]
+        - navigation [ref=f4e427]:
+          - link "Toàn bộ mẫu áo" [ref=f4e428] [cursor=pointer]:
+            - /url: /san-pham/
+          - link "Áo chạy bộ sát nách" [ref=f4e429] [cursor=pointer]:
+            - /url: /ao-chay-bo-sat-nach/
+          - link "Áo chạy bộ có tay" [ref=f4e430] [cursor=pointer]:
+            - /url: /ao-chay-bo-co-tay/
+          - link "Kinh nghiệm chạy bộ" [ref=f4e431] [cursor=pointer]:
+            - /url: /blog/
+      - generic [ref=f4e432]:
+        - heading "Liên hệ" [level=3] [ref=f4e433]
+        - generic [ref=f4e434]:
+          - link "0989 353 247" [ref=f4e435] [cursor=pointer]:
+            - /url: tel:0989353247
+          - link "Zalo tư vấn" [ref=f4e438] [cursor=pointer]:
+            - /url: https://zalo.me/0989353247
+          - link "Facebook" [ref=f4e441] [cursor=pointer]:
+            - /url: https://facebook.com/mayaochaybo
+    - generic [ref=f4e444]: © 2026 MayAoChayBo.vn · X24 Sport
+  - generic [ref=f4e445]:
+    - link "Gọi ngay" [ref=f4e446] [cursor=pointer]:
+      - /url: tel:0989353247
+    - link "Tư vấn mẫu" [ref=f4e449] [cursor=pointer]:
+      - /url: https://zalo.me/0989353247
+  - alert [ref=f4e452]

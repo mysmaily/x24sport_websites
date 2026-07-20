@@ -39,7 +39,7 @@ const uniqueTenantSKU: TextFieldValidation = async (value, { data, id, req, sibl
   })
 
   if (duplicates.totalDocs > 0) {
-    return `SKU "${sku}" đã tồn tại trong tenant này. Vui lòng dùng mã sản phẩm khác.`
+    return `SKU "${sku}" đã tồn tại trên website này. Vui lòng dùng mã sản phẩm khác.`
   }
 
   return true
@@ -49,6 +49,7 @@ export const Products: CollectionConfig = {
   slug: 'products',
   admin: {
     defaultColumns: [
+      'gallery',
       'name',
       'sku',
       'sport',
@@ -261,7 +262,11 @@ export const Products: CollectionConfig = {
               type: 'relationship',
               relationTo: 'media',
               hasMany: true,
+              label: 'Ảnh',
               admin: {
+                components: {
+                  Cell: '/components/products/ProductGalleryCell#ProductGalleryCell',
+                },
                 description: 'Ảnh sản phẩm đang dùng trên frontend mới.',
               },
             },

@@ -252,6 +252,8 @@ Preferred workflow:
 3. For a product, verify at least name, stable ASCII slug, publication status,
    category, sport, price or contact-price state, stock state, short description,
    product content, gallery, image alt text, and SEO fields when applicable.
+   Gallery media normally belongs to `x24sport`; a source-owned media record may
+   be reused only when a super admin explicitly shares it with this tenant.
 4. Publish the record and confirm the response is tenant-scoped to `x24sport`.
 5. After at most the 60-second revalidation window, verify the product URL,
    assigned category URL, homepage shelf when applicable, sitemap, metadata,

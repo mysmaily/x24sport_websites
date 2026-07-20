@@ -4,6 +4,10 @@ import { adminsOnly, publicRead, superAdminsOnly } from '../access/roles'
 
 export const Tenants: CollectionConfig = {
   slug: 'tenants',
+  labels: {
+    plural: 'Websites',
+    singular: 'Website',
+  },
   admin: {
     group: 'Platform',
     useAsTitle: 'name',

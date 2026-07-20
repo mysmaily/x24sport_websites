@@ -4,7 +4,12 @@ import { catalogFilters, type CatalogFilter } from './catalog-filters'
 export { catalogColorFilters, catalogFilters, catalogTypeFilters, getCatalogFilterBySlug } from './catalog-filters'
 export type { CatalogFilter } from './catalog-filters'
 
-type ApiList<T> = { docs: T[] }
+type ApiList<T> = {
+  docs: T[]
+  totalDocs?: number
+  totalPages?: number
+  page?: number
+}
 
 type SearchTag = { value?: string }
 
@@ -102,12 +107,18 @@ const fallbackPosts: Post[] = [
 
 const apiUrl = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
 const catalogProductLimit = '500'
+const catalogFetchBatchSize = 100
+export const catalogPageSize = 32
+
+async function fetchCollection<T>(path: string): Promise<ApiList<T> | null> {
+  const response = await fetch(`${apiUrl}${path}`, { next: { revalidate: 60 } })
+  if (!response.ok) return null
+  return (await response.json()) as ApiList<T>
+}
 
 async function fetchDocs<T>(path: string): Promise<T[]> {
-  const response = await fetch(`${apiUrl}${path}`, { next: { revalidate: 60 } })
-  if (!response.ok) return []
-  const data = (await response.json()) as ApiList<T>
-  return data.docs || []
+  const data = await fetchCollection<T>(path)
+  return data?.docs || []
 }
 
 export async function getAnalyticsSettings() {
@@ -167,22 +178,68 @@ export async function getHomeData() {
   }
 }
 
-export async function getAllProducts() {
+export async function getProductsPage(requestedPage: number) {
   const tenantSlug = await getTenantSlug()
 
   try {
-    const params = new URLSearchParams({
-      'where[tenant.slug][equals]': tenantSlug,
-      'where[publicationStatus][equals]': 'publish',
-      depth: '1',
-      limit: catalogProductLimit,
-      sort: '-createdAt',
-    })
-    const products = await fetchDocs<Product>(`/api/products?${params.toString()}`)
-    const visibleProducts = products.filter(isVisibleCatalogProduct)
-    return visibleProducts.length ? visibleProducts : fallbackProducts
+    const getBatch = (page: number) => {
+      const params = new URLSearchParams({
+        'where[tenant.slug][equals]': tenantSlug,
+        'where[publicationStatus][equals]': 'publish',
+        depth: '1',
+        limit: String(catalogFetchBatchSize),
+        page: String(page),
+        sort: '-createdAt',
+      })
+      return fetchCollection<Product>(`/api/products?${params.toString()}`)
+    }
+
+    const firstBatch = await getBatch(1)
+
+    if (!firstBatch) {
+      return {
+        page: 1,
+        products: fallbackProducts,
+        totalPages: 1,
+        totalProducts: fallbackProducts.length,
+      }
+    }
+
+    const apiPageCount = Math.max(1, firstBatch.totalPages || 1)
+    const remainingBatches = await Promise.all(
+      Array.from({ length: apiPageCount - 1 }, (_, index) => getBatch(index + 2)),
+    )
+    const visibleProducts = [firstBatch, ...remainingBatches]
+      .flatMap((batch) => batch?.docs || [])
+      .filter(isVisibleCatalogProduct)
+
+    if (!visibleProducts.length) {
+      return {
+        page: 1,
+        products: fallbackProducts,
+        totalPages: 1,
+        totalProducts: fallbackProducts.length,
+      }
+    }
+
+    const totalProducts = visibleProducts.length
+    const totalPages = Math.max(1, Math.ceil(totalProducts / catalogPageSize))
+    const pageStart = (requestedPage - 1) * catalogPageSize
+    const products = visibleProducts.slice(pageStart, pageStart + catalogPageSize)
+
+    return {
+      page: requestedPage,
+      products,
+      totalPages,
+      totalProducts,
+    }
   } catch {
-    return fallbackProducts
+    return {
+      page: 1,
+      products: fallbackProducts,
+      totalPages: 1,
+      totalProducts: fallbackProducts.length,
+    }
   }
 }
 

@@ -7,6 +7,7 @@ import * as migration_20260719_152500_product_categories_tag_group from './20260
 import * as migration_20260719_230000_tenant_pinterest_connections from './20260719_230000_tenant_pinterest_connections';
 import * as migration_20260720_010000_pinterest_product_state from './20260720_010000_pinterest_product_state';
 import * as migration_20260720_090000_store_settings_ga4 from './20260720_090000_store_settings_ga4';
+import * as migration_20260720_120000_media_shared_tenants from './20260720_120000_media_shared_tenants';
 
 export const migrations = [
   {
@@ -53,5 +54,10 @@ export const migrations = [
     up: migration_20260720_090000_store_settings_ga4.up,
     down: migration_20260720_090000_store_settings_ga4.down,
     name: '20260720_090000_store_settings_ga4'
+  },
+  {
+    up: migration_20260720_120000_media_shared_tenants.up,
+    down: migration_20260720_120000_media_shared_tenants.down,
+    name: '20260720_120000_media_shared_tenants'
   },
 ];

@@ -1,0 +1,342 @@
+- generic [active] [ref=f3e1]:
+  - main [ref=f3e2]:
+    - generic [ref=f3e3]:
+      - link "MayaoCauLong.vn" [ref=f3e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f3e5]: MC
+        - strong [ref=f3e6]: MayaoCauLong
+      - generic [ref=f3e7]:
+        - link [ref=f3e8] [cursor=pointer]:
+          - /url: tel:0989353247
+        - button "Mở menu" [ref=f3e11]
+    - generic [ref=f3e13]:
+      - generic [ref=f3e15]:
+        - paragraph [ref=f3e16]: Áo cầu lông đặt may cho CLB
+        - heading "Đồng phục cầu lông lên màu sắc nét, mặc nhẹ khi vào sân" [level=1] [ref=f3e17]
+        - paragraph [ref=f3e18]: Thiết kế theo màu đội, in tên số và logo, hỗ trợ chốt size cho đội nhóm.
+        - generic [ref=f3e19]:
+          - link "Nhận báo giá" [ref=f3e20] [cursor=pointer]:
+            - /url: https://zalo.me/0989353247
+          - link "Xem mẫu áo" [ref=f3e23] [cursor=pointer]:
+            - /url: /san-pham
+      - complementary "Thông tin nhanh" [ref=f3e24]:
+        - strong [ref=f3e26]: Miễn phí thiết kế theo yêu cầu
+        - generic [ref=f3e27]:
+          - generic [ref=f3e28]: Giá đặt may
+          - strong [ref=f3e29]: từ 135.000đ
+        - generic [ref=f3e30]:
+          - generic [ref=f3e31]: Hoàn thiện
+          - strong [ref=f3e32]: mẫu, tên, số, logo
+        - generic [ref=f3e33]:
+          - generic [ref=f3e34]: Phù hợp
+          - strong [ref=f3e35]: CLB, trường lớp, công ty
+    - region "Cam kết dịch vụ" [ref=f3e36]:
+      - article [ref=f3e37]:
+        - generic [ref=f3e44]:
+          - heading "Lên mẫu theo màu đội" [level=2] [ref=f3e45]
+          - paragraph [ref=f3e46]: Gợi ý phối màu, logo, tên số trước khi sản xuất.
+      - article [ref=f3e47]:
+        - generic [ref=f3e51]:
+          - heading "Hỗ trợ đơn cần gấp" [level=2] [ref=f3e52]
+          - paragraph [ref=f3e53]: Chốt deadline sớm, báo tiến độ rõ cho đội và CLB.
+      - article [ref=f3e54]:
+        - generic [ref=f3e60]:
+          - heading "Đóng gói theo size" [level=2] [ref=f3e61]
+          - paragraph [ref=f3e62]: Tách size, tên, số để đội phát áo nhanh hơn.
+      - article [ref=f3e63]:
+        - generic [ref=f3e69]:
+          - heading "Giao hàng toàn quốc" [level=2] [ref=f3e70]
+          - paragraph [ref=f3e71]: Phù hợp trường học, doanh nghiệp và giải phong trào.
+    - generic [ref=f3e72]:
+      - generic [ref=f3e73]:
+        - heading "Bộ sưu tập đang được đội nhóm chọn nhiều" [level=2] [ref=f3e74]
+        - paragraph [ref=f3e75]: Mẫu có thể đổi màu, chỉnh logo, thêm tên số và sản xuất theo danh sách size.
+      - generic [ref=f3e76]:
+        - article [ref=f3e77]:
+          - link [ref=f3e78] [cursor=pointer]:
+            - /url: /san-pham/ao-cau-long-dat-may-x24-cl-175-do-san-ho-trang-vang
+            - img "Áo cầu lông đặt may X24-CL-175 đỏ san hô, trắng, vàng áo có cổ, tay ngắn - ảnh sản phẩm 1" [ref=f3e79]
+          - generic [ref=f3e80]:
+            - generic [ref=f3e81]:
+              - generic [ref=f3e82]: X24-CL-175
+              - generic [ref=f3e83]: ★★★★★
+            - heading [level=3] [ref=f3e84]:
+              - link "Áo Cầu Lông X24-CL-175 Đỏ San Hô Trắng Vàng – Có Cổ & Không Tay" [ref=f3e85] [cursor=pointer]:
+                - /url: /san-pham/ao-cau-long-dat-may-x24-cl-175-do-san-ho-trang-vang
+            - paragraph [ref=f3e86]: "Áo cầu lông đặt may X24-CL-175 tông đỏ san hô, trắng, vàng, gradient đỏ trắng vàng, chuyển sắc ba tầng; hai kiểu áo: có cổ tay ngắn và không tay theo đúng kiểu cổ trong ảnh, nhận in tên, số và logo đội theo yêu cầu."
+            - generic [ref=f3e87]:
+              - strong [ref=f3e88]: 135.000 ₫
+              - generic [ref=f3e89]: 200.000 ₫
+            - link "Xem chi tiết" [ref=f3e90] [cursor=pointer]:
+              - /url: /san-pham/ao-cau-long-dat-may-x24-cl-175-do-san-ho-trang-vang
+        - article [ref=f3e93]:
+          - link [ref=f3e94] [cursor=pointer]:
+            - /url: /san-pham/ao-cau-long-dat-may-x24-cl-174-do-cam-vang
+            - img "Áo cầu lông đặt may X24-CL-174 đỏ, cam, vàng áo có cổ, tay ngắn - ảnh sản phẩm 1" [ref=f3e95]
+          - generic [ref=f3e96]:
+            - generic [ref=f3e97]:
+              - generic [ref=f3e98]: X24-CL-174
+              - generic [ref=f3e99]: ★★★★★
+            - heading [level=3] [ref=f3e100]:
+              - link "Áo Cầu Lông X24-CL-174 Đỏ Cam Vàng – Có Cổ & Không Tay" [ref=f3e101] [cursor=pointer]:
+                - /url: /san-pham/ao-cau-long-dat-may-x24-cl-174-do-cam-vang
+            - paragraph [ref=f3e102]: "Áo cầu lông đặt may X24-CL-174 tông đỏ, cam, vàng, gradient đỏ cam vàng, chuyển sắc ba tầng; hai kiểu áo: có cổ tay ngắn và không tay theo đúng kiểu cổ trong ảnh, nhận in tên, số và logo đội theo yêu cầu."
+            - generic [ref=f3e103]:
+              - strong [ref=f3e104]: 135.000 ₫
+              - generic [ref=f3e105]: 200.000 ₫
+            - link "Xem chi tiết" [ref=f3e106] [cursor=pointer]:
+              - /url: /san-pham/ao-cau-long-dat-may-x24-cl-174-do-cam-vang
+        - article [ref=f3e109]:
+          - link [ref=f3e110] [cursor=pointer]:
+            - /url: /san-pham/ao-cau-long-dat-may-x24-cl-173-trang-hong-hong-magenta
+            - img "Áo cầu lông đặt may X24-CL-173 trắng, hồng, hồng magenta áo có cổ, tay ngắn - ảnh sản phẩm 1" [ref=f3e111]
+          - generic [ref=f3e112]:
+            - generic [ref=f3e113]:
+              - generic [ref=f3e114]: X24-CL-173
+              - generic [ref=f3e115]: ★★★★★
+            - heading [level=3] [ref=f3e116]:
+              - link "Áo Cầu Lông X24-CL-173 Trắng Hồng Hồng Magenta – Có Cổ & Không Tay" [ref=f3e117] [cursor=pointer]:
+                - /url: /san-pham/ao-cau-long-dat-may-x24-cl-173-trang-hong-hong-magenta
+            - paragraph [ref=f3e118]: "Áo cầu lông đặt may X24-CL-173 tông trắng, hồng, hồng magenta, gradient trắng hồng magenta, chuyển sắc hai tầng; hai kiểu áo: có cổ tay ngắn và không tay theo đúng kiểu cổ trong ảnh, nhận in tên, số và logo đội theo yêu cầu."
+            - generic [ref=f3e119]:
+              - strong [ref=f3e120]: 135.000 ₫
+              - generic [ref=f3e121]: 200.000 ₫
+            - link "Xem chi tiết" [ref=f3e122] [cursor=pointer]:
+              - /url: /san-pham/ao-cau-long-dat-may-x24-cl-173-trang-hong-hong-magenta
+        - article [ref=f3e125]:
+          - link [ref=f3e126] [cursor=pointer]:
+            - /url: /san-pham/ao-cau-long-dat-may-x24-cl-172-den-xam-than-xanh-cyan-cam-xanh-cobalt
+            - img "Áo cầu lông đặt may X24-CL-172 đen, xám than, xanh cyan, cam, xanh cobalt áo có cổ, tay ngắn - ảnh sản phẩm 1" [ref=f3e127]
+          - generic [ref=f3e128]:
+            - generic [ref=f3e129]:
+              - generic [ref=f3e130]: X24-CL-172
+              - generic [ref=f3e131]: ★★★★★
+            - heading [level=3] [ref=f3e132]:
+              - link "Áo Cầu Lông X24-CL-172 Đen Xám Than Xanh Cyan Cam Xanh Cobalt – Có Cổ & Không Tay" [ref=f3e133] [cursor=pointer]:
+                - /url: /san-pham/ao-cau-long-dat-may-x24-cl-172-den-xam-than-xanh-cyan-cam-xanh-cobalt
+            - paragraph [ref=f3e134]: "Áo cầu lông đặt may X24-CL-172 tông đen, xám than, xanh cyan, cam, xanh cobalt; hai kiểu áo: có cổ tay ngắn và không tay theo đúng kiểu cổ trong ảnh, nhận in tên số và logo đội."
+            - generic [ref=f3e135]:
+              - strong [ref=f3e136]: 135.000 ₫
+              - generic [ref=f3e137]: 200.000 ₫
+            - link "Xem chi tiết" [ref=f3e138] [cursor=pointer]:
+              - /url: /san-pham/ao-cau-long-dat-may-x24-cl-172-den-xam-than-xanh-cyan-cam-xanh-cobalt
+        - article [ref=f3e141]:
+          - link [ref=f3e142] [cursor=pointer]:
+            - /url: /san-pham/ao-cau-long-dat-may-x24-cl-171-do-cam-vang
+            - img "Áo cầu lông đặt may X24-CL-171 đỏ, cam, vàng áo có cổ, tay ngắn - ảnh sản phẩm 1" [ref=f3e143]
+          - generic [ref=f3e144]:
+            - generic [ref=f3e145]:
+              - generic [ref=f3e146]: X24-CL-171
+              - generic [ref=f3e147]: ★★★★★
+            - heading [level=3] [ref=f3e148]:
+              - link "Áo Cầu Lông X24-CL-171 Đỏ Cam Vàng – Có Cổ & Không Tay" [ref=f3e149] [cursor=pointer]:
+                - /url: /san-pham/ao-cau-long-dat-may-x24-cl-171-do-cam-vang
+            - paragraph [ref=f3e150]: "Áo cầu lông đặt may X24-CL-171 tông đỏ, cam, vàng, gradient đỏ cam vàng, họa tiết đường cong chìm; hai kiểu áo: có cổ tay ngắn và không tay theo đúng kiểu cổ trong ảnh, nhận in tên, số và logo đội theo yêu cầu."
+            - generic [ref=f3e151]:
+              - strong [ref=f3e152]: 135.000 ₫
+              - generic [ref=f3e153]: 200.000 ₫
+            - link "Xem chi tiết" [ref=f3e154] [cursor=pointer]:
+              - /url: /san-pham/ao-cau-long-dat-may-x24-cl-171-do-cam-vang
+      - link "Xem toàn bộ sản phẩm" [ref=f3e158] [cursor=pointer]:
+        - /url: /san-pham
+    - generic [ref=f3e161]:
+      - generic [ref=f3e162]:
+        - heading "Chọn theo tình huống đặt áo" [level=2] [ref=f3e163]
+        - paragraph [ref=f3e164]: Khách mua áo cầu lông thường không chỉ cần một mẫu đẹp. Họ cần đúng form, đúng màu và kịp lịch thi đấu.
+      - generic [ref=f3e165]:
+        - article [ref=f3e166]:
+          - img "CLB cần đồng phục mới" [ref=f3e167]
+          - generic [ref=f3e168]:
+            - heading "CLB cần đồng phục mới" [level=3] [ref=f3e169]
+            - paragraph [ref=f3e170]: Chọn mẫu có sẵn, đổi màu chủ đạo, thêm logo CLB và tên số từng thành viên.
+        - article [ref=f3e171]:
+          - img "Đội thi đấu giải cuối tuần" [ref=f3e172]
+          - generic [ref=f3e173]:
+            - heading "Đội thi đấu giải cuối tuần" [level=3] [ref=f3e174]
+            - paragraph [ref=f3e175]: Ưu tiên form nhẹ, màu nổi trên sân, in số lớn và tư vấn deadline giao áo.
+        - article [ref=f3e176]:
+          - img "Trường lớp, công ty, team building" [ref=f3e177]
+          - generic [ref=f3e178]:
+            - heading "Trường lớp, công ty, team building" [level=3] [ref=f3e179]
+            - paragraph [ref=f3e180]: Thiết kế đồng bộ nam nữ, dễ mặc, dễ chia size và có phương án ngân sách.
+    - generic [ref=f3e181]:
+      - generic [ref=f3e182]:
+        - heading "Một bộ áo tốt phải nhìn rõ đội hình ngay từ mép sân" [level=2] [ref=f3e183]
+        - paragraph [ref=f3e184]: Với cầu lông phong trào, áo không chỉ để mặc. Màu áo giúp đội dễ nhận diện, tên số giúp giải đấu vận hành gọn, form áo quyết định cảm giác di chuyển.
+        - list [ref=f3e185]:
+          - listitem [ref=f3e186]: Logo CLB đặt đúng vùng nhìn, không bị vỡ khi in.
+          - listitem [ref=f3e187]: Màu nền cân bằng với ánh đèn sân trong nhà.
+          - listitem [ref=f3e188]: Form áo gọn vai, không cản động tác vung vợt.
+      - generic [ref=f3e189]:
+        - link "Áo Cầu Lông X24-CL-175 Đỏ San Hô Trắng Vàng – Có Cổ & Không Tay" [ref=f3e190] [cursor=pointer]:
+          - /url: /san-pham/ao-cau-long-dat-may-x24-cl-175-do-san-ho-trang-vang
+          - img "Áo cầu lông đặt may X24-CL-175 đỏ san hô, trắng, vàng áo có cổ, tay ngắn - ảnh sản phẩm 1" [ref=f3e191]
+        - link "Áo Cầu Lông X24-CL-174 Đỏ Cam Vàng – Có Cổ & Không Tay" [ref=f3e192] [cursor=pointer]:
+          - /url: /san-pham/ao-cau-long-dat-may-x24-cl-174-do-cam-vang
+          - img "Áo cầu lông đặt may X24-CL-174 đỏ, cam, vàng áo có cổ, tay ngắn - ảnh sản phẩm 1" [ref=f3e193]
+        - link "Áo Cầu Lông X24-CL-173 Trắng Hồng Hồng Magenta – Có Cổ & Không Tay" [ref=f3e194] [cursor=pointer]:
+          - /url: /san-pham/ao-cau-long-dat-may-x24-cl-173-trang-hong-hong-magenta
+          - img "Áo cầu lông đặt may X24-CL-173 trắng, hồng, hồng magenta áo có cổ, tay ngắn - ảnh sản phẩm 1" [ref=f3e195]
+    - generic [ref=f3e196]:
+      - generic [ref=f3e197]:
+        - heading "Quy trình đặt may rõ từ lúc gửi ý tưởng đến khi phát áo" [level=2] [ref=f3e198]
+        - paragraph [ref=f3e199]: Mỗi bước đều có đầu ra cụ thể để đội dễ kiểm tra và hạn chế sửa sát ngày thi đấu.
+      - generic [ref=f3e200]:
+        - article [ref=f3e201]:
+          - heading "Gửi mẫu thích và số lượng" [level=3] [ref=f3e205]
+          - paragraph [ref=f3e206]: Bạn gửi màu đội, logo, tên số hoặc ảnh mẫu. Nếu chưa có ý tưởng, chúng tôi gợi ý theo ngân sách.
+        - article [ref=f3e207]:
+          - heading "Duyệt maket trước khi may" [level=3] [ref=f3e211]
+          - paragraph [ref=f3e212]: Maket thể hiện phối màu, vị trí logo, số áo và tên vận động viên để đội kiểm tra trước.
+        - article [ref=f3e213]:
+          - heading "Chốt size, chất liệu, deadline" [level=3] [ref=f3e217]
+          - paragraph [ref=f3e218]: Tư vấn form nam nữ, chất vải, thời gian sản xuất và cách đóng gói theo từng thành viên.
+        - article [ref=f3e219]:
+          - heading "Sản xuất và bàn giao" [level=3] [ref=f3e223]
+          - paragraph [ref=f3e224]: Theo dõi tiến độ, đóng gói theo danh sách, giao tận nơi và hỗ trợ sau khi nhận hàng.
+    - generic [ref=f3e225]:
+      - generic [ref=f3e226]:
+        - heading "Bảng giá tham khảo cho đội nhóm" [level=2] [ref=f3e227]
+        - paragraph [ref=f3e228]: Giá cuối phụ thuộc chất liệu, độ phức tạp của thiết kế, số vị trí in và thời gian cần giao.
+        - link "Gửi số lượng để báo giá" [ref=f3e229] [cursor=pointer]:
+          - /url: https://zalo.me/0989353247
+      - generic [ref=f3e232]:
+        - article [ref=f3e233]:
+          - generic [ref=f3e234]: 5-10 áo
+          - strong [ref=f3e235]: từ 155.000đ
+          - paragraph [ref=f3e236]: Phù hợp nhóm nhỏ, giao lưu cuối tuần
+        - article [ref=f3e237]:
+          - generic [ref=f3e238]: 11-20 áo
+          - strong [ref=f3e239]: từ 145.000đ
+          - paragraph [ref=f3e240]: Mức đặt phổ biến cho CLB phong trào
+        - article [ref=f3e241]:
+          - generic [ref=f3e242]: 21-50 áo
+          - strong [ref=f3e243]: từ 135.000đ
+          - paragraph [ref=f3e244]: Tối ưu chi phí cho đội trường, công ty
+        - article [ref=f3e245]:
+          - generic [ref=f3e246]: Trên 50 áo
+          - strong [ref=f3e247]: báo giá riêng
+          - paragraph [ref=f3e248]: Có phương án tiến độ và đóng gói riêng
+    - generic [ref=f3e249]:
+      - img "Chi tiết áo cầu lông đặt may trên sân" [ref=f3e251]
+      - generic [ref=f3e252]:
+        - heading "Chất liệu và form được chọn cho nhịp di chuyển cầu lông" [level=2] [ref=f3e253]
+        - generic [ref=f3e254]:
+          - article [ref=f3e255]:
+            - heading "Vải mè thể thao" [level=3] [ref=f3e259]
+            - paragraph [ref=f3e260]: Bề mặt thoáng, nhẹ, phù hợp cường độ vận động cao và ra mồ hôi nhiều.
+          - article [ref=f3e261]:
+            - heading "Form thi đấu gọn" [level=3] [ref=f3e265]
+            - paragraph [ref=f3e266]: Vai và nách đủ linh hoạt để đập cầu, phòng thủ, di chuyển ngang liên tục.
+          - article [ref=f3e267]:
+            - heading "In chuyển nhiệt sắc nét" [level=3] [ref=f3e271]
+            - paragraph [ref=f3e272]: Tên số, logo và họa tiết lên màu rõ, phù hợp thiết kế gradient và mảng lớn.
+          - article [ref=f3e273]:
+            - heading "Size nam nữ dễ chia" [level=3] [ref=f3e277]
+            - paragraph [ref=f3e278]: Có tư vấn theo chiều cao, cân nặng và form mặc mong muốn của từng thành viên.
+    - generic [ref=f3e279]:
+      - generic [ref=f3e280]:
+        - heading "Mẫu đã làm, mẫu đang bán và mẫu có thể chỉnh theo đội bạn" [level=2] [ref=f3e283]
+        - paragraph [ref=f3e284]: Giai đoạn đầu website dùng ảnh minh họa ở một số block. Phần sản phẩm vẫn lấy từ CMS, bạn có thể thay bằng ảnh xưởng, ảnh đội thật hoặc lookbook sau.
+      - generic [ref=f3e285]:
+        - img "Đội cầu lông mặc áo thi đấu đỏ trắng" [ref=f3e286]
+        - img "Áo cầu lông trên sân trong nhà" [ref=f3e287]
+        - img "Maket áo cầu lông nhiều màu" [ref=f3e288]
+    - generic [ref=f3e289]:
+      - generic [ref=f3e290]:
+        - heading "Khách đặt áo cần sự chắc chắn hơn là lời hứa lớn" [level=2] [ref=f3e291]
+        - paragraph [ref=f3e292]: "Ba điều họ nhớ: tư vấn nhanh, màu áo đúng, phát size không rối."
+      - generic [ref=f3e293]:
+        - article [ref=f3e294]:
+          - paragraph [ref=f3e295]: "\"Đội mình cần áo cho giải nội bộ, gửi logo buổi sáng thì chiều đã có maket để duyệt. Áo mặc nhẹ và màu lên rất rõ.\""
+          - generic [ref=f3e296]:
+            - img "Nguyễn Minh Khang" [ref=f3e297]
+            - generic [ref=f3e298]:
+              - strong [ref=f3e299]: Nguyễn Minh Khang
+              - generic [ref=f3e300]: Đội trưởng CLB Cầu Lông Linh Đàm
+        - article [ref=f3e301]:
+          - paragraph [ref=f3e302]: "\"Khâu chia size và đóng gói theo tên rất tiện. Nhận hàng xong phát cho cả đội gần như không phải kiểm lại nhiều.\""
+          - generic [ref=f3e303]:
+            - img "Lê Thu Hà" [ref=f3e304]
+            - generic [ref=f3e305]:
+              - strong [ref=f3e306]: Lê Thu Hà
+              - generic [ref=f3e307]: Phụ trách giải phong trào công ty
+        - article [ref=f3e308]:
+          - paragraph [ref=f3e309]: "\"Mình thích nhất là được chỉnh màu theo áo mẫu của đội. Mẫu duyệt giống bản may, không bị khác tông khi nhận hàng.\""
+          - generic [ref=f3e310]:
+            - img "Trần Quốc Việt" [ref=f3e311]
+            - generic [ref=f3e312]:
+              - strong [ref=f3e313]: Trần Quốc Việt
+              - generic [ref=f3e314]: CLB sinh viên Hà Nội
+    - generic [ref=f3e315]:
+      - generic [ref=f3e316]:
+        - heading "Nội dung tư vấn để khách tự tin chốt đơn" [level=2] [ref=f3e317]
+        - paragraph [ref=f3e318]: Trang chủ nên có thêm kiến thức mua hàng để khách mới hiểu quy trình đặt áo cầu lông.
+      - generic [ref=f3e319]:
+        - article [ref=f3e320]:
+          - heading "Cách chọn màu áo nổi bật trên sân cầu lông" [level=3] [ref=f3e321]
+          - paragraph [ref=f3e322]: Gợi ý phối màu theo sân xanh, ánh đèn trong nhà và logo đội.
+          - link "Đọc thêm" [ref=f3e323] [cursor=pointer]:
+            - /url: "#"
+        - article [ref=f3e324]:
+          - heading "Checklist đặt áo cho CLB trước mùa giải" [level=3] [ref=f3e325]
+          - paragraph [ref=f3e326]: Những thông tin nên chuẩn bị để chốt maket nhanh và tránh nhầm size.
+          - link "Đọc thêm" [ref=f3e327] [cursor=pointer]:
+            - /url: "#"
+        - article [ref=f3e328]:
+          - heading "Polo hay cổ tròn phù hợp với đội của bạn?" [level=3] [ref=f3e329]
+          - paragraph [ref=f3e330]: So sánh cảm giác mặc, độ chỉn chu và tình huống sử dụng.
+          - link "Đọc thêm" [ref=f3e331] [cursor=pointer]:
+            - /url: "#"
+        - article [ref=f3e332]:
+          - heading "Checklist dat dong phuc cho giai dau" [level=3] [ref=f3e333]
+          - paragraph [ref=f3e334]: Nhung luu y de dong phuc dep, ben va dung deadline khi dat may cho ca doi.
+          - link "Đọc thêm" [ref=f3e335] [cursor=pointer]:
+            - /url: "#"
+        - article [ref=f3e336]:
+          - heading "Cach chon vai ao thi dau" [level=3] [ref=f3e337]
+          - paragraph [ref=f3e338]: Nhung luu y de dong phuc dep, ben va dung deadline khi dat may cho ca doi.
+          - link "Đọc thêm" [ref=f3e339] [cursor=pointer]:
+            - /url: "#"
+    - generic [ref=f3e340]:
+      - generic [ref=f3e341]:
+        - heading "Câu hỏi trước khi đặt áo" [level=2] [ref=f3e342]
+        - paragraph [ref=f3e343]: Trả lời nhanh những điểm khách thường hỏi trước khi gửi logo và danh sách size.
+      - generic [ref=f3e344]:
+        - group [ref=f3e345]:
+          - generic "Có nhận thiết kế áo cầu lông theo logo riêng không?" [ref=f3e346] [cursor=pointer]
+        - group [ref=f3e347]:
+          - generic "Đặt ít áo có làm được không?" [ref=f3e348] [cursor=pointer]
+        - group [ref=f3e349]:
+          - generic "Thời gian làm áo thường mất bao lâu?" [ref=f3e350] [cursor=pointer]
+        - group [ref=f3e351]:
+          - generic "Nếu đội chưa biết chọn size thì sao?" [ref=f3e352] [cursor=pointer]
+    - generic [ref=f3e353]:
+      - generic [ref=f3e354]:
+        - heading "Gửi màu đội, logo và số lượng. Chúng tôi lên hướng áo phù hợp." [level=2] [ref=f3e355]
+        - paragraph [ref=f3e356]: Không cần chuẩn bị đủ mọi thứ ngay từ đầu. Chỉ cần gửi ý tưởng hiện có, phần còn lại có thể tư vấn từng bước.
+      - link "Tư vấn qua Zalo" [ref=f3e357] [cursor=pointer]:
+        - /url: https://zalo.me/0989353247
+    - generic [ref=f3e360]:
+      - generic [ref=f3e361]:
+        - link "MC MayaoCauLong" [ref=f3e362] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f3e363]: MC
+          - strong [ref=f3e364]: MayaoCauLong
+        - paragraph [ref=f3e365]: Đồng phục cầu lông đặt may cho CLB, đội phong trào, trường lớp và doanh nghiệp.
+      - generic [ref=f3e366]:
+        - heading "Liên hệ" [level=3] [ref=f3e367]
+        - paragraph [ref=f3e368]: "Hotline: 0989.353.247"
+        - paragraph [ref=f3e369]: "Email: lienhe@mayaocaulong.vn"
+        - paragraph [ref=f3e370]: "Xưởng may: Hà Nội, Việt Nam"
+      - generic [ref=f3e371]:
+        - heading "Cam kết" [level=3] [ref=f3e372]
+        - paragraph [ref=f3e373]: Thiết kế theo màu đội
+        - paragraph [ref=f3e374]: In tên số và logo
+        - paragraph [ref=f3e375]: Giao hàng toàn quốc
+    - generic "Liên hệ nhanh" [ref=f3e376]:
+      - link "Gọi ngay" [ref=f3e377] [cursor=pointer]:
+        - /url: tel:0989353247
+      - link "Nhận báo giá" [ref=f3e378] [cursor=pointer]:
+        - /url: https://zalo.me/0989353247
+  - alert [ref=f3e379]

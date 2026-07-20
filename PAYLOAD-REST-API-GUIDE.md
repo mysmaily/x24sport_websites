@@ -162,8 +162,12 @@ Example `_payload`:
 }
 ```
 
-Do not attach a media record owned by another tenant. Reuse an existing media
-record only after matching tenant plus stable source identity or checksum.
+Do not attach a media record owned by another tenant unless a super admin has
+explicitly added the consuming tenant to that record's `sharedWithTenants`
+relationship. For an ordinary tenant-owned upload, reuse an existing record only
+after matching tenant plus stable source identity or checksum. Cross-tenant
+catalog distribution should preserve the owner, share the existing record, and
+reuse its R2 URL instead of uploading a second binary.
 
 ## Idempotency and safe mutation
 
@@ -184,7 +188,8 @@ After mutation, verify all applicable items:
 
 1. API record belongs to the intended tenant and is unique by the chosen stable
    identity.
-2. Category and gallery relationships belong to the same tenant.
+2. Categories belong to the product tenant. Gallery media either belongs to that
+   tenant or explicitly includes it in `sharedWithTenants`.
 3. Media URL returns HTTP 200 with the intended MIME type and dimensions.
 4. Public product/category URL returns HTTP 200 after the frontend's documented
    revalidation window.

@@ -14,7 +14,8 @@
     "ga4:report:scheduler": "tsx scripts/run-ga4-report-scheduler.ts",
     "setup:mayaobongchuyen-menu": "tsx scripts/setup-mayaobongchuyen-menu.ts",
     "setup:x24sport-tenant": "tsx scripts/setup-x24sport-tenant.ts",
-    "test:tenant-identity": "tsx scripts/test-tenant-identity.ts"
+    "test:tenant-identity": "tsx scripts/test-tenant-identity.ts",
+    "test:media-sharing-access": "tsx scripts/test-media-sharing-access.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1085.0",

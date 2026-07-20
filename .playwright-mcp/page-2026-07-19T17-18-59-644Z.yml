@@ -1,0 +1,209 @@
+- generic [active] [ref=f1e1]:
+  - main [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - link "MayaoCauLong.vn" [ref=f1e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f1e5]: MC
+        - strong [ref=f1e6]: MayaoCauLong
+      - navigation "Điều hướng chính" [ref=f1e7]:
+        - generic [ref=f1e8]:
+          - link "Mẫu áo" [ref=f1e9] [cursor=pointer]:
+            - /url: /san-pham
+          - generic "Danh mục mẫu áo":
+            - generic:
+              - generic: Kiểu áo
+              - link "Áo sát nách Thoáng vai, dễ vung vợt":
+                - /url: /ao-cau-long-sat-nach
+                - generic:
+                  - strong: Áo sát nách
+                  - generic: Thoáng vai, dễ vung vợt
+              - link "Áo cổ trụ Chỉn chu cho đội/CLB":
+                - /url: /ao-cau-long-co-tru
+                - generic:
+                  - strong: Áo cổ trụ
+                  - generic: Chỉn chu cho đội/CLB
+              - link "Áo cổ tròn Nhẹ, trẻ, dễ mặc":
+                - /url: /ao-cau-long-co-tron
+                - generic:
+                  - strong: Áo cổ tròn
+                  - generic: Nhẹ, trẻ, dễ mặc
+            - generic:
+              - generic: Màu phổ biến
+              - link "Áo màu đỏ Tông mạnh, nổi bật sân":
+                - /url: /ao-cau-long-mau-do
+                - generic:
+                  - strong: Áo màu đỏ
+                  - generic: Tông mạnh, nổi bật sân
+              - link "Áo màu xanh Dễ phối logo đội":
+                - /url: /ao-cau-long-mau-xanh
+                - generic:
+                  - strong: Áo màu xanh
+                  - generic: Dễ phối logo đội
+              - link "Áo màu đen Gọn, khỏe, ít bám bẩn":
+                - /url: /ao-cau-long-mau-den
+                - generic:
+                  - strong: Áo màu đen
+                  - generic: Gọn, khỏe, ít bám bẩn
+              - link "Áo màu trắng Sạch, sáng, tinh giản":
+                - /url: /ao-cau-long-mau-trang
+                - generic:
+                  - strong: Áo màu trắng
+                  - generic: Sạch, sáng, tinh giản
+              - link "Áo màu vàng Dễ nhận diện từ xa":
+                - /url: /ao-cau-long-mau-vang
+                - generic:
+                  - strong: Áo màu vàng
+                  - generic: Dễ nhận diện từ xa
+              - link "Áo màu hồng Trẻ trung, mềm tông":
+                - /url: /ao-cau-long-mau-hong
+                - generic:
+                  - strong: Áo màu hồng
+                  - generic: Trẻ trung, mềm tông
+              - link "Áo màu cam Năng lượng, bắt mắt":
+                - /url: /ao-cau-long-mau-cam
+                - generic:
+                  - strong: Áo màu cam
+                  - generic: Năng lượng, bắt mắt
+              - link "Áo màu tím Khác biệt, hiện đại":
+                - /url: /ao-cau-long-mau-tim
+                - generic:
+                  - strong: Áo màu tím
+                  - generic: Khác biệt, hiện đại
+              - link "Áo gradient Chuyển sắc thi đấu":
+                - /url: /ao-cau-long-gradient
+                - generic:
+                  - strong: Áo gradient
+                  - generic: Chuyển sắc thi đấu
+        - link "Đặt may" [ref=f1e12] [cursor=pointer]:
+          - /url: /dat-may-ao-cau-long
+        - link "Bảng giá" [ref=f1e13] [cursor=pointer]:
+          - /url: /bang-gia-may-ao-cau-long
+        - link "Vải & Size" [ref=f1e14] [cursor=pointer]:
+          - /url: /chat-lieu-va-bang-size-ao-cau-long
+        - link "Mẫu đã làm" [ref=f1e15] [cursor=pointer]:
+          - /url: /mau-ao-cau-long-da-lam
+      - generic [ref=f1e16]:
+        - link "0989.353.247" [ref=f1e17] [cursor=pointer]:
+          - /url: tel:0989353247
+        - link "Tìm mẫu áo" [ref=f1e21] [cursor=pointer]:
+          - /url: /san-pham
+    - generic [ref=f1e25]:
+      - generic [ref=f1e26]:
+        - link "Về trang chủ" [ref=f1e27] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f1e30]: /
+        - link "Sản phẩm" [ref=f1e31] [cursor=pointer]:
+          - /url: /san-pham
+        - generic [ref=f1e32]: /
+        - strong [ref=f1e33]: X24-CL-256
+      - heading "Áo Cầu Lông X24-CL-256 Xanh Navy Đỏ Trắng – Có Cổ & Không Tay" [level=1] [ref=f1e34]
+      - generic [ref=f1e35]:
+        - generic [ref=f1e36]:
+          - img "Áo cầu lông đặt may X24-CL-256 xanh navy, đỏ, trắng áo có cổ, tay ngắn - ảnh sản phẩm 1" [ref=f1e38]
+          - generic "Ảnh sản phẩm" [ref=f1e39]:
+            - button "Xem ảnh sản phẩm 1" [pressed] [ref=f1e40] [cursor=pointer]
+            - button "Xem ảnh sản phẩm 2" [ref=f1e41] [cursor=pointer]
+          - generic [ref=f1e42]: "-33%"
+          - link "Xem ảnh lớn" [ref=f1e43] [cursor=pointer]:
+            - /url: https://static.x24sport.vn/mayaocaulong/x24-cl-256-badminton-1.webp
+        - generic [ref=f1e47]:
+          - paragraph [ref=f1e48]:
+            - text: "Thương hiệu:"
+            - strong [ref=f1e49]: MayaoCauLong
+            - text: "| Áo cầu lông thiết kế"
+          - generic [ref=f1e51]:
+            - strong [ref=f1e52]: 135.000 ₫
+            - paragraph [ref=f1e53]:
+              - generic [ref=f1e54]: "-33%"
+              - deletion [ref=f1e55]: 200.000 ₫
+          - generic [ref=f1e56]:
+            - heading "Ưu đãi đặt hàng tại MayaoCauLong" [level=2] [ref=f1e57]
+            - list [ref=f1e62]:
+              - listitem [ref=f1e63]:
+                - generic [ref=f1e64]: "1"
+                - text: Nhận đơn từ 5 áo
+              - listitem [ref=f1e65]:
+                - generic [ref=f1e66]: "2"
+                - text: Miễn phí in tên, số, logo theo yêu cầu
+              - listitem [ref=f1e67]:
+                - generic [ref=f1e68]: "3"
+                - text: Miễn phí giao hàng tận nơi cho đơn đội
+              - listitem [ref=f1e69]:
+                - generic [ref=f1e70]: "4"
+                - text: Bảo hành hình in, không bong tróc
+              - listitem [ref=f1e71]:
+                - generic [ref=f1e72]: "5"
+                - text: Sản xuất tại xưởng, không qua trung gian
+          - generic "Màu sản phẩm" [ref=f1e73]:
+            - generic [ref=f1e75]:
+              - strong [ref=f1e76]: Trắng
+              - strong [ref=f1e77]: Đỏ
+              - strong [ref=f1e78]: Xanh navy
+          - generic [ref=f1e79]:
+            - link "Đặt may mẫu" [ref=f1e80] [cursor=pointer]:
+              - /url: https://zalo.me/0989353247
+            - link "Gọi cho MayaoCauLong" [ref=f1e81] [cursor=pointer]:
+              - /url: tel:0989353247
+          - paragraph [ref=f1e82]: Hỗ trợ 24/7, luôn sẵn sàng tư vấn cho bạn
+        - complementary [ref=f1e85]:
+          - generic [ref=f1e86]:
+            - heading "Hệ thống cửa hàng" [level=2] [ref=f1e87]
+            - list [ref=f1e88]:
+              - listitem [ref=f1e89]:
+                - generic [ref=f1e93]:
+                  - text: Số 168/47 Kim Giang, Định Công, Hà Nội
+                  - strong [ref=f1e94]: Đang mở cửa
+              - listitem [ref=f1e95]:
+                - generic [ref=f1e99]:
+                  - text: Số 137 Tôn Đản, P. An Khê, TP Đà Nẵng
+                  - strong [ref=f1e100]: Đang mở cửa
+              - listitem [ref=f1e101]:
+                - generic [ref=f1e105]:
+                  - text: Số 420 Hùng Vương, Phường Pleiku, Gia Lai
+                  - strong [ref=f1e106]: Đang mở cửa
+              - listitem [ref=f1e107]:
+                - generic [ref=f1e111]:
+                  - text: Số 96E Đường số 12, KP.4, P. Tam Bình, TP Hồ Chí Minh
+                  - strong [ref=f1e112]: Đang mở cửa
+          - generic [ref=f1e113]:
+            - heading "Thông số sản phẩm" [level=2] [ref=f1e114]
+            - generic [ref=f1e115]:
+              - generic [ref=f1e116]:
+                - term [ref=f1e117]: Thương hiệu
+                - definition [ref=f1e118]: MAYAOCAULONG
+              - generic [ref=f1e119]:
+                - term [ref=f1e120]: Dòng sản phẩm
+                - definition [ref=f1e121]: Áo cầu lông thiết kế đặt may
+              - generic [ref=f1e122]:
+                - term [ref=f1e123]: Chất liệu vải
+                - definition [ref=f1e124]: Chất vải co giãn chuẩn thi đấu
+              - generic [ref=f1e125]:
+                - term [ref=f1e126]: Form áo
+                - definition [ref=f1e127]: Form thể thao gọn, dễ vung vợt
+              - generic [ref=f1e128]:
+                - term [ref=f1e129]: Màu sắc
+                - definition [ref=f1e130]: Trắng, Đỏ, Xanh navy
+              - generic [ref=f1e131]:
+                - term [ref=f1e132]: Kích thước
+                - definition [ref=f1e133]: Có đủ size S - 4XL, thoải mái
+            - link "Xem chi tiết" [ref=f1e134] [cursor=pointer]:
+              - /url: /chat-lieu-va-bang-size-ao-cau-long
+      - generic [ref=f1e138]:
+        - article [ref=f1e139]:
+          - paragraph [ref=f1e140]: Mô tả sản phẩm
+          - generic [ref=f1e141]:
+            - paragraph [ref=f1e142]: Áo Cầu Lông X24-CL-256 Xanh Navy Đỏ Trắng – Có Cổ & Không Tay sử dụng tông màu chính xanh navy, đỏ, trắng với gradient xanh navy đỏ trắng, sọc vòng cung đỏ và dải cong xanh navy trắng. Nội dung mô tả bám theo màu sắc, họa tiết và kiểu áo thể hiện trong bộ ảnh sản phẩm.
+            - paragraph [ref=f1e143]: "Mẫu được giới thiệu theo hai kiểu áo: có cổ tay ngắn và không tay theo đúng kiểu cổ trong ảnh. Hai ảnh trong cùng sản phẩm giúp đội nhóm đối chiếu trực tiếp kiểu cổ và tay áo trước khi chọn phương án đặt may."
+            - paragraph [ref=f1e144]: X24 nhận tùy chỉnh màu nhận diện, in tên, số và logo cho câu lạc bộ, đội thi đấu hoặc nhóm phong trào theo nội dung khách hàng xác nhận.
+            - paragraph [ref=f1e145]: Trước khi chốt đơn, khách hàng nên xác nhận chất liệu, bảng size, số lượng, vị trí in và thời gian sản xuất. Các đặc tính kỹ thuật của vải chỉ được áp dụng khi có thông số được xác nhận riêng.
+        - complementary [ref=f1e146]:
+          - paragraph [ref=f1e147]: Phù hợp với
+          - list [ref=f1e148]:
+            - listitem [ref=f1e149]: Đồng phục cầu lông cho câu lạc bộ
+            - listitem [ref=f1e150]: Áo thi đấu phong trào, giao lưu doanh nghiệp
+            - listitem [ref=f1e151]: Đơn đặt may cần tên, số và logo riêng
+          - list [ref=f1e152]:
+            - listitem [ref=f1e153]: Tư vấn tên, số, logo cho đội và câu lạc bộ
+            - listitem [ref=f1e157]: Nhận lên mẫu theo bảng màu và chất vải thực tế
+            - listitem [ref=f1e161]: Hỗ trợ đơn phong trào, giao lưu và giải đấu
+  - alert [ref=f1e165]

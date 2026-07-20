@@ -3,7 +3,7 @@ import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
 import path from 'path'
-import { buildConfig } from 'payload'
+import { buildConfig, type Plugin } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
@@ -25,10 +25,39 @@ import { generateR2FileURL, getR2Endpoint, isR2StorageEnabled } from './storage/
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+const tenantPersistenceProvider = '/components/admin/TenantPersistenceProvider#TenantPersistenceProvider'
+
+const placeTenantPersistenceInsideTenantContext: Plugin = (incomingConfig) => {
+  const providers = incomingConfig.admin?.components?.providers || []
+  const otherProviders = providers.filter((provider) => {
+    if (!provider) {
+      return true
+    }
+
+    return typeof provider === 'string'
+      ? provider !== tenantPersistenceProvider
+      : !('path' in provider) || provider.path !== tenantPersistenceProvider
+  })
+
+  if (incomingConfig.admin?.components) {
+    incomingConfig.admin.components.providers = [...otherProviders, tenantPersistenceProvider]
+  }
+
+  return incomingConfig
+}
 
 export default buildConfig({
   admin: {
     user: Users.slug,
+    components: {
+      beforeDashboard: ['/components/admin/DashboardWelcome#DashboardWelcome'],
+      beforeNav: ['/components/admin/SidebarBrand#SidebarBrand'],
+      graphics: {
+        Icon: '/components/admin/X24Brand#X24Icon',
+        Logo: '/components/admin/X24Brand#X24Logo',
+      },
+      providers: [tenantPersistenceProvider],
+    },
     importMap: {
       baseDir: path.resolve(dirname),
     },
@@ -63,7 +92,13 @@ export default buildConfig({
     multiTenantPlugin<Config>({
       cleanupAfterTenantDelete: false,
       collections: {
-        media: {},
+        media: {
+          // Media may be shared explicitly across tenants. Collection access is
+          // implemented in Media.ts; the plugin's single-tenant filters would
+          // otherwise hide shared records from relationship fields.
+          useBaseFilter: false,
+          useTenantAccess: false,
+        },
         'migration-runs': {},
         pages: {},
         posts: {},
@@ -74,8 +109,19 @@ export default buildConfig({
         'store-settings': { isGlobal: true },
       },
       tenantsSlug: 'tenants',
+      i18n: {
+        translations: {
+          en: {
+            'assign-tenant-button-label': 'Gán website',
+            'assign-tenant-modal-title': 'Gán "{{title}}" vào website',
+            'field-assignedTenant-label': 'Website được gán',
+            'nav-tenantSelector-label': 'Website đang làm việc',
+          },
+        },
+      },
       userHasAccessToAllTenants: (user) => isSuperAdmin(user),
     }),
+    placeTenantPersistenceInsideTenantContext,
     s3Storage({
       alwaysInsertFields: true,
       bucket: process.env.CLOUDFLARE_R2_BUCKET_NAME || '',

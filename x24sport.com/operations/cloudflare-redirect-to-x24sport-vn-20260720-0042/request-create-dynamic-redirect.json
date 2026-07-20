@@ -1,0 +1,23 @@
+{
+  "name": "Redirect x24sport.com to x24sport.vn",
+  "description": "Permanent whole-domain redirect to x24sport.vn preserving path and query string",
+  "kind": "zone",
+  "phase": "http_request_dynamic_redirect",
+  "rules": [
+    {
+      "action": "redirect",
+      "expression": "(http.host eq \"x24sport.com\") or (http.host eq \"www.x24sport.com\")",
+      "description": "301 x24sport.com and www to x24sport.vn",
+      "enabled": true,
+      "action_parameters": {
+        "from_value": {
+          "target_url": {
+            "expression": "concat(\"https://x24sport.vn\", http.request.uri.path)"
+          },
+          "status_code": 301,
+          "preserve_query_string": true
+        }
+      }
+    }
+  ]
+}

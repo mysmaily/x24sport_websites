@@ -33,7 +33,7 @@ export function ProductCard({ product }: { product: Product; index?: number }) {
         <h3 className="line-clamp-2 min-h-[42px] font-display text-[18px] font-bold leading-[1.15] tracking-tight text-slate-950">
           <Link href={href}>{product.name}</Link>
         </h3>
-        <div className="mt-3 grid gap-1.5 border-t border-slate-100 pt-3 sm:mt-5 sm:flex sm:items-center sm:justify-between sm:gap-3 sm:pt-4">
+        <div className="mt-2 grid gap-1.5 border-t border-slate-100 pt-2 sm:flex sm:items-start sm:justify-between sm:gap-3">
           {typeof product.price === 'number' ? (
             <span className="flex max-w-full min-w-0 flex-nowrap items-baseline gap-0.5 whitespace-nowrap tabular-nums">
               {typeof product.compareAtPrice === 'number' && product.compareAtPrice > product.price ? <del className="text-[12px] font-semibold text-slate-400 sm:text-sm">{formatPrice(product.compareAtPrice)}</del> : null}

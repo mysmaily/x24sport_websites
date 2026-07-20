@@ -1,0 +1,104 @@
+{
+  "mode": "dry-run",
+  "source": {
+    "tenant": "mayaopickleball",
+    "productId": 1167,
+    "sku": "X24-PB-499"
+  },
+  "target": {
+    "tenant": "x24sport",
+    "categoryId": 16,
+    "categorySlug": "pickleball",
+    "existingProductId": null,
+    "status": "draft"
+  },
+  "conflicts": {
+    "sku": null,
+    "slug": null,
+    "sourceIdentity": null
+  },
+  "mediaPlan": [
+    {
+      "id": 1882,
+      "before": [],
+      "after": [
+        6
+      ],
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-x24-pb-499-noi-bat-nang-dong-ao-co-tay-co-co.webp"
+    },
+    {
+      "id": 1883,
+      "before": [],
+      "after": [
+        6
+      ],
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-x24-pb-499-noi-bat-nang-dong-ao-khong-tay.webp"
+    }
+  ],
+  "keywordAudit": {
+    "wordCount": 275,
+    "sourceTargetSimilarity": 0.9024,
+    "exactDuplicate": false,
+    "missingRequiredTerms": [],
+    "requiredTermCounts": {
+      "sku": 5,
+      "sport": 7,
+      "targetBrand": 2
+    },
+    "forbiddenSourceTerms": [],
+    "staleSourceUrls": [],
+    "topTerms": [
+      {
+        "keyword": "thể",
+        "count": 10
+      },
+      {
+        "keyword": "pickleball",
+        "count": 7
+      },
+      {
+        "keyword": "x24-pb-499",
+        "count": 5
+      },
+      {
+        "keyword": "nam",
+        "count": 5
+      },
+      {
+        "keyword": "đội",
+        "count": 5
+      },
+      {
+        "keyword": "nổi",
+        "count": 4
+      },
+      {
+        "keyword": "bật",
+        "count": 4
+      },
+      {
+        "keyword": "biến",
+        "count": 4
+      },
+      {
+        "keyword": "tay",
+        "count": 4
+      },
+      {
+        "keyword": "đồng",
+        "count": 4
+      },
+      {
+        "keyword": "phục",
+        "count": 4
+      },
+      {
+        "keyword": "nhóm",
+        "count": 4
+      }
+    ],
+    "highFrequencyTerms": []
+  },
+  "blockers": [],
+  "sourceChecksum": "d0d9ff7842d8a92dea3f984e0a8ed2383c8e2f205c75047145349c4c8f5f864e"
+}

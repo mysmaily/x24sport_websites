@@ -38,21 +38,21 @@ export function ProductDetailPage({
           <ProductGallery images={images} key={product.id} productName={product.name} />
 
           <div className="flex flex-col p-5 sm:p-7 lg:p-8 xl:p-10">
-            <p className="section-kicker">{isLogo ? 'Thiết kế logo đội chạy' : 'Mẫu áo chạy bộ'}</p>
-            {product.shortDescription ? <p className="text-base leading-7 text-slate-600">{product.shortDescription}</p> : null}
-            {hasPrice ? <p className="mt-4 text-sm font-bold text-slate-600">Giá tham khảo: <strong className="text-xl text-brand">{product.price!.toLocaleString('vi-VN')} ₫</strong></p> : null}
+            {hasPrice ? <p className="text-sm font-bold text-slate-600">Giá tham khảo: <strong className="text-xl text-brand">{product.price!.toLocaleString('vi-VN')} ₫</strong></p> : null}
 
-            <div className="mt-6 grid gap-2 rounded-2xl bg-orange-50 p-4 text-sm text-slate-700">
+            <div className="mt-4 grid gap-2">
+              <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={19} /> Gửi mẫu này qua Zalo</a>
+              <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 px-5 text-sm font-black text-slate-950 transition hover:border-brand hover:text-brand" href={`tel:${PHONE_VALUE}`}><Phone size={18} /> Gọi {PHONE_DISPLAY}</a>
+            </div>
+
+            {product.shortDescription ? <p className="mt-5 text-base leading-7 text-slate-600">{product.shortDescription}</p> : null}
+
+            <div className="mt-5 grid gap-2 rounded-2xl bg-orange-50 p-4 text-sm text-slate-700">
               <b className="text-base text-slate-950">Có thể thiết kế theo yêu cầu</b>
               <p>Trao đổi màu sắc, logo, tên đội và thông tin cự ly trước khi xác nhận đặt may.</p>
               <ul className="grid gap-2 font-bold sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                 {['Đổi màu theo đội', 'Thêm logo riêng', 'In tên & cự ly', 'Tư vấn size'].map((item) => <li className="flex items-center gap-2" key={item}><span className="size-1.5 rounded-full bg-brand" /> {item}</li>)}
               </ul>
-            </div>
-
-            <div className="mt-auto grid gap-3 pt-6">
-              <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={19} /> Gửi mẫu này qua Zalo</a>
-              <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 px-5 text-sm font-black text-slate-950 transition hover:border-brand hover:text-brand" href={`tel:${PHONE_VALUE}`}><Phone size={18} /> Gọi {PHONE_DISPLAY}</a>
             </div>
           </div>
         </div>
