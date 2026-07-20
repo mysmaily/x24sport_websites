@@ -1,4 +1,4 @@
-import configPromise from '@payload-config'
+import configPromise from '../payload.config'
 import { getPayload } from 'payload'
 
 import { fetchGa4SessionsForDate, getGa4Timezone } from './ga4'
