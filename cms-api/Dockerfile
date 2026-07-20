@@ -16,9 +16,11 @@ RUN pnpm build
 FROM base AS runner
 ENV NODE_ENV=production
 WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
+COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/src/payload.config.ts ./src/payload.config.ts
 COPY --from=builder /app/src ./src
 COPY --from=builder /app/package.json ./package.json

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import './styles.css'
+import { getAnalyticsSettings } from '../lib/analytics'
 import { SITE_LOGO_PATH } from '../lib/seo'
 
 export const metadata: Metadata = {
@@ -22,6 +24,12 @@ export const metadata: Metadata = {
   robots: process.env.SITE_ENV === 'preview' ? { index: false, follow: false } : undefined,
 }
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="vi"><head><link rel="preconnect" href="https://static.x24sport.vn" crossOrigin="anonymous" /><link rel="preconnect" href="https://cdn.x24sport.vn" crossOrigin="anonymous" /></head><body>{children}</body></html>
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const analytics = await getAnalyticsSettings()
+  const measurementId =
+    analytics?.ga4Enabled && analytics.gaMeasurementId?.trim()
+      ? analytics.gaMeasurementId.trim()
+      : null
+
+  return <html lang="vi"><head><link rel="preconnect" href="https://static.x24sport.vn" crossOrigin="anonymous" /><link rel="preconnect" href="https://cdn.x24sport.vn" crossOrigin="anonymous" /></head><body>{measurementId ? <><Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" /><Script id="ga4-tag" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${measurementId}');`}</Script></> : null}{children}</body></html>
 }

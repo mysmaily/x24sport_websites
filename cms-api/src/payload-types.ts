@@ -555,6 +555,24 @@ export interface StoreSetting {
   siteName: string;
   contactPhone?: string | null;
   zaloUrl?: string | null;
+  analytics?: {
+    /**
+     * Bật nhúng Google Analytics 4 trên frontend nếu tenant có Measurement ID.
+     */
+    ga4Enabled?: boolean | null;
+    /**
+     * Measurement ID dạng G-XXXXXXX để frontend nhúng Google tag.
+     */
+    gaMeasurementId?: string | null;
+    /**
+     * GA4 Property ID dùng cho báo cáo Telegram hằng ngày từ Data API.
+     */
+    gaPropertyId?: string | null;
+    /**
+     * Nếu bật và có GA4 Property ID, tenant sẽ được đưa vào báo cáo 23:00 hằng ngày.
+     */
+    dailyTelegramReportEnabled?: boolean | null;
+  };
   navigation?:
     | {
         label: string;
@@ -988,6 +1006,14 @@ export interface StoreSettingsSelect<T extends boolean = true> {
   siteName?: T;
   contactPhone?: T;
   zaloUrl?: T;
+  analytics?:
+    | T
+    | {
+        ga4Enabled?: T;
+        gaMeasurementId?: T;
+        gaPropertyId?: T;
+        dailyTelegramReportEnabled?: T;
+      };
   navigation?:
     | T
     | {

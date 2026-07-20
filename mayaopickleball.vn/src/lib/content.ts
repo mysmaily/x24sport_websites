@@ -86,6 +86,19 @@ export type Post = {
   excerpt: string
 }
 
+export type StoreSettings = {
+  id: string
+  siteName: string
+  contactPhone?: string
+  zaloUrl?: string
+  analytics?: {
+    ga4Enabled?: boolean
+    gaMeasurementId?: string
+    gaPropertyId?: string
+    dailyTelegramReportEnabled?: boolean
+  }
+}
+
 const fallbackTenant: Tenant = {
   id: 'fallback-mayaopickleball',
   name: 'MayaoPickleball',
@@ -115,6 +128,17 @@ async function fetchDocs<T>(path: string): Promise<T[]> {
   if (!response.ok) return []
   const data = (await response.json()) as ApiList<T>
   return data.docs || []
+}
+
+export async function getAnalyticsSettings() {
+  try {
+    const slug = await getTenantSlug()
+    const tenantFilter = `where[tenant.slug][equals]=${slug}`
+    const settings = await fetchDocs<StoreSettings>(`/api/store-settings?${tenantFilter}&limit=1`)
+    return settings[0]?.analytics
+  } catch {
+    return undefined
+  }
 }
 
 async function fetchDocsPaginated<T>(path: string): Promise<ApiPaginated<T> | null> {

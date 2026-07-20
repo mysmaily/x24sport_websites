@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import { Barlow_Condensed, Be_Vietnam_Pro } from 'next/font/google'
+import Script from 'next/script'
+
+import { getAnalyticsSettings } from '../lib/content'
 import './styles.css'
 
 const bodyFont = Be_Vietnam_Pro({
@@ -21,10 +24,29 @@ export const metadata: Metadata = {
   description: 'Đồng phục cầu lông đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const analytics = await getAnalyticsSettings()
+  const measurementId =
+    analytics?.ga4Enabled && analytics.gaMeasurementId?.trim()
+      ? analytics.gaMeasurementId.trim()
+      : null
+
   return (
     <html className={`${bodyFont.variable} ${displayFont.variable}`} data-scroll-behavior="smooth" lang="vi">
-      <body>{children}</body>
+      <body>
+        {measurementId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-tag" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${measurementId}');`}
+            </Script>
+          </>
+        ) : null}
+        {children}
+      </body>
     </html>
   )
 }
