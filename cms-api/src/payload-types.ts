@@ -218,13 +218,29 @@ export interface TenantPinterestConnection {
    */
   defaultBoardName?: string | null;
   /**
+   * Board sandbox mặc định để quay video hoặc test UI.
+   */
+  sandboxDefaultBoardId?: string | null;
+  /**
+   * Tên board sandbox đang dùng để đăng sản phẩm.
+   */
+  sandboxDefaultBoardName?: string | null;
+  /**
    * Danh sách scope OAuth đã cấp cho tenant này.
    */
   scope?: string | null;
+  /**
+   * Danh sách scope OAuth sandbox đã cấp cho tenant này.
+   */
+  sandboxScope?: string | null;
   accessToken?: string | null;
+  sandboxAccessToken?: string | null;
   refreshToken?: string | null;
+  sandboxRefreshToken?: string | null;
   tokenExpiresAt?: string | null;
+  sandboxTokenExpiresAt?: string | null;
   refreshTokenExpiresAt?: string | null;
+  sandboxRefreshTokenExpiresAt?: string | null;
   lastPublishedPinId?: string | null;
   lastPublishedProductId?: string | null;
   lastPublishedAt?: string | null;
@@ -429,6 +445,12 @@ export interface Product {
    */
   legacyPath?: string | null;
   tenantLegacyPathKey?: string | null;
+  pinterestPublishEnvironment?: ('production' | 'sandbox') | null;
+  pinterestPublishedAt?: string | null;
+  pinterestBoardName?: string | null;
+  pinterestPinId?: string | null;
+  pinterestBoardId?: string | null;
+  pinterestPinUrl?: string | null;
   /**
    * HTML gốc đã sanitize từ WordPress. Dùng để đối chiếu/migration, không phải nội dung biên tập chính.
    */
@@ -722,11 +744,18 @@ export interface TenantPinterestConnectionsSelect<T extends boolean = true> {
   pinterestUsername?: T;
   defaultBoardId?: T;
   defaultBoardName?: T;
+  sandboxDefaultBoardId?: T;
+  sandboxDefaultBoardName?: T;
   scope?: T;
+  sandboxScope?: T;
   accessToken?: T;
+  sandboxAccessToken?: T;
   refreshToken?: T;
+  sandboxRefreshToken?: T;
   tokenExpiresAt?: T;
+  sandboxTokenExpiresAt?: T;
   refreshTokenExpiresAt?: T;
+  sandboxRefreshTokenExpiresAt?: T;
   lastPublishedPinId?: T;
   lastPublishedProductId?: T;
   lastPublishedAt?: T;
@@ -870,6 +899,12 @@ export interface ProductsSelect<T extends boolean = true> {
   canonicalOverride?: T;
   legacyPath?: T;
   tenantLegacyPathKey?: T;
+  pinterestPublishEnvironment?: T;
+  pinterestPublishedAt?: T;
+  pinterestBoardName?: T;
+  pinterestPinId?: T;
+  pinterestBoardId?: T;
+  pinterestPinUrl?: T;
   contentHtml?: T;
   sourceTags?:
     | T

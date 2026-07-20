@@ -300,6 +300,72 @@ export const Products: CollectionConfig = {
           ],
         },
         {
+          label: 'Pinterest',
+          fields: [
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'pinterestPublishEnvironment',
+                  type: 'select',
+                  options: ['production', 'sandbox'],
+                  admin: {
+                    readOnly: true,
+                    width: '33%',
+                  },
+                },
+                {
+                  name: 'pinterestPublishedAt',
+                  type: 'date',
+                  admin: {
+                    date: {
+                      pickerAppearance: 'dayAndTime',
+                    },
+                    readOnly: true,
+                    width: '33%',
+                  },
+                },
+                {
+                  name: 'pinterestBoardName',
+                  type: 'text',
+                  admin: {
+                    readOnly: true,
+                    width: '34%',
+                  },
+                },
+              ],
+            },
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'pinterestPinId',
+                  type: 'text',
+                  admin: {
+                    readOnly: true,
+                    width: '50%',
+                  },
+                },
+                {
+                  name: 'pinterestBoardId',
+                  type: 'text',
+                  admin: {
+                    readOnly: true,
+                    width: '50%',
+                  },
+                },
+              ],
+            },
+            {
+              name: 'pinterestPinUrl',
+              type: 'text',
+              admin: {
+                readOnly: true,
+              },
+            },
+          ],
+        },
+        {
           label: 'Migration',
           fields: [
             {

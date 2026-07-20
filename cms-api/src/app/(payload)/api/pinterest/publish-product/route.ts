@@ -2,14 +2,28 @@ import configPromise from '@payload-config'
 import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 
+import type { TenantPinterestConnection } from '../../../../../payload-types'
 import { isAdminRole } from '../../../../../access/roles'
-import { sanitizeReturnTo } from '../../../../../pinterest/oauth'
+import {
+  normalizePinterestEnvironment,
+  sanitizeReturnTo,
+} from '../../../../../pinterest/oauth'
 import { publishProductToPinterest } from '../../../../../pinterest/publish'
+import { buildPublicURL } from '../../../../../pinterest/serverURL'
 
 type PublishRequestBody = {
+  environment?: 'production' | 'sandbox'
   productId?: number | string
   returnTo?: string
 }
+
+const hasEnvironmentAccessToken = (
+  connection: TenantPinterestConnection | undefined,
+  environment: 'production' | 'sandbox',
+) =>
+  environment === 'sandbox'
+    ? Boolean(connection?.sandboxAccessToken)
+    : Boolean(connection?.accessToken)
 
 export async function POST(request: Request) {
   const payload = await getPayload({
@@ -26,6 +40,7 @@ export async function POST(request: Request) {
   }
 
   const body = (await request.json()) as PublishRequestBody
+  const environment = normalizePinterestEnvironment(body.environment)
   const productId = body.productId
 
   if (!productId) {
@@ -74,8 +89,9 @@ export async function POST(request: Request) {
   const connection = connections.docs[0]
   const returnTo = sanitizeReturnTo(body.returnTo)
 
-  if (!connection?.accessToken) {
-    const connectURL = new URL('/api/pinterest/connect', request.url)
+  if (!hasEnvironmentAccessToken(connection, environment)) {
+    const connectURL = buildPublicURL('/api/pinterest/connect')
+    connectURL.searchParams.set('environment', environment)
     connectURL.searchParams.set('productId', String(productId))
     connectURL.searchParams.set('returnTo', returnTo)
     connectURL.searchParams.set('tenantId', String(tenantId))
@@ -93,6 +109,7 @@ export async function POST(request: Request) {
   try {
     const result = await publishProductToPinterest({
       connection,
+      environment,
       payload,
       product,
       tenant,

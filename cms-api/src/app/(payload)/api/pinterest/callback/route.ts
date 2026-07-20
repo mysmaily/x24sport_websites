@@ -2,17 +2,24 @@ import configPromise from '@payload-config'
 import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 
-import { isAdminRole } from '../../../../../access/roles'
+import type { TenantPinterestConnection } from '../../../../../payload-types'
 import {
   exchangePinterestCode,
   getPinterestUserAccount,
   mapTokenFields,
+  mapTokenFieldsForEnvironment,
 } from '../../../../../pinterest/client'
 import { parsePinterestOAuthState, sanitizeReturnTo } from '../../../../../pinterest/oauth'
 import { publishProductToPinterest } from '../../../../../pinterest/publish'
+import { buildPublicURL } from '../../../../../pinterest/serverURL'
 
-const redirectWithStatus = (requestURL: string, path: string, params: Record<string, string>) => {
-  const url = new URL(path, requestURL)
+const redirectWithStatus = (path: string, params: Record<string, string>) => {
+  const url = buildPublicURL(path)
+  ;['pinterest', 'reason', 'pinId', 'pinURL', 'productId', 'boardId', 'boardName'].forEach(
+    (key) => {
+      url.searchParams.delete(key)
+    },
+  )
 
   Object.entries(params).forEach(([key, value]) => {
     url.searchParams.set(key, value)
@@ -25,15 +32,6 @@ export async function GET(request: Request) {
   const payload = await getPayload({
     config: configPromise,
   })
-
-  const auth = await payload.auth({
-    canSetHeaders: false,
-    headers: request.headers,
-  })
-
-  if (!isAdminRole(auth.user as never)) {
-    return NextResponse.json({ error: 'Unauthorized.' }, { status: 401 })
-  }
 
   const { searchParams } = new URL(request.url)
   const code = searchParams.get('code')
@@ -55,6 +53,7 @@ export async function GET(request: Request) {
   }
 
   const returnTo = sanitizeReturnTo(state.returnTo)
+  const environment = state.environment || 'production'
   const normalizedTenantId = Number(state.tenantId)
 
   if (!Number.isFinite(normalizedTenantId)) {
@@ -62,9 +61,23 @@ export async function GET(request: Request) {
   }
 
   try {
-    const tokens = await exchangePinterestCode(code)
+    const tokens = await exchangePinterestCode({
+      code,
+      environment,
+    })
     const tokenFields = mapTokenFields(tokens)
-    const account = await getPinterestUserAccount(tokenFields.accessToken || '')
+    const environmentTokenFields = mapTokenFieldsForEnvironment(environment, tokenFields)
+    const account = await getPinterestUserAccount({
+      accessToken: tokenFields.accessToken || '',
+      environment,
+    })
+
+    const connectionData = {
+      ...environmentTokenFields,
+      pinterestAccountId: account.id || '',
+      pinterestUsername: account.username || '',
+      tenant: normalizedTenantId,
+    }
 
     const existing = await payload.find({
       collection: 'tenant-pinterest-connections',
@@ -77,13 +90,6 @@ export async function GET(request: Request) {
         },
       },
     })
-
-    const connectionData = {
-      ...tokenFields,
-      pinterestAccountId: account.id || '',
-      pinterestUsername: account.username || '',
-      tenant: normalizedTenantId,
-    }
 
     const connection =
       existing.docs[0]
@@ -126,22 +132,27 @@ export async function GET(request: Request) {
 
       const result = await publishProductToPinterest({
         connection,
+        environment,
         payload,
         product,
         tenant,
       })
 
-      return redirectWithStatus(request.url, returnTo, {
-        pinterest: 'connected',
+      return redirectWithStatus(returnTo, {
+        boardId: result.boardId,
+        boardName: result.boardName,
+        pinterest: environment === 'sandbox' ? 'sandbox-connected' : 'connected',
         pinId: result.pinId,
+        pinURL: result.pinURL,
+        productId: result.productId,
       })
     }
 
-    return redirectWithStatus(request.url, returnTo, {
-      pinterest: 'connected',
+    return redirectWithStatus(returnTo, {
+      pinterest: environment === 'sandbox' ? 'sandbox-connected' : 'connected',
     })
   } catch (error) {
-    return redirectWithStatus(request.url, returnTo, {
+    return redirectWithStatus(returnTo, {
       pinterest: 'error',
       reason: error instanceof Error ? error.message : 'Pinterest callback failed.',
     })

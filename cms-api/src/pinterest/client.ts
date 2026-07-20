@@ -1,5 +1,5 @@
 import type { Product, Tenant, TenantPinterestConnection } from '../payload-types'
-import { pinterestConfig } from './config'
+import { pinterestConfig, type PinterestEnvironment } from './config'
 
 type TokenResponse = {
   access_token: string
@@ -22,10 +22,23 @@ type PinterestBoard = {
   name?: string
 }
 
+type PinterestBoardListResponse = {
+  bookmark?: string | null
+  items?: PinterestBoard[]
+}
+
 type PinterestPin = {
   board_id?: string
   created_at?: string
   id: string
+}
+
+type PinterestConnectionTokenState = {
+  accessToken?: string | null
+  refreshToken?: string | null
+  scope?: string | null
+  tokenExpiresAt?: string | null
+  refreshTokenExpiresAt?: string | null
 }
 
 const basicAuthorizationHeader = () =>
@@ -38,18 +51,25 @@ const encodeForm = (params: Record<string, string>) =>
     .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
     .join('&')
 
+const getPinterestAPIBaseURL = (environment: PinterestEnvironment) =>
+  environment === 'sandbox'
+    ? 'https://api-sandbox.pinterest.com/v5'
+    : 'https://api.pinterest.com/v5'
+
 const callPinterest = async <T>({
   accessToken,
   body,
+  environment = 'production',
   method = 'GET',
   path,
 }: {
   accessToken?: string
   body?: Record<string, unknown>
+  environment?: PinterestEnvironment
   method?: 'GET' | 'POST'
   path: string
 }) => {
-  const response = await fetch(`https://api.pinterest.com/v5${path}`, {
+  const response = await fetch(`${getPinterestAPIBaseURL(environment)}${path}`, {
     body: body ? JSON.stringify(body) : undefined,
     headers: {
       ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
@@ -70,8 +90,14 @@ const callPinterest = async <T>({
   return (await response.json()) as T
 }
 
-export const exchangePinterestCode = async (code: string) => {
-  const response = await fetch('https://api.pinterest.com/v5/oauth/token', {
+export const exchangePinterestCode = async ({
+  code,
+  environment = 'production',
+}: {
+  code: string
+  environment?: PinterestEnvironment
+}) => {
+  const response = await fetch(`${getPinterestAPIBaseURL(environment)}/oauth/token`, {
     body: encodeForm({
       code,
       grant_type: 'authorization_code',
@@ -91,8 +117,14 @@ export const exchangePinterestCode = async (code: string) => {
   return (await response.json()) as TokenResponse
 }
 
-export const refreshPinterestAccessToken = async (refreshToken: string) => {
-  const response = await fetch('https://api.pinterest.com/v5/oauth/token', {
+export const refreshPinterestAccessToken = async ({
+  environment = 'production',
+  refreshToken,
+}: {
+  environment?: PinterestEnvironment
+  refreshToken: string
+}) => {
+  const response = await fetch(`${getPinterestAPIBaseURL(environment)}/oauth/token`, {
     body: encodeForm({
       grant_type: 'refresh_token',
       refresh_token: refreshToken,
@@ -112,19 +144,28 @@ export const refreshPinterestAccessToken = async (refreshToken: string) => {
   return (await response.json()) as TokenResponse
 }
 
-export const getPinterestUserAccount = async (accessToken: string) =>
+export const getPinterestUserAccount = async ({
+  accessToken,
+  environment = 'production',
+}: {
+  accessToken: string
+  environment?: PinterestEnvironment
+}) =>
   callPinterest<PinterestUserAccount>({
     accessToken,
+    environment,
     path: '/user_account',
   })
 
 export const createPinterestBoard = async ({
   accessToken,
   description,
+  environment = 'production',
   name,
 }: {
   accessToken: string
   description?: string
+  environment?: PinterestEnvironment
   name: string
 }) =>
   callPinterest<PinterestBoard>({
@@ -133,14 +174,40 @@ export const createPinterestBoard = async ({
       description,
       name,
     },
+    environment,
     method: 'POST',
     path: '/boards',
   })
+
+export const listPinterestBoards = async ({
+  accessToken,
+  bookmark,
+  environment = 'production',
+  pageSize = 100,
+}: {
+  accessToken: string
+  bookmark?: string
+  environment?: PinterestEnvironment
+  pageSize?: number
+}) => {
+  const params = new URLSearchParams({
+    page_size: String(pageSize),
+  })
+
+  if (bookmark) params.set('bookmark', bookmark)
+
+  return callPinterest<PinterestBoardListResponse>({
+    accessToken,
+    environment,
+    path: `/boards?${params.toString()}`,
+  })
+}
 
 export const createPinterestPin = async ({
   accessToken,
   boardId,
   description,
+  environment = 'production',
   imageUrl,
   link,
   title,
@@ -148,6 +215,7 @@ export const createPinterestPin = async ({
   accessToken: string
   boardId: string
   description: string
+  environment?: PinterestEnvironment
   imageUrl: string
   link: string
   title: string
@@ -165,6 +233,7 @@ export const createPinterestPin = async ({
       },
       title,
     },
+    environment,
     method: 'POST',
     path: '/pins',
   })
@@ -187,31 +256,77 @@ export const mapTokenFields = (tokens: TokenResponse) => ({
       : {}),
 })
 
+export const mapTokenFieldsForEnvironment = (
+  environment: PinterestEnvironment,
+  tokens: ReturnType<typeof mapTokenFields>,
+) =>
+  environment === 'sandbox'
+    ? {
+        ...(tokens.accessToken ? { sandboxAccessToken: tokens.accessToken } : {}),
+        ...(tokens.refreshToken ? { sandboxRefreshToken: tokens.refreshToken } : {}),
+        ...(tokens.scope ? { sandboxScope: tokens.scope } : {}),
+        ...(tokens.tokenExpiresAt ? { sandboxTokenExpiresAt: tokens.tokenExpiresAt } : {}),
+        ...(tokens.refreshTokenExpiresAt
+          ? { sandboxRefreshTokenExpiresAt: tokens.refreshTokenExpiresAt }
+          : {}),
+      }
+    : tokens
+
+const getConnectionTokenState = (
+  connection: TenantPinterestConnection,
+  environment: PinterestEnvironment,
+): PinterestConnectionTokenState =>
+  environment === 'sandbox'
+    ? {
+        accessToken: connection.sandboxAccessToken,
+        refreshToken: connection.sandboxRefreshToken,
+        refreshTokenExpiresAt: connection.sandboxRefreshTokenExpiresAt,
+        scope: connection.sandboxScope,
+        tokenExpiresAt: connection.sandboxTokenExpiresAt,
+      }
+    : {
+        accessToken: connection.accessToken,
+        refreshToken: connection.refreshToken,
+        refreshTokenExpiresAt: connection.refreshTokenExpiresAt,
+        scope: connection.scope,
+        tokenExpiresAt: connection.tokenExpiresAt,
+      }
+
 export const ensureFreshPinterestToken = async ({
   connection,
+  environment = 'production',
   updateConnection,
 }: {
   connection: TenantPinterestConnection
+  environment?: PinterestEnvironment
   updateConnection: (data: Partial<TenantPinterestConnection>) => Promise<void>
 }) => {
-  const expiresAt = connection.tokenExpiresAt ? new Date(connection.tokenExpiresAt).getTime() : 0
+  const tokenState = getConnectionTokenState(connection, environment)
+  const expiresAt = tokenState.tokenExpiresAt ? new Date(tokenState.tokenExpiresAt).getTime() : 0
   const shouldRefresh = Boolean(
-    connection.refreshToken &&
-      (!connection.accessToken || !expiresAt || expiresAt - Date.now() < 1000 * 60 * 5),
+    tokenState.refreshToken &&
+      (!tokenState.accessToken || !expiresAt || expiresAt - Date.now() < 1000 * 60 * 5),
   )
 
-  if (shouldRefresh && connection.refreshToken) {
-    const refreshed = await refreshPinterestAccessToken(connection.refreshToken)
-    const tokenFields = mapTokenFields(refreshed)
+  if (shouldRefresh && tokenState.refreshToken) {
+    const refreshed = await refreshPinterestAccessToken({
+      environment,
+      refreshToken: tokenState.refreshToken,
+    })
+    const tokenFields = mapTokenFieldsForEnvironment(environment, mapTokenFields(refreshed))
     await updateConnection(tokenFields)
-    return tokenFields.accessToken || connection.accessToken || ''
+    const refreshedState = {
+      ...tokenState,
+      ...getConnectionTokenState({ ...connection, ...tokenFields } as TenantPinterestConnection, environment),
+    }
+    return refreshedState.accessToken || ''
   }
 
-  if (!connection.accessToken) {
+  if (!tokenState.accessToken) {
     throw new Error('Tenant chưa có Pinterest access token.')
   }
 
-  return connection.accessToken
+  return tokenState.accessToken
 }
 
 const trimAndLimit = (value: string, maxLength: number) =>
@@ -276,34 +391,115 @@ export const buildTenantProductURL = ({
 export const ensureTenantBoard = async ({
   accessToken,
   connection,
+  environment = 'production',
   tenant,
   updateConnection,
 }: {
   accessToken: string
   connection: TenantPinterestConnection
+  environment?: PinterestEnvironment
   tenant: Tenant
   updateConnection: (data: Partial<TenantPinterestConnection>) => Promise<void>
 }) => {
-  if (connection.defaultBoardId) {
+  const defaultBoardId =
+    environment === 'sandbox' ? connection.sandboxDefaultBoardId : connection.defaultBoardId
+  const defaultBoardName =
+    environment === 'sandbox' ? connection.sandboxDefaultBoardName : connection.defaultBoardName
+
+  if (defaultBoardId) {
     return {
-      boardId: connection.defaultBoardId,
-      boardName: connection.defaultBoardName || `${tenant.name} Products`,
+      boardId: defaultBoardId,
+      boardName: defaultBoardName || `${tenant.name} Products`,
     }
   }
+
+  if (environment === 'sandbox') {
+    const sandboxBoardName = `${tenant.name} Sandbox`
+    let bookmark: string | undefined
+
+    do {
+      const response = await listPinterestBoards({
+        accessToken,
+        bookmark,
+        environment,
+      })
+
+      const matchedBoard = (response.items || []).find((board) => board.name === sandboxBoardName)
+
+      if (matchedBoard) {
+        await updateConnection({
+          sandboxDefaultBoardId: matchedBoard.id,
+          sandboxDefaultBoardName: matchedBoard.name || sandboxBoardName,
+        })
+
+        return {
+          boardId: matchedBoard.id,
+          boardName: matchedBoard.name || sandboxBoardName,
+        }
+      }
+
+      bookmark = response.bookmark || undefined
+    } while (bookmark)
+
+    const board = await createPinterestBoard({
+      accessToken,
+      description: `Board sandbox đồng bộ sản phẩm từ tenant ${tenant.slug}.`,
+      environment,
+      name: sandboxBoardName,
+    })
+
+    await updateConnection({
+      sandboxDefaultBoardId: board.id,
+      sandboxDefaultBoardName: board.name || sandboxBoardName,
+    })
+
+    return {
+      boardId: board.id,
+      boardName: board.name || sandboxBoardName,
+    }
+  }
+
+  const desiredBoardName = `${tenant.name} Products`
+  let bookmark: string | undefined
+
+  do {
+    const response = await listPinterestBoards({
+      accessToken,
+      bookmark,
+      environment,
+    })
+
+    const matchedBoard = (response.items || []).find((board) => board.name === desiredBoardName)
+
+    if (matchedBoard) {
+      await updateConnection({
+        defaultBoardId: matchedBoard.id,
+        defaultBoardName: matchedBoard.name || desiredBoardName,
+      })
+
+      return {
+        boardId: matchedBoard.id,
+        boardName: matchedBoard.name || desiredBoardName,
+      }
+    }
+
+    bookmark = response.bookmark || undefined
+  } while (bookmark)
 
   const board = await createPinterestBoard({
     accessToken,
     description: `Board đồng bộ sản phẩm từ tenant ${tenant.slug}.`,
-    name: `${tenant.name} Products`,
+    environment,
+    name: desiredBoardName,
   })
 
   await updateConnection({
     defaultBoardId: board.id,
-    defaultBoardName: board.name || `${tenant.name} Products`,
+    defaultBoardName: board.name || desiredBoardName,
   })
 
   return {
     boardId: board.id,
-    boardName: board.name || `${tenant.name} Products`,
+    boardName: board.name || desiredBoardName,
   }
 }

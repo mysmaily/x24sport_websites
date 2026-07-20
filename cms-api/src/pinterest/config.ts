@@ -14,3 +14,5 @@ export const pinterestConfig = {
   redirectURI: () => requiredEnv('PINTEREST_REDIRECT_URI'),
   scopes: ['boards:read', 'boards:write', 'pins:read', 'pins:write', 'user_accounts:read'],
 }
+
+export type PinterestEnvironment = 'production' | 'sandbox'

@@ -1,8 +1,10 @@
 import crypto from 'crypto'
 
-import { pinterestConfig } from './config'
+import { pinterestConfig, type PinterestEnvironment } from './config'
+import { getPublicServerURL } from './serverURL'
 
 type PinterestOAuthState = {
+  environment?: PinterestEnvironment
   productId?: number | string
   returnTo: string
   tenantId: number | string
@@ -59,6 +61,22 @@ export const parsePinterestOAuthState = (encodedState: string): PinterestOAuthSt
 
 export const sanitizeReturnTo = (returnTo?: string | null) => {
   if (!returnTo) return '/admin/collections/products'
+
+  if (returnTo.startsWith('http://') || returnTo.startsWith('https://')) {
+    try {
+      const candidate = new URL(returnTo)
+      const publicURL = new URL(getPublicServerURL())
+
+      if (candidate.origin !== publicURL.origin) {
+        return '/admin/collections/products'
+      }
+
+      return `${candidate.pathname}${candidate.search}${candidate.hash}`
+    } catch {
+      return '/admin/collections/products'
+    }
+  }
+
   if (!returnTo.startsWith('/')) return '/admin/collections/products'
   if (returnTo.startsWith('//')) return '/admin/collections/products'
   return returnTo
@@ -75,3 +93,7 @@ export const buildPinterestOAuthURL = (state: string) => {
 
   return `https://www.pinterest.com/oauth/?${params.toString()}`
 }
+
+export const normalizePinterestEnvironment = (
+  value?: string | null,
+): PinterestEnvironment => (value === 'sandbox' ? 'sandbox' : 'production')

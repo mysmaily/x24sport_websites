@@ -88,6 +88,20 @@ export const TenantPinterestConnections: CollectionConfig = {
       },
     },
     {
+      name: 'sandboxDefaultBoardId',
+      type: 'text',
+      admin: {
+        description: 'Board sandbox mặc định để quay video hoặc test UI.',
+      },
+    },
+    {
+      name: 'sandboxDefaultBoardName',
+      type: 'text',
+      admin: {
+        description: 'Tên board sandbox đang dùng để đăng sản phẩm.',
+      },
+    },
+    {
       name: 'scope',
       type: 'text',
       admin: {
@@ -96,7 +110,27 @@ export const TenantPinterestConnections: CollectionConfig = {
       },
     },
     {
+      name: 'sandboxScope',
+      type: 'text',
+      admin: {
+        description: 'Danh sách scope OAuth sandbox đã cấp cho tenant này.',
+        readOnly: true,
+      },
+    },
+    {
       name: 'accessToken',
+      type: 'textarea',
+      access: {
+        create: superAdminFieldOnly,
+        read: superAdminFieldOnly,
+        update: superAdminFieldOnly,
+      },
+      admin: {
+        hidden: true,
+      },
+    },
+    {
+      name: 'sandboxAccessToken',
       type: 'textarea',
       access: {
         create: superAdminFieldOnly,
@@ -120,6 +154,18 @@ export const TenantPinterestConnections: CollectionConfig = {
       },
     },
     {
+      name: 'sandboxRefreshToken',
+      type: 'textarea',
+      access: {
+        create: superAdminFieldOnly,
+        read: superAdminFieldOnly,
+        update: superAdminFieldOnly,
+      },
+      admin: {
+        hidden: true,
+      },
+    },
+    {
       name: 'tokenExpiresAt',
       type: 'date',
       admin: {
@@ -129,7 +175,25 @@ export const TenantPinterestConnections: CollectionConfig = {
       },
     },
     {
+      name: 'sandboxTokenExpiresAt',
+      type: 'date',
+      admin: {
+        date: {
+          pickerAppearance: 'dayAndTime',
+        },
+      },
+    },
+    {
       name: 'refreshTokenExpiresAt',
+      type: 'date',
+      admin: {
+        date: {
+          pickerAppearance: 'dayAndTime',
+        },
+      },
+    },
+    {
+      name: 'sandboxRefreshTokenExpiresAt',
       type: 'date',
       admin: {
         date: {

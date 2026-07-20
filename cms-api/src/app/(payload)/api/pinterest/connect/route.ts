@@ -6,6 +6,7 @@ import { isAdminRole } from '../../../../../access/roles'
 import {
   buildPinterestOAuthState,
   buildPinterestOAuthURL,
+  normalizePinterestEnvironment,
   sanitizeReturnTo,
 } from '../../../../../pinterest/oauth'
 
@@ -26,6 +27,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const tenantId = searchParams.get('tenantId')
   const productId = searchParams.get('productId')
+  const environment = normalizePinterestEnvironment(searchParams.get('environment'))
   const returnTo = sanitizeReturnTo(searchParams.get('returnTo'))
 
   if (!tenantId) {
@@ -33,6 +35,7 @@ export async function GET(request: Request) {
   }
 
   const state = buildPinterestOAuthState({
+    environment,
     ...(productId ? { productId } : {}),
     returnTo,
     tenantId,
