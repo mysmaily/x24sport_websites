@@ -27,6 +27,17 @@ const corporateHeroImages = [
   },
 ]
 
+const eventHeroImages = [
+  {
+    alt: 'Vận động viên xuất phát dưới cổng vòm X24 Run với áo sự kiện và số báo danh',
+    src: '/images/audience-landings/giai-chay-x24-run-start.webp',
+  },
+  {
+    alt: 'Vận động viên mặc áo đồng bộ và đeo số báo danh tại cổng về đích X24 Run',
+    src: '/images/audience-landings/giai-chay-x24-run-finish.webp',
+  },
+]
+
 const clubHeroImages = [
   {
     alt: 'Các thành viên Bình Minh Runner mặc đồng phục câu lạc bộ sau buổi chạy',
@@ -42,6 +53,7 @@ export async function AudienceLandingPage({ landing }: { landing: AudienceLandin
   const catalog = await getProducts({ limit: 4 })
   const heroProducts = catalog.docs.slice(0, 2).map((product) => ({ product, image: productImages(product)[0] })).filter((item) => item.image?.url)
   const isCorporateLanding = landing.slug === 'ao-chay-bo-doanh-nghiep'
+  const isEventLanding = landing.slug === 'ao-giai-chay-su-kien'
   const isClubLanding = landing.slug === 'ao-chay-bo-doi-nhom-cau-lac-bo'
   const AudienceIcon = audienceIcons[landing.slug as keyof typeof audienceIcons]
   const related = AUDIENCE_LANDINGS.filter((item) => item.slug !== landing.slug)
@@ -86,6 +98,13 @@ export async function AudienceLandingPage({ landing }: { landing: AudienceLandin
             </div>
             <div className="absolute bottom-8 right-0 w-[58%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-slate-100 shadow-[0_20px_60px_rgba(0,0,0,.4)]">
               <div className="relative aspect-[4/3]"><Image alt={corporateHeroImages[1].alt} className="object-cover" fill sizes="(max-width: 1024px) 58vw, 27vw" src={corporateHeroImages[1].src} /></div>
+            </div>
+          </> : isEventLanding ? <>
+            <div className="absolute bottom-0 left-0 w-[72%] overflow-hidden rounded-2xl border border-white/10 bg-slate-100 shadow-[0_26px_80px_rgba(0,0,0,.35)]">
+              <div className="relative aspect-[4/3]"><Image alt={eventHeroImages[0].alt} className="object-cover" fill priority sizes="(max-width: 1024px) 72vw, 34vw" src={eventHeroImages[0].src} /></div>
+            </div>
+            <div className="absolute bottom-8 right-0 w-[58%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-slate-100 shadow-[0_20px_60px_rgba(0,0,0,.4)]">
+              <div className="relative aspect-[4/3]"><Image alt={eventHeroImages[1].alt} className="object-cover" fill sizes="(max-width: 1024px) 58vw, 27vw" src={eventHeroImages[1].src} /></div>
             </div>
           </> : isClubLanding ? <>
             <div className="absolute bottom-0 left-0 w-[72%] overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_26px_80px_rgba(0,0,0,.35)]">
