@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { CatalogPageContent } from '../san-pham/page'
 import { getCatalogFilterBySlug, getProductsByCatalogFilter } from '../../lib/content'
+import { absoluteUrl } from '../../lib/seo'
 
 type CatalogPageProps = {
   params: Promise<{ catalogSlug: string }>
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: CatalogPageProps): Promise<Me
     title: filter.title,
     description: filter.description,
     alternates: { canonical: filter.href },
-    openGraph: { title: filter.title, description: filter.description },
+    openGraph: { title: filter.title, description: filter.description, url: absoluteUrl(filter.href) },
   }
 }
 

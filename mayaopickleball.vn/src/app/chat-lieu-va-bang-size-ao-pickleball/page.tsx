@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import { ArrowRight, BadgeCheck, Ruler, Shirt, Sparkles, Wind } from 'lucide-react'
 import { InfoPage, zaloHref } from '../_components/info-pages'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Chất liệu & bảng size áo pickleball | MayaoPickleball',
   description: 'Tư vấn chất liệu, form áo và cách chọn size khi đặt may áo pickleball cho đội nhóm, CLB, trường lớp.',
-}
+  path: '/chat-lieu-va-bang-size-ao-pickleball',
+})
 
 const fabrics = [
   {

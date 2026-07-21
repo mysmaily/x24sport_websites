@@ -11,8 +11,10 @@ import {
   Sparkles,
   Truck,
 } from 'lucide-react'
+import { JsonLd } from './_components/json-ld'
 import { SiteHeader, phone, phoneHref, zaloHref } from './_components/info-pages'
-import { formatPrice, getHomeData, type Product } from '../lib/content'
+import { formatPrice, getHomeData, getValidCompareAtPrice, type Product } from '../lib/content'
+import { organizationJsonLd } from '../lib/seo'
 
 const trustItems = [
   { icon: Palette, title: 'Lên mẫu theo màu đội', text: 'Gợi ý phối màu, logo, tên số trước khi sản xuất.' },
@@ -25,17 +27,17 @@ const buyerPaths = [
   {
     title: 'CLB cần đồng phục mới',
     text: 'Chọn mẫu có sẵn, đổi màu chủ đạo, thêm logo CLB và tên số từng thành viên.',
-    image: 'https://picsum.photos/seed/pickleball-club-team/900/1100',
+    image: '/images/pickleball-team-hero.png',
   },
   {
     title: 'Đội thi đấu giải cuối tuần',
     text: 'Ưu tiên form nhẹ, màu nổi trên sân, in số lớn và tư vấn deadline giao áo.',
-    image: 'https://picsum.photos/seed/pickleball-match-jersey/900/1100',
+    image: '/images/pickleball-team-hero.png',
   },
   {
     title: 'Trường lớp, công ty, team building',
     text: 'Thiết kế đồng bộ nam nữ, dễ mặc, dễ chia size và có phương án ngân sách.',
-    image: 'https://picsum.photos/seed/pickleball-school-uniform/900/1100',
+    image: '/images/pickleball-team-hero.png',
   },
 ] as const
 
@@ -60,24 +62,18 @@ const fabricCards = [
   { title: 'Size nam nữ dễ chia', text: 'Có tư vấn theo chiều cao, cân nặng và form mặc mong muốn của từng thành viên.' },
 ] as const
 
-const testimonials = [
+const serviceChecks = [
   {
-    quote: 'Đội mình cần áo cho giải nội bộ, gửi logo buổi sáng thì chiều đã có maket để duyệt. Áo mặc nhẹ và màu lên rất rõ.',
-    name: 'Nguyễn Minh Khang',
-    role: 'Đội trưởng CLB Pickleball Linh Đàm',
-    image: 'https://picsum.photos/seed/pickleball-review-khang/200/200',
+    title: 'Duyệt maket trước khi may',
+    text: 'Đội được kiểm tra phối màu, logo, tên số và form áo trước khi chốt sản xuất.',
   },
   {
-    quote: 'Khâu chia size và đóng gói theo tên rất tiện. Nhận hàng xong phát cho cả đội gần như không phải kiểm lại nhiều.',
-    name: 'Lê Thu Hà',
-    role: 'Phụ trách giải phong trào công ty',
-    image: 'https://picsum.photos/seed/pickleball-review-ha/200/200',
+    title: 'Chia size theo danh sách',
+    text: 'Tư vấn size theo từng thành viên và đóng gói rõ để khi nhận áo dễ phát cho cả đội.',
   },
   {
-    quote: 'Mình thích nhất là được chỉnh màu theo áo mẫu của đội. Mẫu duyệt giống bản may, không bị khác tông khi nhận hàng.',
-    name: 'Trần Quốc Việt',
-    role: 'CLB sinh viên Hà Nội',
-    image: 'https://picsum.photos/seed/pickleball-review-viet/200/200',
+    title: 'Theo sát deadline của đội',
+    text: 'Thống nhất mốc duyệt mẫu, sản xuất và giao hàng theo lịch tập luyện hoặc thi đấu.',
   },
 ] as const
 
@@ -101,13 +97,14 @@ const faqs = [
 ] as const
 
 const articleCards = [
-  { title: 'Cách chọn màu áo nổi bật trên sân pickleball', href: '#', text: 'Gợi ý phối màu theo sân xanh, ánh nắng ngoài trời và logo đội.' },
-  { title: 'Checklist đặt áo cho CLB trước mùa giải', href: '#', text: 'Những thông tin nên chuẩn bị để chốt maket nhanh và tránh nhầm size.' },
-  { title: 'Polo hay cổ tròn phù hợp với đội của bạn?', href: '#', text: 'So sánh cảm giác mặc, độ chỉn chu và tình huống sử dụng.' },
+  { title: 'Cách chọn chất liệu và size áo pickleball', href: '/chat-lieu-va-bang-size-ao-pickleball', text: 'Gợi ý chất vải, form áo và bảng size để đội mặc thoải mái khi vào sân.' },
+  { title: 'Checklist đặt áo cho CLB trước mùa giải', href: '/dat-may-ao-pickleball', text: 'Những thông tin nên chuẩn bị để chốt maket nhanh và tránh nhầm size.' },
+  { title: 'Bảng giá may áo pickleball theo số lượng', href: '/bang-gia-may-ao-pickleball', text: 'Các yếu tố ảnh hưởng đến giá: chất liệu, kiểu áo, tên số, logo và deadline.' },
 ] as const
 
 function ProductCard({ product, featured = false }: { product: Product; featured?: boolean }) {
   const image = product.gallery?.[0]
+  const compareAtPrice = getValidCompareAtPrice(product)
 
   return (
     <article className={featured ? 'product-card product-card-featured' : 'product-card'}>
@@ -136,7 +133,7 @@ function ProductCard({ product, featured = false }: { product: Product; featured
         <p>{product.shortDescription}</p>
         <div className="product-card-price">
           <strong>{formatPrice(product.price)}</strong>
-          {product.compareAtPrice ? <span>{formatPrice(product.compareAtPrice)}</span> : null}
+          {compareAtPrice ? <span>{formatPrice(compareAtPrice)}</span> : null}
         </div>
         <Link className="text-link" href={`/san-pham/${product.slug}`}>
           Xem chi tiết <ChevronRight size={16} />
@@ -153,6 +150,7 @@ export default async function Home() {
 
   return (
     <main className="site-page">
+      <JsonLd data={organizationJsonLd()} />
       <SiteHeader />
 
       <section className="hero-section">
@@ -310,7 +308,7 @@ export default async function Home() {
           <img
             alt="Chi tiết áo pickleball đặt may trên sân"
             height={1100}
-            src="https://picsum.photos/seed/pickleball-fabric-closeup/980/1100"
+            src="/images/pickleball-team-hero.png"
             width={980}
           />
         </div>
@@ -333,31 +331,30 @@ export default async function Home() {
           <Flame size={28} strokeWidth={1.6} />
           <h2>Mẫu đã làm, mẫu đang bán và mẫu có thể chỉnh theo đội bạn</h2>
           <p>
-            Giai đoạn đầu website dùng ảnh minh họa ở một số block. Phần sản phẩm vẫn lấy từ CMS,
-            bạn có thể thay bằng ảnh xưởng, ảnh đội thật hoặc lookbook sau.
+            Mỗi mẫu có thể dùng làm hướng tham khảo để đổi màu, thêm logo, tên số và điều chỉnh form áo
+            theo nhu cầu của đội.
           </p>
         </div>
         <div className="proof-mosaic">
           <img alt="Đội pickleball mặc áo thi đấu xanh trắng" src="/images/pickleball-team-hero.png" />
-          <img alt="Áo pickleball trên sân ngoài trời" src="https://picsum.photos/seed/pickleball-uniform-court/760/520" />
-          <img alt="Maket áo pickleball nhiều màu" src="https://picsum.photos/seed/pickleball-jersey-layout/760/520" />
+          <img alt="Mẫu áo pickleball có thể chỉnh màu theo đội" src="/images/pickleball-team-hero.png" />
+          <img alt="Đồng phục pickleball đặt may cho câu lạc bộ" src="/images/pickleball-team-hero.png" />
         </div>
       </section>
 
       <section className="section-shell review-section">
         <div className="section-heading compact">
-          <h2>Khách đặt áo cần sự chắc chắn hơn là lời hứa lớn</h2>
-          <p>Ba điều họ nhớ: tư vấn nhanh, màu áo đúng, phát size không rối.</p>
+          <h2>Đặt áo đội cần rõ ràng từ mẫu đến size</h2>
+          <p>Ba điểm nên chốt sớm: maket, danh sách size và thời gian cần nhận áo.</p>
         </div>
         <div className="review-grid">
-          {testimonials.map((item) => (
-            <article key={item.name}>
-              <p>"{item.quote}"</p>
+          {serviceChecks.map((item) => (
+            <article key={item.title}>
+              <p>{item.text}</p>
               <div>
-                <img alt={item.name} height={200} src={item.image} width={200} />
                 <span>
-                  <strong>{item.name}</strong>
-                  <small>{item.role}</small>
+                  <strong>{item.title}</strong>
+                  <small>Quy trình đặt may</small>
                 </span>
               </div>
             </article>
@@ -368,10 +365,10 @@ export default async function Home() {
       <section className="section-shell content-section">
         <div className="section-heading">
           <h2>Nội dung tư vấn để khách tự tin chốt đơn</h2>
-          <p>Trang chủ nên có thêm kiến thức mua hàng để khách mới hiểu quy trình đặt áo pickleball.</p>
+          <p>Các hướng dẫn ngắn giúp đội chuẩn bị thông tin đặt áo nhanh và chính xác hơn.</p>
         </div>
         <div className="article-grid">
-          {[...articleCards, ...posts.slice(0, 2).map((post) => ({ title: post.title, href: '#', text: post.excerpt }))].slice(0, 5).map((item) => (
+          {[...articleCards, ...posts.slice(0, 2).map((post) => ({ title: post.title, href: `/bai-viet/${post.slug}`, text: post.excerpt }))].slice(0, 5).map((item) => (
             <article key={item.title}>
               <h3>{item.title}</h3>
               <p>{item.text}</p>

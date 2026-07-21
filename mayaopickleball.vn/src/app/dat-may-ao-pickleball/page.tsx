@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import { ArrowRight, BadgeCheck, ClipboardList, PackageCheck, Palette, Ruler, Send } from 'lucide-react'
 import { InfoPage, zaloHref } from '../_components/info-pages'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Đặt may áo pickleball theo yêu cầu | MayaoPickleball',
   description: 'Nhận đặt may áo pickleball theo mẫu, in tên số, logo CLB và hỗ trợ thiết kế miễn phí theo yêu cầu.',
-}
+  path: '/dat-may-ao-pickleball',
+})
 
 const orderSteps = [
   { icon: Send, title: 'Gửi yêu cầu', text: 'Bạn gửi mẫu thích, màu đội, logo, số lượng và thời gian cần nhận hàng.' },
@@ -32,7 +34,7 @@ export default function OrderPage() {
   return (
     <InfoPage
       description="Nhận đặt may áo pickleball theo mẫu có sẵn hoặc thiết kế riêng, hỗ trợ miễn phí phần maket để đội dễ duyệt trước khi sản xuất."
-      image="https://picsum.photos/seed/pickleball-custom-order/1280/960"
+      image="/images/pickleball-team-hero.png"
       kicker="Đặt may áo pickleball"
       stats={[
         { value: '4 bước', label: 'quy trình rõ ràng' },

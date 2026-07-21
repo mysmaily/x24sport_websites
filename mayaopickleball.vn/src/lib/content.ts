@@ -48,7 +48,13 @@ export type Product = {
   sku: string
   price: number
   compareAtPrice?: number
+  currency?: string
+  stockStatus?: 'instock' | 'outofstock' | 'onbackorder'
+  isPurchasable?: boolean
+  isOnBackorder?: boolean
   shortDescription: string
+  attributes?: Array<{ name?: string; values?: Array<{ value?: string }> }>
+  searchTags?: SearchTag[]
   badges?: Array<{ label: string }>
   gallery?: ProductMedia[]
   colors?: Array<string | { label?: string; name?: string; color?: string; hex?: string }>
@@ -76,7 +82,6 @@ export type ProductDetail = Product & {
   }
   gallery?: ProductMedia[]
   sport?: string
-  searchTags?: SearchTag[]
 }
 
 export type Post = {
@@ -215,6 +220,23 @@ export async function getAllProducts(page = 1, perPage = PRODUCTS_PER_PAGE): Pro
       totalDocs: fallbackProducts.length,
       totalPages: 1,
     }
+  }
+}
+
+export async function getSitemapProducts() {
+  try {
+    const params = new URLSearchParams({
+      'where[tenant.slug][equals]': process.env.TENANT_SLUG || 'mayaopickleball',
+      'where[publicationStatus][equals]': 'publish',
+      depth: '0',
+      limit: '1000',
+      'select[slug]': 'true',
+      sort: '-updatedAt',
+    })
+    const data = await fetchDocsPaginated<Product>(`/api/products?${params.toString()}`)
+    return data?.docs || []
+  } catch {
+    return []
   }
 }
 
@@ -387,6 +409,35 @@ export function getProductColorTags(product: ProductDetail) {
   )
 
   return deduped
+}
+
+export function getValidCompareAtPrice(product: Pick<Product, 'compareAtPrice' | 'price'>) {
+  return product.compareAtPrice && product.compareAtPrice > product.price ? product.compareAtPrice : undefined
+}
+
+export function getDiscountPercent(product: Pick<Product, 'compareAtPrice' | 'price'>) {
+  const compareAtPrice = getValidCompareAtPrice(product)
+  return compareAtPrice ? Math.round(((compareAtPrice - product.price) / compareAtPrice) * 100) : 0
+}
+
+export function getProductCatalogLinks(product: ProductDetail) {
+  const text = [
+    product.name,
+    product.shortDescription,
+    ...(product.searchTags || []).map((tag) => tag.value || ''),
+    ...(product.gallery || []).flatMap((image) => image.searchTags?.map((tag) => tag.value || '') || []),
+  ]
+    .join(' ')
+    .toLocaleLowerCase('vi-VN')
+
+  const colorLabels = getProductColorTags(product).map((tag) => tag.label.toLocaleLowerCase('vi-VN'))
+
+  return catalogFilters
+    .filter((filter) => {
+      const tag = filter.tag.toLocaleLowerCase('vi-VN')
+      return text.includes(tag) || colorLabels.some((label) => label.includes(tag) || tag.includes(label))
+    })
+    .slice(0, 5)
 }
 
 export const formatPrice = (value: number) =>

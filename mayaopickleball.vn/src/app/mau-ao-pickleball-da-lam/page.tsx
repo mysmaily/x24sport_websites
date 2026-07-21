@@ -2,35 +2,37 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Images, Palette } from 'lucide-react'
 import { InfoPage, zaloHref } from '../_components/info-pages'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Mẫu áo pickleball đã làm | MayaoPickleball',
   description: 'Tham khảo mẫu áo pickleball đã làm cho trường học, câu lạc bộ, đội phong trào và doanh nghiệp.',
-}
+  path: '/mau-ao-pickleball-da-lam',
+})
 
 const projects = [
   {
     title: 'Mẫu áo pickleball CLB Linh Đàm',
     text: 'Tông xanh lá trắng nổi bật, số áo lớn, logo đặt trước ngực và sau lưng.',
-    image: 'https://picsum.photos/seed/pickleball-finished-linh-dam/900/760',
+    image: '/images/pickleball-team-hero.png',
     date: '12 Th7',
   },
   {
     title: 'Giải pickleball nội bộ công ty',
     text: 'Thiết kế xanh navy, chia size theo danh sách và đóng gói theo từng đội.',
-    image: 'https://picsum.photos/seed/pickleball-company-tournament/900/760',
+    image: '/images/pickleball-team-hero.png',
     date: '12 Th7',
   },
   {
     title: 'Mẫu áo pickleball trường học',
     text: 'Màu vàng cam trẻ, dễ nhận diện khi thi đấu ngoài trời và chụp ảnh tập thể.',
-    image: 'https://picsum.photos/seed/pickleball-school-team-kit/900/760',
+    image: '/images/pickleball-team-hero.png',
     date: '11 Th7',
   },
   {
     title: 'Set pickleball nam nữ đồng bộ',
     text: 'Form gọn, phối màu xanh ngọc và trắng, phù hợp đội đánh đôi phong trào.',
-    image: 'https://picsum.photos/seed/pickleball-mixed-team-kit/900/760',
+    image: '/images/pickleball-team-hero.png',
     date: '08 Th7',
   },
 ] as const
@@ -41,7 +43,7 @@ export default function FinishedWorkPage() {
   return (
     <InfoPage
       description="Tham khảo một số hướng thiết kế áo pickleball đã làm cho team, trường học, doanh nghiệp và câu lạc bộ phong trào."
-      image="https://picsum.photos/seed/pickleball-finished-gallery/1280/960"
+      image="/images/pickleball-team-hero.png"
       kicker="Mẫu áo pickleball đã làm"
       stats={[
         { value: 'nhiều màu', label: 'có thể chỉnh theo đội' },

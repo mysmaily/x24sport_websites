@@ -3,6 +3,7 @@ import { Barlow_Condensed, Be_Vietnam_Pro } from 'next/font/google'
 import Script from 'next/script'
 
 import { getAnalyticsSettings } from '../lib/content'
+import { siteName, siteUrl } from '../lib/seo'
 import './styles.css'
 
 const bodyFont = Be_Vietnam_Pro({
@@ -20,8 +21,17 @@ const displayFont = Barlow_Condensed({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'MayaoPickleball.vn - Áo pickleball đặt may cho CLB',
   description: 'Đồng phục pickleball đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'MayaoPickleball.vn - Áo pickleball đặt may cho CLB',
+    description: 'Đồng phục pickleball đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.',
+    siteName,
+    type: 'website',
+    url: siteUrl,
+  },
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

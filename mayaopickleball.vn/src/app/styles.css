@@ -481,6 +481,19 @@ img {
   color: white;
 }
 
+.catalog-page .secondary-button {
+  border-color: rgba(16, 19, 26, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink-soft);
+  box-shadow: 0 12px 30px rgba(16, 19, 26, 0.06);
+}
+
+.catalog-page .secondary-button:hover {
+  border-color: var(--accent);
+  background: white;
+  color: var(--accent);
+}
+
 .primary-button:hover,
 .secondary-button:hover,
 .text-link:hover {
@@ -703,9 +716,14 @@ img {
   letter-spacing: 0.08em;
 }
 
-.product-card h3,
-.catalog-card h2 {
+.product-card h3 {
   font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.catalog-card h2 {
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.25;
 }
@@ -737,6 +755,7 @@ img {
 .product-card-price span,
 .catalog-price span {
   color: var(--muted);
+  font-size: 21px;
   text-decoration: line-through;
 }
 
@@ -1120,7 +1139,7 @@ img {
   border-radius: var(--radius-lg);
   background:
     linear-gradient(135deg, rgba(223, 63, 50, 0.92), rgba(170, 33, 25, 0.94)),
-    url("https://picsum.photos/seed/badminton-final-cta/1600/900") center / cover;
+    url("/images/pickleball-team-hero.png") center / cover;
   padding: clamp(28px, 5vw, 64px);
   color: white;
 }
@@ -1200,7 +1219,8 @@ img {
 }
 
 .catalog-page {
-  background: #f7f9f6;
+  background:
+    linear-gradient(180deg, #f6faf3 0%, #f7f9f6 38%, #ffffff 100%);
 }
 
 .catalog-header {
@@ -1209,39 +1229,73 @@ img {
 
 .catalog-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-  gap: 28px;
-  align-items: end;
-  padding: clamp(42px, 7vw, 96px) clamp(20px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 360px);
+  gap: 24px;
+  align-items: center;
+  padding: clamp(28px, 4.5vw, 64px) clamp(20px, 5vw, 72px) clamp(22px, 4vw, 48px);
   border-bottom: 1px solid var(--line);
 }
 
 .catalog-hero h1 {
-  max-width: 900px;
+  max-width: 840px;
+  letter-spacing: 0;
+  line-height: 0.96;
 }
 
 .catalog-hero p {
-  margin-top: 18px;
+  margin-top: 14px;
+}
+
+.catalog-guidance-list {
+  display: grid;
+  max-width: 880px;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.catalog-guidance-list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.48;
+}
+
+.catalog-guidance-list li::before {
+  position: absolute;
+  top: 0.66em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  content: "";
 }
 
 .catalog-hero aside {
   display: grid;
-  gap: 1px;
+  gap: 10px;
   overflow: hidden;
-  border-radius: var(--radius-lg);
-  background: var(--line);
+  border-radius: var(--radius-md);
+  background: transparent;
 }
 
 .catalog-hero aside div {
-  padding: 24px;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-sm);
   background: white;
+  padding: 18px 20px;
+  box-shadow: 0 12px 34px rgba(22, 42, 32, 0.08);
 }
 
 .catalog-hero aside strong {
   display: block;
   font-family: var(--font-display), sans-serif;
-  font-size: 38px;
-  line-height: 0.95;
+  font-size: 31px;
+  line-height: 1;
 }
 
 .catalog-hero aside span {
@@ -1255,32 +1309,42 @@ img {
   position: sticky;
   top: 72px;
   z-index: 30;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: 18px;
-  padding: 14px clamp(20px, 5vw, 72px);
+  gap: 12px;
+  padding: 10px clamp(20px, 5vw, 72px);
   border-bottom: 1px solid var(--line);
   background: rgba(247, 249, 246, 0.92);
   backdrop-filter: blur(14px);
 }
 
-.catalog-toolbar > div:first-child {
+.catalog-toolbar-label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   white-space: nowrap;
+  color: var(--ink-soft);
 }
 
 .filter-chips {
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  padding-bottom: 2px;
+  min-width: 0;
+  padding-bottom: 1px;
+  scrollbar-width: none;
 }
 
-.filter-chips a {
+.filter-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-chips a,
+.catalog-color-dropdown summary,
+.catalog-color-panel a {
   display: inline-flex;
-  min-height: 38px;
+  min-height: 40px;
   align-items: center;
   white-space: nowrap;
   border-radius: var(--radius-sm);
@@ -1292,14 +1356,86 @@ img {
 }
 
 .filter-chips a.active,
-.filter-chips a:hover {
+.filter-chips a:hover,
+.catalog-color-panel a.active,
+.catalog-color-panel a:hover {
   border-color: var(--accent);
   background: var(--accent);
   color: white;
 }
 
+.catalog-color-dropdown {
+  position: relative;
+}
+
+.catalog-color-dropdown summary {
+  gap: 7px;
+  min-width: 138px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.catalog-color-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.catalog-color-dropdown[open] summary {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.catalog-color-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  display: grid;
+  width: min(240px, calc(100vw - 32px));
+  gap: 6px;
+  border: 1px solid rgba(16, 19, 26, 0.1);
+  border-radius: var(--radius-md);
+  background: white;
+  padding: 8px;
+  box-shadow: 0 22px 58px rgba(16, 19, 26, 0.16);
+}
+
+.catalog-color-panel a {
+  justify-content: flex-start;
+}
+
 .catalog-grid-section {
-  padding: clamp(28px, 5vw, 72px) clamp(20px, 5vw, 72px);
+  padding: clamp(18px, 3.5vw, 46px) clamp(20px, 5vw, 72px) clamp(28px, 5vw, 72px);
+}
+
+.catalog-results-bar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.catalog-results-bar span {
+  display: block;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.catalog-results-bar strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.catalog-results-bar p {
+  max-width: 470px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.45;
 }
 
 .catalog-grid {
@@ -1310,9 +1446,10 @@ img {
 
 .catalog-card {
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border: 1px solid rgba(16, 19, 26, 0.07);
+  border-radius: var(--radius-md);
   background: white;
-  box-shadow: var(--shadow);
+  box-shadow: 0 16px 44px rgba(26, 42, 32, 0.1);
 }
 
 .catalog-card-media {
@@ -1348,7 +1485,7 @@ img {
 
 .catalog-card-actions a {
   display: inline-flex;
-  min-height: 42px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
@@ -1361,6 +1498,35 @@ img {
   border-color: var(--accent);
   background: var(--accent);
   color: white;
+}
+
+.catalog-order-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin: 0 clamp(20px, 5vw, 72px) clamp(22px, 5vw, 52px);
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-md);
+  background: var(--line);
+}
+
+.catalog-order-strip div {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: white;
+  padding: 14px;
+  color: var(--ink-soft);
+  font-weight: 850;
+  text-align: center;
+}
+
+.catalog-order-strip svg {
+  flex: 0 0 auto;
+  color: var(--accent);
 }
 
 .pagination-nav {
@@ -1827,7 +1993,7 @@ img {
   border-radius: var(--radius-lg);
   background:
     linear-gradient(135deg, rgba(223, 63, 50, 0.94), rgba(170, 33, 25, 0.96)),
-    url("https://picsum.photos/seed/badminton-design-free/1600/900") center / cover;
+    url("/images/pickleball-team-hero.png") center / cover;
   padding: clamp(28px, 5vw, 58px);
   color: white;
 }
@@ -2086,6 +2252,16 @@ img {
   color: var(--accent);
 }
 
+.product-title-heading {
+  margin: 0 0 16px;
+  color: #565656;
+  font-family: var(--font-body), sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
 .product-hero {
   display: grid;
   gap: 24px;
@@ -2337,22 +2513,8 @@ img {
   line-height: 0.95;
 }
 
-.product-buy-panel h1 {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  margin: 0;
-  color: #565656;
-  font-family: var(--font-body), sans-serif;
-  font-size: clamp(24px, 1.55vw, 31px);
-  font-weight: 700;
-  line-height: 1.16;
-  letter-spacing: 0;
-}
-
 .product-brand-line {
-  margin: 12px 0 0;
+  margin: 0;
   color: #1c1f26;
   font-size: 15px;
   line-height: 1.45;
@@ -3030,6 +3192,52 @@ img {
   padding: 0;
 }
 
+.product-related-links {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 18px;
+  align-items: center;
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: white;
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.product-related-links h2 {
+  margin: 8px 0 0;
+  color: #1e2530;
+  font-family: var(--font-body), sans-serif;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.product-related-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.product-related-link-row a {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 19, 26, 0.1);
+  background: #f7f9f6;
+  padding: 0 13px;
+  color: #27313f;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.product-related-link-row a:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
 .product-mobile-cta {
   display: none;
 }
@@ -3063,6 +3271,10 @@ img {
 }
 
 @media (min-width: 960px) {
+  .product-title-heading {
+    font-size: 22px;
+  }
+
   .product-hero {
     grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
   }
@@ -3436,10 +3648,6 @@ img {
     height: 42px;
   }
 
-  .product-buy-panel h1 {
-    font-size: clamp(22px, 6.4vw, 28px);
-  }
-
   .product-brand-line,
   .product-rating-line,
   .product-stock-line,
@@ -3470,6 +3678,14 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .product-related-links {
+    grid-template-columns: 1fr;
+  }
+
+  .product-related-link-row {
+    justify-content: flex-start;
+  }
+
   .product-spec-card dl > div {
     grid-template-columns: 1fr;
   }
@@ -3484,10 +3700,27 @@ img {
 
   .catalog-toolbar {
     top: 64px;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
-    padding: 12px 16px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 8px 16px;
+  }
+
+  .catalog-toolbar-label {
+    display: none;
+  }
+
+  .filter-chips a,
+  .catalog-color-dropdown summary {
+    min-height: 40px;
+  }
+
+  .catalog-color-dropdown summary {
+    min-width: 118px;
+    padding: 0 10px;
+  }
+
+  .catalog-color-panel {
+    right: -2px;
   }
 
   .mobile-menu {
@@ -3499,6 +3732,67 @@ img {
   .catalog-grid-section {
     padding-right: 16px;
     padding-left: 16px;
+  }
+
+  .catalog-hero {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-top: 20px;
+    padding-bottom: 14px;
+  }
+
+  .catalog-hero h1 {
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: 0;
+  }
+
+  .catalog-hero p {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .catalog-hero aside {
+    display: none;
+  }
+
+  .catalog-guidance-list {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .catalog-guidance-list li {
+    font-size: 13px;
+    line-height: 1.38;
+  }
+
+  .catalog-guidance-list li:nth-child(n+3) {
+    display: none;
+  }
+
+  .catalog-actions {
+    margin-top: 12px;
+  }
+
+  .catalog-grid-section {
+    padding-top: 16px;
+  }
+
+  .catalog-results-bar {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .catalog-results-bar p {
+    font-size: 13px;
+  }
+
+  .catalog-order-strip {
+    grid-template-columns: 1fr;
+    margin-right: 16px;
+    margin-left: 16px;
   }
 
   .catalog-card-actions {

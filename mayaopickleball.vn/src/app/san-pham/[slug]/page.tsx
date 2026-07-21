@@ -2,15 +2,20 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, BadgeCheck, Gift, MapPin, Phone, Search, Star } from 'lucide-react'
+import { ArrowLeft, BadgeCheck, Gift, MapPin, Phone, Search } from 'lucide-react'
+import { JsonLd } from '../../_components/json-ld'
 import { SiteHeader, phoneHref, zaloHref } from '../../_components/info-pages'
 import { ZaloIcon } from '../../_components/zalo-icon'
 import {
   formatPrice,
+  getDiscountPercent,
+  getProductCatalogLinks,
   getProductColorTags,
   getProductBySlug,
   getProductDescriptionParagraphs,
+  getValidCompareAtPrice,
 } from '../../../lib/content'
+import { absoluteUrl, breadcrumbJsonLd, productJsonLd } from '../../../lib/seo'
 import { ProductGallery } from './product-gallery'
 import { QuickOrderForm } from './quick-order-form'
 
@@ -54,6 +59,14 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   return {
     title: `${product.name} | MayaoPickleball`,
     description: product.shortDescription,
+    alternates: { canonical: `/san-pham/${product.slug}` },
+    openGraph: {
+      title: `${product.name} | MayaoPickleball`,
+      description: product.shortDescription,
+      type: 'website',
+      url: absoluteUrl(`/san-pham/${product.slug}`),
+      images: product.gallery?.[0]?.url ? [{ url: product.gallery[0].url }] : undefined,
+    },
   }
 }
 
@@ -66,9 +79,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const paragraphs = getProductDescriptionParagraphs(product)
   const badges = product.badges?.map((badge) => badge.label).filter((badge) => badge && badge.toLowerCase() !== 'mới') || []
   const colorTags = getProductColorTags(product)
-  const discountPercent = product.compareAtPrice
-    ? Math.max(1, Math.round(((product.compareAtPrice - product.price) / product.compareAtPrice) * 100))
-    : 0
+  const compareAtPrice = getValidCompareAtPrice(product)
+  const discountPercent = getDiscountPercent(product)
+  const relatedCatalogLinks = getProductCatalogLinks(product)
   const colorSummary = colorTags.length ? colorTags.map((tag) => tag.label).join(', ') : 'Thiết kế theo màu đội'
 
   const productSpecs = [
@@ -82,6 +95,16 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   return (
     <main className="product-page">
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: 'Trang chủ', path: '/' },
+            { name: 'Sản phẩm', path: '/san-pham' },
+            { name: product.name, path: `/san-pham/${product.slug}` },
+          ]),
+          productJsonLd(product),
+        ]}
+      />
       <SiteHeader />
 
       <section className="product-detail-shell">
@@ -96,6 +119,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           <strong>{product.sku}</strong>
         </div>
 
+        <h1 className="product-title-heading">{product.name}</h1>
+
         <div className="product-detail-grid">
           <ProductGallery
             discountPercent={discountPercent}
@@ -104,22 +129,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           />
 
           <section className="product-buy-panel">
-            <h1>{product.name}</h1>
-
             <p className="product-brand-line">
               Thương hiệu: <strong>X24 Sport</strong> | Áo pickleball thiết kế
             </p>
 
-            <div className="product-rating-line" aria-label="Đánh giá sản phẩm">
-              <span>
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={index} size={16} fill="currentColor" />
-                ))}
-              </span>
-              <strong>261 đánh giá</strong>
-              <em>Đã bán 363</em>
+            <div className="product-rating-line" aria-label="Trạng thái đặt may">
               <em className="product-stock-inline">
-                Trạng thái: <strong>Còn hàng</strong>
+                Trạng thái: <strong>Còn nhận đặt may</strong>
               </em>
             </div>
 
@@ -128,17 +144,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <strong>{formatPrice(product.price)}</strong>
                 <p>
                   {discountPercent ? <span>-{discountPercent}%</span> : null}
-                  {product.compareAtPrice ? <del>{formatPrice(product.compareAtPrice)}</del> : null}
-                  Đã gồm VAT
+                  {compareAtPrice ? <del>{formatPrice(compareAtPrice)}</del> : null}
+                  Giá tham khảo theo mẫu
                 </p>
               </div>
               <div>
-                <span>Kết thúc sau</span>
-                <div className="product-countdown" aria-label="Thời gian ưu đãi">
-                  <b>11 giờ</b>
-                  <b>55 phút</b>
-                  <b>30 giây</b>
-                </div>
+                <span>Đặt may theo đội</span>
+                <strong>tư vấn size, màu, logo</strong>
               </div>
             </div>
 
@@ -297,6 +309,22 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               Hỗ trợ đơn phong trào, giao lưu và giải đấu
             </li>
           </ul>
+        </section>
+
+        <section className="product-related-links" aria-labelledby="product-related-links-title">
+          <div>
+            <p className="section-label">Xem thêm mẫu liên quan</p>
+            <h2 id="product-related-links-title">Tìm nhanh theo màu, kiểu áo và hướng đặt may</h2>
+          </div>
+          <div className="product-related-link-row">
+            {relatedCatalogLinks.map((filter) => (
+              <Link href={filter.href} key={filter.slug}>
+                {filter.label}
+              </Link>
+            ))}
+            <Link href="/chat-lieu-va-bang-size-ao-pickleball">Chất liệu & bảng size</Link>
+            <Link href="/dat-may-ao-pickleball">Đặt may theo yêu cầu</Link>
+          </div>
         </section>
 
         <div className="product-mobile-cta" aria-label="Liên hệ nhanh">

@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import { ArrowRight, BadgeCheck, Calculator, Palette, Shirt, Timer } from 'lucide-react'
 import { InfoPage, zaloHref } from '../_components/info-pages'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Bảng giá may áo pickleball | MayaoPickleball',
   description: 'Bảng giá tham khảo khi đặt may áo pickleball theo số lượng, chất liệu, thiết kế, tên số và logo CLB.',
-}
+  path: '/bang-gia-may-ao-pickleball',
+})
 
 const priceRows = [
   { qty: '5-10 áo', price: 'từ 155.000đ/áo', note: 'Nhóm nhỏ, đội giao lưu, đơn cần linh hoạt.' },
@@ -32,7 +34,7 @@ export default function PricePage() {
   return (
     <InfoPage
       description="Chi phí may áo pickleball được báo theo đúng yêu cầu của từng đội, vì mỗi đơn có thể khác nhau về số lượng, kiểu áo, chất liệu và nội dung in."
-      image="https://picsum.photos/seed/pickleball-price-workshop/1280/960"
+      image="/images/pickleball-team-hero.png"
       kicker="Bảng giá may áo pickleball"
       stats={[
         { value: '135.000đ', label: 'giá tham khảo từ' },
