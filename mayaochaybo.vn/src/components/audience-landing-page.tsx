@@ -27,10 +27,22 @@ const corporateHeroImages = [
   },
 ]
 
+const clubHeroImages = [
+  {
+    alt: 'Các thành viên Bình Minh Runner mặc đồng phục câu lạc bộ sau buổi chạy',
+    src: '/images/audience-landings/doi-nhom-binh-minh-runner-feedback.webp',
+  },
+  {
+    alt: 'Nhóm chạy bộ mặc đồng phục đỏ trắng Việt Nam cùng tham gia chạy',
+    src: '/images/audience-landings/doi-nhom-viet-nam-running-club.webp',
+  },
+]
+
 export async function AudienceLandingPage({ landing }: { landing: AudienceLanding }) {
   const catalog = await getProducts({ limit: 4 })
   const heroProducts = catalog.docs.slice(0, 2).map((product) => ({ product, image: productImages(product)[0] })).filter((item) => item.image?.url)
   const isCorporateLanding = landing.slug === 'ao-chay-bo-doanh-nghiep'
+  const isClubLanding = landing.slug === 'ao-chay-bo-doi-nhom-cau-lac-bo'
   const AudienceIcon = audienceIcons[landing.slug as keyof typeof audienceIcons]
   const related = AUDIENCE_LANDINGS.filter((item) => item.slug !== landing.slug)
 
@@ -74,6 +86,13 @@ export async function AudienceLandingPage({ landing }: { landing: AudienceLandin
             </div>
             <div className="absolute bottom-8 right-0 w-[58%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-slate-100 shadow-[0_20px_60px_rgba(0,0,0,.4)]">
               <div className="relative aspect-[4/3]"><Image alt={corporateHeroImages[1].alt} className="object-cover" fill sizes="(max-width: 1024px) 58vw, 27vw" src={corporateHeroImages[1].src} /></div>
+            </div>
+          </> : isClubLanding ? <>
+            <div className="absolute bottom-0 left-0 w-[72%] overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_26px_80px_rgba(0,0,0,.35)]">
+              <div className="relative aspect-[4/3]"><Image alt={clubHeroImages[0].alt} className="object-contain" fill priority sizes="(max-width: 1024px) 72vw, 34vw" src={clubHeroImages[0].src} /></div>
+            </div>
+            <div className="absolute bottom-8 right-0 w-[58%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-slate-100 shadow-[0_20px_60px_rgba(0,0,0,.4)]">
+              <div className="relative aspect-[4/3]"><Image alt={clubHeroImages[1].alt} className="object-cover" fill sizes="(max-width: 1024px) 58vw, 27vw" src={clubHeroImages[1].src} /></div>
             </div>
           </> : <>
             {heroProducts[0] ? <Link className="group absolute bottom-0 left-0 w-[64%] overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_26px_80px_rgba(0,0,0,.35)]" href={heroProducts[0].product.legacyPath || `/${heroProducts[0].product.slug}/`}>
