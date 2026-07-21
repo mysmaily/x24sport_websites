@@ -16,9 +16,21 @@ const audienceIcons = {
 
 const benefitIcons = [Palette, ClipboardCheck, BadgeCheck]
 
+const corporateHeroImages = [
+  {
+    alt: 'Tập thể nhân viên doanh nghiệp mặc đồng phục VINASEED Green Run cùng tham gia chạy bộ',
+    src: '/images/audience-landings/doanh-nghiep-vinaseed-green-run.webp',
+  },
+  {
+    alt: 'Tập thể nhân viên doanh nghiệp mặc áo chạy bộ sát nách trắng xanh trong hoạt động gắn kết',
+    src: '/images/audience-landings/doanh-nghiep-finisher-team.webp',
+  },
+]
+
 export async function AudienceLandingPage({ landing }: { landing: AudienceLanding }) {
   const catalog = await getProducts({ limit: 4 })
   const heroProducts = catalog.docs.slice(0, 2).map((product) => ({ product, image: productImages(product)[0] })).filter((item) => item.image?.url)
+  const isCorporateLanding = landing.slug === 'ao-chay-bo-doanh-nghiep'
   const AudienceIcon = audienceIcons[landing.slug as keyof typeof audienceIcons]
   const related = AUDIENCE_LANDINGS.filter((item) => item.slug !== landing.slug)
 
@@ -56,12 +68,21 @@ export async function AudienceLandingPage({ landing }: { landing: AudienceLandin
             <p className="text-[11px] font-black uppercase tracking-[.16em] text-orange-200">{landing.contextLabel}</p>
             <ul className="mt-4 grid gap-2 text-sm font-bold text-slate-200">{landing.contexts.map((item) => <li className="flex items-center gap-2" key={item}><Check aria-hidden="true" className="text-brand" size={17} />{item}</li>)}</ul>
           </div>
-          {heroProducts[0] ? <Link className="group absolute bottom-0 left-0 w-[64%] overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_26px_80px_rgba(0,0,0,.35)]" href={heroProducts[0].product.legacyPath || `/${heroProducts[0].product.slug}/`}>
-            <div className="relative aspect-square bg-slate-100"><Image alt={heroProducts[0].image.alt || heroProducts[0].product.name} className="object-contain transition duration-500 group-hover:scale-[1.025]" fill priority sizes="(max-width: 1024px) 64vw, 30vw" src={heroProducts[0].image.url} /></div>
-          </Link> : null}
-          {heroProducts[1] ? <Link className="group absolute bottom-10 right-0 w-[48%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-white shadow-[0_20px_60px_rgba(0,0,0,.4)]" href={heroProducts[1].product.legacyPath || `/${heroProducts[1].product.slug}/`}>
-            <div className="relative aspect-square bg-slate-100"><Image alt={heroProducts[1].image.alt || heroProducts[1].product.name} className="object-contain transition duration-500 group-hover:scale-[1.025]" fill sizes="(max-width: 1024px) 48vw, 22vw" src={heroProducts[1].image.url} /></div>
-          </Link> : null}
+          {isCorporateLanding ? <>
+            <div className="absolute bottom-0 left-0 w-[72%] overflow-hidden rounded-2xl border border-white/10 bg-slate-100 shadow-[0_26px_80px_rgba(0,0,0,.35)]">
+              <div className="relative aspect-[4/3]"><Image alt={corporateHeroImages[0].alt} className="object-cover" fill priority sizes="(max-width: 1024px) 72vw, 34vw" src={corporateHeroImages[0].src} /></div>
+            </div>
+            <div className="absolute bottom-8 right-0 w-[58%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-slate-100 shadow-[0_20px_60px_rgba(0,0,0,.4)]">
+              <div className="relative aspect-[4/3]"><Image alt={corporateHeroImages[1].alt} className="object-cover" fill sizes="(max-width: 1024px) 58vw, 27vw" src={corporateHeroImages[1].src} /></div>
+            </div>
+          </> : <>
+            {heroProducts[0] ? <Link className="group absolute bottom-0 left-0 w-[64%] overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_26px_80px_rgba(0,0,0,.35)]" href={heroProducts[0].product.legacyPath || `/${heroProducts[0].product.slug}/`}>
+              <div className="relative aspect-square bg-slate-100"><Image alt={heroProducts[0].image.alt || heroProducts[0].product.name} className="object-contain transition duration-500 group-hover:scale-[1.025]" fill priority sizes="(max-width: 1024px) 64vw, 30vw" src={heroProducts[0].image.url} /></div>
+            </Link> : null}
+            {heroProducts[1] ? <Link className="group absolute bottom-10 right-0 w-[48%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-white shadow-[0_20px_60px_rgba(0,0,0,.4)]" href={heroProducts[1].product.legacyPath || `/${heroProducts[1].product.slug}/`}>
+              <div className="relative aspect-square bg-slate-100"><Image alt={heroProducts[1].image.alt || heroProducts[1].product.name} className="object-contain transition duration-500 group-hover:scale-[1.025]" fill sizes="(max-width: 1024px) 48vw, 22vw" src={heroProducts[1].image.url} /></div>
+            </Link> : null}
+          </>}
           <span className="absolute bottom-5 right-[42%] grid size-14 place-items-center rounded-full bg-brand text-white shadow-xl"><Sparkles aria-hidden="true" size={24} /></span>
         </div>
       </div>
