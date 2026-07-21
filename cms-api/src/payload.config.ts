@@ -50,6 +50,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     components: {
+      actions: ['/components/admin/CurrentTenantHeader#CurrentTenantHeader'],
       beforeDashboard: ['/components/admin/DashboardWelcome#DashboardWelcome'],
       beforeNav: ['/components/admin/SidebarBrand#SidebarBrand'],
       graphics: {

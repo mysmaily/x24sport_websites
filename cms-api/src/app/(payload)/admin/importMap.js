@@ -29,6 +29,7 @@ import { ProductPinterestPublishCell as ProductPinterestPublishCell_2b9b799e1a7e
 import { default as default_8487c591b539af99052910b66f360669 } from '../../../components/pinterest/EmptyUIField'
 import { X24Icon as X24Icon_9bf5e3a739e87dab6a576c3a0fe9c057 } from '../../../components/admin/X24Brand'
 import { X24Logo as X24Logo_9bf5e3a739e87dab6a576c3a0fe9c057 } from '../../../components/admin/X24Brand'
+import { CurrentTenantHeader as CurrentTenantHeader_3cc43dc04436936c8aa49e6bd01d1124 } from '../../../components/admin/CurrentTenantHeader'
 import { GlobalViewRedirect as GlobalViewRedirect_d6d5f193a167989e2ee7d14202901e62 } from '@payloadcms/plugin-multi-tenant/rsc'
 import { DashboardWelcome as DashboardWelcome_76ec03dd917ecfb7a53441d4e825edcb } from '../../../components/admin/DashboardWelcome'
 import { SidebarBrand as SidebarBrand_f3447476e5254fcf66fce4b2f6ae256b } from '../../../components/admin/SidebarBrand'
@@ -71,6 +72,7 @@ export const importMap = {
   "/components/pinterest/EmptyUIField#default": default_8487c591b539af99052910b66f360669,
   "/components/admin/X24Brand#X24Icon": X24Icon_9bf5e3a739e87dab6a576c3a0fe9c057,
   "/components/admin/X24Brand#X24Logo": X24Logo_9bf5e3a739e87dab6a576c3a0fe9c057,
+  "/components/admin/CurrentTenantHeader#CurrentTenantHeader": CurrentTenantHeader_3cc43dc04436936c8aa49e6bd01d1124,
   "@payloadcms/plugin-multi-tenant/rsc#GlobalViewRedirect": GlobalViewRedirect_d6d5f193a167989e2ee7d14202901e62,
   "/components/admin/DashboardWelcome#DashboardWelcome": DashboardWelcome_76ec03dd917ecfb7a53441d4e825edcb,
   "/components/admin/SidebarBrand#SidebarBrand": SidebarBrand_f3447476e5254fcf66fce4b2f6ae256b,

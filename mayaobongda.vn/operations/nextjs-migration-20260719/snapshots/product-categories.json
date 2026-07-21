@@ -1,0 +1,1088 @@
+[
+  {
+    "id": 15,
+    "count": 0,
+    "description": "",
+    "link": "https://mayaobongda.vn/chua-phan-loai/",
+    "name": "Chưa phân loại",
+    "slug": "chua-phan-loai",
+    "taxonomy": "product_cat",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Chưa phân loại - X24Sport</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaobongda.vn/product-category/chua-phan-loai/\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Chưa phân loại\" />\n<meta property=\"og:url\" content=\"https://mayaobongda.vn/product-category/chua-phan-loai/\" />\n<meta property=\"og:site_name\" content=\"May Áo Bóng Đá Vn\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://mayaobongda.vn/product-category/chua-phan-loai/\",\"url\":\"https://mayaobongda.vn/product-category/chua-phan-loai/\",\"name\":\"Chưa phân loại - X24Sport\",\"isPartOf\":{\"@id\":\"https://mayaobongda.vn/#website\"},\"breadcrumb\":{\"@id\":\"https://mayaobongda.vn/product-category/chua-phan-loai/#breadcrumb\"},\"inLanguage\":\"vi\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaobongda.vn/product-category/chua-phan-loai/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://mayaobongda.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Chưa phân loại\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaobongda.vn/#website\",\"url\":\"https://mayaobongda.vn/\",\"name\":\"May Áo Bóng Đá Vn\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaobongda.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+    "yoast_head_json": {
+      "title": "Chưa phân loại - X24Sport",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://mayaobongda.vn/product-category/chua-phan-loai/",
+      "og_locale": "vi_VN",
+      "og_type": "article",
+      "og_title": "Chưa phân loại",
+      "og_url": "https://mayaobongda.vn/product-category/chua-phan-loai/",
+      "og_site_name": "May Áo Bóng Đá Vn",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://mayaobongda.vn/product-category/chua-phan-loai/",
+            "url": "https://mayaobongda.vn/product-category/chua-phan-loai/",
+            "name": "Chưa phân loại - X24Sport",
+            "isPartOf": {
+              "@id": "https://mayaobongda.vn/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://mayaobongda.vn/product-category/chua-phan-loai/#breadcrumb"
+            },
+            "inLanguage": "vi"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://mayaobongda.vn/product-category/chua-phan-loai/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang chủ",
+                "item": "https://mayaobongda.vn/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Chưa phân loại"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mayaobongda.vn/#website",
+            "url": "https://mayaobongda.vn/",
+            "name": "May Áo Bóng Đá Vn",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://mayaobongda.vn/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "vi"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat/15",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/taxonomies/product_cat"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product?product_cat=15"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 70,
+    "count": 147,
+    "description": "<h2><strong><span style=\"font-size: 75%\">Áo Bóng Đá Thiết Kế – Khẳng Định Phong Cách Riêng Cho Đội Bóng</span></strong></h2>\r\n<p>Áo bóng đá thiết kế theo yêu cầu đang là xu hướng nổi bật hiện nay, giúp các đội bóng tạo dấu ấn riêng biệt và đồng nhất từ màu sắc đến hình ảnh đại diện. Với đội ngũ thiết kế chuyên nghiệp, <span style=\"color: #ff0000\"><strong>mayaobongda.vn</strong></span> mang đến giải pháp trọn gói từ ý tưởng đến sản phẩm hoàn chỉnh.</p>\r\n<h2><span style=\"font-size: 75%\"><strong>✔️ </strong></span><span style=\"font-size: 75%\"><strong>Lý Do Nên Chọn Áo Bóng Đá Thiết Kế Tại Xưởng</strong></span></h2>\r\n<h3><strong><span style=\"font-size: 75%\">✅ </span></strong><span style=\"font-size: 75%\"><strong>Thiết kế độc quyền – không trùng lặp</strong></span></h3>\r\n<p>Mỗi mẫu áo được xây dựng theo phong cách riêng của đội: từ màu sắc chủ đạo, họa tiết đặc trưng đến logo và slogan. Chúng tôi đảm bảo sự sáng tạo và khác biệt.</p>\r\n<p>Đặc biệt hoàn toàn miễn phí thiết kế</p>\r\n<h3><strong><span style=\"font-size: 75%\">✅ In ấn sắc nét – Tên số miễn phí</span></strong></h3>\r\n<p>Công nghệ in chuyển nhiệt, in pet, ép decal đảm bảo màu sắc tươi sáng, bền màu. Miễn phí in tên và số áo cho từng thành viên trong đội.</p>\r\n<h3><strong><span style=\"font-size: 75%\">✅Chất liệu cao cấp – Thoáng mát – Bền đẹp. Đa dạng lựa chọn</span></strong></h3>\r\n<p>Vải thun thể thao, thun mè hoặc thun lạnh Hàn Quốc – co giãn tốt, bền màu, thấm hút mồ hôi, phù hợp với mọi thời tiết và cường độ vận động.</p>\r\n<p>Có 6 loại vải khác nhau tương ứng với 6 mức giá thành. Phù hợp với mọi nhu cầu của đội bóng</p>\r\n<h2><span style=\"font-size: 75%\"><strong>✔️ </strong><strong>Ứng Dụng Của Áo Thiết Kế</strong></span></h2>\r\n<p>Đội bóng phong trào, công ty, lớp học<br />\r\nGiải đấu bán chuyên và chuyên nghiệp<br />\r\nSự kiện thể thao, team building</p>\r\n<h2><span style=\"font-size: 75%\"><strong>✔️ Quy Trình Đặt Hàng Nhanh Gọn</strong></span></h2>\r\n<p>1. Khách hàng gửi yêu cầu thiết kế hoặc tham khảo mẫu có sẵn<br />\r\n2. Thiết kế demo và chỉnh sửa đến khi hài lòng<br />\r\n3. Chốt mẫu, tiến hành in ấn và may<br />\r\n4. Giao hàng tận nơi – đúng tiến độ</p>\r\n<p>👉 Xem thêm:</p>\r\n<p><a href=\"https://mayaobongda.vn/ao-khong-logo/\">Áo Không Logo</a></p>\r\n<p><strong>Maket trước sản xuất</strong></p>\r\n<p><strong>Thành phẩm sau may</strong></p>\r\n<p><strong>Bảng size chuẩn</strong></p>\r\n<p>Đặt may áo thiết kế ngay hôm nay để đội bạn nổi bật trên sân!</p>\r\n<p>Hotline/Zalo: <span style=\"color: #ff0000\"><strong>0989.353.247</strong></span></p>\r\n<p>Facebook: <span style=\"color: #0000ff\"><a style=\"color: #0000ff\" href=\"https://www.facebook.com/xuongmayaobongda.vn\">May Áo Bóng Đá - Vn</a></span></p>\r\n<p>Website: <span style=\"color: #0000ff\"><a style=\"color: #0000ff\" href=\"https://mayaobongda.vn/\">mayaobongda.vn</a></span></p>",
+    "link": "https://mayaobongda.vn/ao-thiet-ke/",
+    "name": "Áo Thiết Kế",
+    "slug": "ao-thiet-ke",
+    "taxonomy": "product_cat",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Áo Bóng Đá Theo Yêu Cầu - In Ấn Miễn Phí | mayaobongda.vn</title>\n<meta name=\"description\" content=\"May áo bóng đá thiết kế độc quyền theo mẫu đội bạn chọn. In logo, tên số miễn phí, chất vải cao cấp, form chuẩn thể thao. Giao hàng toàn quốc.\" />\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaobongda.vn/ao-thiet-ke/\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Áo Thiết Kế\" />\n<meta property=\"og:description\" content=\"May áo bóng đá thiết kế độc quyền theo mẫu đội bạn chọn. In logo, tên số miễn phí, chất vải cao cấp, form chuẩn thể thao. Giao hàng toàn quốc.\" />\n<meta property=\"og:url\" content=\"https://mayaobongda.vn/ao-thiet-ke/\" />\n<meta property=\"og:site_name\" content=\"May Áo Bóng Đá Vn\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://mayaobongda.vn/ao-thiet-ke/\",\"url\":\"https://mayaobongda.vn/ao-thiet-ke/\",\"name\":\"Áo Bóng Đá Theo Yêu Cầu - In Ấn Miễn Phí | mayaobongda.vn\",\"isPartOf\":{\"@id\":\"https://mayaobongda.vn/#website\"},\"description\":\"May áo bóng đá thiết kế độc quyền theo mẫu đội bạn chọn. In logo, tên số miễn phí, chất vải cao cấp, form chuẩn thể thao. Giao hàng toàn quốc.\",\"breadcrumb\":{\"@id\":\"https://mayaobongda.vn/ao-thiet-ke/#breadcrumb\"},\"inLanguage\":\"vi\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaobongda.vn/ao-thiet-ke/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://mayaobongda.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Áo Thiết Kế\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaobongda.vn/#website\",\"url\":\"https://mayaobongda.vn/\",\"name\":\"May Áo Bóng Đá Vn\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaobongda.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+    "yoast_head_json": {
+      "title": "Áo Bóng Đá Theo Yêu Cầu - In Ấn Miễn Phí | mayaobongda.vn",
+      "description": "May áo bóng đá thiết kế độc quyền theo mẫu đội bạn chọn. In logo, tên số miễn phí, chất vải cao cấp, form chuẩn thể thao. Giao hàng toàn quốc.",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://mayaobongda.vn/ao-thiet-ke/",
+      "og_locale": "vi_VN",
+      "og_type": "article",
+      "og_title": "Áo Thiết Kế",
+      "og_description": "May áo bóng đá thiết kế độc quyền theo mẫu đội bạn chọn. In logo, tên số miễn phí, chất vải cao cấp, form chuẩn thể thao. Giao hàng toàn quốc.",
+      "og_url": "https://mayaobongda.vn/ao-thiet-ke/",
+      "og_site_name": "May Áo Bóng Đá Vn",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://mayaobongda.vn/ao-thiet-ke/",
+            "url": "https://mayaobongda.vn/ao-thiet-ke/",
+            "name": "Áo Bóng Đá Theo Yêu Cầu - In Ấn Miễn Phí | mayaobongda.vn",
+            "isPartOf": {
+              "@id": "https://mayaobongda.vn/#website"
+            },
+            "description": "May áo bóng đá thiết kế độc quyền theo mẫu đội bạn chọn. In logo, tên số miễn phí, chất vải cao cấp, form chuẩn thể thao. Giao hàng toàn quốc.",
+            "breadcrumb": {
+              "@id": "https://mayaobongda.vn/ao-thiet-ke/#breadcrumb"
+            },
+            "inLanguage": "vi"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://mayaobongda.vn/ao-thiet-ke/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang chủ",
+                "item": "https://mayaobongda.vn/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Áo Thiết Kế"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mayaobongda.vn/#website",
+            "url": "https://mayaobongda.vn/",
+            "name": "May Áo Bóng Đá Vn",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://mayaobongda.vn/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "vi"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat/70",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/taxonomies/product_cat"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product?product_cat=70"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 71,
+    "count": 103,
+    "description": "<p><strong>🟢Áo Bóng Đá Không Logo – Sự Lựa Chọn Linh Hoạt Cho Mọi Đội Bóng</strong><br />\r\nÁo bóng đá không logo là dòng sản phẩm được ưa chuộng nhờ tính linh hoạt, đơn giản và phù hợp cho nhiều mục đích sử dụng khác nhau. Tại <strong>mayaobongda.vn</strong>, chúng tôi cung cấp các mẫu áo trơn không logo với chất liệu vải cao cấp, form thể thao chuẩn, dễ dàng in ấn theo nhu cầu riêng.<br />\r\n<strong>✔️Đặc Điểm Nổi Bật Của Áo Bóng Đá Không Logo</strong><br />\r\n<strong>✅ Chất liệu vải thể thao cao cấp</strong><br />\r\nVải thun lạnh co giãn 4 chiều, nhẹ, thoáng khí, thấm hút mồ hôi tốt. Mang lại cảm giác thoải mái khi thi đấu hoặc tập luyện lâu dài.<br />\r\n<strong>✅ Nhiều màu sắc và size lựa chọn</strong><br />\r\nĐầy đủ size từ trẻ em đến 6XL cho cả nam và nữ. Có sẵn hơn 10 màu cơ bản như: xanh than, đỏ, vàng, đen, trắng,... phù hợp với mọi đội bóng.<br />\r\n<strong>✅ Thiết kế đơn giản – Dễ cá nhân hóa</strong><br />\r\nKhông in sẵn logo giúp người dùng dễ dàng tự thiết kế, in tên, số áo, hoặc dán logo theo nhu cầu riêng của đội nhóm.<br />\r\n<strong>✅Phù Hợp Cho Nhiều Mục Đích</strong><br />\r\nĐội bóng phong trào, lớp học, công ty<br />\r\nÁo tập luyện hàng ngày, thể dục thể thao<br />\r\nGiải đấu nhỏ hoặc sự kiện thể thao nội bộ<br />\r\n✔️ <strong>Vì Sao Nên Mua Tại mayaobongda.vn?</strong><br />\r\nVới xưởng may trực tiếp, không qua trung gian, chúng tôi cam kết:<br />\r\n<strong>✅</strong>Giá thành tận xưởng – tiết kiệm chi phí<br />\r\n<strong>✅</strong>Giao hàng nhanh toàn quốc<br />\r\n<strong>✅</strong>Miễn phí thiết kế và in ấn tên, số, logo theo yêu cầu<br />\r\n👉 Xem thêm:<br />\r\n<b><a href=\"https://mayaobongda.vn/ao-thiet-ke/\">Áo Thiết Kế</a> </b><br />\r\n<strong>Maket trước sản xuất</strong><br />\r\n<strong>Thành phẩm sau may</strong><br />\r\n<strong>Bảng size chuẩn</strong><br />\r\nLiên hệ ngay để được tư vấn và đặt hàng!<br />\r\nHotline/Zalo: <strong>0989.353.247</strong><br />\r\nFacebook: <a href=\"https://www.facebook.com/xuongmayaobongda.vn\">May Áo Bóng Đá - Vn</a><br />\r\nWebsite: <a href=\"https://mayaobongda.vn/\">mayaobongda.vn</a></p>",
+    "link": "https://mayaobongda.vn/ao-khong-logo/",
+    "name": "Áo Không Logo",
+    "slug": "ao-khong-logo",
+    "taxonomy": "product_cat",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Áo Bóng Đá Không Logo - May Theo Yêu Cầu | mayaobongda.vn</title>\n<meta name=\"description\" content=\"Chuyên may áo bóng đá không logo giá tận xưởng, chất vải mát, co giãn tốt, có sẵn nhiều màu. Nhận in số - tên theo yêu cầu. Giao hàng toàn quốc\" />\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaobongda.vn/ao-khong-logo/\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Áo Không Logo\" />\n<meta property=\"og:description\" content=\"Chuyên may áo bóng đá không logo giá tận xưởng, chất vải mát, co giãn tốt, có sẵn nhiều màu. Nhận in số - tên theo yêu cầu. Giao hàng toàn quốc\" />\n<meta property=\"og:url\" content=\"https://mayaobongda.vn/ao-khong-logo/\" />\n<meta property=\"og:site_name\" content=\"May Áo Bóng Đá Vn\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://mayaobongda.vn/ao-khong-logo/\",\"url\":\"https://mayaobongda.vn/ao-khong-logo/\",\"name\":\"Áo Bóng Đá Không Logo - May Theo Yêu Cầu | mayaobongda.vn\",\"isPartOf\":{\"@id\":\"https://mayaobongda.vn/#website\"},\"description\":\"Chuyên may áo bóng đá không logo giá tận xưởng, chất vải mát, co giãn tốt, có sẵn nhiều màu. Nhận in số - tên theo yêu cầu. Giao hàng toàn quốc\",\"breadcrumb\":{\"@id\":\"https://mayaobongda.vn/ao-khong-logo/#breadcrumb\"},\"inLanguage\":\"vi\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaobongda.vn/ao-khong-logo/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://mayaobongda.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Áo Không Logo\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaobongda.vn/#website\",\"url\":\"https://mayaobongda.vn/\",\"name\":\"May Áo Bóng Đá Vn\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaobongda.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+    "yoast_head_json": {
+      "title": "Áo Bóng Đá Không Logo - May Theo Yêu Cầu | mayaobongda.vn",
+      "description": "Chuyên may áo bóng đá không logo giá tận xưởng, chất vải mát, co giãn tốt, có sẵn nhiều màu. Nhận in số - tên theo yêu cầu. Giao hàng toàn quốc",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://mayaobongda.vn/ao-khong-logo/",
+      "og_locale": "vi_VN",
+      "og_type": "article",
+      "og_title": "Áo Không Logo",
+      "og_description": "Chuyên may áo bóng đá không logo giá tận xưởng, chất vải mát, co giãn tốt, có sẵn nhiều màu. Nhận in số - tên theo yêu cầu. Giao hàng toàn quốc",
+      "og_url": "https://mayaobongda.vn/ao-khong-logo/",
+      "og_site_name": "May Áo Bóng Đá Vn",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://mayaobongda.vn/ao-khong-logo/",
+            "url": "https://mayaobongda.vn/ao-khong-logo/",
+            "name": "Áo Bóng Đá Không Logo - May Theo Yêu Cầu | mayaobongda.vn",
+            "isPartOf": {
+              "@id": "https://mayaobongda.vn/#website"
+            },
+            "description": "Chuyên may áo bóng đá không logo giá tận xưởng, chất vải mát, co giãn tốt, có sẵn nhiều màu. Nhận in số - tên theo yêu cầu. Giao hàng toàn quốc",
+            "breadcrumb": {
+              "@id": "https://mayaobongda.vn/ao-khong-logo/#breadcrumb"
+            },
+            "inLanguage": "vi"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://mayaobongda.vn/ao-khong-logo/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang chủ",
+                "item": "https://mayaobongda.vn/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Áo Không Logo"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mayaobongda.vn/#website",
+            "url": "https://mayaobongda.vn/",
+            "name": "May Áo Bóng Đá Vn",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://mayaobongda.vn/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "vi"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat/71",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/taxonomies/product_cat"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product?product_cat=71"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 72,
+    "count": 0,
+    "description": "",
+    "link": "https://mayaobongda.vn/cau-lac-bo/",
+    "name": "Câu Lạc Bộ",
+    "slug": "cau-lac-bo",
+    "taxonomy": "product_cat",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Câu Lạc Bộ - X24Sport</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaobongda.vn/product-category/cau-lac-bo/\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Câu Lạc Bộ\" />\n<meta property=\"og:url\" content=\"https://mayaobongda.vn/product-category/cau-lac-bo/\" />\n<meta property=\"og:site_name\" content=\"May Áo Bóng Đá Vn\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://mayaobongda.vn/product-category/cau-lac-bo/\",\"url\":\"https://mayaobongda.vn/product-category/cau-lac-bo/\",\"name\":\"Câu Lạc Bộ - X24Sport\",\"isPartOf\":{\"@id\":\"https://mayaobongda.vn/#website\"},\"breadcrumb\":{\"@id\":\"https://mayaobongda.vn/product-category/cau-lac-bo/#breadcrumb\"},\"inLanguage\":\"vi\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaobongda.vn/product-category/cau-lac-bo/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://mayaobongda.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Câu Lạc Bộ\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaobongda.vn/#website\",\"url\":\"https://mayaobongda.vn/\",\"name\":\"May Áo Bóng Đá Vn\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaobongda.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+    "yoast_head_json": {
+      "title": "Câu Lạc Bộ - X24Sport",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://mayaobongda.vn/product-category/cau-lac-bo/",
+      "og_locale": "vi_VN",
+      "og_type": "article",
+      "og_title": "Câu Lạc Bộ",
+      "og_url": "https://mayaobongda.vn/product-category/cau-lac-bo/",
+      "og_site_name": "May Áo Bóng Đá Vn",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://mayaobongda.vn/product-category/cau-lac-bo/",
+            "url": "https://mayaobongda.vn/product-category/cau-lac-bo/",
+            "name": "Câu Lạc Bộ - X24Sport",
+            "isPartOf": {
+              "@id": "https://mayaobongda.vn/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://mayaobongda.vn/product-category/cau-lac-bo/#breadcrumb"
+            },
+            "inLanguage": "vi"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://mayaobongda.vn/product-category/cau-lac-bo/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang chủ",
+                "item": "https://mayaobongda.vn/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Câu Lạc Bộ"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mayaobongda.vn/#website",
+            "url": "https://mayaobongda.vn/",
+            "name": "May Áo Bóng Đá Vn",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://mayaobongda.vn/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "vi"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat/72",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/taxonomies/product_cat"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product?product_cat=72"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 73,
+    "count": 0,
+    "description": "",
+    "link": "https://mayaobongda.vn/doi-tuyen/",
+    "name": "Đội Tuyển",
+    "slug": "doi-tuyen",
+    "taxonomy": "product_cat",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Đội Tuyển - X24Sport</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaobongda.vn/product-category/doi-tuyen/\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Đội Tuyển\" />\n<meta property=\"og:url\" content=\"https://mayaobongda.vn/product-category/doi-tuyen/\" />\n<meta property=\"og:site_name\" content=\"May Áo Bóng Đá Vn\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://mayaobongda.vn/product-category/doi-tuyen/\",\"url\":\"https://mayaobongda.vn/product-category/doi-tuyen/\",\"name\":\"Đội Tuyển - X24Sport\",\"isPartOf\":{\"@id\":\"https://mayaobongda.vn/#website\"},\"breadcrumb\":{\"@id\":\"https://mayaobongda.vn/product-category/doi-tuyen/#breadcrumb\"},\"inLanguage\":\"vi\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaobongda.vn/product-category/doi-tuyen/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://mayaobongda.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Đội Tuyển\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaobongda.vn/#website\",\"url\":\"https://mayaobongda.vn/\",\"name\":\"May Áo Bóng Đá Vn\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaobongda.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+    "yoast_head_json": {
+      "title": "Đội Tuyển - X24Sport",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://mayaobongda.vn/product-category/doi-tuyen/",
+      "og_locale": "vi_VN",
+      "og_type": "article",
+      "og_title": "Đội Tuyển",
+      "og_url": "https://mayaobongda.vn/product-category/doi-tuyen/",
+      "og_site_name": "May Áo Bóng Đá Vn",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://mayaobongda.vn/product-category/doi-tuyen/",
+            "url": "https://mayaobongda.vn/product-category/doi-tuyen/",
+            "name": "Đội Tuyển - X24Sport",
+            "isPartOf": {
+              "@id": "https://mayaobongda.vn/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://mayaobongda.vn/product-category/doi-tuyen/#breadcrumb"
+            },
+            "inLanguage": "vi"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://mayaobongda.vn/product-category/doi-tuyen/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang chủ",
+                "item": "https://mayaobongda.vn/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Đội Tuyển"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mayaobongda.vn/#website",
+            "url": "https://mayaobongda.vn/",
+            "name": "May Áo Bóng Đá Vn",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://mayaobongda.vn/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "vi"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat/73",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/taxonomies/product_cat"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product?product_cat=73"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 74,
+    "count": 0,
+    "description": "",
+    "link": "https://mayaobongda.vn/cong-ty/",
+    "name": "Công Ty",
+    "slug": "cong-ty",
+    "taxonomy": "product_cat",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Công Ty - X24Sport</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaobongda.vn/product-category/cong-ty/\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Công Ty\" />\n<meta property=\"og:url\" content=\"https://mayaobongda.vn/product-category/cong-ty/\" />\n<meta property=\"og:site_name\" content=\"May Áo Bóng Đá Vn\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://mayaobongda.vn/product-category/cong-ty/\",\"url\":\"https://mayaobongda.vn/product-category/cong-ty/\",\"name\":\"Công Ty - X24Sport\",\"isPartOf\":{\"@id\":\"https://mayaobongda.vn/#website\"},\"breadcrumb\":{\"@id\":\"https://mayaobongda.vn/product-category/cong-ty/#breadcrumb\"},\"inLanguage\":\"vi\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaobongda.vn/product-category/cong-ty/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://mayaobongda.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Công Ty\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaobongda.vn/#website\",\"url\":\"https://mayaobongda.vn/\",\"name\":\"May Áo Bóng Đá Vn\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaobongda.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+    "yoast_head_json": {
+      "title": "Công Ty - X24Sport",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://mayaobongda.vn/product-category/cong-ty/",
+      "og_locale": "vi_VN",
+      "og_type": "article",
+      "og_title": "Công Ty",
+      "og_url": "https://mayaobongda.vn/product-category/cong-ty/",
+      "og_site_name": "May Áo Bóng Đá Vn",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://mayaobongda.vn/product-category/cong-ty/",
+            "url": "https://mayaobongda.vn/product-category/cong-ty/",
+            "name": "Công Ty - X24Sport",
+            "isPartOf": {
+              "@id": "https://mayaobongda.vn/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://mayaobongda.vn/product-category/cong-ty/#breadcrumb"
+            },
+            "inLanguage": "vi"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://mayaobongda.vn/product-category/cong-ty/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang chủ",
+                "item": "https://mayaobongda.vn/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Công Ty"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mayaobongda.vn/#website",
+            "url": "https://mayaobongda.vn/",
+            "name": "May Áo Bóng Đá Vn",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://mayaobongda.vn/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "vi"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat/74",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/taxonomies/product_cat"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product?product_cat=74"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 75,
+    "count": 0,
+    "description": "",
+    "link": "https://mayaobongda.vn/ngan-hang/",
+    "name": "Ngân Hàng",
+    "slug": "ngan-hang",
+    "taxonomy": "product_cat",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Ngân Hàng - X24Sport</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaobongda.vn/product-category/ngan-hang/\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Ngân Hàng\" />\n<meta property=\"og:url\" content=\"https://mayaobongda.vn/product-category/ngan-hang/\" />\n<meta property=\"og:site_name\" content=\"May Áo Bóng Đá Vn\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://mayaobongda.vn/product-category/ngan-hang/\",\"url\":\"https://mayaobongda.vn/product-category/ngan-hang/\",\"name\":\"Ngân Hàng - X24Sport\",\"isPartOf\":{\"@id\":\"https://mayaobongda.vn/#website\"},\"breadcrumb\":{\"@id\":\"https://mayaobongda.vn/product-category/ngan-hang/#breadcrumb\"},\"inLanguage\":\"vi\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaobongda.vn/product-category/ngan-hang/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://mayaobongda.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Ngân Hàng\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaobongda.vn/#website\",\"url\":\"https://mayaobongda.vn/\",\"name\":\"May Áo Bóng Đá Vn\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaobongda.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+    "yoast_head_json": {
+      "title": "Ngân Hàng - X24Sport",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://mayaobongda.vn/product-category/ngan-hang/",
+      "og_locale": "vi_VN",
+      "og_type": "article",
+      "og_title": "Ngân Hàng",
+      "og_url": "https://mayaobongda.vn/product-category/ngan-hang/",
+      "og_site_name": "May Áo Bóng Đá Vn",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://mayaobongda.vn/product-category/ngan-hang/",
+            "url": "https://mayaobongda.vn/product-category/ngan-hang/",
+            "name": "Ngân Hàng - X24Sport",
+            "isPartOf": {
+              "@id": "https://mayaobongda.vn/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://mayaobongda.vn/product-category/ngan-hang/#breadcrumb"
+            },
+            "inLanguage": "vi"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://mayaobongda.vn/product-category/ngan-hang/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang chủ",
+                "item": "https://mayaobongda.vn/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Ngân Hàng"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mayaobongda.vn/#website",
+            "url": "https://mayaobongda.vn/",
+            "name": "May Áo Bóng Đá Vn",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://mayaobongda.vn/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "vi"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat/75",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/taxonomies/product_cat"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product?product_cat=75"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 77,
+    "count": 0,
+    "description": "",
+    "link": "https://mayaobongda.vn/logo-doi-bong/",
+    "name": "Logo Đội Bóng",
+    "slug": "logo-doi-bong",
+    "taxonomy": "product_cat",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Logo Đội Bóng - X24Sport</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaobongda.vn/product-category/logo-doi-bong/\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Logo Đội Bóng\" />\n<meta property=\"og:url\" content=\"https://mayaobongda.vn/product-category/logo-doi-bong/\" />\n<meta property=\"og:site_name\" content=\"May Áo Bóng Đá Vn\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://mayaobongda.vn/product-category/logo-doi-bong/\",\"url\":\"https://mayaobongda.vn/product-category/logo-doi-bong/\",\"name\":\"Logo Đội Bóng - X24Sport\",\"isPartOf\":{\"@id\":\"https://mayaobongda.vn/#website\"},\"breadcrumb\":{\"@id\":\"https://mayaobongda.vn/product-category/logo-doi-bong/#breadcrumb\"},\"inLanguage\":\"vi\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaobongda.vn/product-category/logo-doi-bong/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://mayaobongda.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Logo Đội Bóng\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaobongda.vn/#website\",\"url\":\"https://mayaobongda.vn/\",\"name\":\"May Áo Bóng Đá Vn\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaobongda.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+    "yoast_head_json": {
+      "title": "Logo Đội Bóng - X24Sport",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://mayaobongda.vn/product-category/logo-doi-bong/",
+      "og_locale": "vi_VN",
+      "og_type": "article",
+      "og_title": "Logo Đội Bóng",
+      "og_url": "https://mayaobongda.vn/product-category/logo-doi-bong/",
+      "og_site_name": "May Áo Bóng Đá Vn",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://mayaobongda.vn/product-category/logo-doi-bong/",
+            "url": "https://mayaobongda.vn/product-category/logo-doi-bong/",
+            "name": "Logo Đội Bóng - X24Sport",
+            "isPartOf": {
+              "@id": "https://mayaobongda.vn/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://mayaobongda.vn/product-category/logo-doi-bong/#breadcrumb"
+            },
+            "inLanguage": "vi"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://mayaobongda.vn/product-category/logo-doi-bong/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang chủ",
+                "item": "https://mayaobongda.vn/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Logo Đội Bóng"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mayaobongda.vn/#website",
+            "url": "https://mayaobongda.vn/",
+            "name": "May Áo Bóng Đá Vn",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://mayaobongda.vn/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "vi"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat/77",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/taxonomies/product_cat"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product?product_cat=77"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 120,
+    "count": 0,
+    "description": "",
+    "link": "https://mayaobongda.vn/jpeg/",
+    "name": "JPEG",
+    "slug": "jpeg",
+    "taxonomy": "product_cat",
+    "parent": 0,
+    "meta": [],
+    "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v25.6) - https://yoast.com/wordpress/plugins/seo/ -->\n<title>JPEG - X24Sport</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://mayaobongda.vn/jpeg/\" />\n<meta property=\"og:locale\" content=\"vi_VN\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"JPEG\" />\n<meta property=\"og:url\" content=\"https://mayaobongda.vn/jpeg/\" />\n<meta property=\"og:site_name\" content=\"May Áo Bóng Đá Vn\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https://mayaobongda.vn/jpeg/\",\"url\":\"https://mayaobongda.vn/jpeg/\",\"name\":\"JPEG - X24Sport\",\"isPartOf\":{\"@id\":\"https://mayaobongda.vn/#website\"},\"breadcrumb\":{\"@id\":\"https://mayaobongda.vn/jpeg/#breadcrumb\"},\"inLanguage\":\"vi\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://mayaobongda.vn/jpeg/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Trang chủ\",\"item\":\"https://mayaobongda.vn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"JPEG\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://mayaobongda.vn/#website\",\"url\":\"https://mayaobongda.vn/\",\"name\":\"May Áo Bóng Đá Vn\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://mayaobongda.vn/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"vi\"}]}</script>\n<!-- / Yoast SEO Premium plugin. -->",
+    "yoast_head_json": {
+      "title": "JPEG - X24Sport",
+      "robots": {
+        "index": "index",
+        "follow": "follow",
+        "max-snippet": "max-snippet:-1",
+        "max-image-preview": "max-image-preview:large",
+        "max-video-preview": "max-video-preview:-1"
+      },
+      "canonical": "https://mayaobongda.vn/jpeg/",
+      "og_locale": "vi_VN",
+      "og_type": "article",
+      "og_title": "JPEG",
+      "og_url": "https://mayaobongda.vn/jpeg/",
+      "og_site_name": "May Áo Bóng Đá Vn",
+      "twitter_card": "summary_large_image",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://mayaobongda.vn/jpeg/",
+            "url": "https://mayaobongda.vn/jpeg/",
+            "name": "JPEG - X24Sport",
+            "isPartOf": {
+              "@id": "https://mayaobongda.vn/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://mayaobongda.vn/jpeg/#breadcrumb"
+            },
+            "inLanguage": "vi"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://mayaobongda.vn/jpeg/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang chủ",
+                "item": "https://mayaobongda.vn/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "JPEG"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mayaobongda.vn/#website",
+            "url": "https://mayaobongda.vn/",
+            "name": "May Áo Bóng Đá Vn",
+            "description": "",
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://mayaobongda.vn/?s={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            ],
+            "inLanguage": "vi"
+          }
+        ]
+      }
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat/120",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product_cat"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/taxonomies/product_cat"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://mayaobongda.vn/wp-json/wp/v2/product?product_cat=120"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]
