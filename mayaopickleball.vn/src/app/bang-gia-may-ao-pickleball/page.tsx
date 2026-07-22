@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { ArrowRight, BadgeCheck, Calculator, Palette, Shirt, Timer } from 'lucide-react'
-import { InfoPage, zaloHref } from '../_components/info-pages'
+import { ArrowRight, Check, CircleDollarSign, Palette, Shirt, Truck } from 'lucide-react'
+import { InfoFooter, SiteHeader, phone, zaloHref } from '../_components/info-pages'
 import { pageMetadata } from '../../lib/seo'
 
 export const metadata: Metadata = pageMetadata({
@@ -9,87 +9,134 @@ export const metadata: Metadata = pageMetadata({
   path: '/bang-gia-may-ao-pickleball',
 })
 
+const fabricColumns = [
+  {
+    name: 'Mè Thái',
+    note: 'Cân bằng, dễ mặc',
+    image: 'https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/vai-me-thai-ao-bong-ro-20260711-112613.jpg',
+  },
+  {
+    name: 'Mè Zennix',
+    note: 'Lên màu sắc nét',
+    image: 'https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/vai-thun-lanh-ao-bong-ro-20260711-112610.jpg',
+  },
+  {
+    name: 'Mè Nano',
+    note: 'Mặt vải mịn',
+    image: 'https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/vai-me-texa-ao-bong-ro-20260711-112616.jpg',
+  },
+  {
+    name: 'Mè Lava',
+    note: 'Thoáng khí',
+    image: 'https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/vai-me-lava-ao-bong-ro-20260711-112620.jpg',
+  },
+] as const
+
 const priceRows = [
-  { qty: '5-10 áo', price: 'từ 155.000đ/áo', note: 'Nhóm nhỏ, đội giao lưu, đơn cần linh hoạt.' },
-  { qty: '11-20 áo', price: 'từ 145.000đ/áo', note: 'Mức đặt phổ biến cho CLB phong trào.' },
-  { qty: '21-50 áo', price: 'từ 135.000đ/áo', note: 'Tối ưu chi phí cho trường lớp, công ty.' },
-  { qty: 'Trên 50 áo', price: 'báo giá riêng', note: 'Có phương án tiến độ, đóng gói và giao hàng riêng.' },
+  { quantity: '5 - 9 áo', prices: ['145.000đ', '189.000đ', '219.000đ', '260.000đ'] },
+  { quantity: '10 - 50 áo', prices: ['125.000đ', '169.000đ', '199.000đ', '240.000đ'] },
+  { quantity: '50 - 100 áo', prices: ['115.000đ', '159.000đ', '189.000đ', '230.000đ'] },
+  { quantity: '>100 áo', prices: ['105.000đ', '139.000đ', '169.000đ', '210.000đ'] },
 ] as const
 
-const quoteInputs = [
-  'Số lượng áo hoặc set đồng phục cần đặt.',
-  'Kiểu áo mong muốn: cổ tròn, polo, áo nam nữ hoặc set thi đấu.',
-  'Logo, màu chủ đạo, mẫu tham khảo và nội dung in tên số.',
-  'Thời gian cần nhận hàng, địa chỉ giao và yêu cầu đóng gói.',
-] as const
-
-const factors = [
-  { icon: Shirt, title: 'Kiểu áo và chất liệu', text: 'Form cổ tròn, polo, chất vải và số lớp chi tiết ảnh hưởng đến đơn giá.' },
-  { icon: Palette, title: 'Thiết kế và phối màu', text: 'Thiết kế theo yêu cầu được hỗ trợ miễn phí trước khi đội chốt sản xuất.' },
-  { icon: BadgeCheck, title: 'Tên số, logo, vị trí in', text: 'Càng nhiều vị trí in, càng cần kiểm tra maket kỹ để tránh sai sót.' },
-  { icon: Timer, title: 'Deadline giao hàng', text: 'Đơn cần gấp sẽ được tư vấn tiến độ riêng trước khi nhận sản xuất.' },
+const included = [
+  { icon: Palette, title: 'Miễn phí thiết kế' },
+  { icon: Shirt, title: 'Miễn phí in ấn' },
+  { icon: Truck, title: 'Miễn phí vận chuyển' },
 ] as const
 
 export default function PricePage() {
   return (
-    <InfoPage
-      description="Chi phí may áo pickleball được báo theo đúng yêu cầu của từng đội, vì mỗi đơn có thể khác nhau về số lượng, kiểu áo, chất liệu và nội dung in."
-      image="/images/pickleball-team-hero.png"
-      kicker="Bảng giá may áo pickleball"
-      stats={[
-        { value: '135.000đ', label: 'giá tham khảo từ' },
-        { value: 'miễn phí', label: 'thiết kế theo yêu cầu' },
-        { value: '08:00-17:00', label: 'thời gian tư vấn' },
-      ]}
-      title="Báo giá rõ theo số lượng, chất vải và yêu cầu in"
-    >
-      <section className="info-section price-detail-section">
-        <div className="info-section-heading">
-          <h2>Giá tham khảo theo số lượng</h2>
-          <p>Đây là khung tham khảo để đội dễ dự trù ngân sách. Giá cuối sẽ được chốt sau khi kiểm tra mẫu, chất liệu và deadline.</p>
-        </div>
-        <div className="info-price-grid">
-          {priceRows.map((row) => (
-            <article key={row.qty}>
-              <span>{row.qty}</span>
-              <strong>{row.price}</strong>
-              <p>{row.note}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+    <main className="site-page info-page price-page">
+      <SiteHeader />
 
-      <section className="info-section quote-section">
-        <div className="quote-panel">
-          <Calculator size={34} strokeWidth={1.6} />
-          <h2>Thông tin cần có để báo giá nhanh</h2>
-          <p>Gửi đủ những thông tin này giúp đội ngũ kiểm tra yêu cầu và báo giá chính xác hơn.</p>
+      <section className="price-page-head">
+        <div>
+          <p className="hero-kicker">Bảng giá may áo pickleball</p>
+          <h1>Bảng giá may áo thể thao</h1>
+          <p>
+            Bảng giá theo chất liệu vải và số lượng đặt may. Hotline/Zalo: <a href={zaloHref}>{phone}</a>.
+          </p>
         </div>
-        <ol className="quote-list">
-          {quoteInputs.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="info-section factor-section">
-        <div className="info-section-heading compact">
-          <h2>Những yếu tố làm giá thay đổi</h2>
-          <p>Cùng là áo pickleball đặt may, nhưng yêu cầu in ấn và cách đóng gói có thể khác nhau giữa từng đội.</p>
-        </div>
-        <div className="factor-grid">
-          {factors.map(({ icon: Icon, title, text }) => (
-            <article key={title}>
-              <Icon size={26} strokeWidth={1.6} />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-        <a className="primary-button info-inline-cta" href={zaloHref}>
+        <a className="primary-button" href={zaloHref}>
           Nhận báo giá <ArrowRight size={18} />
         </a>
       </section>
-    </InfoPage>
+
+      <section className="price-board-section" aria-labelledby="price-table-title">
+        <div className="price-board">
+          <div className="price-board-title">
+            <CircleDollarSign size={30} strokeWidth={1.7} />
+            <div>
+              <h2 id="price-table-title">Bảng giá theo chất vải và số lượng</h2>
+              <p>Giá dưới đây tính theo áo, đã bao gồm thuế VAT.</p>
+            </div>
+          </div>
+
+          <div className="price-table-scroll" role="region" aria-label="Bảng giá may áo pickleball theo chất vải và số lượng" tabIndex={0}>
+            <table className="fabric-price-table">
+              <caption>Bảng giá may áo pickleball theo chất vải và số lượng đặt may</caption>
+              <thead>
+                <tr>
+                  <th className="quantity-heading" scope="col">
+                    Số lượng đặt may
+                  </th>
+                  {fabricColumns.map((fabric, index) => (
+                    <th className={index % 2 === 0 ? 'is-highlight' : ''} key={fabric.name} scope="col">
+                      <span>{fabric.name}</span>
+                      <small>{fabric.note}</small>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {priceRows.map((row, rowIndex) => (
+                  <tr className={rowIndex % 2 === 0 ? 'is-muted' : ''} key={row.quantity}>
+                    <th scope="row">{row.quantity}</th>
+                    {row.prices.map((price) => (
+                      <td key={`${row.quantity}-${price}`}>{price}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="pants-note">
+            <h2>Quần có 2 loại:</h2>
+            <p><strong>Loại 1:</strong> Co giãn 4 chiều, dày dặn: Giá <b>120k/quần</b></p>
+            <p><strong>Loại 2:</strong> Co giãn 2 chiều, chất vải thể thao: Giá <b>40k/quần</b></p>
+          </div>
+
+          <div className="price-included-row">
+            {included.map(({ icon: Icon, title }) => (
+              <div key={title}>
+                <span><Check size={18} strokeWidth={3} /></span>
+                <strong>{title}</strong>
+              </div>
+            ))}
+          </div>
+
+          <p className="vat-note">Lưu ý: Giá trên đã bao gồm thuế VAT</p>
+        </div>
+      </section>
+
+      <section className="fabric-surface-section">
+        <div className="info-section-heading compact">
+          <h2>Ảnh mặt vải tham khảo</h2>
+          <p>Các ảnh bề mặt vải được lấy từ trang chất liệu của May Áo Bóng Rổ để đội dễ xem độ mịn, độ thoáng và kiểu dệt trước khi chốt đơn.</p>
+        </div>
+        <div className="fabric-surface-grid">
+          {fabricColumns.map((fabric) => (
+            <a className="fabric-surface-card" href={fabric.image} key={fabric.name} rel="noreferrer" target="_blank">
+              <img alt={`Ảnh mặt vải ${fabric.name} dùng may áo pickleball`} src={fabric.image} />
+              <span>{fabric.name}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <InfoFooter />
+    </main>
   )
 }
