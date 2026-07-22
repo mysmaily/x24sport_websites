@@ -4355,3 +4355,366 @@ nav.fabric-anchor-bar.info-section {
     animation-iteration-count: 1 !important;
   }
 }
+
+.fabric-size-page {
+  --fabric-ink: #0f1714;
+  --fabric-court: #116a5c;
+  --fabric-line: rgba(15, 23, 20, 0.11);
+  background:
+    linear-gradient(rgba(15, 23, 20, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 20, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 12% 8%, rgba(223, 63, 50, 0.16), transparent 25rem),
+    radial-gradient(circle at 88% 18%, rgba(17, 106, 92, 0.18), transparent 28rem),
+    #f6f7f1;
+  background-size: 42px 42px, 42px 42px, auto, auto, auto;
+}
+
+.fabric-size-page .info-hero {
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.7fr);
+  gap: clamp(18px, 4vw, 54px);
+  align-items: end;
+  padding-top: clamp(26px, 4vw, 54px);
+  padding-bottom: 24px;
+}
+
+.fabric-size-page .info-hero-copy {
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(17, 106, 92, 0.96), rgba(12, 19, 18, 0.98)),
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: auto, 34px 34px, 34px 34px;
+  padding: clamp(24px, 4vw, 48px);
+  color: white;
+  box-shadow: 0 28px 80px rgba(15, 23, 20, 0.18);
+}
+
+.fabric-size-page .hero-kicker {
+  color: #f47b42;
+}
+
+.fabric-size-page .info-hero-copy h1 {
+  max-width: 760px;
+  font-size: clamp(44px, 6.1vw, 86px);
+  line-height: 0.88;
+  letter-spacing: 0;
+}
+
+.fabric-size-page .info-hero-copy > p:not(.hero-kicker) {
+  max-width: 620px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 1.65;
+}
+
+.fabric-size-page .info-hero .secondary-button {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.fabric-size-page .info-hero-media {
+  border: 1px solid rgba(15, 23, 20, 0.1);
+  border-radius: var(--radius-md);
+  box-shadow: 0 18px 48px rgba(15, 23, 20, 0.13);
+}
+
+.fabric-size-page .info-hero-media img {
+  min-height: 340px;
+}
+
+.fabric-size-page .info-hero-badge {
+  right: 14px;
+  bottom: 14px;
+  max-width: 210px;
+  background: #df3f32;
+  padding: 14px;
+}
+
+.fabric-size-page .info-hero-badge strong {
+  font-size: 25px;
+}
+
+.fabric-size-page .info-stat-row {
+  border-radius: var(--radius-md);
+  background: rgba(15, 23, 20, 0.12);
+}
+
+.fabric-size-page .info-stat-row div {
+  background: rgba(255, 255, 255, 0.84);
+  padding: 18px 20px;
+}
+
+.fabric-size-page .info-stat-row strong {
+  color: var(--fabric-court);
+  font-size: clamp(30px, 3.6vw, 48px);
+}
+
+.fabric-size-page .fabric-anchor-bar {
+  top: 76px;
+  justify-content: center;
+  width: min(760px, calc(100% - clamp(36px, 7vw, 112px)));
+  border-radius: 999px;
+  padding: 7px;
+}
+
+.fabric-size-page .fabric-anchor-bar a {
+  border-radius: 999px;
+}
+
+.fabric-size-page .fabric-decision-section {
+  grid-template-columns: minmax(280px, 0.58fr) minmax(0, 1.42fr);
+  align-items: start;
+  padding-top: clamp(40px, 5vw, 76px);
+}
+
+.fabric-size-page .fabric-decision-copy {
+  top: 140px;
+  border-left: 5px solid var(--fabric-court);
+  padding-left: 22px;
+}
+
+.fabric-size-page .fabric-decision-copy h2,
+.fabric-size-page .fabric-faq-section h2 {
+  font-size: clamp(34px, 4.2vw, 60px);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.fabric-size-page .fabric-decision-notes {
+  border-radius: var(--radius-sm);
+}
+
+.fabric-size-page .fabric-decision-notes div {
+  background: #fff;
+  padding: 14px;
+}
+
+.fabric-size-page .fabric-card-grid {
+  gap: 12px;
+}
+
+.fabric-size-page .fabric-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.55fr) minmax(0, 1fr);
+  border-color: var(--fabric-line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: 0 14px 38px rgba(15, 23, 20, 0.08);
+}
+
+.fabric-size-page .fabric-card-media {
+  aspect-ratio: auto;
+  min-height: 100%;
+}
+
+.fabric-size-page .fabric-card-media::after {
+  right: 10px;
+  bottom: 10px;
+  content: "Xem vải";
+  padding: 6px 9px;
+}
+
+.fabric-size-page .fabric-card-body {
+  align-content: start;
+  padding: 18px 18px 0;
+}
+
+.fabric-size-page .fabric-card h3 {
+  font-family: var(--font-display), sans-serif;
+  font-size: 30px;
+  line-height: 0.95;
+}
+
+.fabric-size-page .fabric-card p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.fabric-size-page .fabric-tag-row {
+  grid-column: 2;
+  margin: 0 18px 18px;
+  padding-top: 12px;
+}
+
+.fabric-size-page .fabric-tag-row span {
+  border-radius: var(--radius-sm);
+  border-color: rgba(17, 106, 92, 0.16);
+  background: rgba(17, 106, 92, 0.08);
+  color: var(--fabric-court);
+}
+
+.fabric-size-page .size-guide-section {
+  grid-template-columns: minmax(300px, 0.48fr) minmax(0, 1.52fr);
+}
+
+.fabric-size-page .size-guide-copy {
+  position: sticky;
+  top: 140px;
+  border-radius: var(--radius-md);
+  background: #101714;
+}
+
+.fabric-size-page .size-guide-copy h2 {
+  font-size: clamp(32px, 4vw, 54px);
+}
+
+.fabric-size-page .html-size-panel {
+  border-radius: var(--radius-md);
+  border-color: var(--fabric-line);
+  background: #fffdf8;
+}
+
+.fabric-size-page .html-size-title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.fabric-size-page .html-size-title h2 {
+  color: var(--fabric-ink);
+  font-size: clamp(32px, 4vw, 50px);
+  letter-spacing: 0;
+}
+
+.fabric-size-page .html-size-title p {
+  margin: 0;
+  color: #df3f32;
+  font-size: 15px;
+}
+
+.fabric-size-page .html-size-block {
+  --size-accent: #116a5c;
+  --size-cell: #ecf3ee;
+  --size-cell-alt: #f7faf6;
+  --size-text: #0f4f45;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 20, 0.08);
+  border-radius: var(--radius-sm);
+  background: white;
+  padding: 14px;
+}
+
+.fabric-size-page .html-size-block.is-red {
+  --size-accent: #df3f32;
+  --size-cell: #fff0ec;
+  --size-cell-alt: #fff8f6;
+  --size-text: #9d3028;
+}
+
+.fabric-size-page .html-size-block h3 {
+  font-size: 18px;
+}
+
+.fabric-size-page .html-size-block th,
+.fabric-size-page .html-size-block td {
+  border-width: 1px;
+  padding: 12px 10px;
+}
+
+.fabric-size-page .html-size-block thead th {
+  font-size: 18px;
+}
+
+.fabric-size-page .html-size-block tbody td {
+  font-size: clamp(14px, 1.1vw, 18px);
+}
+
+.fabric-size-page .fabric-faq-section {
+  border-top: 1px solid rgba(15, 23, 20, 0.1);
+  padding-top: clamp(44px, 6vw, 84px);
+}
+
+.fabric-size-page .fabric-faq-list article {
+  border: 1px solid rgba(15, 23, 20, 0.08);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.76);
+  padding: 18px;
+}
+
+.fabric-size-page .design-free-band {
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(135deg, rgba(17, 106, 92, 0.96), rgba(15, 23, 20, 0.98)),
+    url("/images/pickleball-team-hero.png") center / cover;
+}
+
+@media (max-width: 900px) {
+  .fabric-size-page .info-hero,
+  .fabric-size-page .fabric-decision-section,
+  .fabric-size-page .size-guide-section {
+    grid-template-columns: 1fr;
+  }
+
+  .fabric-size-page .fabric-decision-copy,
+  .fabric-size-page .size-guide-copy {
+    position: static;
+  }
+
+  .fabric-size-page .fabric-card {
+    grid-template-columns: 1fr;
+  }
+
+  .fabric-size-page .fabric-tag-row {
+    grid-column: auto;
+    margin: 0 18px 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .fabric-size-page .info-hero {
+    padding: 22px 16px 18px;
+  }
+
+  .fabric-size-page .info-hero-copy {
+    padding: 22px;
+  }
+
+  .fabric-size-page .info-hero-copy h1 {
+    font-size: clamp(42px, 12vw, 54px);
+  }
+
+  .fabric-size-page .info-stat-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .fabric-size-page .info-stat-row div {
+    padding: 12px 10px;
+  }
+
+  .fabric-size-page .info-stat-row strong {
+    font-size: 28px;
+  }
+
+  .fabric-size-page .info-stat-row span {
+    margin-top: 5px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .fabric-size-page .info-hero-media img {
+    min-height: 190px;
+  }
+
+  .fabric-size-page .info-hero-badge {
+    max-width: 156px;
+    padding: 10px;
+  }
+
+  .fabric-size-page .info-hero-badge strong {
+    font-size: 19px;
+  }
+
+  .fabric-size-page .fabric-anchor-bar {
+    justify-content: flex-start;
+    width: min(100% - 32px, 760px);
+    border-radius: var(--radius-md);
+  }
+
+  .fabric-size-page .html-size-title {
+    display: grid;
+  }
+}

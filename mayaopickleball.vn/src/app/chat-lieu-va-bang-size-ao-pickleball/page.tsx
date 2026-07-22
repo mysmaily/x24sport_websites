@@ -156,15 +156,16 @@ function SizeTable({
 export default function FabricSizePage() {
   return (
     <InfoPage
-      description="Một trang để đội chọn nhanh chất vải, hiểu form mặc và đối chiếu size nam, nữ, trẻ em trước khi đặt may áo pickleball."
+      className="fabric-size-page"
+      description="So sánh chất vải, cảm giác mặc và bảng size nam, nữ, trẻ em để đội chốt danh sách trước khi lên mẫu."
       image={fabrics[0].image}
       kicker="Chất liệu & bảng size"
       stats={[
-        { value: '4 loại', label: 'vải thể thao' },
-        { value: '3 bảng', label: 'nam, nữ, trẻ em' },
-        { value: 'miễn phí', label: 'rà size trước khi may' },
+        { value: '4', label: 'chất vải thi đấu' },
+        { value: '3', label: 'bảng size rõ ràng' },
+        { value: '1:1', label: 'rà size qua Zalo' },
       ]}
-      title="Chọn vải, form và size áo pickleball cho cả đội"
+      title="Chọn vải & size áo pickleball"
     >
       <JsonLd
         data={[

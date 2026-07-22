@@ -103,6 +103,7 @@ export function InfoFooter() {
 
 export function InfoPage({
   children,
+  className,
   description,
   image,
   kicker,
@@ -110,6 +111,7 @@ export function InfoPage({
   title,
 }: {
   children: ReactNode
+  className?: string
   description: string
   image: string
   kicker: string
@@ -117,7 +119,7 @@ export function InfoPage({
   title: string
 }) {
   return (
-    <main className="site-page info-page">
+    <main className={['site-page info-page', className].filter(Boolean).join(' ')}>
       <SiteHeader />
       <InfoHero
         description={description}
