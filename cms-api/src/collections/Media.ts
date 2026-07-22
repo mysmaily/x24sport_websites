@@ -60,7 +60,12 @@ export const Media: CollectionConfig = {
           if (!nextTenant || !allowed.has(String(nextTenant))) {
             throw new Error('Website sở hữu media phải được gán cho tài khoản đang đăng nhập.')
           }
-          if (data && Object.prototype.hasOwnProperty.call(data, 'sharedWithTenants')) {
+          const nextSharedWithTenants = data?.sharedWithTenants
+          const changesSharedWithTenants = Array.isArray(nextSharedWithTenants)
+            ? nextSharedWithTenants.length > 0
+            : nextSharedWithTenants !== undefined && nextSharedWithTenants !== null
+
+          if (changesSharedWithTenants) {
             throw new Error('Chỉ quản trị hệ thống mới có thể thay đổi việc chia sẻ media giữa các website.')
           }
         }
