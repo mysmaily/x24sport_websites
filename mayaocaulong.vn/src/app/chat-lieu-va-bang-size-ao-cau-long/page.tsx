@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { ArrowRight, BadgeCheck, Ruler, Shirt, Sparkles, Wind } from 'lucide-react'
+import { FabricLightbox } from '../_components/fabric-lightbox'
 import { InfoPage, zaloHref } from '../_components/info-pages'
 
 export const metadata: Metadata = {
   title: 'Chất liệu & bảng size áo cầu lông | MayaoCauLong',
   description: 'Tư vấn chất liệu, form áo và cách chọn size khi đặt may áo cầu lông cho đội nhóm, CLB, trường lớp.',
+  alternates: { canonical: 'https://mayaocaulong.vn/chat-lieu-va-bang-size-ao-cau-long' },
 }
 
 const fabrics = [
@@ -131,9 +133,14 @@ export default function FabricSizePage() {
         <div className="fabric-card-grid">
           {fabrics.map(({ icon: Icon, image, tags, title, text }) => (
             <article className="fabric-card" key={title}>
-              <a className="fabric-card-media" href={image} target="_blank" rel="noreferrer">
+              <FabricLightbox
+                alt={`Chất liệu ${title} áo cầu lông X24 Sports`}
+                className="fabric-card-media"
+                image={image}
+                title={title}
+              >
                 <img alt={`Chất liệu ${title} áo cầu lông X24 Sports`} src={image} />
-              </a>
+              </FabricLightbox>
               <Icon size={26} strokeWidth={1.6} />
               <h3>{title}</h3>
               <p>{text}</p>

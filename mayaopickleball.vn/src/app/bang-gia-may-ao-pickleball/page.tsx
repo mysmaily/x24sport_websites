@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { ArrowRight, Check, CircleDollarSign, Palette, Shirt, Truck } from 'lucide-react'
+import { FabricLightbox } from '../_components/fabric-lightbox'
 import { InfoFooter, SiteHeader, phone, zaloHref } from '../_components/info-pages'
 import { pageMetadata } from '../../lib/seo'
 
@@ -127,10 +128,16 @@ export default function PricePage() {
         </div>
         <div className="fabric-surface-grid">
           {fabricColumns.map((fabric) => (
-            <a className="fabric-surface-card" href={fabric.image} key={fabric.name} rel="noreferrer" target="_blank">
+            <FabricLightbox
+              alt={`Ảnh mặt vải ${fabric.name} dùng may áo pickleball`}
+              className="fabric-surface-card"
+              image={fabric.image}
+              key={fabric.name}
+              title={fabric.name}
+            >
               <img alt={`Ảnh mặt vải ${fabric.name} dùng may áo pickleball`} src={fabric.image} />
               <span>{fabric.name}</span>
-            </a>
+            </FabricLightbox>
           ))}
         </div>
       </section>

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 
+import { FabricLightbox } from '@/components/fabric-lightbox'
 import { PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '@/lib/site'
 
 export const fabrics = [
@@ -100,10 +101,15 @@ export function FabricGrid({ compact = false }: { compact?: boolean }) {
     <div className="mt-9 grid gap-5 md:grid-cols-2">
       {fabrics.map((fabric, index) => (
         <article className="grid overflow-hidden rounded-3xl border border-slate-200 bg-white sm:grid-cols-[minmax(180px,.9fr)_1.1fr]" key={fabric.name}>
-          <a className={`group relative block overflow-hidden bg-slate-100 ${compact ? 'min-h-56' : 'min-h-72'}`} href={fabric.image} rel="noreferrer" target="_blank" aria-label={`Xem ảnh bề mặt vải ${fabric.name}`}>
+          <FabricLightbox
+            alt={fabric.alt}
+            className={`group relative block cursor-zoom-in overflow-hidden bg-slate-100 text-left ${compact ? 'min-h-56' : 'min-h-72'}`}
+            image={fabric.image}
+            title={fabric.name}
+          >
             <Image alt={fabric.alt} className="object-cover transition duration-300 group-hover:scale-[1.025]" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 42vw, 280px" src={fabric.image} />
             {index === 1 ? <span className="absolute left-4 top-4 rounded-full bg-brand px-3 py-1.5 text-[11px] font-black uppercase tracking-wider text-white">Lựa chọn cân bằng</span> : null}
-          </a>
+          </FabricLightbox>
           <div className="flex flex-col p-6 sm:p-7">
             <span className="text-xs font-black uppercase tracking-[.16em] text-brand">Chất liệu 0{index + 1}</span>
             <h3 className="mt-2 font-display text-4xl font-bold leading-none text-slate-950">{fabric.name}</h3>

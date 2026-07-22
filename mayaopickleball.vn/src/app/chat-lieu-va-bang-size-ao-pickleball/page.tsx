@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, BadgeCheck, ClipboardCheck, Ruler, Shirt, Sparkles, Wind } from 'lucide-react'
 import { JsonLd } from '../_components/json-ld'
+import { FabricLightbox } from '../_components/fabric-lightbox'
 import { InfoFooter, SiteHeader, zaloHref } from '../_components/info-pages'
 import { breadcrumbJsonLd, pageMetadata } from '../../lib/seo'
 
@@ -224,9 +225,14 @@ export default function FabricSizePage() {
         <div className="fabric-first-grid">
           {fabrics.map(({ bestFor, icon: Icon, image, tags, title, text }) => (
             <article className="fabric-first-card" key={title}>
-              <a className="fabric-first-media" href={image} target="_blank" rel="noreferrer">
+              <FabricLightbox
+                alt={`Chất liệu ${title} áo pickleball X24 Sports`}
+                className="fabric-first-media"
+                image={image}
+                title={title}
+              >
                 <img alt={`Chất liệu ${title} áo pickleball X24 Sports`} src={image} />
-              </a>
+              </FabricLightbox>
               <div className="fabric-first-body">
                 <div className="fabric-first-title">
                   <Icon size={22} strokeWidth={1.7} />

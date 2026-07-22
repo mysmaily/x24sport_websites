@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight, Check, MessageCircle, Phone, Sparkles, Wind } from 'lucide-react'
 import Link from 'next/link'
 
+import { FabricLightbox } from '@/components/fabric-lightbox'
 import { PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '@/lib/site'
 
 const fabrics = [
@@ -106,10 +107,15 @@ export function FabricGuidePage() {
           <div className="grid gap-4">
             {fabrics.map((fabric, index) => (
               <section className="group grid overflow-hidden rounded-lg border border-black/10 bg-white shadow-[0_18px_50px_rgba(16,19,26,.08)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_70px_rgba(16,19,26,.14)] md:grid-cols-[minmax(240px,.92fr)_minmax(0,1.08fr)]" key={fabric.name}>
-                <div className="relative aspect-[4/3] overflow-hidden bg-slate-200 md:aspect-auto">
+                <FabricLightbox
+                  alt={fabric.alt}
+                  className="relative block aspect-[4/3] cursor-zoom-in overflow-hidden bg-slate-200 text-left md:aspect-auto"
+                  image={fabric.image}
+                  title={fabric.name}
+                >
                   <img alt={fabric.alt} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]" fetchPriority={index === 0 ? 'high' : undefined} loading={index === 0 ? 'eager' : 'lazy'} src={fabric.image} />
                   <span className="absolute left-3 top-3 rounded-md bg-[#10131a] px-2.5 py-1 font-display text-xl font-bold text-white">{String(index + 1).padStart(2, '0')}</span>
-                </div>
+                </FabricLightbox>
                 <div className="grid gap-5 p-5 sm:p-7">
                   <div>
                     <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[.16em] text-brand"><Sparkles size={14} /> {fabric.note}</p>

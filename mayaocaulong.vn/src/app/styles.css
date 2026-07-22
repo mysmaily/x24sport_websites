@@ -3335,3 +3335,135 @@ img {
     animation-iteration-count: 1 !important;
   }
 }
+
+body.has-fabric-lightbox {
+  overflow: hidden;
+}
+
+.fabric-card-media {
+  cursor: zoom-in;
+  font: inherit;
+  text-align: inherit;
+}
+
+button.fabric-card-media {
+  border: 0;
+  padding: 0;
+}
+
+.fabric-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  color: #fff;
+}
+
+.fabric-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: zoom-out;
+  border: 0;
+  background: rgba(5, 10, 18, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.fabric-lightbox-panel {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  left: 16px;
+  display: grid;
+  max-height: 92dvh;
+  max-width: 1120px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: #08111f;
+  box-shadow: 0 34px 120px rgba(0, 0, 0, 0.48);
+  transform: translateY(-50%);
+}
+
+.fabric-lightbox-head {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 16px;
+}
+
+.fabric-lightbox-head span {
+  display: block;
+  color: #f57b2a;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.fabric-lightbox-head strong {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--font-display), sans-serif;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.fabric-lightbox-head button,
+.fabric-lightbox-tools button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 950;
+}
+
+.fabric-lightbox-head button {
+  width: 44px;
+}
+
+.fabric-lightbox-stage {
+  overflow: auto;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(245, 123, 42, 0.16), transparent 30rem),
+    #020817;
+  padding: 14px;
+}
+
+.fabric-lightbox-stage img {
+  display: block;
+  max-width: 100%;
+  max-height: 68dvh;
+  margin: 0 auto;
+  border-radius: 8px;
+  object-fit: contain;
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.fabric-lightbox-tools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #101826;
+  padding: 10px;
+}
+
+.fabric-lightbox-tools button:first-child,
+.fabric-lightbox-tools button:last-child {
+  width: 44px;
+}
+
+.fabric-lightbox-tools button:nth-child(2) {
+  padding-inline: 14px;
+}
