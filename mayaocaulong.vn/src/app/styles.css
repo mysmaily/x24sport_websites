@@ -81,8 +81,9 @@ img {
   align-items: center;
   min-height: 72px;
   padding: 0 clamp(18px, 4vw, 64px);
-  border-bottom: 1px solid rgba(16, 19, 26, 0.08);
-  background: rgba(245, 247, 244, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(11, 18, 32, 0.96);
+  color: #fff;
   backdrop-filter: blur(18px);
 }
 
@@ -110,6 +111,7 @@ img {
 
 .brand-mark strong {
   overflow: hidden;
+  color: #fff;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -121,7 +123,7 @@ img {
   gap: clamp(14px, 1.7vw, 28px);
   font-size: 13px;
   font-weight: 800;
-  color: rgba(16, 19, 26, 0.68);
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .site-nav a,
@@ -133,7 +135,7 @@ img {
 .site-nav a:hover,
 .nav-dropdown:hover .nav-dropdown-trigger,
 .nav-dropdown:focus-within .nav-dropdown-trigger {
-  color: var(--accent);
+  color: #fff;
   transform: translateY(-1px);
 }
 
@@ -255,9 +257,9 @@ img {
   justify-content: center;
   min-height: 42px;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(16, 19, 26, 0.1);
-  background: rgba(255, 255, 255, 0.68);
-  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
   font-size: 14px;
   font-weight: 850;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
@@ -275,8 +277,8 @@ img {
 .header-phone:hover,
 .icon-button:hover {
   transform: translateY(-1px);
-  border-color: rgba(223, 63, 50, 0.35);
-  background: #fff;
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.16);
 }
 
 .menu-button {
@@ -292,8 +294,8 @@ img {
   display: none;
   max-height: calc(100dvh - 72px);
   overflow-y: auto;
-  border-bottom: 1px solid rgba(16, 19, 26, 0.1);
-  background: rgba(248, 250, 246, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(11, 18, 32, 0.98);
   padding: 14px 16px 18px;
   box-shadow: 0 26px 70px rgba(16, 19, 26, 0.16);
 }
@@ -312,11 +314,11 @@ img {
   min-height: 46px;
   align-items: center;
   gap: 10px;
-  border: 1px solid rgba(16, 19, 26, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-sm);
-  background: white;
+  background: rgba(255, 255, 255, 0.08);
   padding: 0 12px;
-  color: var(--ink);
+  color: #fff;
   font-size: 14px;
   font-weight: 850;
 }
@@ -326,8 +328,26 @@ img {
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-top: 14px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 14px;
+}
+
+.mobile-catalog-menu .nav-dropdown-title {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.mobile-catalog-menu .catalog-menu-link {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.mobile-catalog-menu .catalog-menu-link strong {
+  color: #fff;
+}
+
+.mobile-catalog-menu .catalog-menu-link small {
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .mobile-catalog-menu > div {
@@ -3479,12 +3499,6 @@ button.fabric-card-media {
     #f6f7f1;
   background-size: 36px 36px;
   color: var(--badminton-ink);
-}
-
-.badminton-fabric-page .site-header {
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-  background: rgba(11, 18, 32, 0.96);
-  color: #fff;
 }
 
 .badminton-fabric-shell,
