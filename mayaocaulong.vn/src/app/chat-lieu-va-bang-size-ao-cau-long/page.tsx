@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { ArrowRight, BadgeCheck, Ruler, Shirt, Sparkles, Wind } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowLeft, ArrowRight, BadgeCheck, Ruler, Shirt, Sparkles, Wind } from 'lucide-react'
 import { FabricLightbox } from '../_components/fabric-lightbox'
-import { InfoPage, zaloHref } from '../_components/info-pages'
+import { InfoFooter, SiteHeader, zaloHref } from '../_components/info-pages'
 
 export const metadata: Metadata = {
   title: 'Chất liệu & bảng size áo cầu lông | MayaoCauLong',
@@ -15,6 +16,7 @@ const fabrics = [
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-df5dd085-3f31-4f81-9121-3ddabb8822ee.png',
     title: 'Mè lava',
     text: 'Bề mặt lưới thoáng, nhẹ, hợp áo cầu lông cần thoát hơi nhanh khi vận động liên tục.',
+    bestFor: 'Đội chơi thường xuyên, ưu tiên cảm giác mát và nhẹ.',
     tags: ['Thoáng khí', 'Nhanh khô', 'Nhẹ áo'],
   },
   {
@@ -22,6 +24,7 @@ const fabrics = [
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-0efda5f5-7efe-4a75-8a16-14fb44009dd7.png',
     title: 'Mè nano',
     text: 'Mắt vải mịn, mặc êm và giữ bề mặt gọn, phù hợp đồng phục CLB cần cảm giác nhẹ.',
+    bestFor: 'Đội muốn áo mặc êm, bề mặt tinh gọn khi in tên số.',
     tags: ['Mịn mặt', 'Êm da', 'Dễ mặc'],
   },
   {
@@ -29,6 +32,7 @@ const fabrics = [
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-c937b825-1046-4a3e-a37d-2a4dd1551f4d.png',
     title: 'Mè zennix',
     text: 'Chất vải mềm, bề mặt đều, hỗ trợ lên màu thiết kế và in chuyển nhiệt sắc nét.',
+    bestFor: 'Mẫu áo nhiều mảng màu, logo và chi tiết cần rõ nét.',
     tags: ['Lên màu đẹp', 'Mềm', 'Giữ form'],
   },
   {
@@ -36,8 +40,16 @@ const fabrics = [
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-eea74471-ee2d-4cce-9e41-0db6a6f25ae2.png',
     title: 'Mè thái',
     text: 'Kiểu vải thể thao phổ biến, bề mặt thoáng và ổn định cho đơn đội số lượng nhiều.',
+    bestFor: 'Đơn đồng phục số lượng lớn cần phương án dễ mặc, dễ đồng bộ.',
     tags: ['Bền', 'Dễ đồng bộ', 'Thể thao'],
   },
+] as const
+
+const quickPicks = [
+  ['Mặc mát', 'Mè lava'],
+  ['Mặt vải mịn', 'Mè nano'],
+  ['Màu in nổi', 'Mè zennix'],
+  ['Dễ đồng bộ', 'Mè thái'],
 ] as const
 
 const sizeSteps = [
@@ -114,47 +126,72 @@ function SizeTable({
 
 export default function FabricSizePage() {
   return (
-    <InfoPage
-      description="Chọn đúng chất liệu và kích thước giúp đồng phục thoải mái khi vận động, đồng thời giữ được form áo đồng đều cho cả đội."
-      image={fabrics[0].image}
-      kicker="Chất liệu & bảng size"
-      stats={[
-        { value: '4 loại', label: 'vải thể thao' },
-        { value: '3 bảng', label: 'nam, nữ, trẻ em' },
-        { value: 'miễn phí', label: 'rà size trước khi may' },
-      ]}
-      title="Chọn vải và size áo cầu lông để cả đội mặc thoải mái"
-    >
-      <section className="info-section fabric-detail-section">
-        <div className="info-section-heading">
-          <h2>Chất liệu áo cầu lông</h2>
-          <p>Bấm vào từng ảnh để xem rõ bề mặt vải. Các lựa chọn dưới đây đều phù hợp áo cầu lông đặt may cho CLB, đội phong trào và trường lớp.</p>
+    <main className="site-page info-page badminton-fabric-page">
+      <SiteHeader />
+
+      <section className="badminton-fabric-hero" aria-labelledby="fabric-page-title">
+        <div className="badminton-fabric-shell badminton-fabric-hero-grid">
+          <div>
+            <Link className="badminton-back-link" href="/">
+              <ArrowLeft size={18} /> Trang chủ
+            </Link>
+            <p className="hero-kicker">Chất liệu vải X24 Sport</p>
+            <h1 id="fabric-page-title">Chọn vải trước khi chốt size áo</h1>
+            <p>4 chất liệu thường dùng cho áo cầu lông, đặt cạnh nhau để đội dễ so sánh độ thoáng, cảm giác mặc và độ rõ của màu in.</p>
+          </div>
+          <div className="badminton-quick-picks" aria-label="Gợi ý chọn nhanh">
+            {quickPicks.map(([label, value]) => (
+              <article key={label}>
+                <span>{label}</span>
+                <strong>{value}</strong>
+              </article>
+            ))}
+          </div>
         </div>
-        <div className="fabric-card-grid">
-          {fabrics.map(({ icon: Icon, image, tags, title, text }) => (
-            <article className="fabric-card" key={title}>
+      </section>
+
+      <nav className="badminton-fabric-nav" aria-label="Nội dung hướng dẫn">
+        <a href="#chat-lieu">Chất liệu</a>
+        <a href="#chon-size">Cách chốt size</a>
+        <a href="#bang-size">Bảng size</a>
+      </nav>
+
+      <section className="badminton-materials" id="chat-lieu">
+        <div className="badminton-material-copy">
+          <span className="section-eyebrow">Chất liệu áo cầu lông</span>
+          <h2>Nhìn mặt vải trước, chốt size sau</h2>
+          <p>Ảnh vải được giữ lớn để thấy rõ kiểu dệt. Bấm vào ảnh để mở popup và zoom ngay trong trang.</p>
+        </div>
+        <div className="badminton-fabric-grid">
+          {fabrics.map(({ bestFor, icon: Icon, image, tags, title, text }) => (
+            <article className="badminton-fabric-card" key={title}>
               <FabricLightbox
                 alt={`Chất liệu ${title} áo cầu lông X24 Sports`}
-                className="fabric-card-media"
+                className="badminton-fabric-media"
                 image={image}
                 title={title}
               >
                 <img alt={`Chất liệu ${title} áo cầu lông X24 Sports`} src={image} />
               </FabricLightbox>
-              <Icon size={26} strokeWidth={1.6} />
-              <h3>{title}</h3>
-              <p>{text}</p>
-              <div className="fabric-tag-row">
-                {tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
+              <div className="badminton-fabric-body">
+                <div className="badminton-fabric-title">
+                  <Icon size={22} strokeWidth={1.7} />
+                  <h3>{title}</h3>
+                </div>
+                <p>{text}</p>
+                <strong>{bestFor}</strong>
+                <div className="badminton-fabric-tags">
+                  {tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="info-section size-guide-section">
+      <section className="info-section size-guide-section badminton-size-flow" id="chon-size">
         <div className="size-guide-copy">
           <Ruler size={32} strokeWidth={1.6} />
           <h2>Cách chọn size cho đội</h2>
@@ -165,7 +202,7 @@ export default function FabricSizePage() {
           </ol>
           <p>Lưu ý: form và thông số có thể khác theo kiểu áo. Hãy xác nhận bảng size của đúng mẫu trước khi chốt đơn.</p>
         </div>
-        <div className="html-size-panel" aria-label="Bảng size áo cầu lông">
+        <div className="html-size-panel" id="bang-size" aria-label="Bảng size áo cầu lông">
           <div className="html-size-title">
             <h2>Hướng dẫn chọn size</h2>
             <p>(Bảng size Châu Á)</p>
@@ -185,6 +222,7 @@ export default function FabricSizePage() {
           Gửi danh sách size <ArrowRight size={18} />
         </a>
       </section>
-    </InfoPage>
+      <InfoFooter />
+    </main>
   )
 }
