@@ -35,3 +35,7 @@ __pycache__/
 
 # Runtime migration snapshots and reconciliation output
 **/migration-data/
+
+# Monorepo migration audit evidence
+operations/monorepo-baseline/
+operations/monorepo-post-migration/
