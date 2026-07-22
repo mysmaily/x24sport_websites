@@ -42,15 +42,16 @@ export default function PricePage() {
     <>
       <ServicePageHero
         kicker="Bảng giá may theo yêu cầu"
-        title="Chi phí rõ ràng cho từng lựa chọn vải."
-        description="Bảng giá tham khảo cho đồng phục bóng rổ áo + quần, nhận may từ 5 bộ. So sánh trực tiếp theo số lượng và chất liệu trước khi gửi mẫu để nhận báo giá sát nhu cầu."
-        actions={<><PrimaryZaloButton>Nhận báo giá qua Zalo</PrimaryZaloButton><SecondaryLinkButton href="#bang-gia">Xem bảng giá</SecondaryLinkButton></>}
+        title="Bảng giá may áo bóng rổ."
+        description="Xem nhanh giá áo + quần theo số lượng và chất liệu. Nhận may từ 5 bộ, đã gồm thiết kế, in ấn, vận chuyển và VAT."
+        compact
+        actions={<><PrimaryZaloButton>Nhận báo giá qua Zalo</PrimaryZaloButton><span className="hidden sm:contents"><SecondaryLinkButton href="#bang-gia">Xem bảng giá</SecondaryLinkButton></span></>}
         aside={
-          <aside className="rounded-3xl border border-white/15 bg-white/5 p-6 sm:p-8" aria-label="Tóm tắt bảng giá">
-            <p className="flex items-center gap-2 text-sm font-bold text-orange-200"><CircleDollarSign aria-hidden="true" size={19} /> Giá tham khảo từ</p>
-            <strong className="mt-3 block font-display text-6xl font-bold leading-none text-white sm:text-7xl">149.000đ</strong>
-            <span className="mt-2 block text-sm text-slate-300">mỗi bộ · Thun lạnh · 51–100 bộ</span>
-            <dl className="mt-7 grid grid-cols-3 gap-3 border-t border-white/10 pt-6 text-sm">
+          <aside className="hidden rounded-2xl border border-white/15 bg-white/5 p-4 sm:block sm:p-5" aria-label="Tóm tắt bảng giá">
+            <p className="flex items-center gap-2 text-sm font-bold text-orange-200"><CircleDollarSign aria-hidden="true" size={18} /> Giá tham khảo từ</p>
+            <strong className="mt-2 block font-display text-5xl font-bold leading-none text-white sm:text-6xl">149.000đ</strong>
+            <span className="mt-1 block text-sm text-slate-300">mỗi bộ · Thun lạnh · 51–100 bộ</span>
+            <dl className="mt-4 grid grid-cols-3 gap-3 border-t border-white/10 pt-4 text-sm">
               <div><dt className="text-xs text-slate-400">Tối thiểu</dt><dd className="mt-1 font-black">5 bộ</dd></div>
               <div><dt className="text-xs text-slate-400">Bao gồm</dt><dd className="mt-1 font-black">Áo + quần</dd></div>
               <div><dt className="text-xs text-slate-400">Thiết kế</dt><dd className="mt-1 font-black">Miễn phí</dd></div>
@@ -59,9 +60,13 @@ export default function PricePage() {
         }
       />
 
-      <section className="section-shell py-16 sm:py-22" id="bang-gia">
-        <SectionHeading kicker="So sánh trực tiếp" title="Bảng giá theo chất liệu và số lượng" description="Giá đã bao gồm thiết kế, in ấn, vận chuyển và thuế VAT. Nếu chỉ lấy áo, giá giảm 20.000đ/bộ." />
-        <div className="mt-9">
+      <section className="section-shell py-7 sm:py-10" id="bang-gia">
+        <header className="max-w-4xl">
+          <p className="section-kicker">So sánh trực tiếp</p>
+          <h2 className="font-display text-3xl font-bold leading-none text-slate-950 sm:text-5xl">Bảng giá theo chất liệu và số lượng</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">Giá đã bao gồm thiết kế, in ấn, vận chuyển và thuế VAT. Nếu chỉ lấy áo, giá giảm 20.000đ/bộ.</p>
+        </header>
+        <div className="mt-4">
           <TableScroll label="Bảng giá may áo bóng rổ">
             <table className="w-full border-collapse text-left text-sm">
               <caption className="sr-only">Giá mỗi bộ đồng phục bóng rổ theo số lượng và chất liệu</caption>

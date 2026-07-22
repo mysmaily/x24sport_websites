@@ -33,6 +33,7 @@
 
 - Header: one row, 72px minimum height, task-focused navigation, phone and consultation CTA; mobile menu must expose `aria-expanded` and preserve 44px targets.
 - Hero: reuse the legacy responsive banner media. Keep one visible headline, a short factual description, one primary CTA, one secondary CTA, and explicit carousel controls.
+- Owner preference: on pricing, quote, catalog, product, and other intent-heavy pages, never let a banner or hero delay the actual thing the visitor came to see. The first viewport must reveal the primary content (price table, products, order form, or product facts) enough that shoppers understand the page is useful and continue scrolling. Keep hero copy compact, practical, and subordinate to the task.
 - Buttons: one primary action per section. Primary uses brand fill and white text; secondary uses a high-contrast border or neutral dark fill.
 - Product cards: 4:5 reserved media, real product title, factual customization note, and a clear detail link. Do not invent price, rating, stock, or delivery claims.
 - Sections: use a compact 32–56px vertical rhythm and 16–24px internal block gaps. Use the tighter end of the scale for catalog, search, utility, and text-heavy screens. Larger gaps require a clear content or interaction reason.
