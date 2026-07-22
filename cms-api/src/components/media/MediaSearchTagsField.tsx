@@ -1,8 +1,8 @@
 'use client'
 
-import { useField } from '@payloadcms/ui'
+import { useDocumentInfo, useField, useFormFields } from '@payloadcms/ui'
 import type { ArrayFieldClientProps } from 'payload'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import styles from './MediaSearchTagsField.module.scss'
 
@@ -42,12 +42,69 @@ const tagsToText = (value: unknown) => {
     .join('\n')
 }
 
+const formStateToText = (
+  fields: Record<string, { rows?: { id?: string }[]; value?: unknown }>,
+  path: string,
+) => {
+  const rows = fields[path]?.rows
+  if (!Array.isArray(rows) || !rows.length) return ''
+
+  return rows
+    .map((_, index) => {
+      const field = fields[`${path}.${index}.value`]
+      return typeof field?.value === 'string' ? field.value.trim() : ''
+    })
+    .filter(Boolean)
+    .join('\n')
+}
+
 export function MediaSearchTagsField({ path }: ArrayFieldClientProps) {
+  const { id } = useDocumentInfo()
   const { disabled, errorMessage, setValue, showError, value } = useField<SearchTagValue[]>({
     path,
   })
-  const textValue = useMemo(() => tagsToText(value), [value])
+  const formTextValue = useFormFields(([fields]) =>
+    formStateToText(fields as Record<string, { rows?: { id?: string }[]; value?: unknown }>, path),
+  )
+  const fieldTextValue = useMemo(() => tagsToText(value), [value])
+  const sourceTextValue = fieldTextValue || formTextValue
+  const [textValue, setTextValue] = useState(sourceTextValue)
+  const [hasEdited, setHasEdited] = useState(false)
   const tags = useMemo(() => normalizeTags(textValue), [textValue])
+
+  useEffect(() => {
+    if (hasEdited || !sourceTextValue) return
+
+    setTextValue(sourceTextValue)
+    setValue(normalizeTags(sourceTextValue).map((tag) => ({ value: tag })), true)
+  }, [hasEdited, setValue, sourceTextValue])
+
+  useEffect(() => {
+    if (hasEdited || sourceTextValue || !id) return
+
+    const controller = new AbortController()
+
+    void fetch(`/api/media/${encodeURIComponent(String(id))}?depth=0`, {
+      credentials: 'same-origin',
+      signal: controller.signal,
+    })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`Media request failed with ${response.status}`)
+        return (await response.json()) as { searchTags?: SearchTag[] | null }
+      })
+      .then((doc) => {
+        const nextTextValue = tagsToText(doc.searchTags)
+        if (!nextTextValue) return
+
+        setTextValue(nextTextValue)
+        setValue(normalizeTags(nextTextValue).map((tag) => ({ value: tag })), true)
+      })
+      .catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === 'AbortError') return
+      })
+
+    return () => controller.abort()
+  }, [hasEdited, id, setValue, sourceTextValue])
 
   return (
     <div className={styles.field}>
@@ -62,7 +119,10 @@ export function MediaSearchTagsField({ path }: ArrayFieldClientProps) {
         disabled={disabled}
         id={`${path}-tag-composer`}
         onChange={(event) => {
-          const nextTags = normalizeTags(event.target.value).map((tag) => ({ value: tag }))
+          const nextTextValue = event.target.value
+          const nextTags = normalizeTags(nextTextValue).map((tag) => ({ value: tag }))
+          setHasEdited(true)
+          setTextValue(nextTextValue)
           setValue(nextTags)
         }}
         placeholder={'áo cầu lông\nxanh dương\ngradient\nkhông tay'}
