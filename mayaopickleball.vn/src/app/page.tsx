@@ -155,7 +155,7 @@ export default async function Home() {
 
       <section className="hero-section">
         <div className="hero-media" aria-hidden="true">
-          <img src="/images/pickleball-team-hero.png" alt="" />
+          <img src="/images/pickleball-team-hero.webp" alt="" />
         </div>
         <div className="hero-content">
           <p className="hero-kicker">Áo pickleball đặt may cho CLB</p>

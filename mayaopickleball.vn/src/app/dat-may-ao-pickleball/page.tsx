@@ -34,7 +34,7 @@ export default function OrderPage() {
   return (
     <InfoPage
       description="Nhận đặt may áo pickleball theo mẫu có sẵn hoặc thiết kế riêng, hỗ trợ miễn phí phần maket để đội dễ duyệt trước khi sản xuất."
-      image="/images/pickleball-team-hero.png"
+      image="/images/pickleball-team-hero.webp"
       kicker="Đặt may áo pickleball"
       stats={[
         { value: '4 bước', label: 'quy trình rõ ràng' },

@@ -14,25 +14,25 @@ const projects = [
   {
     title: 'Mẫu áo pickleball CLB Linh Đàm',
     text: 'Tông xanh lá trắng nổi bật, số áo lớn, logo đặt trước ngực và sau lưng.',
-    image: '/images/pickleball-team-hero.png',
+    image: '/images/pickleball-team-hero.webp',
     date: '12 Th7',
   },
   {
     title: 'Giải pickleball nội bộ công ty',
     text: 'Thiết kế xanh navy, chia size theo danh sách và đóng gói theo từng đội.',
-    image: '/images/pickleball-team-hero.png',
+    image: '/images/pickleball-team-hero.webp',
     date: '12 Th7',
   },
   {
     title: 'Mẫu áo pickleball trường học',
     text: 'Màu vàng cam trẻ, dễ nhận diện khi thi đấu ngoài trời và chụp ảnh tập thể.',
-    image: '/images/pickleball-team-hero.png',
+    image: '/images/pickleball-team-hero.webp',
     date: '11 Th7',
   },
   {
     title: 'Set pickleball nam nữ đồng bộ',
     text: 'Form gọn, phối màu xanh ngọc và trắng, phù hợp đội đánh đôi phong trào.',
-    image: '/images/pickleball-team-hero.png',
+    image: '/images/pickleball-team-hero.webp',
     date: '08 Th7',
   },
 ] as const
@@ -43,7 +43,7 @@ export default function FinishedWorkPage() {
   return (
     <InfoPage
       description="Tham khảo một số hướng thiết kế áo pickleball đã làm cho team, trường học, doanh nghiệp và câu lạc bộ phong trào."
-      image="/images/pickleball-team-hero.png"
+      image="/images/pickleball-team-hero.webp"
       kicker="Mẫu áo pickleball đã làm"
       stats={[
         { value: 'nhiều màu', label: 'có thể chỉnh theo đội' },
