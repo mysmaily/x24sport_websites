@@ -5532,3 +5532,9 @@ nav.fabric-anchor-bar.info-section {
     grid-template-columns: 1fr;
   }
 }
+
+.fabric-hybrid-page .site-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  background: rgba(11, 18, 32, 0.96);
+  color: #fff;
+}
