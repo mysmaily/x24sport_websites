@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: audience.metaTitle,
       description: audience.metaDescription,
       url: canonical(audience.path),
-      images: [{ url: '/images/basketball-audience-hero-20260722.webp', width: 1920, height: 1080, alt: audience.title }],
+      images: [{ url: '/images/basketball-audience-hero-bright-20260722.webp', width: 1920, height: 1080, alt: audience.title }],
     },
   }
 }
@@ -42,54 +42,54 @@ export default async function AudienceLandingPage({ params }: PageProps) {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-slate-950 text-white">
+      <section className="relative isolate overflow-hidden bg-[#fff4e6] text-slate-950">
         <picture className="absolute inset-0 -z-30">
           <img
-            alt="Nhóm cầu thủ mặc đồng phục bóng rổ thiết kế riêng"
+            alt="Nhóm cầu thủ mặc đồng phục bóng rổ thiết kế riêng trong sân bóng rổ sáng"
             className="h-full w-full object-cover object-center"
             decoding="async"
             fetchPriority="high"
             height="1080"
-            src="/images/basketball-audience-hero-20260722.webp"
+            src="/images/basketball-audience-hero-bright-20260722.webp"
             width="1920"
           />
         </picture>
-        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(4,9,18,.97)_0%,rgba(4,9,18,.9)_42%,rgba(4,9,18,.42)_74%,rgba(4,9,18,.22)_100%)] max-md:bg-[linear-gradient(180deg,rgba(4,9,18,.58)_0%,rgba(4,9,18,.95)_56%,rgba(4,9,18,.98)_100%)]" />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:88px_88px] opacity-35" />
+        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(255,248,235,.97)_0%,rgba(255,248,235,.92)_43%,rgba(255,248,235,.45)_75%,rgba(255,248,235,.12)_100%)] max-md:bg-[linear-gradient(180deg,rgba(255,248,235,.88)_0%,rgba(255,248,235,.84)_52%,rgba(255,248,235,.98)_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(15,23,42,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,.06)_1px,transparent_1px)] bg-[size:88px_88px] opacity-35" />
 
         <div className="section-shell py-5">
-          <nav className="flex items-center gap-2 text-xs font-bold text-slate-300" aria-label="Đường dẫn">
-            <Link className="min-h-11 content-center transition hover:text-white" href="/">Trang chủ</Link>
+          <nav className="flex items-center gap-2 text-xs font-bold text-slate-700" aria-label="Đường dẫn">
+            <Link className="min-h-11 content-center transition hover:text-brand" href="/">Trang chủ</Link>
             <span aria-hidden="true">/</span>
-            <span className="truncate text-white">{audience.eyebrow}</span>
+            <span className="truncate text-slate-950">{audience.eyebrow}</span>
           </nav>
         </div>
 
-        <div className="section-shell grid min-h-[620px] gap-8 pb-12 pt-4 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end lg:pb-18">
+        <div className="section-shell grid min-h-[600px] gap-8 pb-12 pt-4 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end lg:pb-16">
           <div>
-            <p className="inline-flex min-h-10 items-center rounded-full border border-white/15 bg-white/10 px-4 text-[11px] font-black uppercase tracking-[.18em] text-orange-200 backdrop-blur">
+            <p className="inline-flex min-h-10 items-center rounded-full border border-orange-200 bg-white/80 px-4 text-[11px] font-black uppercase tracking-[.16em] text-brand shadow-sm backdrop-blur">
               {audience.eyebrow}
             </p>
-            <h1 className="mt-5 max-w-4xl font-display text-[clamp(3.05rem,7vw,7rem)] font-extrabold leading-[.87] tracking-tight text-balance">
+            <h1 className="mt-5 max-w-4xl font-display text-[clamp(2.45rem,5.2vw,5.25rem)] font-extrabold leading-[.95] tracking-tight text-balance">
               {audience.heroTitle}
             </h1>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-slate-200 sm:text-lg">{audience.heroDescription}</p>
+            <p className="mt-6 max-w-3xl text-base font-medium leading-8 text-slate-700 sm:text-lg">{audience.heroDescription}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank">
                 <MessageCircle aria-hidden="true" size={18} /> {audience.primaryCta}
               </a>
-              <Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/25 bg-white/10 px-6 text-sm font-black text-white backdrop-blur transition hover:border-white/45 hover:bg-white/15" href={slug === 'giai-dau-su-kien' ? '/bang-gia-may-ao-bong-ro/' : '/san-pham/'}>
+              <Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white/85 px-6 text-sm font-black text-slate-950 backdrop-blur transition hover:border-brand/40 hover:bg-white" href={slug === 'giai-dau-su-kien' ? '/bang-gia-may-ao-bong-ro/' : '/san-pham/'}>
                 {audience.secondaryCta} <ArrowRight aria-hidden="true" size={18} />
               </Link>
             </div>
           </div>
 
-          <aside className="rounded-3xl border border-white/15 bg-white/[.075] p-5 shadow-2xl shadow-black/25 backdrop-blur" aria-label="Tóm tắt nhóm khách hàng">
-            <p className="text-xs font-black uppercase tracking-[.18em] text-orange-200">Phù hợp với</p>
+          <aside className="rounded-3xl border border-orange-100 bg-white/88 p-5 shadow-[0_18px_45px_rgba(88,45,12,.13)] backdrop-blur" aria-label="Tóm tắt nhóm khách hàng">
+            <p className="text-xs font-black uppercase tracking-[.18em] text-brand">Phù hợp với</p>
             <ul className="mt-4 grid gap-3">
               {audience.useCases.map((item) => (
-                <li className="flex gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm font-bold leading-6 text-slate-100" key={item}>
-                  <BadgeCheck aria-hidden="true" className="mt-0.5 shrink-0 text-orange-300" size={18} />
+                <li className="flex gap-3 rounded-2xl border border-orange-100 bg-orange-50/75 p-4 text-sm font-bold leading-6 text-slate-800" key={item}>
+                  <BadgeCheck aria-hidden="true" className="mt-0.5 shrink-0 text-brand" size={18} />
                   <span>{item}</span>
                 </li>
               ))}
