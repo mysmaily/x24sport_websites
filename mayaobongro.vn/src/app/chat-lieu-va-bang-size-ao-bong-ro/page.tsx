@@ -49,22 +49,27 @@ export default function MaterialsAndSizesPage() {
     <>
       <ServicePageHero
         kicker="Chất liệu & bảng size"
-        title="Chọn đúng vải. Chốt size dễ hơn."
-        description="So sánh trực quan bốn bề mặt vải đang dùng cho đồng phục bóng rổ, sau đó đối chiếu cân nặng và chiều cao để cả đội có form áo đồng đều."
-        actions={<><PrimaryZaloButton>Gửi danh sách size</PrimaryZaloButton><SecondaryLinkButton href="#bang-size">Tra bảng size</SecondaryLinkButton></>}
+        title="Chất liệu và bảng size áo bóng rổ."
+        description="Xem nhanh bề mặt vải, rồi tra size theo cân nặng và chiều cao để chốt danh sách cho cả đội."
+        compact
+        actions={<><PrimaryZaloButton>Gửi danh sách size</PrimaryZaloButton><span className="hidden sm:contents"><SecondaryLinkButton href="#bang-size">Tra bảng size</SecondaryLinkButton></span></>}
         aside={
-          <aside className="rounded-3xl border border-white/15 bg-white/5 p-6 sm:p-8" aria-label="Ba bước chọn chất liệu và size">
-            <p className="flex items-center gap-2 text-sm font-bold text-orange-200"><Ruler aria-hidden="true" size={19} /> Chọn nhanh cho cả đội</p>
-            <ol className="mt-6 grid gap-5">
-              {[['01', 'Xem bề mặt vải', 'Đối chiếu độ thoáng, độ đứng form và ngân sách.'], ['02', 'Đo chiều cao, cân nặng', 'Ưu tiên thông số hiện tại của từng thành viên.'], ['03', 'Gửi danh sách', 'Tư vấn lại trước khi chốt sản xuất.']].map(([number, title, text]) => <li className="grid grid-cols-[40px_1fr] gap-3" key={number}><span className="font-display text-3xl font-bold text-brand">{number}</span><div><b className="block text-sm text-white">{title}</b><p className="mt-1 text-xs leading-5 text-slate-400">{text}</p></div></li>)}
+          <aside className="hidden rounded-2xl border border-white/15 bg-white/5 p-4 sm:block sm:p-5" aria-label="Ba bước chọn chất liệu và size">
+            <p className="flex items-center gap-2 text-sm font-bold text-orange-200"><Ruler aria-hidden="true" size={18} /> Chọn nhanh cho cả đội</p>
+            <ol className="mt-4 grid gap-3">
+              {[['01', 'Xem bề mặt vải'], ['02', 'Đo chiều cao, cân nặng'], ['03', 'Gửi danh sách size']].map(([number, title]) => <li className="grid grid-cols-[36px_1fr] gap-3" key={number}><span className="font-display text-2xl font-bold text-brand">{number}</span><b className="pt-1 text-sm text-white">{title}</b></li>)}
             </ol>
           </aside>
         }
       />
 
-      <section className="section-shell py-16 sm:py-22">
-        <SectionHeading kicker="Bốn lựa chọn thực tế" title="Nhìn rõ bề mặt trước khi chọn vải." description="Mỗi chất liệu có một ưu điểm riêng. Mở ảnh để xem chi tiết bề mặt, sau đó chọn theo tần suất sử dụng và cảm giác mặc mong muốn." />
-        <FabricGrid />
+      <section className="section-shell py-7 sm:py-10">
+        <header className="max-w-4xl">
+          <p className="section-kicker">Bốn lựa chọn thực tế</p>
+          <h2 className="font-display text-3xl font-bold leading-none text-slate-950 sm:text-5xl">Nhìn rõ bề mặt trước khi chọn vải</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">Mỗi chất liệu có một ưu điểm riêng. Mở ảnh để xem chi tiết bề mặt, sau đó chọn theo tần suất sử dụng và cảm giác mặc mong muốn.</p>
+        </header>
+        <FabricGrid compact />
       </section>
 
       <section className="border-y border-slate-200 bg-white py-16 sm:py-22">
