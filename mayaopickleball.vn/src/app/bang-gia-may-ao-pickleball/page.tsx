@@ -53,7 +53,7 @@ export default function PricePage() {
       <section className="price-page-head">
         <div>
           <p className="hero-kicker">Bảng giá may áo pickleball</p>
-          <h1>Bảng giá may áo thể thao</h1>
+          <h1>Bảng giá may áo pickleball</h1>
           <p>
             Bảng giá theo chất liệu vải và số lượng đặt may. Hotline/Zalo: <a href={zaloHref}>{phone}</a>.
           </p>
