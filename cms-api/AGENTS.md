@@ -4,6 +4,9 @@
 > sports multi-tenant stack. Use this profile when changing CMS schema, admin,
 > content collections, media upload, seed data, or API behavior.
 
+> Deployment authority: `../PRODUCTION-DEPLOYMENT-RUNBOOK.md`. Any deployment
+> commands later in this profile are historical context and must not be executed.
+
 ## Current Stack
 
 - Runtime: Payload CMS 3 + Next.js.
@@ -69,7 +72,7 @@ Development workflow:
 1. Make code/schema changes locally.
 2. If content, tenant settings, pages, products, posts, media records, or schema
    data are needed, update the production database through Payload admin/API or a
-   backed-up migration.
+   controlled migration.
 3. Test the local CMS/frontend against that shared production database.
 4. Verify pages, admin flows, media URLs, tenant filtering, and responsive UI.
 5. Deploy only after the local result is correct against production data.
@@ -92,33 +95,14 @@ admin UI. A missing import map commonly causes a blank admin page.
 
 ## Deployment
 
-Back up before remote mutation:
+Use only the shared `cms-api` procedure in
+`../PRODUCTION-DEPLOYMENT-RUNBOOK.md`. Synchronize into the dedicated
+`/opt/sports-cms/cms-api/` source directory, build and migrate remotely, then
+replace only `sports-cms-cms-api-1`. Do not rsync with deletion into the parent
+`/opt/sports-cms/` or substitute a Compose command.
 
-```bash
-ssh root@10.10.0.28 'ts=$(date +%Y%m%d-%H%M%S); mkdir -p /root/sports-cms/backups; tar -C /opt -czf /root/sports-cms/backups/sports-cms-before-change-$ts.tgz sports-cms/cms-api sports-cms/docker-compose.yml sports-cms/.env'
-```
-
-Deploy source:
-
-```bash
-rsync -az --delete \
-  --exclude node_modules \
-  --exclude .next \
-  --exclude .env \
-  --exclude .env.local \
-  cms-api/ root@10.10.0.28:/opt/sports-cms/cms-api/
-
-ssh root@10.10.0.28 'cd /opt/sports-cms && docker compose up -d --build cms-api'
-```
-
-Verify:
-
-```bash
-curl -I http://10.10.0.28:3001/admin/login
-curl -I https://cms.x24sport.vn/admin/login
-curl -fsS 'https://cms.x24sport.vn/api/tenants?limit=1'
-ssh root@10.10.0.28 'cd /opt/sports-cms && docker compose logs --tail=120 cms-api'
-```
+Verification must include internal/public Admin HTTP, container status and
+logs, plus tenant-isolation checks for shared changes.
 
 When admin renders blank, check logs for `getFromImportMap` first, regenerate
 `src/app/(payload)/admin/importMap.js`, rebuild, and verify with a real browser
@@ -208,7 +192,7 @@ Preferred path is through Payload admin:
 4. Confirm records have the right tenant before publishing.
 
 Programmatic content changes should use Payload APIs or seed scripts, not direct
-SQL, except for controlled schema fixes with a backup.
+SQL, except for controlled schema fixes.
 
 Seed script:
 
@@ -253,15 +237,8 @@ Before changing collections:
 2. Check generated `src/payload-types.ts`.
 3. Make the smallest schema change.
 4. Run type generation and build.
-5. If production DB needs manual migration, back up affected tables first.
-
-For production table backup:
-
-```bash
-ssh root@10.10.0.17 'ts=$(date +%Y%m%d-%H%M%S); sudo -u postgres pg_dump -d sports_cms -t media -f /tmp/media-$ts.sql'
-```
-
-Move backups from `/tmp` into `/root/sports-cms/backups/` if needed.
+5. If production DB needs a manual migration, make it idempotent and validate
+   the exact affected schema/data before and after.
 
 ## Safety Notes
 
@@ -269,4 +246,4 @@ Move backups from `/tmp` into `/root/sports-cms/backups/` if needed.
 - Do not restart database services unless explicitly required.
 - Do not change public DNS, SSL, firewall, or billing from this profile.
 - If changing remote Nginx/proxy is required, ask for the private proxy IP first.
-- Always report changed files, backups, commands run, and verification results.
+- Always report changed files, commands run, and verification results.

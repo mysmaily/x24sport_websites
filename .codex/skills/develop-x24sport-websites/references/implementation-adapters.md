@@ -16,12 +16,13 @@
 | `mayaocaulong.vn` | Next.js 16 App Router | `cms-api` / Payload tenant data |
 | `mayaobongchuyen.vn` | Next.js 16 App Router | `cms-api` / Payload tenant data |
 | `mayaopickleball.vn` | Next.js 16 App Router | `cms-api` / Payload tenant data |
-| `mayaobongro.vn` | WordPress | Shared infrastructure in local profile |
-| `mayaochaybo.vn` | WordPress / Flatsome child | Shared infrastructure in local profile |
+| `mayaobongro.vn` | Next.js 16 App Router | `cms-api` / Payload tenant data |
+| `mayaochaybo.vn` | Next.js 16 App Router | `cms-api` / Payload tenant data |
 | `mayaobongda.vn` | WordPress | Shared infrastructure in local profile |
 
-Treat the local `AGENTS.md` as the authority for deployment paths, cache clearing,
-backups, access scope, and shared-resource risks.
+Treat `PRODUCTION-DEPLOYMENT-RUNBOOK.md` as the authority for deployment. Use the
+local `AGENTS.md` for tenant identity, cache behavior, access scope, and
+shared-resource risks.
 
 ## 2. Shared design and content rules
 
@@ -108,7 +109,6 @@ tenant isolation using representative records from every affected tenant.
   account behavior. Test simple and variable products relevant to the change.
 - Use real WordPress attachment alt text; do not use filenames or keyword lists
   as automatic alt text.
-- Back up affected files and exact database records before remote changes.
 - Validate PHP syntax, then use only the site profile's documented deployment,
   cache purge, service reload, and rollback procedures.
 

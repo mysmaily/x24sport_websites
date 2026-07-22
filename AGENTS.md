@@ -8,7 +8,7 @@ the shared Payload CMS in `cms-api/`; websites without Next.js source remain on
 their active WordPress runtime. Coding agents must:
 
 - use infrastructure data only from the website currently in scope;
-- make safe, backed-up, verifiable, and reversible changes;
+- make safe, verifiable, and reversible changes;
 - avoid affecting sibling websites that share servers, proxies, databases, or containers;
 - follow the routing mode defined by the website folder name.
 
@@ -19,6 +19,7 @@ x24sport_websites/
 ├── AGENTS.md                         # Shared routing, safety, and workflow rules
 ├── CLAUDE.md                         # Imports AGENTS.md
 ├── PAYLOAD-REST-API-GUIDE.md         # Shared tenant-safe Payload REST runbook
+├── PRODUCTION-DEPLOYMENT-RUNBOOK.md  # Canonical local-to-production deployment procedure
 ├── WEBSITE-OPTIMIZATION-GUIDE.md     # Lazily loaded criteria for triggered requests
 ├── .codex/skills/develop-x24sport-websites/ # Website development skill
 ├── .codex/skills/migrate-wordpress-to-x24sport-tenant/ # Migration skill
@@ -30,12 +31,28 @@ x24sport_websites/
 
 Every `CLAUDE.md` is only a loader. It must not duplicate instructions or website data.
 
+## Canonical production deployment
+
+For every local-to-production code deployment, read and follow
+`PRODUCTION-DEPLOYMENT-RUNBOOK.md`. It is the single authoritative source for
+transfer method, remote path, build command, container runtime, ports,
+environment, and verification.
+
+- Do not invent a deployment command from old profile text, Docker labels,
+  shell history, or a previous chat.
+- Deployment sections in website profiles are informational unless they
+  explicitly defer to the canonical runbook.
+- If verified live state differs from the runbook, stop before mutation and
+  update the inventory with evidence; do not improvise.
+- Do not use Git pull, CI/CD, archives, or direct production editing in place of
+  the documented rsync/SSH workflow.
+
 ## Shared Payload REST API
 
 For any tenant content operation through the shared Payload REST API, read
 `PAYLOAD-REST-API-GUIDE.md` after this file and the target domain's `AGENTS.md`.
 The root guide defines the common request, authentication, media, idempotency,
-backup, and verification contract. The target profile remains authoritative for
+and verification contract. The target profile remains authoritative for
 the tenant slug, service-account secret location, frontend cache behavior, and
 site-specific restrictions. Never reuse credentials or numeric relationship IDs
 between tenants.
@@ -68,7 +85,7 @@ Tenant identities used by this repository are:
 | `mayaopickleball.vn` | `mayaopickleball` | Active |
 | `mayaobongro.vn` | `mayaobongro` | Active |
 | `mayaobongda.vn` | None | Active WordPress website; no Next.js source and no Payload tenant |
-| `mayaochaybo.vn` | `mayaochaybo` | Active WordPress apex; Next.js + Payload preview at `next.mayaochaybo.vn` |
+| `mayaochaybo.vn` | `mayaochaybo` | Active Next.js + Payload apex; WordPress archive at `wp.mayaochaybo.vn` |
 
 Determine the active platform from the website folder:
 
@@ -123,7 +140,7 @@ A website folder whose name starts with `_` is an isolated site.
 
 For these sites:
 
-- read root `AGENTS.md` only for routing, safety, secrets, backup, verification,
+- read root `AGENTS.md` only for routing, safety, secrets, verification,
   and reporting rules;
 - read `_<domain>/AGENTS.md`;
 - **do not read, apply, cite, or infer requirements from
@@ -140,8 +157,8 @@ For these sites:
 - if information or authority is missing, ask one concise question instead of
   borrowing assumptions from another site or the optimization guide.
 
-The underscore changes workflow scope, not safety standards. Backups, least-impact
-changes, secret handling, verification, and accurate reporting still apply.
+The underscore changes workflow scope, not safety standards. Least-impact changes,
+secret handling, verification, and accurate reporting still apply.
 
 ## Context and conflict rules
 
@@ -152,14 +169,17 @@ database, IDs, or commands.
 Instruction priority:
 
 1. The user's latest explicit request.
-2. Safety warnings and verified facts in the target website's local `AGENTS.md`.
-3. Routing and safety rules in root `AGENTS.md`.
-4. For website-development requests, the scoped workflow and quality gates in
+2. The repository-wide rule to avoid rollback copies, dumps, snapshots, and
+   cloned runtime artifacts during deployment or mutation.
+3. The canonical procedure in `PRODUCTION-DEPLOYMENT-RUNBOOK.md`.
+4. Safety warnings and verified facts in the target website's local `AGENTS.md`.
+5. Routing and safety rules in root `AGENTS.md`.
+6. For website-development requests, the scoped workflow and quality gates in
    `.codex/skills/develop-x24sport-websites/SKILL.md`.
-5. For WordPress-to-Next.js/Payload migrations, the URL, data, cutover, and
+7. For WordPress-to-Next.js/Payload migrations, the URL, data, cutover, and
    rollback gates in
    `.codex/skills/migrate-wordpress-to-x24sport-tenant/SKILL.md`.
-6. For a managed site with a matching guide trigger only, criteria in
+8. For a managed site with a matching guide trigger only, criteria in
    `WEBSITE-OPTIMIZATION-GUIDE.md`.
 
 Guide values are placeholders unless the target website profile confirms them.
@@ -180,7 +200,7 @@ before designing or implementing the change. Load only the skill references
 routed by `SKILL.md`.
 
 - The skill complements the target website profile; it does not override
-  site-specific safety, access, backup, cache, deployment, or rollback rules.
+  site-specific safety, access, cache, deployment, or rollback rules.
 - Apply only quality gates relevant to the user's exact scope. The skill does not
   authorize an unsolicited full-site audit or cross-site rollout.
 - When a request also matches an optimization-guide trigger, use both the skill
@@ -280,7 +300,7 @@ tenant-scoped identity, source-data reconciliation, cutover, and rollback.
   whenever the route can be reproduced.
 - Do not delete, overwrite, or expose the WordPress source during migration.
 - Do not perform production import or traffic cutover without the phase-specific
-  backup, validation, and rollback gates defined by the skill.
+  validation and rollback gates defined by the skill.
 
 ## Shared execution workflow
 
@@ -304,13 +324,12 @@ expand the task into an optimization audit.
 - Do not perform destructive bulk updates or change credentials, DNS, SSL,
   firewall, or billing without explicit authorization.
 
-### 3. Back up before mutation
+### 3. Mutation safety rule
 
-- Back up each file or configuration that will change while preserving ownership
-  and permissions.
-- Export the exact affected database tables or records.
-- Record the backup path and timestamp.
-- Do not overwrite older backups until the new backup is verified.
+- Do not create rollback copies, dumps, snapshots, archives, cloned containers,
+  copied images, or renamed resources during deployment or mutation work. Use
+  scoped changes, validation, health checks, version control, and documented
+  rollback commands instead.
 
 ### 4. Implement
 
@@ -343,6 +362,17 @@ Use checks proportional to the change. At minimum, consider:
 Do not claim completion merely because an edit command succeeded. Completion
 requires fresh post-change evidence.
 
+### 7. Commit and deploy by default
+
+- After a code task is implemented and verified, commit the task-scoped changes
+  and deploy the affected production target automatically unless the user
+  explicitly asks for local-only work, review-only work, or no deployment.
+- Stage only files intentionally changed for the current task. Do not stage
+  unrelated dirty worktree changes.
+- If deployment is blocked by missing secrets, failing checks, unavailable hosts,
+  or unsafe dry-run output, commit the verified code when appropriate and report
+  the deployment blocker.
+
 ## Using the optimization guide
 
 This section applies only when both conditions are true:
@@ -366,7 +396,6 @@ The handoff must state:
 
 - target website and completed scope;
 - changed files, configuration, or database records;
-- backups created;
 - verification commands and observed results;
 - cache or services touched;
 - skipped work, remaining risk, or manual follow-up.
@@ -427,7 +456,7 @@ Every profile should contain only site-specific information:
 - WordPress, PHP, web server, and theme overview;
 - SSH, proxy, credentials or credential source, and access scope;
 - database host, name, user, password, and table prefix;
-- site root, Nginx configuration, logs, and backup paths;
+- site root, Nginx configuration, and logs;
 - containers, services, and shared-resource impact;
 - cache, CDN, SSL, and site-specific cache-clearing commands;
 - important plugins, themes, and integrations;

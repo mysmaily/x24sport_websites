@@ -99,7 +99,8 @@ gate before claiming completion.
 - Syntax/type/build/test commands pass for changed packages.
 - Browser console and relevant application, PHP, web-server, and container logs
   contain no new errors for tested flows.
-- Backups are verified before remote mutation; rollback steps are executable.
+- The canonical production runbook is followed without ad-hoc runtime or
+  transfer commands.
 - Cache/services are touched only when required and their scope is reported.
 - Handoff identifies evidence as verified, inferred, not measured, or awaiting
   field data.

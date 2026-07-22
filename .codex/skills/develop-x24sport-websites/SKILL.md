@@ -29,12 +29,13 @@ engineering constraints, never as a promise of ranking.
 
 ## Classify the task
 
-- **Next.js tenant**: `mayaocaulong.vn`, `mayaobongchuyen.vn`, and
-  `mayaopickleball.vn`; use App Router, Server Components by default, Payload
-  tenant data, and the shared `cms-api`.
-- **WordPress site**: `mayaobongro.vn`, `mayaochaybo.vn`, and
-  `mayaobongda.vn`; use the child theme, site-specific plugin, or documented
-  operational mechanism. Never edit WordPress core or a parent theme.
+- **Next.js tenant**: `mayaocaulong.vn`, `mayaobongchuyen.vn`,
+  `mayaopickleball.vn`, `mayaobongro.vn`, and `mayaochaybo.vn`; use App Router,
+  Server Components by default, Payload tenant data, and the shared `cms-api`.
+- **WordPress site**: `mayaobongda.vn`; use the child theme, site-specific plugin,
+  or documented operational mechanism. Never edit WordPress core or a parent
+  theme. Archived WordPress runtimes for migrated tenants are not active
+  development targets.
 - **Shared CMS change**: trace every affected tenant and verify tenant isolation.
   A shared collection or API change is not site-local merely because one site
   requested it.
@@ -86,7 +87,8 @@ engineering constraints, never as a promise of ranking.
   loading priority.
 - Keep generated image outputs outside Git according to the repository
   `.gitignore`; only publish optimized, intentional website assets.
-- Back up every remote file, configuration, or database record before mutation.
+- Do not create rollback copies, dumps, snapshots, archives, cloned containers,
+  copied images, or renamed resources during deployment or mutation work.
 
 ### 4. Apply Google-aligned SEO
 
@@ -155,8 +157,7 @@ Results Test, browser accessibility testing, or field performance data.
 ## Report the result
 
 - State the target domain, page types, user outcome, and completed scope.
-- List changed files, CMS records, schema types, backups, and cache/services
-  touched.
+- List changed files, CMS records, schema types, and cache/services touched.
 - Report exact verification commands and observed results.
 - Distinguish `verified`, `inferred`, `not measured`, and `requires field data`.
 - Link the official source when explaining a Google requirement.
