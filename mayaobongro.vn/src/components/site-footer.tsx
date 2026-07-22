@@ -26,6 +26,7 @@ export function SiteFooter() {
             <h3 className="mb-4 text-sm font-black uppercase tracking-wider text-white">Khám phá</h3>
             <nav className="grid gap-3 text-sm" aria-label="Liên kết chân trang">
               <Link className="hover:text-white" href="/san-pham/">Mẫu áo bóng rổ</Link>
+              <Link className="hover:text-white" href="/mau-da-lam/">Mẫu đã làm</Link>
               <Link className="hover:text-white" href="/dat-may-ao-bong-ro/">Quy trình đặt may</Link>
               <Link className="hover:text-white" href="/bang-gia-may-ao-bong-ro/">Bảng giá</Link>
               <Link className="hover:text-white" href="/chat-lieu-va-bang-size-ao-bong-ro/">Chất liệu & bảng size</Link>

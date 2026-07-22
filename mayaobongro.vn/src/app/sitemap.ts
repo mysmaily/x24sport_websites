@@ -11,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: canonical('/'), changeFrequency: 'weekly', priority: 1 },
     { url: canonical('/san-pham/'), changeFrequency: 'daily', priority: 0.9 },
+    { url: canonical('/mau-da-lam/'), changeFrequency: 'weekly', priority: 0.8 },
     { url: canonical('/logo-team/'), changeFrequency: 'daily', priority: 0.8 },
     ...CATALOG_LANDINGS.map((landing) => ({ url: canonical(landing.path), changeFrequency: 'daily' as const, priority: 0.8 })),
     ...products.map((item) => ({ url: canonical(`/san-pham/${item.slug}/`), lastModified: item.sourceModifiedAt || undefined, changeFrequency: 'monthly' as const, priority: 0.8 })),

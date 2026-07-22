@@ -9,6 +9,7 @@ import { PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '@/lib/site'
 
 const links = [
   { href: '/san-pham/', label: 'Mẫu áo' },
+  { href: '/mau-da-lam/', label: 'Mẫu đã làm' },
   { href: '/logo-team/', label: 'Logo team' },
   { href: '/dat-may-ao-bong-ro/', label: 'Đặt may' },
   { href: '/bang-gia-may-ao-bong-ro/', label: 'Bảng giá' },

@@ -189,6 +189,31 @@ export async function getLatestPosts(limit = 3) {
   return api<Paginated<WebContent>>(`/api/web-content?${params}`)
 }
 
+export async function getFinishedSamplePosts(limit = 12) {
+  const tenant = await getTenant()
+  const params = new URLSearchParams({
+    'where[and][0][tenant][equals]': String(tenant.id),
+    'where[and][1][kind][equals]': 'post',
+    'where[and][2][publicationStatus][equals]': 'publish',
+    'where[and][3][slug][contains]': 'mau-ao-bong-ro',
+    limit: '50',
+    depth: '0',
+    sort: '-sourceModifiedAt',
+  })
+  const result = await api<Paginated<WebContent>>(`/api/web-content?${params}`)
+  const docs = result.docs.filter((post) => {
+    const haystack = `${post.title} ${post.contentHtml || ''}`.toLocaleLowerCase('vi-VN')
+    return haystack.includes('mẫu áo bóng rổ đã làm') || haystack.includes('mau-ao-bong-ro-da-lam')
+  })
+  return {
+    ...result,
+    docs: docs.slice(0, limit),
+    totalDocs: docs.length,
+    totalPages: Math.max(1, Math.ceil(docs.length / limit)),
+    hasNextPage: docs.length > limit,
+  }
+}
+
 export async function getAllCanonicalRoutes() {
   const tenant = await getTenant()
   const load = async <T>(collection: 'products' | 'web-content') => {
