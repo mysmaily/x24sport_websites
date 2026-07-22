@@ -4,6 +4,9 @@
 > tenant `mayaobongchuyen`. Use this profile when changing layout, visual design,
 > copy, SEO metadata, or frontend data fetching for `mayaobongchuyen.vn`.
 
+> Deployment authority: `../PRODUCTION-DEPLOYMENT-RUNBOOK.md`. Any deployment
+> commands later in this profile are historical context and must not be executed.
+
 ## Active tenant identity
 
 | Field | Value |
@@ -105,32 +108,10 @@ debugging directly on the production frontend.
 
 ## Deployment
 
-Back up before remote mutation:
-
-```bash
-ssh root@10.10.0.28 'ts=$(date +%Y%m%d-%H%M%S); mkdir -p /root/sports-cms/backups; tar -C /opt -czf /root/sports-cms/backups/mayaobongchuyen-before-change-$ts.tgz sports-cms/mayaobongchuyen.vn sports-cms/docker-compose.yml'
-```
-
-Deploy source:
-
-```bash
-rsync -az --delete \
-  --exclude node_modules \
-  --exclude .next \
-  --exclude .env \
-  --exclude .env.local \
-  mayaobongchuyen.vn/ root@10.10.0.28:/opt/sports-cms/mayaobongchuyen.vn/
-
-ssh root@10.10.0.28 'cd /opt/sports-cms && docker compose up -d --build mayaobongchuyen'
-```
-
-Verify:
-
-```bash
-curl -I http://10.10.0.28:3003
-curl -I https://mayaobongchuyen.vn
-ssh root@10.10.0.28 'cd /opt/sports-cms && docker compose logs --tail=120 mayaobongchuyen'
-```
+Use only the `mayaobongchuyen.vn` procedure in
+`../PRODUCTION-DEPLOYMENT-RUNBOOK.md`. The live host has no Compose file; deploy
+by the documented rsync, remote image build, and exact standalone-container
+replacement. Do not create a backup or substitute a Compose command.
 
 ## Frontend Files
 
@@ -240,4 +221,5 @@ For CMS-managed pages:
 - Do not edit `../cms-api` unless the requested frontend work needs schema/API
   changes.
 - Do not use sibling WordPress profiles or old WordPress credentials.
-- Report changed files, backup paths, commands run, and verification results.
+- Report changed files, confirmation that no backup was created, commands run,
+  and verification results.

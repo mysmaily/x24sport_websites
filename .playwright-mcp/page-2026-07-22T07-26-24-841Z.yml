@@ -1,0 +1,393 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - link "MayaoPickleball.vn" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "MayaoPickleball" [ref=e5]
+      - navigation "Điều hướng chính" [ref=e6]:
+        - generic [ref=e7]:
+          - link "Mẫu áo" [ref=e8] [cursor=pointer]:
+            - /url: /san-pham
+          - generic "Danh mục mẫu áo":
+            - generic:
+              - generic: Kiểu áo
+              - link "Áo sát nách Thoáng vai, dễ di chuyển":
+                - /url: /ao-pickleball-sat-nach
+                - generic:
+                  - strong: Áo sát nách
+                  - generic: Thoáng vai, dễ di chuyển
+              - link "Áo cổ trụ Chỉn chu cho đội/CLB":
+                - /url: /ao-pickleball-co-tru
+                - generic:
+                  - strong: Áo cổ trụ
+                  - generic: Chỉn chu cho đội/CLB
+              - link "Áo cổ tròn Nhẹ, trẻ, dễ mặc":
+                - /url: /ao-pickleball-co-tron
+                - generic:
+                  - strong: Áo cổ tròn
+                  - generic: Nhẹ, trẻ, dễ mặc
+            - generic:
+              - generic: Màu phổ biến
+              - link "Áo màu đỏ Tông mạnh, nổi bật sân":
+                - /url: /ao-pickleball-mau-do
+                - generic:
+                  - strong: Áo màu đỏ
+                  - generic: Tông mạnh, nổi bật sân
+              - link "Áo màu xanh Dễ phối logo đội":
+                - /url: /ao-pickleball-mau-xanh
+                - generic:
+                  - strong: Áo màu xanh
+                  - generic: Dễ phối logo đội
+              - link "Áo màu đen Gọn, khỏe, ít bám bẩn":
+                - /url: /ao-pickleball-mau-den
+                - generic:
+                  - strong: Áo màu đen
+                  - generic: Gọn, khỏe, ít bám bẩn
+              - link "Áo màu trắng Sạch, sáng, tinh giản":
+                - /url: /ao-pickleball-mau-trang
+                - generic:
+                  - strong: Áo màu trắng
+                  - generic: Sạch, sáng, tinh giản
+              - link "Áo màu vàng Dễ nhận diện từ xa":
+                - /url: /ao-pickleball-mau-vang
+                - generic:
+                  - strong: Áo màu vàng
+                  - generic: Dễ nhận diện từ xa
+              - link "Áo màu hồng Trẻ trung, mềm tông":
+                - /url: /ao-pickleball-mau-hong
+                - generic:
+                  - strong: Áo màu hồng
+                  - generic: Trẻ trung, mềm tông
+              - link "Áo màu cam Năng lượng, bắt mắt":
+                - /url: /ao-pickleball-mau-cam
+                - generic:
+                  - strong: Áo màu cam
+                  - generic: Năng lượng, bắt mắt
+              - link "Áo màu tím Khác biệt, hiện đại":
+                - /url: /ao-pickleball-mau-tim
+                - generic:
+                  - strong: Áo màu tím
+                  - generic: Khác biệt, hiện đại
+              - link "Áo gradient Chuyển sắc thi đấu":
+                - /url: /ao-pickleball-gradient
+                - generic:
+                  - strong: Áo gradient
+                  - generic: Chuyển sắc thi đấu
+        - link "Đặt may" [ref=e11] [cursor=pointer]:
+          - /url: /dat-may-ao-pickleball
+        - link "Bảng giá" [ref=e12] [cursor=pointer]:
+          - /url: /bang-gia-may-ao-pickleball
+        - link "Vải & Size" [ref=e13] [cursor=pointer]:
+          - /url: /chat-lieu-va-bang-size-ao-pickleball
+        - link "Mẫu đã làm" [ref=e14] [cursor=pointer]:
+          - /url: /mau-ao-pickleball-da-lam
+      - generic [ref=e15]:
+        - link "0989.353.247" [ref=e16] [cursor=pointer]:
+          - /url: tel:0989353247
+        - link "Tìm mẫu áo" [ref=e20] [cursor=pointer]:
+          - /url: /san-pham
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - paragraph [ref=e26]: Chất liệu & bảng size
+        - heading "Chọn vải, form và size áo pickleball cho cả đội" [level=1] [ref=e27]
+        - paragraph [ref=e28]: Một trang để đội chọn nhanh chất vải, hiểu form mặc và đối chiếu size nam, nữ, trẻ em trước khi đặt may áo pickleball.
+        - generic [ref=e29]:
+          - link "Tư vấn qua Zalo" [ref=e30] [cursor=pointer]:
+            - /url: https://zalo.me/0989353247
+          - link "Xem mẫu áo" [ref=e33] [cursor=pointer]:
+            - /url: /san-pham
+      - generic [ref=e34]:
+        - img "Chọn vải, form và size áo pickleball cho cả đội" [ref=e35]
+        - generic [ref=e36]:
+          - strong [ref=e37]: Miễn phí thiết kế
+          - generic [ref=e38]: theo yêu cầu
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - strong [ref=e41]: 4 loại
+          - generic [ref=e42]: vải thể thao
+        - generic [ref=e43]:
+          - strong [ref=e44]: 3 bảng
+          - generic [ref=e45]: nam, nữ, trẻ em
+        - generic [ref=e46]:
+          - strong [ref=e47]: miễn phí
+          - generic [ref=e48]: rà size trước khi may
+    - navigation "Nội dung hướng dẫn" [ref=e49]:
+      - link "Chọn chất liệu" [ref=e50] [cursor=pointer]:
+        - /url: "#chat-lieu"
+      - link "Cách chốt size" [ref=e51] [cursor=pointer]:
+        - /url: "#chon-size"
+      - link "Bảng size" [ref=e52] [cursor=pointer]:
+        - /url: "#bang-size"
+      - link "Hỏi đáp" [ref=e53] [cursor=pointer]:
+        - /url: "#hoi-dap"
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - text: Chất liệu áo pickleball
+        - heading "Chọn vải theo cách đội thật sự vận động" [level=2] [ref=e56]
+        - paragraph [ref=e57]: Bề mặt vải quyết định cảm giác mặc, độ thoáng và độ rõ của màu in. Các mẫu dưới đây phù hợp áo pickleball đặt may cho CLB, đội phong trào và trường lớp.
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - strong [ref=e60]: Mặc mát
+            - text: ưu tiên mè lava hoặc mè thái
+          - generic [ref=e61]:
+            - strong [ref=e62]: Mặt vải mịn
+            - text: ưu tiên mè nano
+          - generic [ref=e63]:
+            - strong [ref=e64]: Màu in nổi
+            - text: ưu tiên mè zennix
+      - generic [ref=e65]:
+        - article [ref=e66]:
+          - link [ref=e67] [cursor=pointer]:
+            - /url: https://static.x24sport.vn/mayaocaulong/codex-clipboard-df5dd085-3f31-4f81-9121-3ddabb8822ee.png
+            - img "Chất liệu Mè lava áo pickleball X24 Sports" [ref=e68]
+            - text: Phóng to
+          - generic [ref=e69]:
+            - heading "Mè lava" [level=3] [ref=e74]
+            - paragraph [ref=e75]: Bề mặt lưới thoáng, nhẹ, hợp áo pickleball cần thoát hơi nhanh khi vận động liên tục.
+            - strong [ref=e76]: Đội chơi thường xuyên, ưu tiên cảm giác mát và nhẹ.
+          - generic [ref=e77]:
+            - generic [ref=e78]: Thoáng khí
+            - generic [ref=e79]: Nhanh khô
+            - generic [ref=e80]: Nhẹ áo
+        - article [ref=e81]:
+          - link [ref=e82] [cursor=pointer]:
+            - /url: https://static.x24sport.vn/mayaocaulong/codex-clipboard-0efda5f5-7efe-4a75-8a16-14fb44009dd7.png
+            - img "Chất liệu Mè nano áo pickleball X24 Sports" [ref=e83]
+            - text: Phóng to
+          - generic [ref=e84]:
+            - heading "Mè nano" [level=3] [ref=e87]
+            - paragraph [ref=e88]: Mắt vải mịn, mặc êm và giữ bề mặt gọn, phù hợp đồng phục CLB cần cảm giác nhẹ.
+            - strong [ref=e89]: Đội muốn áo mặc êm, bề mặt tinh gọn khi in tên số.
+          - generic [ref=e90]:
+            - generic [ref=e91]: Mịn mặt
+            - generic [ref=e92]: Êm da
+            - generic [ref=e93]: Dễ mặc
+        - article [ref=e94]:
+          - link [ref=e95] [cursor=pointer]:
+            - /url: https://static.x24sport.vn/mayaocaulong/codex-clipboard-c937b825-1046-4a3e-a37d-2a4dd1551f4d.png
+            - img "Chất liệu Mè zennix áo pickleball X24 Sports" [ref=e96]
+            - text: Phóng to
+          - generic [ref=e97]:
+            - heading "Mè zennix" [level=3] [ref=e101]
+            - paragraph [ref=e102]: Chất vải mềm, bề mặt đều, hỗ trợ lên màu thiết kế và in chuyển nhiệt sắc nét.
+            - strong [ref=e103]: Mẫu áo nhiều mảng màu, logo và chi tiết cần rõ nét.
+          - generic [ref=e104]:
+            - generic [ref=e105]: Lên màu đẹp
+            - generic [ref=e106]: Mềm
+            - generic [ref=e107]: Giữ form
+        - article [ref=e108]:
+          - link [ref=e109] [cursor=pointer]:
+            - /url: https://static.x24sport.vn/mayaocaulong/codex-clipboard-eea74471-ee2d-4cce-9e41-0db6a6f25ae2.png
+            - img "Chất liệu Mè thái áo pickleball X24 Sports" [ref=e110]
+            - text: Phóng to
+          - generic [ref=e111]:
+            - heading "Mè thái" [level=3] [ref=e115]
+            - paragraph [ref=e116]: Kiểu vải thể thao phổ biến, bề mặt thoáng và ổn định cho đơn đội số lượng nhiều.
+            - strong [ref=e117]: Đơn đồng phục số lượng lớn cần phương án dễ mặc, dễ đồng bộ.
+          - generic [ref=e118]:
+            - generic [ref=e119]: Bền
+            - generic [ref=e120]: Dễ đồng bộ
+            - generic [ref=e121]: Thể thao
+    - generic [ref=e122]:
+      - generic [ref=e123]:
+        - heading "Cách chọn size cho đội" [level=2] [ref=e130]
+        - list [ref=e131]:
+          - listitem [ref=e132]:
+            - strong [ref=e133]: Đo nhanh
+            - text: Gửi chiều cao và cân nặng của từng thành viên.
+          - listitem [ref=e134]:
+            - strong [ref=e135]: Chọn cảm giác mặc
+            - text: Cho biết đội thích mặc gọn, vừa người hay rộng thoải mái.
+          - listitem [ref=e136]:
+            - strong [ref=e137]: Đối chiếu kiểu áo
+            - text: Kiểm tra bảng size theo đúng mẫu cổ tròn, polo hoặc áo không tay.
+          - listitem [ref=e138]:
+            - strong [ref=e139]: Chốt danh sách
+            - text: Gửi tên, số áo và size theo từng người để hạn chế nhầm lẫn.
+        - paragraph [ref=e140]: "Lưu ý: form và thông số có thể khác theo kiểu áo. Hãy xác nhận bảng size của đúng mẫu trước khi chốt đơn."
+      - generic "Bảng size áo pickleball" [ref=e141]:
+        - generic [ref=e142]:
+          - heading "Hướng dẫn chọn size" [level=2] [ref=e143]
+          - paragraph [ref=e144]: (Bảng size Châu Á)
+        - generic [ref=e145]:
+          - heading "Bảng size nam" [level=3] [ref=e146]
+          - table [ref=e148]:
+            - rowgroup [ref=e149]:
+              - row [ref=e150]:
+                - columnheader "Size" [ref=e151]
+                - columnheader "S" [ref=e152]
+                - columnheader "M" [ref=e153]
+                - columnheader "L" [ref=e154]
+                - columnheader "XL" [ref=e155]
+                - columnheader "2XL" [ref=e156]
+                - columnheader "3XL" [ref=e157]
+                - columnheader "4,5,6XL" [ref=e158]
+            - rowgroup [ref=e159]:
+              - row [ref=e160]:
+                - rowheader "Cân nặng (kg)" [ref=e161]
+                - cell "45 - 53" [ref=e162]
+                - cell "53 - 60" [ref=e163]
+                - cell "60 - 68" [ref=e164]
+                - cell "68 - 74" [ref=e165]
+                - cell "74 - 80" [ref=e166]
+                - cell "80 - 86" [ref=e167]
+                - cell "86 - 120" [ref=e168]
+              - row [ref=e169]:
+                - rowheader "Chiều cao (m)" [ref=e170]
+                - cell "1.45 - 1.60" [ref=e171]
+                - cell "1.60 - 1.65" [ref=e172]
+                - cell "1.65 - 1.70" [ref=e173]
+                - cell "1.70 - 1.75" [ref=e174]
+                - cell "1.75 - 1.80" [ref=e175]
+                - cell "1.80 - 1.85" [ref=e176]
+                - cell "1.80 - 1.85" [ref=e177]
+              - row [ref=e178]:
+                - rowheader "Chiều rộng đo ở chân ngực" [ref=e179]
+                - cell "46 cm" [ref=e180]
+                - cell "48 cm" [ref=e181]
+                - cell "50 cm" [ref=e182]
+                - cell "52 cm" [ref=e183]
+                - cell "54 cm" [ref=e184]
+                - cell "56 cm" [ref=e185]
+                - cell "58 cm" [ref=e186]
+              - row [ref=e187]:
+                - rowheader "Chiều dài áo" [ref=e188]
+                - cell "62 cm" [ref=e189]
+                - cell "64 cm" [ref=e190]
+                - cell "66 cm" [ref=e191]
+                - cell "68 cm" [ref=e192]
+                - cell "70 cm" [ref=e193]
+                - cell "72 cm" [ref=e194]
+                - cell "72 cm" [ref=e195]
+        - generic [ref=e196]:
+          - heading "Bảng size nữ" [level=3] [ref=e197]
+          - table [ref=e199]:
+            - rowgroup [ref=e200]:
+              - row [ref=e201]:
+                - columnheader "Size" [ref=e202]
+                - columnheader "S" [ref=e203]
+                - columnheader "M" [ref=e204]
+                - columnheader "L" [ref=e205]
+                - columnheader "XL" [ref=e206]
+                - columnheader "2XL" [ref=e207]
+                - columnheader "3XL" [ref=e208]
+                - columnheader "4,5,6XL" [ref=e209]
+            - rowgroup [ref=e210]:
+              - row [ref=e211]:
+                - rowheader "Cân nặng (kg)" [ref=e212]
+                - cell "40 - 45" [ref=e213]
+                - cell "45 - 50" [ref=e214]
+                - cell "50 - 55" [ref=e215]
+                - cell "55 - 60" [ref=e216]
+                - cell "60 - 65" [ref=e217]
+                - cell "65 - 70" [ref=e218]
+                - cell "70 - 100" [ref=e219]
+              - row [ref=e220]:
+                - rowheader "Chiều cao (m)" [ref=e221]
+                - cell "1.50 - 1.55" [ref=e222]
+                - cell "1.55 - 1.60" [ref=e223]
+                - cell "1.57 - 1.62" [ref=e224]
+                - cell "1.60 - 1.65" [ref=e225]
+                - cell "1.62 - 1.68" [ref=e226]
+                - cell "1.64 - 1.70" [ref=e227]
+                - cell "1.64 - 1.70" [ref=e228]
+              - row [ref=e229]:
+                - rowheader "Chiều rộng đo ở chân ngực" [ref=e230]
+                - cell "42 cm" [ref=e231]
+                - cell "44 cm" [ref=e232]
+                - cell "46 cm" [ref=e233]
+                - cell "48 cm" [ref=e234]
+                - cell "50 cm" [ref=e235]
+                - cell "52 cm" [ref=e236]
+                - cell "54 cm" [ref=e237]
+              - row [ref=e238]:
+                - rowheader "Chiều dài áo" [ref=e239]
+                - cell "56 cm" [ref=e240]
+                - cell "58 cm" [ref=e241]
+                - cell "60 cm" [ref=e242]
+                - cell "62 cm" [ref=e243]
+                - cell "64 cm" [ref=e244]
+                - cell "66 cm" [ref=e245]
+                - cell "66 cm" [ref=e246]
+        - generic [ref=e247]:
+          - heading "Bảng size trẻ em" [level=3] [ref=e248]
+          - table [ref=e250]:
+            - rowgroup [ref=e251]:
+              - row [ref=e252]:
+                - columnheader "Size" [ref=e253]
+                - columnheader "1" [ref=e254]
+                - columnheader "3" [ref=e255]
+                - columnheader "5" [ref=e256]
+                - columnheader "7" [ref=e257]
+                - columnheader "9" [ref=e258]
+                - columnheader "11" [ref=e259]
+                - columnheader "13" [ref=e260]
+            - rowgroup [ref=e261]:
+              - row [ref=e262]:
+                - rowheader "Cân nặng (kg)" [ref=e263]
+                - cell "8 - 10" [ref=e264]
+                - cell "10 - 15" [ref=e265]
+                - cell "15 - 20" [ref=e266]
+                - cell "20 - 25" [ref=e267]
+                - cell "25 - 30" [ref=e268]
+                - cell "30 - 35" [ref=e269]
+                - cell "35 - 40" [ref=e270]
+              - row [ref=e271]:
+                - rowheader "Tuổi" [ref=e272]
+                - cell "<= 2 tuổi" [ref=e273]
+                - cell "<= 3 tuổi" [ref=e274]
+                - cell "<= 5 tuổi" [ref=e275]
+                - cell "<= 7 tuổi" [ref=e276]
+                - cell "<= 9 tuổi" [ref=e277]
+                - cell "<= 11 tuổi" [ref=e278]
+                - cell "<= 13 tuổi" [ref=e279]
+    - generic [ref=e280]:
+      - generic [ref=e281]:
+        - text: Hỏi đáp nhanh
+        - heading "Những câu hỏi đội hay gặp khi chốt vải và size" [level=2] [ref=e282]
+      - generic [ref=e283]:
+        - article [ref=e284]:
+          - heading "Nên chọn vải nào cho áo pickleball mặc khi thi đấu?" [level=3] [ref=e289]
+          - paragraph [ref=e290]: Nếu đội ưu tiên thoáng và nhẹ, mè lava hoặc mè thái là lựa chọn dễ mặc. Nếu mẫu có nhiều mảng màu và cần in sắc nét, có thể ưu tiên mè zennix.
+        - article [ref=e291]:
+          - heading "Bảng size áo pickleball có dùng chung cho nam và nữ không?" [level=3] [ref=e296]
+          - paragraph [ref=e297]: Không nên dùng chung. Trang này tách bảng size nam, nữ và trẻ em để đội đối chiếu theo dáng mặc phù hợp hơn.
+        - article [ref=e298]:
+          - heading "Khi đặt áo cho cả đội cần gửi thông tin size như thế nào?" [level=3] [ref=e303]
+          - paragraph [ref=e304]: Nên gửi danh sách theo từng người gồm tên, số áo, chiều cao, cân nặng và size dự kiến. Nếu có người thích mặc rộng hoặc gọn, ghi chú riêng để được rà lại trước khi may.
+    - generic [ref=e305]:
+      - generic [ref=e306]:
+        - heading "Gửi danh sách size qua Zalo" [level=2] [ref=e307]
+        - paragraph [ref=e308]: Nếu đội có nhiều thể trạng khác nhau, gửi danh sách theo tên từng người để được rà lại trước khi sản xuất.
+      - link "Gửi danh sách size" [ref=e309] [cursor=pointer]:
+        - /url: https://zalo.me/0989353247
+    - generic [ref=e312]:
+      - generic [ref=e313]:
+        - heading "Gửi logo, màu đội và số lượng. MayaoPickleball sẽ tư vấn hướng áo phù hợp." [level=2] [ref=e314]
+        - paragraph [ref=e315]: Thiết kế theo yêu cầu được hỗ trợ miễn phí trước khi sản xuất để đội dễ duyệt mẫu.
+      - link "Nhận tư vấn" [ref=e316] [cursor=pointer]:
+        - /url: https://zalo.me/0989353247
+    - generic [ref=e319]:
+      - generic [ref=e320]:
+        - link [ref=e321] [cursor=pointer]:
+          - /url: /
+          - img "MayaoPickleball" [ref=e322]
+        - paragraph [ref=e323]: Đồng phục pickleball đặt may cho CLB, đội phong trào, trường lớp và doanh nghiệp.
+      - generic [ref=e324]:
+        - heading "Liên hệ" [level=3] [ref=e325]
+        - paragraph [ref=e326]: "Hotline: 0989.353.247"
+        - paragraph [ref=e327]: "Email: lienhe@mayaopickleball.vn"
+        - paragraph [ref=e328]: "Thời gian tư vấn: 08:00 - 17:00 hàng ngày"
+      - generic [ref=e329]:
+        - heading "Trang chính" [level=3] [ref=e330]
+        - paragraph [ref=e331]:
+          - link "Đặt may áo pickleball" [ref=e332] [cursor=pointer]:
+            - /url: /dat-may-ao-pickleball
+        - paragraph [ref=e333]:
+          - link "Bảng giá may áo pickleball" [ref=e334] [cursor=pointer]:
+            - /url: /bang-gia-may-ao-pickleball
+        - paragraph [ref=e335]:
+          - link "Chất liệu & bảng size" [ref=e336] [cursor=pointer]:
+            - /url: /chat-lieu-va-bang-size-ao-pickleball
+  - button "Open Next.js Dev Tools" [ref=e342] [cursor=pointer]
+  - alert [ref=e346]

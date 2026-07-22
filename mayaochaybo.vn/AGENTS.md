@@ -5,6 +5,9 @@
 > `../AGENTS.md`. Load `../WEBSITE-OPTIMIZATION-GUIDE.md` only when the current
 > request matches a guide-loading trigger defined by the root instructions.
 
+> Deployment authority: `../PRODUCTION-DEPLOYMENT-RUNBOOK.md`. Any deployment
+> commands later in this profile are historical context and must not be executed.
+
 ## Active tenant identity
 
 | Field | Value |

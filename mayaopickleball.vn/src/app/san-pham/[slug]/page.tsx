@@ -4,6 +4,7 @@ import type { CSSProperties } from 'react'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, BadgeCheck, Gift, MapPin, Phone, Search } from 'lucide-react'
 import { JsonLd } from '../../_components/json-ld'
+import { ProductViewTracker } from '../../_components/product-view-tracker'
 import { SiteHeader, phoneHref, zaloHref } from '../../_components/info-pages'
 import { ZaloIcon } from '../../_components/zalo-icon'
 import {
@@ -95,6 +96,14 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   return (
     <main className="product-page">
+      <ProductViewTracker
+        itemCategory={product.sport || 'pickleball'}
+        name={product.name}
+        price={product.price}
+        productId={product.id}
+        sku={product.sku}
+        tenantSlug="mayaopickleball"
+      />
       <JsonLd
         data={[
           breadcrumbJsonLd([

@@ -8,6 +8,9 @@ import * as migration_20260719_230000_tenant_pinterest_connections from './20260
 import * as migration_20260720_010000_pinterest_product_state from './20260720_010000_pinterest_product_state';
 import * as migration_20260720_090000_store_settings_ga4 from './20260720_090000_store_settings_ga4';
 import * as migration_20260720_120000_media_shared_tenants from './20260720_120000_media_shared_tenants';
+import * as migration_20260722_120000_product_views from './20260722_120000_product_views';
+import * as migration_20260722_150000_product_view_count from './20260722_150000_product_view_count';
+import * as migration_20260722_180000_store_settings_meta_pixel from './20260722_180000_store_settings_meta_pixel';
 
 export const migrations = [
   {
@@ -59,5 +62,20 @@ export const migrations = [
     up: migration_20260720_120000_media_shared_tenants.up,
     down: migration_20260720_120000_media_shared_tenants.down,
     name: '20260720_120000_media_shared_tenants'
+  },
+  {
+    up: migration_20260722_120000_product_views.up,
+    down: migration_20260722_120000_product_views.down,
+    name: '20260722_120000_product_views'
+  },
+  {
+    up: migration_20260722_150000_product_view_count.up,
+    down: migration_20260722_150000_product_view_count.down,
+    name: '20260722_150000_product_view_count'
+  },
+  {
+    up: migration_20260722_180000_store_settings_meta_pixel.up,
+    down: migration_20260722_180000_store_settings_meta_pixel.down,
+    name: '20260722_180000_store_settings_meta_pixel'
   },
 ];

@@ -206,7 +206,7 @@ export interface TenantPinterestConnection {
    */
   pinterestAccountId?: string | null;
   /**
-   * Username tài khoản Pinterest hiện đang liên kết với tenant này.
+   * Username tài khoản Pinterest hiện đang liên kết với website này.
    */
   pinterestUsername?: string | null;
   /**
@@ -226,11 +226,11 @@ export interface TenantPinterestConnection {
    */
   sandboxDefaultBoardName?: string | null;
   /**
-   * Danh sách scope OAuth đã cấp cho tenant này.
+   * Danh sách scope OAuth đã cấp cho website này.
    */
   scope?: string | null;
   /**
-   * Danh sách scope OAuth sandbox đã cấp cho tenant này.
+   * Danh sách scope OAuth sandbox đã cấp cho website này.
    */
   sandboxScope?: string | null;
   accessToken?: string | null;
@@ -260,7 +260,7 @@ export interface Media {
   sourceChecksum?: string | null;
   tenantSourceKey?: string | null;
   /**
-   * Tenant khác được phép gắn cùng media record và cùng R2 object. Chỉ super admin được thay đổi.
+   * Website khác được phép dùng chung media record và cùng file R2. Chỉ quản trị hệ thống được thay đổi.
    */
   sharedWithTenants?: (number | Tenant)[] | null;
   alt: string;
@@ -333,7 +333,7 @@ export interface ProductCategory {
   slug: string;
   tenantSlugKey?: string | null;
   /**
-   * Danh mục cha trong cây taxonomy của tenant.
+   * Danh mục cha trong cây phân loại của website.
    */
   parent?: (number | null) | ProductCategory;
   group: 'sport' | 'type' | 'color' | 'tag';
@@ -367,6 +367,10 @@ export interface Product {
   productType?: ('simple' | 'variable' | 'grouped' | 'external') | null;
   publicationStatus?: ('publish' | 'draft' | 'private' | 'pending') | null;
   featured?: boolean | null;
+  /**
+   * Tổng lượt xem hợp lệ của sản phẩm; mỗi phiên chỉ được tính một lần.
+   */
+  viewCount?: number | null;
   /**
    * Chọn danh mục hiển thị trên website.
    */
@@ -576,6 +580,14 @@ export interface StoreSetting {
      * Nếu bật và có GA4 Property ID, tenant sẽ được đưa vào báo cáo 23:00 hằng ngày.
      */
     dailyTelegramReportEnabled?: boolean | null;
+    /**
+     * Bật nhúng Meta Pixel trên frontend nếu tenant có Pixel ID.
+     */
+    metaPixelEnabled?: boolean | null;
+    /**
+     * Meta Pixel ID dạng số để frontend ghi nhận PageView.
+     */
+    metaPixelId?: string | null;
   };
   navigation?:
     | {
@@ -872,6 +884,7 @@ export interface ProductsSelect<T extends boolean = true> {
   productType?: T;
   publicationStatus?: T;
   featured?: T;
+  viewCount?: T;
   categories?: T;
   price?: T;
   regularPrice?: T;
@@ -1018,6 +1031,8 @@ export interface StoreSettingsSelect<T extends boolean = true> {
         gaMeasurementId?: T;
         gaPropertyId?: T;
         dailyTelegramReportEnabled?: T;
+        metaPixelEnabled?: T;
+        metaPixelId?: T;
       };
   navigation?:
     | T

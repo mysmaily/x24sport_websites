@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { Barlow_Condensed, Be_Vietnam_Pro } from 'next/font/google'
+import Script from 'next/script'
 
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
+import { getAnalyticsSettings } from '@/lib/cms'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
 
 import './globals.css'
@@ -19,10 +21,24 @@ export const metadata: Metadata = {
   openGraph: { locale: 'vi_VN', siteName: SITE_NAME, type: 'website' },
 }
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const analytics = await getAnalyticsSettings()
+  const measurementId =
+    analytics?.ga4Enabled && analytics.gaMeasurementId?.trim()
+      ? analytics.gaMeasurementId.trim()
+      : null
+
   return (
     <html className={`${display.variable} ${body.variable}`} lang="vi">
       <body>
+        {measurementId ? (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" />
+            <Script id="ga4-tag" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${measurementId}');`}
+            </Script>
+          </>
+        ) : null}
         <a className="skip-link" href="#main">Bỏ qua đến nội dung</a>
         <SiteHeader />
         <main id="main">{children}</main>

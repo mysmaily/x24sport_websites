@@ -48,7 +48,7 @@ control where the documents differ.
   or business claims when the source does not contain them.
 - Migration reduces the public WordPress/PHP attack surface; it does not make the
   new stack secure automatically. Apply least privilege, tenant isolation,
-  backups, rate limits, dependency maintenance, and observability.
+  rate limits, dependency maintenance, and observability.
 
 ## Workflow and mandatory gates
 
@@ -56,14 +56,14 @@ control where the documents differ.
 
 - Confirm source domain, source environment, target tenant, target host, public
   proxy/CDN, order/lead integrations, and allowed maintenance window.
-- Back up the exact WordPress files, database, web/proxy configuration, and
-  current Payload database state before mutation.
+- Do not create copies, dumps, exports, archives, snapshots, or any other backup
+  of WordPress, Payload, databases, or web/proxy configuration before mutation.
 - Record source versions, counts, headers, robots, sitemap, canonical behavior,
   redirects, cache behavior, and representative desktop/mobile screenshots.
 - Define a content-freeze or delta-sync policy before the first import.
 
-Gate: backups are restorable, sources are identified, and no credential appears
-in an artifact.
+Gate: sources are identified, no deployment backup was created, and no
+credential appears in an artifact.
 
 ### 1. Build the source-of-truth manifests
 
@@ -93,8 +93,9 @@ Gate: schema migrations are reversible; tenant collision and isolation tests pas
 
 ### 3. Implement the extractor and importer
 
-- Extract immutable raw source snapshots first, then transform into versioned
-  normalized records. Retain source IDs and checksums.
+- Extract source data into migration manifests, then transform it into versioned
+  normalized records. Retain source IDs and checksums; do not create a separate
+  source backup or snapshot.
 - Use upserts keyed by `(tenant, sourceSystem, sourceId)`, not display names or a
   globally searched SKU.
 - Convert WordPress HTML losslessly enough for headings, links, lists, tables,
@@ -137,7 +138,7 @@ Gate: all go/no-go criteria in the site plan pass with recorded evidence.
 
 ### 6. Cut over and roll back safely
 
-- Freeze writes or run the approved final delta; back up both sides again.
+- Freeze writes or run the approved final delta without creating backups.
 - Change only the narrowest routing layer required. For a same-domain move,
   preserve host, scheme, paths, and canonical host.
 - Purge only documented cache zones and verify public plus origin responses.
@@ -154,11 +155,13 @@ critical business flows pass from the public edge.
 - Monitor 404/410/5xx, redirect chains, origin/CDN logs, Search Console, crawl and
   indexing signals, business events, and Core Web Vitals after launch.
 - Reconcile a post-launch delta and investigate every high-value URL regression.
-- Retire WordPress only after the agreed retention window, stable traffic, tested
-  backups, and explicit approval. Archive its URL and media manifests permanently.
+- Retire WordPress only after the agreed retention window, stable traffic, and
+  explicit approval. Retain the migration URL and media manifests as operational
+  records, not as deployment backups.
 
 ## Required handoff
 
-Report source and target, phase reached, backups, schema changes, import run IDs,
+Report source and target, phase reached, confirmation that no backup was created,
+schema changes, import run IDs,
 record counts, URL-contract results, build/browser results, cache/services touched,
 cutover or rollback action, remaining exceptions, and secret-free evidence.

@@ -4,6 +4,9 @@
 > Shared routing is defined in `../AGENTS.md`. Load the optimization guide only
 > when the current request matches a guide-loading trigger.
 
+> Deployment authority: `../PRODUCTION-DEPLOYMENT-RUNBOOK.md`. Any deployment
+> commands later in this profile are historical context and must not be executed.
+
 ## Active tenant identity
 
 | Field | Value |
@@ -90,9 +93,9 @@ used to guess the new stack's application, CMS, or database host.
 | Requested work | Local source of truth | Remote runtime / action |
 |---|---|---|
 | Public UI, routes, SEO templates, catalog rendering | `x24sport.vn/` | Deploy to `root@10.10.0.58:/root/websites/x24sport.vn` |
-| Add or edit a product/category/post/media record | Payload admin or a backed-up tenant-scoped API migration | `https://cms.x24sport.vn/admin`; select tenant `x24sport` |
+| Add or edit a product/category/post/media record | Payload admin or a tenant-scoped API migration | `https://cms.x24sport.vn/admin`; select tenant `x24sport` |
 | CMS schema, collection, admin UI, API, storage adapter | `cms-api/` | Deploy to `root@10.10.0.28:/opt/sports-cms/cms-api` |
-| Payload data inspection or controlled DB backup | Do not use direct SQL for ordinary content editing | PostgreSQL `sports_cms` on `root@10.10.0.17` |
+| Payload data inspection or controlled DB migration | Do not use direct SQL for ordinary content editing | PostgreSQL `sports_cms` on `root@10.10.0.17` |
 | Public reverse proxy | `x24sport.vn/deploy/x24sport.vn.conf` | `root@10.10.0.56:/etc/nginx/conf.d/x24sport.vn.conf` |
 | DNS, zone cache, or Cloudflare settings | Central registry credential command below | Cloudflare account from the registry block; never store the token in this file |
 | Legacy WordPress reconciliation only | Read-only source unless the user explicitly requests a WordPress change | `root@10.10.0.25:/root/websites/sites/x24sport.vn` |
@@ -112,9 +115,10 @@ block.
   `x24sport.vn/`, build locally, then deploy only the `next-x24sport` service.
 - A collection field, access rule, hook, admin component, API behavior, or media
   storage change is a **shared CMS code change**. Work in `cms-api/`, verify
-  tenant isolation, back up the shared CMS, then rebuild only service `cms-api`.
-- Direct SQL is reserved for controlled repair/migration work after a database
-  backup. It is not the normal way to create or edit products.
+  tenant isolation, then rebuild only the shared CMS container using the
+  canonical production runbook.
+- Direct SQL is reserved for controlled repair/migration work. It is not the
+  normal way to create or edit products and does not authorize a backup.
 - Do not update the legacy WordPress catalog in parallel unless the request is
   explicitly a source delta or rollback operation.
 
@@ -166,54 +170,10 @@ pnpm run build
 | Public cutover state | `x24sport.vn` targets the Next.js frontend |
 | Search visibility | Production indexing is controlled by `SITE_ENV=production`; do not add `noindex` headers to `x24sport.vn` |
 
-Back up and deploy the frontend from the repository root:
-
-```bash
-ssh root@10.10.0.58 \
-  'ts=$(date +%Y%m%d-%H%M%S); mkdir -p /root/backups; cp -a /root/websites/x24sport.vn /root/backups/x24sport.vn-before-deploy-$ts'
-
-rsync -az --delete \
-  --exclude node_modules \
-  --exclude .next \
-  --exclude .env \
-  --exclude .env.local \
-  --exclude backups \
-  --exclude operations \
-  x24sport.vn/ root@10.10.0.58:/root/websites/x24sport.vn/
-
-ssh root@10.10.0.58 \
-  'cd /root/websites/x24sport.vn && docker compose -f compose.production.yml up -d --build'
-```
-
-Rebuild an already synchronized production frontend from the application host:
-
-```bash
-cd /root/websites/x24sport.vn
-docker compose -f compose.production.yml up -d --build
-```
-
-Verify the container and proxy:
-
-```bash
-docker inspect --format '{{.State.Status}} {{.State.Health.Status}}' next-x24sport
-curl -I http://127.0.0.1:3010/
-ssh root@10.10.0.56 'nginx -t'
-curl -I https://x24sport.vn/
-```
-
-Also inspect recent application logs after every deploy:
-
-```bash
-ssh root@10.10.0.58 \
-  'cd /root/websites/x24sport.vn && docker compose -f compose.production.yml logs --tail=120 web'
-```
-
-Rollback to the legacy WordPress origin only with explicit rollback authorization:
-
-```bash
-ssh root@10.10.0.56 'cp /root/backups/x24sport.vn.conf-before-production-change-YYYYMMDD-HHMMSS /etc/nginx/conf.d/x24sport.vn.conf && nginx -t && systemctl reload nginx'
-ssh root@10.10.0.58 'cd /root/websites/x24sport.vn && docker compose -f compose.production.yml down'
-```
+Use only the `x24sport.vn` procedure in
+`../PRODUCTION-DEPLOYMENT-RUNBOOK.md`: standard rsync from local, then the exact
+`compose.production.yml` `web` service command on `10.10.0.58`. Do not create a
+backup, deploy by Git pull, or change the proxy during a normal frontend deploy.
 
 ## Payload tenant integration
 
@@ -261,12 +221,11 @@ Preferred workflow:
 
 For bulk imports or deterministic content updates, use a tenant-scoped,
 idempotent script under `cms-api/scripts/` or `x24sport.vn/operations/`. Run a
-dry-run first, export the affected records/database before `--apply`, and never
-omit the `x24sport` tenant filter.
+dry-run first and never omit the `x24sport` tenant filter.
 
 ### REST service account
 
-Use the common request, media, idempotency, backup, and verification workflow in
+Use the common request, media, idempotency, no-backup, and verification workflow in
 `../PAYLOAD-REST-API-GUIDE.md`. The table below contains only the X24Sport tenant
 overrides. Payload API-key authentication is enabled for the shared `users` auth
 collection, and X24Sport has one dedicated machine account:
@@ -296,41 +255,10 @@ product passed REST create, update, and delete cleanup.
 
 ### Deploy shared CMS code
 
-CMS code changes affect a shared multi-tenant service. Back up first and verify
-other tenants are not changed:
-
-```bash
-ssh root@10.10.0.28 \
-  'ts=$(date +%Y%m%d-%H%M%S); mkdir -p /root/sports-cms/backups; tar -C /opt -czf /root/sports-cms/backups/sports-cms-before-change-$ts.tgz sports-cms/cms-api sports-cms/docker-compose.yml sports-cms/.env'
-
-rsync -az --delete \
-  --exclude node_modules \
-  --exclude .next \
-  --exclude .env \
-  --exclude .env.local \
-  cms-api/ root@10.10.0.28:/opt/sports-cms/cms-api/
-
-ssh root@10.10.0.28 \
-  'cd /opt/sports-cms && docker compose up -d --build cms-api'
-```
-
-CMS verification:
-
-```bash
-curl -I http://10.10.0.28:3001/admin/login
-curl -I https://cms.x24sport.vn/admin/login
-curl -fsS 'https://cms.x24sport.vn/api/tenants?limit=1'
-ssh root@10.10.0.28 \
-  'cd /opt/sports-cms && docker compose ps cms-api && docker compose logs --tail=120 cms-api'
-```
-
-Database access and backup for controlled migrations only:
-
-```bash
-ssh root@10.10.0.17
-sudo -u postgres pg_dump -Fc -d sports_cms > /root/sports-cms-before-change-YYYYMMDD-HHMM.dump
-sudo -u postgres psql -d sports_cms
-```
+Use only the shared `cms-api` procedure in
+`../PRODUCTION-DEPLOYMENT-RUNBOOK.md`. CMS changes affect every tenant, so run
+the documented type/build/import-map/migration and tenant-isolation gates. Do
+not create a backup or substitute a Compose deployment.
 
 Never restart PostgreSQL for an ordinary content or application deployment.
 

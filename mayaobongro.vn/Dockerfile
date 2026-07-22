@@ -11,7 +11,7 @@ RUN pnpm install --frozen-lockfile
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN pnpm build
+RUN ./node_modules/.bin/next build
 
 FROM node:22-bookworm-slim AS runner
 ENV NODE_ENV=production

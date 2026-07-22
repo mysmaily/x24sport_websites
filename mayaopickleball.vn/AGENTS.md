@@ -4,6 +4,9 @@
 > Shared routing is defined in `../AGENTS.md`. Load the optimization guide only
 > when the current request matches a guide-loading trigger.
 
+> Deployment authority: `../PRODUCTION-DEPLOYMENT-RUNBOOK.md`. Any deployment
+> commands later in this profile are historical context and must not be executed.
+
 ## Active tenant identity
 
 | Field | Value |

@@ -2,9 +2,15 @@ import { Cron } from 'croner'
 
 import { getLocalReportDate, sendDailyGa4TrafficReport } from '../src/analytics/dailyReport'
 import { getGa4Timezone } from '../src/analytics/ga4'
+import { cleanupProductViewDetails } from '../src/analytics/productViews'
+import configPromise from '../src/payload.config'
+import { getPayload } from 'payload'
 
 async function runOnce() {
   const result = await sendDailyGa4TrafficReport()
+  const payload = await getPayload({ config: configPromise })
+  const retentionDays = Number.parseInt(process.env.PRODUCT_VIEW_RETENTION_DAYS || '90', 10)
+  await cleanupProductViewDetails({ payload, retentionDays })
   console.log(`[ga4-report] Sent report for ${result.date} with ${result.reports.length} tenants.`)
 }
 

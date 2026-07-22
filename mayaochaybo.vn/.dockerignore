@@ -2,9 +2,12 @@ node_modules
 .next
 .git
 *.log
+.env
+.env*
 migration-data
 backups
 operations
+facebook
 image-references
 tmp-generated
 **/tmp-generated

@@ -2,7 +2,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, BadgeCheck, Gift, MapPin, Phone, Search } from 'lucide-react'
+import { ArrowLeft, BadgeCheck, Gift, MapPin, Phone, Search, Star } from 'lucide-react'
+import { ProductViewTracker } from '../../_components/product-view-tracker'
 import { SiteHeader, phoneHref, zaloHref } from '../../_components/info-pages'
 import {
   formatPrice,
@@ -44,9 +45,6 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   return {
     title: `${product.name} | MayaoCauLong`,
     description: product.shortDescription,
-    alternates: {
-      canonical: `https://mayaocaulong.vn/san-pham/${product.slug}`,
-    },
   }
 }
 
@@ -75,6 +73,14 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   return (
     <main className="product-page">
+      <ProductViewTracker
+        itemCategory={product.sport || 'badminton'}
+        name={product.name}
+        price={product.price}
+        productId={product.id}
+        sku={product.sku}
+        tenantSlug="mayaocaulong"
+      />
       <SiteHeader />
 
       <section className="product-detail-shell">
@@ -89,8 +95,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           <strong>{product.sku}</strong>
         </div>
 
-        <h1 className="product-detail-title">{product.name}</h1>
-
         <div className="product-detail-grid">
           <ProductGallery
             discountPercent={discountPercent}
@@ -99,9 +103,24 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           />
 
           <section className="product-buy-panel">
+            <h1>{product.name}</h1>
+
             <p className="product-brand-line">
               Thương hiệu: <strong>MayaoCauLong</strong> | Áo cầu lông thiết kế
             </p>
+
+            <div className="product-rating-line" aria-label="Đánh giá sản phẩm">
+              <span>
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star key={index} size={16} fill="currentColor" />
+                ))}
+              </span>
+              <strong>261 đánh giá</strong>
+              <em>Đã bán 363</em>
+              <em className="product-stock-inline">
+                Trạng thái: <strong>Còn hàng</strong>
+              </em>
+            </div>
 
             <div className="product-deal-box">
               <div>
@@ -109,7 +128,16 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <p>
                   {discountPercent ? <span>-{discountPercent}%</span> : null}
                   {product.compareAtPrice ? <del>{formatPrice(product.compareAtPrice)}</del> : null}
+                  Đã gồm VAT
                 </p>
+              </div>
+              <div>
+                <span>Kết thúc sau</span>
+                <div className="product-countdown" aria-label="Thời gian ưu đãi">
+                  <b>11 giờ</b>
+                  <b>55 phút</b>
+                  <b>30 giây</b>
+                </div>
               </div>
             </div>
 

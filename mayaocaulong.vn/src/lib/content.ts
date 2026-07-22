@@ -80,6 +80,8 @@ export type StoreSettings = {
     gaMeasurementId?: string
     gaPropertyId?: string
     dailyTelegramReportEnabled?: boolean
+    metaPixelEnabled?: boolean
+    metaPixelId?: string
   }
 }
 

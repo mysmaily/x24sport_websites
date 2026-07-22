@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { JsonLd } from '@/components/json-ld'
 import { ProductGallery } from '@/components/product-gallery'
 import { ProductGrid } from '@/components/product-grid'
+import { ProductViewTracker } from '@/components/product-view-tracker'
 import { productImages, type Product } from '@/lib/cms'
 import { canonical, excerpt, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '@/lib/site'
 import { rewriteLegacyHtml } from '@/lib/legacy-content'
@@ -28,6 +29,14 @@ export function ProductDetailPage({
 
   return (
     <>
+      <ProductViewTracker
+        itemCategory="running"
+        name={product.name}
+        price={product.price}
+        productId={product.id}
+        sku={product.sku}
+        tenantSlug="mayaochaybo"
+      />
       {productSchema ? <JsonLd data={productSchema} /> : null}
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Trang chủ', item: canonical('/') }, { '@type': 'ListItem', position: 2, name: catalogLabel, item: canonical(catalogHref) }, { '@type': 'ListItem', position: 3, name: product.name, item: canonical(productPath) }] }} />
       <article className="section-shell pb-16 sm:pb-22">

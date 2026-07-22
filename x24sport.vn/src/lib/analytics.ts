@@ -6,6 +6,8 @@ type StoreSettings = {
   analytics?: {
     ga4Enabled?: boolean
     gaMeasurementId?: string
+    metaPixelEnabled?: boolean
+    metaPixelId?: string
   }
 }
 

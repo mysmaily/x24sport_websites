@@ -6,6 +6,7 @@ import { JsonLd } from '../_components/json-ld'
 import { Pagination } from '../_components/pagination'
 import { ProductCard } from '../_components/product-card'
 import { ProductGallery } from '../_components/product-gallery'
+import { ProductViewTracker } from '../_components/product-view-tracker'
 import { SiteHeader } from '../_components/site-header'
 import {
   getCategoryByLegacyPath, getProductBySlug, getProductsPage,
@@ -100,6 +101,15 @@ function ProductDetail({ product, related }: { product: CmsProduct; related: Awa
   const lazyContentHtml = prepareContentHtml(product.contentHtml)
   return (
     <>
+      <ProductViewTracker
+        currency={currency}
+        itemCategory={product.sport}
+        name={product.name}
+        price={product.price}
+        productId={product.id}
+        sku={product.sku}
+        tenantSlug="x24sport"
+      />
       <JsonLd data={jsonLd} />
       <JsonLd data={breadcrumbs} />
       <nav className="detail-breadcrumb site-container" aria-label="Đường dẫn">

@@ -51,6 +51,7 @@ export const Products: CollectionConfig = {
     defaultColumns: [
       'gallery',
       'name',
+      'viewCount',
       'sku',
       'sport',
       'price',
@@ -61,6 +62,7 @@ export const Products: CollectionConfig = {
     group: 'Catalog',
     useAsTitle: 'name',
   },
+  defaultSort: '-viewCount',
   access: {
     create: adminsOnly,
     delete: adminsOnly,
@@ -85,7 +87,17 @@ export const Products: CollectionConfig = {
             {
               type: 'row',
               fields: [
-                { name: 'name', type: 'text', required: true, admin: { width: '60%' } },
+                {
+                  name: 'name',
+                  type: 'text',
+                  required: true,
+                  admin: {
+                    components: {
+                      Cell: '/components/products/ProductNameCell#ProductNameCell',
+                    },
+                    width: '60%',
+                  },
+                },
                 {
                   name: 'slug',
                   type: 'text',
@@ -145,6 +157,17 @@ export const Products: CollectionConfig = {
                 },
                 { name: 'featured', type: 'checkbox', defaultValue: false, admin: { width: '50%' } },
               ],
+            },
+            {
+              name: 'viewCount',
+              type: 'number',
+              label: 'Lượt xem',
+              defaultValue: 0,
+              index: true,
+              admin: {
+                description: 'Tổng lượt xem hợp lệ của sản phẩm; mỗi phiên chỉ được tính một lần.',
+                readOnly: true,
+              },
             },
             {
               name: 'categories',

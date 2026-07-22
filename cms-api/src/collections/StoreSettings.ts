@@ -52,6 +52,21 @@ export const StoreSettings: CollectionConfig = {
             description: 'Nếu bật và có GA4 Property ID, tenant sẽ được đưa vào báo cáo 23:00 hằng ngày.',
           },
         },
+        {
+          name: 'metaPixelEnabled',
+          type: 'checkbox',
+          defaultValue: false,
+          admin: {
+            description: 'Bật nhúng Meta Pixel trên frontend nếu tenant có Pixel ID.',
+          },
+        },
+        {
+          name: 'metaPixelId',
+          type: 'text',
+          admin: {
+            description: 'Meta Pixel ID dạng số để frontend ghi nhận PageView.',
+          },
+        },
       ],
     },
     {

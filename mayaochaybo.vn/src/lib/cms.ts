@@ -51,6 +51,18 @@ export type WebContent = {
   sourceModifiedAt?: string | null
 }
 
+export type StoreSettings = {
+  id: number
+  analytics?: {
+    ga4Enabled?: boolean | null
+    gaMeasurementId?: string | null
+    gaPropertyId?: string | null
+    dailyTelegramReportEnabled?: boolean | null
+    metaPixelEnabled?: boolean | null
+    metaPixelId?: string | null
+  } | null
+}
+
 export type Paginated<T> = {
   docs: T[]
   totalDocs: number
@@ -74,6 +86,17 @@ export const getTenant = cache(async () => {
   if (result.docs.length !== 1) throw new Error(`Tenant ${TENANT_SLUG} was not found`)
   return result.docs[0]
 })
+
+export async function getAnalyticsSettings() {
+  const tenant = await getTenant()
+  const params = new URLSearchParams({
+    'where[tenant][equals]': String(tenant.id),
+    limit: '1',
+    depth: '0',
+  })
+  const result = await api<Paginated<StoreSettings>>(`/api/store-settings?${params}`)
+  return result.docs[0]?.analytics ?? null
+}
 
 export async function getProducts({ page = 1, limit = 12, search, categorySlug }: { page?: number; limit?: number; search?: string; categorySlug?: string } = {}) {
   const tenant = await getTenant()
