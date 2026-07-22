@@ -39,7 +39,9 @@ export const mediaOwnerWrite: Access = ({ req }) => {
 export const Media: CollectionConfig = {
   slug: 'media',
   admin: {
+    defaultColumns: ['mediaPreview', 'alt', 'searchTags', 'tenant', 'updatedAt'],
     group: 'Content',
+    useAsTitle: 'alt',
   },
   access: {
     create: adminsOnly,
@@ -128,10 +130,29 @@ export const Media: CollectionConfig = {
       name: 'searchTags',
       type: 'array',
       admin: {
+        components: {
+          Cell: '/components/media/MediaSearchTagsCell#MediaSearchTagsCell',
+        },
         description: 'Internal search helpers for tone, gradient, pose, and sport.',
       },
       fields: [{ name: 'value', type: 'text', required: true }],
     },
+    {
+      name: 'mediaPreview',
+      type: 'ui',
+      label: 'Ảnh',
+      admin: {
+        components: {
+          Cell: '/components/media/MediaPreviewCell#MediaPreviewCell',
+        },
+      },
+    },
   ],
-  upload: true,
+  upload: {
+    adminThumbnail: ({ doc }) => {
+      if (typeof doc.thumbnailURL === 'string' && doc.thumbnailURL.trim()) return doc.thumbnailURL
+      if (typeof doc.url === 'string' && doc.url.trim()) return doc.url
+      return null
+    },
+  },
 }

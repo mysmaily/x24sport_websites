@@ -1,6 +1,8 @@
 import { WatchTenantCollection as WatchTenantCollection_1d0591e3cf4f332c83a86da13a0de59a } from '@payloadcms/plugin-multi-tenant/client'
 import { TenantField as TenantField_1d0591e3cf4f332c83a86da13a0de59a } from '@payloadcms/plugin-multi-tenant/client'
 import { AssignTenantFieldTrigger as AssignTenantFieldTrigger_1d0591e3cf4f332c83a86da13a0de59a } from '@payloadcms/plugin-multi-tenant/client'
+import { MediaSearchTagsCell as MediaSearchTagsCell_bae1ce946e22907390c58bbc8245b704 } from '../../../components/media/MediaSearchTagsCell'
+import { MediaPreviewCell as MediaPreviewCell_d6694f6a49e0e73030ff5dbb8dafd363 } from '../../../components/media/MediaPreviewCell'
 import { ProductNameCell as ProductNameCell_3a29fcfd710371b2a0d74ad9088e8efb } from '../../../components/products/ProductNameCell'
 import { RscEntryLexicalCell as RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
@@ -45,6 +47,8 @@ export const importMap = {
   "@payloadcms/plugin-multi-tenant/client#WatchTenantCollection": WatchTenantCollection_1d0591e3cf4f332c83a86da13a0de59a,
   "@payloadcms/plugin-multi-tenant/client#TenantField": TenantField_1d0591e3cf4f332c83a86da13a0de59a,
   "@payloadcms/plugin-multi-tenant/client#AssignTenantFieldTrigger": AssignTenantFieldTrigger_1d0591e3cf4f332c83a86da13a0de59a,
+  "/components/media/MediaSearchTagsCell#MediaSearchTagsCell": MediaSearchTagsCell_bae1ce946e22907390c58bbc8245b704,
+  "/components/media/MediaPreviewCell#MediaPreviewCell": MediaPreviewCell_d6694f6a49e0e73030ff5dbb8dafd363,
   "/components/products/ProductNameCell#ProductNameCell": ProductNameCell_3a29fcfd710371b2a0d74ad9088e8efb,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalField": RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e,

@@ -1,0 +1,67 @@
+.form {
+  align-items: stretch;
+  display: flex;
+  gap: 6px;
+  min-width: 280px;
+  width: min(420px, 100%);
+}
+
+.input {
+  background: var(--theme-input-bg, var(--theme-elevation-0, #fff));
+  border: 1px solid var(--theme-elevation-150, #d1d5db);
+  border-radius: 6px;
+  color: var(--theme-text, #111827);
+  flex: 1 1 auto;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.35;
+  min-height: 42px;
+  min-width: 0;
+  padding: 6px 8px;
+  resize: vertical;
+
+  &:focus {
+    border-color: var(--theme-elevation-500, #6b7280);
+    outline: 2px solid var(--theme-elevation-100, #e5e7eb);
+  }
+
+  &:disabled {
+    opacity: 0.68;
+  }
+}
+
+.button {
+  align-self: flex-start;
+  background: var(--theme-elevation-800, #1f2937);
+  border: 1px solid var(--theme-elevation-800, #1f2937);
+  border-radius: 6px;
+  color: var(--theme-elevation-0, #fff);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  min-height: 32px;
+  padding: 8px 10px;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.55;
+  }
+}
+
+.status {
+  align-self: center;
+  color: var(--theme-elevation-500, #6b7280);
+  font-size: 12px;
+  line-height: 1.2;
+  min-width: 52px;
+}
+
+.statusError {
+  color: var(--theme-error-600, #b91c1c);
+}
+
+.statusSuccess {
+  color: var(--theme-success-600, #166534);
+}
