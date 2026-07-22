@@ -103,9 +103,8 @@ export default function PricePage() {
           </div>
 
           <div className="pants-note">
-            <h2>Quần có 2 loại:</h2>
-            <p><strong>Loại 1:</strong> Co giãn 4 chiều, dày dặn: Giá <b>120k/quần</b></p>
-            <p><strong>Loại 2:</strong> Co giãn 2 chiều, chất vải thể thao: Giá <b>40k/quần</b></p>
+            <h2>Giá đã bao gồm quần</h2>
+            <p><strong>Không lấy quần:</strong> giảm <b>20k/bộ</b> so với bảng giá trên.</p>
           </div>
 
           <div className="price-included-row">
