@@ -1,0 +1,293 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+TARGET="${1:-}"
+ASSUME_YES=0
+DRY_RUN_ONLY=0
+SKIP_LOCAL_CHECKS=0
+
+usage() {
+  cat <<'USAGE'
+Usage:
+  bin/deploy <target> [--yes] [--dry-run] [--skip-local-checks]
+
+Targets:
+  x24sport.vn
+  mayaochaybo.vn
+  mayaocaulong.vn
+  mayaobongchuyen.vn
+  mayaobongro.vn
+  mayaopickleball.vn
+  cms-api
+
+Options:
+  --yes                Run rsync/app deployment after dry-run without prompting.
+  --dry-run            Run local checks and rsync dry-run only.
+  --skip-local-checks  Skip local TypeScript/build checks.
+USAGE
+}
+
+if [[ -z "$TARGET" || "$TARGET" == "-h" || "$TARGET" == "--help" ]]; then
+  usage
+  exit 0
+fi
+
+shift || true
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --yes|-y)
+      ASSUME_YES=1
+      ;;
+    --dry-run)
+      DRY_RUN_ONLY=1
+      ;;
+    --skip-local-checks)
+      SKIP_LOCAL_CHECKS=1
+      ;;
+    *)
+      echo "Unknown option: $1" >&2
+      usage
+      exit 2
+      ;;
+  esac
+  shift
+done
+
+require_command() {
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "Missing required command: $1" >&2
+    exit 1
+  }
+}
+
+confirm() {
+  local prompt="$1"
+
+  if [[ "$ASSUME_YES" -eq 1 ]]; then
+    return 0
+  fi
+
+  read -r -p "$prompt [y/N] " answer
+  [[ "$answer" == "y" || "$answer" == "Y" || "$answer" == "yes" || "$answer" == "YES" ]]
+}
+
+run_local_checks() {
+  local dir="$1"
+  local kind="$2"
+
+  if [[ "$SKIP_LOCAL_CHECKS" -eq 1 ]]; then
+    echo "Skipping local checks for ${dir}."
+    return 0
+  fi
+
+  echo "Running local checks in ${dir}..."
+  (
+    cd "${ROOT_DIR}/${dir}"
+    if [[ "$kind" == "cms" ]]; then
+      pnpm payload generate:types
+      pnpm payload generate:importmap
+      pnpm exec tsc --noEmit
+      pnpm build
+    else
+      if pnpm run | grep -qE '^  typecheck$|^  typecheck '; then
+        pnpm typecheck
+      else
+        pnpm exec tsc --noEmit
+      fi
+      pnpm build
+    fi
+  )
+}
+
+rsync_source() {
+  local local_dir="$1"
+  local host="$2"
+  local remote_dir="$3"
+  local dry_flag="${4:-}"
+
+  rsync -az --delete ${dry_flag} \
+    --exclude node_modules \
+    --exclude .next \
+    --exclude .git \
+    --exclude '.env*' \
+    --exclude backups \
+    --exclude operations \
+    "${ROOT_DIR}/${local_dir}/" "${host}:${remote_dir}/"
+}
+
+verify_frontend() {
+  local host="$1"
+  local container="$2"
+  local origin="$3"
+  local public_url="$4"
+  local health_format="{{.State.Status}}"
+
+  echo "Verifying ${container}..."
+  if [[ "$container" == "next-x24sport" || "$container" == "next-mayaochaybo" ]]; then
+    health_format="{{.State.Status}} {{.State.Health.Status}}"
+  fi
+  ssh "$host" "docker inspect -f '${health_format}' ${container} && docker logs --tail 120 ${container}"
+  curl -fsSI "$origin"
+  curl -fsSI "$public_url"
+}
+
+deploy_compose_frontend() {
+  local local_dir="$1"
+  local host="$2"
+  local remote_dir="$3"
+  local container="$4"
+  local origin="$5"
+  local public_url="$6"
+
+  run_local_checks "$local_dir" frontend
+  echo "Rsync dry-run for ${TARGET}..."
+  rsync_source "$local_dir" "$host" "$remote_dir" "--dry-run"
+
+  if [[ "$DRY_RUN_ONLY" -eq 1 ]]; then
+    echo "Dry-run complete. No deployment performed."
+    return 0
+  fi
+
+  confirm "Continue deploying ${TARGET}?" || {
+    echo "Deployment cancelled."
+    exit 1
+  }
+
+  rsync_source "$local_dir" "$host" "$remote_dir"
+  ssh "$host" "cd ${remote_dir} && docker compose -f compose.production.yml up -d --build web"
+  verify_frontend "$host" "$container" "$origin" "$public_url"
+}
+
+deploy_standalone_frontend() {
+  local local_dir="$1"
+  local host="$2"
+  local remote_dir="$3"
+  local image="$4"
+  local container="$5"
+  local port="$6"
+  local envs="$7"
+  local origin="$8"
+  local public_url="$9"
+
+  run_local_checks "$local_dir" frontend
+  echo "Rsync dry-run for ${TARGET}..."
+  rsync_source "$local_dir" "$host" "$remote_dir" "--dry-run"
+
+  if [[ "$DRY_RUN_ONLY" -eq 1 ]]; then
+    echo "Dry-run complete. No deployment performed."
+    return 0
+  fi
+
+  confirm "Continue deploying ${TARGET}?" || {
+    echo "Deployment cancelled."
+    exit 1
+  }
+
+  local deploy_id
+  deploy_id="$(date -u +%Y%m%d%H%M%S)"
+
+  rsync_source "$local_dir" "$host" "$remote_dir"
+  ssh "$host" "docker build -t ${image}:deploy-${deploy_id} ${remote_dir}"
+  ssh "$host" "set -e; docker stop ${container}; docker container rm ${container}; docker run -d --name ${container} --restart unless-stopped ${envs} ${image}:deploy-${deploy_id}"
+  verify_frontend "$host" "$container" "$origin" "$public_url"
+}
+
+deploy_pickleball() {
+  local local_dir="mayaopickleball.vn"
+  local host="root@10.10.0.27"
+  local remote_dir="/root/websites/apps/mayaopickleball-next"
+  local image="mayaopickleball-next"
+  local container="mayaopickleball-next"
+
+  run_local_checks "$local_dir" frontend
+  echo "Rsync dry-run for ${TARGET}..."
+  rsync_source "$local_dir" "$host" "$remote_dir" "--dry-run"
+
+  if [[ "$DRY_RUN_ONLY" -eq 1 ]]; then
+    echo "Dry-run complete. No deployment performed."
+    return 0
+  fi
+
+  confirm "Continue deploying ${TARGET}?" || {
+    echo "Deployment cancelled."
+    exit 1
+  }
+
+  local deploy_id
+  deploy_id="$(date -u +%Y%m%d%H%M%S)"
+
+  rsync_source "$local_dir" "$host" "$remote_dir"
+  ssh "$host" 'test -f /root/websites/apps/mayaopickleball-next/.env.production && test "$(stat -c %a /root/websites/apps/mayaopickleball-next/.env.production)" = 600'
+  ssh "$host" "docker build -t ${image}:deploy-${deploy_id} ${remote_dir}"
+  ssh "$host" "set -e; docker stop ${container}; docker container rm ${container}; docker run -d --name ${container} --restart unless-stopped --env-file ${remote_dir}/.env.production -p 8000:3004 ${image}:deploy-${deploy_id}"
+  verify_frontend "$host" "$container" "http://10.10.0.27:8000/" "https://mayaopickleball.vn/"
+}
+
+deploy_cms_api() {
+  local local_dir="cms-api"
+  local host="root@10.10.0.28"
+  local remote_dir="/opt/sports-cms/cms-api"
+
+  run_local_checks "$local_dir" cms
+  ssh "$host" "mkdir -p ${remote_dir}"
+
+  echo "Rsync dry-run for ${TARGET}..."
+  rsync_source "$local_dir" "$host" "$remote_dir" "--dry-run"
+
+  if [[ "$DRY_RUN_ONLY" -eq 1 ]]; then
+    echo "Dry-run complete. No deployment performed."
+    return 0
+  fi
+
+  confirm "Continue deploying ${TARGET}? This replaces the shared CMS API." || {
+    echo "Deployment cancelled."
+    exit 1
+  }
+
+  local deploy_id
+  deploy_id="$(date -u +%Y%m%d%H%M%S)"
+
+  rsync_source "$local_dir" "$host" "$remote_dir"
+  ssh "$host" "docker build -t sports-cms-cms-api:deploy-${deploy_id} ${remote_dir}"
+  ssh "$host" "docker run --rm --env-file /opt/sports-cms/.env --network host -v ${remote_dir}/tsconfig.json:/app/tsconfig.json:ro sports-cms-cms-api:deploy-${deploy_id} pnpm payload migrate"
+  ssh "$host" "set -e; docker stop sports-cms-cms-api-1; docker container rm sports-cms-cms-api-1; docker run -d --name sports-cms-cms-api-1 --restart unless-stopped --env-file /opt/sports-cms/.env -p 3001:3001 sports-cms-cms-api:deploy-${deploy_id}"
+  curl -fsSI "http://10.10.0.28:3001/admin/login"
+  curl -fsSI "https://cms.x24sport.vn/admin/login"
+  ssh "$host" 'docker inspect -f "{{.State.Status}}" sports-cms-cms-api-1 && docker logs --tail 120 sports-cms-cms-api-1'
+}
+
+require_command curl
+require_command pnpm
+require_command rsync
+require_command ssh
+
+case "$TARGET" in
+  x24sport.vn)
+    deploy_compose_frontend "x24sport.vn" "root@10.10.0.58" "/root/websites/x24sport.vn" "next-x24sport" "http://10.10.0.58:3010/" "https://x24sport.vn/"
+    ;;
+  mayaochaybo.vn)
+    deploy_compose_frontend "mayaochaybo.vn" "root@10.10.0.58" "/root/websites/next.mayaochaybo.vn" "next-mayaochaybo" "http://10.10.0.58:3011/" "https://mayaochaybo.vn/"
+    ;;
+  mayaocaulong.vn)
+    deploy_standalone_frontend "mayaocaulong.vn" "root@10.10.0.28" "/opt/sports-cms/mayaocaulong.vn" "sports-cms-mayaocaulong" "sports-cms-mayaocaulong-1" "3002" "--network sports-cms_default --add-host host.docker.internal:host-gateway -p 3002:3002 -e NODE_ENV=production -e PORT=3002 -e TENANT_SLUG=mayaocaulong -e PAYLOAD_API_URL=http://host.docker.internal:3001" "http://10.10.0.28:3002/" "https://mayaocaulong.vn/"
+    ;;
+  mayaobongchuyen.vn)
+    deploy_standalone_frontend "mayaobongchuyen.vn" "root@10.10.0.28" "/opt/sports-cms/mayaobongchuyen.vn" "sports-cms-mayaobongchuyen" "sports-cms-mayaobongchuyen-1" "3003" "--network sports-cms_default -p 3003:3003 -e NODE_ENV=production -e PORT=3003 -e TENANT_SLUG=mayaobongchuyen -e PAYLOAD_API_URL=http://10.10.0.28:3001" "http://10.10.0.28:3003/" "https://mayaobongchuyen.vn/"
+    ;;
+  mayaobongro.vn)
+    deploy_standalone_frontend "mayaobongro.vn" "root@10.10.0.28" "/opt/sports-cms/mayaobongro.vn" "sports-cms-mayaobongro" "sports-cms-mayaobongro-1" "3005" "--network sports-cms_default -p 3005:3005 -e NODE_ENV=production -e PORT=3005 -e TENANT_SLUG=mayaobongro -e PAYLOAD_API_URL=http://10.10.0.28:3001" "http://10.10.0.28:3005/" "https://mayaobongro.vn/"
+    ;;
+  mayaopickleball.vn)
+    deploy_pickleball
+    ;;
+  cms-api)
+    deploy_cms_api
+    ;;
+  *)
+    echo "Unsupported deploy target: ${TARGET}" >&2
+    echo >&2
+    usage >&2
+    exit 2
+    ;;
+esac

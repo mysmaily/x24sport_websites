@@ -42,28 +42,30 @@ export function ServicePageHero({
   description,
   actions,
   aside,
+  compact = false,
 }: {
   kicker: string
   title: string
   description: string
   actions: ReactNode
   aside: ReactNode
+  compact?: boolean
 }) {
   return (
     <section className="border-b border-white/10 bg-slate-950 text-white">
-      <div className="section-shell py-6 sm:py-8">
+      <div className={`section-shell ${compact ? 'py-4 sm:py-5' : 'py-6 sm:py-8'}`}>
         <nav className="flex items-center gap-2 text-xs font-bold text-slate-400" aria-label="Đường dẫn">
           <Link className="min-h-11 content-center transition hover:text-white" href="/">Trang chủ</Link>
           <span aria-hidden="true">/</span>
           <span className="truncate text-slate-200">{kicker}</span>
         </nav>
       </div>
-      <div className="section-shell grid gap-10 pb-14 pt-4 sm:pb-18 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,.75fr)] lg:items-end lg:gap-16 lg:pb-22">
+      <div className={`section-shell grid ${compact ? 'gap-5 pb-7 pt-1 sm:pb-9 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,.65fr)] lg:items-end lg:gap-8 lg:pb-10' : 'gap-10 pb-14 pt-4 sm:pb-18 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,.75fr)] lg:items-end lg:gap-16 lg:pb-22'}`}>
         <div>
           <p className="section-kicker text-orange-300">{kicker}</p>
-          <h1 className="max-w-4xl font-display text-[clamp(3.4rem,7vw,7.4rem)] font-bold leading-[.88] tracking-[-.03em] text-balance">{title}</h1>
-          <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">{description}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">{actions}</div>
+          <h1 className={`max-w-4xl font-display font-bold text-balance ${compact ? 'text-4xl leading-none sm:text-5xl lg:text-6xl' : 'text-[clamp(3.4rem,7vw,7.4rem)] leading-[.88] tracking-[-.03em]'}`}>{title}</h1>
+          <p className={`${compact ? 'mt-3 max-w-2xl text-sm leading-7 sm:text-base' : 'mt-6 max-w-3xl text-base leading-8 sm:text-lg'} text-slate-300`}>{description}</p>
+          <div className={`${compact ? 'mt-5' : 'mt-8'} flex flex-col gap-3 sm:flex-row`}>{actions}</div>
         </div>
         {aside}
       </div>
