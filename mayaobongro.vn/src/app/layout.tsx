@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: { default: 'May Áo Bóng Rổ Thiết Kế Riêng | X24 Sport', template: '%s | May Áo Bóng Rổ' },
   description: 'Mẫu đồng phục bóng rổ và dịch vụ đặt may thiết kế riêng cho đội, câu lạc bộ và trường học.',
   alternates: { canonical: '/' },
+  icons: { icon: '/site-mark.svg' },
   openGraph: { locale: 'vi_VN', siteName: 'May Áo Bóng Rổ', type: 'website' },
 }
 

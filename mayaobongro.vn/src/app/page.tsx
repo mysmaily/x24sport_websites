@@ -16,6 +16,7 @@ import Link from 'next/link'
 import { JsonLd } from '@/components/json-ld'
 import { LegacyHomeBanner } from '@/components/legacy-home-banner'
 import { ProductGrid } from '@/components/product-grid'
+import { BASKETBALL_AUDIENCES } from '@/lib/basketball-audiences'
 import { getLatestPosts, getProducts } from '@/lib/cms'
 import { excerpt, SITE_URL, ZALO_URL } from '@/lib/site'
 
@@ -35,9 +36,10 @@ const trustItems = [
 ] as const
 
 const buyerPaths = [
-  { icon: Users, title: 'Đội lớp & trường học', text: 'Form dễ mặc, dễ chia size; thiết kế theo màu lớp và logo riêng.', href: '/san-pham/' },
-  { icon: Shirt, title: 'CLB & đội phong trào', text: 'Mẫu có thể đổi màu, thêm tên số và đồng bộ nhận diện cả đội.', href: '/san-pham/' },
-  { icon: Layers3, title: 'Giải đấu & sự kiện', text: 'Chốt rõ số lượng, danh sách size và mốc giao hàng ngay từ đầu.', href: '/dat-may-ao-bong-ro/' },
+  { icon: Users, audience: BASKETBALL_AUDIENCES[0] },
+  { icon: Shirt, audience: BASKETBALL_AUDIENCES[1] },
+  { icon: Layers3, audience: BASKETBALL_AUDIENCES[2] },
+  { icon: BadgeCheck, audience: BASKETBALL_AUDIENCES[3] },
 ] as const
 
 const process = [
@@ -75,12 +77,12 @@ export default async function HomePage() {
           <h2 className="section-title">Bạn đang đặt áo cho đội nào?</h2>
           <p className="section-lead">Chọn tình huống gần nhất để xem mẫu và thông tin cần chuẩn bị. Không cần biết sẵn mọi chi tiết trước khi trao đổi.</p>
         </div>
-        <div className="mt-9 grid gap-4 lg:grid-cols-3">
-          {buyerPaths.map(({ icon: Icon, title, text, href }) => (
-            <Link className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_55px_rgba(15,23,42,.08)]" href={href} key={title}>
+        <div className="mt-9 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {buyerPaths.map(({ icon: Icon, audience }) => (
+            <Link className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_55px_rgba(15,23,42,.08)]" href={audience.path} key={audience.slug}>
               <span className="grid size-12 place-items-center rounded-xl bg-slate-950 text-white transition group-hover:bg-brand"><Icon aria-hidden="true" size={24} /></span>
-              <h3 className="mt-8 font-display text-3xl font-bold tracking-tight text-slate-950">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">{text}</p>
+              <h3 className="mt-8 font-display text-3xl font-bold tracking-tight text-slate-950">{audience.shortTitle}</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">{audience.description}</p>
               <span className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-black text-brand">Khám phá <ArrowRight size={17} /></span>
             </Link>
           ))}
