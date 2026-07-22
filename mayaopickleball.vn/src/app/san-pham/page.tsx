@@ -61,7 +61,7 @@ export function CatalogPageContent({
   const orderHighlights = [
     'Chọn mẫu hoặc gửi màu đội',
     'Chốt logo, tên số và size',
-    'Nhận tư vấn báo giá theo số lượng',
+    'Nhắn Zalo để tư vấn và đặt may',
   ] as const
 
   return (
@@ -88,7 +88,7 @@ export function CatalogPageContent({
           ) : null}
           <div className="catalog-actions">
             <a className="primary-button" href={zaloHref}>
-              Nhận báo giá theo mẫu <ArrowRight size={18} />
+              Kết nối Zalo tư vấn <ArrowRight size={18} />
             </a>
             <Link className="secondary-button" href="/">
               Về trang chủ
@@ -183,7 +183,7 @@ export function CatalogPageContent({
                   </div>
                   <div className="catalog-card-actions">
                     <Link href={`/san-pham/${product.slug}`}>Xem chi tiết</Link>
-                    <a href={zaloHref}>Báo giá mẫu này</a>
+                    <a href={zaloHref}>Nhắn Zalo</a>
                   </div>
                 </div>
               </article>
@@ -213,7 +213,7 @@ export function CatalogPageContent({
 
       <div className="mobile-cta" aria-label="Liên hệ nhanh">
         <a href={phoneHref}>Gọi ngay</a>
-        <a href={zaloHref}>Nhận báo giá</a>
+        <a href={zaloHref}>Nhắn Zalo</a>
       </div>
     </main>
   )
