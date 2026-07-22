@@ -1139,7 +1139,7 @@ img {
   border-radius: var(--radius-lg);
   background:
     linear-gradient(135deg, rgba(223, 63, 50, 0.92), rgba(170, 33, 25, 0.94)),
-    url("/images/pickleball-team-hero.png") center / cover;
+    url("/images/home/pickleball-club-delivery.webp") center / cover;
   padding: clamp(28px, 5vw, 64px);
   color: white;
 }

@@ -27,17 +27,17 @@ const buyerPaths = [
   {
     title: 'CLB cần đồng phục mới',
     text: 'Chọn mẫu có sẵn, đổi màu chủ đạo, thêm logo CLB và tên số từng thành viên.',
-    image: '/images/pickleball-team-hero.png',
+    image: '/images/home/pickleball-club-uniforms.webp',
   },
   {
     title: 'Đội thi đấu giải cuối tuần',
     text: 'Ưu tiên form nhẹ, màu nổi trên sân, in số lớn và tư vấn deadline giao áo.',
-    image: '/images/pickleball-team-hero.png',
+    image: '/images/home/pickleball-weekend-tournament.webp',
   },
   {
     title: 'Trường lớp, công ty, team building',
     text: 'Thiết kế đồng bộ nam nữ, dễ mặc, dễ chia size và có phương án ngân sách.',
-    image: '/images/pickleball-team-hero.png',
+    image: '/images/home/pickleball-team-building.webp',
   },
 ] as const
 
@@ -308,7 +308,7 @@ export default async function Home() {
           <img
             alt="Chi tiết áo pickleball đặt may trên sân"
             height={1100}
-            src="/images/pickleball-team-hero.png"
+            src="/images/home/pickleball-fabric-detail.webp"
             width={980}
           />
         </div>
@@ -336,9 +336,9 @@ export default async function Home() {
           </p>
         </div>
         <div className="proof-mosaic">
-          <img alt="Đội pickleball mặc áo thi đấu xanh trắng" src="/images/pickleball-team-hero.png" />
-          <img alt="Mẫu áo pickleball có thể chỉnh màu theo đội" src="/images/pickleball-team-hero.png" />
-          <img alt="Đồng phục pickleball đặt may cho câu lạc bộ" src="/images/pickleball-team-hero.png" />
+          <img alt="Đội pickleball mặc áo thi đấu xanh trắng" src="/images/home/pickleball-blue-white-team.webp" />
+          <img alt="Mẫu áo pickleball có thể chỉnh màu theo đội" src="/images/home/pickleball-color-mockups.webp" />
+          <img alt="Đồng phục pickleball đặt may cho câu lạc bộ" src="/images/home/pickleball-club-delivery.webp" />
         </div>
       </section>
 
