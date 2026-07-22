@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { ArrowRight, BadgeCheck, ClipboardCheck, Ruler, Shirt, Sparkles, Wind } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowLeft, ArrowRight, Check, ClipboardCheck, MessageCircle, Phone, Sparkles, Wind } from 'lucide-react'
 import { JsonLd } from '../_components/json-ld'
-import { InfoFooter, SiteHeader, zaloHref } from '../_components/info-pages'
+import { InfoFooter, phone, phoneHref, SiteHeader, zaloHref } from '../_components/info-pages'
 import { breadcrumbJsonLd, pageMetadata } from '../../lib/seo'
 
 export const metadata: Metadata = pageMetadata({
@@ -12,35 +13,43 @@ export const metadata: Metadata = pageMetadata({
 
 const fabrics = [
   {
-    icon: Wind,
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-df5dd085-3f31-4f81-9121-3ddabb8822ee.png',
     title: 'Mè lava',
     text: 'Bề mặt lưới thoáng, nhẹ, hợp áo pickleball cần thoát hơi nhanh khi vận động liên tục.',
     bestFor: 'Đội chơi thường xuyên, ưu tiên cảm giác mát và nhẹ.',
+    note: 'Thoáng nhanh, nhẹ áo, hợp vận động liên tục',
+    feel: 'Mát nhẹ',
+    breath: 'Rất tốt',
     tags: ['Thoáng khí', 'Nhanh khô', 'Nhẹ áo'],
   },
   {
-    icon: Shirt,
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-0efda5f5-7efe-4a75-8a16-14fb44009dd7.png',
     title: 'Mè nano',
     text: 'Mắt vải mịn, mặc êm và giữ bề mặt gọn, phù hợp đồng phục CLB cần cảm giác nhẹ.',
     bestFor: 'Đội muốn áo mặc êm, bề mặt tinh gọn khi in tên số.',
+    note: 'Mặt vải mịn, mặc êm, dễ lên form',
+    feel: 'Êm mịn',
+    breath: 'Tốt',
     tags: ['Mịn mặt', 'Êm da', 'Dễ mặc'],
   },
   {
-    icon: Sparkles,
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-c937b825-1046-4a3e-a37d-2a4dd1551f4d.png',
     title: 'Mè zennix',
     text: 'Chất vải mềm, bề mặt đều, hỗ trợ lên màu thiết kế và in chuyển nhiệt sắc nét.',
     bestFor: 'Mẫu áo nhiều mảng màu, logo và chi tiết cần rõ nét.',
+    note: 'Bề mặt đều, hỗ trợ màu in nổi và rõ nét',
+    feel: 'Mềm',
+    breath: 'Tốt',
     tags: ['Lên màu đẹp', 'Mềm', 'Giữ form'],
   },
   {
-    icon: BadgeCheck,
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-eea74471-ee2d-4cce-9e41-0db6a6f25ae2.png',
     title: 'Mè thái',
     text: 'Kiểu vải thể thao phổ biến, bề mặt thoáng và ổn định cho đơn đội số lượng nhiều.',
     bestFor: 'Đơn đồng phục số lượng lớn cần phương án dễ mặc, dễ đồng bộ.',
+    note: 'Vải thể thao phổ biến, bền và dễ đồng bộ',
+    feel: 'Gọn',
+    breath: 'Tốt',
     tags: ['Bền', 'Dễ đồng bộ', 'Thể thao'],
   },
 ] as const
@@ -75,10 +84,11 @@ const kidsRows = [
   { label: 'Tuổi', values: ['<= 2 tuổi', '<= 3 tuổi', '<= 5 tuổi', '<= 7 tuổi', '<= 9 tuổi', '<= 11 tuổi', '<= 13 tuổi'] },
 ] as const
 
-const decisionNotes = [
-  { value: 'Mặc mát', label: 'ưu tiên mè lava hoặc mè thái' },
-  { value: 'Mặt vải mịn', label: 'ưu tiên mè nano' },
-  { value: 'Màu in nổi', label: 'ưu tiên mè zennix' },
+const quickPicks = [
+  ['Mặc mát', 'Mè lava'],
+  ['Mặt vải mịn', 'Mè nano'],
+  ['Màu in nổi', 'Mè zennix'],
+  ['Dễ đồng bộ', 'Mè thái'],
 ] as const
 
 const faqItems = [
@@ -155,7 +165,7 @@ function SizeTable({
 
 export default function FabricSizePage() {
   return (
-    <main className="site-page info-page fabric-size-page fabric-first-page">
+    <main className="site-page info-page fabric-size-page fabric-football-page">
       <SiteHeader />
       <JsonLd
         data={[
@@ -167,72 +177,77 @@ export default function FabricSizePage() {
         ]}
       />
 
-      <section className="fabric-first-hero" aria-labelledby="fabric-page-title">
-        <div>
-          <p className="hero-kicker">Chất liệu áo pickleball</p>
-          <h1 id="fabric-page-title">Chọn vải trước khi chốt mẫu áo</h1>
-          <p>So sánh nhanh bề mặt vải, cảm giác mặc và tình huống sử dụng để đội dễ chọn đúng chất liệu.</p>
-        </div>
-        <div className="fabric-first-picks" aria-label="Gợi ý chọn nhanh">
-          {decisionNotes.map((note) => (
-            <article key={note.value}>
-              <span>{note.value}</span>
-              <strong>{note.label}</strong>
-            </article>
-          ))}
+      <section className="fabric-football-hero" aria-labelledby="fabric-page-title">
+        <div className="fabric-football-shell fabric-football-hero-grid">
+          <div>
+            <Link className="fabric-back-link" href="/">
+              <ArrowLeft size={18} /> Trang chủ
+            </Link>
+            <p className="hero-kicker">Chất liệu vải X24 Sport</p>
+            <h1 id="fabric-page-title">Chọn vải trước khi chọn mẫu áo</h1>
+            <p>4 chất liệu thường dùng cho áo pickleball, được đặt cạnh nhau để đội dễ so sánh cảm giác mặc, độ thoáng và tình huống sử dụng.</p>
+          </div>
+          <div className="fabric-quick-picks" aria-label="Gợi ý chọn nhanh">
+            {quickPicks.map(([label, value]) => (
+              <article key={label}>
+                <span>{label}</span>
+                <strong>{value}</strong>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <nav className="fabric-first-nav" aria-label="Nội dung hướng dẫn">
-        <a href="#chat-lieu">Chất liệu</a>
-        <a href="#chon-size">Cách chốt size</a>
-        <a href="#bang-size">Bảng size</a>
-        <a href="#hoi-dap">Hỏi đáp</a>
-      </nav>
-
-      <section className="fabric-first-materials" id="chat-lieu">
-        <div className="fabric-first-copy">
+      <section className="fabric-football-shell fabric-material-section" id="chat-lieu">
+        <aside className="fabric-material-aside">
           <span className="section-eyebrow">Chất liệu áo pickleball</span>
-          <h2>Nhìn vải trước, chọn size sau</h2>
-          <p>Bề mặt vải quyết định cảm giác mặc, độ thoáng và độ rõ của màu in. Phần size được đặt phía dưới để đội xem chất liệu trước khi gửi danh sách.</p>
-        </div>
-        <div className="fabric-first-grid">
-          {fabrics.map(({ bestFor, icon: Icon, image, tags, title, text }) => (
-            <article className="fabric-first-card" key={title}>
-              <a className="fabric-first-media" href={image} target="_blank" rel="noreferrer">
-                <img alt={`Chất liệu ${title} áo pickleball X24 Sports`} src={image} />
-              </a>
-              <div className="fabric-first-body">
-                <div className="fabric-first-title">
-                  <Icon size={22} strokeWidth={1.7} />
+          <h2>Sờ bằng mắt trước.</h2>
+          <p>Ảnh vải được giữ lớn để nhìn bề mặt sợi, sau đó đọc nhanh gợi ý dùng cho đội pickleball.</p>
+        </aside>
+        <div className="fabric-football-card-list">
+          {fabrics.map(({ bestFor, breath, feel, image, note, tags, title }, index) => (
+            <section className="fabric-football-card" key={title}>
+              <div className="fabric-football-media">
+                <img
+                  alt={`Bề mặt vải ${title} dùng may áo pickleball`}
+                  fetchPriority={index === 0 ? 'high' : undefined}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  src={image}
+                />
+                <span>{String(index + 1).padStart(2, '0')}</span>
+              </div>
+              <div className="fabric-football-body">
+                <div>
+                  <p className="fabric-note"><Sparkles size={14} /> {note}</p>
                   <h3>{title}</h3>
                 </div>
-                <p>{text}</p>
-                <strong>{bestFor}</strong>
-                <div className="fabric-first-tags">
+                <p>{bestFor}</p>
+                <div className="fabric-spec-grid">
+                  <div>
+                    <span>Cảm giác</span>
+                    <strong>{feel}</strong>
+                  </div>
+                  <div>
+                    <span>Độ thoáng</span>
+                    <strong>{breath}</strong>
+                  </div>
+                </div>
+                <div className="fabric-football-tags">
                   {tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
+                    <span key={tag}><Check size={14} /> {tag}</span>
                   ))}
                 </div>
               </div>
-            </article>
+            </section>
           ))}
         </div>
       </section>
 
-      <section className="info-section size-guide-section fabric-size-flow" id="chon-size">
+      <section className="fabric-football-shell size-guide-section fabric-size-flow" id="chon-size">
         <div className="size-guide-copy">
-          <Ruler size={32} strokeWidth={1.6} />
-          <h2>Cách chọn size cho đội</h2>
-          <ol>
-            {sizeSteps.map((step) => (
-              <li key={step.title}>
-                <strong>{step.title}</strong>
-                <span>{step.text}</span>
-              </li>
-            ))}
-          </ol>
-          <p>Lưu ý: form và thông số có thể khác theo kiểu áo. Hãy xác nhận bảng size của đúng mẫu trước khi chốt đơn.</p>
+          <p className="fabric-note"><Wind size={15} /> Size và form áo</p>
+          <h2>Chọn vải xong, chốt size cho cả đội.</h2>
+          <p>Dùng bảng size làm mốc, sau đó gửi chiều cao và cân nặng nếu đội có nhiều dáng người khác nhau.</p>
         </div>
         <div className="html-size-panel" id="bang-size" aria-label="Bảng size áo pickleball">
           <div className="html-size-title">
@@ -245,7 +260,7 @@ export default function FabricSizePage() {
         </div>
       </section>
 
-      <section className="info-section fabric-faq-section" id="hoi-dap">
+      <section className="fabric-football-shell fabric-faq-section" id="hoi-dap">
         <div>
           <span className="section-eyebrow">Hỏi đáp nhanh</span>
           <h2>Những câu hỏi đội hay gặp khi chốt vải và size</h2>
@@ -261,14 +276,21 @@ export default function FabricSizePage() {
         </div>
       </section>
 
-      <section className="info-section design-free-band">
+      <section className="fabric-football-cta">
+        <div className="fabric-football-shell">
         <div>
-          <h2>Gửi danh sách size qua Zalo</h2>
-          <p>Nếu đội có nhiều thể trạng khác nhau, gửi danh sách theo tên từng người để được rà lại trước khi sản xuất.</p>
+          <span className="section-eyebrow">Tư vấn nhanh</span>
+          <h2>Gửi mẫu áo, số lượng và danh sách size.</h2>
         </div>
-        <a className="primary-button" href={zaloHref}>
-          Gửi danh sách size <ArrowRight size={18} />
-        </a>
+        <div className="fabric-football-actions">
+          <a href={zaloHref}>
+            <MessageCircle size={18} /> Zalo tư vấn <ArrowRight size={17} />
+          </a>
+          <a href={phoneHref}>
+            <Phone size={18} /> {phone}
+          </a>
+        </div>
+        </div>
       </section>
       <InfoFooter />
     </main>
