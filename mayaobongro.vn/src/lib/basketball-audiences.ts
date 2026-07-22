@@ -24,7 +24,7 @@ export type BasketballAudience = {
 export const BASKETBALL_AUDIENCES = [
   {
     slug: 'lop-truong-hoc',
-    path: '/may-ao-bong-ro/lop-truong-hoc/',
+    path: '/ao-bong-ro-lop-truong-hoc/',
     eyebrow: 'Lớp & Trường học',
     title: 'May áo bóng rổ cho lớp, trường học và đội tuyển sinh viên',
     shortTitle: 'Lớp & Trường học',
@@ -58,7 +58,7 @@ export const BASKETBALL_AUDIENCES = [
   },
   {
     slug: 'clb-doi-bong-phong-trao',
-    path: '/may-ao-bong-ro/clb-doi-bong-phong-trao/',
+    path: '/ao-bong-ro-clb-doi-phong-trao/',
     eyebrow: 'CLB & Đội bóng phong trào',
     title: 'May áo bóng rổ cho câu lạc bộ và đội phong trào',
     shortTitle: 'CLB & Đội phong trào',
@@ -92,7 +92,7 @@ export const BASKETBALL_AUDIENCES = [
   },
   {
     slug: 'giai-dau-su-kien',
-    path: '/may-ao-bong-ro/giai-dau-su-kien/',
+    path: '/ao-bong-ro-giai-dau-su-kien/',
     eyebrow: 'Giải đấu & Sự kiện',
     title: 'May áo bóng rổ cho giải đấu, sự kiện và ban tổ chức',
     shortTitle: 'Giải đấu & Sự kiện',
@@ -126,7 +126,7 @@ export const BASKETBALL_AUDIENCES = [
   },
   {
     slug: 'doi-tuyen-chuyen-nghiep',
-    path: '/may-ao-bong-ro/doi-tuyen-chuyen-nghiep/',
+    path: '/ao-bong-ro-doi-tuyen-chuyen-nghiep/',
     eyebrow: 'Đội tuyển & Chuyên nghiệp',
     title: 'May áo bóng rổ cho học viện, đội tuyển và câu lạc bộ chuyên nghiệp',
     shortTitle: 'Đội tuyển & Chuyên nghiệp',

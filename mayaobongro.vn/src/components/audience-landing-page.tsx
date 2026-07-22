@@ -1,27 +1,14 @@
 import { ArrowRight, BadgeCheck, ClipboardList, MessageCircle, Palette, Ruler, Shirt, Sparkles } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
 
 import { ContactPanel } from '@/components/service-page'
-import { BASKETBALL_AUDIENCES, getBasketballAudience } from '@/lib/basketball-audiences'
+import type { BasketballAudience } from '@/lib/basketball-audiences'
 import { ZALO_URL, canonical } from '@/lib/site'
-
-type PageProps = {
-  params: Promise<{ audience: string }>
-}
 
 const benefitIcons = [Palette, Shirt, Ruler] as const
 
-export function generateStaticParams() {
-  return BASKETBALL_AUDIENCES.map((audience) => ({ audience: audience.slug }))
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { audience: slug } = await params
-  const audience = getBasketballAudience(slug)
-  if (!audience) return {}
-
+export function audienceMetadata(audience: BasketballAudience): Metadata {
   return {
     title: audience.metaTitle,
     description: audience.metaDescription,
@@ -35,11 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-export default async function AudienceLandingPage({ params }: PageProps) {
-  const { audience: slug } = await params
-  const audience = getBasketballAudience(slug)
-  if (!audience) notFound()
-
+export function AudienceLandingPage({ audience }: { audience: BasketballAudience }) {
   return (
     <>
       <section className="relative isolate overflow-hidden bg-[#fff4e6] text-slate-950">
@@ -78,7 +61,7 @@ export default async function AudienceLandingPage({ params }: PageProps) {
               <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank">
                 <MessageCircle aria-hidden="true" size={18} /> {audience.primaryCta}
               </a>
-              <Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white/85 px-6 text-sm font-black text-slate-950 backdrop-blur transition hover:border-brand/40 hover:bg-white" href={slug === 'giai-dau-su-kien' ? '/bang-gia-may-ao-bong-ro/' : '/san-pham/'}>
+              <Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white/85 px-6 text-sm font-black text-slate-950 backdrop-blur transition hover:border-brand/40 hover:bg-white" href={audience.slug === 'giai-dau-su-kien' ? '/bang-gia-may-ao-bong-ro/' : '/san-pham/'}>
                 {audience.secondaryCta} <ArrowRight aria-hidden="true" size={18} />
               </Link>
             </div>
