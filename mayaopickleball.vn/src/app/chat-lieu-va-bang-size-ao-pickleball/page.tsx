@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { ArrowRight, BadgeCheck, ClipboardCheck, Ruler, Shirt, Sparkles, Wind } from 'lucide-react'
 import { JsonLd } from '../_components/json-ld'
-import { InfoPage, zaloHref } from '../_components/info-pages'
+import { InfoFooter, SiteHeader, zaloHref } from '../_components/info-pages'
 import { breadcrumbJsonLd, pageMetadata } from '../../lib/seo'
 
 export const metadata: Metadata = pageMetadata({
@@ -155,18 +155,8 @@ function SizeTable({
 
 export default function FabricSizePage() {
   return (
-    <InfoPage
-      className="fabric-size-page"
-      description="So sánh chất vải, cảm giác mặc và bảng size nam, nữ, trẻ em để đội chốt danh sách trước khi lên mẫu."
-      image={fabrics[0].image}
-      kicker="Chất liệu & bảng size"
-      stats={[
-        { value: '4', label: 'chất vải thi đấu' },
-        { value: '3', label: 'bảng size rõ ràng' },
-        { value: '1:1', label: 'rà size qua Zalo' },
-      ]}
-      title="Chọn vải & size áo pickleball"
-    >
+    <main className="site-page info-page fabric-size-page fabric-first-page">
+      <SiteHeader />
       <JsonLd
         data={[
           breadcrumbJsonLd([
@@ -177,43 +167,53 @@ export default function FabricSizePage() {
         ]}
       />
 
-      <nav className="info-section fabric-anchor-bar" aria-label="Nội dung hướng dẫn">
-        <a href="#chat-lieu">Chọn chất liệu</a>
+      <section className="fabric-first-hero" aria-labelledby="fabric-page-title">
+        <div>
+          <p className="hero-kicker">Chất liệu áo pickleball</p>
+          <h1 id="fabric-page-title">Chọn vải trước khi chốt mẫu áo</h1>
+          <p>So sánh nhanh bề mặt vải, cảm giác mặc và tình huống sử dụng để đội dễ chọn đúng chất liệu.</p>
+        </div>
+        <div className="fabric-first-picks" aria-label="Gợi ý chọn nhanh">
+          {decisionNotes.map((note) => (
+            <article key={note.value}>
+              <span>{note.value}</span>
+              <strong>{note.label}</strong>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <nav className="fabric-first-nav" aria-label="Nội dung hướng dẫn">
+        <a href="#chat-lieu">Chất liệu</a>
         <a href="#chon-size">Cách chốt size</a>
         <a href="#bang-size">Bảng size</a>
         <a href="#hoi-dap">Hỏi đáp</a>
       </nav>
 
-      <section className="info-section fabric-decision-section" id="chat-lieu">
-        <div className="fabric-decision-copy">
+      <section className="fabric-first-materials" id="chat-lieu">
+        <div className="fabric-first-copy">
           <span className="section-eyebrow">Chất liệu áo pickleball</span>
-          <h2>Chọn vải theo cách đội thật sự vận động</h2>
-          <p>Bề mặt vải quyết định cảm giác mặc, độ thoáng và độ rõ của màu in. Các mẫu dưới đây phù hợp áo pickleball đặt may cho CLB, đội phong trào và trường lớp.</p>
-          <div className="fabric-decision-notes">
-            {decisionNotes.map((note) => (
-              <div key={note.value}>
-                <strong>{note.value}</strong>
-                <span>{note.label}</span>
-              </div>
-            ))}
-          </div>
+          <h2>Nhìn vải trước, chọn size sau</h2>
+          <p>Bề mặt vải quyết định cảm giác mặc, độ thoáng và độ rõ của màu in. Phần size được đặt phía dưới để đội xem chất liệu trước khi gửi danh sách.</p>
         </div>
-        <div className="fabric-card-grid">
+        <div className="fabric-first-grid">
           {fabrics.map(({ bestFor, icon: Icon, image, tags, title, text }) => (
-            <article className="fabric-card" key={title}>
-              <a className="fabric-card-media" href={image} target="_blank" rel="noreferrer">
+            <article className="fabric-first-card" key={title}>
+              <a className="fabric-first-media" href={image} target="_blank" rel="noreferrer">
                 <img alt={`Chất liệu ${title} áo pickleball X24 Sports`} src={image} />
               </a>
-              <div className="fabric-card-body">
-                <Icon size={26} strokeWidth={1.6} />
-                <h3>{title}</h3>
+              <div className="fabric-first-body">
+                <div className="fabric-first-title">
+                  <Icon size={22} strokeWidth={1.7} />
+                  <h3>{title}</h3>
+                </div>
                 <p>{text}</p>
                 <strong>{bestFor}</strong>
-              </div>
-              <div className="fabric-tag-row">
-                {tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
+                <div className="fabric-first-tags">
+                  {tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
               </div>
             </article>
           ))}
@@ -270,6 +270,7 @@ export default function FabricSizePage() {
           Gửi danh sách size <ArrowRight size={18} />
         </a>
       </section>
-    </InfoPage>
+      <InfoFooter />
+    </main>
   )
 }
