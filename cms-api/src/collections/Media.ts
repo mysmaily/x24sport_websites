@@ -132,6 +132,7 @@ export const Media: CollectionConfig = {
       admin: {
         components: {
           Cell: '/components/media/MediaSearchTagsCell#MediaSearchTagsCell',
+          Field: '/components/media/MediaSearchTagsField#MediaSearchTagsField',
         },
         description: 'Internal search helpers for tone, gradient, pose, and sport.',
       },
