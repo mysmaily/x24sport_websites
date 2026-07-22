@@ -9,32 +9,34 @@
 | Field | Value |
 |---|---|
 | Domain | `mayaobongda.vn` |
-| Payload tenant slug | None — this website is not a Payload tenant |
-| Active platform | WordPress |
-| Migration status | Not migrated; no Next.js source in this website folder |
+| Payload tenant slug | `mayaobongda` |
+| Active platform | Next.js + Payload |
+| Migration status | Public apex is served by the Next.js frontend; legacy WordPress runtime remains on the application host |
 
-`mayaobongda.vn` remains an active WordPress website. Use this profile's
-WordPress server, containers, database, and proxy for requested maintenance.
-Do not send its content to `cms-api` or use `mayaobongda` as a tenant slug unless
-a future migration creates the Next.js source, deployed runtime, and tenant
-record.
+`mayaobongda.vn` public traffic is currently routed to the Next.js frontend on
+port `3012`, backed by the shared Payload CMS tenant slug `mayaobongda`.
+WordPress containers and files remain available on the application host for
+legacy access and source reference only; do not treat them as the public runtime
+unless the proxy is intentionally changed back.
 
 ## Runtime management
 
 | Field | Value |
 |---|---|
 | Application host | `root@10.10.0.58` |
-| Application root | `/root/websites/sites/mayaobongda.vn` |
-| Docker Compose | `/root/websites/docker-compose.yml` |
-| Runtime containers | `wp-nginx`, `wp-php` |
-| Published application port | `10.10.0.58:80` |
+| Application root | `/root/websites/next.mayaobongda.vn` |
+| Docker Compose | `/root/websites/next.mayaobongda.vn/compose.production.yml` |
+| Runtime container | `next-mayaobongda` |
+| Published application port | `10.10.0.58:3012` |
 | Proxy host | `root@10.10.0.56` (`103.147.35.95`) |
 | Proxy config | `/etc/nginx/conf.d/mayaobongda.vn.conf` |
-| Public upstream | `http://10.10.0.58:80` |
-| Request path | Proxy → `wp-nginx` → `wp-php` → WordPress database |
+| Public upstream | `http://10.10.0.58:3012` |
+| Request path | Proxy → `next-mayaobongda` → shared Payload CMS at `http://10.10.0.28:3001` |
 
-The generated registry block below describes this website's active WordPress
-infrastructure.
+Legacy WordPress source remains at `/root/websites/sites/mayaobongda.vn` with
+containers `wp-nginx` and `wp-php` on the shared WordPress host. The generated
+registry block below still describes that WordPress infrastructure and may lag
+the verified public cutover state above.
 
 <!-- WEBSITE_REGISTRY_START -->
 ## Central website registry

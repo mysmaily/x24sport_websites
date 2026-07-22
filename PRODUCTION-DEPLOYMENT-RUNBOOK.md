@@ -60,6 +60,7 @@ unrecognized runtime file.
 |---|---|---|---|---|
 | `x24sport.vn` | `root@10.10.0.58` | `/root/websites/x24sport.vn` | `next-x24sport` | `10.10.0.58:3010` |
 | `mayaochaybo.vn` | `root@10.10.0.58` | `/root/websites/next.mayaochaybo.vn` | `next-mayaochaybo` | `10.10.0.58:3011` |
+| `mayaobongda.vn` | `root@10.10.0.58` | `/root/websites/next.mayaobongda.vn` | `next-mayaobongda` | `10.10.0.58:3012` |
 | `mayaocaulong.vn` | `root@10.10.0.28` | `/opt/sports-cms/mayaocaulong.vn` | `sports-cms-mayaocaulong-1` | `10.10.0.28:3002` |
 | `mayaobongchuyen.vn` | `root@10.10.0.28` | `/opt/sports-cms/mayaobongchuyen.vn` | `sports-cms-mayaobongchuyen-1` | `10.10.0.28:3003` |
 | `mayaobongro.vn` | `root@10.10.0.28` | `/opt/sports-cms/mayaobongro.vn` | `sports-cms-mayaobongro-1` | `10.10.0.28:3005` |
@@ -103,6 +104,25 @@ ssh root@10.10.0.58 \
   'docker inspect -f "{{.State.Status}} {{.State.Health.Status}}" next-mayaochaybo && docker logs --tail 120 next-mayaochaybo'
 curl -fsSI http://10.10.0.58:3011/
 curl -fsSI https://mayaochaybo.vn/
+```
+
+### mayaobongda.vn
+
+Synchronize `mayaobongda.vn/` to
+`/root/websites/next.mayaobongda.vn/`, then run only:
+
+```bash
+ssh root@10.10.0.58 \
+  'cd /root/websites/next.mayaobongda.vn && docker compose -f compose.production.yml up -d --build web'
+```
+
+Verify:
+
+```bash
+ssh root@10.10.0.58 \
+  'docker inspect -f "{{.State.Status}} {{.State.Health.Status}}" next-mayaobongda && docker logs --tail 120 next-mayaobongda'
+curl -fsSI http://10.10.0.58:3012/
+curl -fsSI https://mayaobongda.vn/
 ```
 
 ## Standalone frontends on 10.10.0.28

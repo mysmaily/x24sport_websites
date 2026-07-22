@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound, permanentRedirect } from 'next/navigation'
 
 import { CatalogPageView } from '@/components/catalog-page-view'
+import { FabricGuidePage } from '@/components/fabric-guide-page'
 import { PostArchivePage } from '@/components/post-archive-page'
 import { ProductDetailPage } from '@/components/product-detail-page'
 import { getProducts, productImages, resolveCategoryPath, resolveContentPath, resolveProductPath } from '@/lib/cms'
@@ -23,6 +24,13 @@ function pathFrom(segments: string[]) {
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ segments: string[] }>; searchParams: Promise<SearchParams> }): Promise<Metadata> {
   const [{ segments }, query] = await Promise.all([params, searchParams])
   const path = pathFrom(segments)
+  if (path === '/chat-lieu-vai/') {
+    return {
+      title: 'Chất liệu vải may áo bóng đá',
+      description: 'So sánh 5 chất liệu vải may áo bóng đá tại X24 Sport: Thun lạnh, Mè sọc mịn, Mè luxury, Mè Thái và Mè nano.',
+      alternates: { canonical: path },
+    }
+  }
   const postCategory = getPostCategoryArchive(path)
   if (postCategory) {
     const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
@@ -100,6 +108,8 @@ export default async function LegacyRoutePage({ params, searchParams }: { params
 
   const content = await resolveContentPath(path)
   if (!content) notFound()
+
+  if (path === '/chat-lieu-vai/') return <FabricGuidePage />
 
   return <article className="section-shell py-10 sm:py-16 lg:py-20"><Link className="inline-flex min-h-11 items-center gap-2 text-sm font-black hover:text-brand" href="/"><ArrowLeft size={18} /> Trang chủ</Link><header className="my-10 max-w-5xl sm:my-16"><p className="section-kicker">{content.kind === 'post' ? 'Góc tư vấn' : 'May Áo Bóng Đá'}</p><h1 className="section-title">{content.title}</h1>{content.excerpt ? <p className="section-lead">{excerpt(content.excerpt, 300)}</p> : null}</header>{content.contentHtml ? <div className="prose lg:ml-[min(16vw,220px)]" dangerouslySetInnerHTML={{ __html: rewriteLegacyHtml(content.contentHtml) }} /> : <div className="rounded-2xl border border-dashed p-10 text-center">Nội dung đang được cập nhật.</div>}</article>
 }
