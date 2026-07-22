@@ -56,14 +56,13 @@ control where the documents differ.
 
 - Confirm source domain, source environment, target tenant, target host, public
   proxy/CDN, order/lead integrations, and allowed maintenance window.
-- Do not create copies, dumps, exports, archives, snapshots, or any other backup
-  of WordPress, Payload, databases, or web/proxy configuration before mutation.
+- Do not create rollback copies, dumps, exports, archives, snapshots, cloned
+  containers, copied images, or renamed resources during migration work.
 - Record source versions, counts, headers, robots, sitemap, canonical behavior,
   redirects, cache behavior, and representative desktop/mobile screenshots.
 - Define a content-freeze or delta-sync policy before the first import.
 
-Gate: sources are identified, no deployment backup was created, and no
-credential appears in an artifact.
+Gate: sources are identified and no credential appears in an artifact.
 
 ### 1. Build the source-of-truth manifests
 
@@ -94,8 +93,8 @@ Gate: schema migrations are reversible; tenant collision and isolation tests pas
 ### 3. Implement the extractor and importer
 
 - Extract source data into migration manifests, then transform it into versioned
-  normalized records. Retain source IDs and checksums; do not create a separate
-  source backup or snapshot.
+  normalized records. Retain source IDs and checksums; do not create separate
+  rollback dumps or snapshots.
 - Use upserts keyed by `(tenant, sourceSystem, sourceId)`, not display names or a
   globally searched SKU.
 - Convert WordPress HTML losslessly enough for headings, links, lists, tables,
@@ -138,7 +137,8 @@ Gate: all go/no-go criteria in the site plan pass with recorded evidence.
 
 ### 6. Cut over and roll back safely
 
-- Freeze writes or run the approved final delta without creating backups.
+- Freeze writes or run the approved final delta without creating rollback copies,
+  dumps, exports, archives, or snapshots.
 - Change only the narrowest routing layer required. For a same-domain move,
   preserve host, scheme, paths, and canonical host.
 - Purge only documented cache zones and verify public plus origin responses.
@@ -157,11 +157,10 @@ critical business flows pass from the public edge.
 - Reconcile a post-launch delta and investigate every high-value URL regression.
 - Retire WordPress only after the agreed retention window, stable traffic, and
   explicit approval. Retain the migration URL and media manifests as operational
-  records, not as deployment backups.
+  records.
 
 ## Required handoff
 
-Report source and target, phase reached, confirmation that no backup was created,
-schema changes, import run IDs,
+Report source and target, phase reached, schema changes, import run IDs,
 record counts, URL-contract results, build/browser results, cache/services touched,
 cutover or rollback action, remaining exceptions, and secret-free evidence.

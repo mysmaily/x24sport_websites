@@ -13,7 +13,7 @@ exceptions.
 | Payload REST routes and JSON shapes | Dedicated service user and API key |
 | Header format `users API-Key <key>` | Service user's single tenant assignment |
 | Collections such as `products`, `product-categories`, `media`, `posts`, `pages` | Category, product, media, and relationship IDs |
-| No-backup policy, dry-run, idempotency, and verification rules | R2/media prefix and public frontend URL |
+| Mutation safety, dry-run, idempotency, and verification rules | R2/media prefix and public frontend URL |
 
 Do not reuse one tenant's API key, numeric IDs, category relationships, media
 records, slugs, or content assumptions for another tenant. The tenant slug is
@@ -172,8 +172,8 @@ reuse its R2 URL instead of uploading a second binary.
 ## Idempotency and safe mutation
 
 - Run a dry-run before every programmatic content mutation.
-- Do not create record exports, database dumps, snapshots, or any other backup
-  before `--apply`; follow the repository-wide no-backup deployment policy.
+- Do not create rollback copies, record exports, database dumps, archives, or
+  snapshots before `--apply`; follow the repository-wide mutation safety rule.
 - Prefer a stable tenant-scoped identity: SKU, tenant slug key, legacy path,
   `sourceSystem + sourceId`, or checksum as appropriate.
 - Query first, then create or update; a retry must not create duplicates.
@@ -201,8 +201,7 @@ After mutation, verify all applicable items:
 7. A sibling-tenant query with the service key returns no sibling records.
 8. Temporary verification records are deleted and logs contain no new errors.
 
-Report created/updated record IDs, confirmation that no backup was created,
-verification evidence, cache or
+Report created/updated record IDs, verification evidence, cache or
 services touched, and remaining factual gaps. Never report the key itself.
 
 ## Rotation and revocation
