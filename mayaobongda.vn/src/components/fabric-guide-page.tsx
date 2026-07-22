@@ -69,25 +69,25 @@ export function FabricGuidePage() {
     <article className="bg-[#f5f3ee] text-[#10131a]">
       <section className="relative isolate overflow-hidden border-b border-black/10 bg-[#111827] text-white">
         <div className="absolute inset-0 -z-10 opacity-40 [background-image:linear-gradient(120deg,rgba(241,90,36,.55),transparent_36%),radial-gradient(circle_at_82%_12%,rgba(255,255,255,.2),transparent_24%),linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:auto,auto,34px_34px,34px_34px]" />
-        <div className="section-shell grid gap-10 py-8 sm:py-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,.75fr)] lg:items-end lg:py-16">
+        <div className="section-shell grid gap-8 py-6 sm:py-8 lg:grid-cols-[minmax(0,.98fr)_minmax(340px,.68fr)] lg:items-center lg:py-11">
           <div>
-            <Link className="inline-flex min-h-11 items-center gap-2 text-sm font-black text-white/80 transition hover:text-white" href="/">
+            <Link className="inline-flex min-h-10 items-center gap-2 text-sm font-black text-white/80 transition hover:text-white" href="/">
               <ArrowLeft size={18} /> Trang chủ
             </Link>
-            <p className="mt-10 text-xs font-black uppercase tracking-[.2em] text-brand">Chất liệu vải X24 Sport</p>
-            <h1 className="mt-3 max-w-4xl font-display text-[clamp(3rem,8vw,7.5rem)] font-extrabold uppercase leading-[.82] tracking-normal">
+            <p className="mt-7 text-xs font-black uppercase tracking-[.2em] text-brand">Chất liệu vải X24 Sport</p>
+            <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.55rem,6.25vw,5.9rem)] font-extrabold uppercase leading-[.9] tracking-normal">
               Chọn vải trước khi chọn mẫu áo
             </h1>
-            <p className="mt-6 max-w-2xl text-base font-medium leading-8 text-slate-200 sm:text-lg">
+            <p className="mt-5 max-w-xl text-base font-medium leading-7 text-slate-200 sm:text-[17px]">
               5 chất liệu thường dùng cho áo bóng đá, được đặt cạnh nhau để đội dễ so sánh cảm giác mặc, độ thoáng và tình huống sử dụng.
             </p>
           </div>
-          <div className="rounded-lg border border-white/15 bg-white/[.06] p-4 shadow-2xl backdrop-blur">
+          <div className="rounded-lg border border-white/15 bg-white/[.06] p-3 shadow-2xl backdrop-blur">
             <div className="grid grid-cols-2 gap-2">
               {quickPicks.map(([label, value]) => (
                 <div className="rounded-md border border-white/10 bg-black/20 p-3" key={label}>
                   <p className="text-[11px] font-black uppercase tracking-[.14em] text-white/45">{label}</p>
-                  <p className="mt-1 font-display text-2xl font-bold text-white">{value}</p>
+                  <p className="mt-1 font-display text-xl font-bold text-white">{value}</p>
                 </div>
               ))}
             </div>
