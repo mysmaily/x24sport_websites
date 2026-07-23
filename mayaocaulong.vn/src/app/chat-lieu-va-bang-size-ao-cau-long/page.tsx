@@ -3,12 +3,13 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight, BadgeCheck, Ruler, Shirt, Sparkles, Wind } from 'lucide-react'
 import { FabricLightbox } from '../_components/fabric-lightbox'
 import { InfoFooter, SiteHeader, zaloHref } from '../_components/info-pages'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Chất liệu & bảng size áo cầu lông | MayaoCauLong',
   description: 'Tư vấn chất liệu, form áo và cách chọn size khi đặt may áo cầu lông cho đội nhóm, CLB, trường lớp.',
-  alternates: { canonical: 'https://mayaocaulong.vn/chat-lieu-va-bang-size-ao-cau-long' },
-}
+  path: '/chat-lieu-va-bang-size-ao-cau-long',
+})
 
 const fabrics = [
   {

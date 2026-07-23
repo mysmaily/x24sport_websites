@@ -35,7 +35,16 @@ export async function generateMetadata({ params }: { params: Promise<{ segments:
     twitter: { card: 'summary_large_image', title: product.name, description: excerpt(product.shortDescription, 160), images: [product.legacyImages?.[0]?.url || DEFAULT_OG_IMAGE.url] },
   }
   const content = await resolveContentPath(path)
-  if (content) return { title: content.title, description: excerpt(content.excerpt, 160), alternates: { canonical: path } }
+  if (content) {
+    const description = excerpt(content.excerpt, 160)
+    return {
+      title: content.title,
+      description,
+      alternates: { canonical: path },
+      openGraph: { title: content.title, description, images: [DEFAULT_OG_IMAGE], url: path },
+      twitter: { card: 'summary_large_image', title: content.title, description, images: [DEFAULT_OG_IMAGE.url] },
+    }
+  }
   return { title: 'Không tìm thấy nội dung', robots: { index: false, follow: false } }
 }
 

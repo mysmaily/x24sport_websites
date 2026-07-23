@@ -2,12 +2,13 @@ import { Check, CircleDollarSign } from 'lucide-react'
 import type { Metadata } from 'next'
 
 import { ContactPanel, FabricGrid, PrimaryZaloButton, SecondaryLinkButton, SectionHeading, ServicePageHero, TableScroll } from '@/components/service-page'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Bảng Giá May Áo Bóng Rổ',
   description: 'Bảng giá tham khảo đồng phục bóng rổ áo và quần theo chất liệu, số lượng; kèm chi phí in logo, hướng dẫn chọn vải và quy trình nhận báo giá.',
-  alternates: { canonical: '/bang-gia-may-ao-bong-ro/' },
-}
+  path: '/bang-gia-may-ao-bong-ro/',
+})
 
 const priceRows = [
   ['5 – 9 bộ', '179.000đ', '200.000đ', '235.000đ', '300.000đ'],

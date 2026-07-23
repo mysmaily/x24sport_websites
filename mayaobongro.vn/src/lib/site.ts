@@ -17,3 +17,24 @@ export function excerpt(value?: string | null, limit = 150) {
   const clean = (value || '').replace(/\s+/g, ' ').trim()
   return clean.length > limit ? `${clean.slice(0, limit).trimEnd()}…` : clean
 }
+
+export function pageMetadata({ description, path, title }: { description: string; path: string; title: string }) {
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      title,
+      description,
+      images: [DEFAULT_OG_IMAGE],
+      type: 'website' as const,
+      url: canonical(path),
+    },
+    twitter: {
+      card: 'summary_large_image' as const,
+      title,
+      description,
+      images: [DEFAULT_OG_IMAGE.url],
+    },
+  }
+}

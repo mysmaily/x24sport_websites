@@ -2,11 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Images, Palette } from 'lucide-react'
 import { InfoPage, zaloHref } from '../_components/info-pages'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Mẫu áo cầu lông đã làm | MayaoCauLong',
   description: 'Tham khảo mẫu áo cầu lông đã làm cho trường học, câu lạc bộ, đội phong trào và doanh nghiệp.',
-}
+  path: '/mau-ao-cau-long-da-lam',
+})
 
 const projects = [
   {

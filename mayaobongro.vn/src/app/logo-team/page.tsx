@@ -4,14 +4,15 @@ import Link from 'next/link'
 
 import { ProductGrid } from '@/components/product-grid'
 import { getProducts } from '@/lib/cms'
+import { pageMetadata } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Logo Team Bóng Rổ',
   description: 'Tham khảo các mẫu logo team bóng rổ để phát triển nhận diện riêng cho đội và câu lạc bộ.',
-  alternates: { canonical: '/logo-team/' },
-}
+  path: '/logo-team/',
+})
 
 export default async function LogoTeamPage({ searchParams }: { searchParams: Promise<{ page?: string; q?: string }> }) {
   const params = await searchParams

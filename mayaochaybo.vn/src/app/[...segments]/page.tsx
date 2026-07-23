@@ -22,9 +22,9 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   const [{ segments }, query] = await Promise.all([params, searchParams])
   const path = pathFrom(segments)
   const postCategory = postCategoryFromPath(path)
-  if (postCategory) { const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1); return { title: `${postCategory.title}${page > 1 ? ` – Trang ${page}` : ''}`, description: postCategory.description, alternates: { canonical: page > 1 ? `${path}?page=${page}` : path } } }
+  if (postCategory) { const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1); const title = `${postCategory.title}${page > 1 ? ` – Trang ${page}` : ''}`; const canonical = page > 1 ? `${path}?page=${page}` : path; return { title, description: postCategory.description, alternates: { canonical }, openGraph: { title, description: postCategory.description, images: [DEFAULT_OG_IMAGE], url: canonical }, twitter: { card: 'summary_large_image', title, description: postCategory.description, images: [DEFAULT_OG_IMAGE.url] } } }
   const [product, category, content] = await Promise.all([resolveProductPath(path), resolveCategoryPath(path), resolveContentPath(path)])
-  if (product) { const image = productImages(product)[0]; return { title: product.seoTitle || product.name, description: product.metaDescription || excerpt(product.shortDescription || product.name, 160), alternates: { canonical: path }, openGraph: { images: image?.url ? [image.url] : [DEFAULT_OG_IMAGE] }, twitter: { card: 'summary_large_image', images: [image?.url || DEFAULT_OG_IMAGE.url] } } }
+  if (product) { const image = productImages(product)[0]; const title = product.seoTitle || product.name; const description = product.metaDescription || excerpt(product.shortDescription || product.name, 160); return { title, description, alternates: { canonical: path }, openGraph: { title, description, images: image?.url ? [image.url] : [DEFAULT_OG_IMAGE], url: path }, twitter: { card: 'summary_large_image', title, description, images: [image?.url || DEFAULT_OG_IMAGE.url] } } }
   if (category) {
     const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
     const search = String(Array.isArray(query.q) ? query.q[0] : query.q || '').trim()
@@ -42,7 +42,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
       twitter: { card: 'summary_large_image', title: landing?.title || category.name, description, images: [image?.url || DEFAULT_OG_IMAGE.url] },
     }
   }
-  if (content) return { title: content.title, description: excerpt(content.excerpt, 160), alternates: { canonical: path }, robots: isIndexableContent(content.kind, path) ? undefined : { index: false, follow: true } }
+  if (content) { const description = excerpt(content.excerpt, 160); return { title: content.title, description, alternates: { canonical: path }, openGraph: { title: content.title, description, images: [DEFAULT_OG_IMAGE], url: path }, twitter: { card: 'summary_large_image', title: content.title, description, images: [DEFAULT_OG_IMAGE.url] }, robots: isIndexableContent(content.kind, path) ? undefined : { index: false, follow: true } } }
   return { title: 'Không tìm thấy nội dung', robots: { index: false, follow: false } }
 }
 

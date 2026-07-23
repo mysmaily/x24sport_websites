@@ -2,12 +2,13 @@ import { Check, Layers3, Ruler, Shirt } from 'lucide-react'
 import type { Metadata } from 'next'
 
 import { ContactPanel, FabricGrid, PrimaryZaloButton, SecondaryLinkButton, SectionHeading, ServicePageHero, TableScroll } from '@/components/service-page'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Chất Liệu & Bảng Size Áo Bóng Rổ',
   description: 'So sánh bốn chất liệu may áo bóng rổ và tra bảng size người lớn, trẻ em theo cân nặng, chiều cao để chọn đồng phục phù hợp cho cả đội.',
-  alternates: { canonical: '/chat-lieu-va-bang-size-ao-bong-ro/' },
-}
+  path: '/chat-lieu-va-bang-size-ao-bong-ro/',
+})
 
 const adultSizes = [
   ['Cân nặng (kg)', '40 – 53', '53 – 60', '60 – 68', '68 – 74', '74 – 80', '80 – 86', '86 – 120'],

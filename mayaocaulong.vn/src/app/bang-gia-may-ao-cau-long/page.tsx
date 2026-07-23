@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import { ArrowRight, BadgeCheck, Calculator, Palette, Shirt, Timer } from 'lucide-react'
 import { InfoPage, zaloHref } from '../_components/info-pages'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Bảng giá may áo cầu lông | MayaoCauLong',
   description: 'Bảng giá tham khảo khi đặt may áo cầu lông theo số lượng, chất liệu, thiết kế, tên số và logo CLB.',
-}
+  path: '/bang-gia-may-ao-cau-long',
+})
 
 const priceRows = [
   { qty: '5-10 áo', price: 'từ 155.000đ/áo', note: 'Nhóm nhỏ, đội giao lưu, đơn cần linh hoạt.' },

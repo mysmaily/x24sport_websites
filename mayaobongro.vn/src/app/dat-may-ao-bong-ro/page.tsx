@@ -15,13 +15,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { ContactPanel, PrimaryZaloButton, SecondaryLinkButton, ServicePageHero } from '@/components/service-page'
-import { PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '@/lib/site'
+import { pageMetadata, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Đặt May Áo Bóng Rổ',
   description: 'Quy trình đặt may áo bóng rổ theo yêu cầu: gửi thông tin đội, chọn mẫu và chất liệu, duyệt thiết kế, chốt size, sản xuất và giao hàng.',
-  alternates: { canonical: '/dat-may-ao-bong-ro/' },
-}
+  path: '/dat-may-ao-bong-ro/',
+})
 
 const orderSteps = [
   {

@@ -3,15 +3,15 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { getFinishedSamplePosts } from '@/lib/cms'
-import { excerpt, ZALO_URL } from '@/lib/site'
+import { excerpt, pageMetadata, ZALO_URL } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Mẫu Đã Làm',
   description: 'Xem các mẫu áo bóng rổ thực tế đã may cho trường học, câu lạc bộ và đội nhóm.',
-  alternates: { canonical: '/mau-da-lam/' },
-}
+  path: '/mau-da-lam/',
+})
 
 function firstImage(html?: string | null) {
   if (!html) return null

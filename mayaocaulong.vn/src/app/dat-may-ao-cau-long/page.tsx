@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import { ArrowRight, BadgeCheck, ClipboardList, PackageCheck, Palette, Ruler, Send } from 'lucide-react'
 import { InfoPage, zaloHref } from '../_components/info-pages'
+import { pageMetadata } from '../../lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Đặt may áo cầu lông theo yêu cầu | MayaoCauLong',
   description: 'Nhận đặt may áo cầu lông theo mẫu, in tên số, logo CLB và hỗ trợ thiết kế miễn phí theo yêu cầu.',
-}
+  path: '/dat-may-ao-cau-long',
+})
 
 const orderSteps = [
   { icon: Send, title: 'Gửi yêu cầu', text: 'Bạn gửi mẫu thích, màu đội, logo, số lượng và thời gian cần nhận hàng.' },
