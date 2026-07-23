@@ -7,6 +7,12 @@ export const siteName = 'MayaoPickleball'
 export const businessName = 'MayaoPickleball.vn'
 export const businessPhone = '0989353247'
 export const businessEmail = 'lienhe@mayaopickleball.vn'
+export const defaultOgImage = {
+  url: '/images/pickleball-team-hero.webp',
+  width: 1672,
+  height: 941,
+  alt: 'Đội pickleball mặc đồng phục đặt may MayaoPickleball',
+}
 
 export const staticPages = [
   {
@@ -58,6 +64,7 @@ export function pageMetadata({
     openGraph: {
       title,
       description,
+      images: [defaultOgImage],
       siteName,
       type: 'website',
       url,
@@ -66,6 +73,7 @@ export function pageMetadata({
       card: 'summary_large_image',
       title,
       description,
+      images: [defaultOgImage.url],
     },
   }
 }

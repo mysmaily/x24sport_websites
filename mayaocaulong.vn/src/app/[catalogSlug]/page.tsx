@@ -7,6 +7,13 @@ import {
   getProductsByCatalogFilter,
 } from '../../lib/content'
 
+const defaultOgImage = {
+  url: '/images/badminton-team-hero.png',
+  width: 1672,
+  height: 941,
+  alt: 'Đội cầu lông mặc áo thi đấu đặt may MayaoCauLong',
+}
+
 type Props = {
   params: Promise<{ catalogSlug: string }>
 }
@@ -29,7 +36,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: filter.title,
       description: filter.description,
+      images: [defaultOgImage],
       url: filter.href,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: filter.title,
+      description: filter.description,
+      images: [defaultOgImage.url],
     },
   }
 }

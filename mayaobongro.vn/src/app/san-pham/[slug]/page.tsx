@@ -5,7 +5,7 @@ import { CatalogPageView } from '@/components/catalog-page-view'
 import { ProductDetailPage } from '@/components/product-detail-page'
 import { getCatalogLandingBySlug } from '@/lib/catalog-colors'
 import { getProductCategory, getProducts, resolveProductSlug } from '@/lib/cms'
-import { excerpt } from '@/lib/site'
+import { DEFAULT_OG_IMAGE, excerpt } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
 
@@ -30,7 +30,8 @@ export async function generateMetadata({ params, searchParams }: ProductRoutePro
       title,
       description,
       alternates: { canonical },
-      openGraph: { title, description, url: canonical },
+      openGraph: { title, description, images: [DEFAULT_OG_IMAGE], url: canonical },
+      twitter: { card: 'summary_large_image', title, description, images: [DEFAULT_OG_IMAGE.url] },
     }
   }
   const product = await resolveProductSlug(slug)
@@ -40,7 +41,8 @@ export async function generateMetadata({ params, searchParams }: ProductRoutePro
     title: product.name,
     description: excerpt(product.shortDescription || product.name, 160),
     alternates: { canonical: path },
-    openGraph: { title: product.name, description: excerpt(product.shortDescription, 160), url: path, images: product.legacyImages?.[0]?.url ? [product.legacyImages[0].url] : [] },
+    openGraph: { title: product.name, description: excerpt(product.shortDescription, 160), url: path, images: product.legacyImages?.[0]?.url ? [product.legacyImages[0].url] : [DEFAULT_OG_IMAGE] },
+    twitter: { card: 'summary_large_image', title: product.name, description: excerpt(product.shortDescription, 160), images: [product.legacyImages?.[0]?.url || DEFAULT_OG_IMAGE.url] },
   }
 }
 

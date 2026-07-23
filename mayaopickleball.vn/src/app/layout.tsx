@@ -3,7 +3,7 @@ import { Barlow_Condensed, Be_Vietnam_Pro } from 'next/font/google'
 import Script from 'next/script'
 
 import { getAnalyticsSettings } from '../lib/content'
-import { siteName, siteUrl } from '../lib/seo'
+import { defaultOgImage, siteName, siteUrl } from '../lib/seo'
 import './styles.css'
 
 const bodyFont = Be_Vietnam_Pro({
@@ -28,9 +28,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'MayaoPickleball.vn - Áo pickleball đặt may cho CLB',
     description: 'Đồng phục pickleball đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.',
+    images: [defaultOgImage],
     siteName,
     type: 'website',
     url: siteUrl,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MayaoPickleball.vn - Áo pickleball đặt may cho CLB',
+    description: 'Đồng phục pickleball đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.',
+    images: [defaultOgImage.url],
   },
 }
 

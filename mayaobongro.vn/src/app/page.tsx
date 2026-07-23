@@ -18,7 +18,7 @@ import { LegacyHomeBanner } from '@/components/legacy-home-banner'
 import { ProductGrid } from '@/components/product-grid'
 import { BASKETBALL_AUDIENCES } from '@/lib/basketball-audiences'
 import { getLatestPosts, getProducts } from '@/lib/cms'
-import { excerpt, SITE_URL, ZALO_URL } from '@/lib/site'
+import { DEFAULT_OG_IMAGE, excerpt, SITE_URL, ZALO_URL } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
 
@@ -26,6 +26,18 @@ export const metadata: Metadata = {
   title: 'May Áo Bóng Rổ Thiết Kế Riêng',
   description: 'Khám phá mẫu đồng phục bóng rổ và gửi yêu cầu thiết kế riêng cho đội, câu lạc bộ hoặc trường học.',
   alternates: { canonical: '/' },
+  openGraph: {
+    title: 'May Áo Bóng Rổ Thiết Kế Riêng',
+    description: 'Khám phá mẫu đồng phục bóng rổ và gửi yêu cầu thiết kế riêng cho đội, câu lạc bộ hoặc trường học.',
+    images: [DEFAULT_OG_IMAGE],
+    url: '/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'May Áo Bóng Rổ Thiết Kế Riêng',
+    description: 'Khám phá mẫu đồng phục bóng rổ và gửi yêu cầu thiết kế riêng cho đội, câu lạc bộ hoặc trường học.',
+    images: [DEFAULT_OG_IMAGE.url],
+  },
 }
 
 const trustItems = [

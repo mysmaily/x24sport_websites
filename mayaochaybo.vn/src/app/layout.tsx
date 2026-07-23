@@ -5,7 +5,7 @@ import Script from 'next/script'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { getAnalyticsSettings } from '@/lib/cms'
-import { SITE_URL } from '@/lib/site'
+import { DEFAULT_OG_IMAGE, SITE_URL } from '@/lib/site'
 
 import './globals.css'
 
@@ -19,7 +19,8 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   icons: { icon: '/site-mark.svg' },
   verification: { google: 'fnhKiL9Rctw1zJnJ1zCk8LW29qner565-foaFXo2Vug' },
-  openGraph: { locale: 'vi_VN', siteName: 'May Áo Chạy Bộ', type: 'website' },
+  openGraph: { images: [DEFAULT_OG_IMAGE], locale: 'vi_VN', siteName: 'May Áo Chạy Bộ', type: 'website' },
+  twitter: { card: 'summary_large_image', images: [DEFAULT_OG_IMAGE.url] },
 }
 
 function getMetaPixelId(analytics: Awaited<ReturnType<typeof getAnalyticsSettings>>) {

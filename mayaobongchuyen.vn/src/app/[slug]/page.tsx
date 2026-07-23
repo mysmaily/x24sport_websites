@@ -8,6 +8,13 @@ type RouteProps = {
 
 type PageData = Awaited<ReturnType<typeof getPageData>>
 
+const defaultOgImage = {
+  url: '/images/volleyball-team-hero.png',
+  width: 1672,
+  height: 941,
+  alt: 'Đội bóng chuyền mặc đồng phục đặt may MayaoBongChuyen',
+}
+
 const buildMenu = ({ settings, categories }: PageData) => {
   const typeCategories = categories.filter((category) => category.group === 'type')
   const colorCategories = categories.filter((category) => category.group === 'color')
@@ -40,6 +47,20 @@ export async function generateMetadata({ params }: RouteProps) {
   return {
     title: `${page.title} | ${tenant.name}`,
     description: page.heroText,
+    alternates: { canonical: `/${slug}` },
+    openGraph: {
+      title: `${page.title} | ${tenant.name}`,
+      description: page.heroText,
+      images: [defaultOgImage],
+      type: 'website',
+      url: `/${slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${page.title} | ${tenant.name}`,
+      description: page.heroText,
+      images: [defaultOgImage.url],
+    },
   }
 }
 

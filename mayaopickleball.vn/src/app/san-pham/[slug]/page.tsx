@@ -16,7 +16,7 @@ import {
   getProductDescriptionParagraphs,
   getValidCompareAtPrice,
 } from '../../../lib/content'
-import { absoluteUrl, breadcrumbJsonLd, productJsonLd } from '../../../lib/seo'
+import { absoluteUrl, breadcrumbJsonLd, defaultOgImage, productJsonLd } from '../../../lib/seo'
 import { ProductGallery } from './product-gallery'
 import { QuickOrderForm } from './quick-order-form'
 
@@ -66,7 +66,13 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       description: product.shortDescription,
       type: 'website',
       url: absoluteUrl(`/san-pham/${product.slug}`),
-      images: product.gallery?.[0]?.url ? [{ url: product.gallery[0].url }] : undefined,
+      images: product.gallery?.[0]?.url ? [{ url: product.gallery[0].url }] : [defaultOgImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.name} | MayaoPickleball`,
+      description: product.shortDescription,
+      images: [product.gallery?.[0]?.url || defaultOgImage.url],
     },
   }
 }

@@ -4,9 +4,33 @@ import Script from 'next/script'
 import { getAnalyticsSettings } from '../lib/content'
 import './styles.css'
 
+const siteUrl = 'https://mayaobongchuyen.vn'
+const defaultOgImage = {
+  url: '/images/volleyball-team-hero.png',
+  width: 1672,
+  height: 941,
+  alt: 'Đội bóng chuyền mặc đồng phục đặt may MayaoBongChuyen',
+}
+
 export const metadata: Metadata = {
-  title: 'May Ao Bong Chuyen',
-  description: 'Dong phuc bong chuyen dat may cho cau lac bo va doi thi dau.',
+  metadataBase: new URL(siteUrl),
+  title: 'May Áo Bóng Chuyền Đặt May | MayaoBongChuyen',
+  description: 'Đồng phục bóng chuyền đặt may, thiết kế theo màu đội, in tên số và logo cho câu lạc bộ, trường lớp, đội thi đấu.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'May Áo Bóng Chuyền Đặt May | MayaoBongChuyen',
+    description: 'Đồng phục bóng chuyền đặt may, thiết kế theo màu đội, in tên số và logo cho câu lạc bộ, trường lớp, đội thi đấu.',
+    images: [defaultOgImage],
+    siteName: 'MayaoBongChuyen',
+    type: 'website',
+    url: siteUrl,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'May Áo Bóng Chuyền Đặt May | MayaoBongChuyen',
+    description: 'Đồng phục bóng chuyền đặt may, thiết kế theo màu đội, in tên số và logo cho câu lạc bộ, trường lớp, đội thi đấu.',
+    images: [defaultOgImage.url],
+  },
 }
 
 function getMetaPixelId(analytics: Awaited<ReturnType<typeof getAnalyticsSettings>>) {

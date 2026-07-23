@@ -13,6 +13,13 @@ import {
   type Product,
 } from '../../lib/content'
 
+const defaultOgImage = {
+  url: '/images/badminton-team-hero.png',
+  width: 1672,
+  height: 941,
+  alt: 'Đội cầu lông mặc áo thi đấu đặt may MayaoCauLong',
+}
+
 type ProductsPageProps = {
   searchParams: Promise<{ page?: string | string[] }>
 }
@@ -55,7 +62,14 @@ export async function generateMetadata({ searchParams }: ProductsPageProps): Pro
     openGraph: {
       title: `Sản phẩm áo cầu lông${pageSuffix} | MayaoCauLong`,
       description: 'Chọn mẫu áo cầu lông đặt may, in tên số và logo theo màu đội.',
+      images: [defaultOgImage],
       url: canonical,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `Sản phẩm áo cầu lông${pageSuffix} | MayaoCauLong`,
+      description: 'Chọn mẫu áo cầu lông đặt may, in tên số và logo theo màu đội.',
+      images: [defaultOgImage.url],
     },
   }
 }

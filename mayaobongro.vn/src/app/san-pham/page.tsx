@@ -3,6 +3,7 @@ import { permanentRedirect } from 'next/navigation'
 
 import { CatalogPageView } from '@/components/catalog-page-view'
 import { getCatalogLandingByQuery } from '@/lib/catalog-colors'
+import { DEFAULT_OG_IMAGE } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
 
@@ -17,11 +18,15 @@ export async function generateMetadata({ searchParams }: { searchParams: Catalog
   const page = pageNumber(params.page)
   const search = params.q?.trim() || ''
   const canonical = page > 1 && !search ? `/san-pham/?page=${page}` : '/san-pham/'
+  const title = search ? `Tìm mẫu áo bóng rổ: ${search}` : `Mẫu Áo Bóng Rổ${page > 1 ? ` – Trang ${page}` : ''}`
+  const description = search ? `Kết quả tìm mẫu áo bóng rổ theo từ khóa “${search}”.` : 'Khám phá bộ sưu tập mẫu đồng phục bóng rổ thiết kế theo yêu cầu.'
   return {
-    title: search ? `Tìm mẫu áo bóng rổ: ${search}` : `Mẫu Áo Bóng Rổ${page > 1 ? ` – Trang ${page}` : ''}`,
-    description: search ? `Kết quả tìm mẫu áo bóng rổ theo từ khóa “${search}”.` : 'Khám phá bộ sưu tập mẫu đồng phục bóng rổ thiết kế theo yêu cầu.',
+    title,
+    description,
     alternates: { canonical },
+    openGraph: { title, description, images: [DEFAULT_OG_IMAGE], url: canonical },
     robots: search ? { index: false, follow: true } : undefined,
+    twitter: { card: 'summary_large_image', title, description, images: [DEFAULT_OG_IMAGE.url] },
   }
 }
 

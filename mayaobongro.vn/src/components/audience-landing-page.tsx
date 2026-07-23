@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import { ContactPanel } from '@/components/service-page'
 import type { BasketballAudience } from '@/lib/basketball-audiences'
-import { ZALO_URL, canonical } from '@/lib/site'
+import { DEFAULT_OG_IMAGE, ZALO_URL, canonical } from '@/lib/site'
 
 const benefitIcons = [Palette, Shirt, Ruler] as const
 
@@ -17,8 +17,9 @@ export function audienceMetadata(audience: BasketballAudience): Metadata {
       title: audience.metaTitle,
       description: audience.metaDescription,
       url: canonical(audience.path),
-      images: [{ url: '/images/basketball-audience-hero-bright-20260722.webp', width: 1920, height: 1080, alt: audience.title }],
+      images: [{ ...DEFAULT_OG_IMAGE, alt: audience.title }],
     },
+    twitter: { card: 'summary_large_image', title: audience.metaTitle, description: audience.metaDescription, images: [DEFAULT_OG_IMAGE.url] },
   }
 }
 

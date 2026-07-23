@@ -13,6 +13,13 @@ import {
 } from '../../../lib/content'
 import { ProductGallery } from './product-gallery'
 
+const defaultOgImage = {
+  url: '/images/badminton-team-hero.png',
+  width: 1672,
+  height: 941,
+  alt: 'Đội cầu lông mặc áo thi đấu đặt may MayaoCauLong',
+}
+
 type ProductPageProps = {
   params: Promise<{ slug: string }>
 }
@@ -45,6 +52,20 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   return {
     title: `${product.name} | MayaoCauLong`,
     description: product.shortDescription,
+    alternates: { canonical: `/san-pham/${product.slug}` },
+    openGraph: {
+      title: `${product.name} | MayaoCauLong`,
+      description: product.shortDescription,
+      images: product.gallery?.[0]?.url ? [{ url: product.gallery[0].url }] : [defaultOgImage],
+      type: 'website',
+      url: `/san-pham/${product.slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.name} | MayaoCauLong`,
+      description: product.shortDescription,
+      images: [product.gallery?.[0]?.url || defaultOgImage.url],
+    },
   }
 }
 

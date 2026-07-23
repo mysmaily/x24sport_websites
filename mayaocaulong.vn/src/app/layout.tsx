@@ -5,6 +5,14 @@ import Script from 'next/script'
 import { getAnalyticsSettings } from '../lib/content'
 import './styles.css'
 
+const siteUrl = 'https://mayaocaulong.vn'
+const defaultOgImage = {
+  url: '/images/badminton-team-hero.png',
+  width: 1672,
+  height: 941,
+  alt: 'Đội cầu lông mặc áo thi đấu đặt may MayaoCauLong',
+}
+
 const bodyFont = Be_Vietnam_Pro({
   subsets: ['vietnamese'],
   weight: ['400', '500', '600', '700', '800', '900'],
@@ -20,8 +28,24 @@ const displayFont = Barlow_Condensed({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'MayaoCauLong.vn - Áo cầu lông đặt may cho CLB',
   description: 'Đồng phục cầu lông đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'MayaoCauLong.vn - Áo cầu lông đặt may cho CLB',
+    description: 'Đồng phục cầu lông đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.',
+    images: [defaultOgImage],
+    siteName: 'MayaoCauLong',
+    type: 'website',
+    url: siteUrl,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MayaoCauLong.vn - Áo cầu lông đặt may cho CLB',
+    description: 'Đồng phục cầu lông đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.',
+    images: [defaultOgImage.url],
+  },
 }
 
 function getMetaPixelId(analytics: Awaited<ReturnType<typeof getAnalyticsSettings>>) {

@@ -6,13 +6,25 @@ import { HeroGallery, type HeroSlide } from '@/components/hero-gallery'
 import { JsonLd } from '@/components/json-ld'
 import { ProductGrid } from '@/components/product-grid'
 import { getCategories, getLatestPosts, getProducts, productImages } from '@/lib/cms'
-import { excerpt, LOGO_URL, SITE_URL, ZALO_URL } from '@/lib/site'
+import { DEFAULT_OG_IMAGE, excerpt, LOGO_URL, SITE_URL, ZALO_URL } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'May Áo Chạy Bộ Thiết Kế Riêng',
   description: 'May áo chạy bộ thiết kế riêng cho công ty, doanh nghiệp, giải chạy, event, đội nhóm và câu lạc bộ.',
   alternates: { canonical: '/' },
+  openGraph: {
+    title: 'May Áo Chạy Bộ Thiết Kế Riêng',
+    description: 'May áo chạy bộ thiết kế riêng cho công ty, doanh nghiệp, giải chạy, event, đội nhóm và câu lạc bộ.',
+    images: [DEFAULT_OG_IMAGE],
+    url: '/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'May Áo Chạy Bộ Thiết Kế Riêng',
+    description: 'May áo chạy bộ thiết kế riêng cho công ty, doanh nghiệp, giải chạy, event, đội nhóm và câu lạc bộ.',
+    images: [DEFAULT_OG_IMAGE.url],
+  },
 }
 
 const commitments = [

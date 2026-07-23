@@ -5,7 +5,7 @@ import Script from 'next/script'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { getAnalyticsSettings } from '@/lib/cms'
-import { SITE_URL } from '@/lib/site'
+import { DEFAULT_OG_IMAGE, SITE_URL } from '@/lib/site'
 
 import './globals.css'
 
@@ -18,7 +18,8 @@ export const metadata: Metadata = {
   description: 'Mẫu đồng phục bóng rổ và dịch vụ đặt may thiết kế riêng cho đội, câu lạc bộ và trường học.',
   alternates: { canonical: '/' },
   icons: { icon: '/site-mark.svg' },
-  openGraph: { locale: 'vi_VN', siteName: 'May Áo Bóng Rổ', type: 'website' },
+  openGraph: { images: [DEFAULT_OG_IMAGE], locale: 'vi_VN', siteName: 'May Áo Bóng Rổ', type: 'website' },
+  twitter: { card: 'summary_large_image', images: [DEFAULT_OG_IMAGE.url] },
 }
 
 function getMetaPixelId(analytics: Awaited<ReturnType<typeof getAnalyticsSettings>>) {
