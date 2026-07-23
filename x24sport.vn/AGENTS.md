@@ -92,11 +92,11 @@ used to guess the new stack's application, CMS, or database host.
 
 | Requested work | Local source of truth | Remote runtime / action |
 |---|---|---|
-| Public UI, routes, SEO templates, catalog rendering | `x24sport.vn/` | Deploy to `root@10.10.0.58:/root/websites/x24sport.vn` |
+| Public UI, routes, SEO templates, catalog rendering | `../cms-frontend/` | Deploy to `root@10.10.0.58:/root/websites/x24sport.vn` |
 | Add or edit a product/category/post/media record | Payload admin or a tenant-scoped API migration | `https://cms.x24sport.vn/admin`; select tenant `x24sport` |
 | CMS schema, collection, admin UI, API, storage adapter | `cms-api/` | Deploy to `root@10.10.0.28:/opt/sports-cms/cms-api` |
 | Payload data inspection or controlled DB migration | Do not use direct SQL for ordinary content editing | PostgreSQL `sports_cms` on `root@10.10.0.17` |
-| Public reverse proxy | `x24sport.vn/deploy/x24sport.vn.conf` | `root@10.10.0.56:/etc/nginx/conf.d/x24sport.vn.conf` |
+| Public reverse proxy | `../cms-frontend/deploy/x24sport.vn.conf` | `root@10.10.0.56:/etc/nginx/conf.d/x24sport.vn.conf` |
 | DNS, zone cache, or Cloudflare settings | Central registry credential command below | Cloudflare account from the registry block; never store the token in this file |
 | Legacy WordPress reconciliation only | Read-only source unless the user explicitly requests a WordPress change | `root@10.10.0.25:/root/websites/sites/x24sport.vn` |
 
@@ -112,7 +112,7 @@ block.
   Use Payload admin/API for tenant `x24sport`; it does not require a CMS or
   frontend deployment.
 - A display/layout/routing/metadata change is a **frontend code change**. Work in
-  `x24sport.vn/`, build locally, then deploy only the `next-x24sport` service.
+  `../cms-frontend/`, build locally, then deploy only the `next-x24sport` service.
 - A collection field, access rule, hook, admin component, API behavior, or media
   storage change is a **shared CMS code change**. Work in `cms-api/`, verify
   tenant isolation, then rebuild only the shared CMS container using the
@@ -126,10 +126,10 @@ block.
 
 | Component | Local path | Runtime |
 |---|---|---|
-| X24Sport frontend | `x24sport.vn/` | Next.js 16, React 19, TypeScript, pnpm |
+| Shared CMS frontend | `cms-frontend/` | Next.js 16, React 19, TypeScript, pnpm |
 | Shared CMS | `cms-api/` | Payload CMS 3 + Next.js, PostgreSQL |
-| Frontend production compose | `x24sport.vn/compose.production.yml` | Published port `3010` |
-| Frontend proxy source | `x24sport.vn/deploy/x24sport.vn.conf` | Nginx |
+| Frontend production compose | `cms-frontend/compose.production.yml` | Published port `3010` |
+| Frontend proxy source | `cms-frontend/deploy/x24sport.vn.conf` | Nginx |
 
 Frontend checks:
 
@@ -220,7 +220,7 @@ Preferred workflow:
    images, and structured data.
 
 For bulk imports or deterministic content updates, use a tenant-scoped,
-idempotent script under `cms-api/scripts/` or `x24sport.vn/operations/`. Run a
+idempotent script under `cms-api/scripts/` or `cms-frontend/operations/`. Run a
 dry-run first and never omit the `x24sport` tenant filter.
 
 ### REST service account

@@ -71,7 +71,7 @@ unrecognized runtime file.
 
 ### x24sport.vn
 
-Synchronize `x24sport.vn/` to `/root/websites/x24sport.vn/`, then run only:
+Synchronize `cms-frontend/` to `/root/websites/x24sport.vn/`, then run only:
 
 ```bash
 ssh root@10.10.0.58 \
