@@ -134,7 +134,7 @@ block.
 Frontend checks:
 
 ```bash
-cd x24sport.vn
+cd ../cms-frontend
 pnpm install
 pnpm typecheck
 pnpm build

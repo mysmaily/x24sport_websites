@@ -23,6 +23,7 @@ x24sport_websites/
 ├── WEBSITE-OPTIMIZATION-GUIDE.md     # Lazily loaded criteria for triggered requests
 ├── .codex/skills/develop-x24sport-websites/ # Website development skill
 ├── .codex/skills/migrate-wordpress-to-x24sport-tenant/ # Migration skill
+├── cms-frontend/                    # Shared Next.js frontend for active tenants
 ├── cms-api/                         # Shared Payload CMS for Next.js tenants
 ├── docker-compose.yml               # Shared CMS and tenant frontend services
 ├── scripts/                         # Registry and operational utilities
@@ -77,15 +78,48 @@ tenant API before documenting or using them.
 
 Tenant identities used by this repository are:
 
-| Domain | Payload tenant slug | Status |
+| Domain | Payload tenant slug | Frontend source | Status |
+|---|---|---|---|
+| `x24sport.vn` | `x24sport` | `cms-frontend/` | Active shared Next.js tenant |
+| `rynosport.vn` | `rynosport` | `cms-frontend/` | Active shared Next.js tenant; served by the `next-x24sport` container |
+| `mayaocaulong.vn` | `mayaocaulong` | Website folder | Active |
+| `mayaobongchuyen.vn` | `mayaobongchuyen` | Website folder | Active |
+| `mayaopickleball.vn` | `mayaopickleball` | Website folder | Active |
+| `mayaobongro.vn` | `mayaobongro` | Website folder | Active |
+| `mayaobongda.vn` | `mayaobongda` | Website folder | Active Next.js + Payload apex; WordPress runtime remains available behind the application host |
+| `mayaochaybo.vn` | `mayaochaybo` | Website folder | Active Next.js + Payload apex; WordPress archive at `wp.mayaochaybo.vn` |
+
+## Shared Next.js tenant routing
+
+When a request names a domain whose `Frontend source` is `cms-frontend/`, treat
+that domain as a tenant inside the shared Next.js frontend rather than as a
+standalone website folder. The external `<domain>/` folder, when present, is a
+profile and operational documentation folder only.
+
+For shared frontend tenants:
+
+- read root `AGENTS.md`, then read the matching tenant profile if one exists;
+- make public UI, layout, route, component, metadata, and storefront changes in
+  `cms-frontend/`;
+- use `cms-frontend/src/proxy.ts` and `cms-frontend/src/app/[tenant]/` to resolve
+  host-to-tenant behavior;
+- put tenant-specific pages and wrappers under `cms-frontend/src/app/[tenant]/`
+  using the tenant slug, such as `x24sport` or `rynosport`;
+- put intentionally shared, reusable pieces under `cms-frontend/src/app/_components/`
+  or another shared module only when the component is truly meant to serve more
+  than one tenant;
+- keep tenant-specific styling, copy, assets, and layout separate unless the user
+  explicitly asks to share them;
+- deploy shared frontend tenant code with the `x24sport.vn` procedure in
+  `PRODUCTION-DEPLOYMENT-RUNBOOK.md`, because `x24sport.vn` and `rynosport.vn`
+  currently run in the same `next-x24sport` container.
+
+Examples:
+
+| User mentions | Tenant slug | Edit location |
 |---|---|---|
-| `x24sport.vn` | `x24sport` | Active |
-| `mayaocaulong.vn` | `mayaocaulong` | Active |
-| `mayaobongchuyen.vn` | `mayaobongchuyen` | Active |
-| `mayaopickleball.vn` | `mayaopickleball` | Active |
-| `mayaobongro.vn` | `mayaobongro` | Active |
-| `mayaobongda.vn` | `mayaobongda` | Active Next.js + Payload apex; WordPress runtime remains available behind the application host |
-| `mayaochaybo.vn` | `mayaochaybo` | Active Next.js + Payload apex; WordPress archive at `wp.mayaochaybo.vn` |
+| `x24sport.vn` | `x24sport` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "x24sport"` |
+| `rynosport.vn` | `rynosport` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "rynosport"` |
 
 Determine the active platform from the website folder:
 
