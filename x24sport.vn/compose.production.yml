@@ -3,10 +3,8 @@ services:
     build:
       context: .
       args:
-        NEXT_PUBLIC_SITE_URL: https://x24sport.vn
         SITE_ENV: production
         PAYLOAD_API_URL: http://10.10.0.28:3001
-        TENANT_SLUG: x24sport
     image: x24sport-next:production
     container_name: next-x24sport
     restart: unless-stopped
@@ -14,8 +12,6 @@ services:
       - "3010:3010"
     environment:
       PAYLOAD_API_URL: http://10.10.0.28:3001
-      TENANT_SLUG: x24sport
-      NEXT_PUBLIC_SITE_URL: https://x24sport.vn
       SITE_ENV: production
       TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
     healthcheck:

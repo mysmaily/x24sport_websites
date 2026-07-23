@@ -6,10 +6,8 @@ import { JsonLd } from '../../_components/json-ld'
 import { Pagination } from '../../_components/pagination'
 import { ProductCard } from '../../_components/product-card'
 import { SiteHeader } from '../../_components/site-header'
-import { getCategories, getCategory, getProductsPage } from '../../../lib/content'
+import { getCategory, getProductsPage } from '../../../lib/content'
 import { breadcrumbSchema, metadataDescription, pageCanonical, pageTitle, truncateText } from '../../../lib/seo'
-
-export async function generateStaticParams() { return (await getCategories()).map(({ slug }) => ({ slug })) }
 
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ page?: string; sort?: string }> }): Promise<Metadata> {
   const category = await getCategory((await params).slug)

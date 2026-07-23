@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next'
 import { getAllProductPaths, getAllWebContentPaths, getSitemapCategories } from '../lib/content'
+import { getTenantBaseUrl } from '../lib/tenant'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://x24sport.vn'
+  const base = await getTenantBaseUrl()
   const [categories, products, content] = await Promise.all([getSitemapCategories(), getAllProductPaths(), getAllWebContentPaths()])
   return [
     { url: `${base}/`, priority: 1 },

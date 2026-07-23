@@ -12,9 +12,10 @@ type StoreSettings = {
 }
 
 const apiUrl = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
-const tenantSlug = process.env.TENANT_SLUG || 'x24sport'
+import { getTenantSlug } from './tenant'
 
 export async function getAnalyticsSettings() {
+  const tenantSlug = await getTenantSlug()
   try {
     const params = new URLSearchParams({
       'where[tenant.slug][equals]': tenantSlug,

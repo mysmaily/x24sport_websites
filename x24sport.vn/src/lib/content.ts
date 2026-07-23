@@ -5,6 +5,7 @@ import {
   type ProductPreview,
   type SportCategory,
 } from './catalog'
+import { getTenantSlug } from './tenant'
 
 type ApiList<T> = { docs: T[]; totalDocs: number; totalPages: number; page: number }
 export type CmsCategory = {
@@ -34,7 +35,6 @@ export type CatalogPage = { products: ProductPreview[]; totalDocs: number; total
 export type ContentPage = { docs: CmsWebContent[]; totalDocs: number; totalPages: number; page: number }
 
 const apiUrl = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
-const tenantSlug = process.env.TENANT_SLUG || 'x24sport'
 const usePreviewFallback = process.env.SITE_ENV === 'preview'
 const categoryDesign = Object.fromEntries(categoryDesigns.map((item) => [item.slug, item]))
 const sportToSlug: Partial<Record<CmsProduct['sport'], string>> = {
@@ -109,34 +109,44 @@ function mapProduct(product: CmsProduct, categories: SportCategory[]): ProductPr
 }
 
 export async function getCategories(): Promise<SportCategory[]> {
+  const tenantSlug = await getTenantSlug()
   try {
     const params = new URLSearchParams({
       'where[tenant.slug][equals]': tenantSlug, 'where[group][equals]': 'sport',
       depth: '0', limit: '100', sort: 'order',
     })
     const docs = await fetchAllDocs<CmsCategory>('product-categories', params)
-    const designed = docs.filter((item) => Boolean(categoryDesign[item.slug]) && !categoryDesign[item.slug]?.parentSlug)
-    if (designed.length) return designed.map(mapCategory)
+    const topLevel = docs.filter((item) => !item.parent)
+    if (tenantSlug === 'x24sport') {
+      const designed = topLevel.filter((item) => Boolean(categoryDesign[item.slug]))
+      if (designed.length) return designed.map(mapCategory)
+    }
+    if (topLevel.length) return topLevel.map(mapCategory)
   } catch (error) { console.error('Unable to load X24Sport categories.', error) }
-  return usePreviewFallback ? previewCategories : []
+  return usePreviewFallback && tenantSlug === 'x24sport' ? previewCategories : []
 }
 
 export async function getSitemapCategories(): Promise<SportCategory[]> {
+  const tenantSlug = await getTenantSlug()
   try {
     const params = new URLSearchParams({
       'where[tenant.slug][equals]': tenantSlug, 'where[group][equals]': 'sport',
       depth: '0', limit: '100', sort: 'order',
     })
     const docs = await fetchAllDocs<CmsCategory>('product-categories', params)
-    const docsBySlug = Object.fromEntries(docs.map((item) => [item.slug, item]))
-    return categoryDesigns.map((category, index) => docsBySlug[category.slug] ? mapCategory(docsBySlug[category.slug], index) : category)
+    if (tenantSlug === 'x24sport') {
+      const docsBySlug = Object.fromEntries(docs.map((item) => [item.slug, item]))
+      return categoryDesigns.map((category, index) => docsBySlug[category.slug] ? mapCategory(docsBySlug[category.slug], index) : category)
+    }
+    return docs.filter((item) => !item.parent).map(mapCategory)
   } catch (error) { console.error('Unable to load X24Sport sitemap categories.', error) }
-  return categoryDesigns
+  return tenantSlug === 'x24sport' ? categoryDesigns : []
 }
 
 export async function getProductsPage(options: {
   page?: number; limit?: number; categorySlug?: string; query?: string; sort?: string
 } = {}): Promise<CatalogPage> {
+  const tenantSlug = await getTenantSlug()
   const categories = await getCategories()
   const page = Math.max(1, options.page || 1)
   try {
@@ -155,7 +165,7 @@ export async function getProductsPage(options: {
     }
   } catch (error) {
     console.error('Unable to load X24Sport products.', error)
-    const fallback = usePreviewFallback
+    const fallback = usePreviewFallback && tenantSlug === 'x24sport'
       ? previewProducts.filter((product) => !options.categorySlug || product.categorySlug === options.categorySlug || product.categorySlugs?.includes(options.categorySlug))
       : []
     return { products: fallback, totalDocs: fallback.length, totalPages: 1, page: 1 }
@@ -163,6 +173,7 @@ export async function getProductsPage(options: {
 }
 
 export async function getProducts(categories?: SportCategory[]): Promise<ProductPreview[]> {
+  const tenantSlug = await getTenantSlug()
   const resolved = categories || await getCategories()
   try {
     const params = new URLSearchParams({
@@ -172,11 +183,12 @@ export async function getProducts(categories?: SportCategory[]): Promise<Product
     return (await fetchAllDocs<CmsProduct>('products', params)).map((product) => mapProduct(product, resolved))
   } catch (error) {
     console.error('Unable to load X24Sport products.', error)
-    return usePreviewFallback ? previewProducts : []
+    return usePreviewFallback && tenantSlug === 'x24sport' ? previewProducts : []
   }
 }
 
 export async function getProductBySlug(slug: string): Promise<CmsProduct | undefined> {
+  const tenantSlug = await getTenantSlug()
   const params = new URLSearchParams({
     'where[tenant.slug][equals]': tenantSlug, 'where[slug][equals]': slug,
     'where[publicationStatus][equals]': 'publish', limit: '1', depth: '2',
@@ -185,6 +197,7 @@ export async function getProductBySlug(slug: string): Promise<CmsProduct | undef
 }
 
 export async function getCategoryByLegacyPath(path: string): Promise<CmsCategory | undefined> {
+  const tenantSlug = await getTenantSlug()
   const params = new URLSearchParams({
     'where[tenant.slug][equals]': tenantSlug, 'where[legacyPath][equals]': path,
     limit: '1', depth: '1',
@@ -193,6 +206,7 @@ export async function getCategoryByLegacyPath(path: string): Promise<CmsCategory
 }
 
 export async function getWebContentByLegacyPath(path: string): Promise<CmsWebContent | undefined> {
+  const tenantSlug = await getTenantSlug()
   const params = new URLSearchParams({
     'where[tenant.slug][equals]': tenantSlug, 'where[legacyPath][equals]': path,
     'where[publicationStatus][equals]': 'publish', limit: '1', depth: '0',
@@ -201,6 +215,7 @@ export async function getWebContentByLegacyPath(path: string): Promise<CmsWebCon
 }
 
 export async function getPostsPage(page = 1, limit = 12): Promise<ContentPage> {
+  const tenantSlug = await getTenantSlug()
   const params = new URLSearchParams({
     'where[tenant.slug][equals]': tenantSlug, 'where[kind][equals]': 'post',
     'where[publicationStatus][equals]': 'publish', page: String(Math.max(1, page)),
@@ -211,11 +226,17 @@ export async function getPostsPage(page = 1, limit = 12): Promise<ContentPage> {
 }
 
 export async function getAllWebContentPaths() {
-  const params = new URLSearchParams({
-    'where[tenant.slug][equals]': tenantSlug, 'where[publicationStatus][equals]': 'publish',
-    depth: '0', limit: '100',
-  })
-  return fetchAllDocs<Pick<CmsWebContent, 'legacyPath' | 'sourceModifiedAt'>>('web-content', params)
+  const tenantSlug = await getTenantSlug()
+  try {
+    const params = new URLSearchParams({
+      'where[tenant.slug][equals]': tenantSlug, 'where[publicationStatus][equals]': 'publish',
+      depth: '0', limit: '100',
+    })
+    return await fetchAllDocs<Pick<CmsWebContent, 'legacyPath' | 'sourceModifiedAt'>>('web-content', params)
+  } catch (error) {
+    console.error(`Unable to load ${tenantSlug} content paths.`, error)
+    return []
+  }
 }
 
 export async function getRelatedProducts(product: CmsProduct): Promise<ProductPreview[]> {
@@ -233,6 +254,7 @@ export async function getCatalogData() {
   return { categories, shelves }
 }
 export async function getCategory(slug: string) {
+  const tenantSlug = await getTenantSlug()
   try {
     const params = new URLSearchParams({
       'where[tenant.slug][equals]': tenantSlug, 'where[slug][equals]': slug,
@@ -241,12 +263,18 @@ export async function getCategory(slug: string) {
     const doc = (await fetchList<CmsCategory>('product-categories', params)).docs[0]
     if (doc) return mapCategory(doc, categoryDesigns.findIndex((item) => item.slug === slug))
   } catch (error) { console.error(`Unable to load X24Sport category ${slug}.`, error) }
-  return categoryDesigns.find((category) => category.slug === slug)
+  return tenantSlug === 'x24sport' ? categoryDesigns.find((category) => category.slug === slug) : undefined
 }
 export async function getAllProductPaths() {
-  const params = new URLSearchParams({
-    'where[tenant.slug][equals]': tenantSlug, 'where[publicationStatus][equals]': 'publish',
-    depth: '0', limit: '100',
-  })
-  return fetchAllDocs<Pick<CmsProduct, 'slug' | 'legacyPath' | 'sourceModifiedAt'>>('products', params)
+  const tenantSlug = await getTenantSlug()
+  try {
+    const params = new URLSearchParams({
+      'where[tenant.slug][equals]': tenantSlug, 'where[publicationStatus][equals]': 'publish',
+      depth: '0', limit: '100',
+    })
+    return await fetchAllDocs<Pick<CmsProduct, 'slug' | 'legacyPath' | 'sourceModifiedAt'>>('products', params)
+  } catch (error) {
+    console.error(`Unable to load ${tenantSlug} product paths.`, error)
+    return []
+  }
 }

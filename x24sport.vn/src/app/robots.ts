@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
-export default function robots(): MetadataRoute.Robots {
+import { getTenantBaseUrl } from '../lib/tenant'
+export default async function robots(): Promise<MetadataRoute.Robots> {
   if (process.env.SITE_ENV === 'preview') return { rules: { userAgent: '*', allow: '/' } }
-  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://x24sport.vn'
+  const base = await getTenantBaseUrl()
   return { rules: { userAgent: '*', allow: '/' }, sitemap: `${base}/sitemap.xml` }
 }
