@@ -165,6 +165,18 @@ async function run() {
       sourceCreatedAt: source.sourceCreatedAt,
       sourceChecksum: source.sourceChecksum,
     }
+    for (const id of gallery) {
+      const media = await payload.findByID({ collection: 'media', id, depth: 0, overrideAccess: true }) as Doc
+      const consumers = new Set((media.sharedWithTenants || []).map((entry: unknown) => String(relationId(entry))))
+      if (!consumers.has(String(targetTenant.id))) {
+        await payload.update({
+          collection: 'media', id,
+          data: { sharedWithTenants: [...consumers, targetTenant.id] },
+          overrideAccess: true,
+        })
+      }
+      sharedMedia.add(String(id))
+    }
     const target = targetsByCloneId.get(cloneId)
     if (target) {
       await payload.update({ collection: 'products', id: target.id, data, overrideAccess: true })
@@ -173,7 +185,6 @@ async function run() {
       await payload.create({ collection: 'products', data, overrideAccess: true })
       created += 1
     }
-    gallery.forEach((id: number | string) => sharedMedia.add(String(id)))
   }
 
   for (const id of sharedMedia) {
