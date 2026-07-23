@@ -98,6 +98,55 @@ button, a { touch-action: manipulation; }
 .prose th, .prose td { border: 1px solid #dce1e6; padding: 10px 12px; text-align: left; }
 .prose blockquote { margin: 28px 0; border-left: 4px solid #d1432d; padding: 8px 0 8px 22px; color: #0f172a; font-size: 18px; }
 
+.legacy-content :where(.row, .col, .col-inner, .page-wrapper) {
+  max-width: 100%;
+}
+.legacy-content :where(hr) {
+  margin: 34px 0;
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+}
+.legacy-content :where(p:empty, div:empty) {
+  display: none;
+}
+.legacy-content :where(p) {
+  margin: 0 0 1.1em;
+}
+.legacy-content :where(img) {
+  display: inline-block;
+  width: min(100%, 260px);
+  aspect-ratio: 1 / 1;
+  margin: 8px 10px 14px 0;
+  object-fit: cover;
+  vertical-align: top;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+.legacy-content :where(.button, .wp-block-button__link, a.button) {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #d1432d;
+  padding: 0 18px;
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+  text-decoration: none;
+}
+.legacy-content :where(.products, .product-small, .woocommerce, .price-wrapper, .product-thumbs, .badge-container) {
+  display: none;
+}
+.legacy-content :where(ul, ol) {
+  margin: 0 0 1.25em;
+}
+.legacy-content :where(li > p) {
+  margin: 0;
+}
+
 @media (min-width: 640px) {
   .section-shell { width: min(1360px, calc(100% - 48px)); }
 }

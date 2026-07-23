@@ -3,6 +3,7 @@ import type { MetadataRoute } from 'next'
 import { BASKETBALL_AUDIENCES } from '@/lib/basketball-audiences'
 import { CATALOG_LANDINGS } from '@/lib/catalog-colors'
 import { getAllCanonicalRoutes } from '@/lib/cms'
+import { isRetiredPath } from '@/lib/retired-routes'
 import { canonical } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
@@ -17,6 +18,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...BASKETBALL_AUDIENCES.map((audience) => ({ url: canonical(audience.path), changeFrequency: 'weekly' as const, priority: 0.85 })),
     ...CATALOG_LANDINGS.map((landing) => ({ url: canonical(landing.path), changeFrequency: 'daily' as const, priority: 0.8 })),
     ...products.map((item) => ({ url: canonical(`/san-pham/${item.slug}/`), lastModified: item.sourceModifiedAt || undefined, changeFrequency: 'monthly' as const, priority: 0.8 })),
-    ...content.filter((item) => item.legacyPath !== '/' && item.legacyPath !== '/mau-ao-bong-ro/').map((item) => ({ url: canonical(item.legacyPath), lastModified: item.sourceModifiedAt || undefined, changeFrequency: 'monthly' as const, priority: 0.7 })),
+    ...content.filter((item) => item.legacyPath !== '/' && item.legacyPath !== '/mau-ao-bong-ro/' && !isRetiredPath(item.legacyPath)).map((item) => ({ url: canonical(item.legacyPath), lastModified: item.sourceModifiedAt || undefined, changeFrequency: 'monthly' as const, priority: 0.7 })),
   ]
 }
