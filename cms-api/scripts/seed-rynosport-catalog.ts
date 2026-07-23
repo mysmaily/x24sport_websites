@@ -27,7 +27,7 @@ const relationId = (value: unknown): number | string | undefined =>
       ? relationId((value as Doc).id)
       : undefined
 
-const cloneValue = <T>(value: T): T => JSON.parse(JSON.stringify(value)) as T
+const cloneValue = <T>(value: T): T => JSON.parse(JSON.stringify(value, (key, entry) => key === 'id' ? undefined : entry)) as T
 
 async function allDocs(payload: any, collection: any, where: Doc, depth = 0) {
   const docs: Doc[] = []
