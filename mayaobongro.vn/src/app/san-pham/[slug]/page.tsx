@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { CatalogPageView } from '@/components/catalog-page-view'
 import { ProductDetailPage } from '@/components/product-detail-page'
 import { getCatalogLandingBySlug } from '@/lib/catalog-colors'
-import { getProductCategory, getProducts, resolveProductSlug } from '@/lib/cms'
+import { getProductCategory, getProductImages, getProducts, resolveProductSlug } from '@/lib/cms'
 import { DEFAULT_OG_IMAGE, excerpt } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
@@ -37,12 +37,13 @@ export async function generateMetadata({ params, searchParams }: ProductRoutePro
   const product = await resolveProductSlug(slug)
   if (!product) return { title: 'Không tìm thấy sản phẩm', robots: { index: false, follow: false } }
   const path = `/san-pham/${product.slug}/`
+  const image = getProductImages(product)[0]
   return {
     title: product.name,
     description: excerpt(product.shortDescription || product.name, 160),
     alternates: { canonical: path },
-    openGraph: { title: product.name, description: excerpt(product.shortDescription, 160), url: path, images: product.legacyImages?.[0]?.url ? [product.legacyImages[0].url] : [DEFAULT_OG_IMAGE] },
-    twitter: { card: 'summary_large_image', title: product.name, description: excerpt(product.shortDescription, 160), images: [product.legacyImages?.[0]?.url || DEFAULT_OG_IMAGE.url] },
+    openGraph: { title: product.name, description: excerpt(product.shortDescription, 160), url: path, images: image?.url ? [image.url] : [DEFAULT_OG_IMAGE] },
+    twitter: { card: 'summary_large_image', title: product.name, description: excerpt(product.shortDescription, 160), images: [image?.url || DEFAULT_OG_IMAGE.url] },
   }
 }
 
@@ -55,7 +56,12 @@ export default async function ProductPage({ params, searchParams }: ProductRoute
   const product = await resolveProductSlug(slug)
   if (!product) notFound()
   const logoCategory = await getProductCategory('logo-doi-bong-ro')
-  const isLogo = Boolean(logoCategory && product.categories?.includes(logoCategory.id))
+  const isLogo = Boolean(
+    logoCategory &&
+      product.categories?.some((category) =>
+        typeof category === 'number' ? category === logoCategory.id : category?.id === logoCategory.id,
+      ),
+  )
   const catalog = isLogo
     ? { href: '/logo-team/', label: 'Logo team', categorySlug: 'logo-doi-bong-ro' }
     : { href: '/san-pham/', label: 'Mẫu áo', categorySlug: 'bo-quan-ao-bong-ro' }

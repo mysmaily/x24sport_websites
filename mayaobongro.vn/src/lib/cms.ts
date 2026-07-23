@@ -10,6 +10,8 @@ export type LegacyImage = {
   height?: number | null
 }
 
+export type ProductImage = LegacyImage
+
 export type Product = {
   id: number
   name: string
@@ -19,9 +21,21 @@ export type Product = {
   legacyPath?: string | null
   shortDescription?: string | null
   contentHtml?: string | null
+  gallery?: ProductImage[] | number[] | null
   legacyImages?: LegacyImage[] | null
-  categories?: number[] | null
+  categories?: Array<number | ProductCategory> | null
   sourceModifiedAt?: string | null
+}
+
+export function getProductImages(product: Product): ProductImage[] {
+  const galleryImages = (product.gallery ?? []).filter(
+    (image): image is ProductImage =>
+      Boolean(image && typeof image === 'object' && 'url' in image && image.url),
+  )
+
+  if (galleryImages.length) return galleryImages
+
+  return (product.legacyImages ?? []).filter((image) => Boolean(image.url))
 }
 
 export type ProductCategory = {
@@ -113,7 +127,7 @@ export async function getProducts({
     'where[and][1][publicationStatus][equals]': 'publish',
     limit: String(limit),
     page: String(page),
-    depth: '0',
+    depth: '1',
     sort: '-sourceModifiedAt',
   })
   let conditionIndex = 2
@@ -131,7 +145,7 @@ export const getProductCategory = cache(async (slug: string) => {
     'where[and][0][tenant][equals]': String(tenant.id),
     'where[and][1][slug][equals]': slug,
     limit: '1',
-    depth: '0',
+    depth: '1',
   })
   const result = await api<Paginated<ProductCategory>>(`/api/product-categories?${params}`)
   return result.docs[0] ?? null
@@ -144,7 +158,7 @@ export const resolveProductPath = cache(async (legacyPath: string) => {
     'where[and][1][legacyPath][equals]': legacyPath,
     'where[and][2][publicationStatus][equals]': 'publish',
     limit: '1',
-    depth: '0',
+    depth: '1',
   })
   const result = await api<Paginated<Product>>(`/api/products?${params}`)
   return result.docs[0] ?? null
@@ -157,7 +171,7 @@ export const resolveProductSlug = cache(async (slug: string) => {
     'where[and][1][slug][equals]': slug,
     'where[and][2][publicationStatus][equals]': 'publish',
     limit: '1',
-    depth: '0',
+    depth: '1',
   })
   const result = await api<Paginated<Product>>(`/api/products?${params}`)
   return result.docs[0] ?? null
