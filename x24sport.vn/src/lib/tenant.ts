@@ -11,6 +11,7 @@ export type TenantContext = {
 const tenantsByHost: Record<string, TenantContext> = {
   'x24sport.vn': { slug: 'x24sport', domain: 'x24sport.vn', name: 'X24Sport', description: 'Khám phá trang phục bóng đá, cầu lông, bóng chuyền, bóng rổ, pickleball và chạy bộ tại X24Sport.' },
   'www.x24sport.vn': { slug: 'x24sport', domain: 'x24sport.vn', name: 'X24Sport', description: 'Khám phá trang phục bóng đá, cầu lông, bóng chuyền, bóng rổ, pickleball và chạy bộ tại X24Sport.' },
+  '10.10.0.58': { slug: 'x24sport', domain: 'x24sport.vn', name: 'X24Sport', description: 'Khám phá trang phục bóng đá, cầu lông, bóng chuyền, bóng rổ, pickleball và chạy bộ tại X24Sport.' },
   'rynosport.vn': { slug: 'rynosport', domain: 'rynosport.vn', name: 'RynoSport', description: 'Khám phá trang phục thể thao tại RynoSport.' },
   'www.rynosport.vn': { slug: 'rynosport', domain: 'rynosport.vn', name: 'RynoSport', description: 'Khám phá trang phục thể thao tại RynoSport.' },
 }
