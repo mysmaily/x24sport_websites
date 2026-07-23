@@ -120,13 +120,11 @@ async function run() {
   }, 2)).slice(0, productLimit)
   const targetProducts = await allDocs(payload, 'products', { tenant: { equals: targetTenant.id } }, 0)
   const targetsByCloneId = new Map(targetProducts.map((doc) => [doc.sourceId, doc]))
-  const sharedMedia = new Set<string>()
   let created = 0
   let updated = 0
 
   for (const source of sourceProducts) {
     const cloneId = `${sourceSlug}:${source.id}`
-    const gallery = (source.gallery || []).map(relationId).filter((id: number | string | undefined): id is number | string => Boolean(id))
     const categories = (source.categories || []).map(relationId).map((id: number | string | undefined) => id && categoryMap.get(String(id))).filter(Boolean)
     const data = {
       tenant: targetTenant.id,
@@ -151,7 +149,9 @@ async function run() {
       badges: cloneValue(source.badges),
       searchTags: cloneValue(source.searchTags),
       categories,
-      gallery,
+      // Product relationships are tenant-owned by Payload. Retain the migrated
+      // public image URLs below rather than changing an X24 media owner.
+      gallery: [],
       legacyImages: cloneValue(source.legacyImages),
       seoTitle: source.seoTitle,
       metaDescription: source.metaDescription,
@@ -165,18 +165,6 @@ async function run() {
       sourceCreatedAt: source.sourceCreatedAt,
       sourceChecksum: source.sourceChecksum,
     }
-    for (const id of gallery) {
-      const media = await payload.findByID({ collection: 'media', id, depth: 0, overrideAccess: true }) as Doc
-      const consumers = new Set((media.sharedWithTenants || []).map((entry: unknown) => String(relationId(entry))))
-      if (!consumers.has(String(targetTenant.id))) {
-        await payload.update({
-          collection: 'media', id,
-          data: { sharedWithTenants: [...consumers, targetTenant.id] },
-          overrideAccess: true,
-        })
-      }
-      sharedMedia.add(String(id))
-    }
     const target = targetsByCloneId.get(cloneId)
     if (target) {
       await payload.update({ collection: 'products', id: target.id, data, overrideAccess: true })
@@ -184,18 +172,6 @@ async function run() {
     } else {
       await payload.create({ collection: 'products', data, overrideAccess: true })
       created += 1
-    }
-  }
-
-  for (const id of sharedMedia) {
-    const media = await payload.findByID({ collection: 'media', id, depth: 0, overrideAccess: true }) as Doc
-    const consumers = new Set((media.sharedWithTenants || []).map((entry: unknown) => String(relationId(entry))))
-    if (!consumers.has(String(targetTenant.id))) {
-      await payload.update({
-        collection: 'media', id,
-        data: { sharedWithTenants: [...consumers, targetTenant.id] },
-        overrideAccess: true,
-      })
     }
   }
 
@@ -207,7 +183,7 @@ async function run() {
     await payload.update({ collection: 'product-categories', id: category.id, data: { productCount: count }, overrideAccess: true })
   }
 
-  console.log(JSON.stringify({ tenant: targetTenant.id, categories: (await allDocs(payload, 'product-categories', { tenant: { equals: targetTenant.id } })).length, created, updated, sharedMedia: sharedMedia.size, publishedProducts: published.length }))
+  console.log(JSON.stringify({ tenant: targetTenant.id, categories: (await allDocs(payload, 'product-categories', { tenant: { equals: targetTenant.id } })).length, created, updated, publishedProducts: published.length }))
 }
 
 run().then(() => process.exit(0)).catch((error) => {
