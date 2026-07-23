@@ -7,10 +7,16 @@ import { getTenantContext } from '../lib/tenant'
 
 export async function generateMetadata(): Promise<Metadata> {
   const tenant = await getTenantContext()
+  const ryno = tenant.slug === 'rynosport'
+  const description = ryno
+    ? 'Khám phá trang phục thể thao và dịch vụ đặt áo đội tại RynoSport.'
+    : tenant.description
+  const ogImage = ryno ? '/images/rynosport/hero.png' : SITE_LOGO_PATH
+  const title = `${tenant.name}${ryno ? ' -' : ' —'} Trang phục thể thao`
   return {
     metadataBase: new URL(`https://${tenant.domain}`),
-    title: { default: `${tenant.name} — Trang phục thể thao`, template: `%s | ${tenant.name}` },
-    description: tenant.description,
+    title: { default: title, template: `%s | ${tenant.name}` },
+    description,
     icons: {
       icon: [
         { url: '/icon.png', sizes: '512x512', type: 'image/png' },
@@ -19,9 +25,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       type: 'website', locale: 'vi_VN', siteName: tenant.name,
-      title: `${tenant.name} — Trang phục thể thao`,
-      description: tenant.description,
-      images: [{ url: SITE_LOGO_PATH, width: 1200, height: 158, alt: `Logo ${tenant.name}` }],
+      title,
+      description,
+      images: [{ url: ogImage, width: ryno ? 864 : 1200, height: ryno ? 1821 : 158, alt: ryno ? 'Trang phục thể thao RynoSport' : `Logo ${tenant.name}` }],
     },
     twitter: { card: 'summary_large_image' },
     robots: process.env.SITE_ENV === 'preview' ? { index: false, follow: false } : undefined,
