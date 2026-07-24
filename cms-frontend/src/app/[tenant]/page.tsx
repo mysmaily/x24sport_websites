@@ -42,15 +42,15 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
 }
 
 const visualCategories = [
-  { name: 'Bóng đá', image: 'football', note: 'Form thi đấu mạnh mẽ' },
-  { name: 'Cầu lông', image: 'badminton', note: 'Nhẹ, thoáng, linh hoạt' },
-  { name: 'Bóng chuyền', image: 'volleyball', note: 'Đồng bộ cho đội hình' },
-  { name: 'Bóng rổ', image: 'basketball', note: 'Phom rộng năng động' },
-  { name: 'Pickleball', image: 'pickleball', note: 'Gọn gàng cho chuyển động nhanh' },
-  { name: 'Chạy bộ', image: 'running', note: 'Tối giản và dễ phối' },
-  { name: 'Đồng phục đội nhóm', image: 'teamwear', note: 'Màu sắc riêng của đội' },
-  { name: 'Tập luyện', image: 'training', note: 'Bền bỉ cho lịch tập dày' },
-  { name: 'Esports', image: 'esports', note: 'Sắc nét cho clan và giải đấu' },
+  { name: 'Bóng đá', image: 'football-red', note: 'Form thi đấu mạnh mẽ' },
+  { name: 'Cầu lông', image: 'badminton-red', note: 'Nhẹ, thoáng, linh hoạt' },
+  { name: 'Bóng chuyền', image: 'volleyball-red', note: 'Đồng bộ cho đội hình' },
+  { name: 'Bóng rổ', image: 'basketball-red', note: 'Phom rộng năng động' },
+  { name: 'Pickleball', image: 'pickleball-red', note: 'Gọn gàng cho chuyển động nhanh' },
+  { name: 'Chạy bộ', image: 'running-red', note: 'Tối giản và dễ phối' },
+  { name: 'Đồng phục đội nhóm', image: 'teamwear-red', note: 'Màu sắc riêng của đội' },
+  { name: 'Tập luyện', image: 'training-red', note: 'Bền bỉ cho lịch tập dày' },
+  { name: 'Esports', image: 'esports-red', note: 'Sắc nét cho clan và giải đấu' },
 ]
 
 const assuranceItems = [

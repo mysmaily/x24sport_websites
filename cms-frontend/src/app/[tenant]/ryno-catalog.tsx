@@ -14,10 +14,10 @@ const money = (value?: number | null, currency = 'VND') =>
     : 'Liên hệ'
 
 export const rynoDesignCards = [
-  { title: 'Áo bóng đá đỏ đen', tag: 'Bóng đá', image: '/images/rynosport/football.png', text: 'Phom thi đấu mạnh, dễ đặt tên và số áo cho cả đội.' },
-  { title: 'Áo bóng chuyền đội nhóm', tag: 'Bóng chuyền', image: '/images/rynosport/volleyball.png', text: 'Màu sắc nổi bật, gọn vai tay cho chuyển động bật nhảy.' },
-  { title: 'Đồng phục tập luyện', tag: 'Teamwear', image: '/images/rynosport/training.png', text: 'Dễ phối màu, phù hợp CLB, lớp học và đội phong trào.' },
-  { title: 'Áo esports đồng đội', tag: 'Esports', image: '/images/rynosport/esports.png', text: 'Đường nét sắc, lên hình rõ trong sự kiện và giải đấu.' },
+  { title: 'Áo bóng đá đỏ đen', tag: 'Bóng đá', image: '/images/rynosport/football-red.png', text: 'Phom thi đấu mạnh, dễ đặt tên và số áo cho cả đội.' },
+  { title: 'Áo bóng chuyền đội nhóm', tag: 'Bóng chuyền', image: '/images/rynosport/volleyball-red.png', text: 'Màu sắc nổi bật, gọn vai tay cho chuyển động bật nhảy.' },
+  { title: 'Đồng phục tập luyện', tag: 'Teamwear', image: '/images/rynosport/training-red.png', text: 'Dễ phối màu, phù hợp CLB, lớp học và đội phong trào.' },
+  { title: 'Áo esports đồng đội', tag: 'Esports', image: '/images/rynosport/esports-red.png', text: 'Đường nét sắc, lên hình rõ trong sự kiện và giải đấu.' },
 ]
 
 export function RynoCard({ product, priority = false }: { product: ProductPreview; priority?: boolean }) {
