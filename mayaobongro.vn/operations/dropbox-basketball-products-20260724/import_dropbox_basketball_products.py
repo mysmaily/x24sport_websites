@@ -412,7 +412,8 @@ def build_category_data(tenant_id: Any, category: dict[str, Any]) -> dict[str, A
 
 def build_alt(asset: ProductAsset) -> str:
     color = ", ".join(asset.color_names) if asset.color_names else "nhiều màu"
-    return f"Mẫu áo bóng rổ {asset.age_label.lower()} {asset.design_label} màu {color} tại X24 Sport"
+    age_part = " trẻ em" if asset.age_slug == "tre-em" else ""
+    return f"Mẫu áo bóng rổ{age_part} {asset.design_label} màu {color} tại X24 Sport"
 
 
 def build_media_payload(asset: ProductAsset, tenant_id: Any) -> dict[str, Any]:
@@ -444,8 +445,9 @@ def media_metadata_current(existing: dict[str, Any], payload: dict[str, Any]) ->
 def build_short_description(asset: ProductAsset) -> str:
     color = ", ".join(asset.color_names).lower() if asset.color_names else "nhiều màu"
     audience = "học sinh, đội lớp, trường học và trung tâm bóng rổ" if asset.age_slug == "tre-em" else "đội phong trào, câu lạc bộ, công ty và giải đấu nội bộ"
+    age_part = " trẻ em" if asset.age_slug == "tre-em" else ""
     return (
-        f"Mẫu áo bóng rổ {asset.age_label.lower()} {asset.design_label} tông {color}, "
+        f"Mẫu áo bóng rổ{age_part} {asset.design_label} tông {color}, "
         f"phù hợp cho {audience}. Có thể tùy chỉnh màu, logo, tên và số áo theo danh sách đội."
     )
 
@@ -454,8 +456,18 @@ def html_paragraph(text: str) -> str:
     return f"<p>{html.escape(text)}</p>"
 
 
+def html_list(items: list[str]) -> str:
+    return "<ul>\n" + "\n".join(f"  <li>{item}</li>" for item in items) + "\n</ul>"
+
+
+def html_section(title: str, body: str) -> str:
+    return f"<h2>{html.escape(title)}</h2>\n{body}"
+
+
 def build_content_html(asset: ProductAsset) -> str:
     color = ", ".join(asset.color_names).lower() if asset.color_names else "nhiều màu"
+    age_part = " trẻ em" if asset.age_slug == "tre-em" else ""
+    age_phrase = "trẻ em" if asset.age_slug == "tre-em" else ""
     audience = (
         "trẻ em, học sinh tiểu học, THCS, THPT, đội lớp, đội tuyển trường và các trung tâm bóng rổ"
         if asset.age_slug == "tre-em"
@@ -472,49 +484,75 @@ def build_content_html(asset: ProductAsset) -> str:
         else "đội trưởng, quản lý câu lạc bộ, ban tổ chức giải hoặc đại diện công ty"
     )
     color_note = (
-        f"Tông màu chính của mẫu là {color}. Khi phân loại màu, X24 Sport chỉ tính các màu xuất hiện đáng kể trên phần áo; "
+        f"<strong>Tông màu chính:</strong> {html.escape(color)}. Khi phân loại màu, X24 Sport chỉ tính các màu xuất hiện đáng kể trên phần áo; "
         "những đường viền, sọc trang trí hoặc vạch nhấn nhỏ không được xem là màu chủ đạo. Cách phân loại này giúp khách tìm mẫu chính xác hơn, "
         "đặc biệt với các thiết kế có nền đen phối viền vàng, nền trắng phối chỉ màu hoặc các mảng gradient thể thao."
     )
-    paragraphs = [
-        (
-            f"Mẫu áo bóng rổ {asset.age_label.lower()} {asset.design_label} là lựa chọn phù hợp cho {audience} đang cần một bộ đồng phục nhìn nổi bật nhưng vẫn dễ triển khai khi đặt may số lượng. "
-            f"Ảnh mẫu thể hiện tinh thần jersey bóng rổ năng động với tông {color}, có thể dùng làm điểm bắt đầu để đội chọn màu áo, màu chữ, logo, tên cầu thủ và số áo. "
-            "Điểm quan trọng của một mẫu áo bóng rổ đẹp không chỉ nằm ở họa tiết bắt mắt, mà còn ở cảm giác đồng bộ khi cả đội đứng cạnh nhau trên sân, chụp ảnh tập thể hoặc tham gia một giải đấu có nhiều đội cùng xuất hiện."
+    intro = (
+        f"Mẫu áo bóng rổ{age_part} {asset.design_label} là gợi ý phù hợp cho {audience} đang cần một bộ đồng phục nhìn nổi bật, dễ nhận diện và có thể tùy chỉnh theo tinh thần riêng của đội. "
+        f"Tông {color} trong ảnh mẫu giúp đội có điểm bắt đầu rõ ràng khi trao đổi thiết kế: giữ màu chính, đổi màu viền, thêm logo, đặt tên cầu thủ, số áo hoặc làm thêm quần đồng bộ. "
+        "Thay vì phải mô tả ý tưởng từ đầu, bạn có thể gửi mẫu này cho X24 Sport để đội thiết kế phát triển thành bản mockup sát nhu cầu thực tế hơn."
+    )
+    main_label = f" áo bóng rổ {age_phrase}" if age_phrase else " áo bóng rổ"
+    sections = [
+        html_section("Tổng quan mẫu áo", html_paragraph(intro)),
+        html_section(
+            "Điểm nổi bật",
+            html_list([
+                f"<strong>Màu chủ đạo:</strong> {html.escape(color)}; phù hợp để tạo nhận diện rõ khi cả đội đứng trên sân hoặc chụp ảnh tập thể.",
+                "<strong>Bố cục jersey bóng rổ:</strong> có không gian cho số áo lớn, tên sau lưng, logo đội và các chi tiết nhận diện riêng.",
+                f"<strong>Ứng dụng linh hoạt:</strong> dùng được cho luyện tập, thi đấu phong trào, giải nội bộ, đội lớp, câu lạc bộ hoặc sự kiện bóng rổ.",
+                "<strong>Dễ phát triển thiết kế:</strong> có thể giữ tinh thần mẫu hiện tại hoặc đổi sang bảng màu riêng của đội, trường, lớp hay nhà tài trợ.",
+            ]),
         ),
-        (
-            f"Với nhóm {asset.age_label.lower()}, {fit}. Thiết kế áo bóng rổ thường có vai rộng, nách thoáng, bề mặt dễ thoát nhiệt và đủ không gian để in số lớn ở mặt trước, mặt sau. "
-            "Khi đặt may, đội có thể giữ tinh thần màu sắc của mẫu hiện tại hoặc đổi sang bảng màu riêng của lớp, trường, câu lạc bộ hay thương hiệu tài trợ. "
-            "Nếu cần tạo sự nhận diện mạnh hơn, phần logo đội, tên trường, slogan, biệt danh cầu thủ và số áo có thể được sắp xếp lại để hài hòa với bố cục sẵn có."
+        html_section(
+            "Phù hợp với ai?",
+            html_paragraph(
+                f"Mẫu{main_label} này đặc biệt hữu ích khi {decision} muốn xem nhanh một hướng thiết kế trước khi chốt concept. "
+                f"Với nhóm {asset.age_label.lower()}, {fit}. Thiết kế áo bóng rổ thường cần cảm giác thoáng, dễ vận động, số áo dễ đọc và bố cục không làm chìm logo hoặc tên đội. "
+                "Nếu đội có nhiều thành viên với vóc dáng khác nhau, nên chốt danh sách size trước khi sản xuất để việc phát áo nhanh hơn và hạn chế nhầm lẫn."
+            ),
         ),
-        color_note,
-        (
-            f"Mẫu này đặc biệt hữu ích khi {decision} muốn xem nhanh một hướng thiết kế trước khi chốt concept. Thay vì bắt đầu từ trang giấy trắng, đội có thể gửi ảnh mẫu này cho X24 Sport rồi ghi chú các thay đổi mong muốn: "
-            "giữ nền áo, đổi màu viền, thêm logo ngực trái, đặt số áo lớn hơn, thay font chữ, thêm tên sau lưng, hoặc làm thêm quần đồng bộ. "
-            "Quy trình như vậy giúp việc tư vấn nhanh hơn, giảm hiểu nhầm giữa người đặt và bộ phận thiết kế, đồng thời giúp cả đội dễ thống nhất một phương án cuối cùng."
+        html_section(
+            "Có thể tùy chỉnh những gì?",
+            html_list([
+                "<strong>Màu áo:</strong> giữ màu như ảnh mẫu hoặc đổi theo màu lớp, màu câu lạc bộ, màu trường học, màu thương hiệu.",
+                "<strong>Logo và nhận diện:</strong> thêm logo đội, logo trường, logo nhà tài trợ, slogan hoặc biểu tượng riêng.",
+                "<strong>Tên và số:</strong> in số mặt trước, số mặt sau, tên cầu thủ, biệt danh hoặc vai trò trong đội.",
+                "<strong>Form và combo:</strong> trao đổi thêm về áo, quần đồng bộ, size theo từng thành viên và yêu cầu sử dụng thực tế.",
+            ]),
         ),
-        (
-            "Khi dùng cho thi đấu, luyện tập hoặc sự kiện, áo bóng rổ nên cân bằng giữa tính thẩm mỹ và khả năng nhận diện. Màu chính cần đủ rõ để lên ảnh đẹp, số áo cần dễ đọc từ xa, còn logo và tên đội không nên bị chìm vào họa tiết nền. "
-            "Nếu đội có nhiều thành viên với vóc dáng khác nhau, nên chốt danh sách size trước khi sản xuất và kiểm tra kỹ cách ghi tên, số áo, vai trò hoặc biệt danh. "
-            "Với đơn hàng trường học hoặc câu lạc bộ, có thể chia size theo từng lớp, từng đội hoặc từng nhóm tuổi để phát áo nhanh và hạn chế nhầm lẫn."
+        html_section("Cách hiểu đúng về màu sắc", html_paragraph(color_note)),
+        html_section(
+            "Gợi ý khi đặt may",
+            html_paragraph(
+                "Để lên mẫu nhanh và ít phải sửa nhiều vòng, bạn nên chuẩn bị số lượng dự kiến, nhóm size, logo nếu có, danh sách tên số và ngày cần nhận áo. "
+                "Khi gửi yêu cầu, hãy nói rõ phần nào muốn giữ giống ảnh mẫu và phần nào muốn đổi. Ví dụ: giữ nền áo, đổi màu viền, làm số áo lớn hơn, đổi font chữ, thêm logo ngực trái hoặc thêm tên sau lưng. "
+                "Cách trao đổi này giúp X24 Sport tư vấn chính xác hơn về bố cục, màu in, độ nổi bật của số áo và thời gian thực hiện."
+            ),
         ),
-        (
-            f"X24 Sport có thể tư vấn mẫu áo bóng rổ {asset.age_label.lower()} dựa trên số lượng, thời gian cần nhận, màu nhận diện và ngân sách dự kiến. "
-            "Khách hàng chỉ cần gửi mẫu đang thích, logo nếu có, danh sách tên số và yêu cầu chỉnh sửa. Đội ngũ sẽ hỗ trợ phát triển thiết kế theo đúng tinh thần ban đầu, sau đó thống nhất bản mockup trước khi tiến hành sản xuất. "
-            "Mục tiêu là giúp đội có một bộ áo lên sân gọn gàng, dễ nhận diện, phù hợp hình ảnh tập thể và đủ linh hoạt cho nhiều buổi tập, trận đấu hoặc hoạt động thể thao trong năm."
+        html_section(
+            "Vì sao nên dùng mẫu này làm điểm bắt đầu?",
+            html_paragraph(
+                "Một mẫu áo bóng rổ đẹp cần cân bằng giữa thẩm mỹ, nhận diện và tính thực dụng khi vận động. Nếu họa tiết quá phức tạp, số áo có thể khó đọc; nếu màu chính không đủ rõ, cả đội dễ bị nhạt khi lên ảnh. "
+                "Mẫu này giúp đội có sẵn một hướng thị giác để thảo luận, từ đó điều chỉnh thành thiết kế riêng mà vẫn giữ được tinh thần bóng rổ mạnh mẽ, gọn gàng và dễ nhận diện. "
+                "Sau khi thống nhất ý tưởng, X24 Sport sẽ hỗ trợ dựng mockup theo thông tin đội cung cấp trước khi tiến hành sản xuất."
+            ),
         ),
     ]
-    word_count = len(re.findall(r"\w+", " ".join(paragraphs), re.UNICODE))
+    text_for_count = re.sub(r"<[^>]+>", " ", " ".join(sections))
+    word_count = len(re.findall(r"\w+", text_for_count, re.UNICODE))
     if word_count < 500:
         raise RuntimeError(f"Generated description too short for {asset.path.name}: {word_count} words")
-    return "\n".join(html_paragraph(item) for item in paragraphs)
+    return "\n\n".join(sections)
 
 
 def build_product_data(asset: ProductAsset, tenant_id: Any, category_ids: list[Any], media_id: Any) -> dict[str, Any]:
     color_names = asset.color_names or ["Nhiều màu"]
     content_html = build_content_html(asset)
     short_description = build_short_description(asset)
-    name = f"Áo bóng rổ {asset.age_label} {asset.design_label} màu {', '.join(color_names)}"
+    age_part = " Trẻ em" if asset.age_slug == "tre-em" else ""
+    name = f"Áo bóng rổ{age_part} {asset.design_label} màu {', '.join(color_names)}"
     data = {
         "tenant": tenant_id,
         "name": name,
