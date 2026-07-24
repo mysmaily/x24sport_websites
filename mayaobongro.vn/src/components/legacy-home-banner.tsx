@@ -4,12 +4,18 @@ import Link from 'next/link'
 import { BASKETBALL_AUDIENCES } from '@/lib/basketball-audiences'
 import { ZALO_URL } from '@/lib/site'
 
-const iconBySlug = {
+const iconBySlug: Record<string, typeof GraduationCap> = {
   'lop-truong-hoc': GraduationCap,
   'clb-doi-bong-phong-trao': UsersRound,
   'giai-dau-su-kien': CalendarDays,
   'doi-tuyen-chuyen-nghiep': Trophy,
-} as const
+  'hoc-sinh-ha-noi': GraduationCap,
+  'truong-hoc-tphcm': GraduationCap,
+  'hoc-sinh-da-nang': GraduationCap,
+  'tre-em': UsersRound,
+  'thpt': GraduationCap,
+  'dong-phuc-clb': UsersRound,
+}
 
 export function LegacyHomeBanner() {
   return (
