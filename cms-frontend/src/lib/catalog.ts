@@ -141,6 +141,7 @@ export const categoryMenu: CategoryMenuGroup[] = [
     name: 'Chạy bộ',
     children: [
       { slug: 'ao-chay-bo', name: 'Áo chạy bộ', description: 'Áo chạy bộ, singlet chạy bộ, áo sự kiện marathon và đồng phục câu lạc bộ chạy.' },
+      { slug: 'logo-chay-bo', name: 'Logo chạy bộ', description: 'Mẫu áo chạy bộ có logo đội chạy, running club, sự kiện và nhận diện nhóm runner.' },
       { slug: 'giay-chay-bo', name: 'Giày chạy bộ', description: 'Giày chạy bộ cho luyện tập, race day, chạy road và chạy bộ phong trào.' },
       { slug: 'phu-kien-chay-bo', name: 'Phụ kiện chạy bộ', description: 'Phụ kiện chạy bộ: vớ, túi, nón, băng đô và đồ dùng cho runner.' },
     ],
