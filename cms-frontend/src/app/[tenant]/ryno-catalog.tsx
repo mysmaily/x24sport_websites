@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Phone, Search, Shirt, Sparkles } from 'lucide-react'
+import { notFound } from 'next/navigation'
+import { ArrowRight, CheckCircle2, Phone, Ruler, Search, Shirt, Sparkles, SwatchBook } from 'lucide-react'
 
+import { JsonLd } from '../_components/json-ld'
 import type { ProductPreview, SportCategory } from '../../lib/catalog'
 import { getCategories, getCategory, getProductBySlug, getProductsPage, getRelatedProducts, productImages } from '../../lib/content'
 import { RynoSiteFooter, RynoSiteHeader } from './ryno-shell'
@@ -11,7 +13,14 @@ const money = (value?: number | null, currency = 'VND') =>
     ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency, maximumFractionDigits: 0 }).format(value)
     : 'Liên hệ'
 
-export function RynoCard({ product }: { product: ProductPreview }) {
+export const rynoDesignCards = [
+  { title: 'Áo bóng đá đỏ đen', tag: 'Bóng đá', image: '/images/rynosport/football.png', text: 'Phom thi đấu mạnh, dễ đặt tên và số áo cho cả đội.' },
+  { title: 'Áo bóng chuyền đội nhóm', tag: 'Bóng chuyền', image: '/images/rynosport/volleyball.png', text: 'Màu sắc nổi bật, gọn vai tay cho chuyển động bật nhảy.' },
+  { title: 'Đồng phục tập luyện', tag: 'Teamwear', image: '/images/rynosport/training.png', text: 'Dễ phối màu, phù hợp CLB, lớp học và đội phong trào.' },
+  { title: 'Áo esports đồng đội', tag: 'Esports', image: '/images/rynosport/esports.png', text: 'Đường nét sắc, lên hình rõ trong sự kiện và giải đấu.' },
+]
+
+export function RynoCard({ product, priority = false }: { product: ProductPreview; priority?: boolean }) {
   return <article className="ryno-product-card">
     <Link className="ryno-product-image" href={`/${product.slug}/`} aria-label={`Xem ${product.name}`}>
       <Image
@@ -20,6 +29,7 @@ export function RynoCard({ product }: { product: ProductPreview }) {
         width={900}
         height={900}
         sizes="(max-width: 720px) 50vw, (max-width: 1080px) 33vw, 25vw"
+        priority={priority}
       />
     </Link>
     <div className="ryno-product-info">
@@ -31,6 +41,27 @@ export function RynoCard({ product }: { product: ProductPreview }) {
       </p>
     </div>
   </article>
+}
+
+export function RynoDesignGrid({ limit = rynoDesignCards.length }: { limit?: number }) {
+  return <div className="ryno-look-grid">
+    {rynoDesignCards.slice(0, limit).map((item, index) => <article className="ryno-look-card" key={item.title}>
+      <Image
+        src={item.image}
+        alt={`${item.title} RynoSport`}
+        width={900}
+        height={1200}
+        sizes="(max-width: 720px) 50vw, (max-width: 1080px) 33vw, 25vw"
+        priority={index < 2}
+      />
+      <div>
+        <span>{item.tag}</span>
+        <h2>{item.title}</h2>
+        <p>{item.text}</p>
+        <Link href="/lien-he/">Tư vấn mẫu này <ArrowRight size={17} /></Link>
+      </div>
+    </article>)}
+  </div>
 }
 
 function RynoCatalogBody({
@@ -75,11 +106,11 @@ function RynoCatalogBody({
         <b>{products.length} sản phẩm</b>
       </div>
       {products.length ? <div className="ryno-product-grid">
-        {products.map((product) => <RynoCard product={product} key={product.slug} />)}
+        {products.map((product, index) => <RynoCard product={product} priority={index < 4} key={product.slug} />)}
       </div> : <div className="ryno-empty">
-        <h2>Danh mục đang được bổ sung</h2>
-        <p>Bạn có thể xem toàn bộ mẫu hiện có hoặc liên hệ để Ryno tư vấn theo môn chơi.</p>
-        <Link href="/san-pham/">Xem toàn bộ sản phẩm <ArrowRight size={18} /></Link>
+        <h2>Mẫu trong CMS đang được bổ sung</h2>
+        <p>Trong lúc chờ catalog sản phẩm chi tiết, bạn có thể chọn một hướng thiết kế để Ryno tư vấn màu áo, logo và size cho đội.</p>
+        <RynoDesignGrid />
       </div>}
     </section>
   </main>
@@ -95,7 +126,7 @@ export async function RynoProductsPage({ searchParams }: { searchParams: Promise
     <RynoSiteHeader />
     <RynoCatalogBody
       title="Sản phẩm RynoSport"
-      description="Khám phá trang phục thể thao dành cho đội nhóm, câu lạc bộ và những người muốn ra sân với diện mạo đồng bộ."
+      description="Khám phá áo đấu và đồng phục thể thao RynoSport cho đội nhóm, câu lạc bộ, trường học và đội phong trào muốn có màu áo đồng bộ."
       categories={categories}
       products={products}
     />
@@ -105,7 +136,7 @@ export async function RynoProductsPage({ searchParams }: { searchParams: Promise
 
 export async function RynoCategoryPage({ slug }: { slug: string }) {
   const [category, categories] = await Promise.all([getCategory(slug), getCategories()])
-  if (!category) return null
+  if (!category) notFound()
   const { products } = await getProductsPage({ categorySlug: slug, limit: 60 })
 
   return <div className="ryno-store">
@@ -123,14 +154,45 @@ export async function RynoCategoryPage({ slug }: { slug: string }) {
 
 export async function RynoProductPage({ slug }: { slug: string }) {
   const product = await getProductBySlug(slug)
-  if (!product) return null
+  if (!product) notFound()
 
   const related = await getRelatedProducts(product)
   const image = productImages(product)[0]
   const category = typeof product.categories?.[0] === 'object' ? product.categories[0] : undefined
   const categoryHref = `/danh-muc/${category?.slug || 'bong-da'}/`
+  const inStock = product.stockStatus !== 'outofstock'
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    image: productImages(product).map((item) => item.url),
+    ...(product.shortDescription ? { description: product.shortDescription } : {}),
+    ...(product.sku ? { sku: product.sku } : {}),
+    brand: { '@type': 'Brand', name: 'RynoSport' },
+    ...(category ? { category: category.name } : {}),
+    ...(typeof product.price === 'number' && product.price > 0 ? {
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: product.currency || 'VND',
+        price: product.price,
+        availability: inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+        url: `https://rynosport.vn/${product.slug}/`,
+      },
+    } : {}),
+  }
+  const breadcrumbsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: 'https://rynosport.vn/' },
+      { '@type': 'ListItem', position: 2, name: category?.name || 'Sản phẩm', item: `https://rynosport.vn${categoryHref}` },
+      { '@type': 'ListItem', position: 3, name: product.name, item: `https://rynosport.vn/${product.slug}/` },
+    ],
+  }
 
   return <div className="ryno-store">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbsJsonLd} />
     <RynoSiteHeader />
     <main id="noi-dung" className="ryno-detail">
       <nav className="ryno-breadcrumb" aria-label="Đường dẫn">
@@ -165,8 +227,19 @@ export async function RynoProductPage({ slug }: { slug: string }) {
           <ul>
             <li><Shirt size={18} /> Tư vấn mẫu, màu sắc và logo theo đội hình</li>
             <li><Sparkles size={18} /> Gợi ý phối đồ theo môn chơi và mục đích sử dụng</li>
+            <li><Ruler size={18} /> Hỗ trợ tổng hợp size, tên áo và số áo cho từng thành viên</li>
           </ul>
           <a href="tel:0989371161"><Phone size={18} />Tư vấn 098 937 11 61</a>
+        </div>
+      </section>
+
+      <section className="ryno-detail-specs" aria-labelledby="ryno-detail-specs-title">
+        <p>Thông tin đặt áo</p>
+        <h2 id="ryno-detail-specs-title">CHUẨN BỊ GÌ TRƯỚC KHI CHỐT MẪU?</h2>
+        <div>
+          <article><SwatchBook size={23} /><b>Màu sắc & logo</b><span>Gửi màu chủ đạo, logo đội hoặc hình tham chiếu để Ryno tư vấn cách đặt nhận diện trên áo.</span></article>
+          <article><Ruler size={23} /><b>Số lượng & size</b><span>Tổng hợp số lượng thành viên, size dự kiến, tên và số áo nếu đội muốn cá nhân hóa.</span></article>
+          <article><CheckCircle2 size={23} /><b>Mục đích sử dụng</b><span>Cho biết đội dùng để tập luyện, thi đấu, đi giải hay sự kiện để chọn chất liệu và phom áo phù hợp.</span></article>
         </div>
       </section>
 

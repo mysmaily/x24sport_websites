@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, Phone, Search, Sparkles } from 'lucide-react'
 
 export const RYNO_PHONE = '0989371161'
@@ -12,7 +13,13 @@ const links = [
 
 export function RynoBrand() {
   return <Link href="/" className="ryno-logo" aria-label="RynoSport - Trang chủ">
-    RYNO<span>SPORT</span>
+    <Image
+      src="/images/rynosport/logo-banner.png"
+      alt="RynoSport"
+      width={300}
+      height={100}
+      priority
+    />
   </Link>
 }
 
