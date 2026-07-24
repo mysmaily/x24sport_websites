@@ -36,10 +36,10 @@
   "totals": {
     "failed": 0,
     "media_created": 0,
-    "media_unchanged": 172,
-    "media_updated": 173,
+    "media_unchanged": 345,
+    "media_updated": 0,
     "products_created": 0,
-    "products_unchanged": 0,
-    "products_updated": 345
+    "products_unchanged": 172,
+    "products_updated": 173
   }
 }

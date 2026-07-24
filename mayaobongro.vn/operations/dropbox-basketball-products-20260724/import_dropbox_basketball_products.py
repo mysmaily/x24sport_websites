@@ -279,7 +279,8 @@ def discover_assets() -> list[ProductAsset]:
             color_names = [COLOR_META[slug]["name"] for slug in color_slugs if slug in COLOR_META]
             color_part = "-".join(color_slugs) if color_slugs else "nhieu-mau"
             sku = f"X24-BR-DBX-{sku_prefix}-{index:03d}"
-            slug = slugify(f"ao-bong-ro-{age_label}-{design_code}-{color_part}-{index:03d}")
+            slug_age_part = f"{age_label}-" if age_slug == "tre-em" else ""
+            slug = slugify(f"ao-bong-ro-{slug_age_part}{design_code}-{color_part}-{index:03d}")
             assets.append(
                 ProductAsset(
                     index=index,
