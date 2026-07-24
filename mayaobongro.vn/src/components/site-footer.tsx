@@ -1,9 +1,21 @@
 import { ArrowRight, MessageCircle, Phone } from 'lucide-react'
 import Link from 'next/link'
 
+import { BASKETBALL_AUDIENCES } from '@/lib/basketball-audiences'
 import { PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '@/lib/site'
 
+const footerLandingSlugs = new Set([
+  'hoc-sinh-ha-noi',
+  'truong-hoc-tphcm',
+  'hoc-sinh-da-nang',
+  'tre-em',
+  'thpt',
+  'dong-phuc-clb',
+])
+
 export function SiteFooter() {
+  const footerLandings = BASKETBALL_AUDIENCES.filter((audience) => footerLandingSlugs.has(audience.slug))
+
   return (
     <>
       <section className="bg-brand text-white">
@@ -17,7 +29,7 @@ export function SiteFooter() {
       </section>
 
       <footer className="bg-slate-950 pb-24 text-slate-300 lg:pb-0">
-        <div className="section-shell grid gap-10 py-12 sm:py-16 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
+        <div className="section-shell grid gap-10 py-12 sm:py-16 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <img alt="May Áo Bóng Rổ" className="h-11 w-auto" height="44" src="https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/may-ao-bong-ro-logo.svg" width="287" />
             <p className="mt-5 max-w-md text-sm leading-7 text-slate-400">Đồng phục bóng rổ thiết kế theo màu đội, logo, tên số cho lớp học, câu lạc bộ và đội thi đấu.</p>
@@ -30,6 +42,14 @@ export function SiteFooter() {
               <Link className="hover:text-white" href="/dat-may-ao-bong-ro/">Quy trình đặt may</Link>
               <Link className="hover:text-white" href="/bang-gia-may-ao-bong-ro/">Bảng giá</Link>
               <Link className="hover:text-white" href="/chat-lieu-va-bang-size-ao-bong-ro/">Chất liệu & bảng size</Link>
+            </nav>
+          </div>
+          <div>
+            <h3 className="mb-4 text-sm font-black uppercase tracking-wider text-white">Theo nhu cầu</h3>
+            <nav className="grid gap-3 text-sm" aria-label="Landing page theo nhu cầu">
+              {footerLandings.map((audience) => (
+                <Link className="hover:text-white" href={audience.path} key={audience.slug}>{audience.title}</Link>
+              ))}
             </nav>
           </div>
           <div>
