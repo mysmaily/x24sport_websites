@@ -1,11 +1,23 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import X24CategoryPage from '../../../danh-muc/[slug]/page'
+import X24CategoryPage, { generateMetadata as generateX24CategoryMetadata } from '../../../danh-muc/[slug]/page'
 import { RynoCategoryPage } from '../../ryno-catalog'
 import { getCategory } from '../../../../lib/content'
 
-export async function generateMetadata({ params }: { params: Promise<{ tenant: string; slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ tenant: string; slug: string }>
+  searchParams: Promise<{ page?: string; sort?: string }>
+}): Promise<Metadata> {
   const { tenant, slug } = await params
+  if (tenant === 'x24sport') {
+    return generateX24CategoryMetadata({
+      params: Promise.resolve({ slug }),
+      searchParams,
+    })
+  }
   if (tenant !== 'rynosport') return {}
 
   const category = await getCategory(slug)
