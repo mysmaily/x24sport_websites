@@ -62,8 +62,9 @@ const process = [
 ] as const
 
 export default async function HomePage() {
-  const [catalog, posts] = await Promise.all([
+  const [catalog, childrenCatalog, posts] = await Promise.all([
     getProducts({ limit: 8, categorySlug: 'bo-quan-ao-bong-ro' }),
+    getProducts({ limit: 12, categorySlug: 'tre-em' }),
     getLatestPosts(3),
   ])
 
@@ -114,6 +115,22 @@ export default async function HomePage() {
           <div className="mt-10"><ProductGrid products={catalog.docs} /></div>
         </div>
       </section>
+
+      {childrenCatalog.docs.length ? (
+        <section className="border-t border-slate-200 bg-orange-50/45 py-16 sm:py-22">
+          <div className="section-shell">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+              <div className="max-w-3xl">
+                <p className="section-kicker">Áo bóng rổ trẻ em</p>
+                <h2 className="section-title">12 mẫu nhẹ, dễ vận động cho đội thiếu nhi.</h2>
+                <p className="section-lead">Phù hợp lớp kỹ năng, trung tâm đào tạo và nhóm phụ huynh muốn đặt áo theo size, màu sắc, tên số của từng bé.</p>
+              </div>
+              <Link className="inline-flex min-h-12 shrink-0 items-center gap-2 self-start rounded-lg border border-brand bg-white px-5 text-sm font-black text-brand transition hover:bg-brand hover:text-white" href="/ao-bong-ro-tre-em/">Xem tư vấn áo trẻ em <ArrowRight size={18} /></Link>
+            </div>
+            <div className="mt-10"><ProductGrid products={childrenCatalog.docs} /></div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="overflow-hidden bg-slate-950 text-white">
         <div className="section-shell grid gap-10 py-16 sm:py-22 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
