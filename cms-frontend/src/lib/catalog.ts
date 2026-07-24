@@ -132,6 +132,7 @@ export const categoryMenu: CategoryMenuGroup[] = [
     name: 'Pickleball',
     children: [
       { slug: 'ao-pickleball', name: 'Áo pickleball', description: 'Áo pickleball, polo pickleball, váy áo câu lạc bộ và đồng phục đội nhóm.' },
+      { slug: 'logo-ao-pickleball', name: 'Logo áo Pickleball', description: 'Logo áo Pickleball cho đội nhóm, câu lạc bộ và nhận diện giải đấu.' },
       { slug: 'giay-pickleball', name: 'Giày pickleball', description: 'Giày pickleball bám sân, ổn định cổ chân và phù hợp di chuyển ngang liên tục.' },
       { slug: 'phu-kien-pickleball', name: 'Phụ kiện pickleball', description: 'Phụ kiện pickleball cho luyện tập và thi đấu: vớ, túi, băng tay và đồ dùng sân.' },
     ],
