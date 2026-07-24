@@ -1,0 +1,4485 @@
+{
+  "createdAtMs": 1784874462445,
+  "items": {
+    "NGƯỜI LỚN/AnhGhepAI-AoBongRo-X24-19-kieu1-Beo.jpg|a5cc21d14a2c": {
+      "age": "Người lớn",
+      "colors": [
+        "Kem"
+      ],
+      "mediaId": 6058,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAI-AoBongRo-X24-19-kieu1-Beo.jpg",
+      "productId": 4181,
+      "sku": "X24-BR-DBX-ADULT-001",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-0e0a3c-kem-001",
+      "status": "ok",
+      "updatedAtMs": 1784875831606
+    },
+    "NGƯỜI LỚN/AnhGhepAI-AoBongRo-X24-19-kieu1-DoDo.jpg|545dbe77f00b": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6059,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAI-AoBongRo-X24-19-kieu1-DoDo.jpg",
+      "productId": 4182,
+      "sku": "X24-BR-DBX-ADULT-002",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-6154fd-do-do-002",
+      "status": "ok",
+      "updatedAtMs": 1784875831887
+    },
+    "NGƯỜI LỚN/AnhGhepAI-AoBongRo-X24-19-kieu1-TimThan.jpg|6bcb8fb10fa5": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6060,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAI-AoBongRo-X24-19-kieu1-TimThan.jpg",
+      "productId": 4183,
+      "sku": "X24-BR-DBX-ADULT-003",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-19e346-tim-than-003",
+      "status": "ok",
+      "updatedAtMs": 1784875832099
+    },
+    "NGƯỜI LỚN/AnhGhepAI-AoBongRo-X24-19-kieu1-Trang.jpg|6aa6b09d8a7a": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6061,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAI-AoBongRo-X24-19-kieu1-Trang.jpg",
+      "productId": 4184,
+      "sku": "X24-BR-DBX-ADULT-004",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-3a3916-trang-004",
+      "status": "ok",
+      "updatedAtMs": 1784875832322
+    },
+    "NGƯỜI LỚN/AnhGhepAI-AoBongRo-X24-19-kieu1-XanhBich.jpg|7fbfa03ea3f1": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 6062,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAI-AoBongRo-X24-19-kieu1-XanhBich.jpg",
+      "productId": 4185,
+      "sku": "X24-BR-DBX-ADULT-005",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-cb9eef-xanh-bich-005",
+      "status": "ok",
+      "updatedAtMs": 1784875832562
+    },
+    "NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu1-Cam.jpg|de84ca78bc76": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6063,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu1-Cam.jpg",
+      "productId": 4186,
+      "sku": "X24-BR-DBX-ADULT-006",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-1bf633-cam-006",
+      "status": "ok",
+      "updatedAtMs": 1784875832836
+    },
+    "NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu1-Den.jpg|59f7d06ca35f": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6064,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu1-Den.jpg",
+      "productId": 4187,
+      "sku": "X24-BR-DBX-ADULT-007",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-da4f67-den-007",
+      "status": "ok",
+      "updatedAtMs": 1784875833070
+    },
+    "NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu1-Hong.jpg|9d6541a5b7fd": {
+      "age": "Người lớn",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6065,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu1-Hong.jpg",
+      "productId": 4188,
+      "sku": "X24-BR-DBX-ADULT-008",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-a1b288-hong-008",
+      "status": "ok",
+      "updatedAtMs": 1784875833360
+    },
+    "NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu1-XanhNgoc.jpg|f9d3a8682ce7": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6066,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu1-XanhNgoc.jpg",
+      "productId": 4189,
+      "sku": "X24-BR-DBX-ADULT-009",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-1ac291-xanh-ngoc-009",
+      "status": "ok",
+      "updatedAtMs": 1784875833573
+    },
+    "NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu1-XanhYa.jpg|b0a6cbec1699": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 6067,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu1-XanhYa.jpg",
+      "productId": 4190,
+      "sku": "X24-BR-DBX-ADULT-010",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-0de238-xanh-duong-010",
+      "status": "ok",
+      "updatedAtMs": 1784875833783
+    },
+    "NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu1-Cam.jpg|6c2e34665736": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6068,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu1-Cam.jpg",
+      "productId": 4191,
+      "sku": "X24-BR-DBX-ADULT-011",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-25-cam-011",
+      "status": "ok",
+      "updatedAtMs": 1784875834038
+    },
+    "NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu1-DoDo.jpg|6e2895149539": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6069,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu1-DoDo.jpg",
+      "productId": 4192,
+      "sku": "X24-BR-DBX-ADULT-012",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-25-do-do-012",
+      "status": "ok",
+      "updatedAtMs": 1784875834250
+    },
+    "NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu1-Hong.jpg|14caf8966aee": {
+      "age": "Người lớn",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6070,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu1-Hong.jpg",
+      "productId": 4193,
+      "sku": "X24-BR-DBX-ADULT-013",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-25-hong-013",
+      "status": "ok",
+      "updatedAtMs": 1784875834504
+    },
+    "NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu1-Tim.jpg|2c7d5c482082": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 6071,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu1-Tim.jpg",
+      "productId": 4194,
+      "sku": "X24-BR-DBX-ADULT-014",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-25-tim-014",
+      "status": "ok",
+      "updatedAtMs": 1784875834741
+    },
+    "NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu1-TimThan.jpg|795adab4464c": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6072,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu1-TimThan.jpg",
+      "productId": 4195,
+      "sku": "X24-BR-DBX-ADULT-015",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-25-tim-than-015",
+      "status": "ok",
+      "updatedAtMs": 1784875835029
+    },
+    "NGƯỜI LỚN/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu1-CAM.jpg|eb222fefd162": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6073,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu1-CAM.jpg",
+      "productId": 4196,
+      "sku": "X24-BR-DBX-ADULT-016",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-26-cam-016",
+      "status": "ok",
+      "updatedAtMs": 1784875835246
+    },
+    "NGƯỜI LỚN/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu1-HOng.jpg|5972b1d045f3": {
+      "age": "Người lớn",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6074,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu1-HOng.jpg",
+      "productId": 4197,
+      "sku": "X24-BR-DBX-ADULT-017",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-26-hong-017",
+      "status": "ok",
+      "updatedAtMs": 1784875835559
+    },
+    "NGƯỜI LỚN/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu1-TIMTHAN.jpg|75d6c2cbe521": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6075,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu1-TIMTHAN.jpg",
+      "productId": 4198,
+      "sku": "X24-BR-DBX-ADULT-018",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-26-tim-than-018",
+      "status": "ok",
+      "updatedAtMs": 1784875835793
+    },
+    "NGƯỜI LỚN/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu1-TRĂNG.jpg|9ba38c8607bd": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6076,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu1-TRĂNG.jpg",
+      "productId": 4199,
+      "sku": "X24-BR-DBX-ADULT-019",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-26-trang-019",
+      "status": "ok",
+      "updatedAtMs": 1784875836100
+    },
+    "NGƯỜI LỚN/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu1-XANHVECHAI.jpg|2fac75f96fe0": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6077,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu1-XANHVECHAI.jpg",
+      "productId": 4200,
+      "sku": "X24-BR-DBX-ADULT-020",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-26-xanh-ve-chai-020",
+      "status": "ok",
+      "updatedAtMs": 1784875836317
+    },
+    "NGƯỜI LỚN/AnhGhepAnhAi-X24-BR-34-kieu1-Den.jpg|c26dc0ba805a": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6078,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAnhAi-X24-BR-34-kieu1-Den.jpg",
+      "productId": 4201,
+      "sku": "X24-BR-DBX-ADULT-021",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-34-den-021",
+      "status": "ok",
+      "updatedAtMs": 1784875837032
+    },
+    "NGƯỜI LỚN/AnhGhepAnhAi-X24-BR-34-kieu1-Trang.jpg|ea59230d3671": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6079,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAnhAi-X24-BR-34-kieu1-Trang.jpg",
+      "productId": 4202,
+      "sku": "X24-BR-DBX-ADULT-022",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-34-trang-022",
+      "status": "ok",
+      "updatedAtMs": 1784875837251
+    },
+    "NGƯỜI LỚN/AnhGhepAnhAi-X24-BR-34-kieu1-Vang.jpg|0dde9706f1f7": {
+      "age": "Người lớn",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6080,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAnhAi-X24-BR-34-kieu1-Vang.jpg",
+      "productId": 4203,
+      "sku": "X24-BR-DBX-ADULT-023",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-34-vang-023",
+      "status": "ok",
+      "updatedAtMs": 1784875837467
+    },
+    "NGƯỜI LỚN/AnhGhepAnhAi-X24-BR-34-kieu1-XANHBICH.jpg|85581753179c": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 6081,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAnhAi-X24-BR-34-kieu1-XANHBICH.jpg",
+      "productId": 4204,
+      "sku": "X24-BR-DBX-ADULT-024",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-34-xanh-bich-024",
+      "status": "ok",
+      "updatedAtMs": 1784875837762
+    },
+    "NGƯỜI LỚN/AnhGhepAnhAi-X24-BR-34-kieu1-XanhMC.jpg|9db7872e2e59": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 6082,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhepAnhAi-X24-BR-34-kieu1-XanhMC.jpg",
+      "productId": 4205,
+      "sku": "X24-BR-DBX-ADULT-025",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-34-xanh-duong-025",
+      "status": "ok",
+      "updatedAtMs": 1784875837983
+    },
+    "NGƯỜI LỚN/AnhGhépAI-X24-BR-32-kieu1-Do.jpg|1510c1ca37e6": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6083,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhépAI-X24-BR-32-kieu1-Do.jpg",
+      "productId": 4206,
+      "sku": "X24-BR-DBX-ADULT-026",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-32-do-026",
+      "status": "ok",
+      "updatedAtMs": 1784875838366
+    },
+    "NGƯỜI LỚN/AnhGhépAI-X24-BR-32-kieu1-Tim.jpg|78a7b3c653e5": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 6084,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhépAI-X24-BR-32-kieu1-Tim.jpg",
+      "productId": 4207,
+      "sku": "X24-BR-DBX-ADULT-027",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-32-tim-027",
+      "status": "ok",
+      "updatedAtMs": 1784875838603
+    },
+    "NGƯỜI LỚN/AnhGhépAI-X24-BR-32-kieu1-Vang.jpg|a45a838f751d": {
+      "age": "Người lớn",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6085,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhépAI-X24-BR-32-kieu1-Vang.jpg",
+      "productId": 4208,
+      "sku": "X24-BR-DBX-ADULT-028",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-32-vang-028",
+      "status": "ok",
+      "updatedAtMs": 1784875838805
+    },
+    "NGƯỜI LỚN/AnhGhépAI-X24-BR-32-kieu1-Xam.jpg|1c452068e4f7": {
+      "age": "Người lớn",
+      "colors": [
+        "Xám"
+      ],
+      "mediaId": 6086,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhépAI-X24-BR-32-kieu1-Xam.jpg",
+      "productId": 4209,
+      "sku": "X24-BR-DBX-ADULT-029",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-32-xam-029",
+      "status": "ok",
+      "updatedAtMs": 1784875839020
+    },
+    "NGƯỜI LỚN/AnhGhépAI-X24-BR-32-kieu1-XanhVeChai.jpg|a6cdd8be25db": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6087,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AnhGhépAI-X24-BR-32-kieu1-XanhVeChai.jpg",
+      "productId": 4210,
+      "sku": "X24-BR-DBX-ADULT-030",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-32-xanh-ve-chai-030",
+      "status": "ok",
+      "updatedAtMs": 1784875839277
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-02-Cam-Kieu1.jpg|72884013c0d0": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6088,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-02-Cam-Kieu1.jpg",
+      "productId": 4211,
+      "sku": "X24-BR-DBX-ADULT-031",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-70d038-cam-031",
+      "status": "ok",
+      "updatedAtMs": 1784875839478
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-02-Den-Kieu1.jpg|0639c6983315": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6089,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-02-Den-Kieu1.jpg",
+      "productId": 4212,
+      "sku": "X24-BR-DBX-ADULT-032",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-735c55-den-032",
+      "status": "ok",
+      "updatedAtMs": 1784875839752
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-02-DoDo-Kieu1.jpg|d4e85f10674d": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6090,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-02-DoDo-Kieu1.jpg",
+      "productId": 4213,
+      "sku": "X24-BR-DBX-ADULT-033",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-cd538f-do-do-033",
+      "status": "ok",
+      "updatedAtMs": 1784875839965
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-02-TimThan-Kieu1.jpg|81c4d6c38392": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6091,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-02-TimThan-Kieu1.jpg",
+      "productId": 4214,
+      "sku": "X24-BR-DBX-ADULT-034",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-04933b-tim-than-034",
+      "status": "ok",
+      "updatedAtMs": 1784875840175
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-02-Trang-Kieu1.jpg|b65ff1c954ea": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6092,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-02-Trang-Kieu1.jpg",
+      "productId": 4215,
+      "sku": "X24-BR-DBX-ADULT-035",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-9fc293-trang-035",
+      "status": "ok",
+      "updatedAtMs": 1784875840360
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-04-Hong-Kieu1.jpg|a4775fb53ed2": {
+      "age": "Người lớn",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6093,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-04-Hong-Kieu1.jpg",
+      "productId": 4216,
+      "sku": "X24-BR-DBX-ADULT-036",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-898c6c-hong-036",
+      "status": "ok",
+      "updatedAtMs": 1784875840550
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-04-TimThan-Kieu1.jpg|a4a6f7bfcd9e": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6094,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-04-TimThan-Kieu1.jpg",
+      "productId": 4217,
+      "sku": "X24-BR-DBX-ADULT-037",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-710512-tim-than-037",
+      "status": "ok",
+      "updatedAtMs": 1784875840795
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-04-Trang-Kieu1.jpg|88833af4dab8": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6095,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-04-Trang-Kieu1.jpg",
+      "productId": 4218,
+      "sku": "X24-BR-DBX-ADULT-038",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-074c56-trang-038",
+      "status": "ok",
+      "updatedAtMs": 1784875840994
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-04-XanhMc-Kieu1.jpg|87dc02d1682c": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 6096,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-04-XanhMc-Kieu1.jpg",
+      "productId": 4219,
+      "sku": "X24-BR-DBX-ADULT-039",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-42e7dd-xanh-duong-039",
+      "status": "ok",
+      "updatedAtMs": 1784875841316
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-04-XanhVeChai-Kieu1.jpg|5ee32b298a23": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6097,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-04-XanhVeChai-Kieu1.jpg",
+      "productId": 4220,
+      "sku": "X24-BR-DBX-ADULT-040",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-7da5f5-xanh-ve-chai-040",
+      "status": "ok",
+      "updatedAtMs": 1784875841536
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-09-Cam-Kieu1.jpg|c812bae18272": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6098,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-09-Cam-Kieu1.jpg",
+      "productId": 4221,
+      "sku": "X24-BR-DBX-ADULT-041",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-8224f2-cam-041",
+      "status": "ok",
+      "updatedAtMs": 1784875841850
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-09-Den-Kieu1.jpg|f0deee85b02b": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6099,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-09-Den-Kieu1.jpg",
+      "productId": 4222,
+      "sku": "X24-BR-DBX-ADULT-042",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-80795a-den-042",
+      "status": "ok",
+      "updatedAtMs": 1784875842059
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-09-Trang-Kieu1.jpg|f08ee3380a8f": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6100,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-09-Trang-Kieu1.jpg",
+      "productId": 4223,
+      "sku": "X24-BR-DBX-ADULT-043",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-3c9552-trang-043",
+      "status": "ok",
+      "updatedAtMs": 1784875842274
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-09-XanhMc-Kieu1.jpg|17237e17902b": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 6101,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-09-XanhMc-Kieu1.jpg",
+      "productId": 4224,
+      "sku": "X24-BR-DBX-ADULT-044",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-3db378-xanh-duong-044",
+      "status": "ok",
+      "updatedAtMs": 1784875842490
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-09-XanhVeChai-Kieu1.jpg|9d67c8e67341": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6102,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-09-XanhVeChai-Kieu1.jpg",
+      "productId": 4225,
+      "sku": "X24-BR-DBX-ADULT-045",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-e4d55e-xanh-ve-chai-045",
+      "status": "ok",
+      "updatedAtMs": 1784875842711
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-27-Cam-Kieu2.jpg|43da13e67c6e": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6103,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-27-Cam-Kieu2.jpg",
+      "productId": 4226,
+      "sku": "X24-BR-DBX-ADULT-046",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-69b8f7-cam-046",
+      "status": "ok",
+      "updatedAtMs": 1784875843003
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-27-DoDo-Kieu2.jpg|12b6a4519973": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6104,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-27-DoDo-Kieu2.jpg",
+      "productId": 4227,
+      "sku": "X24-BR-DBX-ADULT-047",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-e868b5-do-do-047",
+      "status": "ok",
+      "updatedAtMs": 1784875843214
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-27-Trang-Kieu2.jpg|f9cc2c78168c": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6105,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-27-Trang-Kieu2.jpg",
+      "productId": 4228,
+      "sku": "X24-BR-DBX-ADULT-048",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-eac1cc-trang-048",
+      "status": "ok",
+      "updatedAtMs": 1784875843683
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-27-XanhBich-Kieu2.jpg|9b9dc48cbee1": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 6106,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-27-XanhBich-Kieu2.jpg",
+      "productId": 4229,
+      "sku": "X24-BR-DBX-ADULT-049",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-7e0b0b-xanh-bich-049",
+      "status": "ok",
+      "updatedAtMs": 1784875843944
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-27-XanhKet-Kieu2.jpg|b30e97cb8b44": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6107,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-27-XanhKet-Kieu2.jpg",
+      "productId": 4230,
+      "sku": "X24-BR-DBX-ADULT-050",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-c17496-trang-050",
+      "status": "ok",
+      "updatedAtMs": 1784875844153
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-28-Den.png|6cdcd4b4d1ea": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6108,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-28-Den.png",
+      "productId": 4231,
+      "sku": "X24-BR-DBX-ADULT-051",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-5c8c6e-den-051",
+      "status": "ok",
+      "updatedAtMs": 1784875844494
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-28-DoDo.png|c92b86980937": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6109,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-28-DoDo.png",
+      "productId": 4232,
+      "sku": "X24-BR-DBX-ADULT-052",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-54c9b4-do-do-052",
+      "status": "ok",
+      "updatedAtMs": 1784875844706
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-28-Tim.png|1acef1ccd7a2": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 6110,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-28-Tim.png",
+      "productId": 4233,
+      "sku": "X24-BR-DBX-ADULT-053",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-3f7340-tim-053",
+      "status": "ok",
+      "updatedAtMs": 1784875845000
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-28-Trang.png|c61089475b83": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6111,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-28-Trang.png",
+      "productId": 4234,
+      "sku": "X24-BR-DBX-ADULT-054",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-0bd92d-trang-054",
+      "status": "ok",
+      "updatedAtMs": 1784875845448
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-28-XanhVeChai.png|09f1c270ab31": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6112,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-28-XanhVeChai.png",
+      "productId": 4235,
+      "sku": "X24-BR-DBX-ADULT-055",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-2e33f3-xanh-ve-chai-055",
+      "status": "ok",
+      "updatedAtMs": 1784875845691
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-29-Do.png|89bbe47c1756": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6113,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-29-Do.png",
+      "productId": 4236,
+      "sku": "X24-BR-DBX-ADULT-056",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-45ef7b-do-056",
+      "status": "ok",
+      "updatedAtMs": 1784875845942
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-29-Trang.png|776ccf822585": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6114,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-29-Trang.png",
+      "productId": 4237,
+      "sku": "X24-BR-DBX-ADULT-057",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-7145a1-trang-057",
+      "status": "ok",
+      "updatedAtMs": 1784875846132
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-29-Vang.png|017a7b6de177": {
+      "age": "Người lớn",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6115,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-29-Vang.png",
+      "productId": 4238,
+      "sku": "X24-BR-DBX-ADULT-058",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-d7ea37-vang-058",
+      "status": "ok",
+      "updatedAtMs": 1784875846327
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-29-Xanh Chuoi.png|b1efd417ff53": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6116,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-29-Xanh Chuoi.png",
+      "productId": 4239,
+      "sku": "X24-BR-DBX-ADULT-059",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-3f4147-trang-059",
+      "status": "ok",
+      "updatedAtMs": 1784875846631
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-29-XanhNgoc.png|65126c299cb8": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6117,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-29-XanhNgoc.png",
+      "productId": 4240,
+      "sku": "X24-BR-DBX-ADULT-060",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-965cc3-xanh-ngoc-060",
+      "status": "ok",
+      "updatedAtMs": 1784875846850
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-30-Cam.jpg|8741933d0bc2": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6118,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-30-Cam.jpg",
+      "productId": 4241,
+      "sku": "X24-BR-DBX-ADULT-061",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-a700fa-cam-061",
+      "status": "ok",
+      "updatedAtMs": 1784875847170
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-30-Hong.jpg|f689f758c18d": {
+      "age": "Người lớn",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6119,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-30-Hong.jpg",
+      "productId": 4242,
+      "sku": "X24-BR-DBX-ADULT-062",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-7566a1-hong-062",
+      "status": "ok",
+      "updatedAtMs": 1784875847372
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-30-Vang-realistic.png|533bfaeb4a74": {
+      "age": "Người lớn",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6120,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-30-Vang-realistic.png",
+      "productId": 4243,
+      "sku": "X24-BR-DBX-ADULT-063",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-02b411-vang-063",
+      "status": "ok",
+      "updatedAtMs": 1784875847663
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-30-Vang.jpg|4cc007b30154": {
+      "age": "Người lớn",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6121,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-30-Vang.jpg",
+      "productId": 4244,
+      "sku": "X24-BR-DBX-ADULT-064",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-df91ee-vang-064",
+      "status": "ok",
+      "updatedAtMs": 1784875847871
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-30-XanhLy.jpg|81c6964d3170": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh lá"
+      ],
+      "mediaId": 6122,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-30-XanhLy.jpg",
+      "productId": 4245,
+      "sku": "X24-BR-DBX-ADULT-065",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-6b0baf-xanh-la-065",
+      "status": "ok",
+      "updatedAtMs": 1784875848130
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-30-XanhNgoc.jpg|adc5cc6a53ab": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6123,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-30-XanhNgoc.jpg",
+      "productId": 4246,
+      "sku": "X24-BR-DBX-ADULT-066",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-6a60ea-xanh-ngoc-066",
+      "status": "ok",
+      "updatedAtMs": 1784875848325
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-31-Den-Kieu1.jpg|c5980d3d1ed1": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6124,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-31-Den-Kieu1.jpg",
+      "productId": 4247,
+      "sku": "X24-BR-DBX-ADULT-067",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-85ef19-den-067",
+      "status": "ok",
+      "updatedAtMs": 1784875848564
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-31-TimThan-Kieu1.jpg|8668d33d4e78": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6125,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-31-TimThan-Kieu1.jpg",
+      "productId": 4248,
+      "sku": "X24-BR-DBX-ADULT-068",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-306bef-tim-than-068",
+      "status": "ok",
+      "updatedAtMs": 1784875848822
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-31-Trang-Kieu1.jpg|393e90d0e9e4": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6126,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-31-Trang-Kieu1.jpg",
+      "productId": 4249,
+      "sku": "X24-BR-DBX-ADULT-069",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-63e1f9-trang-069",
+      "status": "ok",
+      "updatedAtMs": 1784875849088
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-31-VangDam-Kieu1.jpg|a73123d0f252": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6127,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-31-VangDam-Kieu1.jpg",
+      "productId": 4250,
+      "sku": "X24-BR-DBX-ADULT-070",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-da3189-cam-070",
+      "status": "ok",
+      "updatedAtMs": 1784875849304
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-31-XanhNgoc-Kieu1.jpg|b19174511820": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6128,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-31-XanhNgoc-Kieu1.jpg",
+      "productId": 4251,
+      "sku": "X24-BR-DBX-ADULT-071",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-4b6e8d-xanh-ngoc-071",
+      "status": "ok",
+      "updatedAtMs": 1784875849616
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-33-Do.jpg|3a19440cd8ff": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6129,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-33-Do.jpg",
+      "productId": 4252,
+      "sku": "X24-BR-DBX-ADULT-072",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-9721af-do-072",
+      "status": "ok",
+      "updatedAtMs": 1784875849835
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-33-Hong.jpg|1f917f781f60": {
+      "age": "Người lớn",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6130,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-33-Hong.jpg",
+      "productId": 4253,
+      "sku": "X24-BR-DBX-ADULT-073",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-6cd648-hong-073",
+      "status": "ok",
+      "updatedAtMs": 1784875850043
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-33-Vang.jpg|ee3d4992fd5a": {
+      "age": "Người lớn",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6131,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-33-Vang.jpg",
+      "productId": 4254,
+      "sku": "X24-BR-DBX-ADULT-074",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-4a5889-vang-074",
+      "status": "ok",
+      "updatedAtMs": 1784875850329
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-33-XanhChuoi.jpg|32a0ff45179d": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6132,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-33-XanhChuoi.jpg",
+      "productId": 4255,
+      "sku": "X24-BR-DBX-ADULT-075",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-ea0d06-trang-075",
+      "status": "ok",
+      "updatedAtMs": 1784875850543
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-33-XanhYa.jpg|1e82e53def76": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 6133,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-33-XanhYa.jpg",
+      "productId": 4256,
+      "sku": "X24-BR-DBX-ADULT-076",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-fccab4-xanh-duong-076",
+      "status": "ok",
+      "updatedAtMs": 1784875850822
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-35-Cam.jpg|72f4465d446a": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6134,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-35-Cam.jpg",
+      "productId": 4257,
+      "sku": "X24-BR-DBX-ADULT-077",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-ba0e00-cam-077",
+      "status": "ok",
+      "updatedAtMs": 1784875851029
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-35-Kem.jpg|0b2d201a4844": {
+      "age": "Người lớn",
+      "colors": [
+        "Kem"
+      ],
+      "mediaId": 6135,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-35-Kem.jpg",
+      "productId": 4258,
+      "sku": "X24-BR-DBX-ADULT-078",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-1d5b36-kem-078",
+      "status": "ok",
+      "updatedAtMs": 1784875851286
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-35-Trang.jpg|396aa682faca": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6136,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-35-Trang.jpg",
+      "productId": 4259,
+      "sku": "X24-BR-DBX-ADULT-079",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-41d0d7-trang-079",
+      "status": "ok",
+      "updatedAtMs": 1784875851503
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-35-Xanh Ngoc Nhat.jpg|39e3737c2474": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6137,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-35-Xanh Ngoc Nhat.jpg",
+      "productId": 4260,
+      "sku": "X24-BR-DBX-ADULT-080",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-76b16e-xanh-ngoc-080",
+      "status": "ok",
+      "updatedAtMs": 1784875851800
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-35-Xanh Ve Chai.jpg|2cb517538638": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6138,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-35-Xanh Ve Chai.jpg",
+      "productId": 4261,
+      "sku": "X24-BR-DBX-ADULT-081",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-ca6114-xanh-ve-chai-081",
+      "status": "ok",
+      "updatedAtMs": 1784875852017
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-01-Den-Kieu1.jpg|087888e470c4": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6139,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-01-Den-Kieu1.jpg",
+      "productId": 4262,
+      "sku": "X24-BR-DBX-ADULT-082",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-01-den-082",
+      "status": "ok",
+      "updatedAtMs": 1784875852323
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-01-Do-Kieu1.jpg|ab9afd0d9415": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6140,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-01-Do-Kieu1.jpg",
+      "productId": 4263,
+      "sku": "X24-BR-DBX-ADULT-083",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-01-do-083",
+      "status": "ok",
+      "updatedAtMs": 1784875852568
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-01-Tim-Kieu1.jpg|538a41913501": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 6141,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-01-Tim-Kieu1.jpg",
+      "productId": 4264,
+      "sku": "X24-BR-DBX-ADULT-084",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-01-tim-084",
+      "status": "ok",
+      "updatedAtMs": 1784875852859
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-01-Trang-Kieu1.jpg|c6059fee837d": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6142,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-01-Trang-Kieu1.jpg",
+      "productId": 4265,
+      "sku": "X24-BR-DBX-ADULT-085",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-01-trang-085",
+      "status": "ok",
+      "updatedAtMs": 1784875853082
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-01-XanhMc-Kieu1.jpg|4fe117c3f914": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 6143,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-01-XanhMc-Kieu1.jpg",
+      "productId": 4266,
+      "sku": "X24-BR-DBX-ADULT-086",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-01-xanh-duong-086",
+      "status": "ok",
+      "updatedAtMs": 1784875853394
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-01-XanhReu-Kieu1.jpg|b96dc6bf16eb": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6144,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-01-XanhReu-Kieu1.jpg",
+      "productId": 4267,
+      "sku": "X24-BR-DBX-ADULT-087",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-01-den-087",
+      "status": "ok",
+      "updatedAtMs": 1784875853621
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-03-XanhNgoc-Kieu1.jpg|2f56442d111c": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6145,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-03-XanhNgoc-Kieu1.jpg",
+      "productId": 4268,
+      "sku": "X24-BR-DBX-ADULT-088",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-03-xanh-ngoc-088",
+      "status": "ok",
+      "updatedAtMs": 1784875854029
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-05-Do-Kieu1.jpg|2632704aad4d": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6146,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-05-Do-Kieu1.jpg",
+      "productId": 4269,
+      "sku": "X24-BR-DBX-ADULT-089",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-05-do-089",
+      "status": "ok",
+      "updatedAtMs": 1784875854348
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-05-Nau-Kieu1.jpg|3712bbd00ddf": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6147,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-05-Nau-Kieu1.jpg",
+      "productId": 4270,
+      "sku": "X24-BR-DBX-ADULT-090",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-05-den-090",
+      "status": "ok",
+      "updatedAtMs": 1784875854581
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-05-Trang-Kieu1.jpg|60ebab2a982e": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6148,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-05-Trang-Kieu1.jpg",
+      "productId": 4271,
+      "sku": "X24-BR-DBX-ADULT-091",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-05-trang-091",
+      "status": "ok",
+      "updatedAtMs": 1784875854856
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-05-XanhLy-Kieu1.jpg|3e62d14b261e": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh lá"
+      ],
+      "mediaId": 6149,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-05-XanhLy-Kieu1.jpg",
+      "productId": 4272,
+      "sku": "X24-BR-DBX-ADULT-092",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-05-xanh-la-092",
+      "status": "ok",
+      "updatedAtMs": 1784875855086
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-05-XanhNhat-Kieu1.jpg|8ac850e9d9f5": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh lá",
+        "Đen"
+      ],
+      "mediaId": 6150,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-05-XanhNhat-Kieu1.jpg",
+      "productId": 4273,
+      "sku": "X24-BR-DBX-ADULT-093",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-05-xanh-la-den-093",
+      "status": "ok",
+      "updatedAtMs": 1784875855380
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-06-Cam-Kieu1.jpg|12e89d7e867c": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6151,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-06-Cam-Kieu1.jpg",
+      "productId": 4274,
+      "sku": "X24-BR-DBX-ADULT-094",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-06-cam-094",
+      "status": "ok",
+      "updatedAtMs": 1784875855585
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-06-Tim-Kieu1.jpg|5f3e2d694e98": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 6152,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-06-Tim-Kieu1.jpg",
+      "productId": 4275,
+      "sku": "X24-BR-DBX-ADULT-095",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-06-tim-095",
+      "status": "ok",
+      "updatedAtMs": 1784875855795
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-06-TimThan-Kieu1.jpg|a3f23891a0c2": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6153,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-06-TimThan-Kieu1.jpg",
+      "productId": 4276,
+      "sku": "X24-BR-DBX-ADULT-096",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-06-tim-than-096",
+      "status": "ok",
+      "updatedAtMs": 1784875856065
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-06-Trang-Kieu1.jpg|355aa32d1e6a": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6154,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-06-Trang-Kieu1.jpg",
+      "productId": 4277,
+      "sku": "X24-BR-DBX-ADULT-097",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-06-trang-097",
+      "status": "ok",
+      "updatedAtMs": 1784875856273
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-06-XanhYa-Kieu1.jpg|5accd737b100": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 6155,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-06-XanhYa-Kieu1.jpg",
+      "productId": 4278,
+      "sku": "X24-BR-DBX-ADULT-098",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-06-xanh-duong-098",
+      "status": "ok",
+      "updatedAtMs": 1784875856566
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-07-Cam-Kieu1.jpg|e22727072df0": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6156,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-07-Cam-Kieu1.jpg",
+      "productId": 4279,
+      "sku": "X24-BR-DBX-ADULT-099",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-07-cam-099",
+      "status": "ok",
+      "updatedAtMs": 1784875856780
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-07-TimThan-Kieu1.jpg|15c9f3981043": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6157,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-07-TimThan-Kieu1.jpg",
+      "productId": 4280,
+      "sku": "X24-BR-DBX-ADULT-100",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-07-tim-than-100",
+      "status": "ok",
+      "updatedAtMs": 1784875857059
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-07-Trang-Kieu1.jpg|0f63cb792aa6": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6158,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-07-Trang-Kieu1.jpg",
+      "productId": 4281,
+      "sku": "X24-BR-DBX-ADULT-101",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-07-trang-101",
+      "status": "ok",
+      "updatedAtMs": 1784875857306
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-07-Vang-Kieu1.jpg|9e873f1bb09f": {
+      "age": "Người lớn",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6159,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-07-Vang-Kieu1.jpg",
+      "productId": 4282,
+      "sku": "X24-BR-DBX-ADULT-102",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-07-vang-102",
+      "status": "ok",
+      "updatedAtMs": 1784875857580
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-07-XanhBich-Kieu1.jpg|08f0042a0256": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 6160,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-07-XanhBich-Kieu1.jpg",
+      "productId": 4283,
+      "sku": "X24-BR-DBX-ADULT-103",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-07-xanh-bich-103",
+      "status": "ok",
+      "updatedAtMs": 1784875857798
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-10-DoDo.jpg|2511f49265b3": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6161,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-10-DoDo.jpg",
+      "productId": 4284,
+      "sku": "X24-BR-DBX-ADULT-104",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-10-do-do-104",
+      "status": "ok",
+      "updatedAtMs": 1784875858087
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-10-Hong.jpg|1f5ee6ae66af": {
+      "age": "Người lớn",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6162,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-10-Hong.jpg",
+      "productId": 4285,
+      "sku": "X24-BR-DBX-ADULT-105",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-10-hong-105",
+      "status": "ok",
+      "updatedAtMs": 1784875858290
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-10-VangDam.jpg|536b40187044": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6163,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-10-VangDam.jpg",
+      "productId": 4286,
+      "sku": "X24-BR-DBX-ADULT-106",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-10-den-106",
+      "status": "ok",
+      "updatedAtMs": 1784875858525
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-10-XanhThan.jpg|9ce3129cb06c": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6164,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-10-XanhThan.jpg",
+      "productId": 4287,
+      "sku": "X24-BR-DBX-ADULT-107",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-10-den-107",
+      "status": "ok",
+      "updatedAtMs": 1784875858738
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-10-Xanhvechai.jpg|634a16456d81": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6165,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-10-Xanhvechai.jpg",
+      "productId": 4288,
+      "sku": "X24-BR-DBX-ADULT-108",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-10-xanh-ve-chai-108",
+      "status": "ok",
+      "updatedAtMs": 1784875859052
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-11-Cam.jpg|674dd9613bca": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6166,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-11-Cam.jpg",
+      "productId": 4289,
+      "sku": "X24-BR-DBX-ADULT-109",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-11-cam-109",
+      "status": "ok",
+      "updatedAtMs": 1784875859265
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-11-Den.jpg|3da9a84d6c27": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6167,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-11-Den.jpg",
+      "productId": 4290,
+      "sku": "X24-BR-DBX-ADULT-110",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-11-den-110",
+      "status": "ok",
+      "updatedAtMs": 1784875859575
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-11-Trang.jpg|025f4ceecd76": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6168,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-11-Trang.jpg",
+      "productId": 4291,
+      "sku": "X24-BR-DBX-ADULT-111",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-11-trang-111",
+      "status": "ok",
+      "updatedAtMs": 1784875859784
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-11-VangDam.jpg|8d029b1b9ff5": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh dương",
+        "Xanh bích"
+      ],
+      "mediaId": 6169,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-11-VangDam.jpg",
+      "productId": 4292,
+      "sku": "X24-BR-DBX-ADULT-112",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-11-xanh-duong-xanh-bich-112",
+      "status": "ok",
+      "updatedAtMs": 1784875860001
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-11-XanhDuong.jpg|8b87883f5d64": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh dương",
+        "Xanh bích"
+      ],
+      "mediaId": 6170,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-11-XanhDuong.jpg",
+      "productId": 4293,
+      "sku": "X24-BR-DBX-ADULT-113",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-11-xanh-duong-xanh-bich-113",
+      "status": "ok",
+      "updatedAtMs": 1784875860301
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-12-Cam.jpg|7c9b60e744fb": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6171,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-12-Cam.jpg",
+      "productId": 4294,
+      "sku": "X24-BR-DBX-ADULT-114",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-12-cam-114",
+      "status": "ok",
+      "updatedAtMs": 1784875860502
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-12-Hong.jpg|5aafea8295ad": {
+      "age": "Người lớn",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6172,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-12-Hong.jpg",
+      "productId": 4295,
+      "sku": "X24-BR-DBX-ADULT-115",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-12-hong-115",
+      "status": "ok",
+      "updatedAtMs": 1784875860773
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-12-Tim.jpg|af8aa22e725d": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 6173,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-12-Tim.jpg",
+      "productId": 4296,
+      "sku": "X24-BR-DBX-ADULT-116",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-12-tim-116",
+      "status": "ok",
+      "updatedAtMs": 1784875860986
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-12-XanhMint.jpg|56a0cbfdfce6": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6174,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-12-XanhMint.jpg",
+      "productId": 4297,
+      "sku": "X24-BR-DBX-ADULT-117",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-12-xanh-ngoc-117",
+      "status": "ok",
+      "updatedAtMs": 1784875861253
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-12-XanhYa.jpg|7b377731191b": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 6175,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-12-XanhYa.jpg",
+      "productId": 4298,
+      "sku": "X24-BR-DBX-ADULT-118",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-12-xanh-duong-118",
+      "status": "ok",
+      "updatedAtMs": 1784875861488
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-13-Do.jpg|b6b6f8862dc9": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6176,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-13-Do.jpg",
+      "productId": 4299,
+      "sku": "X24-BR-DBX-ADULT-119",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-13-do-119",
+      "status": "ok",
+      "updatedAtMs": 1784875861767
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-13-Kem.jpg|55b05d2fd895": {
+      "age": "Người lớn",
+      "colors": [
+        "Kem"
+      ],
+      "mediaId": 6177,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-13-Kem.jpg",
+      "productId": 4300,
+      "sku": "X24-BR-DBX-ADULT-120",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-13-kem-120",
+      "status": "ok",
+      "updatedAtMs": 1784875861974
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-13-TimThan.jpg|3b87a31808d1": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6178,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-13-TimThan.jpg",
+      "productId": 4301,
+      "sku": "X24-BR-DBX-ADULT-121",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-13-tim-than-121",
+      "status": "ok",
+      "updatedAtMs": 1784875862388
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-13-Trang.jpg|a850d9372fa9": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6179,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-13-Trang.jpg",
+      "productId": 4302,
+      "sku": "X24-BR-DBX-ADULT-122",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-13-trang-122",
+      "status": "ok",
+      "updatedAtMs": 1784875862590
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-13-VangDam.jpg|91bbf813543a": {
+      "age": "Người lớn",
+      "colors": [],
+      "mediaId": 6180,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-13-VangDam.jpg",
+      "productId": 4303,
+      "sku": "X24-BR-DBX-ADULT-123",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-13-nhieu-mau-123",
+      "status": "ok",
+      "updatedAtMs": 1784875862878
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-14-Den.jpg|b5cc1e527769": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6181,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-14-Den.jpg",
+      "productId": 4304,
+      "sku": "X24-BR-DBX-ADULT-124",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-14-den-124",
+      "status": "ok",
+      "updatedAtMs": 1784875863130
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-14-DoDo.jpg|eb16b6b61931": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6182,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-14-DoDo.jpg",
+      "productId": 4305,
+      "sku": "X24-BR-DBX-ADULT-125",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-14-do-do-125",
+      "status": "ok",
+      "updatedAtMs": 1784875863417
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-14-Kem.jpg|8cc518b30697": {
+      "age": "Người lớn",
+      "colors": [
+        "Kem"
+      ],
+      "mediaId": 6183,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-14-Kem.jpg",
+      "productId": 4306,
+      "sku": "X24-BR-DBX-ADULT-126",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-14-kem-126",
+      "status": "ok",
+      "updatedAtMs": 1784875863639
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-14-Trang.jpg|57d6b34c72de": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6184,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-14-Trang.jpg",
+      "productId": 4307,
+      "sku": "X24-BR-DBX-ADULT-127",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-14-trang-127",
+      "status": "ok",
+      "updatedAtMs": 1784875863932
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-14-Vang.jpg|0b341245e503": {
+      "age": "Người lớn",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6185,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-14-Vang.jpg",
+      "productId": 4308,
+      "sku": "X24-BR-DBX-ADULT-128",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-14-vang-128",
+      "status": "ok",
+      "updatedAtMs": 1784875864153
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-15-Cam.jpg|24aae9f5ccf4": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6186,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-15-Cam.jpg",
+      "productId": 4309,
+      "sku": "X24-BR-DBX-ADULT-129",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-15-cam-129",
+      "status": "ok",
+      "updatedAtMs": 1784875864443
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-15-DoDo.jpg|342ff7302904": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6187,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-15-DoDo.jpg",
+      "productId": 4310,
+      "sku": "X24-BR-DBX-ADULT-130",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-15-do-do-130",
+      "status": "ok",
+      "updatedAtMs": 1784875864688
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-15-Tim.jpg|482cb80170e1": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 6188,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-15-Tim.jpg",
+      "productId": 4311,
+      "sku": "X24-BR-DBX-ADULT-131",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-15-tim-131",
+      "status": "ok",
+      "updatedAtMs": 1784875864994
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-15-Trang.jpg|fcd65c92991d": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6189,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-15-Trang.jpg",
+      "productId": 4312,
+      "sku": "X24-BR-DBX-ADULT-132",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-15-trang-132",
+      "status": "ok",
+      "updatedAtMs": 1784875865214
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-15-Vang.jpg|54a1d8c5a685": {
+      "age": "Người lớn",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6190,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-15-Vang.jpg",
+      "productId": 4313,
+      "sku": "X24-BR-DBX-ADULT-133",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-15-vang-133",
+      "status": "ok",
+      "updatedAtMs": 1784875865512
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-16-Den.jpg|c21d50f3ae62": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6191,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-16-Den.jpg",
+      "productId": 4314,
+      "sku": "X24-BR-DBX-ADULT-134",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-16-den-134",
+      "status": "ok",
+      "updatedAtMs": 1784875865725
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-16-Do.jpg|6a42cf290a24": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6192,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-16-Do.jpg",
+      "productId": 4315,
+      "sku": "X24-BR-DBX-ADULT-135",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-16-do-135",
+      "status": "ok",
+      "updatedAtMs": 1784875866021
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-16-TimThan.jpg|eced50f0e6a9": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6193,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-16-TimThan.jpg",
+      "productId": 4316,
+      "sku": "X24-BR-DBX-ADULT-136",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-16-tim-than-136",
+      "status": "ok",
+      "updatedAtMs": 1784875866223
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-16-Trang.jpg|9cbb99c2fe8e": {
+      "age": "Người lớn",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6194,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-16-Trang.jpg",
+      "productId": 4317,
+      "sku": "X24-BR-DBX-ADULT-137",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-16-trang-137",
+      "status": "ok",
+      "updatedAtMs": 1784875866484
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-16-XanhMint.jpg|ffc19148d471": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6195,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-16-XanhMint.jpg",
+      "productId": 4318,
+      "sku": "X24-BR-DBX-ADULT-138",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-16-xanh-ngoc-138",
+      "status": "ok",
+      "updatedAtMs": 1784875866730
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-17-Cam-Kieu2.jpg|a274b8bc7399": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6196,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-17-Cam-Kieu2.jpg",
+      "productId": 4319,
+      "sku": "X24-BR-DBX-ADULT-139",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-17-cam-139",
+      "status": "ok",
+      "updatedAtMs": 1784875867072
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-17-Hong-Kieu2.jpg|4173a3be8f7f": {
+      "age": "Người lớn",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6197,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-17-Hong-Kieu2.jpg",
+      "productId": 4320,
+      "sku": "X24-BR-DBX-ADULT-140",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-17-hong-140",
+      "status": "ok",
+      "updatedAtMs": 1784875867307
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-17-Tim-Kieu2.jpg|aeb94a46d60c": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 6198,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-17-Tim-Kieu2.jpg",
+      "productId": 4321,
+      "sku": "X24-BR-DBX-ADULT-141",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-17-tim-141",
+      "status": "ok",
+      "updatedAtMs": 1784875867626
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-17-XanhBich-Kieu2.jpg|7e8c51bef69f": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 6199,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-17-XanhBich-Kieu2.jpg",
+      "productId": 4322,
+      "sku": "X24-BR-DBX-ADULT-142",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-17-xanh-bich-142",
+      "status": "ok",
+      "updatedAtMs": 1784875867872
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-17-XanhKet-Kieu2.jpg|7b872b74b97c": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh lá",
+        "Đen"
+      ],
+      "mediaId": 6200,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-17-XanhKet-Kieu2.jpg",
+      "productId": 4323,
+      "sku": "X24-BR-DBX-ADULT-143",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-17-xanh-la-den-143",
+      "status": "ok",
+      "updatedAtMs": 1784875868188
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-18-DoDo-Kieu2.jpg|8fa69b94ee88": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6201,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-18-DoDo-Kieu2.jpg",
+      "productId": 4324,
+      "sku": "X24-BR-DBX-ADULT-144",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-18-do-do-144",
+      "status": "ok",
+      "updatedAtMs": 1784875868502
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-18-Hong-Kieu2.jpg|f356014cd774": {
+      "age": "Người lớn",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6202,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-18-Hong-Kieu2.jpg",
+      "productId": 4325,
+      "sku": "X24-BR-DBX-ADULT-145",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-18-hong-145",
+      "status": "ok",
+      "updatedAtMs": 1784875868792
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-18-Vang-Kieu2.jpg|7d233d788de0": {
+      "age": "Người lớn",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6203,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-18-Vang-Kieu2.jpg",
+      "productId": 4326,
+      "sku": "X24-BR-DBX-ADULT-146",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-18-vang-146",
+      "status": "ok",
+      "updatedAtMs": 1784875869110
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-18-XanhKet-Kieu2.jpg|8e2396dc9a66": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh lá"
+      ],
+      "mediaId": 6204,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-18-XanhKet-Kieu2.jpg",
+      "productId": 4327,
+      "sku": "X24-BR-DBX-ADULT-147",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-18-xanh-la-147",
+      "status": "ok",
+      "updatedAtMs": 1784875869317
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-18-XanhLy-Kieu2.jpg|58bc0c60de4e": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh lá"
+      ],
+      "mediaId": 6205,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-18-XanhLy-Kieu2.jpg",
+      "productId": 4328,
+      "sku": "X24-BR-DBX-ADULT-148",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-18-xanh-la-148",
+      "status": "ok",
+      "updatedAtMs": 1784875869541
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-21-Cam.jpg|17720da620f7": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6206,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-21-Cam.jpg",
+      "productId": 4329,
+      "sku": "X24-BR-DBX-ADULT-149",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-21-cam-149",
+      "status": "ok",
+      "updatedAtMs": 1784875869764
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-21-Do.jpg|ca53c08f0800": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6207,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-21-Do.jpg",
+      "productId": 4330,
+      "sku": "X24-BR-DBX-ADULT-150",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-21-do-150",
+      "status": "ok",
+      "updatedAtMs": 1784875870060
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-21-TimAgrentina.jpg|85cd5fd45869": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6208,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-21-TimAgrentina.jpg",
+      "productId": 4331,
+      "sku": "X24-BR-DBX-ADULT-151",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-21-den-151",
+      "status": "ok",
+      "updatedAtMs": 1784875870299
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-21-TimThan.jpg|82f3cf8aff9d": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6209,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-21-TimThan.jpg",
+      "productId": 4332,
+      "sku": "X24-BR-DBX-ADULT-152",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-21-tim-than-152",
+      "status": "ok",
+      "updatedAtMs": 1784875870686
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-21-XanhVeChai.jpg|fdab49f4c8da": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6210,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-21-XanhVeChai.jpg",
+      "productId": 4333,
+      "sku": "X24-BR-DBX-ADULT-153",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-21-xanh-ve-chai-153",
+      "status": "ok",
+      "updatedAtMs": 1784875870909
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-22-Cam.jpg|01a590047373": {
+      "age": "Người lớn",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6211,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-22-Cam.jpg",
+      "productId": 4334,
+      "sku": "X24-BR-DBX-ADULT-154",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-22-cam-154",
+      "status": "ok",
+      "updatedAtMs": 1784875871388
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-22-Do.jpg|a9429046e7c0": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6212,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-22-Do.jpg",
+      "productId": 4335,
+      "sku": "X24-BR-DBX-ADULT-155",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-22-do-155",
+      "status": "ok",
+      "updatedAtMs": 1784875871635
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-22-XanhBich.jpg|631deefd2663": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 6213,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-22-XanhBich.jpg",
+      "productId": 4336,
+      "sku": "X24-BR-DBX-ADULT-156",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-22-xanh-bich-156",
+      "status": "ok",
+      "updatedAtMs": 1784875871873
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-22-XanhDen.jpg|bfaa8f8d42a4": {
+      "age": "Người lớn",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6214,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-22-XanhDen.jpg",
+      "productId": 4337,
+      "sku": "X24-BR-DBX-ADULT-157",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-22-den-157",
+      "status": "ok",
+      "updatedAtMs": 1784875872157
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-22-XanhVeChai.jpg|2b469fbe4cd1": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6215,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-22-XanhVeChai.jpg",
+      "productId": 4338,
+      "sku": "X24-BR-DBX-ADULT-158",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-22-xanh-ve-chai-158",
+      "status": "ok",
+      "updatedAtMs": 1784875872387
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-23-Hong.jpg|7e56a96d8e43": {
+      "age": "Người lớn",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6216,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-23-Hong.jpg",
+      "productId": 4339,
+      "sku": "X24-BR-DBX-ADULT-159",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-23-hong-159",
+      "status": "ok",
+      "updatedAtMs": 1784875872684
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-23-Vang.jpg|0d6fd5efb1f8": {
+      "age": "Người lớn",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6217,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-23-Vang.jpg",
+      "productId": 4340,
+      "sku": "X24-BR-DBX-ADULT-160",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-23-vang-160",
+      "status": "ok",
+      "updatedAtMs": 1784875872905
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-23-XanhChuoi.jpg|651614a1c69d": {
+      "age": "Người lớn",
+      "colors": [],
+      "mediaId": 6218,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-23-XanhChuoi.jpg",
+      "productId": 4341,
+      "sku": "X24-BR-DBX-ADULT-161",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-23-nhieu-mau-161",
+      "status": "ok",
+      "updatedAtMs": 1784875873205
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-23-XanhMC.jpg|a7a09b057310": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 6219,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-23-XanhMC.jpg",
+      "productId": 4342,
+      "sku": "X24-BR-DBX-ADULT-162",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-23-xanh-duong-162",
+      "status": "ok",
+      "updatedAtMs": 1784875873491
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-23-XanhNgoc.jpg|3b55a1087ce0": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6220,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-23-XanhNgoc.jpg",
+      "productId": 4343,
+      "sku": "X24-BR-DBX-ADULT-163",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-23-xanh-ngoc-163",
+      "status": "ok",
+      "updatedAtMs": 1784875873730
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-24-CamDat.jpg|9d03019013eb": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh bích",
+        "Xanh dương",
+        "Đỏ"
+      ],
+      "mediaId": 6221,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-24-CamDat.jpg",
+      "productId": 4344,
+      "sku": "X24-BR-DBX-ADULT-164",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-24-xanh-bich-xanh-duong-do-164",
+      "status": "ok",
+      "updatedAtMs": 1784875873948
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-24-DoDo.jpg|2789d0bcf094": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6222,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-24-DoDo.jpg",
+      "productId": 4345,
+      "sku": "X24-BR-DBX-ADULT-165",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-24-do-do-165",
+      "status": "ok",
+      "updatedAtMs": 1784875874164
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-24-XanhBich.jpg|0f2796916f38": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 6223,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-24-XanhBich.jpg",
+      "productId": 4346,
+      "sku": "X24-BR-DBX-ADULT-166",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-24-xanh-bich-166",
+      "status": "ok",
+      "updatedAtMs": 1784875874460
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-24-XanhNgoc.jpg|7f96f513b83c": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6224,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-24-XanhNgoc.jpg",
+      "productId": 4347,
+      "sku": "X24-BR-DBX-ADULT-167",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-24-xanh-ngoc-167",
+      "status": "ok",
+      "updatedAtMs": 1784875874687
+    },
+    "NGƯỜI LỚN/AoBongRo-X24-BR-24-XanhVeChai.jpg|d44e4ebf10d7": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6225,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/AoBongRo-X24-BR-24-XanhVeChai.jpg",
+      "productId": 4348,
+      "sku": "X24-BR-DBX-ADULT-168",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-24-xanh-ve-chai-168",
+      "status": "ok",
+      "updatedAtMs": 1784875874971
+    },
+    "NGƯỜI LỚN/ẢnhGhépAi-AoBongRo-X24-08(Raptor)-DoDo.jpg|506b130a53e7": {
+      "age": "Người lớn",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6226,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/ẢnhGhépAi-AoBongRo-X24-08(Raptor)-DoDo.jpg",
+      "productId": 4349,
+      "sku": "X24-BR-DBX-ADULT-169",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-0a7873-do-do-169",
+      "status": "ok",
+      "updatedAtMs": 1784875875176
+    },
+    "NGƯỜI LỚN/ẢnhGhépAi-AoBongRo-X24-08(Raptor)-Kem.jpg|859748ced8ea": {
+      "age": "Người lớn",
+      "colors": [
+        "Kem"
+      ],
+      "mediaId": 6227,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/ẢnhGhépAi-AoBongRo-X24-08(Raptor)-Kem.jpg",
+      "productId": 4350,
+      "sku": "X24-BR-DBX-ADULT-170",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-924e71-kem-170",
+      "status": "ok",
+      "updatedAtMs": 1784875875472
+    },
+    "NGƯỜI LỚN/ẢnhGhépAi-AoBongRo-X24-08(Raptor)-TimThan.jpg|aa84b1bf5d5c": {
+      "age": "Người lớn",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6228,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/ẢnhGhépAi-AoBongRo-X24-08(Raptor)-TimThan.jpg",
+      "productId": 4351,
+      "sku": "X24-BR-DBX-ADULT-171",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-a1c611-tim-than-171",
+      "status": "ok",
+      "updatedAtMs": 1784875875686
+    },
+    "NGƯỜI LỚN/ẢnhGhépAi-AoBongRo-X24-08(Raptor)-XanhBich.jpg|46324ec5eadd": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 6229,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/ẢnhGhépAi-AoBongRo-X24-08(Raptor)-XanhBich.jpg",
+      "productId": 4352,
+      "sku": "X24-BR-DBX-ADULT-172",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-068d6b-xanh-bich-172",
+      "status": "ok",
+      "updatedAtMs": 1784875875979
+    },
+    "NGƯỜI LỚN/ẢnhGhépAi-AoBongRo-X24-08(Raptor)-XanhLy.jpg|7ed101cb8f9e": {
+      "age": "Người lớn",
+      "colors": [
+        "Xanh lá"
+      ],
+      "mediaId": 6230,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/NGƯỜI LỚN/ẢnhGhépAi-AoBongRo-X24-08(Raptor)-XanhLy.jpg",
+      "productId": 4353,
+      "sku": "X24-BR-DBX-ADULT-173",
+      "slug": "ao-bong-ro-nguoi-lon-x24-br-4a0d8b-xanh-la-173",
+      "status": "ok",
+      "updatedAtMs": 1784875876192
+    },
+    "TRẺ EM/AnhGhepAI-AoBongRo-X24-08-kieu2-DODO.jpg|df7482c46c0b": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 5886,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAI-AoBongRo-X24-08-kieu2-DODO.jpg",
+      "productId": 4009,
+      "sku": "X24-BR-DBX-KID-001",
+      "slug": "ao-bong-ro-tre-em-x24-br-164fbf-do-do-001",
+      "status": "ok",
+      "updatedAtMs": 1784875787225
+    },
+    "TRẺ EM/AnhGhepAI-AoBongRo-X24-08-kieu2-TimThan.jpg|e9e4a2195a8f": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 5887,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAI-AoBongRo-X24-08-kieu2-TimThan.jpg",
+      "productId": 4010,
+      "sku": "X24-BR-DBX-KID-002",
+      "slug": "ao-bong-ro-tre-em-x24-br-ea5953-tim-than-002",
+      "status": "ok",
+      "updatedAtMs": 1784875787439
+    },
+    "TRẺ EM/AnhGhepAI-AoBongRo-X24-08-kieu2-XanhBich.jpg|aeeaa96c9b6c": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 5888,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAI-AoBongRo-X24-08-kieu2-XanhBich.jpg",
+      "productId": 4011,
+      "sku": "X24-BR-DBX-KID-003",
+      "slug": "ao-bong-ro-tre-em-x24-br-b8bb22-xanh-bich-003",
+      "status": "ok",
+      "updatedAtMs": 1784875787746
+    },
+    "TRẺ EM/AnhGhepAI-AoBongRo-X24-08-kieu2-XanhlY.jpg|e4442f4957cb": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh lá"
+      ],
+      "mediaId": 5889,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAI-AoBongRo-X24-08-kieu2-XanhlY.jpg",
+      "productId": 4012,
+      "sku": "X24-BR-DBX-KID-004",
+      "slug": "ao-bong-ro-tre-em-x24-br-450760-xanh-la-004",
+      "status": "ok",
+      "updatedAtMs": 1784875787973
+    },
+    "TRẺ EM/AnhGhepAI-AoBongRo-X24-08-kieu2-kEM.jpg|a6c384f410ca": {
+      "age": "Trẻ em",
+      "colors": [
+        "Kem"
+      ],
+      "mediaId": 5890,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAI-AoBongRo-X24-08-kieu2-kEM.jpg",
+      "productId": 4013,
+      "sku": "X24-BR-DBX-KID-005",
+      "slug": "ao-bong-ro-tre-em-x24-br-93b132-kem-005",
+      "status": "ok",
+      "updatedAtMs": 1784875788272
+    },
+    "TRẺ EM/AnhGhepAI-AoBongRo-X24-19-kieu2-Den.jpg|b7275fe14e54": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 5891,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAI-AoBongRo-X24-19-kieu2-Den.jpg",
+      "productId": 4014,
+      "sku": "X24-BR-DBX-KID-006",
+      "slug": "ao-bong-ro-tre-em-x24-br-a6f568-den-006",
+      "status": "ok",
+      "updatedAtMs": 1784875788494
+    },
+    "TRẺ EM/AnhGhepAI-AoBongRo-X24-19-kieu2-Timthan.jpg|e5085ebcaae9": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 5892,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAI-AoBongRo-X24-19-kieu2-Timthan.jpg",
+      "productId": 4015,
+      "sku": "X24-BR-DBX-KID-007",
+      "slug": "ao-bong-ro-tre-em-x24-br-3e6f55-tim-than-007",
+      "status": "ok",
+      "updatedAtMs": 1784875788794
+    },
+    "TRẺ EM/AnhGhepAI-AoBongRo-X24-19-kieu2-Xanhbich.jpg|f5b0a53fdbb9": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 5893,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAI-AoBongRo-X24-19-kieu2-Xanhbich.jpg",
+      "productId": 4016,
+      "sku": "X24-BR-DBX-KID-008",
+      "slug": "ao-bong-ro-tre-em-x24-br-de6f60-xanh-bich-008",
+      "status": "ok",
+      "updatedAtMs": 1784875789021
+    },
+    "TRẺ EM/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu2-Cam.jpg|0c892b19b5f5": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 5894,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu2-Cam.jpg",
+      "productId": 4017,
+      "sku": "X24-BR-DBX-KID-009",
+      "slug": "ao-bong-ro-tre-em-x24-br-b8ca95-cam-009",
+      "status": "ok",
+      "updatedAtMs": 1784875789319
+    },
+    "TRẺ EM/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu2-Den.jpg|dddb6aa3b223": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 5895,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu2-Den.jpg",
+      "productId": 4018,
+      "sku": "X24-BR-DBX-KID-010",
+      "slug": "ao-bong-ro-tre-em-x24-br-1119bf-den-010",
+      "status": "ok",
+      "updatedAtMs": 1784875789538
+    },
+    "TRẺ EM/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu2-HONG.jpg|865ea195e456": {
+      "age": "Trẻ em",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 5896,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu2-HONG.jpg",
+      "productId": 4019,
+      "sku": "X24-BR-DBX-KID-011",
+      "slug": "ao-bong-ro-tre-em-x24-br-98c13d-hong-011",
+      "status": "ok",
+      "updatedAtMs": 1784875789844
+    },
+    "TRẺ EM/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu2-XanhMint.jpg|aca2b1d51948": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 5897,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu2-XanhMint.jpg",
+      "productId": 4020,
+      "sku": "X24-BR-DBX-KID-012",
+      "slug": "ao-bong-ro-tre-em-x24-br-82c3aa-xanh-ngoc-012",
+      "status": "ok",
+      "updatedAtMs": 1784875790086
+    },
+    "TRẺ EM/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu2-XanhYa.jpg|f36e92008e1c": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 5898,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-AoBongRo-X24-20(Rocket)kieu2-XanhYa.jpg",
+      "productId": 4021,
+      "sku": "X24-BR-DBX-KID-013",
+      "slug": "ao-bong-ro-tre-em-x24-br-23d3a2-xanh-duong-013",
+      "status": "ok",
+      "updatedAtMs": 1784875790369
+    },
+    "TRẺ EM/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu2-Cam.jpg|1c11f95d1e37": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 5899,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu2-Cam.jpg",
+      "productId": 4022,
+      "sku": "X24-BR-DBX-KID-014",
+      "slug": "ao-bong-ro-tre-em-x24-br-25-cam-014",
+      "status": "ok",
+      "updatedAtMs": 1784875790593
+    },
+    "TRẺ EM/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu2-DO.jpg|8c24f480f010": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 5900,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu2-DO.jpg",
+      "productId": 4023,
+      "sku": "X24-BR-DBX-KID-015",
+      "slug": "ao-bong-ro-tre-em-x24-br-25-do-015",
+      "status": "ok",
+      "updatedAtMs": 1784875790892
+    },
+    "TRẺ EM/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu2-HONG.jpg|6de7e4e3a9fc": {
+      "age": "Trẻ em",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 5901,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu2-HONG.jpg",
+      "productId": 4024,
+      "sku": "X24-BR-DBX-KID-016",
+      "slug": "ao-bong-ro-tre-em-x24-br-25-hong-016",
+      "status": "ok",
+      "updatedAtMs": 1784875791143
+    },
+    "TRẺ EM/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu2-TIM.jpg|41ff1a3fbac3": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 5902,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu2-TIM.jpg",
+      "productId": 4025,
+      "sku": "X24-BR-DBX-KID-017",
+      "slug": "ao-bong-ro-tre-em-x24-br-25-tim-017",
+      "status": "ok",
+      "updatedAtMs": 1784875791418
+    },
+    "TRẺ EM/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu2-TIMTHAN.jpg|5cc460f2bec0": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 5903,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-AoBongRo-X24.X24-BR-25 kieu2-TIMTHAN.jpg",
+      "productId": 4026,
+      "sku": "X24-BR-DBX-KID-018",
+      "slug": "ao-bong-ro-tre-em-x24-br-25-tim-than-018",
+      "status": "ok",
+      "updatedAtMs": 1784875791644
+    },
+    "TRẺ EM/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu2-Cam.jpg|2ad899551731": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 5904,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu2-Cam.jpg",
+      "productId": 4027,
+      "sku": "X24-BR-DBX-KID-019",
+      "slug": "ao-bong-ro-tre-em-x24-br-26-cam-019",
+      "status": "ok",
+      "updatedAtMs": 1784875791941
+    },
+    "TRẺ EM/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu2-HONG.jpg|f30800130f7a": {
+      "age": "Trẻ em",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 5905,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu2-HONG.jpg",
+      "productId": 4028,
+      "sku": "X24-BR-DBX-KID-020",
+      "slug": "ao-bong-ro-tre-em-x24-br-26-hong-020",
+      "status": "ok",
+      "updatedAtMs": 1784875792176
+    },
+    "TRẺ EM/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu2-TIMTHAN.jpg|675a11674dea": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 5906,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu2-TIMTHAN.jpg",
+      "productId": 4029,
+      "sku": "X24-BR-DBX-KID-021",
+      "slug": "ao-bong-ro-tre-em-x24-br-26-tim-than-021",
+      "status": "ok",
+      "updatedAtMs": 1784875792467
+    },
+    "TRẺ EM/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu2-TRANG.jpg|bcd622032749": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5907,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu2-TRANG.jpg",
+      "productId": 4030,
+      "sku": "X24-BR-DBX-KID-022",
+      "slug": "ao-bong-ro-tre-em-x24-br-26-trang-022",
+      "status": "ok",
+      "updatedAtMs": 1784875792703
+    },
+    "TRẺ EM/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu2-XANHVECHAI.jpg|a3184ef8a016": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 5908,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAi-Aobongro-X24-BR-26(Eclipse)-Kieu2-XANHVECHAI.jpg",
+      "productId": 4031,
+      "sku": "X24-BR-DBX-KID-023",
+      "slug": "ao-bong-ro-tre-em-x24-br-26-xanh-ve-chai-023",
+      "status": "ok",
+      "updatedAtMs": 1784875792990
+    },
+    "TRẺ EM/AnhGhepAnhAi-X24-BR-34-kieu2-Den.jpg|ce553840838b": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 5909,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAnhAi-X24-BR-34-kieu2-Den.jpg",
+      "productId": 4032,
+      "sku": "X24-BR-DBX-KID-024",
+      "slug": "ao-bong-ro-tre-em-x24-br-34-den-024",
+      "status": "ok",
+      "updatedAtMs": 1784875793213
+    },
+    "TRẺ EM/AnhGhepAnhAi-X24-BR-34-kieu2-Trang.jpg|89ed6a4d62d2": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5910,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAnhAi-X24-BR-34-kieu2-Trang.jpg",
+      "productId": 4033,
+      "sku": "X24-BR-DBX-KID-025",
+      "slug": "ao-bong-ro-tre-em-x24-br-34-trang-025",
+      "status": "ok",
+      "updatedAtMs": 1784875793518
+    },
+    "TRẺ EM/AnhGhepAnhAi-X24-BR-34-kieu2-Vang.jpg|d4abfe1db03c": {
+      "age": "Trẻ em",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 5911,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAnhAi-X24-BR-34-kieu2-Vang.jpg",
+      "productId": 4034,
+      "sku": "X24-BR-DBX-KID-026",
+      "slug": "ao-bong-ro-tre-em-x24-br-34-vang-026",
+      "status": "ok",
+      "updatedAtMs": 1784875793918
+    },
+    "TRẺ EM/AnhGhepAnhAi-X24-BR-34-kieu2-XANHBICH.jpg|0b2eadce6f28": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 5912,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAnhAi-X24-BR-34-kieu2-XANHBICH.jpg",
+      "productId": 4035,
+      "sku": "X24-BR-DBX-KID-027",
+      "slug": "ao-bong-ro-tre-em-x24-br-34-xanh-bich-027",
+      "status": "ok",
+      "updatedAtMs": 1784875794220
+    },
+    "TRẺ EM/AnhGhepAnhAi-X24-BR-34-kieu2-XanhMC.jpg|1da8d91c1071": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 5913,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhepAnhAi-X24-BR-34-kieu2-XanhMC.jpg",
+      "productId": 4036,
+      "sku": "X24-BR-DBX-KID-028",
+      "slug": "ao-bong-ro-tre-em-x24-br-34-xanh-duong-028",
+      "status": "ok",
+      "updatedAtMs": 1784875794457
+    },
+    "TRẺ EM/AnhGhépAI-X24-BR-32-kieu2-Do.jpg|e01e8bd1d75f": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 5914,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhépAI-X24-BR-32-kieu2-Do.jpg",
+      "productId": 4037,
+      "sku": "X24-BR-DBX-KID-029",
+      "slug": "ao-bong-ro-tre-em-x24-br-32-do-029",
+      "status": "ok",
+      "updatedAtMs": 1784875794727
+    },
+    "TRẺ EM/AnhGhépAI-X24-BR-32-kieu2-Tim.jpg|718da76e5859": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 5915,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhépAI-X24-BR-32-kieu2-Tim.jpg",
+      "productId": 4038,
+      "sku": "X24-BR-DBX-KID-030",
+      "slug": "ao-bong-ro-tre-em-x24-br-32-tim-030",
+      "status": "ok",
+      "updatedAtMs": 1784875794956
+    },
+    "TRẺ EM/AnhGhépAI-X24-BR-32-kieu2-Vang.jpg|2a4d52262b0f": {
+      "age": "Trẻ em",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 5916,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhépAI-X24-BR-32-kieu2-Vang.jpg",
+      "productId": 4039,
+      "sku": "X24-BR-DBX-KID-031",
+      "slug": "ao-bong-ro-tre-em-x24-br-32-vang-031",
+      "status": "ok",
+      "updatedAtMs": 1784875795266
+    },
+    "TRẺ EM/AnhGhépAI-X24-BR-32-kieu2-Xam.jpg|663d3712ec5b": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xám"
+      ],
+      "mediaId": 5917,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhépAI-X24-BR-32-kieu2-Xam.jpg",
+      "productId": 4040,
+      "sku": "X24-BR-DBX-KID-032",
+      "slug": "ao-bong-ro-tre-em-x24-br-32-xam-032",
+      "status": "ok",
+      "updatedAtMs": 1784875795507
+    },
+    "TRẺ EM/AnhGhépAI-X24-BR-32-kieu2-XanhVeChai.jpg|c1194f9b81a8": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 5918,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AnhGhépAI-X24-BR-32-kieu2-XanhVeChai.jpg",
+      "productId": 4041,
+      "sku": "X24-BR-DBX-KID-033",
+      "slug": "ao-bong-ro-tre-em-x24-br-32-xanh-ve-chai-033",
+      "status": "ok",
+      "updatedAtMs": 1784875795808
+    },
+    "TRẺ EM/AoBongRo-X24-02-Cam-Kieu2.jpg|115672ca2727": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 5919,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-02-Cam-Kieu2.jpg",
+      "productId": 4042,
+      "sku": "X24-BR-DBX-KID-034",
+      "slug": "ao-bong-ro-tre-em-x24-br-070819-cam-034",
+      "status": "ok",
+      "updatedAtMs": 1784875796136
+    },
+    "TRẺ EM/AoBongRo-X24-02-Den-Kieu2.jpg|9092166644a8": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 5920,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-02-Den-Kieu2.jpg",
+      "productId": 4043,
+      "sku": "X24-BR-DBX-KID-035",
+      "slug": "ao-bong-ro-tre-em-x24-br-2cdc3f-den-035",
+      "status": "ok",
+      "updatedAtMs": 1784875796363
+    },
+    "TRẺ EM/AoBongRo-X24-02-DoDo-Kieu2.jpg|b6949b0ca437": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 5921,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-02-DoDo-Kieu2.jpg",
+      "productId": 4044,
+      "sku": "X24-BR-DBX-KID-036",
+      "slug": "ao-bong-ro-tre-em-x24-br-9453d6-do-do-036",
+      "status": "ok",
+      "updatedAtMs": 1784875796660
+    },
+    "TRẺ EM/AoBongRo-X24-02-TimThan-Kieu2.jpg|f74b4f765177": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 5922,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-02-TimThan-Kieu2.jpg",
+      "productId": 4045,
+      "sku": "X24-BR-DBX-KID-037",
+      "slug": "ao-bong-ro-tre-em-x24-br-5f10e3-tim-than-037",
+      "status": "ok",
+      "updatedAtMs": 1784875796885
+    },
+    "TRẺ EM/AoBongRo-X24-02-Trang-Kieu2.jpg|81a9b891c7b7": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5923,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-02-Trang-Kieu2.jpg",
+      "productId": 4046,
+      "sku": "X24-BR-DBX-KID-038",
+      "slug": "ao-bong-ro-tre-em-x24-br-710785-trang-038",
+      "status": "ok",
+      "updatedAtMs": 1784875797184
+    },
+    "TRẺ EM/AoBongRo-X24-04-Hong-Kieu2.jpg|76579dc2c368": {
+      "age": "Trẻ em",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 5924,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-04-Hong-Kieu2.jpg",
+      "productId": 4047,
+      "sku": "X24-BR-DBX-KID-039",
+      "slug": "ao-bong-ro-tre-em-x24-br-50e2af-hong-039",
+      "status": "ok",
+      "updatedAtMs": 1784875797420
+    },
+    "TRẺ EM/AoBongRo-X24-04-TimThan-Kieu2.jpg|9bf90d49ae71": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 5925,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-04-TimThan-Kieu2.jpg",
+      "productId": 4048,
+      "sku": "X24-BR-DBX-KID-040",
+      "slug": "ao-bong-ro-tre-em-x24-br-c8c95d-tim-than-040",
+      "status": "ok",
+      "updatedAtMs": 1784875797707
+    },
+    "TRẺ EM/AoBongRo-X24-04-Trang-Kieu2.jpg|9d878442c3f1": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5926,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-04-Trang-Kieu2.jpg",
+      "productId": 4049,
+      "sku": "X24-BR-DBX-KID-041",
+      "slug": "ao-bong-ro-tre-em-x24-br-051013-trang-041",
+      "status": "ok",
+      "updatedAtMs": 1784875797923
+    },
+    "TRẺ EM/AoBongRo-X24-04-XanhMc-Kieu2.jpg|d5a09bc97e37": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 5927,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-04-XanhMc-Kieu2.jpg",
+      "productId": 4050,
+      "sku": "X24-BR-DBX-KID-042",
+      "slug": "ao-bong-ro-tre-em-x24-br-7ac57b-xanh-duong-042",
+      "status": "ok",
+      "updatedAtMs": 1784875798121
+    },
+    "TRẺ EM/AoBongRo-X24-04-XanhVeChai-Kieu2.jpg|743917929342": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 5928,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-04-XanhVeChai-Kieu2.jpg",
+      "productId": 4051,
+      "sku": "X24-BR-DBX-KID-043",
+      "slug": "ao-bong-ro-tre-em-x24-br-0f4145-xanh-ve-chai-043",
+      "status": "ok",
+      "updatedAtMs": 1784875798397
+    },
+    "TRẺ EM/AoBongRo-X24-09-Cam-Kieu2.jpg|6117fb205bb2": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 5929,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-09-Cam-Kieu2.jpg",
+      "productId": 4052,
+      "sku": "X24-BR-DBX-KID-044",
+      "slug": "ao-bong-ro-tre-em-x24-br-4f4aa5-cam-044",
+      "status": "ok",
+      "updatedAtMs": 1784875798620
+    },
+    "TRẺ EM/AoBongRo-X24-09-Den-Kieu2.jpg|75c75de97ae2": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 5930,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-09-Den-Kieu2.jpg",
+      "productId": 4053,
+      "sku": "X24-BR-DBX-KID-045",
+      "slug": "ao-bong-ro-tre-em-x24-br-8036c3-den-045",
+      "status": "ok",
+      "updatedAtMs": 1784875798924
+    },
+    "TRẺ EM/AoBongRo-X24-09-Trang-Kieu2.jpg|deb123b513ee": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5931,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-09-Trang-Kieu2.jpg",
+      "productId": 4054,
+      "sku": "X24-BR-DBX-KID-046",
+      "slug": "ao-bong-ro-tre-em-x24-br-92b57b-trang-046",
+      "status": "ok",
+      "updatedAtMs": 1784875799142
+    },
+    "TRẺ EM/AoBongRo-X24-09-XanhMc-Kieu2.jpg|3b141e4b5953": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 5932,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-09-XanhMc-Kieu2.jpg",
+      "productId": 4055,
+      "sku": "X24-BR-DBX-KID-047",
+      "slug": "ao-bong-ro-tre-em-x24-br-47a0d4-xanh-duong-047",
+      "status": "ok",
+      "updatedAtMs": 1784875799437
+    },
+    "TRẺ EM/AoBongRo-X24-09-XanhVeChai-Kieu2.jpg|49a8c54754f8": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 5933,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-09-XanhVeChai-Kieu2.jpg",
+      "productId": 4056,
+      "sku": "X24-BR-DBX-KID-048",
+      "slug": "ao-bong-ro-tre-em-x24-br-fb5948-xanh-ve-chai-048",
+      "status": "ok",
+      "updatedAtMs": 1784875799642
+    },
+    "TRẺ EM/AoBongRo-X24-27-Cam-TreEm.jpg|aa9e9a56479f": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 5934,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-27-Cam-TreEm.jpg",
+      "productId": 4057,
+      "sku": "X24-BR-DBX-KID-049",
+      "slug": "ao-bong-ro-tre-em-x24-br-ec823a-cam-049",
+      "status": "ok",
+      "updatedAtMs": 1784875799904
+    },
+    "TRẺ EM/AoBongRo-X24-27-DoDo-TreEm.jpg|cb8ea80e105c": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 5935,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-27-DoDo-TreEm.jpg",
+      "productId": 4058,
+      "sku": "X24-BR-DBX-KID-050",
+      "slug": "ao-bong-ro-tre-em-x24-br-73ab22-do-do-050",
+      "status": "ok",
+      "updatedAtMs": 1784875800116
+    },
+    "TRẺ EM/AoBongRo-X24-27-Trang-TreEm.jpg|14e346107035": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5936,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-27-Trang-TreEm.jpg",
+      "productId": 4059,
+      "sku": "X24-BR-DBX-KID-051",
+      "slug": "ao-bong-ro-tre-em-x24-br-3fe2d1-trang-051",
+      "status": "ok",
+      "updatedAtMs": 1784875800425
+    },
+    "TRẺ EM/AoBongRo-X24-27-XanhBich-TreEm.jpg|5a1aea9a9285": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 5937,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-27-XanhBich-TreEm.jpg",
+      "productId": 4060,
+      "sku": "X24-BR-DBX-KID-052",
+      "slug": "ao-bong-ro-tre-em-x24-br-c359a0-xanh-bich-052",
+      "status": "ok",
+      "updatedAtMs": 1784875800646
+    },
+    "TRẺ EM/AoBongRo-X24-27-XanhKet-TreEm.jpg|17a056ecd87c": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 5938,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-27-XanhKet-TreEm.jpg",
+      "productId": 4061,
+      "sku": "X24-BR-DBX-KID-053",
+      "slug": "ao-bong-ro-tre-em-x24-br-366921-den-053",
+      "status": "ok",
+      "updatedAtMs": 1784875800948
+    },
+    "TRẺ EM/AoBongRo-X24-28-Den-TreEm.png|86f3672640ca": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 5939,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-28-Den-TreEm.png",
+      "productId": 4062,
+      "sku": "X24-BR-DBX-KID-054",
+      "slug": "ao-bong-ro-tre-em-x24-br-dd6123-den-054",
+      "status": "ok",
+      "updatedAtMs": 1784875801159
+    },
+    "TRẺ EM/AoBongRo-X24-28-DoDo-TreEm.png|755a666a1bb2": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 5940,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-28-DoDo-TreEm.png",
+      "productId": 4063,
+      "sku": "X24-BR-DBX-KID-055",
+      "slug": "ao-bong-ro-tre-em-x24-br-ae92b6-do-do-055",
+      "status": "ok",
+      "updatedAtMs": 1784875801379
+    },
+    "TRẺ EM/AoBongRo-X24-28-Tim-TreEm.png|1e09da75a03d": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 5941,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-28-Tim-TreEm.png",
+      "productId": 4064,
+      "sku": "X24-BR-DBX-KID-056",
+      "slug": "ao-bong-ro-tre-em-x24-br-835b68-tim-056",
+      "status": "ok",
+      "updatedAtMs": 1784875801593
+    },
+    "TRẺ EM/AoBongRo-X24-28-Trang-TreEm.png|7d4263b6bc95": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5942,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-28-Trang-TreEm.png",
+      "productId": 4065,
+      "sku": "X24-BR-DBX-KID-057",
+      "slug": "ao-bong-ro-tre-em-x24-br-b521c2-trang-057",
+      "status": "ok",
+      "updatedAtMs": 1784875801802
+    },
+    "TRẺ EM/AoBongRo-X24-28-XanhVeChai-TreEm.png|2f1ec9fc9c3f": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 5943,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-28-XanhVeChai-TreEm.png",
+      "productId": 4066,
+      "sku": "X24-BR-DBX-KID-058",
+      "slug": "ao-bong-ro-tre-em-x24-br-a0a8de-xanh-ve-chai-058",
+      "status": "ok",
+      "updatedAtMs": 1784875802055
+    },
+    "TRẺ EM/AoBongRo-X24-29-Do-TreEm.png|8e6f86dd16fc": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 5944,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-29-Do-TreEm.png",
+      "productId": 4067,
+      "sku": "X24-BR-DBX-KID-059",
+      "slug": "ao-bong-ro-tre-em-x24-br-a85ae5-do-059",
+      "status": "ok",
+      "updatedAtMs": 1784875802289
+    },
+    "TRẺ EM/AoBongRo-X24-29-Trang-TreEm.png|541ca978ae25": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5945,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-29-Trang-TreEm.png",
+      "productId": 4068,
+      "sku": "X24-BR-DBX-KID-060",
+      "slug": "ao-bong-ro-tre-em-x24-br-daa5bb-trang-060",
+      "status": "ok",
+      "updatedAtMs": 1784875802740
+    },
+    "TRẺ EM/AoBongRo-X24-29-Vang-TreEm.png|c687bbbb51ce": {
+      "age": "Trẻ em",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 5946,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-29-Vang-TreEm.png",
+      "productId": 4069,
+      "sku": "X24-BR-DBX-KID-061",
+      "slug": "ao-bong-ro-tre-em-x24-br-d97033-vang-061",
+      "status": "ok",
+      "updatedAtMs": 1784875803042
+    },
+    "TRẺ EM/AoBongRo-X24-29-Xanh Chuoi-TreEm.png|ed2c05098225": {
+      "age": "Trẻ em",
+      "colors": [],
+      "mediaId": 5947,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-29-Xanh Chuoi-TreEm.png",
+      "productId": 4070,
+      "sku": "X24-BR-DBX-KID-062",
+      "slug": "ao-bong-ro-tre-em-x24-br-702908-nhieu-mau-062",
+      "status": "ok",
+      "updatedAtMs": 1784875803249
+    },
+    "TRẺ EM/AoBongRo-X24-29-XanhNgoc-TreEm.png|11b5360e0fa7": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 5948,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-29-XanhNgoc-TreEm.png",
+      "productId": 4071,
+      "sku": "X24-BR-DBX-KID-063",
+      "slug": "ao-bong-ro-tre-em-x24-br-04287f-xanh-ngoc-063",
+      "status": "ok",
+      "updatedAtMs": 1784875803476
+    },
+    "TRẺ EM/AoBongRo-X24-30-Cam-TreEm.jpg|54d0adaeba3a": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 5949,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-30-Cam-TreEm.jpg",
+      "productId": 4072,
+      "sku": "X24-BR-DBX-KID-064",
+      "slug": "ao-bong-ro-tre-em-x24-br-7a5a54-cam-064",
+      "status": "ok",
+      "updatedAtMs": 1784875803682
+    },
+    "TRẺ EM/AoBongRo-X24-30-Hong-TreEm.jpg|d361960fcd36": {
+      "age": "Trẻ em",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 5950,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-30-Hong-TreEm.jpg",
+      "productId": 4073,
+      "sku": "X24-BR-DBX-KID-065",
+      "slug": "ao-bong-ro-tre-em-x24-br-554819-hong-065",
+      "status": "ok",
+      "updatedAtMs": 1784875803886
+    },
+    "TRẺ EM/AoBongRo-X24-30-Vang-TreEm.jpg|de3372a9a556": {
+      "age": "Trẻ em",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 5951,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-30-Vang-TreEm.jpg",
+      "productId": 4074,
+      "sku": "X24-BR-DBX-KID-066",
+      "slug": "ao-bong-ro-tre-em-x24-br-9e5cf9-vang-066",
+      "status": "ok",
+      "updatedAtMs": 1784875804382
+    },
+    "TRẺ EM/AoBongRo-X24-30-XanhLy-TreEm.jpg|c294dee3a2e7": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh lá"
+      ],
+      "mediaId": 5952,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-30-XanhLy-TreEm.jpg",
+      "productId": 4075,
+      "sku": "X24-BR-DBX-KID-067",
+      "slug": "ao-bong-ro-tre-em-x24-br-5cdb6b-xanh-la-067",
+      "status": "ok",
+      "updatedAtMs": 1784875804726
+    },
+    "TRẺ EM/AoBongRo-X24-30-XanhNgoc-TreEm.jpg|20d9670bcc99": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 5953,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-30-XanhNgoc-TreEm.jpg",
+      "productId": 4076,
+      "sku": "X24-BR-DBX-KID-068",
+      "slug": "ao-bong-ro-tre-em-x24-br-9109e1-xanh-ngoc-068",
+      "status": "ok",
+      "updatedAtMs": 1784875804943
+    },
+    "TRẺ EM/AoBongRo-X24-31-Den-TreEm.jpg|b9be384b6fab": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 5954,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-31-Den-TreEm.jpg",
+      "productId": 4077,
+      "sku": "X24-BR-DBX-KID-069",
+      "slug": "ao-bong-ro-tre-em-x24-br-41914a-den-069",
+      "status": "ok",
+      "updatedAtMs": 1784875805202
+    },
+    "TRẺ EM/AoBongRo-X24-31-TimThan-TreEm.jpg|8dc99f3517ce": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 5955,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-31-TimThan-TreEm.jpg",
+      "productId": 4078,
+      "sku": "X24-BR-DBX-KID-070",
+      "slug": "ao-bong-ro-tre-em-x24-br-2fed2c-tim-than-070",
+      "status": "ok",
+      "updatedAtMs": 1784875805417
+    },
+    "TRẺ EM/AoBongRo-X24-31-Trang-TreEm.jpg|30126ad1c06e": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5956,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-31-Trang-TreEm.jpg",
+      "productId": 4079,
+      "sku": "X24-BR-DBX-KID-071",
+      "slug": "ao-bong-ro-tre-em-x24-br-60e3fa-trang-071",
+      "status": "ok",
+      "updatedAtMs": 1784875805681
+    },
+    "TRẺ EM/AoBongRo-X24-31-VangDam-TreEm.jpg|67fbb86320a0": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam",
+        "Đen"
+      ],
+      "mediaId": 5957,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-31-VangDam-TreEm.jpg",
+      "productId": 4080,
+      "sku": "X24-BR-DBX-KID-072",
+      "slug": "ao-bong-ro-tre-em-x24-br-efb5b7-cam-den-072",
+      "status": "ok",
+      "updatedAtMs": 1784875805906
+    },
+    "TRẺ EM/AoBongRo-X24-31-XanhNgoc-TreEm.jpg|afa836cb458e": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 5958,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-31-XanhNgoc-TreEm.jpg",
+      "productId": 4081,
+      "sku": "X24-BR-DBX-KID-073",
+      "slug": "ao-bong-ro-tre-em-x24-br-29821a-xanh-ngoc-073",
+      "status": "ok",
+      "updatedAtMs": 1784875806200
+    },
+    "TRẺ EM/AoBongRo-X24-33-Do-TreEm.jpg|e36bc9191aef": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 5959,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-33-Do-TreEm.jpg",
+      "productId": 4082,
+      "sku": "X24-BR-DBX-KID-074",
+      "slug": "ao-bong-ro-tre-em-x24-br-d6101b-do-074",
+      "status": "ok",
+      "updatedAtMs": 1784875806419
+    },
+    "TRẺ EM/AoBongRo-X24-33-Hong-TreEm.jpg|cc2845e4f6d6": {
+      "age": "Trẻ em",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 5960,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-33-Hong-TreEm.jpg",
+      "productId": 4083,
+      "sku": "X24-BR-DBX-KID-075",
+      "slug": "ao-bong-ro-tre-em-x24-br-4b3f5f-hong-075",
+      "status": "ok",
+      "updatedAtMs": 1784875806734
+    },
+    "TRẺ EM/AoBongRo-X24-33-Vang-TreEm.jpg|7dd1e42e46ff": {
+      "age": "Trẻ em",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 5961,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-33-Vang-TreEm.jpg",
+      "productId": 4084,
+      "sku": "X24-BR-DBX-KID-076",
+      "slug": "ao-bong-ro-tre-em-x24-br-8410ec-vang-076",
+      "status": "ok",
+      "updatedAtMs": 1784875806969
+    },
+    "TRẺ EM/AoBongRo-X24-33-XanhChuoi-TreEm.jpg|e0d073cf92c3": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5962,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-33-XanhChuoi-TreEm.jpg",
+      "productId": 4085,
+      "sku": "X24-BR-DBX-KID-077",
+      "slug": "ao-bong-ro-tre-em-x24-br-827d51-trang-077",
+      "status": "ok",
+      "updatedAtMs": 1784875807278
+    },
+    "TRẺ EM/AoBongRo-X24-33-XanhYa-TreEm.jpg|3af7826d2dd8": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 5963,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-33-XanhYa-TreEm.jpg",
+      "productId": 4086,
+      "sku": "X24-BR-DBX-KID-078",
+      "slug": "ao-bong-ro-tre-em-x24-br-4563a8-xanh-duong-078",
+      "status": "ok",
+      "updatedAtMs": 1784875807519
+    },
+    "TRẺ EM/AoBongRo-X24-35-Cam-TreEm.jpg|f1332a57f73f": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 5964,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-35-Cam-TreEm.jpg",
+      "productId": 4087,
+      "sku": "X24-BR-DBX-KID-079",
+      "slug": "ao-bong-ro-tre-em-x24-br-dbac4b-cam-079",
+      "status": "ok",
+      "updatedAtMs": 1784875807826
+    },
+    "TRẺ EM/AoBongRo-X24-35-Kem-TreEm.jpg|10638e4bd71d": {
+      "age": "Trẻ em",
+      "colors": [
+        "Kem"
+      ],
+      "mediaId": 5965,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-35-Kem-TreEm.jpg",
+      "productId": 4088,
+      "sku": "X24-BR-DBX-KID-080",
+      "slug": "ao-bong-ro-tre-em-x24-br-9241d3-kem-080",
+      "status": "ok",
+      "updatedAtMs": 1784875808077
+    },
+    "TRẺ EM/AoBongRo-X24-35-Trang-TreEm.jpg|3b8e8fa55448": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5966,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-35-Trang-TreEm.jpg",
+      "productId": 4089,
+      "sku": "X24-BR-DBX-KID-081",
+      "slug": "ao-bong-ro-tre-em-x24-br-91a6a7-trang-081",
+      "status": "ok",
+      "updatedAtMs": 1784875808369
+    },
+    "TRẺ EM/AoBongRo-X24-35-XanhNgocNhatTreEm.jpg|f7af89bfee23": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 5967,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-35-XanhNgocNhatTreEm.jpg",
+      "productId": 4090,
+      "sku": "X24-BR-DBX-KID-082",
+      "slug": "ao-bong-ro-tre-em-x24-br-9648bf-xanh-ngoc-082",
+      "status": "ok",
+      "updatedAtMs": 1784875808609
+    },
+    "TRẺ EM/AoBongRo-X24-35-XanhVeChai-TreEm.jpg|39138280dcce": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 5968,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-35-XanhVeChai-TreEm.jpg",
+      "productId": 4091,
+      "sku": "X24-BR-DBX-KID-083",
+      "slug": "ao-bong-ro-tre-em-x24-br-07628e-xanh-ve-chai-083",
+      "status": "ok",
+      "updatedAtMs": 1784875808884
+    },
+    "TRẺ EM/AoBongRo-X24-BR-01-Den-Kieu2.jpg|99381d32c1fd": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 5969,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-01-Den-Kieu2.jpg",
+      "productId": 4092,
+      "sku": "X24-BR-DBX-KID-084",
+      "slug": "ao-bong-ro-tre-em-x24-br-01-den-084",
+      "status": "ok",
+      "updatedAtMs": 1784875809130
+    },
+    "TRẺ EM/AoBongRo-X24-BR-01-Do-Kieu2.jpg|5566186f7903": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 5970,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-01-Do-Kieu2.jpg",
+      "productId": 4093,
+      "sku": "X24-BR-DBX-KID-085",
+      "slug": "ao-bong-ro-tre-em-x24-br-01-do-085",
+      "status": "ok",
+      "updatedAtMs": 1784875809398
+    },
+    "TRẺ EM/AoBongRo-X24-BR-01-Tim-Kieu2.jpg|e603df9d9a8a": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 5971,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-01-Tim-Kieu2.jpg",
+      "productId": 4094,
+      "sku": "X24-BR-DBX-KID-086",
+      "slug": "ao-bong-ro-tre-em-x24-br-01-tim-086",
+      "status": "ok",
+      "updatedAtMs": 1784875809621
+    },
+    "TRẺ EM/AoBongRo-X24-BR-01-Trang-Kieu2.jpg|018d91808674": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5972,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-01-Trang-Kieu2.jpg",
+      "productId": 4095,
+      "sku": "X24-BR-DBX-KID-087",
+      "slug": "ao-bong-ro-tre-em-x24-br-01-trang-087",
+      "status": "ok",
+      "updatedAtMs": 1784875809913
+    },
+    "TRẺ EM/AoBongRo-X24-BR-01-XanhMc-Kieu2.jpg|9eccb210400a": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 5973,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-01-XanhMc-Kieu2.jpg",
+      "productId": 4096,
+      "sku": "X24-BR-DBX-KID-088",
+      "slug": "ao-bong-ro-tre-em-x24-br-01-xanh-duong-088",
+      "status": "ok",
+      "updatedAtMs": 1784875810122
+    },
+    "TRẺ EM/AoBongRo-X24-BR-01-XanhReu-Kieu2.jpg|a3508b92f4b1": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 5974,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-01-XanhReu-Kieu2.jpg",
+      "productId": 4097,
+      "sku": "X24-BR-DBX-KID-089",
+      "slug": "ao-bong-ro-tre-em-x24-br-01-den-089",
+      "status": "ok",
+      "updatedAtMs": 1784875810397
+    },
+    "TRẺ EM/AoBongRo-X24-BR-03-XanhNgoc-Kieu2.jpg|76fb57c24306": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 5975,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-03-XanhNgoc-Kieu2.jpg",
+      "productId": 4098,
+      "sku": "X24-BR-DBX-KID-090",
+      "slug": "ao-bong-ro-tre-em-x24-br-03-xanh-ngoc-090",
+      "status": "ok",
+      "updatedAtMs": 1784875810602
+    },
+    "TRẺ EM/AoBongRo-X24-BR-05-Do-Kieu2.jpg|052c6c92b162": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 5976,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-05-Do-Kieu2.jpg",
+      "productId": 4099,
+      "sku": "X24-BR-DBX-KID-091",
+      "slug": "ao-bong-ro-tre-em-x24-br-05-do-091",
+      "status": "ok",
+      "updatedAtMs": 1784875810953
+    },
+    "TRẺ EM/AoBongRo-X24-BR-05-Nau-Kieu2.jpg|8c8589d568ad": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng",
+        "Xanh lá"
+      ],
+      "mediaId": 5977,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-05-Nau-Kieu2.jpg",
+      "productId": 4100,
+      "sku": "X24-BR-DBX-KID-092",
+      "slug": "ao-bong-ro-tre-em-x24-br-05-trang-xanh-la-092",
+      "status": "ok",
+      "updatedAtMs": 1784875811164
+    },
+    "TRẺ EM/AoBongRo-X24-BR-05-Trang-Kieu2.jpg|018f39c09329": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5978,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-05-Trang-Kieu2.jpg",
+      "productId": 4101,
+      "sku": "X24-BR-DBX-KID-093",
+      "slug": "ao-bong-ro-tre-em-x24-br-05-trang-093",
+      "status": "ok",
+      "updatedAtMs": 1784875811566
+    },
+    "TRẺ EM/AoBongRo-X24-BR-05-XanhLy-Kieu2.jpg|9d4ac9bf0c30": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh lá"
+      ],
+      "mediaId": 5979,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-05-XanhLy-Kieu2.jpg",
+      "productId": 4102,
+      "sku": "X24-BR-DBX-KID-094",
+      "slug": "ao-bong-ro-tre-em-x24-br-05-xanh-la-094",
+      "status": "ok",
+      "updatedAtMs": 1784875811769
+    },
+    "TRẺ EM/AoBongRo-X24-BR-05-XanhNhat-Kieu2.jpg|649d5017d47f": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng",
+        "Xanh lá"
+      ],
+      "mediaId": 5980,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-05-XanhNhat-Kieu2.jpg",
+      "productId": 4103,
+      "sku": "X24-BR-DBX-KID-095",
+      "slug": "ao-bong-ro-tre-em-x24-br-05-trang-xanh-la-095",
+      "status": "ok",
+      "updatedAtMs": 1784875812076
+    },
+    "TRẺ EM/AoBongRo-X24-BR-06-Cam-TreEm-Kieu1.jpg|b0a089a84bd2": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 5981,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-06-Cam-TreEm-Kieu1.jpg",
+      "productId": 4104,
+      "sku": "X24-BR-DBX-KID-096",
+      "slug": "ao-bong-ro-tre-em-x24-br-06-cam-096",
+      "status": "ok",
+      "updatedAtMs": 1784875812282
+    },
+    "TRẺ EM/AoBongRo-X24-BR-06-Tim-TreEm-Kieu1.jpg|9b3305077310": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 5982,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-06-Tim-TreEm-Kieu1.jpg",
+      "productId": 4105,
+      "sku": "X24-BR-DBX-KID-097",
+      "slug": "ao-bong-ro-tre-em-x24-br-06-tim-097",
+      "status": "ok",
+      "updatedAtMs": 1784875812537
+    },
+    "TRẺ EM/AoBongRo-X24-BR-06-TimThan-TreEm-Kieu1.jpg|416f9cff4860": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 5983,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-06-TimThan-TreEm-Kieu1.jpg",
+      "productId": 4106,
+      "sku": "X24-BR-DBX-KID-098",
+      "slug": "ao-bong-ro-tre-em-x24-br-06-tim-than-098",
+      "status": "ok",
+      "updatedAtMs": 1784875812735
+    },
+    "TRẺ EM/AoBongRo-X24-BR-06-Trang-TreEm-Kieu1.jpg|04603a982fdd": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5984,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-06-Trang-TreEm-Kieu1.jpg",
+      "productId": 4107,
+      "sku": "X24-BR-DBX-KID-099",
+      "slug": "ao-bong-ro-tre-em-x24-br-06-trang-099",
+      "status": "ok",
+      "updatedAtMs": 1784875813018
+    },
+    "TRẺ EM/AoBongRo-X24-BR-06-XanhYa-TreEm-Kieu1.jpg|4c2500d5c175": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 5985,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-06-XanhYa-TreEm-Kieu1.jpg",
+      "productId": 4108,
+      "sku": "X24-BR-DBX-KID-100",
+      "slug": "ao-bong-ro-tre-em-x24-br-06-xanh-duong-100",
+      "status": "ok",
+      "updatedAtMs": 1784875813212
+    },
+    "TRẺ EM/AoBongRo-X24-BR-07-Cam-Kieu2.jpg|b4d53fa25ba6": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 5986,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-07-Cam-Kieu2.jpg",
+      "productId": 4109,
+      "sku": "X24-BR-DBX-KID-101",
+      "slug": "ao-bong-ro-tre-em-x24-br-07-cam-101",
+      "status": "ok",
+      "updatedAtMs": 1784875813437
+    },
+    "TRẺ EM/AoBongRo-X24-BR-07-TimThan-Kieu2.jpg|09280499461c": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 5987,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-07-TimThan-Kieu2.jpg",
+      "productId": 4110,
+      "sku": "X24-BR-DBX-KID-102",
+      "slug": "ao-bong-ro-tre-em-x24-br-07-tim-than-102",
+      "status": "ok",
+      "updatedAtMs": 1784875813636
+    },
+    "TRẺ EM/AoBongRo-X24-BR-07-Trang-Kieu2.jpg|e9adb0d68f9a": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5988,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-07-Trang-Kieu2.jpg",
+      "productId": 4111,
+      "sku": "X24-BR-DBX-KID-103",
+      "slug": "ao-bong-ro-tre-em-x24-br-07-trang-103",
+      "status": "ok",
+      "updatedAtMs": 1784875813829
+    },
+    "TRẺ EM/AoBongRo-X24-BR-07-Vang-Kieu2.jpg|360e8c955b4a": {
+      "age": "Trẻ em",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 5989,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-07-Vang-Kieu2.jpg",
+      "productId": 4112,
+      "sku": "X24-BR-DBX-KID-104",
+      "slug": "ao-bong-ro-tre-em-x24-br-07-vang-104",
+      "status": "ok",
+      "updatedAtMs": 1784875814114
+    },
+    "TRẺ EM/AoBongRo-X24-BR-07-XanhBich-Kieu2.jpg|d4cdb4edbfbd": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 5990,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-07-XanhBich-Kieu2.jpg",
+      "productId": 4113,
+      "sku": "X24-BR-DBX-KID-105",
+      "slug": "ao-bong-ro-tre-em-x24-br-07-xanh-bich-105",
+      "status": "ok",
+      "updatedAtMs": 1784875814348
+    },
+    "TRẺ EM/AoBongRo-X24-BR-10-DoDo-TreEm.jpg|2632c7d0c3ab": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 5991,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-10-DoDo-TreEm.jpg",
+      "productId": 4114,
+      "sku": "X24-BR-DBX-KID-106",
+      "slug": "ao-bong-ro-tre-em-x24-br-10-do-do-106",
+      "status": "ok",
+      "updatedAtMs": 1784875814642
+    },
+    "TRẺ EM/AoBongRo-X24-BR-10-Hong-TreEm.jpg|4ae0cef5dcc9": {
+      "age": "Trẻ em",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 5992,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-10-Hong-TreEm.jpg",
+      "productId": 4115,
+      "sku": "X24-BR-DBX-KID-107",
+      "slug": "ao-bong-ro-tre-em-x24-br-10-hong-107",
+      "status": "ok",
+      "updatedAtMs": 1784875814930
+    },
+    "TRẺ EM/AoBongRo-X24-BR-10-Vang-TreEm.jpg|3d33ed71221f": {
+      "age": "Trẻ em",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 5993,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-10-Vang-TreEm.jpg",
+      "productId": 4116,
+      "sku": "X24-BR-DBX-KID-108",
+      "slug": "ao-bong-ro-tre-em-x24-br-10-vang-108",
+      "status": "ok",
+      "updatedAtMs": 1784875815216
+    },
+    "TRẺ EM/AoBongRo-X24-BR-10-XanhThan-TreEm.jpg|59747f736221": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5994,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-10-XanhThan-TreEm.jpg",
+      "productId": 4117,
+      "sku": "X24-BR-DBX-KID-109",
+      "slug": "ao-bong-ro-tre-em-x24-br-10-trang-109",
+      "status": "ok",
+      "updatedAtMs": 1784875815409
+    },
+    "TRẺ EM/AoBongRo-X24-BR-10-XanhVeChai-TreEm.jpg|fcb6590cc4d5": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 5995,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-10-XanhVeChai-TreEm.jpg",
+      "productId": 4118,
+      "sku": "X24-BR-DBX-KID-110",
+      "slug": "ao-bong-ro-tre-em-x24-br-10-xanh-ve-chai-110",
+      "status": "ok",
+      "updatedAtMs": 1784875815681
+    },
+    "TRẺ EM/AoBongRo-X24-BR-11-Cam-TreEm.jpg|9be31735011d": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 5996,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-11-Cam-TreEm.jpg",
+      "productId": 4119,
+      "sku": "X24-BR-DBX-KID-111",
+      "slug": "ao-bong-ro-tre-em-x24-br-11-cam-111",
+      "status": "ok",
+      "updatedAtMs": 1784875815873
+    },
+    "TRẺ EM/AoBongRo-X24-BR-11-Den-TreEm.jpg|c57724d3cf6a": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 5997,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-11-Den-TreEm.jpg",
+      "productId": 4120,
+      "sku": "X24-BR-DBX-KID-112",
+      "slug": "ao-bong-ro-tre-em-x24-br-11-den-112",
+      "status": "ok",
+      "updatedAtMs": 1784875816160
+    },
+    "TRẺ EM/AoBongRo-X24-BR-11-Trang-TreEm.jpg|537a76fe4012": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 5998,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-11-Trang-TreEm.jpg",
+      "productId": 4121,
+      "sku": "X24-BR-DBX-KID-113",
+      "slug": "ao-bong-ro-tre-em-x24-br-11-trang-113",
+      "status": "ok",
+      "updatedAtMs": 1784875816352
+    },
+    "TRẺ EM/AoBongRo-X24-BR-11-VangDam-TreEm.jpg|48b8fa14a2db": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng",
+        "Cam"
+      ],
+      "mediaId": 5999,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-11-VangDam-TreEm.jpg",
+      "productId": 4122,
+      "sku": "X24-BR-DBX-KID-114",
+      "slug": "ao-bong-ro-tre-em-x24-br-11-trang-cam-114",
+      "status": "ok",
+      "updatedAtMs": 1784875816671
+    },
+    "TRẺ EM/AoBongRo-X24-BR-11-XanhDuong-TreEm.jpg|9c44c65afe55": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng",
+        "Xanh dương"
+      ],
+      "mediaId": 6000,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-11-XanhDuong-TreEm.jpg",
+      "productId": 4123,
+      "sku": "X24-BR-DBX-KID-115",
+      "slug": "ao-bong-ro-tre-em-x24-br-11-trang-xanh-duong-115",
+      "status": "ok",
+      "updatedAtMs": 1784875816886
+    },
+    "TRẺ EM/AoBongRo-X24-BR-12-Cam-TreEm.jpg|b4db15bd1bef": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6001,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-12-Cam-TreEm.jpg",
+      "productId": 4124,
+      "sku": "X24-BR-DBX-KID-116",
+      "slug": "ao-bong-ro-tre-em-x24-br-12-cam-116",
+      "status": "ok",
+      "updatedAtMs": 1784875817108
+    },
+    "TRẺ EM/AoBongRo-X24-BR-12-Hong-TreEm.jpg|571ca1c50776": {
+      "age": "Trẻ em",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6002,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-12-Hong-TreEm.jpg",
+      "productId": 4125,
+      "sku": "X24-BR-DBX-KID-117",
+      "slug": "ao-bong-ro-tre-em-x24-br-12-hong-117",
+      "status": "ok",
+      "updatedAtMs": 1784875817342
+    },
+    "TRẺ EM/AoBongRo-X24-BR-12-Tim-TreEm.jpg|6f2ee44972f7": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 6003,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-12-Tim-TreEm.jpg",
+      "productId": 4126,
+      "sku": "X24-BR-DBX-KID-118",
+      "slug": "ao-bong-ro-tre-em-x24-br-12-tim-118",
+      "status": "ok",
+      "updatedAtMs": 1784875817634
+    },
+    "TRẺ EM/AoBongRo-X24-BR-12-XanhMint-TreEm.jpg|9d947c2a92f9": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6004,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-12-XanhMint-TreEm.jpg",
+      "productId": 4127,
+      "sku": "X24-BR-DBX-KID-119",
+      "slug": "ao-bong-ro-tre-em-x24-br-12-xanh-ngoc-119",
+      "status": "ok",
+      "updatedAtMs": 1784875817844
+    },
+    "TRẺ EM/AoBongRo-X24-BR-12-XanhYa-TreEm.jpg|817275356d88": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 6005,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-12-XanhYa-TreEm.jpg",
+      "productId": 4128,
+      "sku": "X24-BR-DBX-KID-120",
+      "slug": "ao-bong-ro-tre-em-x24-br-12-xanh-duong-120",
+      "status": "ok",
+      "updatedAtMs": 1784875818053
+    },
+    "TRẺ EM/AoBongRo-X24-BR-13-Do.jpg|467c5d42708f": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6006,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-13-Do.jpg",
+      "productId": 4129,
+      "sku": "X24-BR-DBX-KID-121",
+      "slug": "ao-bong-ro-tre-em-x24-br-13-do-121",
+      "status": "ok",
+      "updatedAtMs": 1784875818323
+    },
+    "TRẺ EM/AoBongRo-X24-BR-13-Kem.jpg|a4e482405c21": {
+      "age": "Trẻ em",
+      "colors": [
+        "Kem"
+      ],
+      "mediaId": 6007,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-13-Kem.jpg",
+      "productId": 4130,
+      "sku": "X24-BR-DBX-KID-122",
+      "slug": "ao-bong-ro-tre-em-x24-br-13-kem-122",
+      "status": "ok",
+      "updatedAtMs": 1784875818592
+    },
+    "TRẺ EM/AoBongRo-X24-BR-13-TimThan.jpg|b4afc198e0b6": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6008,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-13-TimThan.jpg",
+      "productId": 4131,
+      "sku": "X24-BR-DBX-KID-123",
+      "slug": "ao-bong-ro-tre-em-x24-br-13-tim-than-123",
+      "status": "ok",
+      "updatedAtMs": 1784875818873
+    },
+    "TRẺ EM/AoBongRo-X24-BR-13-Trang.jpg|b45449193729": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6009,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-13-Trang.jpg",
+      "productId": 4132,
+      "sku": "X24-BR-DBX-KID-124",
+      "slug": "ao-bong-ro-tre-em-x24-br-13-trang-124",
+      "status": "ok",
+      "updatedAtMs": 1784875819074
+    },
+    "TRẺ EM/AoBongRo-X24-BR-13-VangDam.jpg|988a456f7248": {
+      "age": "Trẻ em",
+      "colors": [],
+      "mediaId": 6010,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-13-VangDam.jpg",
+      "productId": 4133,
+      "sku": "X24-BR-DBX-KID-125",
+      "slug": "ao-bong-ro-tre-em-x24-br-13-nhieu-mau-125",
+      "status": "ok",
+      "updatedAtMs": 1784875819369
+    },
+    "TRẺ EM/AoBongRo-X24-BR-14-Den-TreEm.jpg|a2faff83f65d": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6011,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-14-Den-TreEm.jpg",
+      "productId": 4134,
+      "sku": "X24-BR-DBX-KID-126",
+      "slug": "ao-bong-ro-tre-em-x24-br-14-den-126",
+      "status": "ok",
+      "updatedAtMs": 1784875819767
+    },
+    "TRẺ EM/AoBongRo-X24-BR-14-DoDo-TreEm.jpg|edaa25967279": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6012,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-14-DoDo-TreEm.jpg",
+      "productId": 4135,
+      "sku": "X24-BR-DBX-KID-127",
+      "slug": "ao-bong-ro-tre-em-x24-br-14-do-do-127",
+      "status": "ok",
+      "updatedAtMs": 1784875819986
+    },
+    "TRẺ EM/AoBongRo-X24-BR-14-Kem-TreEm.jpg|15c3c2fcbc71": {
+      "age": "Trẻ em",
+      "colors": [
+        "Kem"
+      ],
+      "mediaId": 6013,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-14-Kem-TreEm.jpg",
+      "productId": 4136,
+      "sku": "X24-BR-DBX-KID-128",
+      "slug": "ao-bong-ro-tre-em-x24-br-14-kem-128",
+      "status": "ok",
+      "updatedAtMs": 1784875820254
+    },
+    "TRẺ EM/AoBongRo-X24-BR-14-Trang-TreEm.jpg|e28985216985": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6014,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-14-Trang-TreEm.jpg",
+      "productId": 4137,
+      "sku": "X24-BR-DBX-KID-129",
+      "slug": "ao-bong-ro-tre-em-x24-br-14-trang-129",
+      "status": "ok",
+      "updatedAtMs": 1784875820599
+    },
+    "TRẺ EM/AoBongRo-X24-BR-14-Vang-TreEm.jpg|39f96ba9adb5": {
+      "age": "Trẻ em",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6015,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-14-Vang-TreEm.jpg",
+      "productId": 4138,
+      "sku": "X24-BR-DBX-KID-130",
+      "slug": "ao-bong-ro-tre-em-x24-br-14-vang-130",
+      "status": "ok",
+      "updatedAtMs": 1784875820882
+    },
+    "TRẺ EM/AoBongRo-X24-BR-15-Cam.jpg|35b927390870": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6016,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-15-Cam.jpg",
+      "productId": 4139,
+      "sku": "X24-BR-DBX-KID-131",
+      "slug": "ao-bong-ro-tre-em-x24-br-15-cam-131",
+      "status": "ok",
+      "updatedAtMs": 1784875821087
+    },
+    "TRẺ EM/AoBongRo-X24-BR-15-DoDo.jpg|434185d10a14": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6017,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-15-DoDo.jpg",
+      "productId": 4140,
+      "sku": "X24-BR-DBX-KID-132",
+      "slug": "ao-bong-ro-tre-em-x24-br-15-do-do-132",
+      "status": "ok",
+      "updatedAtMs": 1784875821387
+    },
+    "TRẺ EM/AoBongRo-X24-BR-15-Tim.jpg|8deae0c2340c": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 6018,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-15-Tim.jpg",
+      "productId": 4141,
+      "sku": "X24-BR-DBX-KID-133",
+      "slug": "ao-bong-ro-tre-em-x24-br-15-tim-133",
+      "status": "ok",
+      "updatedAtMs": 1784875821607
+    },
+    "TRẺ EM/AoBongRo-X24-BR-15-Trang.jpg|3474976ce6bd": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6019,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-15-Trang.jpg",
+      "productId": 4142,
+      "sku": "X24-BR-DBX-KID-134",
+      "slug": "ao-bong-ro-tre-em-x24-br-15-trang-134",
+      "status": "ok",
+      "updatedAtMs": 1784875821827
+    },
+    "TRẺ EM/AoBongRo-X24-BR-15-Vang.jpg|5ef30a38927b": {
+      "age": "Trẻ em",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6020,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-15-Vang.jpg",
+      "productId": 4143,
+      "sku": "X24-BR-DBX-KID-135",
+      "slug": "ao-bong-ro-tre-em-x24-br-15-vang-135",
+      "status": "ok",
+      "updatedAtMs": 1784875822083
+    },
+    "TRẺ EM/AoBongRo-X24-BR-16-Den-Kieu2.jpg|8f1e52ba178d": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6021,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-16-Den-Kieu2.jpg",
+      "productId": 4144,
+      "sku": "X24-BR-DBX-KID-136",
+      "slug": "ao-bong-ro-tre-em-x24-br-16-den-136",
+      "status": "ok",
+      "updatedAtMs": 1784875822350
+    },
+    "TRẺ EM/AoBongRo-X24-BR-16-Do-Kieu2.jpg|7e6647a1874b": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6022,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-16-Do-Kieu2.jpg",
+      "productId": 4145,
+      "sku": "X24-BR-DBX-KID-137",
+      "slug": "ao-bong-ro-tre-em-x24-br-16-do-137",
+      "status": "ok",
+      "updatedAtMs": 1784875822565
+    },
+    "TRẺ EM/AoBongRo-X24-BR-16-TimThan-Kieu2.jpg|34cd5d0f9164": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6023,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-16-TimThan-Kieu2.jpg",
+      "productId": 4146,
+      "sku": "X24-BR-DBX-KID-138",
+      "slug": "ao-bong-ro-tre-em-x24-br-16-tim-than-138",
+      "status": "ok",
+      "updatedAtMs": 1784875822873
+    },
+    "TRẺ EM/AoBongRo-X24-BR-16-Trang-Kieu2.jpg|27ee7444d14b": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6024,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-16-Trang-Kieu2.jpg",
+      "productId": 4147,
+      "sku": "X24-BR-DBX-KID-139",
+      "slug": "ao-bong-ro-tre-em-x24-br-16-trang-139",
+      "status": "ok",
+      "updatedAtMs": 1784875823094
+    },
+    "TRẺ EM/AoBongRo-X24-BR-16-XanhMint-Kieu2.jpg|95ab3be53c33": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6025,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-16-XanhMint-Kieu2.jpg",
+      "productId": 4148,
+      "sku": "X24-BR-DBX-KID-140",
+      "slug": "ao-bong-ro-tre-em-x24-br-16-xanh-ngoc-140",
+      "status": "ok",
+      "updatedAtMs": 1784875823301
+    },
+    "TRẺ EM/AoBongRo-X24-BR-17-Cam-Kieu1.jpg|4217dae96a7d": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6026,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-17-Cam-Kieu1.jpg",
+      "productId": 4149,
+      "sku": "X24-BR-DBX-KID-141",
+      "slug": "ao-bong-ro-tre-em-x24-br-17-cam-141",
+      "status": "ok",
+      "updatedAtMs": 1784875823639
+    },
+    "TRẺ EM/AoBongRo-X24-BR-17-Hong-Kieu1.jpg|cb03185f0648": {
+      "age": "Trẻ em",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6027,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-17-Hong-Kieu1.jpg",
+      "productId": 4150,
+      "sku": "X24-BR-DBX-KID-142",
+      "slug": "ao-bong-ro-tre-em-x24-br-17-hong-142",
+      "status": "ok",
+      "updatedAtMs": 1784875823923
+    },
+    "TRẺ EM/AoBongRo-X24-BR-17-Tim-Kieu1.jpg|253211f92499": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím"
+      ],
+      "mediaId": 6028,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-17-Tim-Kieu1.jpg",
+      "productId": 4151,
+      "sku": "X24-BR-DBX-KID-143",
+      "slug": "ao-bong-ro-tre-em-x24-br-17-tim-143",
+      "status": "ok",
+      "updatedAtMs": 1784875824141
+    },
+    "TRẺ EM/AoBongRo-X24-BR-17-XanhBich-Kieu1.jpg|2f0da1e8fc75": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 6029,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-17-XanhBich-Kieu1.jpg",
+      "productId": 4152,
+      "sku": "X24-BR-DBX-KID-144",
+      "slug": "ao-bong-ro-tre-em-x24-br-17-xanh-bich-144",
+      "status": "ok",
+      "updatedAtMs": 1784875824350
+    },
+    "TRẺ EM/AoBongRo-X24-BR-17-XanhKet-Kieu1.jpg|426213b0edd0": {
+      "age": "Trẻ em",
+      "colors": [],
+      "mediaId": 6030,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-17-XanhKet-Kieu1.jpg",
+      "productId": 4153,
+      "sku": "X24-BR-DBX-KID-145",
+      "slug": "ao-bong-ro-tre-em-x24-br-17-nhieu-mau-145",
+      "status": "ok",
+      "updatedAtMs": 1784875824654
+    },
+    "TRẺ EM/AoBongRo-X24-BR-18-DoDo.jpg|bb503fea3e26": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6031,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-18-DoDo.jpg",
+      "productId": 4154,
+      "sku": "X24-BR-DBX-KID-146",
+      "slug": "ao-bong-ro-tre-em-x24-br-18-do-do-146",
+      "status": "ok",
+      "updatedAtMs": 1784875824878
+    },
+    "TRẺ EM/AoBongRo-X24-BR-18-Hong.jpg|8030fa6d955f": {
+      "age": "Trẻ em",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6032,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-18-Hong.jpg",
+      "productId": 4155,
+      "sku": "X24-BR-DBX-KID-147",
+      "slug": "ao-bong-ro-tre-em-x24-br-18-hong-147",
+      "status": "ok",
+      "updatedAtMs": 1784875825211
+    },
+    "TRẺ EM/AoBongRo-X24-BR-18-Vang.jpg|404252be44af": {
+      "age": "Trẻ em",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6033,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-18-Vang.jpg",
+      "productId": 4156,
+      "sku": "X24-BR-DBX-KID-148",
+      "slug": "ao-bong-ro-tre-em-x24-br-18-vang-148",
+      "status": "ok",
+      "updatedAtMs": 1784875825495
+    },
+    "TRẺ EM/AoBongRo-X24-BR-18-Xanh LY.jpg|c60720bd98ee": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh lá"
+      ],
+      "mediaId": 6034,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-18-Xanh LY.jpg",
+      "productId": 4157,
+      "sku": "X24-BR-DBX-KID-149",
+      "slug": "ao-bong-ro-tre-em-x24-br-18-xanh-la-149",
+      "status": "ok",
+      "updatedAtMs": 1784875825695
+    },
+    "TRẺ EM/AoBongRo-X24-BR-18-XanhKet.jpg|34e741dc3540": {
+      "age": "Trẻ em",
+      "colors": [],
+      "mediaId": 6035,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-18-XanhKet.jpg",
+      "productId": 4158,
+      "sku": "X24-BR-DBX-KID-150",
+      "slug": "ao-bong-ro-tre-em-x24-br-18-nhieu-mau-150",
+      "status": "ok",
+      "updatedAtMs": 1784875825888
+    },
+    "TRẺ EM/AoBongRo-X24-BR-21-Cam.jpg|22783384f717": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6036,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-21-Cam.jpg",
+      "productId": 4159,
+      "sku": "X24-BR-DBX-KID-151",
+      "slug": "ao-bong-ro-tre-em-x24-br-21-cam-151",
+      "status": "ok",
+      "updatedAtMs": 1784875826168
+    },
+    "TRẺ EM/AoBongRo-X24-BR-21-Do.jpg|08ae4ae0fc78": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6037,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-21-Do.jpg",
+      "productId": 4160,
+      "sku": "X24-BR-DBX-KID-152",
+      "slug": "ao-bong-ro-tre-em-x24-br-21-do-152",
+      "status": "ok",
+      "updatedAtMs": 1784875826369
+    },
+    "TRẺ EM/AoBongRo-X24-BR-21-TimAgrentina.jpg|005a036290c1": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6038,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-21-TimAgrentina.jpg",
+      "productId": 4161,
+      "sku": "X24-BR-DBX-KID-153",
+      "slug": "ao-bong-ro-tre-em-x24-br-21-den-153",
+      "status": "ok",
+      "updatedAtMs": 1784875826637
+    },
+    "TRẺ EM/AoBongRo-X24-BR-21-TimThan.jpg|8fe457af9726": {
+      "age": "Trẻ em",
+      "colors": [
+        "Tím than"
+      ],
+      "mediaId": 6039,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-21-TimThan.jpg",
+      "productId": 4162,
+      "sku": "X24-BR-DBX-KID-154",
+      "slug": "ao-bong-ro-tre-em-x24-br-21-tim-than-154",
+      "status": "ok",
+      "updatedAtMs": 1784875826850
+    },
+    "TRẺ EM/AoBongRo-X24-BR-21-XanhVeChai.jpg|2cac469a8a80": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6040,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-21-XanhVeChai.jpg",
+      "productId": 4163,
+      "sku": "X24-BR-DBX-KID-155",
+      "slug": "ao-bong-ro-tre-em-x24-br-21-xanh-ve-chai-155",
+      "status": "ok",
+      "updatedAtMs": 1784875827073
+    },
+    "TRẺ EM/AoBongRo-X24-BR-22-Cam-TreEm.jpg|d71495beb843": {
+      "age": "Trẻ em",
+      "colors": [
+        "Cam"
+      ],
+      "mediaId": 6041,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-22-Cam-TreEm.jpg",
+      "productId": 4164,
+      "sku": "X24-BR-DBX-KID-156",
+      "slug": "ao-bong-ro-tre-em-x24-br-22-cam-156",
+      "status": "ok",
+      "updatedAtMs": 1784875827281
+    },
+    "TRẺ EM/AoBongRo-X24-BR-22-Do-TreEm.jpg|0e8b4ef1d7de": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ"
+      ],
+      "mediaId": 6042,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-22-Do-TreEm.jpg",
+      "productId": 4165,
+      "sku": "X24-BR-DBX-KID-157",
+      "slug": "ao-bong-ro-tre-em-x24-br-22-do-157",
+      "status": "ok",
+      "updatedAtMs": 1784875827500
+    },
+    "TRẺ EM/AoBongRo-X24-BR-22-XanhBich-TreEm.jpg|c530f85597d1": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 6043,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-22-XanhBich-TreEm.jpg",
+      "productId": 4166,
+      "sku": "X24-BR-DBX-KID-158",
+      "slug": "ao-bong-ro-tre-em-x24-br-22-xanh-bich-158",
+      "status": "ok",
+      "updatedAtMs": 1784875827800
+    },
+    "TRẺ EM/AoBongRo-X24-BR-22-XanhDen-TreEm.jpg|7c96b2b078fb": {
+      "age": "Trẻ em",
+      "colors": [],
+      "mediaId": 6044,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-22-XanhDen-TreEm.jpg",
+      "productId": 4167,
+      "sku": "X24-BR-DBX-KID-159",
+      "slug": "ao-bong-ro-tre-em-x24-br-22-nhieu-mau-159",
+      "status": "ok",
+      "updatedAtMs": 1784875828001
+    },
+    "TRẺ EM/AoBongRo-X24-BR-22-XanhVeChai-TreEm.jpg|a8290e33f282": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6045,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-22-XanhVeChai-TreEm.jpg",
+      "productId": 4168,
+      "sku": "X24-BR-DBX-KID-160",
+      "slug": "ao-bong-ro-tre-em-x24-br-22-xanh-ve-chai-160",
+      "status": "ok",
+      "updatedAtMs": 1784875828406
+    },
+    "TRẺ EM/AoBongRo-X24-BR-23-Hong.jpg|15f3811749fb": {
+      "age": "Trẻ em",
+      "colors": [
+        "Hồng"
+      ],
+      "mediaId": 6046,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-23-Hong.jpg",
+      "productId": 4169,
+      "sku": "X24-BR-DBX-KID-161",
+      "slug": "ao-bong-ro-tre-em-x24-br-23-hong-161",
+      "status": "ok",
+      "updatedAtMs": 1784875828642
+    },
+    "TRẺ EM/AoBongRo-X24-BR-23-Vang.jpg|45aca275ef05": {
+      "age": "Trẻ em",
+      "colors": [
+        "Vàng"
+      ],
+      "mediaId": 6047,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-23-Vang.jpg",
+      "productId": 4170,
+      "sku": "X24-BR-DBX-KID-162",
+      "slug": "ao-bong-ro-tre-em-x24-br-23-vang-162",
+      "status": "ok",
+      "updatedAtMs": 1784875828861
+    },
+    "TRẺ EM/AoBongRo-X24-BR-23-XanhChuoi.jpg|1222677c11ea": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đen"
+      ],
+      "mediaId": 6048,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-23-XanhChuoi.jpg",
+      "productId": 4171,
+      "sku": "X24-BR-DBX-KID-163",
+      "slug": "ao-bong-ro-tre-em-x24-br-23-den-163",
+      "status": "ok",
+      "updatedAtMs": 1784875829167
+    },
+    "TRẺ EM/AoBongRo-X24-BR-23-XanhMC.jpg|be7a00706043": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh dương"
+      ],
+      "mediaId": 6049,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-23-XanhMC.jpg",
+      "productId": 4172,
+      "sku": "X24-BR-DBX-KID-164",
+      "slug": "ao-bong-ro-tre-em-x24-br-23-xanh-duong-164",
+      "status": "ok",
+      "updatedAtMs": 1784875829374
+    },
+    "TRẺ EM/AoBongRo-X24-BR-23-XanhNgoc.jpg|da6a2b56e619": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6050,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-23-XanhNgoc.jpg",
+      "productId": 4173,
+      "sku": "X24-BR-DBX-KID-165",
+      "slug": "ao-bong-ro-tre-em-x24-br-23-xanh-ngoc-165",
+      "status": "ok",
+      "updatedAtMs": 1784875829581
+    },
+    "TRẺ EM/AoBongRo-X24-BR-24-CamDat.jpg|4f8be1a569e4": {
+      "age": "Trẻ em",
+      "colors": [],
+      "mediaId": 6051,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-24-CamDat.jpg",
+      "productId": 4174,
+      "sku": "X24-BR-DBX-KID-166",
+      "slug": "ao-bong-ro-tre-em-x24-br-24-nhieu-mau-166",
+      "status": "ok",
+      "updatedAtMs": 1784875829858
+    },
+    "TRẺ EM/AoBongRo-X24-BR-24-DoDo.jpg|0f46d5048274": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6052,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-24-DoDo.jpg",
+      "productId": 4175,
+      "sku": "X24-BR-DBX-KID-167",
+      "slug": "ao-bong-ro-tre-em-x24-br-24-do-do-167",
+      "status": "ok",
+      "updatedAtMs": 1784875830073
+    },
+    "TRẺ EM/AoBongRo-X24-BR-24-XanhBich.jpg|cb9f53feee77": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh bích"
+      ],
+      "mediaId": 6053,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-24-XanhBich.jpg",
+      "productId": 4176,
+      "sku": "X24-BR-DBX-KID-168",
+      "slug": "ao-bong-ro-tre-em-x24-br-24-xanh-bich-168",
+      "status": "ok",
+      "updatedAtMs": 1784875830389
+    },
+    "TRẺ EM/AoBongRo-X24-BR-24-XanhNgoc.jpg|c939f5de73ba": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ngọc"
+      ],
+      "mediaId": 6054,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-24-XanhNgoc.jpg",
+      "productId": 4177,
+      "sku": "X24-BR-DBX-KID-169",
+      "slug": "ao-bong-ro-tre-em-x24-br-24-xanh-ngoc-169",
+      "status": "ok",
+      "updatedAtMs": 1784875830605
+    },
+    "TRẺ EM/AoBongRo-X24-BR-24-XanhVeChai.jpg|bfb0401dd0df": {
+      "age": "Trẻ em",
+      "colors": [
+        "Xanh ve chai"
+      ],
+      "mediaId": 6055,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/AoBongRo-X24-BR-24-XanhVeChai.jpg",
+      "productId": 4178,
+      "sku": "X24-BR-DBX-KID-170",
+      "slug": "ao-bong-ro-tre-em-x24-br-24-xanh-ve-chai-170",
+      "status": "ok",
+      "updatedAtMs": 1784875830909
+    },
+    "TRẺ EM/TAnhGhepAI-AoBongRo-X24-19-kieu2-Dodo.jpg|9e1a323ee01e": {
+      "age": "Trẻ em",
+      "colors": [
+        "Đỏ đô"
+      ],
+      "mediaId": 6056,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/TAnhGhepAI-AoBongRo-X24-19-kieu2-Dodo.jpg",
+      "productId": 4179,
+      "sku": "X24-BR-DBX-KID-171",
+      "slug": "ao-bong-ro-tre-em-x24-br-1e686e-do-do-171",
+      "status": "ok",
+      "updatedAtMs": 1784875831114
+    },
+    "TRẺ EM/TAnhGhepAI-AoBongRo-X24-19-kieu2-Trang.jpg|734dab604504": {
+      "age": "Trẻ em",
+      "colors": [
+        "Trắng"
+      ],
+      "mediaId": 6057,
+      "path": "/Volumes/Data/x24_project/dropbox_downloads/mayaobongro_anhdongdau_dangweb/TRẺ EM/TAnhGhepAI-AoBongRo-X24-19-kieu2-Trang.jpg",
+      "productId": 4180,
+      "sku": "X24-BR-DBX-KID-172",
+      "slug": "ao-bong-ro-tre-em-x24-br-66565c-trang-172",
+      "status": "ok",
+      "updatedAtMs": 1784875831405
+    }
+  }
+}
