@@ -1,6 +1,6 @@
 'use client'
 
-import { Menu, MessageCircle, Phone, X } from 'lucide-react'
+import { Menu, MessageCircle, Phone, Search, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -20,8 +20,9 @@ const links = [
 export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
 
-  useEffect(() => setOpen(false), [pathname])
+  useEffect(() => { setOpen(false); setSearchOpen(false) }, [pathname])
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 text-white backdrop-blur-xl">
@@ -54,6 +55,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center justify-end gap-2 lg:flex">
+          <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20 bg-white/5 text-white transition hover:border-brand/50 hover:bg-white/10" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
           <a className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-3.5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:border-brand/50 hover:bg-white/10" href={`tel:${PHONE_VALUE}`}>
             <Phone aria-hidden="true" size={17} /> {PHONE_DISPLAY}
           </a>
@@ -62,17 +64,12 @@ export function SiteHeader() {
           </a>
         </div>
 
-        <button
-          aria-controls="mobile-navigation"
-          aria-expanded={open}
-          aria-label={open ? 'Đóng menu' : 'Mở menu'}
-          className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20 bg-white/5 text-white transition hover:border-brand/50 hover:bg-white/10 lg:hidden"
-          onClick={() => setOpen((value) => !value)}
-          type="button"
-        >
-          {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        </button>
+        <div className="flex items-center justify-end gap-2 lg:hidden">
+          <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20 bg-white/5 text-white" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
+          <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20 bg-white/5 text-white transition hover:border-brand/50 hover:bg-white/10" onClick={() => setOpen((value) => !value)} type="button">{open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
+        </div>
       </div>
+      {searchOpen ? <div className="absolute right-4 top-full z-[70] mt-2 w-[min(520px,calc(100vw-32px))] rounded-xl border border-slate-200 bg-white p-2 text-slate-950 shadow-[0_18px_55px_rgba(2,6,23,.28)]"><form action="/tim-kiem/" className="grid grid-cols-[1fr_auto_auto] gap-2" role="search"><label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label><input autoFocus autoComplete="off" className="min-h-11 min-w-0 rounded-lg border border-slate-200 px-3 text-sm outline-none focus:border-brand" id="header-search-q" name="q" placeholder="Tên mẫu, màu áo, tag ảnh..." type="search" /><button className="rounded-lg bg-brand px-4 text-sm font-black text-white" type="submit">Tìm</button><button aria-label="Đóng tìm kiếm" className="grid size-11 place-items-center rounded-lg border border-slate-200" onClick={() => setSearchOpen(false)} type="button"><X size={17} /></button></form></div> : null}
 
       {open ? (
         <div className="absolute inset-x-0 top-full border-b border-white/10 bg-black p-4 shadow-2xl shadow-black/40 lg:hidden" id="mobile-navigation">

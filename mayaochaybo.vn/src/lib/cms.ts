@@ -9,6 +9,7 @@ export type MediaImage = {
   alt?: string | null
   width?: number | null
   height?: number | null
+  searchTags?: Array<{ value?: string | null }> | null
 }
 
 export type Product = {
@@ -27,6 +28,7 @@ export type Product = {
   categories?: Array<ProductCategory | number> | null
   seoTitle?: string | null
   metaDescription?: string | null
+  searchTags?: Array<{ value?: string | null }> | null
   sourceModifiedAt?: string | null
 }
 
@@ -109,7 +111,12 @@ export async function getProducts({ page = 1, limit = 12, search, categorySlug }
   })
   let index = 2
   if (category) params.set(`where[and][${index++}][categories][equals]`, String(category.id))
-  if (search?.trim()) params.set(`where[and][${index}][name][contains]`, search.trim())
+  if (search?.trim()) {
+    const query = search.trim()
+    params.set(`where[and][${index}][or][0][name][contains]`, query)
+    params.set(`where[and][${index}][or][1][gallery.searchTags.value][contains]`, query)
+    params.set(`where[and][${index}][or][2][searchTags.value][contains]`, query)
+  }
   return api<Paginated<Product>>(`/api/products?${params}`)
 }
 

@@ -48,15 +48,19 @@ export function SiteHeader() {
             </div>
           </details>
           <Logo />
-          <form className="header-search" action="/san-pham" role="search">
-            <input name="q" type="search" placeholder="Bạn đang tìm kiếm sản phẩm gì?" aria-label="Tìm sản phẩm" autoComplete="off" />
-            <button type="submit" aria-label="Tìm kiếm"><Search size={20} /></button>
-          </form>
+          <details className="header-search-popover">
+            <summary aria-label="Mở tìm kiếm"><Search size={21} /></summary>
+            <form action="/tim-kiem" role="search">
+              <label className="sr-only" htmlFor="header-search-q">Tìm sản phẩm</label>
+              <input id="header-search-q" name="q" type="search" placeholder="Tên mẫu, màu áo, tag ảnh..." autoComplete="off" />
+              <button type="submit" aria-label="Tìm kiếm"><Search size={19} /></button>
+            </form>
+          </details>
           <div className="header-contact">
             <span>Thứ 2 - Chủ nhật<small>08:00 - 22:00</small></span>
             <a href="tel:0989353247"><Phone size={20} /><span>Hotline<small>0989 353 247</small></span></a>
           </div>
-          <Link className="mobile-search" href="/san-pham" aria-label="Tìm kiếm"><Search size={23} /></Link>
+          <Link className="mobile-search" href="/tim-kiem" aria-label="Tìm kiếm"><Search size={23} /></Link>
         </div>
         <nav className="nav-bar" aria-label="Điều hướng chính">
           <div className="site-container">

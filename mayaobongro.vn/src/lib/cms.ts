@@ -8,6 +8,7 @@ export type LegacyImage = {
   alt?: string | null
   width?: number | null
   height?: number | null
+  searchTags?: Array<{ value?: string | null }> | null
 }
 
 export type ProductImage = LegacyImage
@@ -24,6 +25,7 @@ export type Product = {
   gallery?: ProductImage[] | number[] | null
   legacyImages?: LegacyImage[] | null
   categories?: Array<number | ProductCategory> | null
+  searchTags?: Array<{ value?: string | null }> | null
   sourceModifiedAt?: string | null
 }
 
@@ -135,7 +137,12 @@ export async function getProducts({
     params.set(`where[and][${conditionIndex}][categories][equals]`, String(category.id))
     conditionIndex += 1
   }
-  if (search?.trim()) params.set(`where[and][${conditionIndex}][name][contains]`, search.trim())
+  if (search?.trim()) {
+    const query = search.trim()
+    params.set(`where[and][${conditionIndex}][or][0][name][contains]`, query)
+    params.set(`where[and][${conditionIndex}][or][1][gallery.searchTags.value][contains]`, query)
+    params.set(`where[and][${conditionIndex}][or][2][searchTags.value][contains]`, query)
+  }
   return api<Paginated<Product>>(`/api/products?${params}`)
 }
 

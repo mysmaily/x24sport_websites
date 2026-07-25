@@ -14,6 +14,7 @@ export type CmsCategory = {
   parent?: number | string | CmsCategory
 }
 export type CmsMedia = { id?: number | string; url?: string; alt?: string; width?: number; height?: number }
+type SearchTag = { value?: string }
 export type CmsWebContent = {
   id: number | string; title: string; slug: string; kind: 'page' | 'post'; legacyPath: string
   contentHtml?: string; excerpt?: string; sourceModifiedAt?: string; updatedAt?: string
@@ -28,7 +29,8 @@ export type CmsProduct = {
   seoTitle?: string; metaDescription?: string
   sourceModifiedAt?: string
   categories?: Array<number | string | CmsCategory>
-  gallery?: Array<number | string | CmsMedia>
+  gallery?: Array<number | string | (CmsMedia & { searchTags?: SearchTag[] })>
+  searchTags?: SearchTag[]
   legacyImages?: Array<{ url: string; alt?: string; width?: number; height?: number }>
 }
 export type CatalogPage = { products: ProductPreview[]; totalDocs: number; totalPages: number; page: number }
@@ -159,7 +161,12 @@ export async function getProductsPage(options: {
     const categorySlugs = options.categorySlugs?.filter(Boolean)
     if (categorySlugs?.length) params.set('where[categories.slug][in]', categorySlugs.join(','))
     else if (options.categorySlug) params.set('where[categories.slug][equals]', options.categorySlug)
-    if (options.query) params.set('where[name][like]', options.query)
+    if (options.query?.trim()) {
+      const query = options.query.trim()
+      params.set('where[or][0][name][contains]', query)
+      params.set('where[or][1][gallery.searchTags.value][contains]', query)
+      params.set('where[or][2][searchTags.value][contains]', query)
+    }
     const result = await fetchList<CmsProduct>('products', params)
     return {
       products: result.docs.map((product) => mapProduct(product, categories)),

@@ -1,4 +1,5 @@
-import { ArrowUpRight, BadgeCheck, Droplets, Flame, Palette, PencilRuler, Phone, Search, ShieldCheck } from 'lucide-react'
+import { ArrowUpRight, BadgeCheck, Droplets, Flame, Palette, PencilRuler, Phone, ShieldCheck } from 'lucide-react'
+import { HeaderSearch } from './_components/header-search'
 import { formatPrice, getHomeData } from '../lib/content'
 
 export default async function Home() {
@@ -78,13 +79,7 @@ export default async function Home() {
             <Phone size={17} />
             <span className="hidden md:inline">0989.353.247</span>
           </a>
-          <a
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/16 text-white transition duration-200 hover:-translate-y-px hover:border-[rgba(238,43,36,.8)]"
-            href="/ao-bong-chuyen"
-            aria-label="Tìm kiếm"
-          >
-            <Search size={21} />
-          </a>
+          <HeaderSearch />
         </div>
       </header>
 

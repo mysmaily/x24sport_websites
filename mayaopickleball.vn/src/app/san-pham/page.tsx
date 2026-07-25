@@ -35,12 +35,18 @@ export default async function ProductsPage({ searchParams }: { searchParams: Sea
 export function CatalogPageContent({
   activeFilter,
   paginated,
+  titleOverride,
+  descriptionOverride,
+  searchQuery,
 }: {
   activeFilter?: CatalogFilter | null
   paginated: PaginatedProducts
+  titleOverride?: string
+  descriptionOverride?: string
+  searchQuery?: string
 }) {
   const { products, page, totalPages } = paginated
-  const baseHref = activeFilter ? activeFilter.href : '/san-pham'
+  const baseHref = searchQuery ? `/tim-kiem?q=${encodeURIComponent(searchQuery)}` : activeFilter ? activeFilter.href : '/san-pham'
   const activeColorFilter = activeFilter?.group === 'color' ? activeFilter : null
   const activeTypeFilter = activeFilter?.group === 'type' ? activeFilter : null
 
@@ -50,13 +56,13 @@ export function CatalogPageContent({
     { value: 'Tên số', label: 'logo đội in theo yêu cầu' },
   ] as const
 
-  const heroTitle = activeFilter
+  const heroTitle = titleOverride || (activeFilter
     ? activeFilter.label.replace(/^Áo /, 'Áo pickleball ')
-    : 'Chọn mẫu áo pickleball cho đội rồi gửi yêu cầu may ngay'
+    : 'Chọn mẫu áo pickleball cho đội rồi gửi yêu cầu may ngay')
 
-  const heroDescription = activeFilter
+  const heroDescription = descriptionOverride || (activeFilter
     ? activeFilter.description
-    : 'Xem nhanh form áo, màu chủ đạo, mã sản phẩm và giá tham khảo. Khi đã thích một mẫu, gửi mã qua Zalo để được tư vấn chất vải, size và phối logo cho CLB.'
+    : 'Xem nhanh form áo, màu chủ đạo, mã sản phẩm và giá tham khảo. Khi đã thích một mẫu, gửi mã qua Zalo để được tư vấn chất vải, size và phối logo cho CLB.')
 
   const orderHighlights = [
     'Chọn mẫu hoặc gửi màu đội',

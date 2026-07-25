@@ -12,10 +12,13 @@ export type Tenant = {
 export type Product = {
   id: string
   name: string
+  slug?: string
   sku: string
   price: number
   compareAtPrice?: number
   shortDescription: string
+  gallery?: Array<{ url?: string; alt?: string; width?: number; height?: number; searchTags?: Array<{ value?: string }> }>
+  searchTags?: Array<{ value?: string }>
 }
 
 export type Post = { id: string; title: string; slug: string; excerpt: string }
@@ -216,6 +219,28 @@ export async function getPageData(pageSlug: string) {
       categories: fallbackCategories,
       products: fallbackProducts,
     }
+  }
+}
+
+export async function searchProducts(search: string) {
+  const slug = await getTenantSlug()
+  const query = search.trim()
+  if (!query) return []
+
+  try {
+    const tenantFilter = `where[tenant.slug][equals]=${slug}`
+    const params = new URLSearchParams({
+      'where[or][0][name][contains]': query,
+      'where[or][1][gallery.searchTags.value][contains]': query,
+      'where[or][2][searchTags.value][contains]': query,
+      depth: '2',
+      limit: '48',
+      sort: '-createdAt',
+    })
+    const products = await fetchDocs<Product>(`/api/products?${tenantFilter}&${params.toString()}`)
+    return products.length ? products : fallbackProducts.filter((product) => product.name.toLocaleLowerCase('vi-VN').includes(query.toLocaleLowerCase('vi-VN')))
+  } catch {
+    return fallbackProducts.filter((product) => product.name.toLocaleLowerCase('vi-VN').includes(query.toLocaleLowerCase('vi-VN')))
   }
 }
 

@@ -245,6 +245,43 @@ export async function getProductsPage(requestedPage: number) {
   }
 }
 
+export async function getSearchProductsPage(requestedPage: number, search: string) {
+  const tenantSlug = await getTenantSlug()
+  const query = search.trim()
+
+  if (!query) return { page: 1, products: [], totalPages: 1, totalProducts: 0 }
+
+  try {
+    const params = new URLSearchParams({
+      'where[tenant.slug][equals]': tenantSlug,
+      'where[publicationStatus][equals]': 'publish',
+      'where[or][0][name][contains]': query,
+      'where[or][1][gallery.searchTags.value][contains]': query,
+      'where[or][2][searchTags.value][contains]': query,
+      depth: '2',
+      limit: catalogProductLimit,
+      sort: '-createdAt',
+    })
+    const result = await fetchCollection<Product>(`/api/products?${params.toString()}`)
+    const visibleProducts = (result?.docs || []).filter(isVisibleCatalogProduct)
+    const totalProducts = visibleProducts.length
+    const totalPages = Math.max(1, Math.ceil(totalProducts / catalogPageSize))
+    const page = Math.min(Math.max(1, requestedPage), totalPages)
+    const pageStart = (page - 1) * catalogPageSize
+
+    return {
+      page,
+      products: visibleProducts.slice(pageStart, pageStart + catalogPageSize),
+      totalPages,
+      totalProducts,
+    }
+  } catch {
+    const normalized = query.toLocaleLowerCase('vi-VN')
+    const visibleProducts = fallbackProducts.filter((product) => product.name.toLocaleLowerCase('vi-VN').includes(normalized))
+    return { page: 1, products: visibleProducts, totalPages: 1, totalProducts: visibleProducts.length }
+  }
+}
+
 async function getProductsBySearchTag(tag: string, field: 'gallery.searchTags.value' | 'searchTags.value') {
   const tenantSlug = await getTenantSlug()
   const params = new URLSearchParams({

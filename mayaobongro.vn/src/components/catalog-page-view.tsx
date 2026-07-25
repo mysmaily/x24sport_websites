@@ -21,6 +21,7 @@ export async function CatalogPageView({
   canonicalPath = '/san-pham/',
   breadcrumbLabel = 'Mẫu áo bóng rổ',
   activeLanding,
+  searchAction = '/san-pham/',
 }: {
   page: number
   search?: string
@@ -29,6 +30,7 @@ export async function CatalogPageView({
   canonicalPath?: string
   breadcrumbLabel?: string
   activeLanding?: CatalogLanding
+  searchAction?: string
 }) {
   const result = await getProducts({ page, limit: 24, search, categorySlug: 'bo-quan-ao-bong-ro' })
   const pageHref = (nextPage: number) => {
@@ -62,7 +64,7 @@ export async function CatalogPageView({
         {description ? <p className="mb-0.5 max-w-xl text-sm leading-6 text-slate-600">{description}</p> : null}
       </header>
 
-      <form action="/san-pham/" className="mt-6 grid max-w-4xl grid-cols-[auto_1fr_auto] overflow-hidden rounded-lg border border-slate-300 bg-white shadow-sm" role="search">
+      <form action={searchAction} className="mt-6 grid max-w-4xl grid-cols-[auto_1fr_auto] overflow-hidden rounded-lg border border-slate-300 bg-white shadow-sm" role="search">
         <Search aria-hidden="true" className="ml-3 self-center text-slate-500" size={18} />
         <label className="sr-only" htmlFor="catalog-q">Tìm mẫu áo</label>
         <input className="min-h-11 min-w-0 px-3 text-sm text-slate-950 outline-none placeholder:text-slate-400" defaultValue={activeLanding ? '' : search} id="catalog-q" name="q" placeholder="Tên mẫu, mã hoặc màu sắc…" type="search" />

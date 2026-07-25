@@ -350,6 +350,55 @@ img {
   background: var(--accent);
 }
 
+.search-popover {
+  position: absolute;
+  right: max(20px, calc((100% - 1180px) / 2));
+  top: calc(100% + 10px);
+  z-index: 80;
+  width: min(520px, calc(100vw - 32px));
+}
+
+.search-popover form,
+.search-page-form {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+  min-height: 56px;
+  border: 1px solid rgba(16, 19, 26, 0.12);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: 8px;
+  box-shadow: 0 18px 50px rgba(23, 27, 38, 0.16);
+}
+
+.search-page-form {
+  width: min(720px, calc(100% - 32px));
+  margin: 18px auto -8px;
+  grid-template-columns: auto 1fr auto;
+}
+
+.search-popover input,
+.search-page-form input {
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  padding: 0 10px;
+  color: var(--text);
+}
+
+.search-popover button,
+.search-page-form button {
+  min-height: 40px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 850;
+  padding: 0 14px;
+  cursor: pointer;
+}
+
 .hero-section {
   position: relative;
   display: grid;

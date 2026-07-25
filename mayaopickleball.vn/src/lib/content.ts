@@ -225,6 +225,49 @@ export async function getAllProducts(page = 1, perPage = PRODUCTS_PER_PAGE): Pro
   }
 }
 
+export async function searchProducts(search: string, page = 1, perPage = PRODUCTS_PER_PAGE): Promise<PaginatedProducts> {
+  const tenantSlug = await getTenantSlug()
+  const query = search.trim()
+  const emptyResult: PaginatedProducts = {
+    products: [],
+    totalDocs: 0,
+    totalPages: 1,
+    page: 1,
+    hasNextPage: false,
+    hasPrevPage: false,
+  }
+
+  if (!query) return emptyResult
+
+  try {
+    const params = new URLSearchParams({
+      'where[tenant.slug][equals]': tenantSlug,
+      'where[or][0][name][contains]': query,
+      'where[or][1][gallery.searchTags.value][contains]': query,
+      'where[or][2][searchTags.value][contains]': query,
+      depth: '2',
+      limit: String(perPage),
+      page: String(page),
+      sort: '-createdAt',
+    })
+    const data = await fetchDocsPaginated<Product>(`/api/products?${params.toString()}`)
+    if (!data) return emptyResult
+
+    return {
+      products: data.docs,
+      totalDocs: data.totalDocs,
+      totalPages: Math.max(1, data.totalPages),
+      page: data.page,
+      hasNextPage: data.hasNextPage,
+      hasPrevPage: data.hasPrevPage,
+    }
+  } catch {
+    const normalized = query.toLocaleLowerCase('vi-VN')
+    const products = fallbackProducts.filter((product) => product.name.toLocaleLowerCase('vi-VN').includes(normalized)).slice(0, perPage)
+    return { ...emptyResult, products, totalDocs: products.length }
+  }
+}
+
 export async function getSitemapProducts() {
   try {
     const params = new URLSearchParams({
