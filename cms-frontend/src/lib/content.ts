@@ -144,7 +144,7 @@ export async function getSitemapCategories(): Promise<SportCategory[]> {
 }
 
 export async function getProductsPage(options: {
-  page?: number; limit?: number; categorySlug?: string; query?: string; sort?: string
+  page?: number; limit?: number; categorySlug?: string; categorySlugs?: string[]; query?: string; sort?: string
 } = {}): Promise<CatalogPage> {
   const tenantSlug = await getTenantSlug()
   const categories = await getCategories()
@@ -156,7 +156,9 @@ export async function getProductsPage(options: {
       page: String(page), limit: String(options.limit || 20), depth: '2',
       sort: options.sort || '-createdAt',
     })
-    if (options.categorySlug) params.set('where[categories.slug][equals]', options.categorySlug)
+    const categorySlugs = options.categorySlugs?.filter(Boolean)
+    if (categorySlugs?.length) params.set('where[categories.slug][in]', categorySlugs.join(','))
+    else if (options.categorySlug) params.set('where[categories.slug][equals]', options.categorySlug)
     if (options.query) params.set('where[name][like]', options.query)
     const result = await fetchList<CmsProduct>('products', params)
     return {

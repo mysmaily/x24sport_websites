@@ -35,7 +35,10 @@ export default async function CategoryPage({ params, searchParams }: {
   const page = Math.max(1, Number(search.page) || 1)
   const sort = search.sort === 'price' ? 'price' : search.sort === 'price-desc' ? '-price' : '-createdAt'
   const seo = getCategorySeoProfile(category)
-  const result = await getProductsPage({ categorySlug: category.slug, page, limit: 20, sort })
+  const categorySlugs = seo.role === 'parent'
+    ? [category.slug, ...seo.siblings.map((child) => child.slug)]
+    : [category.slug]
+  const result = await getProductsPage({ categorySlugs, page, limit: 20, sort })
   const intro = truncateText(seo.intro, 320)
   if (page > 1 && (result.totalPages === 0 || page > result.totalPages)) notFound()
   const categoryGroup = seo.parent || { slug: category.slug, name: category.name }
