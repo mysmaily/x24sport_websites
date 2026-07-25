@@ -43,6 +43,27 @@ const sportToSlug: Partial<Record<CmsProduct['sport'], string>> = {
   football: 'bong-da', badminton: 'cau-long', volleyball: 'bong-chuyen',
   basketball: 'bong-ro', pickleball: 'pickleball', running: 'chay-bo',
 }
+const SEARCH_FIELDS = [
+  'name',
+  'gallery.searchTags.value',
+  'searchTags.value',
+] as const
+const STOP_SEARCH_TOKENS = new Set(['ao', 'áo', 'mau', 'màu', 'bo', 'bộ', 'dong', 'đồng', 'phuc', 'phục'])
+const SEARCH_SYNONYMS: Record<string, string[]> = {
+  'bi a': ['bi-a', 'billiard', 'billiards'],
+  'bi-a': ['bi a', 'billiard', 'billiards'],
+  billiard: ['bi-a', 'bi a', 'billiards'],
+  billiards: ['bi-a', 'bi a', 'billiard'],
+  'mau do': ['màu đỏ', 'đỏ'],
+  do: ['đỏ'],
+  den: ['đen'],
+  trang: ['trắng'],
+  vang: ['vàng'],
+  hong: ['hồng'],
+  tim: ['tím'],
+  xam: ['xám'],
+  nau: ['nâu'],
+}
 
 async function fetchList<T>(collection: string, params: URLSearchParams): Promise<ApiList<T>> {
   const response = await fetch(`${apiUrl}/api/${collection}?${params.toString()}`, { next: { revalidate: 60 } })
@@ -62,6 +83,47 @@ async function fetchAllDocs<T>(collection: string, params: URLSearchParams): Pro
     page += 1
   } while (page <= totalPages)
   return docs
+}
+
+function uniqueSearchTerms(values: string[]) {
+  const seen = new Set<string>()
+  return values
+    .map((value) => value.trim().replace(/\s+/g, ' '))
+    .filter((value) => {
+      const key = value.toLocaleLowerCase('vi')
+      if (!key || seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+}
+
+export function buildProductSearchTerms(query: string) {
+  const normalized = query.trim().replace(/\s+/g, ' ')
+  if (!normalized) return []
+
+  const lower = normalized.toLocaleLowerCase('vi')
+  const hyphenated = lower.includes(' ') ? lower.replace(/\s+/g, '-') : ''
+  const spaced = lower.includes('-') ? lower.replace(/-/g, ' ') : ''
+  const tokens = lower
+    .split(/[\s-]+/)
+    .map((token) => token.trim())
+    .filter((token) => token.length >= 2 && !STOP_SEARCH_TOKENS.has(token))
+  const pairs = tokens.slice(0, -1).map((token, index) => `${token} ${tokens[index + 1]}`)
+  const terms = uniqueSearchTerms([normalized, lower, hyphenated, spaced, ...pairs, ...tokens])
+
+  return uniqueSearchTerms([
+    ...terms,
+    ...terms.flatMap((term) => SEARCH_SYNONYMS[term.toLocaleLowerCase('vi')] || []),
+  ]).slice(0, 10)
+}
+
+function applyProductSearchParams(params: URLSearchParams, query: string) {
+  const terms = buildProductSearchTerms(query)
+  terms.forEach((term, termIndex) => {
+    SEARCH_FIELDS.forEach((field, fieldIndex) => {
+      params.set(`where[or][${termIndex * SEARCH_FIELDS.length + fieldIndex}][${field}][contains]`, term)
+    })
+  })
 }
 
 function mapCategory(category: CmsCategory, index: number): SportCategory {
@@ -162,10 +224,7 @@ export async function getProductsPage(options: {
     if (categorySlugs?.length) params.set('where[categories.slug][in]', categorySlugs.join(','))
     else if (options.categorySlug) params.set('where[categories.slug][equals]', options.categorySlug)
     if (options.query?.trim()) {
-      const query = options.query.trim()
-      params.set('where[or][0][name][contains]', query)
-      params.set('where[or][1][gallery.searchTags.value][contains]', query)
-      params.set('where[or][2][searchTags.value][contains]', query)
+      applyProductSearchParams(params, options.query)
     }
     const result = await fetchList<CmsProduct>('products', params)
     return {
