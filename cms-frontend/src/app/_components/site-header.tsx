@@ -31,6 +31,7 @@ export function SiteHeader() {
             <div className="mobile-nav-panel">
               <Link href="/">Trang chủ</Link>
               <Link href="/san-pham/">Tất cả sản phẩm</Link>
+              <Link href="/mau-logo/">Mẫu logo</Link>
               {categoryMenu.map((group) => (
                 group.children.length > 0
                   ? <details className="mobile-category-group" key={group.slug}>

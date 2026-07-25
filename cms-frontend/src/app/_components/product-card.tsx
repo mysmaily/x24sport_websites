@@ -7,7 +7,12 @@ const formatPrice = (value?: number | null, currency = 'VND') =>
     ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency, maximumFractionDigits: 0 }).format(value)
     : 'Liên hệ'
 
-export function ProductCard({ product, headingLevel = 3, imagePriority = false }: { product: ProductPreview; headingLevel?: 2 | 3; imagePriority?: boolean }) {
+export function ProductCard({ product, headingLevel = 3, imagePriority = false, showCategory = false }: {
+  product: ProductPreview
+  headingLevel?: 2 | 3
+  imagePriority?: boolean
+  showCategory?: boolean
+}) {
   const Heading = headingLevel === 2 ? 'h2' : 'h3'
   return (
     <article className="product-card catalog-card">
@@ -18,6 +23,7 @@ export function ProductCard({ product, headingLevel = 3, imagePriority = false }
         {product.stockStatus === 'outofstock' && <span className="product-badge">Tạm hết hàng</span>}
       </Link>
       <div className="product-info">
+        {showCategory && <span className="product-card-category">{product.category}</span>}
         <Heading><Link href={`/${product.slug}/`}>{product.name}</Link></Heading>
         <div className="product-prices">
           {Boolean(product.compareAtPrice && product.compareAtPrice > 0) && <del>{formatPrice(product.compareAtPrice, product.currency)}</del>}

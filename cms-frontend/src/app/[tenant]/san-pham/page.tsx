@@ -1,10 +1,14 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import X24ProductsPage from '../../san-pham/page'
+import X24ProductsPage, { getX24ProductsMetadata } from '../../san-pham/page'
 import { RynoProductsPage } from '../ryno-catalog'
 
-export async function generateMetadata({ params }: { params: Promise<{ tenant: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: {
+  params: Promise<{ tenant: string }>
+  searchParams: Promise<{ page?: string; q?: string; sort?: string }>
+}): Promise<Metadata> {
   const { tenant } = await params
+  if (tenant === 'x24sport') return getX24ProductsMetadata(searchParams)
   if (tenant !== 'rynosport') return {}
 
   return {

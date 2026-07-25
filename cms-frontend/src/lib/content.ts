@@ -208,7 +208,8 @@ export async function getSitemapCategories(): Promise<SportCategory[]> {
 }
 
 export async function getProductsPage(options: {
-  page?: number; limit?: number; categorySlug?: string; categorySlugs?: string[]; query?: string; sort?: string
+  page?: number; limit?: number; categorySlug?: string; categorySlugs?: string[]
+  excludeCategorySlugs?: string[]; query?: string; sort?: string
 } = {}): Promise<CatalogPage> {
   const tenantSlug = await getTenantSlug()
   const categories = await getCategories()
@@ -223,6 +224,20 @@ export async function getProductsPage(options: {
     const categorySlugs = options.categorySlugs?.filter(Boolean)
     if (categorySlugs?.length) params.set('where[categories.slug][in]', categorySlugs.join(','))
     else if (options.categorySlug) params.set('where[categories.slug][equals]', options.categorySlug)
+    const excludeCategorySlugs = options.excludeCategorySlugs?.filter(Boolean)
+    if (excludeCategorySlugs?.length) {
+      const excludedParams = new URLSearchParams({
+        'where[tenant.slug][equals]': tenantSlug,
+        'where[publicationStatus][equals]': 'publish',
+        'where[categories.slug][in]': excludeCategorySlugs.join(','),
+        depth: '0',
+        limit: '500',
+      })
+      const excludedProducts = await fetchAllDocs<Pick<CmsProduct, 'id'>>('products', excludedParams)
+      if (excludedProducts.length) {
+        params.set('where[id][not_in]', excludedProducts.map((product) => product.id).join(','))
+      }
+    }
     if (options.query?.trim()) {
       applyProductSearchParams(params, options.query)
     }

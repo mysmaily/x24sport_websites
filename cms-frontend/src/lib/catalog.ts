@@ -24,6 +24,15 @@ export type CategorySeoProfile = {
   siblings: Array<{ slug: string; name: string; description?: string }>
 }
 
+export type LogoCollection = {
+  slug: string
+  sportSlug: string
+  name: string
+  shortName: string
+  description: string
+  tone: string
+}
+
 export type ProductPreview = {
   id?: number | string
   slug: string
@@ -86,6 +95,51 @@ export const categories: SportCategory[] = [
     image: '/images/categories/dong-phuc.webp',
   },
 ]
+
+export const logoCollections: LogoCollection[] = [
+  {
+    slug: 'thiet-ke-va-in-an-logo-doi-bong',
+    sportSlug: 'bong-da',
+    name: 'Logo bóng đá',
+    shortName: 'Bóng đá',
+    description: 'Tìm biểu tượng, linh vật và phong cách nhận diện dành cho đội bóng đá.',
+    tone: '#e44a1a',
+  },
+  {
+    slug: 'logo-bong-chuyen',
+    sportSlug: 'bong-chuyen',
+    name: 'Logo bóng chuyền',
+    shortName: 'Bóng chuyền',
+    description: 'Khám phá ý tưởng logo dành cho đội bóng chuyền, lớp học và câu lạc bộ.',
+    tone: '#4f7ee8',
+  },
+  {
+    slug: 'logo-bong-ro',
+    sportSlug: 'bong-ro',
+    name: 'Logo bóng rổ',
+    shortName: 'Bóng rổ',
+    description: 'Tham khảo biểu tượng, linh vật và phong cách nhận diện dành cho đội bóng rổ.',
+    tone: '#ff9f1c',
+  },
+  {
+    slug: 'logo-ao-pickleball',
+    sportSlug: 'pickleball',
+    name: 'Logo pickleball',
+    shortName: 'Pickleball',
+    description: 'Khám phá ý tưởng logo dành cho câu lạc bộ, nhóm chơi và giải pickleball.',
+    tone: '#149f75',
+  },
+  {
+    slug: 'logo-chay-bo',
+    sportSlug: 'chay-bo',
+    name: 'Logo chạy bộ',
+    shortName: 'Chạy bộ',
+    description: 'Chọn phong cách nhận diện cho câu lạc bộ chạy, đội nhóm và sự kiện.',
+    tone: '#a94fd1',
+  },
+]
+
+export const logoCategorySlugs = logoCollections.map((collection) => collection.slug)
 
 export const categoryMenu: CategoryMenuGroup[] = [
   {
