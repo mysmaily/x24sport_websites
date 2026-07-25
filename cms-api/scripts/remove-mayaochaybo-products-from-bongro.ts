@@ -41,18 +41,6 @@ async function allDocs(payload: any, collection: string, where: Doc, depth = 0) 
   return docs
 }
 
-function uniqueRelationIds(ids: Array<number | string>) {
-  const seen = new Set<string>()
-  const result: Array<number | string> = []
-  for (const id of ids) {
-    const key = String(id)
-    if (seen.has(key)) continue
-    seen.add(key)
-    result.push(id)
-  }
-  return result
-}
-
 async function recalculateCategoryCounts(payload: any, targetTenantId: number | string, req?: any) {
   const published = await allDocs(payload, 'products', {
     and: [{ tenant: { equals: targetTenantId } }, { publicationStatus: { equals: 'publish' } }],
@@ -80,7 +68,7 @@ async function run() {
   const [targetCategory] = await allDocs(payload, 'product-categories', {
     and: [{ tenant: { equals: targetTenant.id } }, { slug: { equals: categorySlug } }],
   }, 0)
-  if (!targetCategory) throw new Error(`Không tìm thấy danh mục đích ${targetSlug}/${categorySlug}.`)
+  if (!targetCategory) throw new Error(`Không tìm thấy danh mục ${targetSlug}/${categorySlug}.`)
 
   const [superAdmin] = await allDocs(payload, 'users', { role: { equals: 'super_admin' } }, 0)
   if (apply && !superAdmin) throw new Error('Không tìm thấy tài khoản super_admin để cập nhật sản phẩm.')
@@ -91,28 +79,23 @@ async function run() {
       { tenant: { equals: targetTenant.id } },
       { sourceSystem: { equals: sourceSystem } },
       { sourceId: { like: `${sourceSlug}:` } },
+      { categories: { equals: targetCategory.id } },
       { publicationStatus: { equals: 'publish' } },
     ],
   }, 1)
 
   const changed: Doc[] = []
-  const alreadyInCategory: Doc[] = []
-
   for (const product of products) {
     const categoryIds = (Array.isArray(product.categories) ? product.categories : [])
       .map(relationId)
       .filter((id): id is number | string => id !== undefined)
-    if (categoryIds.map(String).includes(String(targetCategory.id))) {
-      alreadyInCategory.push(product)
-      continue
-    }
-
+      .filter((id) => String(id) !== String(targetCategory.id))
     changed.push(product)
     if (apply) {
       await payload.update({
         collection: 'products',
         id: product.id,
-        data: { categories: uniqueRelationIds([...categoryIds, targetCategory.id]) },
+        data: { categories: categoryIds },
         overrideAccess: true,
         req: adminReq,
       })
@@ -127,10 +110,9 @@ async function run() {
     mode: apply ? 'apply' : 'dry-run',
     targetTenant: targetSlug,
     sourceTenant: sourceSlug,
-    category: categorySlug,
+    removedCategory: categorySlug,
     matchedProducts: products.length,
-    addedToCategory: changed.length,
-    alreadyInCategory: alreadyInCategory.length,
+    removedFromCategory: changed.length,
     items: changed.map((product) => ({
       id: product.id,
       sku: product.sku,
@@ -147,8 +129,7 @@ async function run() {
   console.log(JSON.stringify({
     mode: summary.mode,
     matchedProducts: summary.matchedProducts,
-    addedToCategory: summary.addedToCategory,
-    alreadyInCategory: summary.alreadyInCategory,
+    removedFromCategory: summary.removedFromCategory,
     report: reportPath || null,
   }, null, 2))
 }
