@@ -113,6 +113,7 @@ export const categoryMenu: CategoryMenuGroup[] = [
     name: 'Bóng rổ',
     children: [
       { slug: 'ao-bong-ro', name: 'Áo bóng rổ', description: 'Áo bóng rổ jersey, áo ba lỗ bóng rổ, đồng phục đội bóng và áo in tên số.' },
+      { slug: 'logo-bong-ro', name: 'Logo bóng rổ', description: 'Logo bóng rổ cho đội nhóm, lớp học, câu lạc bộ và nhận diện giải đấu.' },
       { slug: 'giay-bong-ro', name: 'Giày bóng rổ', description: 'Giày bóng rổ hỗ trợ cổ chân, độ bám sân và phong cách thi đấu cá tính.' },
       { slug: 'qua-bong-ro', name: 'Quả bóng rổ', description: 'Quả bóng rổ luyện tập, thi đấu, bóng indoor và outdoor cho đội nhóm.' },
       { slug: 'phu-kien-bong-ro', name: 'Phụ kiện bóng rổ', description: 'Phụ kiện bóng rổ: tất, băng tay, túi, bóng và đồ dùng luyện tập.' },
