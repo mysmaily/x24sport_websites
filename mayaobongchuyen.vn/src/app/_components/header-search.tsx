@@ -12,12 +12,12 @@ export function HeaderSearch() {
         <Search size={21} />
       </button>
       {open ? (
-        <div className="absolute right-0 top-[calc(100%+10px)] z-50 w-[min(520px,calc(100vw-32px))] border border-white/12 bg-[#080909] p-2 shadow-[0_18px_55px_rgba(0,0,0,.35)]">
-          <form action="/tim-kiem" className="grid grid-cols-[1fr_auto_auto] gap-2" role="search">
+        <div className="absolute right-0 top-[calc(100%+10px)] z-50 w-[min(520px,calc(100vw-32px))] bg-[#080909] p-1.5 shadow-[0_14px_40px_rgba(0,0,0,.32)]">
+          <form action="/tim-kiem" className="grid grid-cols-[1fr_auto_auto] gap-1.5" role="search">
             <label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label>
-            <input autoFocus autoComplete="off" className="min-h-11 min-w-0 border border-white/16 bg-white px-3 text-sm text-[#111] outline-none" id="header-search-q" name="q" placeholder="Tên mẫu, màu áo, tag ảnh..." type="search" />
+            <input autoComplete="off" className="min-h-11 min-w-0 bg-white px-3 text-sm text-[#111] outline-none" id="header-search-q" name="q" placeholder="Tên mẫu, màu áo, tag ảnh..." type="search" />
             <button className="bg-[var(--accent)] px-4 text-sm font-black text-white" type="submit">Tìm</button>
-            <button aria-label="Đóng tìm kiếm" className="grid h-11 w-11 place-items-center border border-white/16 text-white" onClick={() => setOpen(false)} type="button"><X size={17} /></button>
+            <button aria-label="Đóng tìm kiếm" className="grid h-11 w-11 place-items-center text-white/85 hover:bg-white/10" onClick={() => setOpen(false)} type="button"><X size={17} /></button>
           </form>
         </div>
       ) : null}

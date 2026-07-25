@@ -137,7 +137,7 @@ export function SiteHeader() {
         <div className="search-popover" role="dialog" aria-label="Tìm kiếm sản phẩm">
           <form action="/tim-kiem" role="search">
             <label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label>
-            <input id="header-search-q" name="q" type="search" placeholder="Tên mẫu, màu áo, tag ảnh..." autoComplete="off" autoFocus />
+            <input id="header-search-q" name="q" type="search" placeholder="Tên mẫu, màu áo, tag ảnh..." autoComplete="off" />
             <button type="submit">Tìm</button>
             <button type="button" aria-label="Đóng tìm kiếm" onClick={() => setSearchOpen(false)}><X size={17} /></button>
           </form>

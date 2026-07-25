@@ -395,11 +395,11 @@ img {
   gap: 8px;
   align-items: center;
   min-height: 56px;
-  border: 1px solid rgba(16, 19, 26, 0.12);
+  border: 0;
   border-radius: var(--radius);
   background: #fff;
   padding: 8px;
-  box-shadow: 0 18px 50px rgba(23, 27, 38, 0.16);
+  box-shadow: 0 14px 38px rgba(23, 27, 38, 0.14);
 }
 
 .search-page-form {
@@ -421,7 +421,7 @@ img {
 .search-page-form button {
   min-height: 40px;
   border: 0;
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   background: var(--accent);
   color: #fff;
   font-weight: 850;
