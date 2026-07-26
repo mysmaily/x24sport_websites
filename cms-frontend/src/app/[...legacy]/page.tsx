@@ -10,8 +10,9 @@ import { ProductViewTracker } from '../_components/product-view-tracker'
 import { SiteHeader } from '../_components/site-header'
 import {
   getCategoryByLegacyPath, getProductBySlug, getProductsPage,
-  getRelatedProducts, getWebContentByLegacyPath, prepareContentHtml, productImages, type CmsCategory, type CmsProduct, type CmsWebContent,
+  getRelatedProducts, getWebContentByLegacyPath, hasProductInterestForm, prepareContentHtml, productImages, type CmsCategory, type CmsProduct, type CmsWebContent,
 } from '../../lib/content'
+import { ProductInterestForm } from '../_components/product-interest-form'
 import { absoluteUrl, breadcrumbSchema, cleanSeoTitle, metadataDescription, pageCanonical, pageTitle, truncateText } from '../../lib/seo'
 
 const money = (value?: number | null, currency = 'VND') =>
@@ -72,7 +73,7 @@ export async function generateMetadata({ params, searchParams }: {
   return { title: 'Không tìm thấy trang' }
 }
 
-function ProductDetail({ product, related }: { product: CmsProduct; related: Awaited<ReturnType<typeof getRelatedProducts>> }) {
+function ProductDetail({ product, related, showInterestForm }: { product: CmsProduct; related: Awaited<ReturnType<typeof getRelatedProducts>>; showInterestForm: boolean }) {
   const categories = categoryObjects(product)
   const currency = product.currency || 'VND'
   const inStock = product.stockStatus !== 'outofstock'
@@ -135,6 +136,7 @@ function ProductDetail({ product, related }: { product: CmsProduct; related: Awa
               <a className="detail-primary" href="tel:0989353247"><Phone size={18} /> Gọi 0989 353 247</a>
               <a className="detail-secondary" href="https://zalo.me/0989353247" target="_blank" rel="noopener noreferrer"><MessageCircle size={18} /> Tư vấn Zalo</a>
             </div>
+            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={absoluteUrl(canonical)} /> : null}
           </section>
           <aside className="detail-assurance">
             <h2>Thông tin mua hàng</h2>
@@ -188,8 +190,8 @@ export default async function LegacyPage({ params, searchParams }: {
 }) {
   const result = await resolve((await params).legacy)
   if (result.product) {
-    const related = await getRelatedProducts(result.product)
-    return <div className="page-shell"><SiteHeader /><ProductDetail product={result.product} related={related} /></div>
+    const [related, showInterestForm] = await Promise.all([getRelatedProducts(result.product), hasProductInterestForm()])
+    return <div className="page-shell"><SiteHeader /><ProductDetail product={result.product} related={related} showInterestForm={showInterestForm} /></div>
   }
   if (result.content) return <div className="page-shell"><SiteHeader /><ContentDetail content={result.content} /></div>
   if (result.category) {

@@ -15,6 +15,7 @@ import {
   getProductBySlug,
   getProductDescriptionParagraphs,
   getValidCompareAtPrice,
+  hasProductInterestForm,
 } from '../../../lib/content'
 import { absoluteUrl, breadcrumbJsonLd, defaultOgImage, productJsonLd } from '../../../lib/seo'
 import { ProductGallery } from './product-gallery'
@@ -84,6 +85,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   if (!product) notFound()
 
   const paragraphs = getProductDescriptionParagraphs(product)
+  const showInterestForm = await hasProductInterestForm()
   const badges = product.badges?.map((badge) => badge.label).filter((badge) => badge && badge.toLowerCase() !== 'mới') || []
   const colorTags = getProductColorTags(product)
   const compareAtPrice = getValidCompareAtPrice(product)
@@ -296,10 +298,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           </aside>
         </section>
 
-        <QuickOrderForm
-          productName={product.name}
-          productUrl={`https://mayaopickleball.vn/san-pham/${product.slug}`}
-        />
+        {showInterestForm ? (
+          <QuickOrderForm
+            productName={product.name}
+            productUrl={`https://mayaopickleball.vn/san-pham/${product.slug}`}
+          />
+        ) : null}
 
         <section className="product-fit-card">
           <div>

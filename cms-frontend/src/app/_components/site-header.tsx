@@ -31,12 +31,12 @@ export function SiteHeader() {
             <div className="mobile-nav-panel">
               <Link href="/">Trang chủ</Link>
               <Link href="/san-pham/">Tất cả sản phẩm</Link>
+              <Link href="/mau-logo/">Mẫu logo</Link>
               {categoryMenu.map((group) => (
                 group.children.length > 0
                   ? <details className="mobile-category-group" key={group.slug}>
                     <summary>{group.name}</summary>
                     <div>
-                      <Link href={`/danh-muc/${group.slug}`}>Tất cả {group.name}</Link>
                       {group.children.map((child) => <Link href={`/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}
                     </div>
                   </details>
@@ -48,7 +48,7 @@ export function SiteHeader() {
             </div>
           </details>
           <Logo />
-          <form className="header-search" action="/san-pham" role="search">
+          <form className="header-search" action="/tim-kiem" role="search">
             <input name="q" type="search" placeholder="Bạn đang tìm kiếm sản phẩm gì?" aria-label="Tìm sản phẩm" autoComplete="off" />
             <button type="submit" aria-label="Tìm kiếm"><Search size={20} /></button>
           </form>
@@ -56,7 +56,7 @@ export function SiteHeader() {
             <span>Thứ 2 - Chủ nhật<small>08:00 - 22:00</small></span>
             <a href="tel:0989353247"><Phone size={20} /><span>Hotline<small>0989 353 247</small></span></a>
           </div>
-          <Link className="mobile-search" href="/san-pham" aria-label="Tìm kiếm"><Search size={23} /></Link>
+          <Link className="mobile-search" href="/tim-kiem" aria-label="Tìm kiếm"><Search size={23} /></Link>
         </div>
         <nav className="nav-bar" aria-label="Điều hướng chính">
           <div className="site-container">
@@ -66,7 +66,6 @@ export function SiteHeader() {
                 ? <div className="nav-dropdown nav-category-dropdown" key={group.slug}>
                   <Link className="nav-trigger" href={`/danh-muc/${group.slug}`}>{group.name}</Link>
                   <div className="nav-submenu" role="menu">
-                    <Link href={`/danh-muc/${group.slug}`}><strong>Tất cả {group.name}</strong></Link>
                     {group.children.map((child) => <Link href={`/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}
                   </div>
                 </div>

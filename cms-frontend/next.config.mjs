@@ -35,6 +35,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'static.x24sport.vn' },
       { protocol: 'https', hostname: 'x24sport.vn' },
       { protocol: 'https', hostname: 'cdn.x24sport.vn' },
+      { protocol: 'https', hostname: 'cdn.mayaobongro.vn' },
     ],
   },
 }

@@ -291,6 +291,28 @@ the user explicitly requests otherwise for a specific task.
   rationale in code comments, runbooks, commits, tickets, or handoff notes, not
   in rendered website content.
 
+## Shared product consultation form contract
+
+This contract applies to every X24Sport product-detail page backed by the shared
+Payload tenant/store-settings model unless the user's latest explicit
+instruction overrides it for a specific task.
+
+- Store Settings must include tenant-scoped `telegramChatId` / database column
+  `telegram_chat_id` for the Telegram chat that receives product consultation
+  notifications.
+- Product-detail pages must render the consultation form only when that
+  tenant's Store Settings has a non-empty `telegramChatId`. If it is empty,
+  do not render an inactive, disabled, placeholder, or explanatory public form.
+- The visible form heading is `Bạn quan tâm mẫu này?`; the required visible
+  fields are `Số điện thoại` and `Số lượng cần đặt`; the submit button text is
+  `Nhận Tư Vấn`.
+- Submit handlers must resolve the Telegram destination on the server from the
+  tenant's Store Settings. Do not send or trust `telegram_chat_id` from the
+  browser.
+- Validate phone and quantity server-side, rate-limit submissions, include the
+  product name and canonical product URL in the Telegram message, and keep
+  success/error states shopper-facing.
+
 ## Shared catalog density and filtering contract
 
 This contract applies to every X24Sport product catalog, category, collection,

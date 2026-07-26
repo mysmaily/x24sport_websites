@@ -14,6 +14,7 @@ export type CmsCategory = {
   parent?: number | string | CmsCategory
 }
 export type CmsMedia = { id?: number | string; url?: string; alt?: string; width?: number; height?: number }
+type SearchTag = { value?: string }
 export type CmsWebContent = {
   id: number | string; title: string; slug: string; kind: 'page' | 'post'; legacyPath: string
   contentHtml?: string; excerpt?: string; sourceModifiedAt?: string; updatedAt?: string
@@ -28,8 +29,13 @@ export type CmsProduct = {
   seoTitle?: string; metaDescription?: string
   sourceModifiedAt?: string
   categories?: Array<number | string | CmsCategory>
-  gallery?: Array<number | string | CmsMedia>
+  gallery?: Array<number | string | (CmsMedia & { searchTags?: SearchTag[] })>
+  searchTags?: SearchTag[]
   legacyImages?: Array<{ url: string; alt?: string; width?: number; height?: number }>
+}
+export type StoreSettings = {
+  id: number | string
+  telegramChatId?: string | null
 }
 export type CatalogPage = { products: ProductPreview[]; totalDocs: number; totalPages: number; page: number }
 export type ContentPage = { docs: CmsWebContent[]; totalDocs: number; totalPages: number; page: number }
@@ -40,6 +46,27 @@ const categoryDesign = Object.fromEntries(categoryDesigns.map((item) => [item.sl
 const sportToSlug: Partial<Record<CmsProduct['sport'], string>> = {
   football: 'bong-da', badminton: 'cau-long', volleyball: 'bong-chuyen',
   basketball: 'bong-ro', pickleball: 'pickleball', running: 'chay-bo',
+}
+const SEARCH_FIELDS = [
+  'name',
+  'gallery.searchTags.value',
+  'searchTags.value',
+] as const
+const STOP_SEARCH_TOKENS = new Set(['ao', 'áo', 'mau', 'màu', 'bo', 'bộ', 'dong', 'đồng', 'phuc', 'phục'])
+const SEARCH_SYNONYMS: Record<string, string[]> = {
+  'bi a': ['bi-a', 'billiard', 'billiards'],
+  'bi-a': ['bi a', 'billiard', 'billiards'],
+  billiard: ['bi-a', 'bi a', 'billiards'],
+  billiards: ['bi-a', 'bi a', 'billiard'],
+  'mau do': ['màu đỏ', 'đỏ'],
+  do: ['đỏ'],
+  den: ['đen'],
+  trang: ['trắng'],
+  vang: ['vàng'],
+  hong: ['hồng'],
+  tim: ['tím'],
+  xam: ['xám'],
+  nau: ['nâu'],
 }
 
 async function fetchList<T>(collection: string, params: URLSearchParams): Promise<ApiList<T>> {
@@ -60,6 +87,47 @@ async function fetchAllDocs<T>(collection: string, params: URLSearchParams): Pro
     page += 1
   } while (page <= totalPages)
   return docs
+}
+
+function uniqueSearchTerms(values: string[]) {
+  const seen = new Set<string>()
+  return values
+    .map((value) => value.trim().replace(/\s+/g, ' '))
+    .filter((value) => {
+      const key = value.toLocaleLowerCase('vi')
+      if (!key || seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+}
+
+export function buildProductSearchTerms(query: string) {
+  const normalized = query.trim().replace(/\s+/g, ' ')
+  if (!normalized) return []
+
+  const lower = normalized.toLocaleLowerCase('vi')
+  const hyphenated = lower.includes(' ') ? lower.replace(/\s+/g, '-') : ''
+  const spaced = lower.includes('-') ? lower.replace(/-/g, ' ') : ''
+  const tokens = lower
+    .split(/[\s-]+/)
+    .map((token) => token.trim())
+    .filter((token) => token.length >= 2 && !STOP_SEARCH_TOKENS.has(token))
+  const pairs = tokens.slice(0, -1).map((token, index) => `${token} ${tokens[index + 1]}`)
+  const terms = uniqueSearchTerms([normalized, lower, hyphenated, spaced, ...pairs, ...tokens])
+
+  return uniqueSearchTerms([
+    ...terms,
+    ...terms.flatMap((term) => SEARCH_SYNONYMS[term.toLocaleLowerCase('vi')] || []),
+  ]).slice(0, 10)
+}
+
+function applyProductSearchParams(params: URLSearchParams, query: string) {
+  const terms = buildProductSearchTerms(query)
+  terms.forEach((term, termIndex) => {
+    SEARCH_FIELDS.forEach((field, fieldIndex) => {
+      params.set(`where[or][${termIndex * SEARCH_FIELDS.length + fieldIndex}][${field}][contains]`, term)
+    })
+  })
 }
 
 function mapCategory(category: CmsCategory, index: number): SportCategory {
@@ -144,7 +212,8 @@ export async function getSitemapCategories(): Promise<SportCategory[]> {
 }
 
 export async function getProductsPage(options: {
-  page?: number; limit?: number; categorySlug?: string; query?: string; sort?: string
+  page?: number; limit?: number; categorySlug?: string; categorySlugs?: string[]
+  excludeCategorySlugs?: string[]; query?: string; sort?: string
 } = {}): Promise<CatalogPage> {
   const tenantSlug = await getTenantSlug()
   const categories = await getCategories()
@@ -156,8 +225,26 @@ export async function getProductsPage(options: {
       page: String(page), limit: String(options.limit || 20), depth: '2',
       sort: options.sort || '-createdAt',
     })
-    if (options.categorySlug) params.set('where[categories.slug][equals]', options.categorySlug)
-    if (options.query) params.set('where[name][like]', options.query)
+    const categorySlugs = options.categorySlugs?.filter(Boolean)
+    if (categorySlugs?.length) params.set('where[categories.slug][in]', categorySlugs.join(','))
+    else if (options.categorySlug) params.set('where[categories.slug][equals]', options.categorySlug)
+    const excludeCategorySlugs = options.excludeCategorySlugs?.filter(Boolean)
+    if (excludeCategorySlugs?.length) {
+      const excludedParams = new URLSearchParams({
+        'where[tenant.slug][equals]': tenantSlug,
+        'where[publicationStatus][equals]': 'publish',
+        'where[categories.slug][in]': excludeCategorySlugs.join(','),
+        depth: '0',
+        limit: '500',
+      })
+      const excludedProducts = await fetchAllDocs<Pick<CmsProduct, 'id'>>('products', excludedParams)
+      if (excludedProducts.length) {
+        params.set('where[id][not_in]', excludedProducts.map((product) => product.id).join(','))
+      }
+    }
+    if (options.query?.trim()) {
+      applyProductSearchParams(params, options.query)
+    }
     const result = await fetchList<CmsProduct>('products', params)
     return {
       products: result.docs.map((product) => mapProduct(product, categories)),
@@ -194,6 +281,22 @@ export async function getProductBySlug(slug: string): Promise<CmsProduct | undef
     'where[publicationStatus][equals]': 'publish', limit: '1', depth: '2',
   })
   return (await fetchList<CmsProduct>('products', params)).docs[0]
+}
+
+export async function hasProductInterestForm() {
+  const tenantSlug = await getTenantSlug()
+  try {
+    const params = new URLSearchParams({
+      'where[tenant.slug][equals]': tenantSlug,
+      limit: '1',
+      depth: '0',
+    })
+    const settings = (await fetchList<StoreSettings>('store-settings', params)).docs[0]
+    return Boolean(settings?.telegramChatId?.trim())
+  } catch (error) {
+    console.error(`Unable to load ${tenantSlug} product interest settings.`, error)
+    return false
+  }
 }
 
 export async function getCategoryByLegacyPath(path: string): Promise<CmsCategory | undefined> {

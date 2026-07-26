@@ -31,7 +31,7 @@ function PageLink({
   return (
     <Link
       className={`pagination-link${page === currentPage ? ' is-active' : ''}`}
-      href={page === 1 ? baseHref : `${baseHref}?page=${page}`}
+      href={page === 1 ? baseHref : `${baseHref}${baseHref.includes('?') ? '&' : '?'}page=${page}`}
       aria-current={page === currentPage ? 'page' : undefined}
     >
       {children}

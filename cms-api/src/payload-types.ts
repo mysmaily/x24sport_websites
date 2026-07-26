@@ -563,6 +563,10 @@ export interface StoreSetting {
   siteName: string;
   contactPhone?: string | null;
   zaloUrl?: string | null;
+  /**
+   * Telegram chat ID nhận thông báo từ form tư vấn trên trang chi tiết sản phẩm. Để trống để ẩn form.
+   */
+  telegramChatId?: string | null;
   analytics?: {
     /**
      * Bật nhúng Google Analytics 4 trên frontend nếu tenant có Measurement ID.
@@ -1024,6 +1028,7 @@ export interface StoreSettingsSelect<T extends boolean = true> {
   siteName?: T;
   contactPhone?: T;
   zaloUrl?: T;
+  telegramChatId?: T;
   analytics?:
     | T
     | {

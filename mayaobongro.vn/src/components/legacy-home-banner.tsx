@@ -4,12 +4,19 @@ import Link from 'next/link'
 import { BASKETBALL_AUDIENCES } from '@/lib/basketball-audiences'
 import { ZALO_URL } from '@/lib/site'
 
-const iconBySlug = {
+const iconBySlug: Record<string, typeof GraduationCap> = {
   'lop-truong-hoc': GraduationCap,
   'clb-doi-bong-phong-trao': UsersRound,
   'giai-dau-su-kien': CalendarDays,
   'doi-tuyen-chuyen-nghiep': Trophy,
-} as const
+}
+
+const bannerAudienceSlugs = new Set([
+  'lop-truong-hoc',
+  'clb-doi-bong-phong-trao',
+  'giai-dau-su-kien',
+  'doi-tuyen-chuyen-nghiep',
+])
 
 export function LegacyHomeBanner() {
   return (
@@ -42,7 +49,7 @@ export function LegacyHomeBanner() {
         </div>
 
         <div className="-mx-4 mt-7 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 xl:grid-cols-4">
-          {BASKETBALL_AUDIENCES.map((audience) => {
+          {BASKETBALL_AUDIENCES.filter((audience) => bannerAudienceSlugs.has(audience.slug)).map((audience) => {
             const Icon = iconBySlug[audience.slug]
             return (
               <Link

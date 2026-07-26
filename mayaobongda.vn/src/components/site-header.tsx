@@ -1,6 +1,6 @@
 'use client'
 
-import { ChevronDown, Menu, MessageCircle, Phone, X } from 'lucide-react'
+import { ChevronDown, Menu, MessageCircle, Phone, Search, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
@@ -18,14 +18,15 @@ export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const productActive = pathname === '/shop/' || pathname === '/san-pham/' || pathname.startsWith('/ao-') || pathname.startsWith('/quan-') || pathname.startsWith('/bo-')
   const showProducts = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setProductsOpen(true) }
   const hideProductsSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setProductsOpen(false), 120) }
-  useEffect(() => { setOpen(false); setProductsOpen(false) }, [pathname])
+  useEffect(() => { setOpen(false); setProductsOpen(false); setSearchOpen(false) }, [pathname])
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') { setOpen(false); setProductsOpen(false) }
+      if (event.key === 'Escape') { setOpen(false); setProductsOpen(false); setSearchOpen(false) }
     }
     document.addEventListener('keydown', closeOnEscape)
     return () => document.removeEventListener('keydown', closeOnEscape)
@@ -62,11 +63,16 @@ export function SiteHeader() {
           })}
         </nav>
         <div className="hidden items-center justify-end gap-2 lg:flex">
+          <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20 hover:border-brand/50" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
           <a className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 px-3.5 text-sm font-black hover:border-brand/50" href={`tel:${PHONE_VALUE}`}><Phone size={17} /> {PHONE_DISPLAY}</a>
           <a className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-brand px-4 text-sm font-black hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={17} /> Tư vấn mẫu</a>
         </div>
-        <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20 lg:hidden" onClick={() => setOpen(!open)} type="button">{open ? <X /> : <Menu />}</button>
+        <div className="flex items-center justify-end gap-2 lg:hidden">
+          <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
+          <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setOpen(!open)} type="button">{open ? <X /> : <Menu />}</button>
+        </div>
       </div>
+      {searchOpen ? <div className="absolute right-4 top-full z-[70] mt-2 w-[min(520px,calc(100vw-32px))] rounded-xl bg-white p-1.5 text-slate-950 shadow-[0_14px_40px_rgba(2,6,23,.24)]"><form action="/tim-kiem/" className="grid grid-cols-[1fr_auto_auto] gap-1.5" role="search"><label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label><input autoComplete="off" className="min-h-11 min-w-0 rounded-lg bg-slate-50 px-3 text-sm outline-none" id="header-search-q" name="q" placeholder="Tên mẫu, màu áo, tag ảnh..." type="search" /><button className="rounded-lg bg-brand px-4 text-sm font-black text-white" type="submit">Tìm</button><button aria-label="Đóng tìm kiếm" className="grid size-11 place-items-center rounded-lg text-slate-700 hover:bg-slate-100" onClick={() => setSearchOpen(false)} type="button"><X size={17} /></button></form></div> : null}
       <div
         aria-hidden={!productsOpen}
         className={`absolute inset-x-0 top-full hidden border-t border-slate-200 bg-[#f8f6f2] text-slate-950 shadow-[0_28px_70px_rgba(2,6,23,.32)] transition duration-200 lg:block ${productsOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`}

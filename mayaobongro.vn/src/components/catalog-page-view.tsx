@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronRight, Search } from 'lucide-react'
 import Link from 'next/link'
 
-import { CATALOG_COLOR_LANDINGS, STUDENT_CATALOG_LANDING, type CatalogLanding } from '@/lib/catalog-colors'
+import { CATALOG_COLOR_LANDINGS, NBA_CATALOG_LANDING, STUDENT_CATALOG_LANDING, type CatalogLanding } from '@/lib/catalog-colors'
 import { getProducts } from '@/lib/cms'
 import { SITE_URL } from '@/lib/site'
 
@@ -10,6 +10,7 @@ import { ProductGrid } from './product-grid'
 
 const popularKeywords = [
   { label: 'Áo bóng rổ học sinh', href: STUDENT_CATALOG_LANDING.path, landingSlug: STUDENT_CATALOG_LANDING.slug },
+  { label: 'Áo bóng rổ NBA', href: NBA_CATALOG_LANDING.path, landingSlug: NBA_CATALOG_LANDING.slug },
   { label: 'Mẫu gradient', href: '/san-pham/ao-bong-ro-gradient/', landingSlug: 'ao-bong-ro-gradient' },
 ]
 
@@ -21,16 +22,20 @@ export async function CatalogPageView({
   canonicalPath = '/san-pham/',
   breadcrumbLabel = 'Mẫu áo bóng rổ',
   activeLanding,
+  categorySlug = 'bo-quan-ao-bong-ro',
+  searchAction = '/san-pham/',
 }: {
   page: number
   search?: string
+  categorySlug?: string
   heading?: string
   description?: string
   canonicalPath?: string
   breadcrumbLabel?: string
   activeLanding?: CatalogLanding
+  searchAction?: string
 }) {
-  const result = await getProducts({ page, limit: 24, search, categorySlug: 'bo-quan-ao-bong-ro' })
+  const result = await getProducts({ page, limit: 24, search, categorySlug })
   const pageHref = (nextPage: number) => {
     const params = new URLSearchParams({ ...(activeLanding || !search ? {} : { q: search }), page: String(nextPage) })
     return `${canonicalPath}?${params}`
@@ -62,7 +67,7 @@ export async function CatalogPageView({
         {description ? <p className="mb-0.5 max-w-xl text-sm leading-6 text-slate-600">{description}</p> : null}
       </header>
 
-      <form action="/san-pham/" className="mt-6 grid max-w-4xl grid-cols-[auto_1fr_auto] overflow-hidden rounded-lg border border-slate-300 bg-white shadow-sm" role="search">
+      <form action={searchAction} className="mt-6 grid max-w-4xl grid-cols-[auto_1fr_auto] overflow-hidden rounded-lg border border-slate-300 bg-white shadow-sm" role="search">
         <Search aria-hidden="true" className="ml-3 self-center text-slate-500" size={18} />
         <label className="sr-only" htmlFor="catalog-q">Tìm mẫu áo</label>
         <input className="min-h-11 min-w-0 px-3 text-sm text-slate-950 outline-none placeholder:text-slate-400" defaultValue={activeLanding ? '' : search} id="catalog-q" name="q" placeholder="Tên mẫu, mã hoặc màu sắc…" type="search" />

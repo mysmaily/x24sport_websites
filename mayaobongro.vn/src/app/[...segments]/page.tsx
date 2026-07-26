@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound, permanentRedirect } from 'next/navigation'
 
 import { LegacyContentPage } from '@/components/legacy-content-page'
-import { resolveContentPath, resolveProductPath } from '@/lib/cms'
+import { getProductImages, resolveContentPath, resolveProductPath } from '@/lib/cms'
 import { DEFAULT_OG_IMAGE, excerpt } from '@/lib/site'
 import { isRetiredPath } from '@/lib/retired-routes'
 
@@ -28,12 +28,15 @@ export async function generateMetadata({ params }: { params: Promise<{ segments:
   const path = pathFrom(segments)
   if (isRetiredPath(path)) return { title: 'Không tìm thấy nội dung', robots: { index: false, follow: false } }
   const product = await resolveProductPath(path)
-  if (product) return {
-    title: product.name,
-    description: excerpt(product.shortDescription || product.name, 160),
-    alternates: { canonical: `/san-pham/${product.slug}/` },
-    openGraph: { title: product.name, description: excerpt(product.shortDescription, 160), images: product.legacyImages?.[0]?.url ? [product.legacyImages[0].url] : [DEFAULT_OG_IMAGE] },
-    twitter: { card: 'summary_large_image', title: product.name, description: excerpt(product.shortDescription, 160), images: [product.legacyImages?.[0]?.url || DEFAULT_OG_IMAGE.url] },
+  if (product) {
+    const image = getProductImages(product)[0]
+    return {
+      title: product.name,
+      description: excerpt(product.shortDescription || product.name, 160),
+      alternates: { canonical: `/san-pham/${product.slug}/` },
+      openGraph: { title: product.name, description: excerpt(product.shortDescription, 160), images: image?.url ? [image.url] : [DEFAULT_OG_IMAGE] },
+      twitter: { card: 'summary_large_image', title: product.name, description: excerpt(product.shortDescription, 160), images: [image?.url || DEFAULT_OG_IMAGE.url] },
+    }
   }
   const content = await resolveContentPath(path)
   if (content) {

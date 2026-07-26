@@ -2,15 +2,17 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '../_components/json-ld'
+import { CatalogDiscoveryNav } from '../_components/catalog-discovery-nav'
 import { Pagination } from '../_components/pagination'
 import { ProductCard } from '../_components/product-card'
 import { SiteHeader } from '../_components/site-header'
 import { getCategories, getProductsPage } from '../../lib/content'
+import { logoCategorySlugs } from '../../lib/catalog'
 import { breadcrumbSchema, metadataDescription, pageCanonical, pageTitle } from '../../lib/seo'
 
 type ProductSearchParams = { page?: string; q?: string; sort?: string }
 
-export async function generateMetadata({ searchParams }: { searchParams: Promise<ProductSearchParams> }): Promise<Metadata> {
+export async function getX24ProductsMetadata(searchParams: Promise<ProductSearchParams>): Promise<Metadata> {
   const search = await searchParams
   const page = Math.max(1, Number(search.page) || 1)
   const isFiltered = Boolean(search.q?.trim() || search.sort)
@@ -22,6 +24,10 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
     robots: isFiltered ? { index: false, follow: true } : undefined,
     openGraph: { title, description: 'Khám phá toàn bộ sản phẩm thể thao thiết kế tại X24Sport.', url: isFiltered ? '/san-pham/' : pageCanonical('/san-pham', page) },
   }
+}
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<ProductSearchParams> }) {
+  return getX24ProductsMetadata(searchParams)
 }
 
 const sortOptions: Record<string, { label: string; value: string }> = {
@@ -38,7 +44,13 @@ export default async function ProductsPage({ searchParams }: {
   const page = Math.max(1, Number(search.page) || 1)
   const sort = sortOptions[search.sort || 'newest'] || sortOptions.newest
   const [{ products, totalDocs, totalPages }, categories] = await Promise.all([
-    getProductsPage({ page, limit: 20, query: search.q?.trim(), sort: sort.value }),
+    getProductsPage({
+      page,
+      limit: 20,
+      query: search.q?.trim(),
+      sort: sort.value,
+      excludeCategorySlugs: logoCategorySlugs,
+    }),
     getCategories(),
   ])
   if (page > 1 && (totalPages === 0 || page > totalPages)) notFound()
@@ -59,13 +71,15 @@ export default async function ProductsPage({ searchParams }: {
           </form>
         </section>
         <div className="catalog-body site-container">
-          <nav className="filter-links" aria-label="Danh mục bộ môn">
-            <Link className="active" href="/san-pham">Tất cả</Link>
-            {categories.map((category) => <Link href={`/danh-muc/${category.slug}`} key={category.slug}>{category.name}</Link>)}
-          </nav>
+          <CatalogDiscoveryNav
+            activeKind="products"
+            allHref="/san-pham/"
+            allLabel="Tất cả"
+            items={categories.map((category) => ({ href: `/danh-muc/${category.slug}/`, label: category.name }))}
+          />
           <div className="catalog-count">{search.q ? <span>Kết quả cho “{search.q}”</span> : <span>Danh mục sản phẩm</span>}<strong>{totalDocs} sản phẩm</strong></div>
           {products.length > 0
-            ? <div className="product-grid catalog-grid">{products.map((product, index) => <ProductCard product={product} headingLevel={2} imagePriority={index < 2} key={product.slug} />)}</div>
+            ? <div className="product-grid catalog-grid">{products.map((product, index) => <ProductCard product={product} headingLevel={2} imagePriority={index < 2} showCategory key={product.slug} />)}</div>
             : <section className="catalog-no-results" role="status"><h2>Chưa tìm thấy sản phẩm phù hợp</h2><p>Hãy thử từ khóa ngắn hơn hoặc xem toàn bộ danh mục hiện có.</p><Link href="/san-pham/">Xem tất cả sản phẩm</Link></section>}
           <Pagination basePath="/san-pham/" page={page} totalPages={totalPages} params={{ q: search.q?.trim(), sort: search.sort }} />
         </div>

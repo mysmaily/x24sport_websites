@@ -57,7 +57,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const metaPixelId = getMetaPixelId(analytics)
 
   return (
-    <html className={`${bodyFont.variable} ${displayFont.variable}`} data-scroll-behavior="smooth" lang="vi">
+    <html className={`${bodyFont.variable} ${displayFont.variable}`} lang="vi">
       <body>
         {measurementId ? (
           <>

@@ -19,6 +19,13 @@ export const StoreSettings: CollectionConfig = {
     { name: 'contactPhone', type: 'text' },
     { name: 'zaloUrl', type: 'text' },
     {
+      name: 'telegramChatId',
+      type: 'text',
+      admin: {
+        description: 'Telegram chat ID nhận thông báo từ form tư vấn trên trang chi tiết sản phẩm. Để trống để ẩn form.',
+      },
+    },
+    {
       name: 'analytics',
       type: 'group',
       fields: [

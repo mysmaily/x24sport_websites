@@ -34,6 +34,12 @@ function getProductsPageHref(page: number) {
   return page <= 1 ? '/san-pham' : `/san-pham?page=${page}`
 }
 
+function getSearchPageHref(page: number, query: string) {
+  const params = new URLSearchParams({ q: query })
+  if (page > 1) params.set('page', String(page))
+  return `/tim-kiem?${params.toString()}`
+}
+
 function getPaginationItems(currentPage: number, totalPages: number) {
   const visiblePages = new Set([1, totalPages])
   for (let page = Math.max(1, currentPage - 2); page <= Math.min(totalPages, currentPage + 2); page += 1) {
@@ -97,6 +103,9 @@ export function CatalogPageContent({
   activeFilter,
   pagination,
   products,
+  titleOverride,
+  subtitleOverride,
+  searchQuery,
 }: {
   activeFilter?: CatalogFilter | null
   pagination?: {
@@ -105,11 +114,14 @@ export function CatalogPageContent({
     totalProducts: number
   }
   products: Product[]
+  titleOverride?: string
+  subtitleOverride?: string
+  searchQuery?: string
 }) {
-  const heroTitle = activeFilter ? activeFilter.label.replace(/^Áo /, 'Áo cầu lông ') : 'Toàn bộ mẫu áo cầu lông đang có trên MayaoCauLong'
+  const heroTitle = titleOverride || (activeFilter ? activeFilter.label.replace(/^Áo /, 'Áo cầu lông ') : 'Toàn bộ mẫu áo cầu lông đang có trên MayaoCauLong')
   const heroSubtitle = activeFilter
     ? activeFilter.description
-    : 'Xem nhanh mẫu đang có, mã sản phẩm và giá tham khảo để chọn hướng đặt may phù hợp cho đội của bạn.'
+    : subtitleOverride || 'Xem nhanh mẫu đang có, mã sản phẩm và giá tham khảo để chọn hướng đặt may phù hợp cho đội của bạn.'
 
   return (
     <main className="site-page catalog-page">
@@ -205,7 +217,7 @@ export function CatalogPageContent({
         {pagination && pagination.totalPages > 1 ? (
           <nav className="catalog-pagination" aria-label="Phân trang sản phẩm">
             {pagination.currentPage > 1 ? (
-              <Link className="pagination-direction" href={getProductsPageHref(pagination.currentPage - 1)} rel="prev">
+              <Link className="pagination-direction" href={searchQuery ? getSearchPageHref(pagination.currentPage - 1, searchQuery) : getProductsPageHref(pagination.currentPage - 1)} rel="prev">
                 <ArrowLeft aria-hidden="true" size={16} />
                 Trang trước
               </Link>
@@ -222,7 +234,7 @@ export function CatalogPageContent({
                   <Link
                     aria-current={item === pagination.currentPage ? 'page' : undefined}
                     className={item === pagination.currentPage ? 'is-current' : ''}
-                    href={getProductsPageHref(item)}
+                    href={searchQuery ? getSearchPageHref(item, searchQuery) : getProductsPageHref(item)}
                     key={item}
                   >
                     <span className="sr-only">Trang </span>
@@ -235,7 +247,7 @@ export function CatalogPageContent({
             </div>
 
             {pagination.currentPage < pagination.totalPages ? (
-              <Link className="pagination-direction" href={getProductsPageHref(pagination.currentPage + 1)} rel="next">
+              <Link className="pagination-direction" href={searchQuery ? getSearchPageHref(pagination.currentPage + 1, searchQuery) : getProductsPageHref(pagination.currentPage + 1)} rel="next">
                 Trang sau
                 <ArrowRight aria-hidden="true" size={16} />
               </Link>

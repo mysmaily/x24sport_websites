@@ -9,6 +9,13 @@ import { DEFAULT_OG_IMAGE, ZALO_URL, canonical } from '@/lib/site'
 const benefitIcons = [Palette, Shirt, Ruler] as const
 
 export function audienceMetadata(audience: BasketballAudience): Metadata {
+  const ogImage = {
+    url: audience.heroImage || DEFAULT_OG_IMAGE.url,
+    width: 1672,
+    height: 941,
+    alt: audience.heroImageAlt || audience.title,
+  }
+
   return {
     title: audience.metaTitle,
     description: audience.metaDescription,
@@ -17,25 +24,28 @@ export function audienceMetadata(audience: BasketballAudience): Metadata {
       title: audience.metaTitle,
       description: audience.metaDescription,
       url: canonical(audience.path),
-      images: [{ ...DEFAULT_OG_IMAGE, alt: audience.title }],
+      images: [ogImage],
     },
-    twitter: { card: 'summary_large_image', title: audience.metaTitle, description: audience.metaDescription, images: [DEFAULT_OG_IMAGE.url] },
+    twitter: { card: 'summary_large_image', title: audience.metaTitle, description: audience.metaDescription, images: [ogImage.url] },
   }
 }
 
 export function AudienceLandingPage({ audience }: { audience: BasketballAudience }) {
+  const heroImage = audience.heroImage || DEFAULT_OG_IMAGE.url
+  const heroImageAlt = audience.heroImageAlt || 'Nhóm cầu thủ mặc đồng phục bóng rổ thiết kế riêng trong sân bóng rổ sáng'
+
   return (
     <>
       <section className="relative isolate overflow-hidden bg-[#fff4e6] text-slate-950">
         <picture className="absolute inset-0 -z-30">
           <img
-            alt="Nhóm cầu thủ mặc đồng phục bóng rổ thiết kế riêng trong sân bóng rổ sáng"
+            alt={heroImageAlt}
             className="h-full w-full object-cover object-center"
             decoding="async"
             fetchPriority="high"
-            height="1080"
-            src="/images/basketball-audience-hero-bright-20260722.webp"
-            width="1920"
+            height="941"
+            src={heroImage}
+            width="1672"
           />
         </picture>
         <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(255,248,235,.97)_0%,rgba(255,248,235,.92)_43%,rgba(255,248,235,.45)_75%,rgba(255,248,235,.12)_100%)] max-md:bg-[linear-gradient(180deg,rgba(255,248,235,.88)_0%,rgba(255,248,235,.84)_52%,rgba(255,248,235,.98)_100%)]" />

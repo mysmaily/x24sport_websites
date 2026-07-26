@@ -26,10 +26,8 @@ export function QuickOrderForm({ productName, productUrl }: QuickOrderFormProps)
 
     const data = new FormData(form)
     const payload = {
-      name: String(data.get('name') || ''),
       phone: String(data.get('phone') || ''),
       quantity: String(data.get('quantity') || ''),
-      neededDate: String(data.get('neededDate') || ''),
       website: String(data.get('website') || ''),
       startedAt,
       productName,
@@ -37,7 +35,7 @@ export function QuickOrderForm({ productName, productUrl }: QuickOrderFormProps)
     }
 
     try {
-      const response = await fetch('/api/quick-order', {
+      const response = await fetch('/api/product-interest', {
         body: JSON.stringify(payload),
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
@@ -48,7 +46,7 @@ export function QuickOrderForm({ productName, productUrl }: QuickOrderFormProps)
 
       form.reset()
       setState('success')
-      setMessage('Đã gửi yêu cầu. MayaoPickleball sẽ liên hệ lại với bạn sớm.')
+      setMessage('Đã gửi thông tin. Đội ngũ tư vấn sẽ liên hệ lại với bạn sớm.')
     } catch (error) {
       setState('error')
       setMessage(error instanceof Error ? error.message : 'Chưa gửi được yêu cầu. Vui lòng thử lại hoặc gọi hotline.')
@@ -56,19 +54,12 @@ export function QuickOrderForm({ productName, productUrl }: QuickOrderFormProps)
   }
 
   return (
-    <section className="quick-order-card" id="dat-ao-nhanh">
+    <section className="quick-order-card" id="nhan-tu-van">
       <div className="quick-order-heading">
-        <p className="section-label">Đặt áo nhanh</p>
-        <h2>Để lại thông tin, xưởng sẽ tư vấn và báo giá</h2>
-        <p>Thông tin sản phẩm đang xem sẽ được gửi kèm để tư vấn đúng mẫu.</p>
+        <h2>Bạn quan tâm mẫu này?</h2>
       </div>
 
       <form className="quick-order-form" onSubmit={handleSubmit}>
-        <label>
-          <span>Tên</span>
-          <input autoComplete="name" maxLength={80} name="name" placeholder="Tên của bạn" required type="text" />
-        </label>
-
         <label>
           <span>Số điện thoại</span>
           <input
@@ -84,19 +75,8 @@ export function QuickOrderForm({ productName, productUrl }: QuickOrderFormProps)
         </label>
 
         <label>
-          <span>Số lượng</span>
-          <input inputMode="numeric" max="10000" min="5" name="quantity" placeholder="Từ 5 áo" required type="number" />
-        </label>
-
-        <label>
-          <span>Ngày cần áo</span>
-          <select defaultValue="" name="neededDate" required>
-            <option disabled value="">Chọn thời gian cần áo</option>
-            <option value="4 ngày nữa">4 ngày nữa</option>
-            <option value="5 ngày nữa">5 ngày nữa</option>
-            <option value="1 tuần">1 tuần nữa</option>
-            <option value="Trên 1 tuần">Trên 1 tuần</option>
-          </select>
+          <span>Số lượng cần đặt</span>
+          <input inputMode="numeric" max="10000" min="1" name="quantity" required type="number" />
         </label>
 
         <label className="quick-order-honeypot" aria-hidden="true" hidden>
@@ -106,7 +86,7 @@ export function QuickOrderForm({ productName, productUrl }: QuickOrderFormProps)
 
         <button disabled={state === 'submitting'} type="submit">
           <Send aria-hidden="true" size={18} />
-          {state === 'submitting' ? 'Đang gửi...' : 'Gửi yêu cầu đặt áo'}
+          {state === 'submitting' ? 'Đang gửi...' : 'Nhận Tư Vấn'}
         </button>
 
         <p

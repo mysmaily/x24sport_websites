@@ -24,6 +24,15 @@ export type CategorySeoProfile = {
   siblings: Array<{ slug: string; name: string; description?: string }>
 }
 
+export type LogoCollection = {
+  slug: string
+  sportSlug: string
+  name: string
+  shortName: string
+  description: string
+  tone: string
+}
+
 export type ProductPreview = {
   id?: number | string
   slug: string
@@ -87,6 +96,51 @@ export const categories: SportCategory[] = [
   },
 ]
 
+export const logoCollections: LogoCollection[] = [
+  {
+    slug: 'thiet-ke-va-in-an-logo-doi-bong',
+    sportSlug: 'bong-da',
+    name: 'Logo bóng đá',
+    shortName: 'Bóng đá',
+    description: 'Tìm biểu tượng, linh vật và phong cách nhận diện dành cho đội bóng đá.',
+    tone: '#e44a1a',
+  },
+  {
+    slug: 'logo-bong-chuyen',
+    sportSlug: 'bong-chuyen',
+    name: 'Logo bóng chuyền',
+    shortName: 'Bóng chuyền',
+    description: 'Khám phá ý tưởng logo dành cho đội bóng chuyền, lớp học và câu lạc bộ.',
+    tone: '#4f7ee8',
+  },
+  {
+    slug: 'logo-bong-ro',
+    sportSlug: 'bong-ro',
+    name: 'Logo bóng rổ',
+    shortName: 'Bóng rổ',
+    description: 'Tham khảo biểu tượng, linh vật và phong cách nhận diện dành cho đội bóng rổ.',
+    tone: '#ff9f1c',
+  },
+  {
+    slug: 'logo-ao-pickleball',
+    sportSlug: 'pickleball',
+    name: 'Logo pickleball',
+    shortName: 'Pickleball',
+    description: 'Khám phá ý tưởng logo dành cho câu lạc bộ, nhóm chơi và giải pickleball.',
+    tone: '#149f75',
+  },
+  {
+    slug: 'logo-chay-bo',
+    sportSlug: 'chay-bo',
+    name: 'Logo chạy bộ',
+    shortName: 'Chạy bộ',
+    description: 'Chọn phong cách nhận diện cho câu lạc bộ chạy, đội nhóm và sự kiện.',
+    tone: '#a94fd1',
+  },
+]
+
+export const logoCategorySlugs = logoCollections.map((collection) => collection.slug)
+
 export const categoryMenu: CategoryMenuGroup[] = [
   {
     slug: 'bong-da',
@@ -113,6 +167,7 @@ export const categoryMenu: CategoryMenuGroup[] = [
     name: 'Bóng rổ',
     children: [
       { slug: 'ao-bong-ro', name: 'Áo bóng rổ', description: 'Áo bóng rổ jersey, áo ba lỗ bóng rổ, đồng phục đội bóng và áo in tên số.' },
+      { slug: 'logo-bong-ro', name: 'Logo bóng rổ', description: 'Logo bóng rổ cho đội nhóm, lớp học, câu lạc bộ và nhận diện giải đấu.' },
       { slug: 'giay-bong-ro', name: 'Giày bóng rổ', description: 'Giày bóng rổ hỗ trợ cổ chân, độ bám sân và phong cách thi đấu cá tính.' },
       { slug: 'qua-bong-ro', name: 'Quả bóng rổ', description: 'Quả bóng rổ luyện tập, thi đấu, bóng indoor và outdoor cho đội nhóm.' },
       { slug: 'phu-kien-bong-ro', name: 'Phụ kiện bóng rổ', description: 'Phụ kiện bóng rổ: tất, băng tay, túi, bóng và đồ dùng luyện tập.' },
@@ -132,6 +187,7 @@ export const categoryMenu: CategoryMenuGroup[] = [
     name: 'Pickleball',
     children: [
       { slug: 'ao-pickleball', name: 'Áo pickleball', description: 'Áo pickleball, polo pickleball, váy áo câu lạc bộ và đồng phục đội nhóm.' },
+      { slug: 'logo-ao-pickleball', name: 'Logo áo Pickleball', description: 'Logo áo Pickleball cho đội nhóm, câu lạc bộ và nhận diện giải đấu.' },
       { slug: 'giay-pickleball', name: 'Giày pickleball', description: 'Giày pickleball bám sân, ổn định cổ chân và phù hợp di chuyển ngang liên tục.' },
       { slug: 'phu-kien-pickleball', name: 'Phụ kiện pickleball', description: 'Phụ kiện pickleball cho luyện tập và thi đấu: vớ, túi, băng tay và đồ dùng sân.' },
     ],
@@ -141,6 +197,7 @@ export const categoryMenu: CategoryMenuGroup[] = [
     name: 'Chạy bộ',
     children: [
       { slug: 'ao-chay-bo', name: 'Áo chạy bộ', description: 'Áo chạy bộ, singlet chạy bộ, áo sự kiện marathon và đồng phục câu lạc bộ chạy.' },
+      { slug: 'logo-chay-bo', name: 'Logo chạy bộ', description: 'Mẫu áo chạy bộ có logo đội chạy, running club, sự kiện và nhận diện nhóm runner.' },
       { slug: 'giay-chay-bo', name: 'Giày chạy bộ', description: 'Giày chạy bộ cho luyện tập, race day, chạy road và chạy bộ phong trào.' },
       { slug: 'phu-kien-chay-bo', name: 'Phụ kiện chạy bộ', description: 'Phụ kiện chạy bộ: vớ, túi, nón, băng đô và đồ dùng cho runner.' },
     ],

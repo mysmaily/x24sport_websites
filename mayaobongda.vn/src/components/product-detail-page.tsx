@@ -2,13 +2,14 @@ import { ArrowRight, MessageCircle, Phone } from 'lucide-react'
 import Link from 'next/link'
 
 import { JsonLd } from '@/components/json-ld'
+import { ProductInterestForm } from '@/components/product-interest-form'
 import { ProductGallery } from '@/components/product-gallery'
 import { ProductGrid } from '@/components/product-grid'
-import { productImages, type Product } from '@/lib/cms'
+import { hasProductInterestForm, productImages, type Product } from '@/lib/cms'
 import { PHONE_DISPLAY, PHONE_VALUE, ZALO_URL, canonical, excerpt } from '@/lib/site'
 import { rewriteLegacyHtml } from '@/lib/legacy-content'
 
-export function ProductDetailPage({
+export async function ProductDetailPage({
   catalogHref,
   catalogLabel,
   isLogo,
@@ -24,6 +25,7 @@ export function ProductDetailPage({
   const images = productImages(product)
   const productPath = product.legacyPath || `/${product.slug}/`
   const hasPrice = !isLogo && typeof product.price === 'number' && product.price > 0
+  const showInterestForm = await hasProductInterestForm()
   const productSchema = hasPrice ? { '@context': 'https://schema.org', '@type': 'Product', name: product.name, sku: product.sku || undefined, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productPath), brand: { '@type': 'Brand', name: 'X24 Sport' }, offers: { '@type': 'Offer', priceCurrency: 'VND', price: product.price, availability: product.stockStatus === 'outofstock' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url: canonical(productPath) } } : null
 
   return (
@@ -54,6 +56,7 @@ export function ProductDetailPage({
               <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={19} /> Gửi mẫu này qua Zalo</a>
               <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 px-5 text-sm font-black text-slate-950 transition hover:border-brand hover:text-brand" href={`tel:${PHONE_VALUE}`}><Phone size={18} /> Gọi {PHONE_DISPLAY}</a>
             </div>
+            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={canonical(productPath)} /> : null}
           </div>
         </div>
 

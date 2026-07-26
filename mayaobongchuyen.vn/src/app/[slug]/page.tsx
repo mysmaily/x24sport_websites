@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowUpRight, Phone, ShieldCheck } from 'lucide-react'
 import { notFound } from 'next/navigation'
+import { HeaderSearch } from '../_components/header-search'
 import { formatPrice, getPageData } from '../../lib/content'
 
 type RouteProps = {
@@ -105,13 +106,12 @@ export default async function CmsPage({ params }: RouteProps) {
             </div>
           ))}
         </nav>
-        <a
-          className="inline-flex h-11 w-11 items-center justify-center border border-white/16 text-white transition duration-200 hover:-translate-y-px hover:border-[rgba(238,43,36,.8)]"
-          href="/lien-he"
-          aria-label="Lien he"
-        >
-          <Phone size={18} />
-        </a>
+        <div className="flex items-center gap-2">
+          <HeaderSearch />
+          <a className="inline-flex h-11 w-11 items-center justify-center border border-white/16 text-white transition duration-200 hover:-translate-y-px hover:border-[rgba(238,43,36,.8)]" href="/lien-he" aria-label="Liên hệ">
+            <Phone size={18} />
+          </a>
+        </div>
       </header>
 
       <section className="border-b border-[var(--line)] px-[clamp(20px,5vw,76px)] py-[clamp(42px,7vw,96px)]">

@@ -12,10 +12,13 @@ export type Tenant = {
 export type Product = {
   id: string
   name: string
+  slug?: string
   sku: string
   price: number
   compareAtPrice?: number
   shortDescription: string
+  gallery?: Array<{ url?: string; alt?: string; width?: number; height?: number; searchTags?: Array<{ value?: string }> }>
+  searchTags?: Array<{ value?: string }>
 }
 
 export type Post = { id: string; title: string; slug: string; excerpt: string }
@@ -43,6 +46,7 @@ export type StoreSettings = {
   siteName: string
   contactPhone?: string
   zaloUrl?: string
+  telegramChatId?: string
   analytics?: {
     ga4Enabled?: boolean
     gaMeasurementId?: string
@@ -150,6 +154,17 @@ export async function getAnalyticsSettings() {
   }
 }
 
+export async function hasProductInterestForm() {
+  try {
+    const slug = await getTenantSlug()
+    const tenantFilter = `where[tenant.slug][equals]=${slug}`
+    const settings = await fetchDocs<StoreSettings>(`/api/store-settings?${tenantFilter}&limit=1&depth=0`)
+    return Boolean(settings[0]?.telegramChatId?.trim())
+  } catch {
+    return false
+  }
+}
+
 export async function getTenantSlug() {
   const headerStore = await headers()
   const host = headerStore.get('host')?.replace(/^www\./, '')
@@ -216,6 +231,45 @@ export async function getPageData(pageSlug: string) {
       categories: fallbackCategories,
       products: fallbackProducts,
     }
+  }
+}
+
+export async function searchProducts(search: string) {
+  const slug = await getTenantSlug()
+  const query = search.trim()
+  if (!query) return []
+
+  try {
+    const tenantFilter = `where[tenant.slug][equals]=${slug}`
+    const params = new URLSearchParams({
+      'where[or][0][name][contains]': query,
+      'where[or][1][gallery.searchTags.value][contains]': query,
+      'where[or][2][searchTags.value][contains]': query,
+      depth: '2',
+      limit: '48',
+      sort: '-createdAt',
+    })
+    const products = await fetchDocs<Product>(`/api/products?${tenantFilter}&${params.toString()}`)
+    return products.length ? products : fallbackProducts.filter((product) => product.name.toLocaleLowerCase('vi-VN').includes(query.toLocaleLowerCase('vi-VN')))
+  } catch {
+    return fallbackProducts.filter((product) => product.name.toLocaleLowerCase('vi-VN').includes(query.toLocaleLowerCase('vi-VN')))
+  }
+}
+
+export async function getProductBySlug(slug: string) {
+  try {
+    const tenantSlug = await getTenantSlug()
+    const params = new URLSearchParams({
+      'where[tenant.slug][equals]': tenantSlug,
+      'where[slug][equals]': slug,
+      'where[publicationStatus][equals]': 'publish',
+      depth: '1',
+      limit: '1',
+    })
+    const products = await fetchDocs<Product>(`/api/products?${params.toString()}`)
+    return products[0] || null
+  } catch {
+    return null
   }
 }
 

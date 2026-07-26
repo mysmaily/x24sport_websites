@@ -9,6 +9,7 @@ export type MediaImage = {
   alt?: string | null
   width?: number | null
   height?: number | null
+  searchTags?: Array<{ value?: string | null }> | null
 }
 
 export type ProductCategory = {
@@ -40,6 +41,7 @@ export type Product = {
   categories?: Array<ProductCategory | number> | null
   seoTitle?: string | null
   metaDescription?: string | null
+  searchTags?: Array<{ value?: string | null }> | null
   sourceModifiedAt?: string | null
 }
 
@@ -56,6 +58,7 @@ export type WebContent = {
 
 export type StoreSettings = {
   id: number
+  telegramChatId?: string | null
   analytics?: {
     ga4Enabled?: boolean | null
     gaMeasurementId?: string | null
@@ -103,6 +106,21 @@ export async function getAnalyticsSettings() {
   return result.docs[0]?.analytics ?? null
 }
 
+export async function hasProductInterestForm() {
+  try {
+    const tenant = await getTenant()
+    const params = new URLSearchParams({
+      'where[tenant][equals]': String(tenant.id),
+      limit: '1',
+      depth: '0',
+    })
+    const result = await api<Paginated<StoreSettings>>(`/api/store-settings?${params}`, 60)
+    return Boolean(result.docs[0]?.telegramChatId?.trim())
+  } catch {
+    return false
+  }
+}
+
 export async function getProducts({
   page = 1,
   limit = 24,
@@ -129,7 +147,12 @@ export async function getProducts({
   })
   let index = 2
   if (category) params.set(`where[and][${index++}][categories][equals]`, String(category.id))
-  if (search?.trim()) params.set(`where[and][${index}][name][contains]`, search.trim())
+  if (search?.trim()) {
+    const query = search.trim()
+    params.set(`where[and][${index}][or][0][name][contains]`, query)
+    params.set(`where[and][${index}][or][1][gallery.searchTags.value][contains]`, query)
+    params.set(`where[and][${index}][or][2][searchTags.value][contains]`, query)
+  }
   return api<Paginated<Product>>(`/api/products?${params}`)
 }
 

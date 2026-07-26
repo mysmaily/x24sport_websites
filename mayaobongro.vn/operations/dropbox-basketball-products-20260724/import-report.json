@@ -1,0 +1,45 @@
+{
+  "assets": 345,
+  "categoryCounts": {
+    "ao-bong-ro": 345,
+    "bo-quan-ao-bong-ro": 950,
+    "bong-ro": 345,
+    "cam": 35,
+    "den": 34,
+    "do": 20,
+    "do-do": 21,
+    "hong": 22,
+    "kem": 9,
+    "nguoi-lon": 173,
+    "tim": 16,
+    "tim-than": 24,
+    "trang": 49,
+    "tre-em": 172,
+    "vang": 22,
+    "xam": 2,
+    "xanh-bich": 19,
+    "xanh-duong": 22,
+    "xanh-la": 13,
+    "xanh-ngoc": 20,
+    "xanh-ve-chai": 20
+  },
+  "folderCounts": {
+    "Người lớn": 173,
+    "Trẻ em": 172
+  },
+  "manifest": "mayaobongro.vn/operations/dropbox-basketball-products-20260724/import-manifest.json",
+  "mode": "apply",
+  "tenant": {
+    "id": 5,
+    "slug": "mayaobongro"
+  },
+  "totals": {
+    "failed": 0,
+    "media_created": 0,
+    "media_unchanged": 345,
+    "media_updated": 0,
+    "products_created": 0,
+    "products_unchanged": 172,
+    "products_updated": 173
+  }
+}

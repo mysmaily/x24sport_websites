@@ -2,13 +2,14 @@ import { ArrowRight, MessageCircle, Phone } from 'lucide-react'
 import Link from 'next/link'
 
 import { JsonLd } from '@/components/json-ld'
+import { ProductInterestForm } from '@/components/product-interest-form'
 import { ProductGallery } from '@/components/product-gallery'
 import { ProductGrid } from '@/components/product-grid'
 import { ProductViewTracker } from '@/components/product-view-tracker'
-import type { Product } from '@/lib/cms'
+import { getProductImages, hasProductInterestForm, type Product } from '@/lib/cms'
 import { canonical, excerpt, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '@/lib/site'
 
-export function ProductDetailPage({
+export async function ProductDetailPage({
   catalogHref,
   catalogLabel,
   isLogo,
@@ -21,8 +22,9 @@ export function ProductDetailPage({
   product: Product
   related: Product[]
 }) {
-  const images = (product.legacyImages ?? []).filter((image) => Boolean(image.url))
+  const images = getProductImages(product)
   const productPath = `/san-pham/${product.slug}/`
+  const showInterestForm = await hasProductInterestForm()
 
   return (
     <>
@@ -36,13 +38,13 @@ export function ProductDetailPage({
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Product', name: product.name, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productPath), brand: { '@type': 'Brand', name: 'X24 Sport' } }} />
       <article className="section-shell pb-16 sm:pb-22">
         <nav className="flex gap-2 overflow-hidden py-5 text-xs text-slate-500" aria-label="Đường dẫn"><Link className="hover:text-brand" href="/">Trang chủ</Link><span>/</span><Link className="hover:text-brand" href={catalogHref}>{catalogLabel}</Link><span>/</span><span className="truncate text-slate-700">{product.name}</span></nav>
+        <h1 className="mb-5 font-display text-[20px] font-bold leading-tight tracking-[-.01em] text-slate-950 lg:text-[22px]">{product.name}</h1>
 
         <div className="grid overflow-hidden rounded-3xl border border-slate-200 bg-white lg:grid-cols-[1.15fr_.85fr]">
           <ProductGallery images={images} key={product.id} productName={product.name} />
 
           <div className="flex flex-col p-6 sm:p-9 lg:p-12">
             <p className="section-kicker">{isLogo ? 'Mẫu logo team bóng rổ' : 'Mẫu đồng phục bóng rổ'}</p>
-            <h1 className="font-display text-[clamp(3rem,5vw,5rem)] font-bold leading-[.94] tracking-[-.025em] text-slate-950 text-balance">{product.name}</h1>
             {product.shortDescription ? <p className="mt-5 text-base leading-7 text-slate-600">{product.shortDescription}</p> : null}
 
             <div className="mt-8 grid gap-3 rounded-2xl bg-orange-50 p-5 text-sm text-slate-700">
@@ -57,6 +59,7 @@ export function ProductDetailPage({
               <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={19} /> Gửi mẫu này qua Zalo</a>
               <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 px-5 text-sm font-black text-slate-950 transition hover:border-brand hover:text-brand" href={`tel:${PHONE_VALUE}`}><Phone size={18} /> Gọi {PHONE_DISPLAY}</a>
             </div>
+            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={canonical(productPath)} /> : null}
           </div>
         </div>
 

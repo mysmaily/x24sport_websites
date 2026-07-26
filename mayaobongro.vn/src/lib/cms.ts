@@ -8,7 +8,10 @@ export type LegacyImage = {
   alt?: string | null
   width?: number | null
   height?: number | null
+  searchTags?: Array<{ value?: string | null }> | null
 }
+
+export type ProductImage = LegacyImage
 
 export type Product = {
   id: number
@@ -19,9 +22,22 @@ export type Product = {
   legacyPath?: string | null
   shortDescription?: string | null
   contentHtml?: string | null
+  gallery?: ProductImage[] | number[] | null
   legacyImages?: LegacyImage[] | null
-  categories?: number[] | null
+  categories?: Array<number | ProductCategory> | null
+  searchTags?: Array<{ value?: string | null }> | null
   sourceModifiedAt?: string | null
+}
+
+export function getProductImages(product: Product): ProductImage[] {
+  const galleryImages = (product.gallery ?? []).filter(
+    (image): image is ProductImage =>
+      Boolean(image && typeof image === 'object' && 'url' in image && image.url),
+  )
+
+  if (galleryImages.length) return galleryImages
+
+  return (product.legacyImages ?? []).filter((image) => Boolean(image.url))
 }
 
 export type ProductCategory = {
@@ -43,6 +59,7 @@ export type WebContent = {
 
 export type StoreSettings = {
   id: number
+  telegramChatId?: string | null
   analytics?: {
     ga4Enabled?: boolean | null
     gaMeasurementId?: string | null
@@ -92,6 +109,21 @@ export async function getAnalyticsSettings() {
   return result.docs[0]?.analytics ?? null
 }
 
+export async function hasProductInterestForm() {
+  try {
+    const tenant = await getTenant()
+    const params = new URLSearchParams({
+      'where[tenant][equals]': String(tenant.id),
+      limit: '1',
+      depth: '0',
+    })
+    const result = await api<Paginated<StoreSettings>>(`/api/store-settings?${params}`, 60)
+    return Boolean(result.docs[0]?.telegramChatId?.trim())
+  } catch {
+    return false
+  }
+}
+
 export async function getProducts({
   page = 1,
   limit = 12,
@@ -113,7 +145,7 @@ export async function getProducts({
     'where[and][1][publicationStatus][equals]': 'publish',
     limit: String(limit),
     page: String(page),
-    depth: '0',
+    depth: '1',
     sort: '-sourceModifiedAt',
   })
   let conditionIndex = 2
@@ -121,7 +153,12 @@ export async function getProducts({
     params.set(`where[and][${conditionIndex}][categories][equals]`, String(category.id))
     conditionIndex += 1
   }
-  if (search?.trim()) params.set(`where[and][${conditionIndex}][name][contains]`, search.trim())
+  if (search?.trim()) {
+    const query = search.trim()
+    params.set(`where[and][${conditionIndex}][or][0][name][contains]`, query)
+    params.set(`where[and][${conditionIndex}][or][1][gallery.searchTags.value][contains]`, query)
+    params.set(`where[and][${conditionIndex}][or][2][searchTags.value][contains]`, query)
+  }
   return api<Paginated<Product>>(`/api/products?${params}`)
 }
 
@@ -131,7 +168,7 @@ export const getProductCategory = cache(async (slug: string) => {
     'where[and][0][tenant][equals]': String(tenant.id),
     'where[and][1][slug][equals]': slug,
     limit: '1',
-    depth: '0',
+    depth: '1',
   })
   const result = await api<Paginated<ProductCategory>>(`/api/product-categories?${params}`)
   return result.docs[0] ?? null
@@ -144,7 +181,7 @@ export const resolveProductPath = cache(async (legacyPath: string) => {
     'where[and][1][legacyPath][equals]': legacyPath,
     'where[and][2][publicationStatus][equals]': 'publish',
     limit: '1',
-    depth: '0',
+    depth: '1',
   })
   const result = await api<Paginated<Product>>(`/api/products?${params}`)
   return result.docs[0] ?? null
@@ -157,7 +194,7 @@ export const resolveProductSlug = cache(async (slug: string) => {
     'where[and][1][slug][equals]': slug,
     'where[and][2][publicationStatus][equals]': 'publish',
     limit: '1',
-    depth: '0',
+    depth: '1',
   })
   const result = await api<Paginated<Product>>(`/api/products?${params}`)
   return result.docs[0] ?? null
