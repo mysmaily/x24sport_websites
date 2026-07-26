@@ -60,12 +60,14 @@ function richTextFromParagraphs(paragraphs: string[]) {
   return {
     root: {
       type: 'root',
-      format: '',
+      direction: null,
+      format: '' as const,
       indent: 0,
       version: 1,
       children: paragraphs.map((text) => ({
         type: 'paragraph',
-        format: '',
+        direction: null,
+        format: '' as const,
         indent: 0,
         version: 1,
         children: [
@@ -352,12 +354,12 @@ async function run() {
     const categoryIds = [relationID(parent), Number(category.id)].filter((id) => Number.isFinite(id))
     const desired = productData(product, tenantId, categoryIds, media?.id ? Number(media.id) : undefined)
     const productAction = existingProduct ? 'update' : 'create'
-    let saved = existingProduct
+    let saved: { id?: number | string } | undefined = existingProduct
 
     if (apply) {
       saved = existingProduct
-        ? await payload.update({ collection: 'products', id: existingProduct.id, data: desired, overrideAccess: true })
-        : await payload.create({ collection: 'products', data: desired, overrideAccess: true })
+        ? await payload.update({ collection: 'products', id: existingProduct.id, data: desired as any, overrideAccess: true })
+        : await payload.create({ collection: 'products', data: desired as any, overrideAccess: true })
     }
 
     summary.push({
