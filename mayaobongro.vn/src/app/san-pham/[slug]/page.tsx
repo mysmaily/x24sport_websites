@@ -51,7 +51,13 @@ export default async function ProductPage({ params, searchParams }: ProductRoute
   const [{ slug }, query] = await Promise.all([params, searchParams])
   const landing = getCatalogLandingBySlug(slug)
   if (landing) {
-    return <CatalogPageView activeLanding={landing} breadcrumbLabel={landing.label === 'Học sinh' ? 'Áo bóng rổ học sinh' : `Màu ${landing.label.toLocaleLowerCase('vi-VN')}`} canonicalPath={landing.path} description={landing.description} heading={landing.title} page={pageNumber(query.page)} search={landing.query} />
+    const breadcrumbLabel = landing.categorySlug
+      ? landing.title
+      : landing.label === 'Học sinh'
+        ? 'Áo bóng rổ học sinh'
+        : `Màu ${landing.label.toLocaleLowerCase('vi-VN')}`
+
+    return <CatalogPageView activeLanding={landing} breadcrumbLabel={breadcrumbLabel} canonicalPath={landing.path} categorySlug={landing.categorySlug || 'bo-quan-ao-bong-ro'} description={landing.description} heading={landing.title} page={pageNumber(query.page)} search={landing.categorySlug ? '' : landing.query} />
   }
   const product = await resolveProductSlug(slug)
   if (!product) notFound()

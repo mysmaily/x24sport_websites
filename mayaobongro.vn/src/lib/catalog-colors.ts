@@ -3,6 +3,7 @@ export type CatalogLanding = {
   path: string
   label: string
   query: string
+  categorySlug?: string
   title: string
   description: string
   metaDescription?: string
@@ -19,6 +20,18 @@ export const STUDENT_CATALOG_LANDING: CatalogLanding = {
   title: 'Các mẫu áo bóng rổ học sinh',
   description: 'Tổng hợp mẫu áo bóng rổ dành cho đội lớp và trường học, có thể điều chỉnh màu, logo, tên và số theo danh sách của đội.',
   aliases: ['áo bóng rổ học sinh', 'mẫu áo bóng rổ học sinh'],
+}
+
+export const NBA_CATALOG_LANDING: CatalogLanding = {
+  slug: 'ao-bong-ro-nba',
+  path: '/san-pham/ao-bong-ro-nba/',
+  label: 'NBA',
+  query: 'nba',
+  categorySlug: 'ao-bong-ro-nba',
+  title: 'Các mẫu áo bóng rổ NBA',
+  description: 'Tổng hợp mẫu jersey bóng rổ phong cách NBA để tham khảo phối màu đội, form áo sát nách và đặt in tên số theo nhu cầu riêng.',
+  metaDescription: 'Xem 37 mẫu áo bóng rổ NBA tại Mayaobongro.vn, có thể đặt may, in tên số và tùy chỉnh logo đội.',
+  aliases: ['áo bóng rổ nba', 'mẫu áo bóng rổ nba', 'jersey nba'],
 }
 
 export const CATALOG_COLOR_LANDINGS: CatalogColorLanding[] = [
@@ -89,7 +102,7 @@ export const CATALOG_COLOR_LANDINGS: CatalogColorLanding[] = [
   },
 ]
 
-export const CATALOG_LANDINGS: CatalogLanding[] = [STUDENT_CATALOG_LANDING, ...CATALOG_COLOR_LANDINGS]
+export const CATALOG_LANDINGS: CatalogLanding[] = [STUDENT_CATALOG_LANDING, NBA_CATALOG_LANDING, ...CATALOG_COLOR_LANDINGS]
 
 function normalizeCatalogQuery(value: string) {
   return value

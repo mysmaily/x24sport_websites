@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronRight, Search } from 'lucide-react'
 import Link from 'next/link'
 
-import { CATALOG_COLOR_LANDINGS, STUDENT_CATALOG_LANDING, type CatalogLanding } from '@/lib/catalog-colors'
+import { CATALOG_COLOR_LANDINGS, NBA_CATALOG_LANDING, STUDENT_CATALOG_LANDING, type CatalogLanding } from '@/lib/catalog-colors'
 import { getProducts } from '@/lib/cms'
 import { SITE_URL } from '@/lib/site'
 
@@ -10,6 +10,7 @@ import { ProductGrid } from './product-grid'
 
 const popularKeywords = [
   { label: 'Áo bóng rổ học sinh', href: STUDENT_CATALOG_LANDING.path, landingSlug: STUDENT_CATALOG_LANDING.slug },
+  { label: 'Áo bóng rổ NBA', href: NBA_CATALOG_LANDING.path, landingSlug: NBA_CATALOG_LANDING.slug },
   { label: 'Mẫu gradient', href: '/san-pham/ao-bong-ro-gradient/', landingSlug: 'ao-bong-ro-gradient' },
 ]
 
@@ -21,10 +22,12 @@ export async function CatalogPageView({
   canonicalPath = '/san-pham/',
   breadcrumbLabel = 'Mẫu áo bóng rổ',
   activeLanding,
+  categorySlug = 'bo-quan-ao-bong-ro',
   searchAction = '/san-pham/',
 }: {
   page: number
   search?: string
+  categorySlug?: string
   heading?: string
   description?: string
   canonicalPath?: string
@@ -32,7 +35,7 @@ export async function CatalogPageView({
   activeLanding?: CatalogLanding
   searchAction?: string
 }) {
-  const result = await getProducts({ page, limit: 24, search, categorySlug: 'bo-quan-ao-bong-ro' })
+  const result = await getProducts({ page, limit: 24, search, categorySlug })
   const pageHref = (nextPage: number) => {
     const params = new URLSearchParams({ ...(activeLanding || !search ? {} : { q: search }), page: String(nextPage) })
     return `${canonicalPath}?${params}`
