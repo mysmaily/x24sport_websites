@@ -33,6 +33,10 @@ export type CmsProduct = {
   searchTags?: SearchTag[]
   legacyImages?: Array<{ url: string; alt?: string; width?: number; height?: number }>
 }
+export type StoreSettings = {
+  id: number | string
+  telegramChatId?: string | null
+}
 export type CatalogPage = { products: ProductPreview[]; totalDocs: number; totalPages: number; page: number }
 export type ContentPage = { docs: CmsWebContent[]; totalDocs: number; totalPages: number; page: number }
 
@@ -277,6 +281,22 @@ export async function getProductBySlug(slug: string): Promise<CmsProduct | undef
     'where[publicationStatus][equals]': 'publish', limit: '1', depth: '2',
   })
   return (await fetchList<CmsProduct>('products', params)).docs[0]
+}
+
+export async function hasProductInterestForm() {
+  const tenantSlug = await getTenantSlug()
+  try {
+    const params = new URLSearchParams({
+      'where[tenant.slug][equals]': tenantSlug,
+      limit: '1',
+      depth: '0',
+    })
+    const settings = (await fetchList<StoreSettings>('store-settings', params)).docs[0]
+    return Boolean(settings?.telegramChatId?.trim())
+  } catch (error) {
+    console.error(`Unable to load ${tenantSlug} product interest settings.`, error)
+    return false
+  }
 }
 
 export async function getCategoryByLegacyPath(path: string): Promise<CmsCategory | undefined> {

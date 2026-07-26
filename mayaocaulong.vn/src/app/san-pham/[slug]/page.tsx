@@ -10,7 +10,9 @@ import {
   getProductColorTags,
   getProductBySlug,
   getProductDescriptionParagraphs,
+  hasProductInterestForm,
 } from '../../../lib/content'
+import { ProductInterestForm } from '../../_components/product-interest-form'
 import { ProductGallery } from './product-gallery'
 
 const defaultOgImage = {
@@ -76,6 +78,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   if (!product) notFound()
 
   const paragraphs = getProductDescriptionParagraphs(product)
+  const showInterestForm = await hasProductInterestForm()
   const badges = product.badges?.map((badge) => badge.label).filter((badge) => badge && badge.toLowerCase() !== 'mới') || []
   const colorTags = getProductColorTags(product)
   const discountPercent = product.compareAtPrice
@@ -211,6 +214,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <Phone size={17} />
               Hỗ trợ 24/7, luôn sẵn sàng tư vấn cho bạn
             </p>
+
+            {showInterestForm ? (
+              <ProductInterestForm
+                productName={product.name}
+                productUrl={`https://mayaocaulong.vn/san-pham/${product.slug}`}
+              />
+            ) : null}
           </section>
 
           <aside className="product-right-column">

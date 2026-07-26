@@ -58,6 +58,7 @@ export type WebContent = {
 
 export type StoreSettings = {
   id: number
+  telegramChatId?: string | null
   analytics?: {
     ga4Enabled?: boolean | null
     gaMeasurementId?: string | null
@@ -103,6 +104,21 @@ export async function getAnalyticsSettings() {
   })
   const result = await api<Paginated<StoreSettings>>(`/api/store-settings?${params}`, 60)
   return result.docs[0]?.analytics ?? null
+}
+
+export async function hasProductInterestForm() {
+  try {
+    const tenant = await getTenant()
+    const params = new URLSearchParams({
+      'where[tenant][equals]': String(tenant.id),
+      limit: '1',
+      depth: '0',
+    })
+    const result = await api<Paginated<StoreSettings>>(`/api/store-settings?${params}`, 60)
+    return Boolean(result.docs[0]?.telegramChatId?.trim())
+  } catch {
+    return false
+  }
 }
 
 export async function getProducts({

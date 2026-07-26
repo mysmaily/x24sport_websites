@@ -2,13 +2,14 @@ import { ArrowRight, MessageCircle, Phone } from 'lucide-react'
 import Link from 'next/link'
 
 import { JsonLd } from '@/components/json-ld'
+import { ProductInterestForm } from '@/components/product-interest-form'
 import { ProductGallery } from '@/components/product-gallery'
 import { ProductGrid } from '@/components/product-grid'
 import { ProductViewTracker } from '@/components/product-view-tracker'
-import { getProductImages, type Product } from '@/lib/cms'
+import { getProductImages, hasProductInterestForm, type Product } from '@/lib/cms'
 import { canonical, excerpt, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '@/lib/site'
 
-export function ProductDetailPage({
+export async function ProductDetailPage({
   catalogHref,
   catalogLabel,
   isLogo,
@@ -23,6 +24,7 @@ export function ProductDetailPage({
 }) {
   const images = getProductImages(product)
   const productPath = `/san-pham/${product.slug}/`
+  const showInterestForm = await hasProductInterestForm()
 
   return (
     <>
@@ -57,6 +59,7 @@ export function ProductDetailPage({
               <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={19} /> Gửi mẫu này qua Zalo</a>
               <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 px-5 text-sm font-black text-slate-950 transition hover:border-brand hover:text-brand" href={`tel:${PHONE_VALUE}`}><Phone size={18} /> Gọi {PHONE_DISPLAY}</a>
             </div>
+            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={canonical(productPath)} /> : null}
           </div>
         </div>
 

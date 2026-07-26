@@ -46,6 +46,7 @@ export type StoreSettings = {
   siteName: string
   contactPhone?: string
   zaloUrl?: string
+  telegramChatId?: string
   analytics?: {
     ga4Enabled?: boolean
     gaMeasurementId?: string
@@ -153,6 +154,17 @@ export async function getAnalyticsSettings() {
   }
 }
 
+export async function hasProductInterestForm() {
+  try {
+    const slug = await getTenantSlug()
+    const tenantFilter = `where[tenant.slug][equals]=${slug}`
+    const settings = await fetchDocs<StoreSettings>(`/api/store-settings?${tenantFilter}&limit=1&depth=0`)
+    return Boolean(settings[0]?.telegramChatId?.trim())
+  } catch {
+    return false
+  }
+}
+
 export async function getTenantSlug() {
   const headerStore = await headers()
   const host = headerStore.get('host')?.replace(/^www\./, '')
@@ -241,6 +253,23 @@ export async function searchProducts(search: string) {
     return products.length ? products : fallbackProducts.filter((product) => product.name.toLocaleLowerCase('vi-VN').includes(query.toLocaleLowerCase('vi-VN')))
   } catch {
     return fallbackProducts.filter((product) => product.name.toLocaleLowerCase('vi-VN').includes(query.toLocaleLowerCase('vi-VN')))
+  }
+}
+
+export async function getProductBySlug(slug: string) {
+  try {
+    const tenantSlug = await getTenantSlug()
+    const params = new URLSearchParams({
+      'where[tenant.slug][equals]': tenantSlug,
+      'where[slug][equals]': slug,
+      'where[publicationStatus][equals]': 'publish',
+      depth: '1',
+      limit: '1',
+    })
+    const products = await fetchDocs<Product>(`/api/products?${params.toString()}`)
+    return products[0] || null
+  } catch {
+    return null
   }
 }
 

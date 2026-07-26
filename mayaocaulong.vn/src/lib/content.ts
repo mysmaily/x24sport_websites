@@ -75,6 +75,7 @@ export type StoreSettings = {
   siteName: string
   contactPhone?: string
   zaloUrl?: string
+  telegramChatId?: string
   analytics?: {
     ga4Enabled?: boolean
     gaMeasurementId?: string
@@ -131,6 +132,17 @@ export async function getAnalyticsSettings() {
     return settings[0]?.analytics
   } catch {
     return undefined
+  }
+}
+
+export async function hasProductInterestForm() {
+  try {
+    const slug = await getTenantSlug()
+    const tenantFilter = `where[tenant.slug][equals]=${slug}`
+    const settings = await fetchDocs<StoreSettings>(`/api/store-settings?${tenantFilter}&limit=1&depth=0`)
+    return Boolean(settings[0]?.telegramChatId?.trim())
+  } catch {
+    return false
   }
 }
 

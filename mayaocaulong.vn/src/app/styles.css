@@ -2824,6 +2824,114 @@ img {
   margin-top: 12px;
 }
 
+.quick-order-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(18px, 3vw, 32px);
+  align-items: start;
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: white;
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.quick-order-heading h2 {
+  margin: 0;
+  color: #24272d;
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.18;
+}
+
+.quick-order-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.quick-order-form label {
+  display: grid;
+  gap: 6px;
+  color: #34373d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.quick-order-form input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #d8dadd;
+  border-radius: 7px;
+  background: white;
+  padding: 0 12px;
+  color: #22252b;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.quick-order-form input:focus {
+  border-color: #df3f32;
+  box-shadow: 0 0 0 3px rgba(223, 63, 50, 0.14);
+}
+
+.quick-order-form button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  grid-column: 1 / -1;
+  border: 0;
+  border-radius: 7px;
+  background: #df3f32;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, opacity 180ms ease;
+}
+
+.quick-order-form button:hover {
+  background: #c93025;
+}
+
+.quick-order-form button:disabled {
+  cursor: wait;
+  opacity: 0.58;
+}
+
+.quick-order-honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.quick-order-status {
+  min-height: 21px;
+  grid-column: 1 / -1;
+  margin: -3px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.quick-order-status.is-success {
+  color: #176b34;
+  font-weight: 700;
+}
+
+.quick-order-status.is-error {
+  color: #a40000;
+  font-weight: 700;
+}
+
 .product-sample-action,
 .product-call-action {
   display: inline-flex;
@@ -3116,6 +3224,16 @@ img {
 
   .product-detail-actions {
     grid-template-columns: 1fr;
+  }
+
+  .quick-order-card,
+  .quick-order-form {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-order-form button,
+  .quick-order-status {
+    grid-column: auto;
   }
 
   .trust-strip,

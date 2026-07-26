@@ -3,14 +3,14 @@
 import { FormEvent, useState } from 'react'
 import { Send } from 'lucide-react'
 
-type QuickOrderFormProps = {
+type ProductInterestFormProps = {
   productName: string
   productUrl: string
 }
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
 
-export function QuickOrderForm({ productName, productUrl }: QuickOrderFormProps) {
+export function ProductInterestForm({ productName, productUrl }: ProductInterestFormProps) {
   const [state, setState] = useState<SubmitState>('idle')
   const [message, setMessage] = useState('')
   const [startedAt] = useState(() => Date.now())
@@ -18,7 +18,6 @@ export function QuickOrderForm({ productName, productUrl }: QuickOrderFormProps)
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const form = event.currentTarget
-
     if (!form.reportValidity()) return
 
     setState('submitting')
@@ -41,7 +40,6 @@ export function QuickOrderForm({ productName, productUrl }: QuickOrderFormProps)
         method: 'POST',
       })
       const result = (await response.json()) as { message?: string }
-
       if (!response.ok) throw new Error(result.message || 'Không thể gửi yêu cầu.')
 
       form.reset()
@@ -54,46 +52,26 @@ export function QuickOrderForm({ productName, productUrl }: QuickOrderFormProps)
   }
 
   return (
-    <section className="quick-order-card" id="nhan-tu-van">
-      <div className="quick-order-heading">
-        <h2>Bạn quan tâm mẫu này?</h2>
-      </div>
-
-      <form className="quick-order-form" onSubmit={handleSubmit}>
+    <section className="interest-card" id="nhan-tu-van">
+      <h2>Bạn quan tâm mẫu này?</h2>
+      <form className="interest-form" onSubmit={handleSubmit}>
         <label>
           <span>Số điện thoại</span>
-          <input
-            autoComplete="tel"
-            inputMode="tel"
-            maxLength={20}
-            name="phone"
-            pattern="[0-9+ .-]{9,20}"
-            placeholder="Ví dụ: 0900000000"
-            required
-            type="tel"
-          />
+          <input autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
         </label>
-
         <label>
           <span>Số lượng cần đặt</span>
           <input inputMode="numeric" max="10000" min="1" name="quantity" required type="number" />
         </label>
-
-        <label className="quick-order-honeypot" aria-hidden="true" hidden>
+        <label className="interest-honeypot" aria-hidden="true" hidden>
           <span>Website</span>
           <input autoComplete="off" name="website" tabIndex={-1} type="text" />
         </label>
-
         <button disabled={state === 'submitting'} type="submit">
           <Send aria-hidden="true" size={18} />
           {state === 'submitting' ? 'Đang gửi...' : 'Nhận Tư Vấn'}
         </button>
-
-        <p
-          aria-live="polite"
-          className={`quick-order-status${state === 'success' ? ' is-success' : state === 'error' ? ' is-error' : ''}`}
-          role="status"
-        >
+        <p aria-live="polite" className={`interest-status${state === 'success' ? ' success' : state === 'error' ? ' error' : ''}`} role="status">
           {message}
         </p>
       </form>
