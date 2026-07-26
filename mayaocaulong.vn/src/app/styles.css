@@ -2845,7 +2845,12 @@ img {
 
 .quick-order-form {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.quick-order-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 160px;
   gap: 12px;
 }
 
@@ -3226,8 +3231,11 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .quick-order-card,
-  .quick-order-form {
+  .quick-order-card {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-order-fields {
     grid-template-columns: 1fr;
   }
 

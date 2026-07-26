@@ -55,14 +55,16 @@ export function ProductInterestForm({ productName, productUrl }: ProductInterest
     <section className="mt-5 rounded-2xl border border-slate-200 bg-white p-5" id="nhan-tu-van">
       <h2 className="text-xl font-black leading-tight text-slate-950">Bạn quan tâm mẫu này?</h2>
       <form className="mt-4 grid gap-3" onSubmit={handleSubmit}>
-        <label className="grid gap-1.5 text-sm font-bold text-slate-700">
-          <span>Số điện thoại</span>
-          <input className="min-h-11 rounded-lg border border-slate-300 px-3 outline-none focus:border-[var(--accent)] focus:ring-4 focus:ring-red-950" autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
-        </label>
-        <label className="grid gap-1.5 text-sm font-bold text-slate-700">
-          <span>Số lượng cần đặt</span>
-          <input className="min-h-11 rounded-lg border border-slate-300 px-3 outline-none focus:border-[var(--accent)] focus:ring-4 focus:ring-red-950" inputMode="numeric" max="10000" min="1" name="quantity" required type="number" />
-        </label>
+        <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_160px]">
+          <label className="grid gap-1.5 text-sm font-bold text-slate-700">
+            <span>Số điện thoại</span>
+            <input className="min-h-11 rounded-lg border border-slate-300 px-3 outline-none focus:border-[var(--accent)] focus:ring-4 focus:ring-red-950" autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
+          </label>
+          <label className="grid gap-1.5 text-sm font-bold text-slate-700">
+            <span>Số lượng cần đặt</span>
+            <input className="min-h-11 rounded-lg border border-slate-300 px-3 outline-none focus:border-[var(--accent)] focus:ring-4 focus:ring-red-950" inputMode="numeric" max="10000" min="1" name="quantity" required type="number" />
+          </label>
+        </div>
         <label className="hidden" aria-hidden="true">
           <span>Website</span>
           <input autoComplete="off" name="website" tabIndex={-1} type="text" />

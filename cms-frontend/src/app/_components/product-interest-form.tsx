@@ -55,14 +55,16 @@ export function ProductInterestForm({ productName, productUrl }: ProductInterest
     <section className="interest-card" id="nhan-tu-van">
       <h2>Bạn quan tâm mẫu này?</h2>
       <form className="interest-form" onSubmit={handleSubmit}>
-        <label>
-          <span>Số điện thoại</span>
-          <input autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
-        </label>
-        <label>
-          <span>Số lượng cần đặt</span>
-          <input inputMode="numeric" max="10000" min="1" name="quantity" required type="number" />
-        </label>
+        <div className="interest-fields">
+          <label>
+            <span>Số điện thoại</span>
+            <input autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
+          </label>
+          <label>
+            <span>Số lượng cần đặt</span>
+            <input inputMode="numeric" max="10000" min="1" name="quantity" required type="number" />
+          </label>
+        </div>
         <label className="interest-honeypot" aria-hidden="true" hidden>
           <span>Website</span>
           <input autoComplete="off" name="website" tabIndex={-1} type="text" />

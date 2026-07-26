@@ -60,24 +60,26 @@ export function QuickOrderForm({ productName, productUrl }: QuickOrderFormProps)
       </div>
 
       <form className="quick-order-form" onSubmit={handleSubmit}>
-        <label>
-          <span>Số điện thoại</span>
-          <input
-            autoComplete="tel"
-            inputMode="tel"
-            maxLength={20}
-            name="phone"
-            pattern="[0-9+ .-]{9,20}"
-            placeholder="Ví dụ: 0900000000"
-            required
-            type="tel"
-          />
-        </label>
+        <div className="quick-order-fields">
+          <label>
+            <span>Số điện thoại</span>
+            <input
+              autoComplete="tel"
+              inputMode="tel"
+              maxLength={20}
+              name="phone"
+              pattern="[0-9+ .-]{9,20}"
+              placeholder="Ví dụ: 0900000000"
+              required
+              type="tel"
+            />
+          </label>
 
-        <label>
-          <span>Số lượng cần đặt</span>
-          <input inputMode="numeric" max="10000" min="1" name="quantity" required type="number" />
-        </label>
+          <label>
+            <span>Số lượng cần đặt</span>
+            <input inputMode="numeric" max="10000" min="1" name="quantity" required type="number" />
+          </label>
+        </div>
 
         <label className="quick-order-honeypot" aria-hidden="true" hidden>
           <span>Website</span>

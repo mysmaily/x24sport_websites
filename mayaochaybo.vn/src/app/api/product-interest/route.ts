@@ -64,15 +64,33 @@ async function getTelegramChatId() {
   return data.docs?.[0]?.telegramChatId?.trim() || ''
 }
 
+function requestHostCandidates(request: NextRequest) {
+  const hosts = [
+    request.headers.get('x-forwarded-host'),
+    request.headers.get('host'),
+    request.nextUrl.hostname,
+  ].flatMap((value) => (value || '').split(','))
+
+  return new Set(
+    hosts
+      .map((host) => host.trim().toLowerCase().replace(/:\d+$/, '').replace(/^www\./, ''))
+      .filter(Boolean),
+  )
+}
+
 function safeProductUrl(value: string, request: NextRequest) {
   try {
     const parsed = new URL(value)
-    const requestHost = request.nextUrl.hostname.replace(/^www\./, '')
-    if (parsed.hostname.replace(/^www\./, '') === requestHost) return parsed.toString()
+    const parsedHost = parsed.hostname.toLowerCase().replace(/^www\./, '')
+    if (requestHostCandidates(request).has(parsedHost)) return parsed.toString()
   } catch {
     return ''
   }
   return ''
+}
+
+function productUrlFromRequest(value: string, request: NextRequest) {
+  return safeProductUrl(value, request) || safeProductUrl(request.headers.get('referer') || '', request)
 }
 
 export async function POST(request: NextRequest) {
@@ -99,7 +117,7 @@ export async function POST(request: NextRequest) {
   const normalizedPhone = phone.replace(/[ .-]/g, '')
   const quantity = Number.parseInt(cleanText(payload.quantity, 10), 10)
   const productName = cleanText(payload.productName, 180)
-  const productUrl = safeProductUrl(cleanText(payload.productUrl, 500), request)
+  const productUrl = productUrlFromRequest(cleanText(payload.productUrl, 500), request)
 
   if (!/^(?:\+84|0)\d{8,10}$/.test(normalizedPhone)) {
     return NextResponse.json({ message: 'Vui lòng nhập số điện thoại hợp lệ.' }, { status: 400 })
