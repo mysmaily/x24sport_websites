@@ -28,7 +28,6 @@ export function ProductCard({ product }: { product: Product; index?: number }) {
         ) : (
           <span className="grid h-full place-items-center text-slate-300" aria-hidden="true"><Shirt size={64} strokeWidth={1.2} /></span>
         )}
-        <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-black uppercase tracking-wide text-brand shadow-sm backdrop-blur">Thiết kế riêng</span>
       </Link>
       <div className="p-4 sm:p-5">
         <p className="mb-2 text-xs font-bold text-slate-500">Có thể đổi màu, tên số & logo</p>
