@@ -37,7 +37,6 @@ export function SiteHeader() {
                   ? <details className="mobile-category-group" key={group.slug}>
                     <summary>{group.name}</summary>
                     <div>
-                      <Link href={`/danh-muc/${group.slug}`}>Tất cả {group.name}</Link>
                       {group.children.map((child) => <Link href={`/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}
                     </div>
                   </details>
@@ -67,7 +66,6 @@ export function SiteHeader() {
                 ? <div className="nav-dropdown nav-category-dropdown" key={group.slug}>
                   <Link className="nav-trigger" href={`/danh-muc/${group.slug}`}>{group.name}</Link>
                   <div className="nav-submenu" role="menu">
-                    <Link href={`/danh-muc/${group.slug}`}><strong>Tất cả {group.name}</strong></Link>
                     {group.children.map((child) => <Link href={`/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}
                   </div>
                 </div>
