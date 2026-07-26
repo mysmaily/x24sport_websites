@@ -131,12 +131,21 @@ There is no live `/opt/sports-cms/docker-compose.yml`. Do not run Docker Compose
 for these services even if their containers retain historical Compose labels.
 Use a UTC deployment ID and the exact runtime definitions below.
 
+The shared frontend Telegram bot token file is:
+
+```text
+/opt/sports-cms/frontend-telegram.env
+```
+
+It must be mode `0600` and contain `TELEGRAM_BOT_TOKEN` before replacing any
+standalone frontend container that can serve the product consultation form.
+
 ### mayaocaulong.vn
 
 ```bash
 DEPLOY_ID=$(date -u +%Y%m%d%H%M%S)
 ssh root@10.10.0.28 "docker build -t sports-cms-mayaocaulong:deploy-${DEPLOY_ID} /opt/sports-cms/mayaocaulong.vn"
-ssh root@10.10.0.28 "set -e; docker stop sports-cms-mayaocaulong-1; docker container rm sports-cms-mayaocaulong-1; docker run -d --name sports-cms-mayaocaulong-1 --restart unless-stopped --network sports-cms_default --add-host host.docker.internal:host-gateway -p 3002:3002 -e NODE_ENV=production -e PORT=3002 -e TENANT_SLUG=mayaocaulong -e PAYLOAD_API_URL=http://host.docker.internal:3001 sports-cms-mayaocaulong:deploy-${DEPLOY_ID}"
+ssh root@10.10.0.28 "set -e; test -f /opt/sports-cms/frontend-telegram.env && test \"\$(stat -c %a /opt/sports-cms/frontend-telegram.env)\" = 600; docker stop sports-cms-mayaocaulong-1; docker container rm sports-cms-mayaocaulong-1; docker run -d --name sports-cms-mayaocaulong-1 --restart unless-stopped --network sports-cms_default --add-host host.docker.internal:host-gateway --env-file /opt/sports-cms/frontend-telegram.env -p 3002:3002 -e NODE_ENV=production -e PORT=3002 -e TENANT_SLUG=mayaocaulong -e PAYLOAD_API_URL=http://host.docker.internal:3001 sports-cms-mayaocaulong:deploy-${DEPLOY_ID}"
 ```
 
 ### mayaobongchuyen.vn
@@ -144,7 +153,7 @@ ssh root@10.10.0.28 "set -e; docker stop sports-cms-mayaocaulong-1; docker conta
 ```bash
 DEPLOY_ID=$(date -u +%Y%m%d%H%M%S)
 ssh root@10.10.0.28 "docker build -t sports-cms-mayaobongchuyen:deploy-${DEPLOY_ID} /opt/sports-cms/mayaobongchuyen.vn"
-ssh root@10.10.0.28 "set -e; docker stop sports-cms-mayaobongchuyen-1; docker container rm sports-cms-mayaobongchuyen-1; docker run -d --name sports-cms-mayaobongchuyen-1 --restart unless-stopped --network sports-cms_default -p 3003:3003 -e NODE_ENV=production -e PORT=3003 -e TENANT_SLUG=mayaobongchuyen -e PAYLOAD_API_URL=http://10.10.0.28:3001 sports-cms-mayaobongchuyen:deploy-${DEPLOY_ID}"
+ssh root@10.10.0.28 "set -e; test -f /opt/sports-cms/frontend-telegram.env && test \"\$(stat -c %a /opt/sports-cms/frontend-telegram.env)\" = 600; docker stop sports-cms-mayaobongchuyen-1; docker container rm sports-cms-mayaobongchuyen-1; docker run -d --name sports-cms-mayaobongchuyen-1 --restart unless-stopped --network sports-cms_default --env-file /opt/sports-cms/frontend-telegram.env -p 3003:3003 -e NODE_ENV=production -e PORT=3003 -e TENANT_SLUG=mayaobongchuyen -e PAYLOAD_API_URL=http://10.10.0.28:3001 sports-cms-mayaobongchuyen:deploy-${DEPLOY_ID}"
 ```
 
 ### mayaobongro.vn
@@ -152,7 +161,7 @@ ssh root@10.10.0.28 "set -e; docker stop sports-cms-mayaobongchuyen-1; docker co
 ```bash
 DEPLOY_ID=$(date -u +%Y%m%d%H%M%S)
 ssh root@10.10.0.28 "docker build -t sports-cms-mayaobongro:deploy-${DEPLOY_ID} /opt/sports-cms/mayaobongro.vn"
-ssh root@10.10.0.28 "set -e; docker stop sports-cms-mayaobongro-1; docker container rm sports-cms-mayaobongro-1; docker run -d --name sports-cms-mayaobongro-1 --restart unless-stopped --network sports-cms_default -p 3005:3005 -e NODE_ENV=production -e PORT=3005 -e TENANT_SLUG=mayaobongro -e PAYLOAD_API_URL=http://10.10.0.28:3001 sports-cms-mayaobongro:deploy-${DEPLOY_ID}"
+ssh root@10.10.0.28 "set -e; test -f /opt/sports-cms/frontend-telegram.env && test \"\$(stat -c %a /opt/sports-cms/frontend-telegram.env)\" = 600; docker stop sports-cms-mayaobongro-1; docker container rm sports-cms-mayaobongro-1; docker run -d --name sports-cms-mayaobongro-1 --restart unless-stopped --network sports-cms_default --env-file /opt/sports-cms/frontend-telegram.env -p 3005:3005 -e NODE_ENV=production -e PORT=3005 -e TENANT_SLUG=mayaobongro -e PAYLOAD_API_URL=http://10.10.0.28:3001 sports-cms-mayaobongro:deploy-${DEPLOY_ID}"
 ```
 
 Verify the selected service with its origin and public URL, then inspect the
