@@ -10,6 +10,7 @@ services:
       PORT: 3011
       PAYLOAD_API_URL: http://10.10.0.28:3001
       TENANT_SLUG: mayaochaybo
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
     ports:
       - "3011:3011"
     healthcheck:
