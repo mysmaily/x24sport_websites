@@ -210,17 +210,17 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               </a>
             </div>
 
-            <p className="product-support-line">
-              <Phone size={17} />
-              Hỗ trợ 24/7, luôn sẵn sàng tư vấn cho bạn
-            </p>
-
             {showInterestForm ? (
               <ProductInterestForm
                 productName={product.name}
                 productUrl={`https://mayaocaulong.vn/san-pham/${product.slug}`}
               />
             ) : null}
+
+            <p className="product-support-line">
+              <Phone size={17} />
+              Hỗ trợ 24/7, luôn sẵn sàng tư vấn cho bạn
+            </p>
           </section>
 
           <aside className="product-right-column">

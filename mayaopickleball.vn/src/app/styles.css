@@ -3301,17 +3301,16 @@ nav.fabric-anchor-bar.info-section {
 
 .quick-order-card {
   display: grid;
-  grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
-  gap: clamp(24px, 4vw, 54px);
+  gap: 12px;
   align-items: start;
-  margin-top: 24px;
-  padding: clamp(24px, 4vw, 38px);
+  margin-top: 12px;
+  padding: 16px;
 }
 
 .quick-order-heading h2 {
   margin: 0;
   color: #24272d;
-  font-size: clamp(22px, 2.1vw, 30px);
+  font-size: 18px;
   line-height: 1.18;
 }
 
@@ -3324,13 +3323,13 @@ nav.fabric-anchor-bar.info-section {
 
 .quick-order-form {
   display: grid;
-  gap: 14px;
+  gap: 10px;
 }
 
 .quick-order-fields {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 160px;
-  gap: 14px;
+  gap: 10px;
 }
 
 .quick-order-form label {
@@ -3344,7 +3343,7 @@ nav.fabric-anchor-bar.info-section {
 .quick-order-form input,
 .quick-order-form select {
   width: 100%;
-  min-height: 46px;
+  min-height: 42px;
   border: 1px solid #d8dadd;
   border-radius: 7px;
   background: white;
@@ -3365,7 +3364,7 @@ nav.fabric-anchor-bar.info-section {
 
 .quick-order-form button {
   display: inline-flex;
-  min-height: 48px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   gap: 8px;

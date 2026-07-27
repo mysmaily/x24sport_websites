@@ -2826,32 +2826,31 @@ img {
 
 .quick-order-card {
   display: grid;
-  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
-  gap: clamp(18px, 3vw, 32px);
+  gap: 10px;
   align-items: start;
-  margin-top: 18px;
+  margin-top: 12px;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   background: white;
-  padding: clamp(18px, 3vw, 28px);
+  padding: 16px;
 }
 
 .quick-order-heading h2 {
   margin: 0;
   color: #24272d;
-  font-size: clamp(22px, 2vw, 28px);
+  font-size: 18px;
   line-height: 1.18;
 }
 
 .quick-order-form {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .quick-order-fields {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 160px;
-  gap: 12px;
+  gap: 10px;
 }
 
 .quick-order-form label {
@@ -2864,7 +2863,7 @@ img {
 
 .quick-order-form input {
   width: 100%;
-  min-height: 46px;
+  min-height: 42px;
   border: 1px solid #d8dadd;
   border-radius: 7px;
   background: white;
@@ -2884,7 +2883,7 @@ img {
 
 .quick-order-form button {
   display: inline-flex;
-  min-height: 48px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   gap: 8px;

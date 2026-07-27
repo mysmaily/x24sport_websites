@@ -218,6 +218,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               </a>
             </div>
 
+            {showInterestForm ? (
+              <QuickOrderForm
+                productName={product.name}
+                productUrl={`https://mayaopickleball.vn/san-pham/${product.slug}`}
+              />
+            ) : null}
+
             <p className="product-support-line">
               <Phone size={17} />
               Hỗ trợ 24/7, luôn sẵn sàng tư vấn cho bạn
@@ -297,13 +304,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             <p className="product-size-note">Size 3XL - 4XL và form đặc biệt sẽ được tư vấn theo số đo.</p>
           </aside>
         </section>
-
-        {showInterestForm ? (
-          <QuickOrderForm
-            productName={product.name}
-            productUrl={`https://mayaopickleball.vn/san-pham/${product.slug}`}
-          />
-        ) : null}
 
         <section className="product-fit-card">
           <div>
