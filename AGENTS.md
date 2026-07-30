@@ -27,7 +27,8 @@ x24sport_websites/
 ├── cms-api/                         # Shared Payload CMS for Next.js tenants
 ├── docker-compose.yml               # Shared CMS and tenant frontend services
 ├── scripts/                         # Registry and operational utilities
-└── mayao*.vn/                      # Website-specific source and operations
+├── mayao*.vn/                      # Website-specific source and operations for standalone frontends
+└── <domain>.MD                     # Tenant notes for domains merged into cms-frontend/
 ```
 
 Every `CLAUDE.md` is only a loader. It must not duplicate instructions or website data.
@@ -93,12 +94,14 @@ Tenant identities used by this repository are:
 
 When a request names a domain whose `Frontend source` is `cms-frontend/`, treat
 that domain as a tenant inside the shared Next.js frontend rather than as a
-standalone website folder. The external `<domain>/` folder, when present, is a
-profile and operational documentation folder only.
+standalone website folder. Merged shared tenants keep their domain-specific
+notes in a root-level `<domain>.MD` file, such as `mayaocaulong.vn.MD`; they must
+not keep a separate source folder.
 
 For shared frontend tenants:
 
-- read root `AGENTS.md`, then read the matching tenant profile if one exists;
+- read root `AGENTS.md`, then read the matching root-level `<domain>.MD` profile
+  if one exists;
 - make public UI, layout, route, component, metadata, and storefront changes in
   `cms-frontend/`;
 - use `cms-frontend/src/proxy.ts` and `cms-frontend/src/app/[tenant]/` to resolve
@@ -127,6 +130,9 @@ Determine the active platform from the website folder:
 - If the folder contains the Next.js application source and the local profile
   documents its deployed runtime, use Next.js + Payload. WordPress information
   for that website is legacy/restore only.
+- If there is no website folder but a root-level `<domain>.MD` file exists for a
+  shared frontend tenant, use `cms-frontend/` for frontend source and the
+  Markdown file for domain-specific operations notes.
 - If the folder does not contain Next.js application source, the website remains
   an active WordPress website. Use its documented WordPress server, containers,
   database, and proxy; do not invent a Payload tenant slug.
@@ -470,8 +476,8 @@ Website profiles are synchronized from the central PostgreSQL registry:
 Do not run unscoped batch synchronization in this repository because it can
 create profiles for websites outside the X24Sport `mayao*.vn` scope.
 
-Refresh or create only one website folder, regardless of the batch WordPress
-filter:
+Refresh or create only one standalone website folder, regardless of the batch
+WordPress filter:
 
 ```bash
 ruby scripts/website_registry.rb sync domain=<domain>
@@ -482,11 +488,15 @@ flags between `WEBSITE_REGISTRY_START` and `WEBSITE_REGISTRY_END` markers. It
 preserves local notes outside the markers. If `_<domain>/` exists, synchronization
 updates that isolated folder instead of recreating `<domain>/`.
 
+For a domain merged into `cms-frontend/`, do not leave a generated `<domain>/`
+folder in the repository. Keep the tenant notes in root-level `<domain>.MD`; if
+registry data must be refreshed for that tenant, update the marker block in the
+Markdown file and remove any generated folder before committing.
+
 Retrieve a Cloudflare API token only when an explicit task requires it:
 
 ```bash
-cd <domain>
-ruby ../scripts/website_registry.rb cloudflare-token <domain>
+ruby scripts/website_registry.rb cloudflare-token <domain>
 ```
 
 The command returns the token at runtime. Never write its output to documentation,

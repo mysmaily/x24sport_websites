@@ -17,7 +17,7 @@ but convert the sport context to badminton.
 ```yaml
 source_site: mayaopickleball.vn
 destination_site: mayaocaulong.vn
-api_backend: Payload CMS in /Users/hoang/hacado/wordpress_websites/cms-api
+api_backend: Payload CMS in /Users/hoang/x24sport_websites/cms-api
 operation_mode: create_reserved_product_then_update
 source_policy: next_payload_product_with_two_gallery_images
 destination_sport: badminton
@@ -33,7 +33,7 @@ final_upload_format: webp_only
 Work from this skill directory:
 
 ```bash
-cd /Users/hoang/hacado/wordpress_websites/.codex/skills/convert-pickleball-to-badminton
+cd /Users/hoang/x24sport_websites/.codex/skills/convert-pickleball-to-badminton
 ```
 
 Use `scripts/badminton_transfer.py` for normal operation. It accepts an optional
@@ -43,7 +43,7 @@ values.
 Production default credential:
 
 - normal `run` commands automatically load
-  `/Users/hoang/hacado/wordpress_websites/mayaocaulong.vn/.payload-api.env` when
+  `/Users/hoang/x24sport_websites/mayaocaulong.vn/.payload-api.env` when
   `--env-file` is omitted;
 - this file contains the dedicated `mayaocaulong` tenant automation account,
   is mode `0600`, and is ignored by Git;
@@ -124,7 +124,7 @@ Face anchors and other identity references may still live in:
 ```bash
 python scripts/badminton_transfer.py discover \
   --source-mode payload \
-  --out /Users/hoang/hacado/wordpress_websites/mayaocaulong.vn/operations/pickleball-to-badminton/source-images.jsonl \
+  --out /Users/hoang/x24sport_websites/cms-frontend/operations/mayaocaulong/pickleball-to-badminton/source-images.jsonl \
   --source-payload-tenant mayaopickleball
 ```
 
@@ -156,7 +156,7 @@ python scripts/badminton_transfer.py discover \
 ```bash
 python scripts/badminton_transfer.py discover \
   --source-mode local \
-  --source-root /Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/transfer-running-image-to-pickleball-v5/operations \
+  --source-root /Users/hoang/x24sport_websites/mayaopickleball.vn/transfer-running-image-to-pickleball-v5/operations \
   --out /tmp/source-images-local.jsonl
 ```
 
@@ -164,8 +164,8 @@ python scripts/badminton_transfer.py discover \
 
 ```bash
 python scripts/badminton_transfer.py init \
-  --wave-dir /Users/hoang/hacado/wordpress_websites/mayaocaulong.vn/operations/pickleball-to-badminton \
-  --source-jsonl /Users/hoang/hacado/wordpress_websites/mayaocaulong.vn/operations/pickleball-to-badminton/source-images.jsonl \
+  --wave-dir /Users/hoang/x24sport_websites/cms-frontend/operations/mayaocaulong/pickleball-to-badminton \
+  --source-jsonl /Users/hoang/x24sport_websites/cms-frontend/operations/mayaocaulong/pickleball-to-badminton/source-images.jsonl \
   --product-code-start 1
 ```
 
@@ -173,7 +173,7 @@ python scripts/badminton_transfer.py init \
 
 ```bash
 python scripts/badminton_transfer.py run \
-  --wave-dir /Users/hoang/hacado/wordpress_websites/mayaocaulong.vn/operations/pickleball-to-badminton \
+  --wave-dir /Users/hoang/x24sport_websites/cms-frontend/operations/mayaocaulong/pickleball-to-badminton \
   --max-items 1 \
   --dry-run
 ```
@@ -182,7 +182,7 @@ python scripts/badminton_transfer.py run \
 
 ```bash
 python scripts/badminton_transfer.py run \
-  --wave-dir /Users/hoang/hacado/wordpress_websites/mayaocaulong.vn/operations/pickleball-to-badminton \
+  --wave-dir /Users/hoang/x24sport_websites/cms-frontend/operations/mayaocaulong/pickleball-to-badminton \
   --source-key <source_product_key> \
   --max-items 1
 ```
@@ -221,7 +221,7 @@ Direct WebP rule:
 
 ```bash
 python scripts/badminton_transfer.py mark-generated \
-  --wave-dir /Users/hoang/hacado/wordpress_websites/mayaocaulong.vn/operations/pickleball-to-badminton \
+  --wave-dir /Users/hoang/x24sport_websites/cms-frontend/operations/mayaocaulong/pickleball-to-badminton \
   --source-key <source_product_key> \
   --images path/to/generated-collared.png path/to/generated-crew.png \
   --colors "xanh navy" "xanh dương" \
@@ -229,7 +229,7 @@ python scripts/badminton_transfer.py mark-generated \
   --pattern "đường sọc chéo hai bên sườn"
 
 python scripts/badminton_transfer.py run \
-  --wave-dir /Users/hoang/hacado/wordpress_websites/mayaocaulong.vn/operations/pickleball-to-badminton \
+  --wave-dir /Users/hoang/x24sport_websites/cms-frontend/operations/mayaocaulong/pickleball-to-badminton \
   --source-key <source_product_key> \
   --max-items 1
 ```
@@ -496,7 +496,7 @@ Forbidden shopper-facing terms: `pickleball`, `running`, `runner`, `chạy bộ`
 
 Read `references/payload-api.md` for Payload API work. The public Woo Store API
 is the canonical source-product inventory; do not scrape catalog pages. Read
-`/Users/hoang/hacado/wordpress_websites/mayaopickleball.vn/transfer-running-image-to-pickleball-v5/SKILL.md`
+`/Users/hoang/x24sport_websites/mayaopickleball.vn/transfer-running-image-to-pickleball-v5/SKILL.md`
 only for resumable-manifest ideas, not WooCommerce endpoints.
 
 ## Reporting

@@ -35,14 +35,14 @@ public catalog, product content, SEO, or production verification.
 1. Establish scope.
    - Target only `x24sport.vn` / `next.x24sport.vn` unless the user explicitly
      names another tenant.
-   - Read root `AGENTS.md`, `x24sport.vn/AGENTS.md`, and `cms-api/AGENTS.md`.
+   - Read root `AGENTS.md`, `x24sport.vn.MD`, and `cms-api/AGENTS.md`.
    - If the request mentions SEO, load the optimization guide according to repo
      rules.
 
 2. Create an operation folder.
 
 ```bash
-mkdir -p x24sport.vn/operations/bi-a-batch-YYYYMMDD/{sources,generated,backups,reports}
+mkdir -p cms-frontend/operations/x24sport/bi-a-batch-YYYYMMDD/{sources,generated,backups,reports}
 ```
 
 3. Download every source URL into `sources/`.
@@ -100,11 +100,11 @@ Example:
 ```bash
 python .codex/skills/convert-pickleball-to-billiards/scripts/import_billiards_batch.py \
   --cms-api http://10.10.0.28:3001 \
-  --base-dir x24sport.vn/operations/bi-a-batch-YYYYMMDD
+  --base-dir cms-frontend/operations/x24sport/bi-a-batch-YYYYMMDD
 
 python .codex/skills/convert-pickleball-to-billiards/scripts/import_billiards_batch.py \
   --cms-api http://10.10.0.28:3001 \
-  --base-dir x24sport.vn/operations/bi-a-batch-YYYYMMDD \
+  --base-dir cms-frontend/operations/x24sport/bi-a-batch-YYYYMMDD \
   --apply
 ```
 

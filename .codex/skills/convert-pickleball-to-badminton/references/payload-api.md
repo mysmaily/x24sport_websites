@@ -3,7 +3,7 @@
 The referenced backend lives at:
 
 ```text
-/Users/hoang/hacado/wordpress_websites/cms-api
+/Users/hoang/x24sport_websites/cms-api
 ```
 
 Relevant collection files:

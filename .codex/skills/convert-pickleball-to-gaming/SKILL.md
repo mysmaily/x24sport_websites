@@ -17,7 +17,7 @@ regenerate it as a dramatic esports team photo with players wearing the jersey.
 ```yaml
 source_site: mayaopickleball.vn or user-supplied apparel image
 destination_site: x24sport.vn / next.x24sport.vn by default
-api_backend: Payload CMS in /Users/hoang/hacado/x24sport_websites/cms-api
+api_backend: Payload CMS in /Users/hoang/x24sport_websites/cms-api
 operation_mode: create_reserved_product_then_update
 destination_sport_field: other
 destination_intent: gaming/esports apparel
@@ -39,7 +39,7 @@ Do not change the CMS schema unless the user explicitly asks.
 Work from this skill directory:
 
 ```bash
-cd /Users/hoang/hacado/x24sport_websites/.codex/skills/convert-pickleball-to-gaming
+cd /Users/hoang/x24sport_websites/.codex/skills/convert-pickleball-to-gaming
 ```
 
 Use `scripts/gaming_transfer.py` for normal operation. It accepts an optional
@@ -90,15 +90,15 @@ python3 scripts/gaming_transfer.py source-images \
   --images /path/to/source.webp \
   --source-key x24-pb-525-gaming \
   --source-name "X24 PB 525 gaming jersey reference" \
-  --out /Users/hoang/hacado/x24sport_websites/x24sport.vn/operations/pickleball-to-gaming/source-images.jsonl
+  --out /Users/hoang/x24sport_websites/cms-frontend/operations/x24sport/pickleball-to-gaming/source-images.jsonl
 ```
 
 3. Initialize a resumable manifest:
 
 ```bash
 python3 scripts/gaming_transfer.py init \
-  --wave-dir /Users/hoang/hacado/x24sport_websites/x24sport.vn/operations/pickleball-to-gaming \
-  --source-jsonl /Users/hoang/hacado/x24sport_websites/x24sport.vn/operations/pickleball-to-gaming/source-images.jsonl \
+  --wave-dir /Users/hoang/x24sport_websites/cms-frontend/operations/x24sport/pickleball-to-gaming \
+  --source-jsonl /Users/hoang/x24sport_websites/cms-frontend/operations/x24sport/pickleball-to-gaming/source-images.jsonl \
   --product-code-start 1
 ```
 
@@ -106,7 +106,7 @@ python3 scripts/gaming_transfer.py init \
 
 ```bash
 python3 scripts/gaming_transfer.py run \
-  --wave-dir /Users/hoang/hacado/x24sport_websites/x24sport.vn/operations/pickleball-to-gaming \
+  --wave-dir /Users/hoang/x24sport_websites/cms-frontend/operations/x24sport/pickleball-to-gaming \
   --max-items 1 \
   --dry-run
 ```
@@ -115,7 +115,7 @@ python3 scripts/gaming_transfer.py run \
 
 ```bash
 python3 scripts/gaming_transfer.py run \
-  --wave-dir /Users/hoang/hacado/x24sport_websites/x24sport.vn/operations/pickleball-to-gaming \
+  --wave-dir /Users/hoang/x24sport_websites/cms-frontend/operations/x24sport/pickleball-to-gaming \
   --source-key <source_product_key> \
   --max-items 1 \
   --env-file /path/to/payload.env
@@ -149,7 +149,7 @@ source image and the generated prompt file.
 
 ```bash
 python3 scripts/gaming_transfer.py mark-generated \
-  --wave-dir /Users/hoang/hacado/x24sport_websites/x24sport.vn/operations/pickleball-to-gaming \
+  --wave-dir /Users/hoang/x24sport_websites/cms-frontend/operations/x24sport/pickleball-to-gaming \
   --source-key <source_product_key> \
   --images /path/to/generated.png \
   --no-overlays \
@@ -166,7 +166,7 @@ hotline, or color dots. Upload only WebP output, never raw PNG/JPEG.
 
 ```bash
 python3 scripts/gaming_transfer.py run \
-  --wave-dir /Users/hoang/hacado/x24sport_websites/x24sport.vn/operations/pickleball-to-gaming \
+  --wave-dir /Users/hoang/x24sport_websites/cms-frontend/operations/x24sport/pickleball-to-gaming \
   --source-key <source_product_key> \
   --max-items 1 \
   --env-file /path/to/payload.env
@@ -189,7 +189,7 @@ gallery images:
 python3 scripts/gaming_transfer.py discover \
   --source-mode payload \
   --source-payload-tenant mayaopickleball \
-  --out /Users/hoang/hacado/x24sport_websites/x24sport.vn/operations/pickleball-to-gaming/source-images.jsonl
+  --out /Users/hoang/x24sport_websites/cms-frontend/operations/x24sport/pickleball-to-gaming/source-images.jsonl
 ```
 
 Use Woo Store API or local discovery only as recovery paths.
