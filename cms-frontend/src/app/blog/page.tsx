@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { JsonLd } from '../_components/json-ld'
 import { Pagination } from '../_components/pagination'
 import { SiteHeader } from '../_components/site-header'
+import { FloatingContact, PageFooter } from '../_components/store-footer'
 import { getPostsPage } from '../../lib/content'
 import { breadcrumbSchema, metadataDescription, pageCanonical, pageTitle } from '../../lib/seo'
 
@@ -29,5 +30,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
       <div className="blog-grid">{result.docs.map((post) => <article key={post.id}><p>Kiến thức thể thao</p><h2><Link href={post.legacyPath}>{post.title}</Link></h2><span>{post.excerpt}</span><Link className="blog-read" href={post.legacyPath}>Đọc bài viết →</Link></article>)}</div>
       <Pagination basePath="/blog/" page={page} totalPages={result.totalPages} />
     </main>
+    <PageFooter />
+    <FloatingContact />
   </div>
 }

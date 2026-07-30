@@ -1,18 +1,22 @@
 import { notFound } from 'next/navigation'
-import X24SearchPage, { generateMetadata as generateX24SearchMetadata } from '../../tim-kiem/page'
 
-type TenantSearchProps = Parameters<typeof X24SearchPage>[0] & {
+import X24SearchPage, { generateMetadata as generateX24SearchMetadata } from '../../tim-kiem/page'
+import MayaoCauLongSearchPage, { generateMetadata as generateMayaoCauLongSearchMetadata } from '../_mayaocaulong/tim-kiem/page'
+
+type Props = Parameters<typeof X24SearchPage>[0] & {
   params: Promise<{ tenant: string }>
 }
 
-export async function generateMetadata({ params, searchParams }: TenantSearchProps) {
-  const { tenant } = await params
-  if (tenant !== 'x24sport') return {}
-  return generateX24SearchMetadata({ searchParams })
+export async function generateMetadata({ params, searchParams }: Props) {
+  const tenant = (await params).tenant
+  if (tenant === 'x24sport') return generateX24SearchMetadata({ searchParams })
+  if (tenant !== 'mayaocaulong') return {}
+  return generateMayaoCauLongSearchMetadata({ searchParams })
 }
 
-export default async function TenantSearchPage(props: TenantSearchProps) {
-  const { tenant } = await props.params
-  if (tenant !== 'x24sport') notFound()
-  return <X24SearchPage searchParams={props.searchParams} />
+export default async function TenantSearchPage({ params, searchParams }: Props) {
+  const tenant = (await params).tenant
+  if (tenant === 'x24sport') return <X24SearchPage searchParams={searchParams} />
+  if (tenant !== 'mayaocaulong') notFound()
+  return <MayaoCauLongSearchPage searchParams={searchParams} />
 }

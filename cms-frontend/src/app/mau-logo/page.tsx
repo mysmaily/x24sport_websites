@@ -5,6 +5,7 @@ import { CatalogDiscoveryNav } from '../_components/catalog-discovery-nav'
 import { JsonLd } from '../_components/json-ld'
 import { ProductCard } from '../_components/product-card'
 import { SiteHeader } from '../_components/site-header'
+import { FloatingContact, PageFooter } from '../_components/store-footer'
 import { logoCollections } from '../../lib/catalog'
 import { getProductsPage } from '../../lib/content'
 import { breadcrumbSchema } from '../../lib/seo'
@@ -93,6 +94,8 @@ export default async function LogoLibraryPage() {
             </section>}
         </div>
       </main>
+      <PageFooter />
+      <FloatingContact />
     </div>
   )
 }

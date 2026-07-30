@@ -3,9 +3,14 @@ import type { Metadata } from 'next'
 import X24LegacyPage from '../../[...legacy]/page'
 import { getProductBySlug, productImages } from '../../../lib/content'
 import { RynoProductPage } from '../ryno-catalog'
+import MayaoCauLongCatalogFilterPage, { generateMetadata as generateMayaoCauLongCatalogMetadata } from '../_mayaocaulong/[catalogSlug]/page'
+import { getCatalogFilterBySlug } from '../_mayaocaulong/lib/content'
 
 export async function generateMetadata({ params }: { params: Promise<{ tenant: string; legacy: string[] }> }): Promise<Metadata> {
   const { tenant, legacy } = await params
+  if (tenant === 'mayaocaulong' && legacy.length === 1 && getCatalogFilterBySlug(legacy[0])) {
+    return generateMayaoCauLongCatalogMetadata({ params: Promise.resolve({ catalogSlug: legacy[0] }) })
+  }
   if (tenant !== 'rynosport' || legacy.length !== 1) return {}
 
   const product = await getProductBySlug(legacy[0])
@@ -29,6 +34,9 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
 
 export default async function TenantLegacyPage(props: Parameters<typeof X24LegacyPage>[0] & { params: Promise<{ tenant: string; legacy: string[] }> }) {
   const { tenant, legacy } = await props.params
+  if (tenant === 'mayaocaulong' && legacy.length === 1 && getCatalogFilterBySlug(legacy[0])) {
+    return <MayaoCauLongCatalogFilterPage params={Promise.resolve({ catalogSlug: legacy[0] })} />
+  }
   if (tenant === 'rynosport' && legacy.length === 1) return <RynoProductPage slug={legacy[0]} />
   if (tenant !== 'x24sport') notFound()
   return <X24LegacyPage params={Promise.resolve({ legacy })} searchParams={props.searchParams} />

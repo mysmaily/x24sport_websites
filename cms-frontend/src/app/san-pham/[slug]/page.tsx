@@ -1,0 +1,32 @@
+import type { Metadata } from 'next'
+
+import { LegacyContentPage } from '../../[...legacy]/page'
+import { getProductBySlug, productImages } from '../../../lib/content'
+import { cleanSeoTitle, metadataDescription } from '../../../lib/seo'
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const product = await getProductBySlug((await params).slug)
+  if (!product) return { title: 'Không tìm thấy sản phẩm' }
+
+  const title = cleanSeoTitle(product.seoTitle || product.name)
+  const description = metadataDescription(product.metaDescription || product.shortDescription, `${product.name} tại X24Sport.`)
+  const images = productImages(product).map((image) => ({ url: image.url, alt: image.alt || product.name }))
+  const canonical = `/san-pham/${product.slug}/`
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: { type: 'website', title, description, url: canonical, images },
+    twitter: { card: 'summary_large_image', title, description, images: images.map((image) => image.url) },
+  }
+}
+
+export default async function ProductPage({ params, searchParams }: {
+  params: Promise<{ slug: string }>
+  searchParams: Promise<{ page?: string }>
+}) {
+  return <LegacyContentPage
+    params={params.then(({ slug }) => ({ legacy: [slug] }))}
+    searchParams={searchParams}
+  />
+}

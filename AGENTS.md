@@ -82,7 +82,7 @@ Tenant identities used by this repository are:
 |---|---|---|---|
 | `x24sport.vn` | `x24sport` | `cms-frontend/` | Active shared Next.js tenant |
 | `rynosport.vn` | `rynosport` | `cms-frontend/` | Active shared Next.js tenant; served by the `next-x24sport` container |
-| `mayaocaulong.vn` | `mayaocaulong` | Website folder | Active |
+| `mayaocaulong.vn` | `mayaocaulong` | `cms-frontend/` | Active shared Next.js tenant; served by the `next-x24sport` container |
 | `mayaobongchuyen.vn` | `mayaobongchuyen` | Website folder | Active |
 | `mayaopickleball.vn` | `mayaopickleball` | Website folder | Active |
 | `mayaobongro.vn` | `mayaobongro` | Website folder | Active |
@@ -111,8 +111,8 @@ For shared frontend tenants:
 - keep tenant-specific styling, copy, assets, and layout separate unless the user
   explicitly asks to share them;
 - deploy shared frontend tenant code with the `x24sport.vn` procedure in
-  `PRODUCTION-DEPLOYMENT-RUNBOOK.md`, because `x24sport.vn` and `rynosport.vn`
-  currently run in the same `next-x24sport` container.
+  `PRODUCTION-DEPLOYMENT-RUNBOOK.md`, because `x24sport.vn`, `rynosport.vn`,
+  and `mayaocaulong.vn` currently run in the same `next-x24sport` container.
 
 Examples:
 
@@ -120,6 +120,7 @@ Examples:
 |---|---|---|
 | `x24sport.vn` | `x24sport` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "x24sport"` |
 | `rynosport.vn` | `rynosport` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "rynosport"` |
+| `mayaocaulong.vn` | `mayaocaulong` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "mayaocaulong"` |
 
 Determine the active platform from the website folder:
 

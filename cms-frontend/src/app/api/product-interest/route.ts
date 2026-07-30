@@ -1,10 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const API_URL = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
-const TENANT_SLUG = process.env.TENANT_SLUG || 'x24sport'
 const rateLimit = new Map<string, { count: number; resetAt: number }>()
 const rateLimitWindowMs = 10 * 60 * 1000
 const maxRequestsPerWindow = 5
+const tenantsByHost: Record<string, string> = {
+  'x24sport.vn': 'x24sport',
+  'rynosport.vn': 'rynosport',
+  'mayaocaulong.vn': 'mayaocaulong',
+}
 
 type InterestPayload = {
   phone?: unknown
@@ -52,9 +56,14 @@ function isRateLimited(ip: string) {
   return current.count > maxRequestsPerWindow
 }
 
-async function getTelegramChatId() {
+function getTenantSlugFromRequest(request: NextRequest) {
+  const host = requestHostCandidates(request).values().next().value as string | undefined
+  return host ? tenantsByHost[host] || '' : ''
+}
+
+async function getTelegramChatId(tenantSlug: string) {
   const params = new URLSearchParams({
-    'where[tenant.slug][equals]': TENANT_SLUG,
+    'where[tenant.slug][equals]': tenantSlug,
     limit: '1',
     depth: '0',
   })
@@ -94,6 +103,11 @@ function productUrlFromRequest(value: string, request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const tenantSlug = getTenantSlugFromRequest(request)
+  if (!tenantSlug) {
+    return NextResponse.json({ message: 'Không xác định được website gửi yêu cầu.' }, { status: 400 })
+  }
+
   const ip = getClientIp(request)
   if (isRateLimited(ip)) {
     return NextResponse.json({ message: 'Bạn đã gửi quá nhiều yêu cầu. Vui lòng thử lại sau ít phút.' }, { status: 429 })
@@ -130,13 +144,13 @@ export async function POST(request: NextRequest) {
   }
 
   const token = process.env.TELEGRAM_BOT_TOKEN
-  const chatId = await getTelegramChatId()
+  const chatId = await getTelegramChatId(tenantSlug)
   if (!token || !chatId) {
     return NextResponse.json({ message: 'Form tư vấn chưa được cấu hình. Vui lòng gọi hotline để được hỗ trợ.' }, { status: 503 })
   }
 
   const message = [
-    `Yêu cầu tư vấn sản phẩm từ ${TENANT_SLUG}`,
+    `Yêu cầu tư vấn sản phẩm từ ${tenantSlug}`,
     '',
     `Số điện thoại: ${phone}`,
     `Số lượng cần đặt: ${quantity}`,

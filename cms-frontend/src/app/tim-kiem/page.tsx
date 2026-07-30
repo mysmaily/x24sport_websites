@@ -4,6 +4,7 @@ import { Search } from 'lucide-react'
 import { Pagination } from '../_components/pagination'
 import { ProductCard } from '../_components/product-card'
 import { SiteHeader } from '../_components/site-header'
+import { FloatingContact, PageFooter } from '../_components/store-footer'
 import { getProductsPage } from '../../lib/content'
 
 type SearchParams = { page?: string; q?: string }
@@ -45,6 +46,8 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
           {query ? <Pagination basePath="/tim-kiem/" page={page} totalPages={result.totalPages} params={{ q: query }} /> : null}
         </div>
       </main>
+      <PageFooter />
+      <FloatingContact />
     </div>
   )
 }

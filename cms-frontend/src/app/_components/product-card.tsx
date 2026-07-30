@@ -16,7 +16,7 @@ export function ProductCard({ product, headingLevel = 3, imagePriority = false, 
   const Heading = headingLevel === 2 ? 'h2' : 'h3'
   return (
     <article className="product-card catalog-card">
-      <Link className="product-image" href={`/${product.slug}/`}>
+      <Link className="product-image" href={`/san-pham/${product.slug}/`}>
         <Image src={product.image} alt={product.name} width={900} height={900}
           fetchPriority={imagePriority ? 'high' : 'auto'} loading={imagePriority ? 'eager' : 'lazy'}
           sizes="(max-width: 700px) 48vw, (max-width: 1100px) 24vw, 18vw" />
@@ -24,7 +24,7 @@ export function ProductCard({ product, headingLevel = 3, imagePriority = false, 
       </Link>
       <div className="product-info">
         {showCategory && <span className="product-card-category">{product.category}</span>}
-        <Heading><Link href={`/${product.slug}/`}>{product.name}</Link></Heading>
+        <Heading><Link href={`/san-pham/${product.slug}/`}>{product.name}</Link></Heading>
         <div className="product-prices">
           {Boolean(product.compareAtPrice && product.compareAtPrice > 0) && <del>{formatPrice(product.compareAtPrice, product.currency)}</del>}
           <strong>{formatPrice(product.price, product.currency)}</strong>

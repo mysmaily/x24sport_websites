@@ -6,6 +6,7 @@ import { CatalogDiscoveryNav } from '../_components/catalog-discovery-nav'
 import { Pagination } from '../_components/pagination'
 import { ProductCard } from '../_components/product-card'
 import { SiteHeader } from '../_components/site-header'
+import { FloatingContact, PageFooter } from '../_components/store-footer'
 import { getCategories, getProductsPage } from '../../lib/content'
 import { logoCategorySlugs } from '../../lib/catalog'
 import { breadcrumbSchema, metadataDescription, pageCanonical, pageTitle } from '../../lib/seo'
@@ -84,6 +85,8 @@ export default async function ProductsPage({ searchParams }: {
           <Pagination basePath="/san-pham/" page={page} totalPages={totalPages} params={{ q: search.q?.trim(), sort: search.sort }} />
         </div>
       </main>
+      <PageFooter />
+      <FloatingContact />
     </div>
   )
 }

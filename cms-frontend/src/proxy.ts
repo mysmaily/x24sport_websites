@@ -6,6 +6,8 @@ const hosts: Record<string, string> = {
   '10.10.0.58': 'x24sport',
   'rynosport.vn': 'rynosport',
   'www.rynosport.vn': 'rynosport',
+  'mayaocaulong.vn': 'mayaocaulong',
+  'www.mayaocaulong.vn': 'mayaocaulong',
 }
 
 export function proxy(request: NextRequest) {
@@ -18,5 +20,7 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|robots.txt|sitemap.xml).*)'],
+  matcher: [
+    '/((?!api|_next/static|_next/image|fonts|images|favicon.ico|icon.png|apple-icon.png|robots.txt|sitemap.xml).*)',
+  ],
 }

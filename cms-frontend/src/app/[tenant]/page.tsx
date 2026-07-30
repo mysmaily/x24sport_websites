@@ -23,9 +23,11 @@ import X24HomePage from '../page'
 import { getCategories, getProductsPage } from '../../lib/content'
 import { RynoCard, RynoDesignGrid } from './ryno-catalog'
 import { RynoSiteFooter, RynoSiteHeader } from './ryno-shell'
+import MayaoCauLongHomePage from './_mayaocaulong/page'
 
 export async function generateMetadata({ params }: { params: Promise<{ tenant: string }> }): Promise<Metadata> {
   const { tenant } = await params
+  if (tenant === 'mayaocaulong') return {}
   if (tenant !== 'rynosport') return {}
 
   return {
@@ -82,6 +84,7 @@ const trustItems = [
 export default async function TenantHomePage({ params }: { params: Promise<{ tenant: string }> }) {
   const { tenant } = await params
   if (tenant === 'x24sport') return <X24HomePage />
+  if (tenant === 'mayaocaulong') return <MayaoCauLongHomePage />
   if (tenant !== 'rynosport') notFound()
 
   const [{ products }, categories] = await Promise.all([

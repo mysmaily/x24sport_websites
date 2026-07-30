@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Clock3, MapPin, Phone } from 'lucide-react'
 import { JsonLd } from '../_components/json-ld'
 import { SiteHeader } from '../_components/site-header'
+import { FloatingContact, PageFooter } from '../_components/store-footer'
 import { contactItems } from '../../lib/contact'
 import { absoluteUrl, siteLogoUrl } from '../../lib/seo'
 import { ContactForm } from './contact-form'
@@ -80,6 +81,8 @@ export default function ContactPage() {
           />
         </section>
       </main>
+      <PageFooter />
+      <FloatingContact />
     </div>
   )
 }

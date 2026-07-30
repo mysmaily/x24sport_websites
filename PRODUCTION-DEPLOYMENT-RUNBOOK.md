@@ -59,9 +59,10 @@ unrecognized runtime file.
 | Target | SSH host | Remote source | Container | Published origin |
 |---|---|---|---|---|
 | `x24sport.vn` | `root@10.10.0.58` | `/root/websites/x24sport.vn` | `next-x24sport` | `10.10.0.58:3010` |
+| `rynosport.vn` | `root@10.10.0.58` | `/root/websites/x24sport.vn` | `next-x24sport` | `10.10.0.58:3010` |
+| `mayaocaulong.vn` | `root@10.10.0.58` | `/root/websites/x24sport.vn` | `next-x24sport` | `10.10.0.58:3010` |
 | `mayaochaybo.vn` | `root@10.10.0.58` | `/root/websites/next.mayaochaybo.vn` | `next-mayaochaybo` | `10.10.0.58:3011` |
 | `mayaobongda.vn` | `root@10.10.0.58` | `/root/websites/next.mayaobongda.vn` | `next-mayaobongda` | `10.10.0.58:3012` |
-| `mayaocaulong.vn` | `root@10.10.0.28` | `/opt/sports-cms/mayaocaulong.vn` | `sports-cms-mayaocaulong-1` | `10.10.0.28:3002` |
 | `mayaobongchuyen.vn` | `root@10.10.0.28` | `/opt/sports-cms/mayaobongchuyen.vn` | `sports-cms-mayaobongchuyen-1` | `10.10.0.28:3003` |
 | `mayaobongro.vn` | `root@10.10.0.28` | `/opt/sports-cms/mayaobongro.vn` | `sports-cms-mayaobongro-1` | `10.10.0.28:3005` |
 | `mayaopickleball.vn` | `root@10.10.0.27` | `/root/websites/apps/mayaopickleball-next` | `mayaopickleball-next` | `10.10.0.27:8000` |
@@ -69,7 +70,13 @@ unrecognized runtime file.
 
 ## Compose frontends on 10.10.0.58
 
-### x24sport.vn
+### Shared x24sport.vn frontend tenants
+
+This shared frontend currently serves:
+
+- `x24sport.vn`
+- `rynosport.vn`
+- `mayaocaulong.vn`
 
 Synchronize `cms-frontend/` to `/root/websites/x24sport.vn/`, then run only:
 
@@ -85,6 +92,8 @@ ssh root@10.10.0.58 \
   'docker inspect -f "{{.State.Status}} {{.State.Health.Status}}" next-x24sport && docker logs --tail 120 next-x24sport'
 curl -fsSI http://10.10.0.58:3010/
 curl -fsSI https://x24sport.vn/
+curl -fsSI https://rynosport.vn/
+curl -fsSI https://mayaocaulong.vn/
 ```
 
 ### mayaochaybo.vn
@@ -139,14 +148,6 @@ The shared frontend Telegram bot token file is:
 
 It must be mode `0600` and contain `TELEGRAM_BOT_TOKEN` before replacing any
 standalone frontend container that can serve the product consultation form.
-
-### mayaocaulong.vn
-
-```bash
-DEPLOY_ID=$(date -u +%Y%m%d%H%M%S)
-ssh root@10.10.0.28 "docker build -t sports-cms-mayaocaulong:deploy-${DEPLOY_ID} /opt/sports-cms/mayaocaulong.vn"
-ssh root@10.10.0.28 "set -e; test -f /opt/sports-cms/frontend-telegram.env && test \"\$(stat -c %a /opt/sports-cms/frontend-telegram.env)\" = 600; docker stop sports-cms-mayaocaulong-1; docker container rm sports-cms-mayaocaulong-1; docker run -d --name sports-cms-mayaocaulong-1 --restart unless-stopped --network sports-cms_default --add-host host.docker.internal:host-gateway --env-file /opt/sports-cms/frontend-telegram.env -p 3002:3002 -e NODE_ENV=production -e PORT=3002 -e TENANT_SLUG=mayaocaulong -e PAYLOAD_API_URL=http://host.docker.internal:3001 sports-cms-mayaocaulong:deploy-${DEPLOY_ID}"
-```
 
 ### mayaobongchuyen.vn
 

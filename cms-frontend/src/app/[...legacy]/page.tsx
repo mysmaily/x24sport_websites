@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Check, MessageCircle, PackageCheck, Phone, ShieldCheck } from 'lucide-react'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import { JsonLd } from '../_components/json-ld'
 import { Pagination } from '../_components/pagination'
 import { ProductCard } from '../_components/product-card'
 import { ProductGallery } from '../_components/product-gallery'
 import { ProductViewTracker } from '../_components/product-view-tracker'
 import { SiteHeader } from '../_components/site-header'
+import { FloatingContact, PageFooter } from '../_components/store-footer'
 import {
   getCategoryByLegacyPath, getProductBySlug, getProductsPage,
   getRelatedProducts, getWebContentByLegacyPath, hasProductInterestForm, prepareContentHtml, productImages, type CmsCategory, type CmsProduct, type CmsWebContent,
@@ -77,7 +78,12 @@ function ProductDetail({ product, related, showInterestForm }: { product: CmsPro
   const categories = categoryObjects(product)
   const currency = product.currency || 'VND'
   const inStock = product.stockStatus !== 'outofstock'
-  const canonical = product.legacyPath || `/${product.slug}/`
+  const originalPrice = typeof product.price === 'number' && product.price > 0
+    ? (typeof product.compareAtPrice === 'number' && product.compareAtPrice > product.price
+        ? product.compareAtPrice
+        : Math.round((product.price * 1.2) / 1000) * 1000)
+    : null
+  const canonical = `/san-pham/${product.slug}/`
   const images = productImages(product)
   const primaryCategory = categories[0]
   const primaryCategoryPath = currentCategoryPath(primaryCategory)
@@ -116,17 +122,29 @@ function ProductDetail({ product, related, showInterestForm }: { product: CmsPro
       <nav className="detail-breadcrumb site-container" aria-label="Đường dẫn">
         <Link href="/">Trang chủ</Link><span>/</span><Link href={primaryCategoryPath}>{primaryCategory?.name || 'Sản phẩm'}</Link><span>/</span><b>{product.name}</b>
       </nav>
+      <header className="product-detail-heading site-container">
+        <h1>{product.name}</h1>
+      </header>
       <main id="noi-dung" className="product-detail site-container">
         <ProductGallery images={images} name={product.name} />
         <div className="detail-side">
           <section className="detail-summary">
-            <p className="detail-category">{categories.map((item) => item.name).slice(0, 2).join(' · ') || 'X24Sport'}</p>
-            <h1>{product.name}</h1>
             <div className="detail-prices">
-              {Boolean(product.compareAtPrice && product.compareAtPrice > 0) && <del>{money(product.compareAtPrice, currency)}</del>}
-              <strong>{money(product.price, currency)}</strong>
+              <div className="detail-price-main">
+                <strong>{money(product.price, currency)}</strong>
+                {originalPrice && <del>{money(originalPrice, currency)}</del>}
+              </div>
+              <div className="detail-price-meta">
+                <span>Đã bao gồm VAT</span>
+                <small>Giá đã bao gồm tư vấn thiết kế và phí ship.</small>
+              </div>
             </div>
             {product.shortDescription && <p className="detail-excerpt">{product.shortDescription}</p>}
+            <aside className="detail-assurance" aria-label="Hỗ trợ đặt hàng">
+              <div><PackageCheck /><span><b>Chọn mẫu theo đội</b><small>Hỗ trợ điều chỉnh màu sắc và số lượng.</small></span></div>
+              <div><ShieldCheck /><span><b>Tư vấn trước khi đặt</b><small>Xác nhận size, mẫu và thời gian thực hiện.</small></span></div>
+              <div><Check /><span><b>Trao đổi rõ ràng</b><small>Chốt thông tin đơn hàng trước khi sản xuất.</small></span></div>
+            </aside>
             <ul className="detail-facts">
               {product.sku && <li><span>Mã sản phẩm</span><b>{product.sku}</b></li>}
               <li><span>Tình trạng</span><b className={inStock ? 'in-stock' : 'out-stock'}>{inStock ? 'Còn hàng' : 'Tạm hết hàng'}</b></li>
@@ -138,12 +156,6 @@ function ProductDetail({ product, related, showInterestForm }: { product: CmsPro
             </div>
             {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={absoluteUrl(canonical)} /> : null}
           </section>
-          <aside className="detail-assurance">
-            <h2>Thông tin mua hàng</h2>
-            <div><PackageCheck /><span><b>Sản phẩm từ X24Sport</b><small>Thông tin và hình ảnh được đồng bộ từ catalog chính.</small></span></div>
-            <div><ShieldCheck /><span><b>Tư vấn trực tiếp</b><small>Xác nhận mẫu, size và thời gian thực hiện qua hotline.</small></span></div>
-            <div><Check /><span><b>Dữ liệu giá minh bạch</b><small>Giá hiển thị lấy trực tiếp từ hệ thống quản lý sản phẩm.</small></span></div>
-          </aside>
         </div>
       </main>
       {lazyContentHtml && <section className="product-description site-container">
@@ -184,16 +196,18 @@ function ContentDetail({ content }: { content: CmsWebContent }) {
   </>
 }
 
-export default async function LegacyPage({ params, searchParams }: {
+export async function LegacyContentPage({ params, searchParams, redirectProducts = false }: {
   params: Promise<{ legacy: string[] }>
   searchParams: Promise<{ page?: string }>
+  redirectProducts?: boolean
 }) {
   const result = await resolve((await params).legacy)
   if (result.product) {
+    if (redirectProducts) permanentRedirect(`/san-pham/${result.product.slug}/`)
     const [related, showInterestForm] = await Promise.all([getRelatedProducts(result.product), hasProductInterestForm()])
-    return <div className="page-shell"><SiteHeader /><ProductDetail product={result.product} related={related} showInterestForm={showInterestForm} /></div>
+    return <div className="page-shell"><SiteHeader /><ProductDetail product={result.product} related={related} showInterestForm={showInterestForm} /><PageFooter /><FloatingContact /></div>
   }
-  if (result.content) return <div className="page-shell"><SiteHeader /><ContentDetail content={result.content} /></div>
+  if (result.content) return <div className="page-shell"><SiteHeader /><ContentDetail content={result.content} /><PageFooter /><FloatingContact /></div>
   if (result.category) {
     const page = Math.max(1, Number((await searchParams).page) || 1)
     const categoryPath = result.category.legacyPath || `/${result.category.slug}/`
@@ -207,7 +221,14 @@ export default async function LegacyPage({ params, searchParams }: {
           : <section className="catalog-no-results" role="status"><h2>Danh mục đang được cập nhật</h2><p>Sản phẩm mới sẽ sớm xuất hiện tại đây.</p><Link href="/san-pham/">Xem tất cả sản phẩm</Link></section>}
         <Pagination basePath={categoryPath} page={page} totalPages={products.totalPages} />
       </div>
-    </main></div>
+    </main><PageFooter /><FloatingContact /></div>
   }
   notFound()
+}
+
+export default async function LegacyPage(props: {
+  params: Promise<{ legacy: string[] }>
+  searchParams: Promise<{ page?: string }>
+}) {
+  return <LegacyContentPage {...props} redirectProducts />
 }
