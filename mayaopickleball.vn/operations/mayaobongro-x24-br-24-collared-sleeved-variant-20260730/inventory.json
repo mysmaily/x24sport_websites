@@ -1,0 +1,25 @@
+[
+  {
+    "targetTenant": "mayaopickleball",
+    "targetSku": "X24-PB-695",
+    "targetProductId": 7228,
+    "sourceTenant": "mayaobongro",
+    "sourceProductId": 4178,
+    "sourceSku": "X24-BR-DBX-KID-170",
+    "sourceCode": "X24-BR-24",
+    "sourceUrl": "https://mayaobongro.vn/san-pham/ao-bong-ro-tre-em-x24-br-24-xanh-ve-chai-170/",
+    "sourceImageUrl": "https://static.x24sport.vn/mayaobongro/ao-bong-ro-tre-em-x24-br-24-xanh-ve-chai-170.webp",
+    "sourceLocal": "source/x24-br-24-xanh-ve-chai-source.webp",
+    "variant": "collared-short-sleeve",
+    "final": "output/x24-pb-695-collared-sleeved-variant-q96.webp",
+    "png": "output/x24-pb-695-collared-sleeved-variant.png",
+    "metadata": {
+      "palette": "Xanh ve chai phối trắng",
+      "colors": ["xanh ve chai", "trắng", "xanh đậm"],
+      "style": "collared short-sleeve court polo",
+      "pattern": "gradient xanh ve chai xuống trắng, texture chấm mờ, graphic đầu rắn ở hông",
+      "garmentCut": "áo pickleball người lớn có cổ tay ngắn",
+      "sourceDesign": "X24-BR-24"
+    }
+  }
+]

@@ -1,0 +1,175 @@
+{
+  "result": {
+    "mediaCount": 24,
+    "mediaFailures": [],
+    "samplePages": [
+      {
+        "url": "https://mayaopickleball.vn/san-pham/bo-quan-ao-pickleball-nam-nu-x24-pb-623-do-cam-vang-phoi-xanh-navy",
+        "status": 200,
+        "containsSku": true,
+        "containsMedia": true,
+        "title": "Bộ Quần Áo Pickleball Nam Nữ X24-PB-623 Đỏ cam vàng phối xanh navy | MayaoPickleball"
+      },
+      {
+        "url": "https://mayaopickleball.vn/san-pham/bo-quan-ao-pickleball-nam-nu-x24-pb-628-kem-den-phoi-navy",
+        "status": 200,
+        "containsSku": true,
+        "containsMedia": true,
+        "title": "Bộ Quần Áo Pickleball Nam Nữ X24-PB-628 Kem đen phối navy | MayaoPickleball"
+      },
+      {
+        "url": "https://mayaopickleball.vn/san-pham/bo-quan-ao-pickleball-nam-nu-x24-pb-646-hong-phoi-trang-den",
+        "status": 200,
+        "containsSku": true,
+        "containsMedia": true,
+        "title": "Bộ Quần Áo Pickleball Nam Nữ X24-PB-646 Hồng phối trắng đen | MayaoPickleball"
+      }
+    ]
+  },
+  "media": [
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-623-do-cam-vang-phoi-xanh-navy.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "77188"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-624-trang-hong-xanh-pastel.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "85230"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-625-xanh-duong-phoi-trang.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "82380"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-626-xanh-duong-the-thao-phoi-trang.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "94412"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-627-trang-phoi-xanh-navy.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "92090"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-628-kem-den-phoi-navy.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "96436"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-629-trang-xanh-ngoc.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "98580"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-630-kem-den-co-dien.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "90642"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-631-trang-do-den-splatter.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "108602"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-632-trang-do.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "115958"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-633-trang-tim-xanh-navy.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "108752"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-634-xanh-ngoc-phoi-den.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "86196"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-635-trang-xam.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "92788"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-636-trang-do-vang.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "94124"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-637-xanh-duong-ton-sur-ton.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "105788"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-638-hong-xanh-pastel.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "80400"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-639-trang-xanh-do.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "82696"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-640-cam-hong-coral.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "88432"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-641-trang-xanh-duong.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "95636"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-642-trang-tim-than.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "94352"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-643-do-phoi-den.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "98008"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-644-tim-than-xanh-teal-hong.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "93648"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-645-vang-cam-phoi-den.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "69974"
+    },
+    {
+      "url": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-646-hong-phoi-trang-den.webp",
+      "status": 200,
+      "type": "image/webp",
+      "length": "114316"
+    }
+  ]
+}

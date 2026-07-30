@@ -1,0 +1,153 @@
+{
+  "result": {
+    "total": 24,
+    "ok": 24,
+    "failures": []
+  },
+  "checks": [
+    {
+      "sku": "X24-PB-671",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-672",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-673",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-674",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-675",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-676",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-677",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-678",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-679",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-680",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-681",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-682",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-683",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-684",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-685",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-686",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-687",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-688",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-689",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-690",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-691",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-692",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-693",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    },
+    {
+      "sku": "X24-PB-694",
+      "status": 200,
+      "containsSku": true,
+      "containsImage": true
+    }
+  ]
+}

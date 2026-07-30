@@ -1,0 +1,1908 @@
+{
+  "docs": [
+    {
+      "id": 3730,
+      "tenant": {
+        "id": 8,
+        "name": "May Ao Bong Da",
+        "slug": "mayaobongda",
+        "domains": [
+          {
+            "id": "6a5ce92dbbb870000146a916",
+            "domain": "mayaobongda.vn"
+          },
+          {
+            "id": "6a5ce92dbbb870000146a917",
+            "domain": "next.mayaobongda.vn"
+          }
+        ],
+        "brand": {
+          "headline": "May ao bong da thiet ke truc tiep tai xuong",
+          "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+          "primaryColor": "#101820",
+          "accentColor": "#f15a24",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-19T15:11:41.288Z",
+        "createdAt": "2026-07-19T15:11:41.288Z"
+      },
+      "name": "Áo Bóng Đá GRAVIX Màu Trắng Xanh Lá – Thiết Kế Năng Động, Thẩm Mỹ Thể Thao",
+      "slug": "ao-bong-da-gravix-mau-trang-xanh-la-thiet-ke-nang-dong-tham-my-the-thao",
+      "tenantSlugKey": "8:ao-bong-da-gravix-mau-trang-xanh-la-thiet-ke-nang-dong-tham-my-the-thao",
+      "sku": null,
+      "sport": "football",
+      "productType": "simple",
+      "publicationStatus": "publish",
+      "featured": false,
+      "viewCount": 0,
+      "categories": [
+        {
+          "id": 140,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "name": "Áo Không Logo",
+          "slug": "ao-khong-logo",
+          "tenantSlugKey": "8:ao-khong-logo",
+          "parent": null,
+          "group": "type",
+          "description": "🟢Áo Bóng Đá Không Logo – Sự Lựa Chọn Linh Hoạt Cho Mọi Đội Bóng Áo bóng đá không logo là dòng sản phẩm được ưa chuộng nhờ tính linh hoạt, đơn giản và phù hợp cho nhiều mục đích sử dụng khác nhau. Tại mayaobongda.vn , chúng tôi cung cấp các mẫu áo trơn không logo với chất liệu vải cao cấp, form thể thao chuẩn, dễ dàng in ấn theo nhu cầu riêng. ✔️Đặc Điểm Nổi Bật Của Áo Bóng Đá Không Logo ✅ Chất liệu vải thể thao cao cấp Vải thun lạnh co giãn 4 chiều, nhẹ, thoáng khí, thấm hút mồ hôi tốt. Mang lại cảm giác thoải mái khi thi đấu hoặc tập luyện lâu dài. ✅ Nhiều màu sắc và size lựa chọn Đầy đủ size từ trẻ em đến 6XL cho cả nam và nữ. Có sẵn hơn 10 màu cơ bản như: xanh than, đỏ, vàng, đen, trắng,... phù hợp với mọi đội bóng. ✅ Thiết kế đơn giản – Dễ cá nhân hóa Không in sẵn logo giúp người dùng dễ dàng tự thiết kế, in tên, số áo, hoặc dán logo theo nhu cầu riêng của đội nhóm. ✅Phù Hợp Cho Nhiều Mục Đích Đội bóng phong trào, lớp học, công ty Áo tập luyện hàng ngày, thể dục thể thao Giải đấu nhỏ hoặc sự kiện thể thao nội bộ ✔️ Vì Sao Nên Mua Tại mayaobongda.vn? Với xưởng may trực tiếp, không qua trung gian, chúng tôi cam kết: ✅ Giá thành tận xưởng – tiết kiệm chi phí ✅ Giao hàng nhanh toàn quốc ✅ Miễn phí thiết kế và in ấn tên, số, logo theo yêu cầu 👉 Xem thêm: Áo Thiết Kế Maket trước sản xuất Thành phẩm sau may Bảng size chuẩn Liên hệ ngay để được tư vấn và đặt hàng! Hotline/Zalo: 0989.353.247 Facebook: May Áo Bóng Đá - Vn Website: mayaobongda.vn",
+          "legacyPath": "/ao-khong-logo/",
+          "tenantLegacyPathKey": "8:/ao-khong-logo/",
+          "sourceSystem": "wordpress-product-category",
+          "sourceId": "71",
+          "tenantSourceKey": "8:wordpress-product-category:71",
+          "sourceChecksum": "6e1e0039a9cdcb66ba8068353c9f608caa51a6355b82766c8eafdf82893b3cf9",
+          "productCount": 103,
+          "order": 3,
+          "updatedAt": "2026-07-19T15:14:27.120Z",
+          "createdAt": "2026-07-19T15:14:27.120Z"
+        }
+      ],
+      "price": 125000,
+      "regularPrice": 165000,
+      "salePrice": 125000,
+      "compareAtPrice": 165000,
+      "currency": "VND",
+      "stockStatus": "instock",
+      "isPurchasable": false,
+      "isOnBackorder": false,
+      "shortDescription": "Áo bóng đá không logo GRAVIX phối màu trắng và xanh lá cây hiện đại, chất liệu co giãn thoáng mát, phù hợp thi đấu và luyện tập với form dáng thể thao chuẩn body.",
+      "description": null,
+      "attributes": [],
+      "badges": [],
+      "searchTags": [
+        {
+          "id": "6a5ceb3cb74ce30001ef3f73",
+          "value": "Áo Không Logo"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 6352,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "codex-imagegen",
+          "sourceId": "catalog-refresh-20260729-product-3730",
+          "sourceUrl": null,
+          "sourceChecksum": "a0f29598bca9d3152f6050ee21a3837dad76723f9cd311bf9e9d25f955c33730",
+          "tenantSourceKey": "8:codex-imagegen:catalog-refresh-20260729-product-3730",
+          "sharedWithTenants": [],
+          "alt": "Áo Bóng Đá GRAVIX Màu Trắng Xanh Lá – Thiết Kế Năng Động, Thẩm Mỹ Thể Thao - cầu thủ nam Việt Nam mặc áo trên sân bóng",
+          "searchTags": [
+            {
+              "id": "6a69dd335aac3700012d195c",
+              "value": "bóng đá"
+            },
+            {
+              "id": "6a69dd335aac3700012d195d",
+              "value": "cầu thủ nam"
+            },
+            {
+              "id": "6a69dd335aac3700012d195e",
+              "value": "ảnh sản phẩm"
+            }
+          ],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-29T11:00:03.543Z",
+          "createdAt": "2026-07-29T11:00:03.226Z",
+          "url": "https://static.x24sport.vn/mayaobongda/10-3730-ao-bong-da-gravix-mau-trang-xanh-la-thiet-ke-nang-dong-tham-my-the-thao.webp",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/10-3730-ao-bong-da-gravix-mau-trang-xanh-la-thiet-ke-nang-dong-tham-my-the-thao.webp",
+          "filename": "10-3730-ao-bong-da-gravix-mau-trang-xanh-la-thiet-ke-nang-dong-tham-my-the-thao.webp",
+          "mimeType": "image/webp",
+          "filesize": 126580,
+          "width": 1600,
+          "height": 1600,
+          "focalX": 50,
+          "focalY": 50
+        },
+        {
+          "id": 5036,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "wordpress-media",
+          "sourceId": "1067",
+          "sourceUrl": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-trang-gravix.jpg",
+          "sourceChecksum": "667f19361b314a5b28fc7f7a332441ab149ba6699229172636788c0f7b371919",
+          "tenantSourceKey": "8:wordpress-media:1067",
+          "sharedWithTenants": [],
+          "alt": "ao-bong-da-khong-logo-mau-trang-gravix",
+          "searchTags": [],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-19T15:13:21.331Z",
+          "createdAt": "2026-07-19T15:13:20.966Z",
+          "url": "https://static.x24sport.vn/mayaobongda/wp-1067-ao-bong-da-khong-logo-mau-trang-gravix.jpg",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/wp-1067-ao-bong-da-khong-logo-mau-trang-gravix.jpg",
+          "filename": "wp-1067-ao-bong-da-khong-logo-mau-trang-gravix.jpg",
+          "mimeType": "image/jpeg",
+          "filesize": 291676,
+          "width": 850,
+          "height": 850,
+          "focalX": 50,
+          "focalY": 50
+        }
+      ],
+      "legacyImages": [
+        {
+          "id": "6a5ceb3cb74ce30001ef3f74",
+          "url": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-trang-gravix.jpg",
+          "alt": "Áo Bóng Đá GRAVIX Màu Trắng Xanh Lá &#8211; Thiết Kế Năng Động, Thẩm Mỹ Thể Thao",
+          "width": null,
+          "height": null
+        }
+      ],
+      "seoTitle": "Áo Bóng Đá GRAVIX Màu Trắng Xanh Lá - Thiết Kế Năng Động, Thẩm Mỹ Thể Thao - X24Sport",
+      "metaDescription": null,
+      "canonicalOverride": "https://mayaobongda.vn/ao-bong-da-gravix-mau-trang-xanh-la-thiet-ke-nang-dong-tham-my-the-thao/",
+      "legacyPath": "/ao-bong-da-gravix-mau-trang-xanh-la-thiet-ke-nang-dong-tham-my-the-thao/",
+      "tenantLegacyPathKey": "8:/ao-bong-da-gravix-mau-trang-xanh-la-thiet-ke-nang-dong-tham-my-the-thao/",
+      "pinterestPublishEnvironment": null,
+      "pinterestPublishedAt": null,
+      "pinterestBoardName": null,
+      "pinterestPinId": null,
+      "pinterestBoardId": null,
+      "pinterestPinUrl": null,
+      "contentHtml": "<blockquote><p><strong>Áo bóng đá GRAVIX màu trắng phối xanh lá – lựa chọn lý tưởng cho đội bóng hiện đại với thiết kế mạnh mẽ, chất vải thể thao thoáng mát và họa tiết tối giản tinh tế.</strong></p></blockquote>\n<figure>\n  <img src=\"https://static.x24sport.vn/mayaobongda/wp-1067-ao-bong-da-khong-logo-mau-trang-gravix.jpg\" alt=\"Áo bóng đá GRAVIX màu trắng xanh lá không logo\"><figcaption><em>Áo bóng đá GRAVIX trắng xanh lá</em></figcaption></figure>\n<h2>🔥 Thiết kế độc đáo – Chất liệu chất lượng</h2>\n<p>Áo bóng đá <strong>GRAVIX trắng phối xanh lá</strong> mang lại cái nhìn tươi mát và năng động ngay từ cái nhìn đầu tiên. Tone màu trắng là nền hoàn hảo để làm nổi bật các chi tiết phối viền xanh lá cây sắc nét – xuất hiện ở cổ áo, tay và hai bên sườn. Họa tiết kim cương mờ trên toàn thân tạo điểm nhấn tinh tế, giúp tăng chiều sâu thị giác mà không khiến mẫu áo trở nên rối mắt.</p>\n<h2>💨 Vải thể thao cao cấp – Chơi hết mình không lo mồ hôi</h2>\n<p>Điểm cộng lớn của sản phẩm chính là <strong>chất liệu vải mềm nhẹ, thoáng khí và thấm hút mồ hôi tốt</strong>. Từ đó, người mặc dễ dàng vận động ở cường độ cao nhưng vẫn cảm thấy khô thoáng và thoải mái. Đây là sự lựa chọn lý tưởng cho các đội bóng thi đấu phong trào hoặc phối đồ thể thao năng động hằng ngày.</p>\n<h2>📐 Form dáng chuẩn – Size đa dạng</h2>\n<p>Với <strong>form dáng thể thao ôm vừa vặn</strong>, áo tạo nên vẻ ngoài khoẻ khoắn, tăng sự linh hoạt khi vận động. Sản phẩm cung cấp từ size <strong>S đến 4XL</strong> – đáp ứng hầu hết vóc dáng từ học sinh đến người lớn, từ nam đến nữ.</p>\n<h2>✅ Điểm nổi bật:</h2>\n<ul>\n<li>Màu sắc chủ đạo trắng – xanh lá tươi sáng, phù hợp xu hướng bóng đá hiện đại</li>\n<li>Chất vải mát, nhẹ, thấm hút mồ hôi tốt</li>\n<li>Họa tiết kim cương mờ mang lại cảm giác mới mẻ, thể thao</li>\n<li>Phối viền hài hòa và chuyên nghiệp</li>\n<li>Size từ S đến 4XL, phù hợp cho cả đội</li>\n</ul>\n<p><strong>Đặt ngay áo bóng đá GRAVIX</strong> để đội bạn trở nên chuyên nghiệp và đồng đều hơn mỗi khi ra sân!</p>",
+      "sourceTags": [],
+      "sourceSystem": "wordpress",
+      "sourceId": "1068",
+      "tenantSourceKey": "8:wordpress:1068",
+      "sourceModifiedAt": "2025-10-18T02:46:53.000Z",
+      "sourceCreatedAt": "2025-07-03T03:32:34.000Z",
+      "sourceChecksum": "a9adcf65936739dd061f05cea8b725a582ae7545323ec5a780b35af708c6fe5a",
+      "updatedAt": "2026-07-29T11:00:03.726Z",
+      "createdAt": "2026-07-19T15:20:28.573Z"
+    },
+    {
+      "id": 3728,
+      "tenant": {
+        "id": 8,
+        "name": "May Ao Bong Da",
+        "slug": "mayaobongda",
+        "domains": [
+          {
+            "id": "6a5ce92dbbb870000146a916",
+            "domain": "mayaobongda.vn"
+          },
+          {
+            "id": "6a5ce92dbbb870000146a917",
+            "domain": "next.mayaobongda.vn"
+          }
+        ],
+        "brand": {
+          "headline": "May ao bong da thiet ke truc tiep tai xuong",
+          "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+          "primaryColor": "#101820",
+          "accentColor": "#f15a24",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-19T15:11:41.288Z",
+        "createdAt": "2026-07-19T15:11:41.288Z"
+      },
+      "name": "Áo Bóng Đá VORTEX Jersey Design – Màu Vàng Năng Động",
+      "slug": "ao-bong-da-vortex-jersey-design-mau-vang-nang-dong",
+      "tenantSlugKey": "8:ao-bong-da-vortex-jersey-design-mau-vang-nang-dong",
+      "sku": null,
+      "sport": "football",
+      "productType": "simple",
+      "publicationStatus": "publish",
+      "featured": false,
+      "viewCount": 0,
+      "categories": [
+        {
+          "id": 140,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "name": "Áo Không Logo",
+          "slug": "ao-khong-logo",
+          "tenantSlugKey": "8:ao-khong-logo",
+          "parent": null,
+          "group": "type",
+          "description": "🟢Áo Bóng Đá Không Logo – Sự Lựa Chọn Linh Hoạt Cho Mọi Đội Bóng Áo bóng đá không logo là dòng sản phẩm được ưa chuộng nhờ tính linh hoạt, đơn giản và phù hợp cho nhiều mục đích sử dụng khác nhau. Tại mayaobongda.vn , chúng tôi cung cấp các mẫu áo trơn không logo với chất liệu vải cao cấp, form thể thao chuẩn, dễ dàng in ấn theo nhu cầu riêng. ✔️Đặc Điểm Nổi Bật Của Áo Bóng Đá Không Logo ✅ Chất liệu vải thể thao cao cấp Vải thun lạnh co giãn 4 chiều, nhẹ, thoáng khí, thấm hút mồ hôi tốt. Mang lại cảm giác thoải mái khi thi đấu hoặc tập luyện lâu dài. ✅ Nhiều màu sắc và size lựa chọn Đầy đủ size từ trẻ em đến 6XL cho cả nam và nữ. Có sẵn hơn 10 màu cơ bản như: xanh than, đỏ, vàng, đen, trắng,... phù hợp với mọi đội bóng. ✅ Thiết kế đơn giản – Dễ cá nhân hóa Không in sẵn logo giúp người dùng dễ dàng tự thiết kế, in tên, số áo, hoặc dán logo theo nhu cầu riêng của đội nhóm. ✅Phù Hợp Cho Nhiều Mục Đích Đội bóng phong trào, lớp học, công ty Áo tập luyện hàng ngày, thể dục thể thao Giải đấu nhỏ hoặc sự kiện thể thao nội bộ ✔️ Vì Sao Nên Mua Tại mayaobongda.vn? Với xưởng may trực tiếp, không qua trung gian, chúng tôi cam kết: ✅ Giá thành tận xưởng – tiết kiệm chi phí ✅ Giao hàng nhanh toàn quốc ✅ Miễn phí thiết kế và in ấn tên, số, logo theo yêu cầu 👉 Xem thêm: Áo Thiết Kế Maket trước sản xuất Thành phẩm sau may Bảng size chuẩn Liên hệ ngay để được tư vấn và đặt hàng! Hotline/Zalo: 0989.353.247 Facebook: May Áo Bóng Đá - Vn Website: mayaobongda.vn",
+          "legacyPath": "/ao-khong-logo/",
+          "tenantLegacyPathKey": "8:/ao-khong-logo/",
+          "sourceSystem": "wordpress-product-category",
+          "sourceId": "71",
+          "tenantSourceKey": "8:wordpress-product-category:71",
+          "sourceChecksum": "6e1e0039a9cdcb66ba8068353c9f608caa51a6355b82766c8eafdf82893b3cf9",
+          "productCount": 103,
+          "order": 3,
+          "updatedAt": "2026-07-19T15:14:27.120Z",
+          "createdAt": "2026-07-19T15:14:27.120Z"
+        }
+      ],
+      "price": 125000,
+      "regularPrice": 165000,
+      "salePrice": 125000,
+      "compareAtPrice": 165000,
+      "currency": "VND",
+      "stockStatus": "instock",
+      "isPurchasable": false,
+      "isOnBackorder": false,
+      "shortDescription": "Áo bóng đá VORTEX Jersey Design màu vàng nổi bật kết hợp xanh lá mạnh mẽ, thiết kế unisex tiện dụng, chất liệu vải thể thao cao cấp – lý tưởng cho mọi đội bóng đam mê tốc độ và chất riêng!",
+      "description": null,
+      "attributes": [],
+      "badges": [],
+      "searchTags": [
+        {
+          "id": "6a5ceb3cb74ce30001ef3f6f",
+          "value": "Áo Không Logo"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 6354,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "codex-imagegen",
+          "sourceId": "catalog-refresh-20260729-product-3728",
+          "sourceUrl": null,
+          "sourceChecksum": "e9e3e066dc79eb69e7dda5bbb266521c7d2f4266e53dad8add27602378bc8d0e",
+          "tenantSourceKey": "8:codex-imagegen:catalog-refresh-20260729-product-3728",
+          "sharedWithTenants": [],
+          "alt": "Áo Bóng Đá VORTEX Jersey Design – Màu Vàng Năng Động - cầu thủ nam Việt Nam mặc áo trên sân bóng",
+          "searchTags": [
+            {
+              "id": "6a69dd355aac3700012d1962",
+              "value": "bóng đá"
+            },
+            {
+              "id": "6a69dd355aac3700012d1963",
+              "value": "cầu thủ nam"
+            },
+            {
+              "id": "6a69dd355aac3700012d1964",
+              "value": "ảnh sản phẩm"
+            }
+          ],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-29T11:00:05.819Z",
+          "createdAt": "2026-07-29T11:00:05.378Z",
+          "url": "https://static.x24sport.vn/mayaobongda/12-3728-ao-bong-da-vortex-jersey-design-mau-vang-nang-dong.webp",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/12-3728-ao-bong-da-vortex-jersey-design-mau-vang-nang-dong.webp",
+          "filename": "12-3728-ao-bong-da-vortex-jersey-design-mau-vang-nang-dong.webp",
+          "mimeType": "image/webp",
+          "filesize": 175700,
+          "width": 1600,
+          "height": 1600,
+          "focalX": 50,
+          "focalY": 50
+        },
+        {
+          "id": 5040,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "wordpress-media",
+          "sourceId": "1063",
+          "sourceUrl": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-vang-vorte.jpg",
+          "sourceChecksum": "2ba6c55818b2284e57fd59619fa9944b7b5e09818012b01e1d40dde0b86b5925",
+          "tenantSourceKey": "8:wordpress-media:1063",
+          "sharedWithTenants": [],
+          "alt": "ao-bong-da-khong-logo-mau-vang-vorte",
+          "searchTags": [],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-19T15:13:21.939Z",
+          "createdAt": "2026-07-19T15:13:21.408Z",
+          "url": "https://static.x24sport.vn/mayaobongda/wp-1063-ao-bong-da-khong-logo-mau-vang-vorte.jpg",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/wp-1063-ao-bong-da-khong-logo-mau-vang-vorte.jpg",
+          "filename": "wp-1063-ao-bong-da-khong-logo-mau-vang-vorte.jpg",
+          "mimeType": "image/jpeg",
+          "filesize": 301311,
+          "width": 850,
+          "height": 850,
+          "focalX": 50,
+          "focalY": 50
+        }
+      ],
+      "legacyImages": [
+        {
+          "id": "6a5ceb3cb74ce30001ef3f70",
+          "url": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-vang-vorte.jpg",
+          "alt": "Áo Bóng Đá VORTEX Jersey Design &#8211; Màu Vàng Năng Động",
+          "width": null,
+          "height": null
+        }
+      ],
+      "seoTitle": "Áo Bóng Đá VORTEX Jersey Design - Màu Vàng Năng Động - X24Sport",
+      "metaDescription": null,
+      "canonicalOverride": "https://mayaobongda.vn/ao-bong-da-vortex-jersey-design-mau-vang-nang-dong/",
+      "legacyPath": "/ao-bong-da-vortex-jersey-design-mau-vang-nang-dong/",
+      "tenantLegacyPathKey": "8:/ao-bong-da-vortex-jersey-design-mau-vang-nang-dong/",
+      "pinterestPublishEnvironment": null,
+      "pinterestPublishedAt": null,
+      "pinterestBoardName": null,
+      "pinterestPinId": null,
+      "pinterestBoardId": null,
+      "pinterestPinUrl": null,
+      "contentHtml": "<blockquote>\n<p><strong>Áo bóng đá VORTEX Jersey Design</strong> nổi bật với sắc vàng trẻ trung, phối xanh lá mạnh mẽ cùng điểm nhấn đỏ &#8211; đen tinh tế, là lựa chọn lý tưởng cho mọi đội bóng yêu thích sự năng động và đột phá.</p>\n</blockquote>\n<figure>\n  <img src=\"https://static.x24sport.vn/mayaobongda/wp-1063-ao-bong-da-khong-logo-mau-vang-vorte.jpg\" alt=\"Áo bóng đá không logo màu vàng VORTEX Jersey Design\"><figcaption>Áo bóng đá VORTEX Jersey &#8211; Phiên bản màu vàng nổi bật</figcaption></figure>\n<h2>Thiết kế năng động – Bắt trọn mọi ánh nhìn</h2>\n<p>Chiếc áo <strong>VORTEX Jersey Design</strong> là sự kết hợp hoàn hảo giữa gu thẩm mỹ thể thao và hiệu năng thi đấu. Tông màu vàng chủ đạo nổi bật, tượng trưng cho tinh thần nhiệt huyết, kết hợp xanh lá mạnh mẽ biểu đạt sự bền bỉ và sức sống dai dẳng. Những đường phối đỏ và đen hai bên thân tạo chiều sâu và điểm nhấn tinh tế khiến tổng thể áo thêm phần hút mắt.</p>\n<h2>Chất liệu cao cấp – Chinh phục từng trận đấu</h2>\n<p>Áo được may từ <strong>vải thun lạnh thể thao</strong> – chất liệu độc quyền giúp thấm hút mồ hôi nhanh, co giãn tốt, giữ cho người mặc luôn khô thoáng và thoải mái suốt quá trình vận động. Công nghệ dệt hiện đại còn giúp form áo ôm nhẹ vào cơ thể mà vẫn dễ chịu, phù hợp với nhiều vóc dáng.</p>\n<h2>Thiết kế chuẩn unisex – Mặc đẹp mọi giới tính</h2>\n<p>Với <strong>thiết kế unisex</strong>, áo phù hợp với cả nam và nữ ở mọi độ tuổi. Không chỉ dành riêng cho sân bóng, VORTEX Jersey cũng phù hợp với các hoạt động thể thao ngoài trời, team building hay dã ngoại. Đây là lựa chọn lý tưởng cho các đội bóng phong trào, câu lạc bộ hoặc doanh nghiệp cần đồng phục thể thao trẻ trung mà chuyên nghiệp.</p>\n<h2>Vì sao bạn nên chọn VORTEX Jersey màu vàng?</h2>\n<ul>\n<li><strong>Thiết kế nổi bật</strong>: màu vàng phối xanh lá khỏe khoắn, bắt mắt.</li>\n<li><strong>Chất liệu vải thể thao chuyên dụng</strong>: thoáng khí, mềm mịn và dễ giặt.</li>\n<li><strong>Đa năng, dễ phối đồ</strong>: phù hợp cả thi đấu lẫn hoạt động thường ngày.</li>\n</ul>\n<p>Hãy mang lại sự tự tin và phong cách cho cả đội bằng mẫu <strong>áo bóng đá VORTEX màu vàng</strong> hiện đại và đậm chất riêng này. Liên hệ ngay để thiết kế mẫu áo riêng với tên số hoặc logo đội bóng bạn nhé!</p>",
+      "sourceTags": [],
+      "sourceSystem": "wordpress",
+      "sourceId": "1064",
+      "tenantSourceKey": "8:wordpress:1064",
+      "sourceModifiedAt": "2025-10-18T02:46:53.000Z",
+      "sourceCreatedAt": "2025-07-03T03:31:45.000Z",
+      "sourceChecksum": "c43ae0fbfc50f9cdb522f1d49d9e33371f423f30a6a4f694aac3197c2aabe554",
+      "updatedAt": "2026-07-29T11:00:05.892Z",
+      "createdAt": "2026-07-19T15:20:28.328Z"
+    },
+    {
+      "id": 3727,
+      "tenant": {
+        "id": 8,
+        "name": "May Ao Bong Da",
+        "slug": "mayaobongda",
+        "domains": [
+          {
+            "id": "6a5ce92dbbb870000146a916",
+            "domain": "mayaobongda.vn"
+          },
+          {
+            "id": "6a5ce92dbbb870000146a917",
+            "domain": "next.mayaobongda.vn"
+          }
+        ],
+        "brand": {
+          "headline": "May ao bong da thiet ke truc tiep tai xuong",
+          "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+          "primaryColor": "#101820",
+          "accentColor": "#f15a24",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-19T15:11:41.288Z",
+        "createdAt": "2026-07-19T15:11:41.288Z"
+      },
+      "name": "Áo Bóng Đá Không Logo Màu Trắng Vortex Jersey Design",
+      "slug": "ao-bong-da-khong-logo-mau-trang-vortex-jersey-design",
+      "tenantSlugKey": "8:ao-bong-da-khong-logo-mau-trang-vortex-jersey-design",
+      "sku": null,
+      "sport": "football",
+      "productType": "simple",
+      "publicationStatus": "publish",
+      "featured": false,
+      "viewCount": 0,
+      "categories": [
+        {
+          "id": 140,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "name": "Áo Không Logo",
+          "slug": "ao-khong-logo",
+          "tenantSlugKey": "8:ao-khong-logo",
+          "parent": null,
+          "group": "type",
+          "description": "🟢Áo Bóng Đá Không Logo – Sự Lựa Chọn Linh Hoạt Cho Mọi Đội Bóng Áo bóng đá không logo là dòng sản phẩm được ưa chuộng nhờ tính linh hoạt, đơn giản và phù hợp cho nhiều mục đích sử dụng khác nhau. Tại mayaobongda.vn , chúng tôi cung cấp các mẫu áo trơn không logo với chất liệu vải cao cấp, form thể thao chuẩn, dễ dàng in ấn theo nhu cầu riêng. ✔️Đặc Điểm Nổi Bật Của Áo Bóng Đá Không Logo ✅ Chất liệu vải thể thao cao cấp Vải thun lạnh co giãn 4 chiều, nhẹ, thoáng khí, thấm hút mồ hôi tốt. Mang lại cảm giác thoải mái khi thi đấu hoặc tập luyện lâu dài. ✅ Nhiều màu sắc và size lựa chọn Đầy đủ size từ trẻ em đến 6XL cho cả nam và nữ. Có sẵn hơn 10 màu cơ bản như: xanh than, đỏ, vàng, đen, trắng,... phù hợp với mọi đội bóng. ✅ Thiết kế đơn giản – Dễ cá nhân hóa Không in sẵn logo giúp người dùng dễ dàng tự thiết kế, in tên, số áo, hoặc dán logo theo nhu cầu riêng của đội nhóm. ✅Phù Hợp Cho Nhiều Mục Đích Đội bóng phong trào, lớp học, công ty Áo tập luyện hàng ngày, thể dục thể thao Giải đấu nhỏ hoặc sự kiện thể thao nội bộ ✔️ Vì Sao Nên Mua Tại mayaobongda.vn? Với xưởng may trực tiếp, không qua trung gian, chúng tôi cam kết: ✅ Giá thành tận xưởng – tiết kiệm chi phí ✅ Giao hàng nhanh toàn quốc ✅ Miễn phí thiết kế và in ấn tên, số, logo theo yêu cầu 👉 Xem thêm: Áo Thiết Kế Maket trước sản xuất Thành phẩm sau may Bảng size chuẩn Liên hệ ngay để được tư vấn và đặt hàng! Hotline/Zalo: 0989.353.247 Facebook: May Áo Bóng Đá - Vn Website: mayaobongda.vn",
+          "legacyPath": "/ao-khong-logo/",
+          "tenantLegacyPathKey": "8:/ao-khong-logo/",
+          "sourceSystem": "wordpress-product-category",
+          "sourceId": "71",
+          "tenantSourceKey": "8:wordpress-product-category:71",
+          "sourceChecksum": "6e1e0039a9cdcb66ba8068353c9f608caa51a6355b82766c8eafdf82893b3cf9",
+          "productCount": 103,
+          "order": 3,
+          "updatedAt": "2026-07-19T15:14:27.120Z",
+          "createdAt": "2026-07-19T15:14:27.120Z"
+        }
+      ],
+      "price": 125000,
+      "regularPrice": 165000,
+      "salePrice": 125000,
+      "compareAtPrice": 165000,
+      "currency": "VND",
+      "stockStatus": "instock",
+      "isPurchasable": false,
+      "isOnBackorder": false,
+      "shortDescription": "Áo bóng đá không logo Vortex Jersey màu trắng phối xanh navy và điểm nhấn đỏ nổi bật – thiết kế hiện đại, chất liệu co giãn, thấm hút cực tốt. Có size từ S đến 4XL phù hợp nhiều dáng người.",
+      "description": null,
+      "attributes": [],
+      "badges": [],
+      "searchTags": [
+        {
+          "id": "6a5ceb3cb74ce30001ef3f6d",
+          "value": "Áo Không Logo"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 6355,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "codex-imagegen",
+          "sourceId": "catalog-refresh-20260729-product-3727",
+          "sourceUrl": null,
+          "sourceChecksum": "f89565729dfd417302bd9bcb608d3b9ddc186041994d61f807cb15163a1e1b2f",
+          "tenantSourceKey": "8:codex-imagegen:catalog-refresh-20260729-product-3727",
+          "sharedWithTenants": [],
+          "alt": "Áo Bóng Đá Không Logo Màu Trắng Vortex Jersey Design - cầu thủ nam Việt Nam mặc áo trên sân bóng",
+          "searchTags": [
+            {
+              "id": "6a69dd365aac3700012d1965",
+              "value": "bóng đá"
+            },
+            {
+              "id": "6a69dd365aac3700012d1966",
+              "value": "cầu thủ nam"
+            },
+            {
+              "id": "6a69dd365aac3700012d1967",
+              "value": "ảnh sản phẩm"
+            }
+          ],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-29T11:00:06.776Z",
+          "createdAt": "2026-07-29T11:00:06.415Z",
+          "url": "https://static.x24sport.vn/mayaobongda/13-3727-ao-bong-da-khong-logo-mau-trang-vortex-jersey-design.webp",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/13-3727-ao-bong-da-khong-logo-mau-trang-vortex-jersey-design.webp",
+          "filename": "13-3727-ao-bong-da-khong-logo-mau-trang-vortex-jersey-design.webp",
+          "mimeType": "image/webp",
+          "filesize": 124228,
+          "width": 1600,
+          "height": 1600,
+          "focalX": 50,
+          "focalY": 50
+        },
+        {
+          "id": 5034,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "wordpress-media",
+          "sourceId": "1061",
+          "sourceUrl": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-trang-vorte.jpg",
+          "sourceChecksum": "6b5c7a71502a9b05609bafbf9039ede42b90dfeeace8f9b821ff1381b8f59e09",
+          "tenantSourceKey": "8:wordpress-media:1061",
+          "sharedWithTenants": [],
+          "alt": "ao-bong-da-khong-logo-mau-trang-vorte",
+          "searchTags": [],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-19T15:13:20.475Z",
+          "createdAt": "2026-07-19T15:13:20.144Z",
+          "url": "https://static.x24sport.vn/mayaobongda/wp-1061-ao-bong-da-khong-logo-mau-trang-vorte.jpg",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/wp-1061-ao-bong-da-khong-logo-mau-trang-vorte.jpg",
+          "filename": "wp-1061-ao-bong-da-khong-logo-mau-trang-vorte.jpg",
+          "mimeType": "image/jpeg",
+          "filesize": 288967,
+          "width": 850,
+          "height": 850,
+          "focalX": 50,
+          "focalY": 50
+        }
+      ],
+      "legacyImages": [
+        {
+          "id": "6a5ceb3cb74ce30001ef3f6e",
+          "url": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-trang-vorte.jpg",
+          "alt": "Áo Bóng Đá Không Logo Màu Trắng Vortex Jersey Design",
+          "width": null,
+          "height": null
+        }
+      ],
+      "seoTitle": "Áo Bóng Đá Không Logo Màu Trắng Vortex Jersey Design - X24Sport",
+      "metaDescription": null,
+      "canonicalOverride": "https://mayaobongda.vn/ao-bong-da-khong-logo-mau-trang-vortex-jersey-design/",
+      "legacyPath": "/ao-bong-da-khong-logo-mau-trang-vortex-jersey-design/",
+      "tenantLegacyPathKey": "8:/ao-bong-da-khong-logo-mau-trang-vortex-jersey-design/",
+      "pinterestPublishEnvironment": null,
+      "pinterestPublishedAt": null,
+      "pinterestBoardName": null,
+      "pinterestPinId": null,
+      "pinterestBoardId": null,
+      "pinterestPinUrl": null,
+      "contentHtml": "<blockquote><p>\nÁo bóng đá không logo Vortex Jersey Design – Sự kết hợp tinh tế giữa trắng tinh khôi và xanh navy mạnh mẽ, điểm xuyết màu đỏ nổi bật, mang đến diện mạo chuyên nghiệp và đầy cuốn hút cho người mặc.</p></blockquote>\n<figure>\n  <img src=\"https://static.x24sport.vn/mayaobongda/wp-1061-ao-bong-da-khong-logo-mau-trang-vorte.jpg\" alt=\"Áo bóng đá không logo màu trắng Vortex Jersey Design sang trọng và thể thao\"><figcaption>Áo bóng đá Vortex Jersey màu trắng xanh</figcaption></figure>\n<h2>Thiết kế nổi bật – Tôn dáng thể thao</h2>\n<p>Áo bóng đá <strong>không logo Vortex Jersey Design</strong> thu hút ngay từ cái nhìn đầu tiên nhờ sự kết hợp màu sắc cực kỳ bắt mắt. Màu trắng chủ đạo biểu tượng cho sự tinh khiết, kết hợp với màu xanh navy mạnh mẽ mang đến sự vững chãi, tự tin. Chi tiết viền đỏ ở hai bên sườn không chỉ là điểm nhấn thị giác mà còn tạo cảm giác chuyển động linh hoạt hơn, phù hợp cho các hoạt động thể thao cường độ cao.</p>\n<h2>Chất liệu chất lượng cao – Thoải mái tối đa</h2>\n<p>Áo được sản xuất từ chất liệu vải cao cấp, có khả năng <strong>co giãn 4 chiều</strong>, giúp người mặc cảm thấy thoải mái ngay cả khi vận động mạnh. Khả năng <strong>thấm hút mồ hôi nhanh</strong> giúp giữ cho cơ thể luôn khô thoáng, đặc biệt hữu ích trong điều kiện khí hậu nóng ẩm như Việt Nam.</p>\n<h2>Form dáng chuẩn – Phù hợp nhiều đối tượng</h2>\n<p>Vortex Jersey Design có <strong>form ôm vừa phải</strong>, giúp tôn lên dáng vóc khỏe khoắn nhưng không quá chật chội. Các size từ S đến 4XL giúp sản phẩm phù hợp với đa dạng người dùng – từ học sinh, sinh viên cho đến người làm việc văn phòng tham gia phong trào thể thao.</p>\n<h2>Ứng dụng linh hoạt</h2>\n<p>Sản phẩm phù hợp sử dụng cho các đội bóng phong trào, lớp học thể thao, nhóm bạn thân, tổ chức sự kiện thể thao hoặc đơn giản là người yêu thích phong cách thể thao thanh lịch. Đây cũng là mẫu áo lý tưởng dành cho các đội bóng bán chuyên và chuyên nghiệp.</p>\n<p>Đặt ngay <strong>Áo bóng đá không logo Vortex Jersey màu trắng xanh navy đỏ</strong> tại <a href=\"https://mayaobongda.vn\" target=\"_blank\" rel=\"noopener noreferrer\">mayaobongda-vn</a> để nhận mức giá ưu đãi cùng dịch vụ in ấn, thiết kế miễn phí theo yêu cầu!</p>",
+      "sourceTags": [],
+      "sourceSystem": "wordpress",
+      "sourceId": "1062",
+      "tenantSourceKey": "8:wordpress:1062",
+      "sourceModifiedAt": "2025-10-18T02:46:53.000Z",
+      "sourceCreatedAt": "2025-07-03T03:31:22.000Z",
+      "sourceChecksum": "281178506d48a9daca115a5cff13c53d04658093702ee8a5a56ec207e4c44526",
+      "updatedAt": "2026-07-29T11:00:06.870Z",
+      "createdAt": "2026-07-19T15:20:28.207Z"
+    },
+    {
+      "id": 3736,
+      "tenant": {
+        "id": 8,
+        "name": "May Ao Bong Da",
+        "slug": "mayaobongda",
+        "domains": [
+          {
+            "id": "6a5ce92dbbb870000146a916",
+            "domain": "mayaobongda.vn"
+          },
+          {
+            "id": "6a5ce92dbbb870000146a917",
+            "domain": "next.mayaobongda.vn"
+          }
+        ],
+        "brand": {
+          "headline": "May ao bong da thiet ke truc tiep tai xuong",
+          "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+          "primaryColor": "#101820",
+          "accentColor": "#f15a24",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-19T15:11:41.288Z",
+        "createdAt": "2026-07-19T15:11:41.288Z"
+      },
+      "name": "Áo bóng đá Zentor trắng tím than đỏ – Năng động & Mạnh mẽ",
+      "slug": "ao-bong-da-zentor-trang-tim-than-do-nang-dong-manh-me",
+      "tenantSlugKey": "8:ao-bong-da-zentor-trang-tim-than-do-nang-dong-manh-me",
+      "sku": null,
+      "sport": "football",
+      "productType": "simple",
+      "publicationStatus": "publish",
+      "featured": false,
+      "viewCount": 0,
+      "categories": [
+        {
+          "id": 140,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "name": "Áo Không Logo",
+          "slug": "ao-khong-logo",
+          "tenantSlugKey": "8:ao-khong-logo",
+          "parent": null,
+          "group": "type",
+          "description": "🟢Áo Bóng Đá Không Logo – Sự Lựa Chọn Linh Hoạt Cho Mọi Đội Bóng Áo bóng đá không logo là dòng sản phẩm được ưa chuộng nhờ tính linh hoạt, đơn giản và phù hợp cho nhiều mục đích sử dụng khác nhau. Tại mayaobongda.vn , chúng tôi cung cấp các mẫu áo trơn không logo với chất liệu vải cao cấp, form thể thao chuẩn, dễ dàng in ấn theo nhu cầu riêng. ✔️Đặc Điểm Nổi Bật Của Áo Bóng Đá Không Logo ✅ Chất liệu vải thể thao cao cấp Vải thun lạnh co giãn 4 chiều, nhẹ, thoáng khí, thấm hút mồ hôi tốt. Mang lại cảm giác thoải mái khi thi đấu hoặc tập luyện lâu dài. ✅ Nhiều màu sắc và size lựa chọn Đầy đủ size từ trẻ em đến 6XL cho cả nam và nữ. Có sẵn hơn 10 màu cơ bản như: xanh than, đỏ, vàng, đen, trắng,... phù hợp với mọi đội bóng. ✅ Thiết kế đơn giản – Dễ cá nhân hóa Không in sẵn logo giúp người dùng dễ dàng tự thiết kế, in tên, số áo, hoặc dán logo theo nhu cầu riêng của đội nhóm. ✅Phù Hợp Cho Nhiều Mục Đích Đội bóng phong trào, lớp học, công ty Áo tập luyện hàng ngày, thể dục thể thao Giải đấu nhỏ hoặc sự kiện thể thao nội bộ ✔️ Vì Sao Nên Mua Tại mayaobongda.vn? Với xưởng may trực tiếp, không qua trung gian, chúng tôi cam kết: ✅ Giá thành tận xưởng – tiết kiệm chi phí ✅ Giao hàng nhanh toàn quốc ✅ Miễn phí thiết kế và in ấn tên, số, logo theo yêu cầu 👉 Xem thêm: Áo Thiết Kế Maket trước sản xuất Thành phẩm sau may Bảng size chuẩn Liên hệ ngay để được tư vấn và đặt hàng! Hotline/Zalo: 0989.353.247 Facebook: May Áo Bóng Đá - Vn Website: mayaobongda.vn",
+          "legacyPath": "/ao-khong-logo/",
+          "tenantLegacyPathKey": "8:/ao-khong-logo/",
+          "sourceSystem": "wordpress-product-category",
+          "sourceId": "71",
+          "tenantSourceKey": "8:wordpress-product-category:71",
+          "sourceChecksum": "6e1e0039a9cdcb66ba8068353c9f608caa51a6355b82766c8eafdf82893b3cf9",
+          "productCount": 103,
+          "order": 3,
+          "updatedAt": "2026-07-19T15:14:27.120Z",
+          "createdAt": "2026-07-19T15:14:27.120Z"
+        }
+      ],
+      "price": 125000,
+      "regularPrice": 165000,
+      "salePrice": 125000,
+      "compareAtPrice": 165000,
+      "currency": "VND",
+      "stockStatus": "instock",
+      "isPurchasable": false,
+      "isOnBackorder": false,
+      "shortDescription": "Bộ áo bóng đá Zentor trắng tím than đỏ mang đến thiết kế thể thao khỏe khoắn, chất vải co giãn thoáng mát, phối màu đẹp mắt giúp tôn dáng và truyền tải tinh thần thi đấu mạnh mẽ.",
+      "description": null,
+      "attributes": [],
+      "badges": [],
+      "searchTags": [
+        {
+          "id": "6a5ceb3db74ce30001ef3f7f",
+          "value": "Áo Không Logo"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 6356,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "codex-imagegen",
+          "sourceId": "catalog-refresh-20260729-product-3736",
+          "sourceUrl": null,
+          "sourceChecksum": "ed575db120a7577a8300c9dd3b5f677aa1a7bddfb1bc489552f2fe18d3685a57",
+          "tenantSourceKey": "8:codex-imagegen:catalog-refresh-20260729-product-3736",
+          "sharedWithTenants": [],
+          "alt": "Áo bóng đá Zentor trắng tím than đỏ – Năng động & Mạnh mẽ - cầu thủ nam Việt Nam mặc áo trên sân bóng",
+          "searchTags": [
+            {
+              "id": "6a69dd375aac3700012d1968",
+              "value": "bóng đá"
+            },
+            {
+              "id": "6a69dd375aac3700012d1969",
+              "value": "cầu thủ nam"
+            },
+            {
+              "id": "6a69dd375aac3700012d196a",
+              "value": "ảnh sản phẩm"
+            }
+          ],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-29T11:00:07.879Z",
+          "createdAt": "2026-07-29T11:00:07.528Z",
+          "url": "https://static.x24sport.vn/mayaobongda/14-3736-ao-bong-da-zentor-trang-tim-than-do-nang-dong-manh-me.webp",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/14-3736-ao-bong-da-zentor-trang-tim-than-do-nang-dong-manh-me.webp",
+          "filename": "14-3736-ao-bong-da-zentor-trang-tim-than-do-nang-dong-manh-me.webp",
+          "mimeType": "image/webp",
+          "filesize": 104096,
+          "width": 1600,
+          "height": 1600,
+          "focalX": 50,
+          "focalY": 50
+        },
+        {
+          "id": 5042,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "wordpress-media",
+          "sourceId": "1079",
+          "sourceUrl": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-xanh-than-zentor.jpg",
+          "sourceChecksum": "c635285402feafd7541ac959f314bfd413132fdc03cd1548ee16957fd71e1b84",
+          "tenantSourceKey": "8:wordpress-media:1079",
+          "sharedWithTenants": [],
+          "alt": "ao-bong-da-khong-logo-mau-xanh-than-zentor",
+          "searchTags": [],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-19T15:13:22.691Z",
+          "createdAt": "2026-07-19T15:13:22.371Z",
+          "url": "https://static.x24sport.vn/mayaobongda/wp-1079-ao-bong-da-khong-logo-mau-xanh-than-zentor.jpg",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/wp-1079-ao-bong-da-khong-logo-mau-xanh-than-zentor.jpg",
+          "filename": "wp-1079-ao-bong-da-khong-logo-mau-xanh-than-zentor.jpg",
+          "mimeType": "image/jpeg",
+          "filesize": 289290,
+          "width": 850,
+          "height": 850,
+          "focalX": 50,
+          "focalY": 50
+        }
+      ],
+      "legacyImages": [
+        {
+          "id": "6a5ceb3db74ce30001ef3f80",
+          "url": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-xanh-than-zentor.jpg",
+          "alt": "Áo bóng đá Zentor trắng tím than đỏ &#8211; Năng động &amp; Mạnh mẽ",
+          "width": null,
+          "height": null
+        }
+      ],
+      "seoTitle": "Áo bóng đá Zentor trắng tím than đỏ - Năng động &amp; Mạnh mẽ - X24Sport",
+      "metaDescription": null,
+      "canonicalOverride": "https://mayaobongda.vn/ao-bong-da-zentor-trang-tim-than-do-nang-dong-manh-me/",
+      "legacyPath": "/ao-bong-da-zentor-trang-tim-than-do-nang-dong-manh-me/",
+      "tenantLegacyPathKey": "8:/ao-bong-da-zentor-trang-tim-than-do-nang-dong-manh-me/",
+      "pinterestPublishEnvironment": null,
+      "pinterestPublishedAt": null,
+      "pinterestBoardName": null,
+      "pinterestPinId": null,
+      "pinterestBoardId": null,
+      "pinterestPinUrl": null,
+      "contentHtml": "<blockquote><p><strong>“Bùng cháy tinh thần thi đấu với bộ quần áo bóng đá Zentor phối trắng &#8211; tím than &#8211; đỏ: đậm chất thể thao, đậm khí chất chiến binh!”</strong></p></blockquote>\n<figure>\n  <img src=\"https://static.x24sport.vn/mayaobongda/wp-1079-ao-bong-da-khong-logo-mau-xanh-than-zentor.jpg\" alt=\"Áo bóng đá Zentor phối trắng tím than đỏ không logo\"><figcaption><em>Zentor trắng tím than đỏ &#8211; Sức mạnh trên sân cỏ</em></figcaption></figure>\n<h2>🔥 Màu sắc nổi bật – Tuyên ngôn bản lĩnh</h2>\n<p>Bộ quần áo bóng đá <strong>New Collection Zentor</strong> là sự giao hòa hoàn hảo giữa ba sắc độ: <strong>trắng – tím than – đỏ</strong>.</p>\n<ul>\n<li><strong>Trắng:</strong> Tạo điểm nhấn nổi bật, mang yếu tố sạch sẽ và tinh khôi, giúp tổng thể thiết kế thêm phần hài hòa.</li>\n<li><strong>Tím than (xanh đậm):</strong> Màu sắc đại diện cho sự mạnh mẽ, nam tính – lý tưởng dành cho các cầu thủ giàu quyết tâm và tinh thần kỷ luật.</li>\n<li><strong>Đỏ:</strong> Biểu tượng cho nhiệt huyết và sự máu lửa – cảm hứng của chiến đấu hết mình.</li>\n</ul>\n<p>Không chỉ đẹp mắt, thiết kế phối <strong>màu sọc dọc thông minh</strong> còn giúp người mặc trở nên <em>cao ráo và gọn gàng hơn</em>, tạo phong cách chuẩn thể thao khỏe khoắn, tự tin trên sân cỏ.</p>\n<h2>⚙️ Thiết kế chuyên dụng – Sẵn sàng cho mọi trận đấu</h2>\n<p>Bộ đồ Zentor sử dụng <strong>chất vải thun lạnh thể thao cao cấp</strong>, có khả năng <strong>co giãn 4 chiều</strong>, thoáng khí và thoát mồ hôi cực tốt. Công nghệ vải giúp người mặc dễ dàng di chuyển, thi đấu suốt 90 phút không sợ bí bách hay khó chịu.</p>\n<p>Thiết kế <strong>form áo body-fit nhẹ nhàng</strong>, ôm dáng vừa phải giúp tôn lên vóc dáng mà vẫn giữ được vẻ thoải mái khi vận động. Từng đường may chắc chắn, tỉ mỉ với kỹ thuật may cao cấp giúp nâng cao độ bền trong môi trường tập luyện thường xuyên.</p>\n<h2>🎯 Lý tưởng cho cá nhân – đội nhóm</h2>\n<p>Zentor trắng tím than đỏ phù hợp cho cả những cầu thủ chơi chuyên nghiệp lẫn phong trào. Hơn nữa, với thiết kế trơn không logo, sản phẩm dễ dàng <strong>in ấn logo đội, số áo, họa tiết riêng</strong>, biến hóa linh hoạt theo màu sắc thương hiệu hoặc cá tính đội nhóm.</p>\n<hr>\n<p><strong>➡️ Đặt ngay bộ quần áo bóng đá Zentor màu trắng tím than đỏ</strong> để tiếp thêm nhiên liệu cho đam mê bóng đá – phong cách chiến binh, chất liệu thể thao, sẵn sàng cho mọi sân chơi!</p>",
+      "sourceTags": [],
+      "sourceSystem": "wordpress",
+      "sourceId": "1080",
+      "tenantSourceKey": "8:wordpress:1080",
+      "sourceModifiedAt": "2025-10-18T02:46:52.000Z",
+      "sourceCreatedAt": "2025-07-03T03:35:17.000Z",
+      "sourceChecksum": "3f4de0688f5a05a69f8378b797c05378bd2b38834380dc1edf7ce2acfbdf8929",
+      "updatedAt": "2026-07-29T11:00:07.966Z",
+      "createdAt": "2026-07-19T15:20:29.310Z"
+    },
+    {
+      "id": 3735,
+      "tenant": {
+        "id": 8,
+        "name": "May Ao Bong Da",
+        "slug": "mayaobongda",
+        "domains": [
+          {
+            "id": "6a5ce92dbbb870000146a916",
+            "domain": "mayaobongda.vn"
+          },
+          {
+            "id": "6a5ce92dbbb870000146a917",
+            "domain": "next.mayaobongda.vn"
+          }
+        ],
+        "brand": {
+          "headline": "May ao bong da thiet ke truc tiep tai xuong",
+          "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+          "primaryColor": "#101820",
+          "accentColor": "#f15a24",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-19T15:11:41.288Z",
+        "createdAt": "2026-07-19T15:11:41.288Z"
+      },
+      "name": "Áo bóng đá Zentor – Tím Than kẻ sọc đỏ trắng",
+      "slug": "ao-bong-da-zentor-tim-than-ke-soc-do-trang",
+      "tenantSlugKey": "8:ao-bong-da-zentor-tim-than-ke-soc-do-trang",
+      "sku": null,
+      "sport": "football",
+      "productType": "simple",
+      "publicationStatus": "publish",
+      "featured": false,
+      "viewCount": 0,
+      "categories": [
+        {
+          "id": 140,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "name": "Áo Không Logo",
+          "slug": "ao-khong-logo",
+          "tenantSlugKey": "8:ao-khong-logo",
+          "parent": null,
+          "group": "type",
+          "description": "🟢Áo Bóng Đá Không Logo – Sự Lựa Chọn Linh Hoạt Cho Mọi Đội Bóng Áo bóng đá không logo là dòng sản phẩm được ưa chuộng nhờ tính linh hoạt, đơn giản và phù hợp cho nhiều mục đích sử dụng khác nhau. Tại mayaobongda.vn , chúng tôi cung cấp các mẫu áo trơn không logo với chất liệu vải cao cấp, form thể thao chuẩn, dễ dàng in ấn theo nhu cầu riêng. ✔️Đặc Điểm Nổi Bật Của Áo Bóng Đá Không Logo ✅ Chất liệu vải thể thao cao cấp Vải thun lạnh co giãn 4 chiều, nhẹ, thoáng khí, thấm hút mồ hôi tốt. Mang lại cảm giác thoải mái khi thi đấu hoặc tập luyện lâu dài. ✅ Nhiều màu sắc và size lựa chọn Đầy đủ size từ trẻ em đến 6XL cho cả nam và nữ. Có sẵn hơn 10 màu cơ bản như: xanh than, đỏ, vàng, đen, trắng,... phù hợp với mọi đội bóng. ✅ Thiết kế đơn giản – Dễ cá nhân hóa Không in sẵn logo giúp người dùng dễ dàng tự thiết kế, in tên, số áo, hoặc dán logo theo nhu cầu riêng của đội nhóm. ✅Phù Hợp Cho Nhiều Mục Đích Đội bóng phong trào, lớp học, công ty Áo tập luyện hàng ngày, thể dục thể thao Giải đấu nhỏ hoặc sự kiện thể thao nội bộ ✔️ Vì Sao Nên Mua Tại mayaobongda.vn? Với xưởng may trực tiếp, không qua trung gian, chúng tôi cam kết: ✅ Giá thành tận xưởng – tiết kiệm chi phí ✅ Giao hàng nhanh toàn quốc ✅ Miễn phí thiết kế và in ấn tên, số, logo theo yêu cầu 👉 Xem thêm: Áo Thiết Kế Maket trước sản xuất Thành phẩm sau may Bảng size chuẩn Liên hệ ngay để được tư vấn và đặt hàng! Hotline/Zalo: 0989.353.247 Facebook: May Áo Bóng Đá - Vn Website: mayaobongda.vn",
+          "legacyPath": "/ao-khong-logo/",
+          "tenantLegacyPathKey": "8:/ao-khong-logo/",
+          "sourceSystem": "wordpress-product-category",
+          "sourceId": "71",
+          "tenantSourceKey": "8:wordpress-product-category:71",
+          "sourceChecksum": "6e1e0039a9cdcb66ba8068353c9f608caa51a6355b82766c8eafdf82893b3cf9",
+          "productCount": 103,
+          "order": 3,
+          "updatedAt": "2026-07-19T15:14:27.120Z",
+          "createdAt": "2026-07-19T15:14:27.120Z"
+        }
+      ],
+      "price": 125000,
+      "regularPrice": 165000,
+      "salePrice": 125000,
+      "compareAtPrice": 165000,
+      "currency": "VND",
+      "stockStatus": "instock",
+      "isPurchasable": false,
+      "isOnBackorder": false,
+      "shortDescription": "Áo bóng đá Zentor – Tím Than mang phong cách mạnh mẽ, hiện đại với thiết kế sọc dọc đỏ trắng nổi bật. Chất liệu vải cao cấp co giãn 4 chiều, thấm hút tốt, phù hợp cho mọi cường độ vận động.",
+      "description": null,
+      "attributes": [],
+      "badges": [],
+      "searchTags": [
+        {
+          "id": "6a5ceb3db74ce30001ef3f7d",
+          "value": "Áo Không Logo"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 6357,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "codex-imagegen",
+          "sourceId": "catalog-refresh-20260729-product-3735",
+          "sourceUrl": null,
+          "sourceChecksum": "c3dd3d483549a46677262adb37cf120f0463263daea23c17d65a8e72044c8595",
+          "tenantSourceKey": "8:codex-imagegen:catalog-refresh-20260729-product-3735",
+          "sharedWithTenants": [],
+          "alt": "Áo bóng đá Zentor – Tím Than kẻ sọc đỏ trắng - cầu thủ nam Việt Nam mặc áo trên sân bóng",
+          "searchTags": [
+            {
+              "id": "6a69dd385aac3700012d196b",
+              "value": "bóng đá"
+            },
+            {
+              "id": "6a69dd385aac3700012d196c",
+              "value": "cầu thủ nam"
+            },
+            {
+              "id": "6a69dd385aac3700012d196d",
+              "value": "ảnh sản phẩm"
+            }
+          ],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-29T11:00:08.991Z",
+          "createdAt": "2026-07-29T11:00:08.580Z",
+          "url": "https://static.x24sport.vn/mayaobongda/15-3735-ao-bong-da-zentor-tim-than-ke-soc-do-trang.webp",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/15-3735-ao-bong-da-zentor-tim-than-ke-soc-do-trang.webp",
+          "filename": "15-3735-ao-bong-da-zentor-tim-than-ke-soc-do-trang.webp",
+          "mimeType": "image/webp",
+          "filesize": 121258,
+          "width": 1600,
+          "height": 1600,
+          "focalX": 50,
+          "focalY": 50
+        },
+        {
+          "id": 5047,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "wordpress-media",
+          "sourceId": "1077",
+          "sourceUrl": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-den-do-zentor.jpg",
+          "sourceChecksum": "4e36b20c0cf90e3ecae98aca66a5d13f36f5eb6d1461dd0818a31d97eaf01323",
+          "tenantSourceKey": "8:wordpress-media:1077",
+          "sharedWithTenants": [],
+          "alt": "ao-bong-da-khong-logo-mau-den-do-zentor",
+          "searchTags": [],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-19T15:13:23.163Z",
+          "createdAt": "2026-07-19T15:13:22.703Z",
+          "url": "https://static.x24sport.vn/mayaobongda/wp-1077-ao-bong-da-khong-logo-mau-den-do-zentor.jpg",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/wp-1077-ao-bong-da-khong-logo-mau-den-do-zentor.jpg",
+          "filename": "wp-1077-ao-bong-da-khong-logo-mau-den-do-zentor.jpg",
+          "mimeType": "image/jpeg",
+          "filesize": 276519,
+          "width": 850,
+          "height": 850,
+          "focalX": 50,
+          "focalY": 50
+        }
+      ],
+      "legacyImages": [
+        {
+          "id": "6a5ceb3db74ce30001ef3f7e",
+          "url": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-den-do-zentor.jpg",
+          "alt": "Áo bóng đá Zentor &#8211; Tím Than kẻ sọc đỏ trắng",
+          "width": null,
+          "height": null
+        }
+      ],
+      "seoTitle": "Áo bóng đá Zentor - Tím Than kẻ sọc đỏ trắng - X24Sport",
+      "metaDescription": null,
+      "canonicalOverride": "https://mayaobongda.vn/ao-bong-da-zentor-tim-than-ke-soc-do-trang/",
+      "legacyPath": "/ao-bong-da-zentor-tim-than-ke-soc-do-trang/",
+      "tenantLegacyPathKey": "8:/ao-bong-da-zentor-tim-than-ke-soc-do-trang/",
+      "pinterestPublishEnvironment": null,
+      "pinterestPublishedAt": null,
+      "pinterestBoardName": null,
+      "pinterestPinId": null,
+      "pinterestBoardId": null,
+      "pinterestPinUrl": null,
+      "contentHtml": "<blockquote><p>\n  Áo bóng đá Zentor &#8211; Tím Than: Kết hợp hoàn hảo giữa phong cách thời trang thể thao hiện đại và chất lượng vải cao cấp, giúp bạn tự tin thi đấu và ghi dấu ấn mạnh mẽ trên sân cỏ.\n</p></blockquote>\n<figure>\n  <img src=\"https://static.x24sport.vn/mayaobongda/wp-1077-ao-bong-da-khong-logo-mau-den-do-zentor.jpg\" alt=\"Áo bóng đá Zentor - Tím Than kẻ sọc đỏ trắng\"><figcaption>Áo bóng đá Zentor &#8211; Tím Than</figcaption></figure>\n<h2>Thiết kế màu sắc nổi bật và cá tính</h2>\n<p>Mẫu <strong>áo bóng đá Zentor &#8211; Tím Than</strong> là sự lựa chọn hoàn hảo cho các đội bóng yêu thích phong cách mạnh mẽ và hiện đại. Tông màu <strong>tím than</strong> chủ đạo không chỉ mang đến vẻ ngoài nam tính, mà còn phù hợp với nhiều độ tuổi và phong cách khác nhau. Kết hợp với các đường <strong>sọc dọc trắng và đỏ đậm</strong>, chiếc áo tạo nên điểm nhấn sinh động, giúp đội bóng nổi bật và chuyên nghiệp hơn trên sân.</p>\n<h2>Chất liệu thể thao cao cấp cho hiệu suất tối ưu</h2>\n<p>Không chỉ thu hút ánh nhìn bằng thiết kế, áo Zentor còn được sản xuất với <strong>chất liệu vải thể thao cao cấp</strong>, có độ <strong>co giãn 4 chiều</strong> linh hoạt, giúp người mặc vận động thoải mái trong mọi tình huống thi đấu. Vải có tính năng <strong>thấm hút mồ hôi tốt, thoáng khí</strong>, luôn giữ cho cơ thể khô ráo, hạn chế mùi khó chịu khi hoạt động cường độ cao.</p>\n<h2>Form dáng thể thao năng động</h2>\n<p>Với <strong>form áo chuẩn thể thao</strong>, áo Zentor ôm vừa vặn cơ thể nhưng không quá bó, tạo cảm giác năng động, trẻ trung. Thiết kế dạng <strong>kẻ sọc dọc</strong> còn có tác dụng tôn dáng, giúp người mặc trông cao ráo và gọn gàng hơn.</p>\n<h2>Phù hợp với mọi nhu cầu thi đấu và tập luyện</h2>\n<p>Dù bạn là cầu thủ bán chuyên hay nhà tổ chức các giải đấu phong trào, Zentor &#8211; Tím Than là mẫu áo lý tưởng đáp ứng đầy đủ tiêu chí về thẩm mỹ lẫn tính ứng dụng. Bên cạnh đó, sản phẩm còn <strong>dễ dàng giặt sạch</strong>, <strong>nhanh khô</strong>, thuận tiện cho việc giặt giũ thường xuyên.</p>\n<h2>Chốt lại: Tại sao nên chọn Zentor &#8211; Tím Than?</h2>\n<ul>\n<li>Thiết kế mạnh mẽ, hiện đại với sắc tím than chủ đạo.</li>\n<li>Kết hợp sọc đỏ trắng giúp tăng độ nhận diện thương hiệu đội bóng.</li>\n<li>Chất liệu cao cấp – thoáng khí, co giãn, bền bỉ theo thời gian.</li>\n<li>Form dáng tôn vóc dáng và đảm bảo sự thoải mái tối đa.</li>\n</ul>\n<p>👉 Liên hệ ngay với <a href=\"https://mayaobongda.vn\" target=\"_blank\" rel=\"noopener noreferrer\">mayaobongda.vn</a> để đặt hàng ngay hôm nay và mang đến cho đội bóng của bạn diện mạo chuyên nghiệp nhất!</p>",
+      "sourceTags": [],
+      "sourceSystem": "wordpress",
+      "sourceId": "1078",
+      "tenantSourceKey": "8:wordpress:1078",
+      "sourceModifiedAt": "2025-10-18T02:46:52.000Z",
+      "sourceCreatedAt": "2025-07-03T03:34:54.000Z",
+      "sourceChecksum": "30b2542374d1a547bbdab3cbc6c951eb78b96cc89278333d083789ef25d38595",
+      "updatedAt": "2026-07-29T11:00:09.204Z",
+      "createdAt": "2026-07-19T15:20:29.191Z"
+    },
+    {
+      "id": 3734,
+      "tenant": {
+        "id": 8,
+        "name": "May Ao Bong Da",
+        "slug": "mayaobongda",
+        "domains": [
+          {
+            "id": "6a5ce92dbbb870000146a916",
+            "domain": "mayaobongda.vn"
+          },
+          {
+            "id": "6a5ce92dbbb870000146a917",
+            "domain": "next.mayaobongda.vn"
+          }
+        ],
+        "brand": {
+          "headline": "May ao bong da thiet ke truc tiep tai xuong",
+          "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+          "primaryColor": "#101820",
+          "accentColor": "#f15a24",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-19T15:11:41.288Z",
+        "createdAt": "2026-07-19T15:11:41.288Z"
+      },
+      "name": "Áo bóng đá không logo ZENTOR vàng đen trắng mạnh mẽ",
+      "slug": "ao-bong-da-khong-logo-zentor-vang-den-trang-manh-me",
+      "tenantSlugKey": "8:ao-bong-da-khong-logo-zentor-vang-den-trang-manh-me",
+      "sku": null,
+      "sport": "football",
+      "productType": "simple",
+      "publicationStatus": "publish",
+      "featured": false,
+      "viewCount": 0,
+      "categories": [
+        {
+          "id": 140,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "name": "Áo Không Logo",
+          "slug": "ao-khong-logo",
+          "tenantSlugKey": "8:ao-khong-logo",
+          "parent": null,
+          "group": "type",
+          "description": "🟢Áo Bóng Đá Không Logo – Sự Lựa Chọn Linh Hoạt Cho Mọi Đội Bóng Áo bóng đá không logo là dòng sản phẩm được ưa chuộng nhờ tính linh hoạt, đơn giản và phù hợp cho nhiều mục đích sử dụng khác nhau. Tại mayaobongda.vn , chúng tôi cung cấp các mẫu áo trơn không logo với chất liệu vải cao cấp, form thể thao chuẩn, dễ dàng in ấn theo nhu cầu riêng. ✔️Đặc Điểm Nổi Bật Của Áo Bóng Đá Không Logo ✅ Chất liệu vải thể thao cao cấp Vải thun lạnh co giãn 4 chiều, nhẹ, thoáng khí, thấm hút mồ hôi tốt. Mang lại cảm giác thoải mái khi thi đấu hoặc tập luyện lâu dài. ✅ Nhiều màu sắc và size lựa chọn Đầy đủ size từ trẻ em đến 6XL cho cả nam và nữ. Có sẵn hơn 10 màu cơ bản như: xanh than, đỏ, vàng, đen, trắng,... phù hợp với mọi đội bóng. ✅ Thiết kế đơn giản – Dễ cá nhân hóa Không in sẵn logo giúp người dùng dễ dàng tự thiết kế, in tên, số áo, hoặc dán logo theo nhu cầu riêng của đội nhóm. ✅Phù Hợp Cho Nhiều Mục Đích Đội bóng phong trào, lớp học, công ty Áo tập luyện hàng ngày, thể dục thể thao Giải đấu nhỏ hoặc sự kiện thể thao nội bộ ✔️ Vì Sao Nên Mua Tại mayaobongda.vn? Với xưởng may trực tiếp, không qua trung gian, chúng tôi cam kết: ✅ Giá thành tận xưởng – tiết kiệm chi phí ✅ Giao hàng nhanh toàn quốc ✅ Miễn phí thiết kế và in ấn tên, số, logo theo yêu cầu 👉 Xem thêm: Áo Thiết Kế Maket trước sản xuất Thành phẩm sau may Bảng size chuẩn Liên hệ ngay để được tư vấn và đặt hàng! Hotline/Zalo: 0989.353.247 Facebook: May Áo Bóng Đá - Vn Website: mayaobongda.vn",
+          "legacyPath": "/ao-khong-logo/",
+          "tenantLegacyPathKey": "8:/ao-khong-logo/",
+          "sourceSystem": "wordpress-product-category",
+          "sourceId": "71",
+          "tenantSourceKey": "8:wordpress-product-category:71",
+          "sourceChecksum": "6e1e0039a9cdcb66ba8068353c9f608caa51a6355b82766c8eafdf82893b3cf9",
+          "productCount": 103,
+          "order": 3,
+          "updatedAt": "2026-07-19T15:14:27.120Z",
+          "createdAt": "2026-07-19T15:14:27.120Z"
+        }
+      ],
+      "price": 125000,
+      "regularPrice": 165000,
+      "salePrice": 125000,
+      "compareAtPrice": 165000,
+      "currency": "VND",
+      "stockStatus": "instock",
+      "isPurchasable": false,
+      "isOnBackorder": false,
+      "shortDescription": "Áo bóng đá không logo ZENTOR màu vàng – đen – trắng với thiết kế cá tính, chất liệu co giãn thoáng khí, đem lại sự tự tin và nổi bật trên sân cỏ.",
+      "description": null,
+      "attributes": [],
+      "badges": [],
+      "searchTags": [
+        {
+          "id": "6a5ceb3db74ce30001ef3f7b",
+          "value": "Áo Không Logo"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 6358,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "codex-imagegen",
+          "sourceId": "catalog-refresh-20260729-product-3734",
+          "sourceUrl": null,
+          "sourceChecksum": "be1fd83032c4a3ba13b81d38509398a63b982af5da1871cbcd1f8b99f02da754",
+          "tenantSourceKey": "8:codex-imagegen:catalog-refresh-20260729-product-3734",
+          "sharedWithTenants": [],
+          "alt": "Áo bóng đá không logo ZENTOR vàng đen trắng mạnh mẽ - cầu thủ nam Việt Nam mặc áo trên sân bóng",
+          "searchTags": [
+            {
+              "id": "6a69dd395aac3700012d196e",
+              "value": "bóng đá"
+            },
+            {
+              "id": "6a69dd395aac3700012d196f",
+              "value": "cầu thủ nam"
+            },
+            {
+              "id": "6a69dd395aac3700012d1970",
+              "value": "ảnh sản phẩm"
+            }
+          ],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-29T11:00:10.569Z",
+          "createdAt": "2026-07-29T11:00:09.969Z",
+          "url": "https://static.x24sport.vn/mayaobongda/16-3734-ao-bong-da-khong-logo-zentor-vang-den-trang-manh-me.webp",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/16-3734-ao-bong-da-khong-logo-zentor-vang-den-trang-manh-me.webp",
+          "filename": "16-3734-ao-bong-da-khong-logo-zentor-vang-den-trang-manh-me.webp",
+          "mimeType": "image/webp",
+          "filesize": 169726,
+          "width": 1600,
+          "height": 1600,
+          "focalX": 50,
+          "focalY": 50
+        },
+        {
+          "id": 5043,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "wordpress-media",
+          "sourceId": "1075",
+          "sourceUrl": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-vang-den-zentor.jpg",
+          "sourceChecksum": "2ebd4f5ef150767c8124a25eef81b413c36350721408a7817f8b5a9a3010765c",
+          "tenantSourceKey": "8:wordpress-media:1075",
+          "sharedWithTenants": [],
+          "alt": "ao-bong-da-khong-logo-mau-vang-den-zentor",
+          "searchTags": [],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-19T15:13:22.828Z",
+          "createdAt": "2026-07-19T15:13:22.442Z",
+          "url": "https://static.x24sport.vn/mayaobongda/wp-1075-ao-bong-da-khong-logo-mau-vang-den-zentor.jpg",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/wp-1075-ao-bong-da-khong-logo-mau-vang-den-zentor.jpg",
+          "filename": "wp-1075-ao-bong-da-khong-logo-mau-vang-den-zentor.jpg",
+          "mimeType": "image/jpeg",
+          "filesize": 281677,
+          "width": 850,
+          "height": 850,
+          "focalX": 50,
+          "focalY": 50
+        }
+      ],
+      "legacyImages": [
+        {
+          "id": "6a5ceb3db74ce30001ef3f7c",
+          "url": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-vang-den-zentor.jpg",
+          "alt": "Áo bóng đá không logo ZENTOR vàng đen trắng mạnh mẽ",
+          "width": null,
+          "height": null
+        }
+      ],
+      "seoTitle": "Áo bóng đá không logo ZENTOR vàng đen trắng mạnh mẽ - X24Sport",
+      "metaDescription": null,
+      "canonicalOverride": "https://mayaobongda.vn/ao-bong-da-khong-logo-zentor-vang-den-trang-manh-me/",
+      "legacyPath": "/ao-bong-da-khong-logo-zentor-vang-den-trang-manh-me/",
+      "tenantLegacyPathKey": "8:/ao-bong-da-khong-logo-zentor-vang-den-trang-manh-me/",
+      "pinterestPublishEnvironment": null,
+      "pinterestPublishedAt": null,
+      "pinterestBoardName": null,
+      "pinterestPinId": null,
+      "pinterestBoardId": null,
+      "pinterestPinUrl": null,
+      "contentHtml": "<blockquote><p><strong>Khám phá mẫu áo bóng đá không logo ZENTOR với phối màu đen &#8211; trắng &#8211; vàng tinh tế, chất liệu cao cấp, mang đến trải nghiệm thể thao mạnh mẽ và đầy cá tính.</strong></p></blockquote>\n<figure>\n  <img src=\"https://static.x24sport.vn/mayaobongda/wp-1075-ao-bong-da-khong-logo-mau-vang-den-zentor.jpg\" alt=\"Áo bóng đá không logo ZENTOR phối màu vàng đen trắng\"><figcaption><em>Áo bóng đá ZENTOR vàng đen trắng</em></figcaption></figure>\n<h2>✨ Thiết kế nổi bật, phối màu tinh tế</h2>\n<p>Mẫu <strong>áo bóng đá không logo ZENTOR</strong> ghi điểm với thiết kế phối 3 màu mạnh mẽ: <strong>vàng nổi bật</strong>, <strong>đen huyền bí</strong>, và <strong>trắng trung tính</strong>, tạo nên tổng thể hài hòa và cuốn hút. Sự kết hợp thông minh giữa các gam màu giúp tôn dáng người mặc trên sân cỏ, đặc biệt giúp bạn nổi bật trong từng pha bóng.</p>\n<p><strong>Màu đen</strong> thể hiện sự mạnh mẽ, chuyên nghiệp; <strong>trắng</strong> tăng sự tinh tế và trung hòa gam màu chính; còn <strong>vàng</strong> mang nét tươi mới, năng động, đầy năng lượng tích cực. Quần đen phối với tất trắng giúp phần thân áo thêm nổi bật và thu hút ánh nhìn.</p>\n<h2>💪 Hiệu suất thi đấu vượt trội</h2>\n<ul>\n<li>✔️ <strong>Chất liệu thể thao cao cấp</strong>: mềm mại, thấm hút mồ hôi cực tốt</li>\n<li>✔️ <strong>Vải co giãn 4 chiều</strong>: hỗ trợ vận động linh hoạt suốt trận đấu</li>\n<li>✔️ <strong>Thoáng khí tối ưu</strong>: không gây bức bí, khó chịu, phù hợp cả thời tiết nắng nóng</li>\n<li>✔️ Thiết kế không logo giúp <strong>dễ dàng in ấn logo đội bóng</strong>, cá nhân hóa theo yêu cầu</li>\n</ul>\n<h2>📌 Phù hợp cho mọi đội bóng</h2>\n<p>Áo bóng đá ZENTOR phù hợp cho các đội bóng phong trào, tập luyện hay thi đấu bán chuyên nghiệp. Nhờ thiết kế đơn giản, dễ phối và chất liệu tối ưu, sản phẩm giúp nâng cao hiệu suất, đồng thời giữ bạn luôn nổi bật và cá tính trên sân mỗi khi xuất hiện.</p>\n<p>Đặt mua ngay hôm nay tại <strong><a href=\"https://mayaobongda.vn\">mayaobongda-vn</a></strong> để nhận ưu đãi hấp dẫn và hỗ trợ in ấn theo yêu cầu!</p>",
+      "sourceTags": [],
+      "sourceSystem": "wordpress",
+      "sourceId": "1076",
+      "tenantSourceKey": "8:wordpress:1076",
+      "sourceModifiedAt": "2025-10-18T02:46:52.000Z",
+      "sourceCreatedAt": "2025-07-03T03:34:30.000Z",
+      "sourceChecksum": "e7a7d38715aeec59d5d00ff5c6982c9dc0c7441600de20f4cc5f05fa3a993ba1",
+      "updatedAt": "2026-07-29T11:00:10.646Z",
+      "createdAt": "2026-07-19T15:20:29.068Z"
+    },
+    {
+      "id": 3733,
+      "tenant": {
+        "id": 8,
+        "name": "May Ao Bong Da",
+        "slug": "mayaobongda",
+        "domains": [
+          {
+            "id": "6a5ce92dbbb870000146a916",
+            "domain": "mayaobongda.vn"
+          },
+          {
+            "id": "6a5ce92dbbb870000146a917",
+            "domain": "next.mayaobongda.vn"
+          }
+        ],
+        "brand": {
+          "headline": "May ao bong da thiet ke truc tiep tai xuong",
+          "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+          "primaryColor": "#101820",
+          "accentColor": "#f15a24",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-19T15:11:41.288Z",
+        "createdAt": "2026-07-19T15:11:41.288Z"
+      },
+      "name": "Áo bóng đá nam không logo GRAVIX màu xanh da trời",
+      "slug": "ao-bong-da-nam-khong-logo-gravix-mau-xanh-da-troi",
+      "tenantSlugKey": "8:ao-bong-da-nam-khong-logo-gravix-mau-xanh-da-troi",
+      "sku": null,
+      "sport": "football",
+      "productType": "simple",
+      "publicationStatus": "publish",
+      "featured": false,
+      "viewCount": 0,
+      "categories": [
+        {
+          "id": 140,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "name": "Áo Không Logo",
+          "slug": "ao-khong-logo",
+          "tenantSlugKey": "8:ao-khong-logo",
+          "parent": null,
+          "group": "type",
+          "description": "🟢Áo Bóng Đá Không Logo – Sự Lựa Chọn Linh Hoạt Cho Mọi Đội Bóng Áo bóng đá không logo là dòng sản phẩm được ưa chuộng nhờ tính linh hoạt, đơn giản và phù hợp cho nhiều mục đích sử dụng khác nhau. Tại mayaobongda.vn , chúng tôi cung cấp các mẫu áo trơn không logo với chất liệu vải cao cấp, form thể thao chuẩn, dễ dàng in ấn theo nhu cầu riêng. ✔️Đặc Điểm Nổi Bật Của Áo Bóng Đá Không Logo ✅ Chất liệu vải thể thao cao cấp Vải thun lạnh co giãn 4 chiều, nhẹ, thoáng khí, thấm hút mồ hôi tốt. Mang lại cảm giác thoải mái khi thi đấu hoặc tập luyện lâu dài. ✅ Nhiều màu sắc và size lựa chọn Đầy đủ size từ trẻ em đến 6XL cho cả nam và nữ. Có sẵn hơn 10 màu cơ bản như: xanh than, đỏ, vàng, đen, trắng,... phù hợp với mọi đội bóng. ✅ Thiết kế đơn giản – Dễ cá nhân hóa Không in sẵn logo giúp người dùng dễ dàng tự thiết kế, in tên, số áo, hoặc dán logo theo nhu cầu riêng của đội nhóm. ✅Phù Hợp Cho Nhiều Mục Đích Đội bóng phong trào, lớp học, công ty Áo tập luyện hàng ngày, thể dục thể thao Giải đấu nhỏ hoặc sự kiện thể thao nội bộ ✔️ Vì Sao Nên Mua Tại mayaobongda.vn? Với xưởng may trực tiếp, không qua trung gian, chúng tôi cam kết: ✅ Giá thành tận xưởng – tiết kiệm chi phí ✅ Giao hàng nhanh toàn quốc ✅ Miễn phí thiết kế và in ấn tên, số, logo theo yêu cầu 👉 Xem thêm: Áo Thiết Kế Maket trước sản xuất Thành phẩm sau may Bảng size chuẩn Liên hệ ngay để được tư vấn và đặt hàng! Hotline/Zalo: 0989.353.247 Facebook: May Áo Bóng Đá - Vn Website: mayaobongda.vn",
+          "legacyPath": "/ao-khong-logo/",
+          "tenantLegacyPathKey": "8:/ao-khong-logo/",
+          "sourceSystem": "wordpress-product-category",
+          "sourceId": "71",
+          "tenantSourceKey": "8:wordpress-product-category:71",
+          "sourceChecksum": "6e1e0039a9cdcb66ba8068353c9f608caa51a6355b82766c8eafdf82893b3cf9",
+          "productCount": 103,
+          "order": 3,
+          "updatedAt": "2026-07-19T15:14:27.120Z",
+          "createdAt": "2026-07-19T15:14:27.120Z"
+        }
+      ],
+      "price": 125000,
+      "regularPrice": 165000,
+      "salePrice": 125000,
+      "compareAtPrice": 165000,
+      "currency": "VND",
+      "stockStatus": "instock",
+      "isPurchasable": false,
+      "isOnBackorder": false,
+      "shortDescription": "Sở hữu thiết kế thể thao hiện đại và màu xanh da trời nổi bật, áo bóng đá nam GRAVIX không logo mang đến phong cách chuyên nghiệp, thoải mái tối đa khi thi đấu hay luyện tập.",
+      "description": null,
+      "attributes": [],
+      "badges": [],
+      "searchTags": [
+        {
+          "id": "6a5ceb3cb74ce30001ef3f79",
+          "value": "Áo Không Logo"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 6359,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "codex-imagegen",
+          "sourceId": "catalog-refresh-20260729-product-3733",
+          "sourceUrl": null,
+          "sourceChecksum": "8113ae0762fe15f416f951b2a042297440b873c0c02d672f080c7558f3883ff5",
+          "tenantSourceKey": "8:codex-imagegen:catalog-refresh-20260729-product-3733",
+          "sharedWithTenants": [],
+          "alt": "Áo bóng đá nam không logo GRAVIX màu xanh da trời - cầu thủ nam Việt Nam mặc áo trên sân bóng",
+          "searchTags": [
+            {
+              "id": "6a69dd3b5aac3700012d1971",
+              "value": "bóng đá"
+            },
+            {
+              "id": "6a69dd3b5aac3700012d1972",
+              "value": "cầu thủ nam"
+            },
+            {
+              "id": "6a69dd3b5aac3700012d1973",
+              "value": "ảnh sản phẩm"
+            }
+          ],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-29T11:00:11.558Z",
+          "createdAt": "2026-07-29T11:00:11.199Z",
+          "url": "https://static.x24sport.vn/mayaobongda/17-3733-ao-bong-da-nam-khong-logo-gravix-mau-xanh-da-troi.webp",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/17-3733-ao-bong-da-nam-khong-logo-gravix-mau-xanh-da-troi.webp",
+          "filename": "17-3733-ao-bong-da-nam-khong-logo-gravix-mau-xanh-da-troi.webp",
+          "mimeType": "image/webp",
+          "filesize": 162630,
+          "width": 1600,
+          "height": 1600,
+          "focalX": 50,
+          "focalY": 50
+        },
+        {
+          "id": 5041,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "wordpress-media",
+          "sourceId": "1073",
+          "sourceUrl": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-xanh-ya-gravix.jpg",
+          "sourceChecksum": "f9ec7bc3e5cad133d59720696677d7506035786c14a5d04ca0d11d8c3119d8d6",
+          "tenantSourceKey": "8:wordpress-media:1073",
+          "sharedWithTenants": [],
+          "alt": "ao-bong-da-khong-logo-mau-xanh-ya-gravix",
+          "searchTags": [],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-19T15:13:21.928Z",
+          "createdAt": "2026-07-19T15:13:21.621Z",
+          "url": "https://static.x24sport.vn/mayaobongda/wp-1073-ao-bong-da-khong-logo-mau-xanh-ya-gravix.jpg",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/wp-1073-ao-bong-da-khong-logo-mau-xanh-ya-gravix.jpg",
+          "filename": "wp-1073-ao-bong-da-khong-logo-mau-xanh-ya-gravix.jpg",
+          "mimeType": "image/jpeg",
+          "filesize": 289349,
+          "width": 850,
+          "height": 850,
+          "focalX": 50,
+          "focalY": 50
+        }
+      ],
+      "legacyImages": [
+        {
+          "id": "6a5ceb3cb74ce30001ef3f7a",
+          "url": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-xanh-ya-gravix.jpg",
+          "alt": "Áo bóng đá nam không logo GRAVIX màu xanh da trời",
+          "width": null,
+          "height": null
+        }
+      ],
+      "seoTitle": "Áo bóng đá nam không logo GRAVIX màu xanh da trời - X24Sport",
+      "metaDescription": null,
+      "canonicalOverride": "https://mayaobongda.vn/ao-bong-da-nam-khong-logo-gravix-mau-xanh-da-troi/",
+      "legacyPath": "/ao-bong-da-nam-khong-logo-gravix-mau-xanh-da-troi/",
+      "tenantLegacyPathKey": "8:/ao-bong-da-nam-khong-logo-gravix-mau-xanh-da-troi/",
+      "pinterestPublishEnvironment": null,
+      "pinterestPublishedAt": null,
+      "pinterestBoardName": null,
+      "pinterestPinId": null,
+      "pinterestBoardId": null,
+      "pinterestPinUrl": null,
+      "contentHtml": "<blockquote><p><strong>GRAVIX – Bộ sưu tập áo đá bóng không logo dẫn đầu xu hướng với tone màu xanh da trời trẻ trung, họa tiết kim cương gradient cùng chất liệu thoáng khí, co giãn tuyệt vời.</strong></p></blockquote>\n<figure>\n  <img src=\"https://static.x24sport.vn/mayaobongda/wp-1073-ao-bong-da-khong-logo-mau-xanh-ya-gravix.jpg\" alt=\"Áo bóng đá không logo GRAVIX màu xanh da trời\"><figcaption><em>Áo bóng đá GRAVIX xanh da trời</em></figcaption></figure>\n<h2>🔥 Thiết kế nổi bật, cá tính và chuyên nghiệp</h2>\n<p>GRAVIX mang đến mẫu áo bóng đá nam với màu <strong>xanh da trời</strong> cực hút mắt – không chỉ phù hợp khi thi đấu trên sân mà còn tôn lên sự trẻ trung, năng động của người mặc. Các chi tiết <strong>trắng ở tay áo và hai bên sườn</strong> tạo điểm nhấn hài hòa, giúp tổng thể không bị đơn điệu.</p>\n<p>Ấn tượng hơn cả là <strong>họa tiết kim cương chuyển sắc (gradient)</strong> chạy dọc phần thân áo, tạo chiều sâu và phong cách chuyên nghiệp, rất phù hợp với các đội bóng phong trào muốn tạo bản sắc riêng.</p>\n<h2>💨 Thoáng mát – Co giãn – Thoải mái tối đa</h2>\n<p>Sản phẩm được may từ chất liệu cao cấp thường dùng trong đồng phục thể thao chuyên nghiệp như <strong>Polyester pha Spandex</strong> hoặc thun lạnh. Điều này mang lại rất nhiều ưu điểm khi tập luyện:</p>\n<ul>\n<li><strong>Thoáng khí vượt trội</strong>: Hạn chế tích tụ mồ hôi trong quá trình vận động.</li>\n<li><strong>Co giãn tốt</strong>: Phù hợp đa dạng vóc dáng, hỗ trợ chuyển động linh hoạt.</li>\n<li><strong>Form dáng gọn gàng</strong>: Tăng tính thẩm mỹ và tạo cảm giác nhẹ nhàng khi mặc.</li>\n</ul>\n<h2>✅ Lý tưởng cho mọi trận đấu và luyện tập</h2>\n<p>Cho dù bạn là cầu thủ chuyên nghiệp hay chơi bóng đá phong trào, mẫu áo GRAVIX này đều là lựa chọn hoàn hảo nhờ sự kết hợp giữa <strong>thẩm mỹ và tính năng</strong>. Kiểu dáng thể thao, màu sắc nổi bật cùng thiết kế không logo cực kỳ tiện dụng để in tên, số hoặc logo đội bóng riêng.</p>\n<p><strong>Hãy trang bị ngay cho đội bóng của bạn mẫu áo GRAVIX xanh da trời</strong> để nâng tầm phong cách và hiệu suất thi đấu!</p>",
+      "sourceTags": [],
+      "sourceSystem": "wordpress",
+      "sourceId": "1074",
+      "tenantSourceKey": "8:wordpress:1074",
+      "sourceModifiedAt": "2025-10-18T02:46:52.000Z",
+      "sourceCreatedAt": "2025-07-03T03:33:49.000Z",
+      "sourceChecksum": "b2b9a9077a4024d1258d3da9fb7a7cb3bc0909b511c63669f714238602a9b012",
+      "updatedAt": "2026-07-29T11:00:11.624Z",
+      "createdAt": "2026-07-19T15:20:28.944Z"
+    },
+    {
+      "id": 3732,
+      "tenant": {
+        "id": 8,
+        "name": "May Ao Bong Da",
+        "slug": "mayaobongda",
+        "domains": [
+          {
+            "id": "6a5ce92dbbb870000146a916",
+            "domain": "mayaobongda.vn"
+          },
+          {
+            "id": "6a5ce92dbbb870000146a917",
+            "domain": "next.mayaobongda.vn"
+          }
+        ],
+        "brand": {
+          "headline": "May ao bong da thiet ke truc tiep tai xuong",
+          "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+          "primaryColor": "#101820",
+          "accentColor": "#f15a24",
+          "style": "flevo-inspired"
+        },
+        "updatedAt": "2026-07-19T15:11:41.288Z",
+        "createdAt": "2026-07-19T15:11:41.288Z"
+      },
+      "name": "Áo Bóng Đá GRAVIX – Màu Xanh Két Năng Động",
+      "slug": "ao-bong-da-gravix-mau-xanh-ket-nang-dong",
+      "tenantSlugKey": "8:ao-bong-da-gravix-mau-xanh-ket-nang-dong",
+      "sku": null,
+      "sport": "football",
+      "productType": "simple",
+      "publicationStatus": "publish",
+      "featured": false,
+      "viewCount": 0,
+      "categories": [
+        {
+          "id": 140,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "name": "Áo Không Logo",
+          "slug": "ao-khong-logo",
+          "tenantSlugKey": "8:ao-khong-logo",
+          "parent": null,
+          "group": "type",
+          "description": "🟢Áo Bóng Đá Không Logo – Sự Lựa Chọn Linh Hoạt Cho Mọi Đội Bóng Áo bóng đá không logo là dòng sản phẩm được ưa chuộng nhờ tính linh hoạt, đơn giản và phù hợp cho nhiều mục đích sử dụng khác nhau. Tại mayaobongda.vn , chúng tôi cung cấp các mẫu áo trơn không logo với chất liệu vải cao cấp, form thể thao chuẩn, dễ dàng in ấn theo nhu cầu riêng. ✔️Đặc Điểm Nổi Bật Của Áo Bóng Đá Không Logo ✅ Chất liệu vải thể thao cao cấp Vải thun lạnh co giãn 4 chiều, nhẹ, thoáng khí, thấm hút mồ hôi tốt. Mang lại cảm giác thoải mái khi thi đấu hoặc tập luyện lâu dài. ✅ Nhiều màu sắc và size lựa chọn Đầy đủ size từ trẻ em đến 6XL cho cả nam và nữ. Có sẵn hơn 10 màu cơ bản như: xanh than, đỏ, vàng, đen, trắng,... phù hợp với mọi đội bóng. ✅ Thiết kế đơn giản – Dễ cá nhân hóa Không in sẵn logo giúp người dùng dễ dàng tự thiết kế, in tên, số áo, hoặc dán logo theo nhu cầu riêng của đội nhóm. ✅Phù Hợp Cho Nhiều Mục Đích Đội bóng phong trào, lớp học, công ty Áo tập luyện hàng ngày, thể dục thể thao Giải đấu nhỏ hoặc sự kiện thể thao nội bộ ✔️ Vì Sao Nên Mua Tại mayaobongda.vn? Với xưởng may trực tiếp, không qua trung gian, chúng tôi cam kết: ✅ Giá thành tận xưởng – tiết kiệm chi phí ✅ Giao hàng nhanh toàn quốc ✅ Miễn phí thiết kế và in ấn tên, số, logo theo yêu cầu 👉 Xem thêm: Áo Thiết Kế Maket trước sản xuất Thành phẩm sau may Bảng size chuẩn Liên hệ ngay để được tư vấn và đặt hàng! Hotline/Zalo: 0989.353.247 Facebook: May Áo Bóng Đá - Vn Website: mayaobongda.vn",
+          "legacyPath": "/ao-khong-logo/",
+          "tenantLegacyPathKey": "8:/ao-khong-logo/",
+          "sourceSystem": "wordpress-product-category",
+          "sourceId": "71",
+          "tenantSourceKey": "8:wordpress-product-category:71",
+          "sourceChecksum": "6e1e0039a9cdcb66ba8068353c9f608caa51a6355b82766c8eafdf82893b3cf9",
+          "productCount": 103,
+          "order": 3,
+          "updatedAt": "2026-07-19T15:14:27.120Z",
+          "createdAt": "2026-07-19T15:14:27.120Z"
+        }
+      ],
+      "price": 125000,
+      "regularPrice": 165000,
+      "salePrice": 125000,
+      "compareAtPrice": 165000,
+      "currency": "VND",
+      "stockStatus": "instock",
+      "isPurchasable": false,
+      "isOnBackorder": false,
+      "shortDescription": "GRAVIX – Xanh Két là mẫu áo bóng đá không logo sở hữu thiết kế thể thao hiện đại, màu sắc trẻ trung, chất liệu co giãn thấm hút mồ hôi, mang đến sự thoải mái và nổi bật cho người mặc trên sân cỏ.",
+      "description": null,
+      "attributes": [],
+      "badges": [],
+      "searchTags": [
+        {
+          "id": "6a5ceb3cb74ce30001ef3f77",
+          "value": "Áo Không Logo"
+        }
+      ],
+      "gallery": [
+        {
+          "id": 6360,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "codex-imagegen",
+          "sourceId": "catalog-refresh-20260729-product-3732",
+          "sourceUrl": null,
+          "sourceChecksum": "24333958e34b8cf13802127df19c12ee5edecfa5768169aeeaeb34c9c9621688",
+          "tenantSourceKey": "8:codex-imagegen:catalog-refresh-20260729-product-3732",
+          "sharedWithTenants": [],
+          "alt": "Áo Bóng Đá GRAVIX – Màu Xanh Két Năng Động - cầu thủ nam Việt Nam mặc áo trên sân bóng",
+          "searchTags": [
+            {
+              "id": "6a69dd3c5aac3700012d1974",
+              "value": "bóng đá"
+            },
+            {
+              "id": "6a69dd3c5aac3700012d1975",
+              "value": "cầu thủ nam"
+            },
+            {
+              "id": "6a69dd3c5aac3700012d1976",
+              "value": "ảnh sản phẩm"
+            }
+          ],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-29T11:00:12.560Z",
+          "createdAt": "2026-07-29T11:00:12.240Z",
+          "url": "https://static.x24sport.vn/mayaobongda/18-3732-ao-bong-da-gravix-mau-xanh-ket-nang-dong.webp",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/18-3732-ao-bong-da-gravix-mau-xanh-ket-nang-dong.webp",
+          "filename": "18-3732-ao-bong-da-gravix-mau-xanh-ket-nang-dong.webp",
+          "mimeType": "image/webp",
+          "filesize": 115728,
+          "width": 1600,
+          "height": 1600,
+          "focalX": 50,
+          "focalY": 50
+        },
+        {
+          "id": 5039,
+          "tenant": {
+            "id": 8,
+            "name": "May Ao Bong Da",
+            "slug": "mayaobongda",
+            "domains": [
+              {
+                "id": "6a5ce92dbbb870000146a916",
+                "domain": "mayaobongda.vn"
+              },
+              {
+                "id": "6a5ce92dbbb870000146a917",
+                "domain": "next.mayaobongda.vn"
+              }
+            ],
+            "brand": {
+              "headline": "May ao bong da thiet ke truc tiep tai xuong",
+              "subheadline": "Mau ao bong da, ao khong logo va bo do thi dau cho doi bong, cau lac bo, cong ty va giai phong trao.",
+              "primaryColor": "#101820",
+              "accentColor": "#f15a24",
+              "style": "flevo-inspired"
+            },
+            "updatedAt": "2026-07-19T15:11:41.288Z",
+            "createdAt": "2026-07-19T15:11:41.288Z"
+          },
+          "sourceSystem": "wordpress-media",
+          "sourceId": "1071",
+          "sourceUrl": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-xanh-ket-gravix.jpg",
+          "sourceChecksum": "31002588d61cf19b63ab508bdbd814a536cb4e92dc50086f36c5ac904466e358",
+          "tenantSourceKey": "8:wordpress-media:1071",
+          "sharedWithTenants": [],
+          "alt": "ao-bong-da-khong-logo-mau-xanh-ket-gravix",
+          "searchTags": [],
+          "prefix": "mayaobongda",
+          "updatedAt": "2026-07-19T15:13:21.770Z",
+          "createdAt": "2026-07-19T15:13:21.318Z",
+          "url": "https://static.x24sport.vn/mayaobongda/wp-1071-ao-bong-da-khong-logo-mau-xanh-ket-gravix.jpg",
+          "thumbnailURL": "https://static.x24sport.vn/mayaobongda/wp-1071-ao-bong-da-khong-logo-mau-xanh-ket-gravix.jpg",
+          "filename": "wp-1071-ao-bong-da-khong-logo-mau-xanh-ket-gravix.jpg",
+          "mimeType": "image/jpeg",
+          "filesize": 281181,
+          "width": 850,
+          "height": 850,
+          "focalX": 50,
+          "focalY": 50
+        }
+      ],
+      "legacyImages": [
+        {
+          "id": "6a5ceb3cb74ce30001ef3f78",
+          "url": "https://cdn.mayaobongda.vn/wp-content/uploads/2025/07/ao-bong-da-khong-logo-mau-xanh-ket-gravix.jpg",
+          "alt": "Áo Bóng Đá GRAVIX &#8211; Màu Xanh Két Năng Động",
+          "width": null,
+          "height": null
+        }
+      ],
+      "seoTitle": "Áo Bóng Đá GRAVIX - Màu Xanh Két Năng Động - X24Sport",
+      "metaDescription": null,
+      "canonicalOverride": "https://mayaobongda.vn/ao-bong-da-gravix-mau-xanh-ket-nang-dong/",
+      "legacyPath": "/ao-bong-da-gravix-mau-xanh-ket-nang-dong/",
+      "tenantLegacyPathKey": "8:/ao-bong-da-gravix-mau-xanh-ket-nang-dong/",
+      "pinterestPublishEnvironment": null,
+      "pinterestPublishedAt": null,
+      "pinterestBoardName": null,
+      "pinterestPinId": null,
+      "pinterestBoardId": null,
+      "pinterestPinUrl": null,
+      "contentHtml": "<blockquote><p><strong>GRAVIX &#8211; Xanh Két</strong> là sự kết hợp hoàn hảo giữa thiết kế hiện đại và hiệu năng thi đấu, giúp các cầu thủ luôn nổi bật và thoải mái trên sân cỏ.</p></blockquote>\n<figure>\n  <img src=\"https://static.x24sport.vn/mayaobongda/wp-1071-ao-bong-da-khong-logo-mau-xanh-ket-gravix.jpg\" alt=\"Áo bóng đá không logo màu xanh két GRAVIX\"><figcaption><strong>Áo Bóng Đá GRAVIX &#8211; Xanh Két</strong></figcaption></figure>\n<h2>🌟 Thiết kế thời thượng – Tỏa sáng trên mọi trận đấu</h2>\n<p>Áo bóng đá <strong>GRAVIX &#8211; Xanh Két</strong> mang đến diện mạo độc đáo với gam màu xanh két tươi mát, tượng trưng cho sức sống, tinh thần thể thao và năng lượng dồi dào. Sắc xanh trẻ trung giúp đội bóng dễ dàng nổi bật trên sân cũng như tạo hiệu ứng thị giác mạnh mẽ từ bất kỳ góc nhìn nào.</p>\n<h2>🎯 Điểm nhấn thiết kế tinh tế và mạnh mẽ</h2>\n<ul>\n<li>Phối <strong>sọc trắng ở vai</strong> tạo nét cá tính, dễ nhận diện khi thi đấu.</li>\n<li>Họa tiết <strong>kim cương nổi bật</strong> giúp tăng vẻ đẹp thể thao và phá cách.</li>\n<li>Form áo <strong>ôm vừa vặn</strong>, tôn dáng người mặc nhưng không gây khó chịu khi vận động.</li>\n</ul>\n<h2>💨 Tối đa hiệu suất nhờ chất liệu cao cấp</h2>\n<p>Chất liệu vải được chọn lọc kỹ lưỡng với khả năng <strong>co giãn 4 chiều</strong>, <strong>thấm hút mồ hôi tốt</strong> và thoáng khí vượt trội. Dù bạn thi đấu dưới cái nóng oi ả hay ở cường độ cao, áo vẫn giữ cảm giác khô thoáng và thoải mái tuyệt đối.</p>\n<h2>🔥 Lý tưởng cho đội bóng phong trào và chuyên nghiệp</h2>\n<p>GRAVIX &#8211; Xanh Két không chỉ phù hợp với các đội bóng phong trào mà còn là sự lựa chọn tuyệt vời cho đội hình thi đấu chuyên nghiệp. Dễ dàng in thêm logo, tên đội &#8211; cá nhân hóa theo nhu cầu của bạn.</p>\n<p>Khẳng định cá tính của bạn trên sân bóng với mẫu áo vừa chất lượng, vừa thời thượng. Đặt nhanh hôm nay để dẫn đầu về phong cách và hiệu suất!</p>",
+      "sourceTags": [],
+      "sourceSystem": "wordpress",
+      "sourceId": "1072",
+      "tenantSourceKey": "8:wordpress:1072",
+      "sourceModifiedAt": "2025-10-18T02:46:52.000Z",
+      "sourceCreatedAt": "2025-07-03T03:33:29.000Z",
+      "sourceChecksum": "f2a39bf0b68ffbc5d5992a29b4accb4ec4412a447e0a0e314e427653a47a35af",
+      "updatedAt": "2026-07-29T11:00:12.631Z",
+      "createdAt": "2026-07-19T15:20:28.819Z"
+    }
+  ]
+}

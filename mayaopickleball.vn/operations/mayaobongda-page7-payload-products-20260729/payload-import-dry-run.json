@@ -1,0 +1,377 @@
+{
+  "mode": "dry-run",
+  "tenant": {
+    "id": 3,
+    "slug": "mayaopickleball"
+  },
+  "existingProductCount": 825,
+  "maxSKU": 622,
+  "plannedCount": 24,
+  "createdCount": 0,
+  "skippedCount": 0,
+  "categoryIds": [
+    {
+      "id": "dry-ao-pickleball",
+      "slug": "ao-pickleball"
+    },
+    {
+      "id": "dry-ao-pickleball-thiet-ke-rieng",
+      "slug": "ao-pickleball-thiet-ke-rieng"
+    }
+  ],
+  "planned": [
+    {
+      "code": "MABD 114",
+      "sku": "X24-PB-623",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-623-do-cam-vang-phoi-xanh-navy",
+      "image": "output-webp-q96/01-mau-ao-bong-da-thiet-ke-dep-mabd-114-pickleball.webp",
+      "colors": [
+        "đỏ",
+        "cam",
+        "vàng",
+        "xanh navy"
+      ],
+      "palette": "Đỏ cam vàng phối xanh navy",
+      "style": "gradient năng lượng",
+      "pattern": "mảng chuyển màu ngực vai, thân dưới tối và họa tiết chuyển động",
+      "checksum": "1ddd25c1b8895fffc569d5bc07869a235a7f404e2b9aa9ad3b24068d65a94706"
+    },
+    {
+      "code": "MABD 113",
+      "sku": "X24-PB-624",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-624-trang-hong-xanh-pastel",
+      "image": "output-webp-q96/02-mau-ao-bong-da-dep-mabd-113-pickleball.webp",
+      "colors": [
+        "trắng",
+        "hồng",
+        "xanh da trời"
+      ],
+      "palette": "Trắng hồng xanh pastel",
+      "style": "pastel hình học",
+      "pattern": "tam giác và mảng màu pastel ở vai, hông và thân áo",
+      "checksum": "358d16eb969b2a79127127e4d915f674e9e7d55527440c9b87d66117efb04c90"
+    },
+    {
+      "code": "MABD 112",
+      "sku": "X24-PB-625",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-625-xanh-duong-phoi-trang",
+      "image": "output-webp-q96/03-in-ao-bong-da-gia-re-mabd-112-pickleball.webp",
+      "colors": [
+        "xanh dương",
+        "trắng"
+      ],
+      "palette": "Xanh dương phối trắng",
+      "style": "tối giản thể thao",
+      "pattern": "thân xanh trơn, viền tay và hông trắng gọn",
+      "checksum": "00aae118678216295c108a31426d8576de4f8a852f0ee2ef921ea5158e13dd8b"
+    },
+    {
+      "code": "MABD 111",
+      "sku": "X24-PB-626",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-626-xanh-duong-the-thao-phoi-trang",
+      "image": "output-webp-q96/04-in-ao-da-banh-theo-yeu-mabd-111-pickleball.webp",
+      "colors": [
+        "xanh dương",
+        "trắng"
+      ],
+      "palette": "Xanh dương thể thao phối trắng",
+      "style": "classic court sport",
+      "pattern": "nền xanh mạnh, viền trắng và mảng hông sáng",
+      "checksum": "6697bdeb03c7269b5abb3970706ad771e911478006ab769d236e78076c272a18"
+    },
+    {
+      "code": "MABD 110",
+      "sku": "X24-PB-627",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-627-trang-phoi-xanh-navy",
+      "image": "output-webp-q96/05-in-ao-bong-da-lay-ngay-mabd-110-pickleball.webp",
+      "colors": [
+        "trắng",
+        "xanh navy"
+      ],
+      "palette": "Trắng phối xanh navy",
+      "style": "minimal premium",
+      "pattern": "nền trắng sạch với chi tiết navy nhỏ",
+      "checksum": "9a826fcbc61128c02dc8d2cf8c366155d51e101e8439a3d2d17b18d621b8fcf7"
+    },
+    {
+      "code": "MABD 109",
+      "sku": "X24-PB-628",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-628-kem-den-phoi-navy",
+      "image": "output-webp-q96/06-dich-vu-may-ao-bong-da-mabd-109-pickleball.webp",
+      "colors": [
+        "kem",
+        "đen",
+        "xanh navy"
+      ],
+      "palette": "Kem đen phối navy",
+      "style": "retro typography",
+      "pattern": "nền kem, chữ lớn thể thao và trim tối màu",
+      "checksum": "22b80d60e388a25252712b75b7cb9b70cdf05b245d1a512c6132808b5410be42"
+    },
+    {
+      "code": "MABD 108",
+      "sku": "X24-PB-629",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-629-trang-xanh-ngoc",
+      "image": "output-webp-q96/07-dich-vu-in-ao-bong-da-gia-re-mabd-108-pickleball.webp",
+      "colors": [
+        "trắng",
+        "xanh ngọc",
+        "xanh teal"
+      ],
+      "palette": "Trắng xanh ngọc",
+      "style": "geometric stripe",
+      "pattern": "dải họa tiết ngang xanh ngọc lặp nhịp",
+      "checksum": "80065e743f362962089955e4524288b2d4c8bf55a093164ef8db00eb139a1bee"
+    },
+    {
+      "code": "MABD 107",
+      "sku": "X24-PB-630",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-630-kem-den-co-dien",
+      "image": "output-webp-q96/08-dat-may-ao-bong-da-mabd-107-pickleball.webp",
+      "colors": [
+        "kem",
+        "đen"
+      ],
+      "palette": "Kem đen cổ điển",
+      "style": "classic contrast",
+      "pattern": "nền sáng, viền đen rõ ở cổ tay và sườn áo",
+      "checksum": "9eb609731ff2c8ee229061eda14594ce022e58ec29f86e90ef5558269c716639"
+    },
+    {
+      "code": "MABD 105",
+      "sku": "X24-PB-631",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-631-trang-do-den-splatter",
+      "image": "output-webp-q96/09-cong-ty-may-ao-bong-da-hcm-mabd-105-pickleball.webp",
+      "colors": [
+        "trắng",
+        "đỏ",
+        "đen",
+        "xám"
+      ],
+      "palette": "Trắng đỏ đen splatter",
+      "style": "paint splatter",
+      "pattern": "vệt sơn đỏ đen trên nền trắng",
+      "checksum": "951a5c5b52665af5e42ef70dd1203c4e702675041ebfc8f7b1aad722ac2e5450"
+    },
+    {
+      "code": "MABD 106",
+      "sku": "X24-PB-632",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-632-trang-do",
+      "image": "output-webp-q96/10-dat-may-ao-bong-da-theo-yeu-cau-mabd-106-pickleball.webp",
+      "colors": [
+        "trắng",
+        "đỏ"
+      ],
+      "palette": "Trắng đỏ",
+      "style": "chevron stripe",
+      "pattern": "sọc đỏ dạng chevron và viền cổ đỏ",
+      "checksum": "02429f6b5ca6bd5115c3074a2f407dd130ad447a0dd442f851f74ae3ba35c4e9"
+    },
+    {
+      "code": "MABD 104",
+      "sku": "X24-PB-633",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-633-trang-tim-xanh-navy",
+      "image": "output-webp-q96/11-bao-gia-may-ao-bong-da-mabd-104-pickleball.webp",
+      "colors": [
+        "trắng",
+        "tím",
+        "xanh navy"
+      ],
+      "palette": "Trắng tím xanh navy",
+      "style": "mountain gradient",
+      "pattern": "gradient tím ở thân dưới với mảng núi/brush mờ",
+      "checksum": "f28c08174189d96b1c84c3f33093b1683def8ec218fde69bb4866a384b4a67ff"
+    },
+    {
+      "code": "MABD 103",
+      "sku": "X24-PB-634",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-634-xanh-ngoc-phoi-den",
+      "image": "output-webp-q96/12-ao-da-banh-uu-dai-mabd-103-pickleball.webp",
+      "colors": [
+        "xanh ngọc",
+        "đen"
+      ],
+      "palette": "Xanh ngọc phối đen",
+      "style": "solid contrast",
+      "pattern": "nền xanh ngọc gần trơn, cổ tay và hông tối",
+      "checksum": "f89173fee1219b64356d44619b78d79e535cf7faf745e10fa58e2bec5182086c"
+    },
+    {
+      "code": "MABD 81",
+      "sku": "X24-PB-635",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-635-trang-xam",
+      "image": "output-webp-q96/13-ao-da-banh-hot-nhat-mabd-81-pickleball.webp",
+      "colors": [
+        "trắng",
+        "xám"
+      ],
+      "palette": "Trắng xám",
+      "style": "embossed minimal",
+      "pattern": "họa tiết chìm ton-sur-ton trên nền trắng",
+      "checksum": "15b1efa7898c398d40cca526039efbf24998cdb986994d51795508fa95f5cbe3"
+    },
+    {
+      "code": "MABD 85",
+      "sku": "X24-PB-636",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-636-trang-do-vang",
+      "image": "output-webp-q96/14-ao-da-banh-khong-tay-mabd-85-pickleball.webp",
+      "colors": [
+        "trắng",
+        "đỏ",
+        "vàng"
+      ],
+      "palette": "Trắng đỏ vàng",
+      "style": "brush accent",
+      "pattern": "vệt brush đỏ vàng trên nền trắng",
+      "checksum": "2afe6364bd3c5a9a24a144e6a21e4e237605520de958230976fd7ecc1f455443"
+    },
+    {
+      "code": "MABD 84",
+      "sku": "X24-PB-637",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-637-xanh-duong-ton-sur-ton",
+      "image": "output-webp-q96/15-ao-da-banh-in-ten-mabd-84-pickleball.webp",
+      "colors": [
+        "xanh dương",
+        "xanh navy"
+      ],
+      "palette": "Xanh dương ton-sur-ton",
+      "style": "tonal texture",
+      "pattern": "nền xanh với texture chìm và chuyển sắc nhẹ",
+      "checksum": "fd06d76a71b2ab80b4decae9d23e8e28c413df2c1e872d7a888aab05aa005a30"
+    },
+    {
+      "code": "MABD 83",
+      "sku": "X24-PB-638",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-638-hong-xanh-pastel",
+      "image": "output-webp-q96/16-ao-da-banh-in-so-mabd-83-pickleball.webp",
+      "colors": [
+        "hồng",
+        "xanh da trời",
+        "trắng"
+      ],
+      "palette": "Hồng xanh pastel",
+      "style": "pastel gradient",
+      "pattern": "mảng hồng xanh sáng, viền và thân áo chuyển màu nhẹ",
+      "checksum": "409f872391f1d32942e34ee557a5053b44b2d384b25ad50d4bea7322b06b1376"
+    },
+    {
+      "code": "MABD 86",
+      "sku": "X24-PB-639",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-639-trang-xanh-do",
+      "image": "output-webp-q96/17-ao-da-banh-khuyen-mai-mabd-86-pickleball.webp",
+      "colors": [
+        "trắng",
+        "xanh dương",
+        "đỏ"
+      ],
+      "palette": "Trắng xanh đỏ",
+      "style": "brush split",
+      "pattern": "mảng brush xanh đỏ chia thân áo",
+      "checksum": "23fb26def21827b4defdbe57032a155d3eab5f7f73ba9da49488a7edd717db8f"
+    },
+    {
+      "code": "MABD 88",
+      "sku": "X24-PB-640",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-640-cam-hong-coral",
+      "image": "output-webp-q96/18-ao-da-banh-mau-cam-hong-mabd-88-pickleball.webp",
+      "colors": [
+        "cam",
+        "hồng"
+      ],
+      "palette": "Cam hồng coral",
+      "style": "soft diagonal",
+      "pattern": "gradient cam hồng với mảng chéo mềm",
+      "checksum": "befbeea8d5131bb96724de7cffef9277efbe2f921aab8192893b0c583861c6fa"
+    },
+    {
+      "code": "MABD 91",
+      "sku": "X24-PB-641",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-641-trang-xanh-duong",
+      "image": "output-webp-q96/19-ao-da-banh-mau-trang-xanh-mabd-91-pickleball.webp",
+      "colors": [
+        "trắng",
+        "xanh dương"
+      ],
+      "palette": "Trắng xanh dương",
+      "style": "geometric light",
+      "pattern": "họa tiết xanh dương mảnh ở thân dưới",
+      "checksum": "2df0fd34388b09d6c904811becdcce783ca061871528c77b5c556e9a4b598d5d"
+    },
+    {
+      "code": "MABD 92",
+      "sku": "X24-PB-642",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-642-trang-tim-than",
+      "image": "output-webp-q96/20-ao-da-banh-moi-nhat-mabd-92-pickleball.webp",
+      "colors": [
+        "trắng",
+        "tím than",
+        "xanh navy"
+      ],
+      "palette": "Trắng tím than",
+      "style": "classic jacquard",
+      "pattern": "nền trắng họa tiết chìm với viền cổ tím than",
+      "checksum": "2f8c9ac46e38590308def1ab8d1d6c2d51a457d092ca8801e2ef293266238f8d"
+    },
+    {
+      "code": "MABD 93",
+      "sku": "X24-PB-643",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-643-do-phoi-den",
+      "image": "output-webp-q96/21-ao-da-banh-nam-mabd-93-pickleball.webp",
+      "colors": [
+        "đỏ",
+        "đen"
+      ],
+      "palette": "Đỏ phối đen",
+      "style": "bold chevron",
+      "pattern": "họa tiết chevron đỏ ton-sur-ton, phối quần đen",
+      "checksum": "d34118d021375fc113be1565815e192f397feee6335a2bea2b25893f44babeee"
+    },
+    {
+      "code": "MABD 94",
+      "sku": "X24-PB-644",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-644-tim-than-xanh-teal-hong",
+      "image": "output-webp-q96/22-ao-da-banh-nu-mabd-94-pickleball.webp",
+      "colors": [
+        "tím than",
+        "xanh teal",
+        "hồng"
+      ],
+      "palette": "Tím than xanh teal hồng",
+      "style": "neon abstract",
+      "pattern": "nền tím than với họa tiết teal và điểm hồng sáng",
+      "checksum": "451e7f85693396401a648c752b8cd12c7f0cc16a79b138f408725f925a16a153"
+    },
+    {
+      "code": "MABD 95",
+      "sku": "X24-PB-645",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-645-vang-cam-phoi-den",
+      "image": "output-webp-q96/23-ao-da-banh-phui-mabd-95-pickleball.webp",
+      "colors": [
+        "vàng",
+        "cam",
+        "đen"
+      ],
+      "palette": "Vàng cam phối đen",
+      "style": "sunset gradient",
+      "pattern": "gradient vàng sang cam với trim đen",
+      "checksum": "f5542fcef6fb4896591ad48272f4abda236b36806f83976a389de5c25f6ee7ce"
+    },
+    {
+      "code": "MABD 96",
+      "sku": "X24-PB-646",
+      "slug": "bo-quan-ao-pickleball-nam-nu-x24-pb-646-hong-phoi-trang-den",
+      "image": "output-webp-q96/24-ao-da-banh-ship-nhanh-mabd-96-pickleball.webp",
+      "colors": [
+        "hồng",
+        "trắng",
+        "đen"
+      ],
+      "palette": "Hồng phối trắng đen",
+      "style": "playful pattern",
+      "pattern": "nền hồng có texture nhẹ và chi tiết vui mắt",
+      "checksum": "565cc1ea4d8fbcb27da84a030f63b7405f08b62ff01ba11c31dab56ae20e098a"
+    }
+  ],
+  "created": [],
+  "skipped": []
+}

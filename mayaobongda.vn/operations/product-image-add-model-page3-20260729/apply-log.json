@@ -1,0 +1,366 @@
+{
+  "apply": true,
+  "count": 24,
+  "log": [
+    {
+      "productId": 3768,
+      "name": "Áo Thể Thao Stormy X24 Sport – Màu Hồng Nhật Năng Động",
+      "mediaId": 6415,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3768-ao-the-thao-stormy-x24-sport-mau-hong-nhat-nang-dong.webp",
+      "reused": false,
+      "oldGallery": [
+        5106
+      ],
+      "nextGallery": [
+        6415,
+        5106
+      ],
+      "updatedAt": "2026-07-29T17:43:10.260Z"
+    },
+    {
+      "productId": 3767,
+      "name": "Áo Bóng Đá Nhóm Màu Vàng Nổi Bật",
+      "mediaId": 6416,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3767-ao-bong-da-nhom-mau-vang-noi-bat.webp",
+      "reused": false,
+      "oldGallery": [
+        5105
+      ],
+      "nextGallery": [
+        6416,
+        5105
+      ],
+      "updatedAt": "2026-07-29T17:43:11.253Z"
+    },
+    {
+      "productId": 3766,
+      "name": "Áo bóng đá màu kem SHADOW – X24 Sport Wear",
+      "mediaId": 6417,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3766-ao-bong-da-mau-kem-shadow-x24-sport-wear.webp",
+      "reused": false,
+      "oldGallery": [
+        5104
+      ],
+      "nextGallery": [
+        6417,
+        5104
+      ],
+      "updatedAt": "2026-07-29T17:43:12.516Z"
+    },
+    {
+      "productId": 3765,
+      "name": "Áo Bóng Đá X24 SPORT STORMY – Đỏ Cá Tính",
+      "mediaId": 6418,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3765-ao-bong-da-x24-sport-stormy-do-ca-tinh.webp",
+      "reused": false,
+      "oldGallery": [
+        5103
+      ],
+      "nextGallery": [
+        6418,
+        5103
+      ],
+      "updatedAt": "2026-07-29T17:43:15.839Z"
+    },
+    {
+      "productId": 3764,
+      "name": "Áo thể thao X24 LUNES màu vàng nhạt – Năng động & nổi bật",
+      "mediaId": 6419,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3764-ao-the-thao-x24-lunes-mau-vang-nhat-nang-dong-noi-bat.webp",
+      "reused": false,
+      "oldGallery": [
+        5101
+      ],
+      "nextGallery": [
+        6419,
+        5101
+      ],
+      "updatedAt": "2026-07-29T17:43:16.987Z"
+    },
+    {
+      "productId": 3773,
+      "name": "Áo Thể Thao X24 FORZA Đỏ Năng Động",
+      "mediaId": 6420,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3773-ao-the-thao-x24-forza-do-nang-dong.webp",
+      "reused": false,
+      "oldGallery": [
+        5113
+      ],
+      "nextGallery": [
+        6420,
+        5113
+      ],
+      "updatedAt": "2026-07-29T17:43:17.885Z"
+    },
+    {
+      "productId": 3772,
+      "name": "Áo bóng đá thiết kế STORMY X24 SPORT Trắng Tím Than",
+      "mediaId": 6421,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3772-ao-bong-da-thiet-ke-stormy-x24-sport-trang-tim-than.webp",
+      "reused": false,
+      "oldGallery": [
+        5111
+      ],
+      "nextGallery": [
+        6421,
+        5111
+      ],
+      "updatedAt": "2026-07-29T17:43:18.920Z"
+    },
+    {
+      "productId": 3771,
+      "name": "Áo Bóng Đá Thiết Kế X24 FORZA Màu Vàng Nghệ",
+      "mediaId": 6422,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3771-ao-bong-da-thiet-ke-x24-forza-mau-vang-nghe.webp",
+      "reused": false,
+      "oldGallery": [
+        5109
+      ],
+      "nextGallery": [
+        6422,
+        5109
+      ],
+      "updatedAt": "2026-07-29T17:43:19.999Z"
+    },
+    {
+      "productId": 3780,
+      "name": "Áo Bóng Đá X24 Màu Đỏ Đô – Bộ Sưu Tập FLASH",
+      "mediaId": 6423,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3780-ao-bong-da-x24-mau-do-do-bo-suu-tap-flash.webp",
+      "reused": false,
+      "oldGallery": [
+        5126
+      ],
+      "nextGallery": [
+        6423,
+        5126
+      ],
+      "updatedAt": "2026-07-29T17:43:20.864Z"
+    },
+    {
+      "productId": 3779,
+      "name": "Áo Bóng Đá X24 Shadow Màu Xanh Ya – Năng Động, Mạnh Mẽ Trên Từng Đường Chạy",
+      "mediaId": 6424,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3779-ao-bong-da-x24-shadow-mau-xanh-ya-nang-dong-manh-me-tren-tung-duong-chay.webp",
+      "reused": false,
+      "oldGallery": [
+        5125
+      ],
+      "nextGallery": [
+        6424,
+        5125
+      ],
+      "updatedAt": "2026-07-29T17:43:21.785Z"
+    },
+    {
+      "productId": 3778,
+      "name": "Áo Thể Thao X24 FLASH – Xanh Ya Năng Động",
+      "mediaId": 6425,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3778-ao-the-thao-x24-flash-xanh-ya-nang-dong.webp",
+      "reused": false,
+      "oldGallery": [
+        5124
+      ],
+      "nextGallery": [
+        6425,
+        5124
+      ],
+      "updatedAt": "2026-07-29T17:43:22.629Z"
+    },
+    {
+      "productId": 3777,
+      "name": "Áo thể thao vàng nghệ phối đỏ – Thiết kế trẻ trung, nổi bật và năng động",
+      "mediaId": 6426,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3777-ao-the-thao-vang-nghe-phoi-do-thiet-ke-tre-trung-noi-bat-va-nang-dong.webp",
+      "reused": false,
+      "oldGallery": [
+        5123
+      ],
+      "nextGallery": [
+        6426,
+        5123
+      ],
+      "updatedAt": "2026-07-29T17:43:23.612Z"
+    },
+    {
+      "productId": 3776,
+      "name": "Áo bóng đá X24 SPORT – Mẫu STORMY đỏ đô",
+      "mediaId": 6427,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3776-ao-bong-da-x24-sport-mau-stormy-do-do.webp",
+      "reused": false,
+      "oldGallery": [
+        5119
+      ],
+      "nextGallery": [
+        6427,
+        5119
+      ],
+      "updatedAt": "2026-07-29T17:43:25.098Z"
+    },
+    {
+      "productId": 3775,
+      "name": "Áo Bóng Đá Stormy X24 Sport Màu Kem",
+      "mediaId": 6428,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3775-ao-bong-da-stormy-x24-sport-mau-kem.webp",
+      "reused": false,
+      "oldGallery": [
+        5117
+      ],
+      "nextGallery": [
+        6428,
+        5117
+      ],
+      "updatedAt": "2026-07-29T17:43:26.235Z"
+    },
+    {
+      "productId": 3785,
+      "name": "Áo bóng đá không logo X24 EAGLE – Vàng tươi nổi bật",
+      "mediaId": 6429,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3785-ao-bong-da-khong-logo-x24-eagle-vang-tuoi-noi-bat.webp",
+      "reused": false,
+      "oldGallery": [
+        5135
+      ],
+      "nextGallery": [
+        6429,
+        5135
+      ],
+      "updatedAt": "2026-07-29T17:43:27.776Z"
+    },
+    {
+      "productId": 3784,
+      "name": "Áo bóng đá VANTA xanh bích viền trắng – X24 Sports",
+      "mediaId": 6430,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3784-ao-bong-da-vanta-xanh-bich-vien-trang-x24-sports.webp",
+      "reused": false,
+      "oldGallery": [
+        5133
+      ],
+      "nextGallery": [
+        6430,
+        5133
+      ],
+      "updatedAt": "2026-07-29T17:43:29.540Z"
+    },
+    {
+      "productId": 3783,
+      "name": "Áo bóng đá X24 VANTA màu kem – Sang trọng và mạnh mẽ cho mọi sân chơi",
+      "mediaId": 6431,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3783-ao-bong-da-x24-vanta-mau-kem-sang-trong-va-manh-me-cho-moi-san-choi.webp",
+      "reused": false,
+      "oldGallery": [
+        5131
+      ],
+      "nextGallery": [
+        6431,
+        5131
+      ],
+      "updatedAt": "2026-07-29T17:43:32.748Z"
+    },
+    {
+      "productId": 3782,
+      "name": "Áo Bóng Đá X24 FORZA Vàng Tươi – Năng Động & Cá Tính",
+      "mediaId": 6432,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3782-ao-bong-da-x24-forza-vang-tuoi-nang-dong-ca-tinh.webp",
+      "reused": false,
+      "oldGallery": [
+        5128
+      ],
+      "nextGallery": [
+        6432,
+        5128
+      ],
+      "updatedAt": "2026-07-29T17:43:33.655Z"
+    },
+    {
+      "productId": 3781,
+      "name": "Áo Thể Thao X24 Sports Màu Hồng Pastel Năng Động",
+      "mediaId": 6433,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3781-ao-the-thao-x24-sports-mau-hong-pastel-nang-dong.webp",
+      "reused": false,
+      "oldGallery": [
+        5127
+      ],
+      "nextGallery": [
+        6433,
+        5127
+      ],
+      "updatedAt": "2026-07-29T17:43:34.635Z"
+    },
+    {
+      "productId": 3660,
+      "name": "May Áo Bóng Đá Chuyên Nghiệp – MABD 125",
+      "mediaId": 6434,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3660-may-ao-bong-da-chuyen-nghiep-mabd-125.webp",
+      "reused": false,
+      "oldGallery": [
+        4965
+      ],
+      "nextGallery": [
+        6434,
+        4965
+      ],
+      "updatedAt": "2026-07-29T17:43:35.515Z"
+    },
+    {
+      "productId": 3661,
+      "name": "May Áo Bóng Đá Đẹp – MABD 126",
+      "mediaId": 6435,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3661-may-ao-bong-da-dep-mabd-126.webp",
+      "reused": false,
+      "oldGallery": [
+        4968
+      ],
+      "nextGallery": [
+        6435,
+        4968
+      ],
+      "updatedAt": "2026-07-29T17:43:36.601Z"
+    },
+    {
+      "productId": 3662,
+      "name": "May Áo Bóng Đá Giá Rẻ – MABD 127",
+      "mediaId": 6436,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3662-may-ao-bong-da-gia-re-mabd-127.webp",
+      "reused": false,
+      "oldGallery": [
+        4970
+      ],
+      "nextGallery": [
+        6436,
+        4970
+      ],
+      "updatedAt": "2026-07-29T17:43:37.627Z"
+    },
+    {
+      "productId": 3663,
+      "name": "May Áo Bóng Đá Giá Sỉ – MABD 128",
+      "mediaId": 6437,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3663-may-ao-bong-da-gia-si-mabd-128.webp",
+      "reused": false,
+      "oldGallery": [
+        4969
+      ],
+      "nextGallery": [
+        6437,
+        4969
+      ],
+      "updatedAt": "2026-07-29T17:43:38.690Z"
+    },
+    {
+      "productId": 3683,
+      "name": "Xưởng May Áo Bóng Đá – MABD 148",
+      "mediaId": 6438,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3683-xuong-may-ao-bong-da-mabd-148.webp",
+      "reused": false,
+      "oldGallery": [
+        4991
+      ],
+      "nextGallery": [
+        6438,
+        4991
+      ],
+      "updatedAt": "2026-07-29T17:43:39.816Z"
+    }
+  ]
+}

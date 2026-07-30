@@ -1,0 +1,39 @@
+{
+  "sourceCode": "MABD 22",
+  "sourceUrl": "https://mayaobongda.vn/ao-bong-da-mau-doc-dao-mabd-22/",
+  "sourceImageUrl": "https://static.x24sport.vn/mayaobongda/wp-539-ao-bong-da-mau-doc-dao.jpg",
+  "sourceImageChecksumSha256": "4fc5833fe88cdf298f489efc93699a585be8d2341b0bd94af46b317d8200f047",
+  "outputWebpChecksumSha256": "92a4a60b1503a4b57565fb82f5ffb9453d775ee3d4f8528c86fe40b60e13240a",
+  "colorPalette": [
+    "dark navy",
+    "bright cyan blue",
+    "white",
+    "light blue trim"
+  ],
+  "primaryColors": [
+    "dark navy",
+    "cyan blue",
+    "white"
+  ],
+  "styleMood": "clean athletic courtwear with blue flame/brush gradient energy",
+  "pattern": "blue flame/brush/ice-like texture rising from a white lower hem into a navy upper body",
+  "garmentCut": "V-neck short-sleeve court jersey with sleeve trim; coordinated navy shorts and skort",
+  "preservedDesignDetails": [
+    "navy V-neck jersey base",
+    "white collar and sleeve trim with light-blue accent",
+    "small circular chest badge position replaced with generic abstract badge",
+    "blue brush/flame gradient concentrated across lower torso",
+    "white lower hem band"
+  ],
+  "removedSourceElements": [
+    "football/soccer ball",
+    "price label",
+    "phone number",
+    "website text",
+    "QR code",
+    "old brand/logo text",
+    "football-only context"
+  ],
+  "generationMode": "built-in image_gen tool with source image as design reference",
+  "publishedToCms": false
+}

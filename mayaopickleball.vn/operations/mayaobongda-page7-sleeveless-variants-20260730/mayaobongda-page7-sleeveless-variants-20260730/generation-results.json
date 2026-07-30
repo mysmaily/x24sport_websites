@@ -1,0 +1,35 @@
+{
+  "model": "gpt-image-2",
+  "concurrency": 3,
+  "jobsFile": "jobs-retry-logo-cleanup.json",
+  "results": [
+    {
+      "ok": true,
+      "id": "18-X24-PB-640-sat-nach",
+      "product_id": 7161,
+      "output": "output/18-18-ao-da-banh-mau-cam-hong-mabd-88-sat-nach.png",
+      "seconds": 81.4
+    },
+    {
+      "ok": true,
+      "id": "06-X24-PB-628-sat-nach",
+      "product_id": 7149,
+      "output": "output/06-06-dich-vu-may-ao-bong-da-mabd-109-sat-nach.png",
+      "seconds": 88.5
+    },
+    {
+      "ok": true,
+      "id": "13-X24-PB-635-sat-nach",
+      "product_id": 7156,
+      "output": "output/13-13-ao-da-banh-hot-nhat-mabd-81-sat-nach.png",
+      "seconds": 95
+    },
+    {
+      "ok": true,
+      "id": "24-X24-PB-646-sat-nach",
+      "product_id": 7167,
+      "output": "output/24-24-ao-da-banh-ship-nhanh-mabd-96-sat-nach.png",
+      "seconds": 102.3
+    }
+  ]
+}

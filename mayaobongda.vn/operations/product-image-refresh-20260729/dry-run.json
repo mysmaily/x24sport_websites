@@ -1,0 +1,275 @@
+{
+  "apply": false,
+  "count": 24,
+  "log": [
+    {
+      "productId": 3685,
+      "name": "Quần Áo Bóng Đá Không Logo Apex Màu Đỏ Đô",
+      "file": "3685-quan-ao-bong-da-khong-logo-apex-mau-do-do.webp",
+      "oldGallery": [
+        4993
+      ],
+      "plannedGallery": [
+        "<new-media-id>",
+        4993
+      ]
+    },
+    {
+      "productId": 3686,
+      "name": "Quần Áo Bóng Đá Không Logo Apex Màu Hồng",
+      "file": "3686-quan-ao-bong-da-khong-logo-apex-mau-hong.webp",
+      "oldGallery": [
+        4994
+      ],
+      "plannedGallery": [
+        "<new-media-id>",
+        4994
+      ]
+    },
+    {
+      "productId": 3687,
+      "name": "Quần Áo Bóng Đá Không Logo Màu Tím",
+      "file": "3687-quan-ao-bong-da-khong-logo-mau-tim.webp",
+      "oldGallery": [
+        4995
+      ],
+      "plannedGallery": [
+        "<new-media-id>",
+        4995
+      ]
+    },
+    {
+      "productId": 3688,
+      "name": "Quần Áo Bóng Đá Không Logo Apex Màu Xanh Bích",
+      "file": "3688-quan-ao-bong-da-khong-logo-apex-mau-xanh-bich.webp",
+      "oldGallery": [
+        4997
+      ],
+      "plannedGallery": [
+        "<new-media-id>",
+        4997
+      ]
+    },
+    {
+      "productId": 3689,
+      "name": "Quần Áo Bóng Đá Không Logo Apex Màu Xanh Két",
+      "file": "3689-quan-ao-bong-da-khong-logo-apex-mau-xanh-ket.webp",
+      "oldGallery": [
+        4996
+      ],
+      "plannedGallery": [
+        "<new-media-id>",
+        4996
+      ]
+    },
+    {
+      "productId": 3690,
+      "name": "Quần Áo Bóng Đá Không Logo Grave Màu Cam",
+      "file": "3690-quan-ao-bong-da-khong-logo-grave-mau-cam.webp",
+      "oldGallery": [
+        5000
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3691,
+      "name": "Quần Áo Bóng Đá Không Logo Grave Màu Đỏ",
+      "file": "3691-quan-ao-bong-da-khong-logo-grave-mau-do.webp",
+      "oldGallery": [
+        4999
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3692,
+      "name": "Quần Áo Bóng Đá Không Logo Grave Màu Kem",
+      "file": "3692-quan-ao-bong-da-khong-logo-grave-mau-kem.webp",
+      "oldGallery": [
+        4998
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3693,
+      "name": "Quần Áo Bóng Đá Không Logo Grave Màu Trắng",
+      "file": "3693-quan-ao-bong-da-khong-logo-grave-mau-trang.webp",
+      "oldGallery": [
+        5001
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3694,
+      "name": "Quần Áo Bóng Đá Không Logo Grave Màu Vàng",
+      "file": "3694-quan-ao-bong-da-khong-logo-grave-mau-vang.webp",
+      "oldGallery": [
+        5002
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3695,
+      "name": "Quần Áo Bóng Đá Không Logo Grave Màu Xanh Bích",
+      "file": "3695-quan-ao-bong-da-khong-logo-grave-mau-xanh-bich.webp",
+      "oldGallery": [
+        5003
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3696,
+      "name": "Quần Áo Bóng Đá Không Logo Grave Màu Xanh Ngọc",
+      "file": "3696-quan-ao-bong-da-khong-logo-grave-mau-xanh-ngoc.webp",
+      "oldGallery": [
+        5006
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3697,
+      "name": "Quần Áo Bóng Đá Không Logo Grave Màu Xanh Ya",
+      "file": "3697-quan-ao-bong-da-khong-logo-grave-mau-xanh-ya.webp",
+      "oldGallery": [
+        5004
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3698,
+      "name": "Quần Áo Bóng Đá Không Logo Roar Màu Cam",
+      "file": "3698-quan-ao-bong-da-khong-logo-roar-mau-cam.webp",
+      "oldGallery": [
+        5005
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3699,
+      "name": "Quần Áo Bóng Đá Không Logo Roar Màu Đỏ",
+      "file": "3699-quan-ao-bong-da-khong-logo-roar-mau-do.webp",
+      "oldGallery": [
+        5007
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3700,
+      "name": "Quần Áo Bóng Đá Không Logo Roar Màu Trắng",
+      "file": "3700-quan-ao-bong-da-khong-logo-roar-mau-trang.webp",
+      "oldGallery": [
+        5008
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3701,
+      "name": "Quần Áo Bóng Đá Không Logo Roar Màu Xanh Bích",
+      "file": "3701-quan-ao-bong-da-khong-logo-roar-mau-xanh-bich.webp",
+      "oldGallery": [
+        5016
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3702,
+      "name": "Quần Áo Bóng Đá Không Logo Roar Màu Xanh Lá",
+      "file": "3702-quan-ao-bong-da-khong-logo-roar-mau-xanh-la.webp",
+      "oldGallery": [
+        5011
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3703,
+      "name": "Quần Áo Bóng Đá Không Logo Roar Màu Xanh Ngọc",
+      "file": "3703-quan-ao-bong-da-khong-logo-roar-mau-xanh-ngoc.webp",
+      "oldGallery": [
+        5009
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3705,
+      "name": "Quần Áo Bóng Đá Không Logo Rush Màu Kem",
+      "file": "3705-quan-ao-bong-da-khong-logo-rush-mau-kem.webp",
+      "oldGallery": [
+        5010
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3704,
+      "name": "Quần Áo Bóng Đá Không Logo Rush Màu Đỏ",
+      "file": "3704-quan-ao-bong-da-khong-logo-rush-mau-do.webp",
+      "oldGallery": [
+        5012
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3706,
+      "name": "Quần Áo Bóng Đá Không Logo Rush Màu Xanh Bích",
+      "file": "3706-quan-ao-bong-da-khong-logo-rush-mau-xanh-bich.webp",
+      "oldGallery": [
+        5013
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3707,
+      "name": "Quần Áo Bóng Đá Không Logo Rush Màu Xanh Ngọc",
+      "file": "3707-quan-ao-bong-da-khong-logo-rush-mau-xanh-ngoc.webp",
+      "oldGallery": [
+        5014
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    },
+    {
+      "productId": 3708,
+      "name": "Quần Áo Bóng Đá Không Logo Rush Màu Xanh Ya",
+      "file": "3708-quan-ao-bong-da-khong-logo-rush-mau-xanh-ya.webp",
+      "oldGallery": [
+        5015
+      ],
+      "plannedGallery": [
+        "<new-media-id>"
+      ]
+    }
+  ]
+}

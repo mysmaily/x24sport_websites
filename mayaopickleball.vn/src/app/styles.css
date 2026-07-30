@@ -2630,17 +2630,37 @@ nav.fabric-anchor-bar.info-section {
 }
 
 .product-gallery-thumbnails {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 92px));
-  gap: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
   align-items: center;
   padding: 12px;
   background: white;
   border-top: 1px solid var(--line);
   overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-padding: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(17, 24, 39, 0.22) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.product-gallery-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.product-gallery-thumbnails::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.product-gallery-thumbnails::-webkit-scrollbar-thumb {
+  background: rgba(17, 24, 39, 0.18);
+  border-radius: 999px;
 }
 
 .product-gallery-thumbnails button {
+  flex: 0 0 92px;
   width: 92px;
   height: 92px;
   padding: 0;

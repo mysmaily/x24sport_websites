@@ -1,0 +1,58 @@
+{
+  "apply": false,
+  "count": 4,
+  "log": [
+    {
+      "productId": 3770,
+      "name": "Áo Bóng Đá Thi Đấu Màu Đỏ Đô – Mẫu X24 LUNES Năng Động",
+      "file": "3770-ao-bong-da-thi-dau-mau-do-do-mau-x24-lunes-nang-dong.webp",
+      "oldGallery": [
+        5110
+      ],
+      "plannedGallery": [
+        "<new-media-id>",
+        5110
+      ],
+      "existingMediaId": null
+    },
+    {
+      "productId": 3769,
+      "name": "Áo Thể Thao X24 Xanh Bích – Năng Động & Cá Tính | Bộ sưu tập FORZA",
+      "file": "3769-ao-the-thao-x24-xanh-bich-nang-dong-ca-tinh-bo-suu-tap-forza.webp",
+      "oldGallery": [
+        5107
+      ],
+      "plannedGallery": [
+        "<new-media-id>",
+        5107
+      ],
+      "existingMediaId": null
+    },
+    {
+      "productId": 3763,
+      "name": "Áo bóng đá EAGLE màu kem phối đỏ đô – Phong cách trẻ trung, năng động",
+      "file": "3763-ao-bong-da-eagle-mau-kem-phoi-do-do-phong-cach-tre-trung-nang-dong.webp",
+      "oldGallery": [
+        5102
+      ],
+      "plannedGallery": [
+        "<new-media-id>",
+        5102
+      ],
+      "existingMediaId": null
+    },
+    {
+      "productId": 3762,
+      "name": "Áo bóng đá VANTA hồng Nhật – Tươi trẻ, cá tính cho sân cỏ",
+      "file": "3762-ao-bong-da-vanta-hong-nhat-tuoi-tre-ca-tinh-cho-san-co.webp",
+      "oldGallery": [
+        5100
+      ],
+      "plannedGallery": [
+        "<new-media-id>",
+        5100
+      ],
+      "existingMediaId": null
+    }
+  ]
+}

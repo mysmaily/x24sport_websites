@@ -1,0 +1,142 @@
+{
+  "apply": true,
+  "count": 8,
+  "log": [
+    {
+      "productId": 3730,
+      "name": "Áo Bóng Đá GRAVIX Màu Trắng Xanh Lá – Thiết Kế Năng Động, Thẩm Mỹ Thể Thao",
+      "mediaId": 6565,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3730-ao-bong-da-gravix-mau-trang-xanh-la-thiet-ke-nang-dong-tham-my-the-thao.webp",
+      "reused": false,
+      "oldGallery": [
+        6352,
+        5036
+      ],
+      "nextGallery": [
+        6565,
+        6352,
+        5036
+      ],
+      "updatedAt": "2026-07-30T08:29:42.702Z"
+    },
+    {
+      "productId": 3728,
+      "name": "Áo Bóng Đá VORTEX Jersey Design – Màu Vàng Năng Động",
+      "mediaId": 6566,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3728-ao-bong-da-vortex-jersey-design-mau-vang-nang-dong.webp",
+      "reused": false,
+      "oldGallery": [
+        6354,
+        5040
+      ],
+      "nextGallery": [
+        6566,
+        6354,
+        5040
+      ],
+      "updatedAt": "2026-07-30T08:29:43.749Z"
+    },
+    {
+      "productId": 3727,
+      "name": "Áo Bóng Đá Không Logo Màu Trắng Vortex Jersey Design",
+      "mediaId": 6567,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3727-ao-bong-da-khong-logo-mau-trang-vortex-jersey-design.webp",
+      "reused": false,
+      "oldGallery": [
+        6355,
+        5034
+      ],
+      "nextGallery": [
+        6567,
+        6355,
+        5034
+      ],
+      "updatedAt": "2026-07-30T08:29:44.685Z"
+    },
+    {
+      "productId": 3736,
+      "name": "Áo bóng đá Zentor trắng tím than đỏ – Năng động & Mạnh mẽ",
+      "mediaId": 6568,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3736-ao-bong-da-zentor-trang-tim-than-do-nang-dong-manh-me.webp",
+      "reused": false,
+      "oldGallery": [
+        6356,
+        5042
+      ],
+      "nextGallery": [
+        6568,
+        6356,
+        5042
+      ],
+      "updatedAt": "2026-07-30T08:29:45.686Z"
+    },
+    {
+      "productId": 3735,
+      "name": "Áo bóng đá Zentor – Tím Than kẻ sọc đỏ trắng",
+      "mediaId": 6569,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3735-ao-bong-da-zentor-tim-than-ke-soc-do-trang.webp",
+      "reused": false,
+      "oldGallery": [
+        6357,
+        5047
+      ],
+      "nextGallery": [
+        6569,
+        6357,
+        5047
+      ],
+      "updatedAt": "2026-07-30T08:29:46.580Z"
+    },
+    {
+      "productId": 3734,
+      "name": "Áo bóng đá không logo ZENTOR vàng đen trắng mạnh mẽ",
+      "mediaId": 6570,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3734-ao-bong-da-khong-logo-zentor-vang-den-trang-manh-me.webp",
+      "reused": false,
+      "oldGallery": [
+        6358,
+        5043
+      ],
+      "nextGallery": [
+        6570,
+        6358,
+        5043
+      ],
+      "updatedAt": "2026-07-30T08:29:48.799Z"
+    },
+    {
+      "productId": 3733,
+      "name": "Áo bóng đá nam không logo GRAVIX màu xanh da trời",
+      "mediaId": 6571,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3733-ao-bong-da-nam-khong-logo-gravix-mau-xanh-da-troi.webp",
+      "reused": false,
+      "oldGallery": [
+        6359,
+        5041
+      ],
+      "nextGallery": [
+        6571,
+        6359,
+        5041
+      ],
+      "updatedAt": "2026-07-30T08:29:49.738Z"
+    },
+    {
+      "productId": 3732,
+      "name": "Áo Bóng Đá GRAVIX – Màu Xanh Két Năng Động",
+      "mediaId": 6572,
+      "mediaUrl": "https://static.x24sport.vn/mayaobongda/3732-ao-bong-da-gravix-mau-xanh-ket-nang-dong.webp",
+      "reused": false,
+      "oldGallery": [
+        6360,
+        5039
+      ],
+      "nextGallery": [
+        6572,
+        6360,
+        5039
+      ],
+      "updatedAt": "2026-07-30T08:29:50.958Z"
+    }
+  ]
+}
