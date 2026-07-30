@@ -5,8 +5,8 @@
 > frontend source is `cms-frontend/`; this file is the tenant documentation.
 
 > Deployment authority: `PRODUCTION-DEPLOYMENT-RUNBOOK.md`. Use the
-> `x24sport.vn` frontend deployment procedure because `rynosport.vn` is served by
-> the same shared `next-x24sport` container.
+> `cms-frontend` deployment procedure because `rynosport.vn` is served by the
+> same shared `cms-frontend` container.
 
 ## Active tenant identity
 
@@ -27,8 +27,8 @@ inside `cms-frontend/`, not as a standalone app.
 
 | Requested work | Local source of truth | Remote runtime / action |
 |---|---|---|
-| Public UI, routes, SEO templates, catalog rendering | `cms-frontend/` | Deploy to `root@10.10.0.58:/root/websites/x24sport.vn` |
-| Tenant-specific page/layout behavior | `cms-frontend/src/app/[tenant]/` gated by `params.tenant === "rynosport"` | Rebuild only the shared `next-x24sport` frontend |
+| Public UI, routes, SEO templates, catalog rendering | `cms-frontend/` | Deploy to `root@10.10.0.58:/root/websites/cms-frontend` |
+| Tenant-specific page/layout behavior | `cms-frontend/src/app/[tenant]/` gated by `params.tenant === "rynosport"` | Rebuild only the shared `cms-frontend` frontend |
 | Shared frontend components | `cms-frontend/src/app/_components/` only when intentionally reused by multiple tenants | Verify both `rynosport.vn` and affected sibling tenants |
 | Ryno assets | `cms-frontend/public/images/rynosport/` | Included in the shared frontend deploy |
 | Add or edit a product/category/post/media record | Payload admin or a tenant-scoped API migration | `https://cms.x24sport.vn/admin`; select tenant `rynosport` |

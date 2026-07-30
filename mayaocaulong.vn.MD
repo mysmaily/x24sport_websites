@@ -5,8 +5,8 @@
 > this tenant as a standalone app.
 
 > Deployment authority: `PRODUCTION-DEPLOYMENT-RUNBOOK.md`. Use the
-> `x24sport.vn` shared frontend deployment procedure because `mayaocaulong.vn` is
-> served by the same `next-x24sport` container.
+> `cms-frontend` deployment procedure because `mayaocaulong.vn` is served by the
+> same `cms-frontend` container.
 
 ## Active Tenant Identity
 
@@ -30,8 +30,8 @@ inside `cms-frontend/`, not as a standalone app.
 
 | Requested work | Local source of truth | Remote runtime / action |
 |---|---|---|
-| Public UI, routes, SEO templates, catalog rendering | `cms-frontend/` | Deploy to `root@10.10.0.58:/root/websites/x24sport.vn` |
-| Tenant-specific page/layout behavior | `cms-frontend/src/app/[tenant]/` gated by `params.tenant === "mayaocaulong"` | Rebuild only the shared `next-x24sport` frontend |
+| Public UI, routes, SEO templates, catalog rendering | `cms-frontend/` | Deploy to `root@10.10.0.58:/root/websites/cms-frontend` |
+| Tenant-specific page/layout behavior | `cms-frontend/src/app/[tenant]/` gated by `params.tenant === "mayaocaulong"` | Rebuild only the shared `cms-frontend` frontend |
 | Tenant-specific imported app code | `cms-frontend/src/app/[tenant]/_mayaocaulong/` | Keep scoped to `mayaocaulong` routes |
 | Shared frontend components | `cms-frontend/src/app/_components/` only when intentionally reused by multiple tenants | Verify every affected shared tenant |
 | Add or edit a product/category/post/media record | Payload admin or a tenant-scoped API migration | `https://cms.x24sport.vn/admin`; select tenant `mayaocaulong` |
@@ -46,8 +46,8 @@ Verified on 30/07/2026:
 |---|---|
 | Public site | `https://mayaocaulong.vn` |
 | Application host | `root@10.10.0.58` |
-| Application path | `/root/websites/x24sport.vn` |
-| Container | `next-x24sport` |
+| Application path | `/root/websites/cms-frontend` |
+| Container | `cms-frontend` |
 | Container/published port | `3010` / `10.10.0.58:3010` |
 | Public upstream | `http://10.10.0.58:3010` |
 | Proxy host | `root@10.10.0.56` |

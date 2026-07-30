@@ -58,9 +58,9 @@ unrecognized runtime file.
 
 | Target | SSH host | Remote source | Container | Published origin |
 |---|---|---|---|---|
-| `x24sport.vn` | `root@10.10.0.58` | `/root/websites/x24sport.vn` | `next-x24sport` | `10.10.0.58:3010` |
-| `rynosport.vn` | `root@10.10.0.58` | `/root/websites/x24sport.vn` | `next-x24sport` | `10.10.0.58:3010` |
-| `mayaocaulong.vn` | `root@10.10.0.58` | `/root/websites/x24sport.vn` | `next-x24sport` | `10.10.0.58:3010` |
+| `x24sport.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
+| `rynosport.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
+| `mayaocaulong.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
 | `mayaochaybo.vn` | `root@10.10.0.58` | `/root/websites/next.mayaochaybo.vn` | `next-mayaochaybo` | `10.10.0.58:3011` |
 | `mayaobongda.vn` | `root@10.10.0.58` | `/root/websites/next.mayaobongda.vn` | `next-mayaobongda` | `10.10.0.58:3012` |
 | `mayaobongchuyen.vn` | `root@10.10.0.28` | `/opt/sports-cms/mayaobongchuyen.vn` | `sports-cms-mayaobongchuyen-1` | `10.10.0.28:3003` |
@@ -70,7 +70,7 @@ unrecognized runtime file.
 
 ## Compose frontends on 10.10.0.58
 
-### Shared x24sport.vn frontend tenants
+### Shared cms-frontend tenants
 
 This shared frontend currently serves:
 
@@ -78,18 +78,18 @@ This shared frontend currently serves:
 - `rynosport.vn`
 - `mayaocaulong.vn`
 
-Synchronize `cms-frontend/` to `/root/websites/x24sport.vn/`, then run only:
+Synchronize `cms-frontend/` to `/root/websites/cms-frontend/`, then run only:
 
 ```bash
 ssh root@10.10.0.58 \
-  'cd /root/websites/x24sport.vn && docker compose -f compose.production.yml up -d --build web'
+  'cd /root/websites/cms-frontend && docker compose -f compose.production.yml up -d --build web'
 ```
 
 Verify:
 
 ```bash
 ssh root@10.10.0.58 \
-  'docker inspect -f "{{.State.Status}} {{.State.Health.Status}}" next-x24sport && docker logs --tail 120 next-x24sport'
+  'docker inspect -f "{{.State.Status}} {{.State.Health.Status}}" cms-frontend && docker logs --tail 120 cms-frontend'
 curl -fsSI http://10.10.0.58:3010/
 curl -fsSI https://x24sport.vn/
 curl -fsSI https://rynosport.vn/

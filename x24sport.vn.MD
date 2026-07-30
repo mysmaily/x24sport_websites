@@ -94,7 +94,7 @@ used to guess the new stack's application, CMS, or database host.
 
 | Requested work | Local source of truth | Remote runtime / action |
 |---|---|---|
-| Public UI, routes, SEO templates, catalog rendering | `cms-frontend/` | Deploy to `root@10.10.0.58:/root/websites/x24sport.vn` |
+| Public UI, routes, SEO templates, catalog rendering | `cms-frontend/` | Deploy to `root@10.10.0.58:/root/websites/cms-frontend` |
 | Add or edit a product/category/post/media record | Payload admin or a tenant-scoped API migration | `https://cms.x24sport.vn/admin`; select tenant `x24sport` |
 | CMS schema, collection, admin UI, API, storage adapter | `cms-api/` | Deploy to `root@10.10.0.28:/opt/sports-cms/cms-api` |
 | Payload data inspection or controlled DB migration | Do not use direct SQL for ordinary content editing | PostgreSQL `sports_cms` on `root@10.10.0.17` |
@@ -114,7 +114,7 @@ block.
   Use Payload admin/API for tenant `x24sport`; it does not require a CMS or
   frontend deployment.
 - A display/layout/routing/metadata change is a **frontend code change**. Work in
-  `cms-frontend/`, build locally, then deploy only the `next-x24sport` service.
+  `cms-frontend/`, build locally, then deploy only the `cms-frontend` service.
 - A collection field, access rule, hook, admin component, API behavior, or media
   storage change is a **shared CMS code change**. Work in `cms-api/`, verify
   tenant isolation, then rebuild only the shared CMS container using the
@@ -159,10 +159,10 @@ pnpm run build
 |-------|-------|
 | Public URL | `https://x24sport.vn` |
 | Application host | `root@10.10.0.58` |
-| Application path | `/root/websites/x24sport.vn` |
+| Application path | `/root/websites/cms-frontend` |
 | Compose file | `compose.production.yml` |
 | Compose service | `web` |
-| Container | `next-x24sport` |
+| Container | `cms-frontend` |
 | Container/published port | `3010` / `10.10.0.58:3010` |
 | Tenant environment | `TENANT_SLUG=x24sport` |
 | CMS origin | `http://10.10.0.28:3001` |

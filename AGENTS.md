@@ -82,8 +82,8 @@ Tenant identities used by this repository are:
 | Domain | Payload tenant slug | Frontend source | Status |
 |---|---|---|---|
 | `x24sport.vn` | `x24sport` | `cms-frontend/` | Active shared Next.js tenant |
-| `rynosport.vn` | `rynosport` | `cms-frontend/` | Active shared Next.js tenant; served by the `next-x24sport` container |
-| `mayaocaulong.vn` | `mayaocaulong` | `cms-frontend/` | Active shared Next.js tenant; served by the `next-x24sport` container |
+| `rynosport.vn` | `rynosport` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container |
+| `mayaocaulong.vn` | `mayaocaulong` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container |
 | `mayaobongchuyen.vn` | `mayaobongchuyen` | Website folder | Active |
 | `mayaopickleball.vn` | `mayaopickleball` | Website folder | Active |
 | `mayaobongro.vn` | `mayaobongro` | Website folder | Active |
@@ -113,9 +113,9 @@ For shared frontend tenants:
   than one tenant;
 - keep tenant-specific styling, copy, assets, and layout separate unless the user
   explicitly asks to share them;
-- deploy shared frontend tenant code with the `x24sport.vn` procedure in
+- deploy shared frontend tenant code with the `cms-frontend` procedure in
   `PRODUCTION-DEPLOYMENT-RUNBOOK.md`, because `x24sport.vn`, `rynosport.vn`,
-  and `mayaocaulong.vn` currently run in the same `next-x24sport` container.
+  and `mayaocaulong.vn` currently run in the same `cms-frontend` container.
 
 Examples:
 

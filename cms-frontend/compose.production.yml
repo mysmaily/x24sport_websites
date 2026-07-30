@@ -5,8 +5,8 @@ services:
       args:
         SITE_ENV: production
         PAYLOAD_API_URL: http://10.10.0.28:3001
-    image: x24sport-next:production
-    container_name: next-x24sport
+    image: cms-frontend:production
+    container_name: cms-frontend
     restart: unless-stopped
     ports:
       - "3010:3010"
