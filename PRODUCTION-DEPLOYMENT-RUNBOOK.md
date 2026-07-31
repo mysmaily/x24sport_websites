@@ -61,11 +61,11 @@ unrecognized runtime file.
 | `x24sport.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
 | `rynosport.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
 | `mayaocaulong.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
+| `mayaopickleball.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
 | `mayaochaybo.vn` | `root@10.10.0.58` | `/root/websites/next.mayaochaybo.vn` | `next-mayaochaybo` | `10.10.0.58:3011` |
 | `mayaobongda.vn` | `root@10.10.0.58` | `/root/websites/next.mayaobongda.vn` | `next-mayaobongda` | `10.10.0.58:3012` |
 | `mayaobongchuyen.vn` | `root@10.10.0.28` | `/opt/sports-cms/mayaobongchuyen.vn` | `sports-cms-mayaobongchuyen-1` | `10.10.0.28:3003` |
 | `mayaobongro.vn` | `root@10.10.0.28` | `/opt/sports-cms/mayaobongro.vn` | `sports-cms-mayaobongro-1` | `10.10.0.28:3005` |
-| `mayaopickleball.vn` | `root@10.10.0.27` | `/root/websites/apps/mayaopickleball-next` | `mayaopickleball-next` | `10.10.0.27:8000` |
 | Shared `cms-api` | `root@10.10.0.28` | `/opt/sports-cms/cms-api` | `sports-cms-cms-api-1` | `10.10.0.28:3001` |
 
 ## Compose frontends on 10.10.0.58
@@ -77,6 +77,7 @@ This shared frontend currently serves:
 - `x24sport.vn`
 - `rynosport.vn`
 - `mayaocaulong.vn`
+- `mayaopickleball.vn`
 
 Synchronize `cms-frontend/` to `/root/websites/cms-frontend/`, then run only:
 
@@ -94,6 +95,7 @@ curl -fsSI http://10.10.0.58:3010/
 curl -fsSI https://x24sport.vn/
 curl -fsSI https://rynosport.vn/
 curl -fsSI https://mayaocaulong.vn/
+curl -fsSI https://mayaopickleball.vn/
 ```
 
 ### mayaochaybo.vn
@@ -167,30 +169,6 @@ ssh root@10.10.0.28 "set -e; test -f /opt/sports-cms/frontend-telegram.env && te
 
 Verify the selected service with its origin and public URL, then inspect the
 selected container's last 120 log lines. Do not rebuild the other containers.
-
-## Standalone mayaopickleball.vn frontend
-
-The canonical runtime secret file is:
-
-```text
-/root/websites/apps/mayaopickleball-next/.env.production
-```
-
-It must be mode `0600` and contain the production runtime variables, including
-the Telegram variables, before replacing the current container. Never reconstruct
-secrets from chat, source code, or copied container output. If the file is
-missing, stop the deployment and request that it be provisioned from the approved
-secret source.
-
-```bash
-DEPLOY_ID=$(date -u +%Y%m%d%H%M%S)
-ssh root@10.10.0.27 'test -f /root/websites/apps/mayaopickleball-next/.env.production && test "$(stat -c %a /root/websites/apps/mayaopickleball-next/.env.production)" = 600'
-ssh root@10.10.0.27 "docker build -t mayaopickleball-next:deploy-${DEPLOY_ID} /root/websites/apps/mayaopickleball-next"
-ssh root@10.10.0.27 "set -e; docker stop mayaopickleball-next; docker container rm mayaopickleball-next; docker run -d --name mayaopickleball-next --restart unless-stopped --env-file /root/websites/apps/mayaopickleball-next/.env.production -p 8000:3004 mayaopickleball-next:deploy-${DEPLOY_ID}"
-```
-
-Verify `http://10.10.0.27:8000/`, `https://mayaopickleball.vn/`, container
-status, and the last 120 log lines.
 
 ## Shared cms-api
 

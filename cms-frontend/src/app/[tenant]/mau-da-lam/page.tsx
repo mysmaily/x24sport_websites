@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 
 import MayaoCauLongSamplesPage, { generateMetadata as generateMayaoCauLongSamplesMetadata } from '../_mayaocaulong/mau-da-lam/page'
+import MayaoPickleballSamplesPage, { generateMetadata as generateMayaoPickleballSamplesMetadata } from '../_mayaopickleball/mau-da-lam/page'
 
 type Props = {
   params: Promise<{ tenant: string }>
@@ -8,11 +9,15 @@ type Props = {
 }
 
 export async function generateMetadata({ params, searchParams }: Props) {
-  if ((await params).tenant !== 'mayaocaulong') return {}
+  const tenant = (await params).tenant
+  if (tenant === 'mayaopickleball') return generateMayaoPickleballSamplesMetadata({ searchParams })
+  if (tenant !== 'mayaocaulong') return {}
   return generateMayaoCauLongSamplesMetadata({ searchParams })
 }
 
 export default async function TenantSamplesPage({ params, searchParams }: Props) {
-  if ((await params).tenant !== 'mayaocaulong') notFound()
+  const tenant = (await params).tenant
+  if (tenant === 'mayaopickleball') return <MayaoPickleballSamplesPage searchParams={searchParams} />
+  if (tenant !== 'mayaocaulong') notFound()
   return <MayaoCauLongSamplesPage searchParams={searchParams} />
 }

@@ -8,6 +8,7 @@ const tenantsByHost: Record<string, string> = {
   'x24sport.vn': 'x24sport',
   'rynosport.vn': 'rynosport',
   'mayaocaulong.vn': 'mayaocaulong',
+  'mayaopickleball.vn': 'mayaopickleball',
 }
 
 type InterestPayload = {

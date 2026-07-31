@@ -5,11 +5,19 @@ import { getProductBySlug, productImages } from '../../../lib/content'
 import { RynoProductPage } from '../ryno-catalog'
 import MayaoCauLongCatalogFilterPage, { generateMetadata as generateMayaoCauLongCatalogMetadata } from '../_mayaocaulong/[catalogSlug]/page'
 import { getCatalogFilterBySlug } from '../_mayaocaulong/lib/content'
+import MayaoPickleballCatalogFilterPage, { generateMetadata as generateMayaoPickleballCatalogMetadata } from '../_mayaopickleball/[catalogSlug]/page'
+import { getCatalogFilterBySlug as getMayaoPickleballCatalogFilterBySlug } from '../_mayaopickleball/lib/content'
 
 export async function generateMetadata({ params }: { params: Promise<{ tenant: string; legacy: string[] }> }): Promise<Metadata> {
   const { tenant, legacy } = await params
   if (tenant === 'mayaocaulong' && legacy.length === 1 && getCatalogFilterBySlug(legacy[0])) {
     return generateMayaoCauLongCatalogMetadata({ params: Promise.resolve({ catalogSlug: legacy[0] }) })
+  }
+  if (tenant === 'mayaopickleball' && legacy.length === 1 && getMayaoPickleballCatalogFilterBySlug(legacy[0])) {
+    return generateMayaoPickleballCatalogMetadata({
+      params: Promise.resolve({ catalogSlug: legacy[0] }),
+      searchParams: Promise.resolve({}),
+    })
   }
   if (tenant !== 'rynosport' || legacy.length !== 1) return {}
 
@@ -36,6 +44,12 @@ export default async function TenantLegacyPage(props: Parameters<typeof X24Legac
   const { tenant, legacy } = await props.params
   if (tenant === 'mayaocaulong' && legacy.length === 1 && getCatalogFilterBySlug(legacy[0])) {
     return <MayaoCauLongCatalogFilterPage params={Promise.resolve({ catalogSlug: legacy[0] })} />
+  }
+  if (tenant === 'mayaopickleball' && legacy.length === 1 && getMayaoPickleballCatalogFilterBySlug(legacy[0])) {
+    return <MayaoPickleballCatalogFilterPage
+      params={Promise.resolve({ catalogSlug: legacy[0] })}
+      searchParams={props.searchParams as Promise<{ page?: string }>}
+    />
   }
   if (tenant === 'rynosport' && legacy.length === 1) return <RynoProductPage slug={legacy[0]} />
   if (tenant !== 'x24sport') notFound()

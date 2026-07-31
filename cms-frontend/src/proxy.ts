@@ -8,6 +8,8 @@ const hosts: Record<string, string> = {
   'www.rynosport.vn': 'rynosport',
   'mayaocaulong.vn': 'mayaocaulong',
   'www.mayaocaulong.vn': 'mayaocaulong',
+  'mayaopickleball.vn': 'mayaopickleball',
+  'www.mayaopickleball.vn': 'mayaopickleball',
 }
 
 export function proxy(request: NextRequest) {

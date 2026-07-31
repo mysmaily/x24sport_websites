@@ -2,7 +2,7 @@ import { headers } from 'next/headers'
 import { notFound } from 'next/navigation'
 
 export type TenantContext = {
-  slug: 'x24sport' | 'rynosport' | 'mayaocaulong'
+  slug: 'x24sport' | 'rynosport' | 'mayaocaulong' | 'mayaopickleball'
   domain: string
   name: string
   description: string
@@ -16,6 +16,8 @@ const tenantsByHost: Record<string, TenantContext> = {
   'www.rynosport.vn': { slug: 'rynosport', domain: 'rynosport.vn', name: 'RynoSport', description: 'Khám phá trang phục thể thao tại RynoSport.' },
   'mayaocaulong.vn': { slug: 'mayaocaulong', domain: 'mayaocaulong.vn', name: 'MayaoCauLong', description: 'Đồng phục cầu lông đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.' },
   'www.mayaocaulong.vn': { slug: 'mayaocaulong', domain: 'mayaocaulong.vn', name: 'MayaoCauLong', description: 'Đồng phục cầu lông đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.' },
+  'mayaopickleball.vn': { slug: 'mayaopickleball', domain: 'mayaopickleball.vn', name: 'MayaoPickleball', description: 'Đồng phục pickleball đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.' },
+  'www.mayaopickleball.vn': { slug: 'mayaopickleball', domain: 'mayaopickleball.vn', name: 'MayaoPickleball', description: 'Đồng phục pickleball đặt may, in tên số, logo và thiết kế theo màu đội cho CLB, trường lớp, doanh nghiệp.' },
 }
 
 function hostname(value: string | null) {

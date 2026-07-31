@@ -84,8 +84,8 @@ Tenant identities used by this repository are:
 | `x24sport.vn` | `x24sport` | `cms-frontend/` | Active shared Next.js tenant |
 | `rynosport.vn` | `rynosport` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container |
 | `mayaocaulong.vn` | `mayaocaulong` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container |
+| `mayaopickleball.vn` | `mayaopickleball` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container |
 | `mayaobongchuyen.vn` | `mayaobongchuyen` | Website folder | Active |
-| `mayaopickleball.vn` | `mayaopickleball` | Website folder | Active |
 | `mayaobongro.vn` | `mayaobongro` | Website folder | Active |
 | `mayaobongda.vn` | `mayaobongda` | Website folder | Active Next.js + Payload apex; WordPress runtime remains available behind the application host |
 | `mayaochaybo.vn` | `mayaochaybo` | Website folder | Active Next.js + Payload apex; WordPress archive at `wp.mayaochaybo.vn` |
@@ -115,7 +115,8 @@ For shared frontend tenants:
   explicitly asks to share them;
 - deploy shared frontend tenant code with the `cms-frontend` procedure in
   `PRODUCTION-DEPLOYMENT-RUNBOOK.md`, because `x24sport.vn`, `rynosport.vn`,
-  and `mayaocaulong.vn` currently run in the same `cms-frontend` container.
+  `mayaocaulong.vn`, and `mayaopickleball.vn` currently run in the same
+  `cms-frontend` container.
 
 Examples:
 
@@ -124,6 +125,7 @@ Examples:
 | `x24sport.vn` | `x24sport` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "x24sport"` |
 | `rynosport.vn` | `rynosport` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "rynosport"` |
 | `mayaocaulong.vn` | `mayaocaulong` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "mayaocaulong"` |
+| `mayaopickleball.vn` | `mayaopickleball` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "mayaopickleball"` |
 
 Determine the active platform from the website folder:
 

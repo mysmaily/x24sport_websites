@@ -8,6 +8,16 @@ import {
   getAllPostPaths as getMayaoCauLongPostPaths,
   getAllProductPaths as getMayaoCauLongProductPaths,
 } from './[tenant]/_mayaocaulong/lib/content'
+import {
+  catalogFilters as mayaoPickleballCatalogFilters,
+} from './[tenant]/_mayaopickleball/lib/catalog-filters'
+import {
+  getAllPostPaths as getMayaoPickleballPostPaths,
+  getSitemapProducts as getMayaoPickleballProductPaths,
+} from './[tenant]/_mayaopickleball/lib/content'
+import {
+  staticPages as mayaoPickleballStaticPages,
+} from './[tenant]/_mayaopickleball/lib/seo'
 
 const mayaoCauLongStaticPages = [
   { path: '/', priority: 1 },
@@ -51,6 +61,41 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ...posts.map((post) => ({
         url: `${base}/blog/${post.slug}/`,
         lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+      })),
+    ]
+  }
+
+  if (tenant.slug === 'mayaopickleball') {
+    const now = new Date()
+    const [products, posts] = await Promise.all([
+      getMayaoPickleballProductPaths(),
+      getMayaoPickleballPostPaths(),
+    ])
+
+    return [
+      ...mayaoPickleballStaticPages.map((page) => ({
+        url: `${base}${page.path}`,
+        lastModified: now,
+        changeFrequency: page.path === '/' ? 'daily' as const : 'weekly' as const,
+        priority: page.priority,
+      })),
+      ...mayaoPickleballCatalogFilters.map((filter) => ({
+        url: `${base}${filter.href}`,
+        lastModified: now,
+        changeFrequency: 'weekly' as const,
+        priority: 0.75,
+      })),
+      ...products.map((product) => ({
+        url: `${base}/san-pham/${product.slug}`,
+        lastModified: now,
+        changeFrequency: 'weekly' as const,
+        priority: 0.65,
+      })),
+      ...posts.map((post) => ({
+        url: `${base}${post.path}`,
+        lastModified: post.updatedAt ? new Date(post.updatedAt) : now,
         changeFrequency: 'monthly' as const,
         priority: 0.6,
       })),
