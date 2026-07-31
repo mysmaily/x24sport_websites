@@ -6,7 +6,7 @@ import { SITE_URL } from '../lib/site'
 import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
 
-export async function CatalogPageView({ page, search = '', sort = 'newest', heading = 'Toàn bộ mẫu áo chạy bộ.', description = 'Chọn một thiết kế làm điểm bắt đầu. Màu sắc, logo và nội dung có thể điều chỉnh theo nhu cầu thực tế.', canonicalPath = '/san-pham/', breadcrumbLabel = 'Mẫu áo chạy bộ', categorySlug, searchAction = '/san-pham/' }: { page: number; search?: string; sort?: 'newest' | 'popular'; heading?: string; description?: string; canonicalPath?: string; breadcrumbLabel?: string; categorySlug?: string; searchAction?: string }) {
+export async function CatalogPageView({ page, search = '', sort = 'popular', heading = 'Toàn bộ mẫu áo chạy bộ.', description = 'Chọn một thiết kế làm điểm bắt đầu. Màu sắc, logo và nội dung có thể điều chỉnh theo nhu cầu thực tế.', canonicalPath = '/san-pham/', breadcrumbLabel = 'Mẫu áo chạy bộ', categorySlug, searchAction = '/san-pham/' }: { page: number; search?: string; sort?: 'newest' | 'popular'; heading?: string; description?: string; canonicalPath?: string; breadcrumbLabel?: string; categorySlug?: string; searchAction?: string }) {
   const [result, categoryResult] = await Promise.all([getProducts({ page, limit: 24, search, categorySlug, sort }), getCategories()])
   const categoryMap = new Map(categoryResult.docs.map((item) => [item.slug, item]))
   const activeType = TYPE_LANDINGS.find((item) => item.slug === categorySlug)

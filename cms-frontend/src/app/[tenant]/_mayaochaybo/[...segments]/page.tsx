@@ -31,7 +31,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     const landing = getCatalogLanding(category.slug, path)
     const description = landing?.description || excerpt(category.description || `Các mẫu ${category.name}`, 160)
     const canonical = page > 1 ? `${path}?page=${page}` : path
-    const preview = await getProducts({ categorySlug: category.slug, limit: 1 })
+    const preview = await getProducts({ categorySlug: category.slug, limit: 1, sort: 'popular' })
     const image = preview.docs[0] ? productImages(preview.docs[0])[0] : undefined
     return {
       title: `${landing?.title || category.name}${page > 1 ? ` – Trang ${page}` : ''}`,
