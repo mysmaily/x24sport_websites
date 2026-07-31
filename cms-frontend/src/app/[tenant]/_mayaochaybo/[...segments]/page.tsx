@@ -6,7 +6,7 @@ import { CatalogPageView } from '../components/catalog-page-view'
 import { PostArchivePage } from '../components/post-archive-page'
 import { ProductDetailPage } from '../components/product-detail-page'
 import { getCatalogLanding } from '../lib/catalog-landings'
-import { getProducts, productImages, resolveCategoryPath, resolveContentPath, resolveProductPath } from '../lib/cms'
+import { getProducts, productImages, productPath, resolveCategoryPath, resolveContentPath, resolveProductPath } from '../lib/cms'
 import { DEFAULT_OG_IMAGE, excerpt } from '../lib/site'
 import { rewriteLegacyHtml } from '../lib/legacy-content'
 import { isIndexableContent, postCategoryFromPath } from '../lib/legacy-routes'
@@ -24,7 +24,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   const postCategory = postCategoryFromPath(path)
   if (postCategory) { const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1); const title = `${postCategory.title}${page > 1 ? ` – Trang ${page}` : ''}`; const canonical = page > 1 ? `${path}?page=${page}` : path; return { title, description: postCategory.description, alternates: { canonical }, openGraph: { title, description: postCategory.description, images: [DEFAULT_OG_IMAGE], url: canonical }, twitter: { card: 'summary_large_image', title, description: postCategory.description, images: [DEFAULT_OG_IMAGE.url] } } }
   const [product, category, content] = await Promise.all([resolveProductPath(path), resolveCategoryPath(path), resolveContentPath(path)])
-  if (product) { const image = productImages(product)[0]; const title = product.seoTitle || product.name; const description = product.metaDescription || excerpt(product.shortDescription || product.name, 160); return { title, description, alternates: { canonical: path }, openGraph: { title, description, images: image?.url ? [image.url] : [DEFAULT_OG_IMAGE], url: path }, twitter: { card: 'summary_large_image', title, description, images: [image?.url || DEFAULT_OG_IMAGE.url] } } }
+  if (product) { const image = productImages(product)[0]; const title = product.seoTitle || product.name; const description = product.metaDescription || excerpt(product.shortDescription || product.name, 160); const canonicalPath = productPath(product); return { title, description, alternates: { canonical: canonicalPath }, openGraph: { title, description, images: image?.url ? [image.url] : [DEFAULT_OG_IMAGE], url: canonicalPath }, twitter: { card: 'summary_large_image', title, description, images: [image?.url || DEFAULT_OG_IMAGE.url] } } }
   if (category) {
     const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
     const search = String(Array.isArray(query.q) ? query.q[0] : query.q || '').trim()
@@ -56,7 +56,7 @@ export default async function LegacyRoutePage({ params, searchParams }: { params
   const postCategory = postCategoryFromPath(path)
   if (postCategory) { const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1); return <PostArchivePage canonicalPath={path} description={postCategory.description} page={page} postSlugs={postCategory.posts} title={postCategory.title} /> }
   const product = await resolveProductPath(path)
-  if (product) { const related = await getProducts({ limit: 5 }); return <ProductDetailPage catalogHref="/san-pham/" catalogLabel="Mẫu áo chạy bộ" isLogo={false} product={product} related={related.docs} /> }
+  if (product) permanentRedirect(productPath(product))
   const category = await resolveCategoryPath(path)
   if (category) { const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1); const q = String(Array.isArray(query.q) ? query.q[0] : query.q || ''); const landing = getCatalogLanding(category.slug, path); return <CatalogPageView page={page} search={q} heading={landing?.heading || category.name} description={landing?.description || category.description || `Khám phá các mẫu ${category.name.toLocaleLowerCase('vi-VN')} và tùy chỉnh theo đội.`} canonicalPath={path} breadcrumbLabel={landing?.heading || category.name} categorySlug={category.slug} /> }
   const content = await resolveContentPath(path)

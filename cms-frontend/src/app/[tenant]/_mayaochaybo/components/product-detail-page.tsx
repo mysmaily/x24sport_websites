@@ -6,7 +6,7 @@ import { ProductInterestForm } from './product-interest-form'
 import { ProductGallery } from './product-gallery'
 import { ProductGrid } from './product-grid'
 import { ProductViewTracker } from './product-view-tracker'
-import { hasProductInterestForm, productImages, type Product } from '../lib/cms'
+import { hasProductInterestForm, productImages, productPath, type Product } from '../lib/cms'
 import { canonical, excerpt, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '../lib/site'
 import { rewriteLegacyHtml } from '../lib/legacy-content'
 
@@ -24,10 +24,10 @@ export async function ProductDetailPage({
   related: Product[]
 }) {
   const images = productImages(product)
-  const productPath = product.legacyPath || `/${product.slug}/`
+  const productHref = productPath(product)
   const hasPrice = !isLogo && typeof product.price === 'number' && product.price > 0
   const showInterestForm = await hasProductInterestForm()
-  const productSchema = hasPrice ? { '@context': 'https://schema.org', '@type': 'Product', name: product.name, sku: product.sku || undefined, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productPath), brand: { '@type': 'Brand', name: 'X24 Sport' }, offers: { '@type': 'Offer', priceCurrency: 'VND', price: product.price, availability: product.stockStatus === 'out_of_stock' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url: canonical(productPath) } } : null
+  const productSchema = hasPrice ? { '@context': 'https://schema.org', '@type': 'Product', name: product.name, sku: product.sku || undefined, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productHref), brand: { '@type': 'Brand', name: 'X24 Sport' }, offers: { '@type': 'Offer', priceCurrency: 'VND', price: product.price, availability: product.stockStatus === 'out_of_stock' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url: canonical(productHref) } } : null
 
   return (
     <>
@@ -40,7 +40,7 @@ export async function ProductDetailPage({
         tenantSlug="mayaochaybo"
       />
       {productSchema ? <JsonLd data={productSchema} /> : null}
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Trang chủ', item: canonical('/') }, { '@type': 'ListItem', position: 2, name: catalogLabel, item: canonical(catalogHref) }, { '@type': 'ListItem', position: 3, name: product.name, item: canonical(productPath) }] }} />
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Trang chủ', item: canonical('/') }, { '@type': 'ListItem', position: 2, name: catalogLabel, item: canonical(catalogHref) }, { '@type': 'ListItem', position: 3, name: product.name, item: canonical(productHref) }] }} />
       <article className="section-shell pb-16 sm:pb-22">
         <nav className="flex gap-2 overflow-hidden py-4 text-xs text-slate-500" aria-label="Đường dẫn"><Link className="hover:text-brand" href="/">Trang chủ</Link><span>/</span><Link className="hover:text-brand" href={catalogHref}>{catalogLabel}</Link><span>/</span><span className="truncate text-slate-700">{product.name}</span></nav>
         <h1 className="pb-4 font-display text-xl font-bold leading-tight tracking-[-.01em] text-slate-950 lg:text-[22px]">{product.name}</h1>
@@ -55,7 +55,7 @@ export async function ProductDetailPage({
               <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={19} /> Gửi mẫu này qua Zalo</a>
               <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 px-5 text-sm font-black text-slate-950 transition hover:border-brand hover:text-brand" href={`tel:${PHONE_VALUE}`}><Phone size={18} /> Gọi {PHONE_DISPLAY}</a>
             </div>
-            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={canonical(productPath)} /> : null}
+            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={canonical(productHref)} /> : null}
 
             {product.shortDescription ? <p className="mt-5 text-base leading-7 text-slate-600">{product.shortDescription}</p> : null}
 

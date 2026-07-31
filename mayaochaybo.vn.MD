@@ -47,9 +47,10 @@ pnpm typecheck
 pnpm build
 ```
 
-Products and several content routes use root-level legacy paths. Preserve exact
-tenant-scoped `legacyPath` behavior; `/san-pham/<slug>` exists only as a
-compatibility redirect to the legacy path when a product is found.
+Product detail pages use `/san-pham/<slug>/` as the canonical public URL.
+Root-level legacy product paths must redirect permanently to `/san-pham/<slug>/`
+when a product is found. Category, content, and other legacy paths remain
+tenant-scoped by exact `legacyPath`.
 
 ## Verification
 
@@ -60,4 +61,3 @@ curl -fsSI https://mayaochaybo.vn/
 curl -fsSI https://mayaochaybo.vn/san-pham/
 curl -fsSI https://mayaochaybo.vn/blog/
 ```
-

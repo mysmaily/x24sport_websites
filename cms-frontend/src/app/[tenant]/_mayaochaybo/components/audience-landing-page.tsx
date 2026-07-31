@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
-import { getProducts, productImages } from '../lib/cms'
+import { getProducts, productImages, productPath } from '../lib/cms'
 import { AUDIENCE_LANDINGS, type AudienceLanding } from '../lib/audience-landings'
 import { canonical, ZALO_URL } from '../lib/site'
 
@@ -114,10 +114,10 @@ export async function AudienceLandingPage({ landing }: { landing: AudienceLandin
               <div className="relative aspect-[4/3]"><Image alt={clubHeroImages[1].alt} className="object-cover" fill sizes="(max-width: 1024px) 58vw, 27vw" src={clubHeroImages[1].src} /></div>
             </div>
           </> : <>
-            {heroProducts[0] ? <Link className="group absolute bottom-0 left-0 w-[64%] overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_26px_80px_rgba(0,0,0,.35)]" href={heroProducts[0].product.legacyPath || `/${heroProducts[0].product.slug}/`}>
+            {heroProducts[0] ? <Link className="group absolute bottom-0 left-0 w-[64%] overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_26px_80px_rgba(0,0,0,.35)]" href={productPath(heroProducts[0].product)}>
               <div className="relative aspect-square bg-slate-100"><Image alt={heroProducts[0].image.alt || heroProducts[0].product.name} className="object-contain transition duration-500 group-hover:scale-[1.025]" fill priority sizes="(max-width: 1024px) 64vw, 30vw" src={heroProducts[0].image.url} /></div>
             </Link> : null}
-            {heroProducts[1] ? <Link className="group absolute bottom-10 right-0 w-[48%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-white shadow-[0_20px_60px_rgba(0,0,0,.4)]" href={heroProducts[1].product.legacyPath || `/${heroProducts[1].product.slug}/`}>
+            {heroProducts[1] ? <Link className="group absolute bottom-10 right-0 w-[48%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-white shadow-[0_20px_60px_rgba(0,0,0,.4)]" href={productPath(heroProducts[1].product)}>
               <div className="relative aspect-square bg-slate-100"><Image alt={heroProducts[1].image.alt || heroProducts[1].product.name} className="object-contain transition duration-500 group-hover:scale-[1.025]" fill sizes="(max-width: 1024px) 48vw, 22vw" src={heroProducts[1].image.url} /></div>
             </Link> : null}
           </>}

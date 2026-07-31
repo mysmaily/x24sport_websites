@@ -216,6 +216,10 @@ export function productImages(product: Product): MediaImage[] {
   return migrated.length ? migrated : (product.legacyImages || []).filter((item) => Boolean(item.url))
 }
 
+export function productPath(product: Pick<Product, 'slug'>) {
+  return `/san-pham/${product.slug}/`
+}
+
 export async function getAllCanonicalRoutes() {
   const tenant = await getTenant()
   const load = async <T>(collection: 'products' | 'web-content' | 'product-categories') => {

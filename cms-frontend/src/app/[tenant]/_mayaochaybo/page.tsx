@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { HeroGallery, type HeroSlide } from './components/hero-gallery'
 import { JsonLd } from './components/json-ld'
 import { ProductGrid } from './components/product-grid'
-import { getCategories, getLatestPosts, getProducts, productImages } from './lib/cms'
+import { getCategories, getLatestPosts, getProducts, productImages, productPath } from './lib/cms'
 import { DEFAULT_OG_IMAGE, excerpt, LOGO_URL, SITE_URL, ZALO_URL } from './lib/site'
 
 export const dynamic = 'force-dynamic'
@@ -44,7 +44,7 @@ export default async function HomePage() {
   const [catalog, posts, categoryResult] = await Promise.all([getProducts({ limit: 8 }), getLatestPosts(3), getCategories()])
   const heroSlides: HeroSlide[] = catalog.docs.flatMap((product) => {
     const image = productImages(product)[0]
-    return image ? [{ alt: image.alt || product.name, href: product.legacyPath || `/${product.slug}/`, name: product.name, src: image.url }] : []
+    return image ? [{ alt: image.alt || product.name, href: productPath(product), name: product.name, src: image.url }] : []
   }).slice(0, 5)
   const categories = categoryResult.docs.filter((item) => item.group !== 'color').slice(0, 5)
 
