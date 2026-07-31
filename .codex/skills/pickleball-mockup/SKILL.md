@@ -1,6 +1,6 @@
-# Pickleball Mockup Workflow
+# Pickleball Mockup Skill
 
-Use this when the user asks to convert one source image or a list/page of
+Use this skill when the user asks to convert one source image or a list/page of
 products into pickleball apparel mockups.
 
 ## Default Intent
@@ -27,7 +27,7 @@ Extract and preserve:
 - dominant colors and accent colors;
 - collar type, sleeve trim, side panels, seam lines;
 - gradient placement and direction;
-- geometric/brush/splatter/texture patterns;
+- geometric, brush, splatter, or texture patterns;
 - chest mark positions;
 - front/back details if visible;
 - product code or source identifier for tracking.
@@ -62,12 +62,14 @@ Avoid: football cues, exact old logos/text, large numbers, distorted hands, warp
 - For batches, generate one image per product/source in one scripted run.
 - Do not preview or wait for approval after each image in a batch.
 - Use batch-first, review-after: run all jobs, then create a final contact sheet.
-- Default batch concurrency: `2`; use `3` only when the API is stable and the
+- Default batch concurrency is `2`; use `3` only when the API is stable and the
   user is prioritizing speed over lower retry risk.
 - Retry only failed jobs or visibly bad images after reviewing the contact sheet.
 - Export WebP at high quality, around `q96`; do not over-compress.
-- Keep PNG/source generation files when available.
-- Build a contact sheet for quick review.
+- Keep generated binaries local only. Git may track metadata, ledgers,
+  manifests, and uploaded URL records, but not generated images or source
+  downloads.
+- Build a contact sheet for quick review, but keep it untracked.
 
 ## Metadata To Preserve
 
@@ -78,9 +80,10 @@ For every product or image, record:
 - color palette;
 - primary colors;
 - style/mood;
-- pattern/hoa văn;
+- pattern/hoa van;
 - garment cut;
-- checksum when uploading.
+- checksum when uploading;
+- uploaded media/product URL when publish occurs.
 
 For Payload CMS products, store metadata in:
 
@@ -92,8 +95,8 @@ For Payload CMS products, store metadata in:
 ## Batch Workflow
 
 1. Fetch product list/page and source images.
-2. Create `inventory.json` with code, title/slug, URL, source image, output path.
-3. Download source images locally.
+2. Create `inventory.json` with code, title/slug, URL, source image, and output path.
+3. Download source images locally, keeping them untracked.
 4. Generate a source contact sheet.
 5. Create `jobs.json` for every product/source.
 6. Generate all pickleball mockups in a scripted batch, without per-image preview.
@@ -101,9 +104,9 @@ For Payload CMS products, store metadata in:
 8. Generate final contact sheet.
 9. Review the contact sheet and retry only failed or visibly bad items.
 10. If the user asked to publish, dry-run CMS import first.
-11. Back up affected CMS records before apply.
-12. Upload media/create or update products.
-13. Verify API, media URLs, product pages, categories, and filters.
+11. Upload media/create or update products.
+12. Verify API, media URLs, product pages, categories, and filters.
+13. Commit only source, metadata, ledgers, manifests, and uploaded URL records.
 
 ## Confirmation Policy
 
@@ -126,9 +129,8 @@ Ask one concise question only when:
 Final report should include:
 
 - count completed and failed;
-- output folder/contact sheet/zip paths;
-- CMS product IDs/media IDs/SKU range if published;
+- output folder and contact sheet paths;
+- CMS product IDs, media IDs, and public uploaded URLs if published;
 - metadata fields preserved;
 - verification evidence;
-- backups created;
 - services/cache touched, if any.

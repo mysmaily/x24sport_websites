@@ -27,6 +27,7 @@ x24sport_websites/
 ├── cms-api/                         # Shared Payload CMS for Next.js tenants
 ├── docker-compose.yml               # Shared CMS and tenant frontend services
 ├── scripts/                         # Registry and operational utilities
+├── workflows/                       # Reusable operational workflows and runbooks
 ├── mayao*.vn/                      # Website-specific source and operations for standalone frontends
 └── <domain>.MD                     # Tenant notes for domains merged into cms-frontend/
 ```
