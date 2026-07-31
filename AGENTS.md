@@ -295,6 +295,11 @@ the user explicitly requests otherwise for a specific task.
   WordPress, Payload, AI, SEO, cache, contract-testing, or developer workflow
   language in customer-facing UI copy, helper text, banners, captions, menus,
   footnotes, placeholders, empty states, or calls to action.
+- Do not expose search-engine or architecture concepts such as URL structure,
+  canonical URLs, indexability, crawlability, schema, route mapping, shareable
+  pages, generated collections, or per-page uniqueness in customer-facing UI.
+  Those concepts belong in metadata, links, structured data, code comments,
+  runbooks, commits, tickets, or handoff notes.
 - Customer-facing copy must help a shopper browse products, understand options,
   choose sizes/materials, customize, order, or contact support. If a sentence
   does not help that journey, do not ship it to the page.

@@ -96,7 +96,6 @@ export function SiteHeader() {
             <div className="grid grid-cols-3 gap-2.5">
               {COLOR_LANDINGS.map((item) => <Link className="group flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 text-sm font-extrabold shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.path} key={item.slug} tabIndex={productsOpen ? 0 : -1}><span aria-hidden="true" className="size-5 shrink-0 rounded-full border border-black/15 shadow-inner" style={{ background: item.swatch }} /><span>{item.navLabel}</span></Link>)}
             </div>
-            <p className="mt-4 text-xs leading-5 text-slate-500">Chọn màu để xem đúng bộ sưu tập. Mỗi trang có URL riêng, nội dung riêng và có thể chia sẻ trực tiếp.</p>
           </section>
         </div>
       </div>

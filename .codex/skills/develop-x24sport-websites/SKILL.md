@@ -61,6 +61,10 @@ engineering constraints, never as a promise of ranking.
   internal, staging, preview, migration, CMS, WordPress, AI, SEO, QA, or
   developer-process language in rendered UI copy unless the user explicitly asks
   for that wording on the page.
+- Do not explain SEO or route mechanics to shoppers. Terms and ideas such as URL
+  structure, canonical, indexable, crawlable, schema, route mapping, shareable
+  pages, generated collections, and per-page uniqueness must stay in metadata,
+  structured data, internal notes, or handoff text, not rendered helper copy.
 - Design mobile-first without reducing primary content or metadata relative to
   desktop. Responsive layout may differ; meaning and capability must remain.
 - Make product discovery possible through crawlable category and product links.
@@ -78,6 +82,9 @@ engineering constraints, never as a promise of ranking.
 - Strip internal rationale from public copy. Put implementation notes in code
   comments, task handoff, or runbooks instead of helper text, captions, menu
   headings, or empty states seen by shoppers.
+- Before handoff, search changed customer-facing files for technical SEO,
+  routing, CMS, QA, and developer-process wording; remove it unless it is the
+  user's requested public wording.
 - Render primary page content and metadata on the server when the platform
   supports it. Limit client JavaScript to real interaction needs.
 - Use crawlable `<a href>` links for navigation. Buttons perform actions; links
