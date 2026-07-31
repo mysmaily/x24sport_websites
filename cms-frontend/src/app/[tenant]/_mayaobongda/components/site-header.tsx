@@ -98,13 +98,13 @@ export function SiteHeader() {
             <Link className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-black text-brand hover:text-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/shop/" tabIndex={productsOpen ? 0 : -1}>Xem toàn bộ sản phẩm</Link>
           </section>
           <section aria-labelledby="menu-colors-title">
-            <p className="mb-5 flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-slate-600" id="menu-colors-title"><span className="size-2 rounded-full bg-brand" /> Hướng dẫn đặt áo</p>
+            <p className="mb-5 flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-slate-600" id="menu-colors-title"><span className="size-2 rounded-full bg-brand" /> Theo nhu cầu</p>
             <div className="grid grid-cols-2 gap-2.5">
               {[
-                { href: '/chat-lieu-vai/', label: 'Chất liệu vải' },
-                { href: '/quy-trinh-may-ao-bong-da-truc-tiep-tai-xuong/', label: 'Quy trình may tại xưởng' },
-                { href: '/category/chua-phan-loai/', label: 'Tin tức áo bóng đá' },
-                { href: '/shop/?q=x24', label: 'Tìm mẫu X24' },
+                { href: '/ao-bong-da-doi-bong-cau-lac-bo/', label: 'Đội bóng & câu lạc bộ' },
+                { href: '/ao-bong-da-giai-phong-trao/', label: 'Giải phong trào' },
+                { href: '/ao-bong-da-cong-ty-ngan-hang/', label: 'Công ty & ngân hàng' },
+                { href: '/chat-lieu-vai/', label: 'Chất liệu & bảng size' },
               ].map((item) => <Link className="group flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 text-sm font-extrabold shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={productsOpen ? 0 : -1}><span>{item.label}</span></Link>)}
             </div>
           </section>
@@ -120,6 +120,14 @@ export function SiteHeader() {
               { href: '/cau-lac-bo/', label: 'Câu lạc bộ' },
               { href: '/doi-tuyen/', label: 'Đội tuyển' },
             ].map((item) => <Link className="flex min-h-12 items-center rounded-lg border border-white/10 px-3 text-sm font-extrabold hover:border-brand/60" href={item.href} key={item.href} tabIndex={open ? 0 : -1}>{item.label}</Link>)}</div>
+          </section>
+          <section className="rounded-xl border border-white/10 bg-white/[.04] p-3">
+            <p className="mb-3 px-1 text-xs font-black uppercase tracking-[.16em] text-brand">Theo nhu cầu</p>
+            <div className="grid gap-2 sm:grid-cols-3">{[
+              { href: '/ao-bong-da-doi-bong-cau-lac-bo/', label: 'Đội bóng & CLB' },
+              { href: '/ao-bong-da-giai-phong-trao/', label: 'Giải phong trào' },
+              { href: '/ao-bong-da-cong-ty-ngan-hang/', label: 'Công ty & ngân hàng' },
+            ].map((item) => <Link className="flex min-h-12 items-center rounded-lg border border-white/10 px-3 text-xs font-extrabold hover:border-brand/60" href={item.href} key={item.href} tabIndex={open ? 0 : -1}>{item.label}</Link>)}</div>
           </section>
           <section className="rounded-xl border border-white/10 bg-white/[.04] p-3">
             <p className="mb-3 px-1 text-xs font-black uppercase tracking-[.16em] text-brand">Nội dung nổi bật</p>

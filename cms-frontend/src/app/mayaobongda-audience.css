@@ -1,0 +1,118 @@
+body.tenant-mayaobongda .football-audience-dark {
+  background: #07101e;
+}
+
+body.tenant-mayaobongda .football-audience-hero-shell {
+  position: relative;
+}
+
+body.tenant-mayaobongda .football-audience-hero-copy {
+  padding-block: 1rem;
+}
+
+body.tenant-mayaobongda .football-audience-title {
+  font-size: 3.25rem;
+  letter-spacing: -.02em;
+  line-height: .9;
+}
+
+body.tenant-mayaobongda .football-audience-hero-media {
+  min-height: 360px;
+}
+
+body.tenant-mayaobongda .football-audience-hero-image {
+  object-position: center;
+}
+
+body.tenant-mayaobongda .football-audience-hero-overlay {
+  background: linear-gradient(0deg, rgba(7, 16, 30, .72), transparent 60%);
+}
+
+body.tenant-mayaobongda .football-audience-hero-note {
+  max-width: 280px;
+  background: rgba(7, 16, 30, .78);
+  backdrop-filter: blur(12px);
+}
+
+body.tenant-mayaobongda .football-audience-split,
+body.tenant-mayaobongda .football-audience-brief,
+body.tenant-mayaobongda .football-audience-process,
+body.tenant-mayaobongda .football-audience-final {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 640px) {
+  body.tenant-mayaobongda .football-audience-title {
+    font-size: 4.7rem;
+  }
+
+  body.tenant-mayaobongda .football-audience-hero-media {
+    min-height: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body.tenant-mayaobongda .football-audience-hero-shell {
+    min-height: 690px;
+    grid-template-columns: .86fr 1.14fr;
+    align-items: center;
+    padding-bottom: 4rem;
+  }
+
+  body.tenant-mayaobongda .football-audience-hero-copy {
+    padding-block: 3rem;
+  }
+
+  body.tenant-mayaobongda .football-audience-title {
+    font-size: 5.2rem;
+  }
+
+  body.tenant-mayaobongda .football-audience-hero-media {
+    position: absolute;
+    inset-block: 0;
+    left: 46%;
+    right: 0;
+    min-height: 0;
+    border-block: 0;
+    border-right: 0;
+    border-radius: 0;
+  }
+
+  body.tenant-mayaobongda .football-audience-hero-image {
+    object-position: 58% center;
+  }
+
+  body.tenant-mayaobongda .football-audience-hero-overlay {
+    background: linear-gradient(90deg, #07101e 0, rgba(7, 16, 30, .68) 14%, rgba(7, 16, 30, .08) 48%, transparent 72%);
+  }
+
+  body.tenant-mayaobongda .football-audience-commitments {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  body.tenant-mayaobongda .football-audience-split {
+    grid-template-columns: .72fr 1.28fr;
+    gap: 4rem;
+  }
+
+  body.tenant-mayaobongda .football-audience-brief {
+    grid-template-columns: .82fr 1.18fr;
+    align-items: start;
+  }
+
+  body.tenant-mayaobongda .football-audience-process {
+    grid-template-columns: .8fr 1.2fr;
+    gap: 4rem;
+  }
+
+  body.tenant-mayaobongda .football-audience-final {
+    grid-template-columns: 1.1fr .9fr;
+    align-items: end;
+  }
+}
+
+@media (max-width: 639px) {
+  body.tenant-mayaobongda .football-audience-hero-note {
+    max-width: none;
+  }
+}

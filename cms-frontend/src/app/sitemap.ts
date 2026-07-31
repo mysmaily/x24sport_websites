@@ -106,6 +106,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: `${base}/`, priority: 1 },
     { url: `${base}/san-pham/`, priority: .9 },
+    ...(tenant.slug === 'mayaobongda' ? [
+      { url: `${base}/ao-bong-da-doi-bong-cau-lac-bo/`, priority: .82 },
+      { url: `${base}/ao-bong-da-giai-phong-trao/`, priority: .82 },
+      { url: `${base}/ao-bong-da-cong-ty-ngan-hang/`, priority: .82 },
+    ] : []),
     ...(tenant.slug === 'mayaochaybo' ? [{ url: `${base}/mau-ao-chay-bo-duoc-xem-nhieu/`, priority: .82 }] : []),
     ...(tenant.slug === 'x24sport' ? [{ url: `${base}/mau-logo/`, priority: .8 }] : []),
     { url: `${base}/blog/`, priority: .7 },

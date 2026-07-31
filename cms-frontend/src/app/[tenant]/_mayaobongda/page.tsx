@@ -23,9 +23,9 @@ const commitments = [
 ]
 
 const audiences = [
-  { icon: UsersRound, label: 'Đội bóng & câu lạc bộ', text: 'Thi đấu · tập luyện · giao hữu' },
-  { icon: Trophy, label: 'Giải phong trào', text: 'Đồng phục giải · kỷ niệm đội hình' },
-  { icon: ShieldCheck, label: 'Công ty & ngân hàng', text: 'Giải nội bộ · team building' },
+  { href: '/ao-bong-da-doi-bong-cau-lac-bo/', icon: UsersRound, label: 'Đội bóng & câu lạc bộ', text: 'Thi đấu · tập luyện · giao hữu' },
+  { href: '/ao-bong-da-giai-phong-trao/', icon: Trophy, label: 'Giải phong trào', text: 'Đồng phục giải · kỷ niệm đội hình' },
+  { href: '/ao-bong-da-cong-ty-ngan-hang/', icon: ShieldCheck, label: 'Công ty & ngân hàng', text: 'Giải nội bộ · team building' },
 ]
 
 export default async function HomePage() {
@@ -47,7 +47,7 @@ export default async function HomePage() {
           <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">Chọn mẫu làm điểm xuất phát, rồi tinh chỉnh màu sắc, logo, tên số và nội dung theo đúng nhận diện đội bóng hoặc giải đấu của bạn.</p>
 
           <ul className="mt-6 grid gap-2 sm:grid-cols-3" aria-label="Doi tuong khach hang chinh">
-            {audiences.map(({ icon: Icon, label, text }) => <li className="min-w-0 rounded-xl border border-white/10 bg-white/[.055] p-3.5 backdrop-blur transition duration-200 hover:border-brand/50 hover:bg-white/[.085]" key={label}><Icon className="text-brand" size={21} /><strong className="mt-3 block text-sm font-black text-white">{label}</strong><span className="mt-1 block text-[11px] leading-4 text-slate-400">{text}</span></li>)}
+            {audiences.map(({ href, icon: Icon, label, text }) => <li className="min-w-0" key={label}><Link className="group block h-full rounded-xl border border-white/10 bg-white/[.055] p-3.5 backdrop-blur transition duration-200 hover:-translate-y-0.5 hover:border-brand/50 hover:bg-white/[.085] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={href}><Icon className="text-brand" size={21} /><strong className="mt-3 flex items-center gap-1.5 text-sm font-black text-white">{label}<ArrowRight className="opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-100" size={14} /></strong><span className="mt-1 block text-[11px] leading-4 text-slate-400">{text}</span></Link></li>)}
           </ul>
 
           <div className="mt-7 grid max-w-lg gap-3 sm:flex sm:flex-wrap"><Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black transition duration-200 hover:bg-brand-dark" href="/shop/">Khám phá mẫu áo <ArrowRight size={19} /></Link><a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-sm font-black transition duration-200 hover:border-white/50 hover:bg-white/10" href={ZALO_URL} rel="noreferrer" target="_blank">Nhận tư vấn thiết kế</a></div>
