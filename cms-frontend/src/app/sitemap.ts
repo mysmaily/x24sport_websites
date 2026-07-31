@@ -106,6 +106,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: `${base}/`, priority: 1 },
     { url: `${base}/san-pham/`, priority: .9 },
+    ...(tenant.slug === 'mayaochaybo' ? [{ url: `${base}/mau-ao-chay-bo-duoc-xem-nhieu/`, priority: .82 }] : []),
     ...(tenant.slug === 'x24sport' ? [{ url: `${base}/mau-logo/`, priority: .8 }] : []),
     { url: `${base}/blog/`, priority: .7 },
     ...categories.map(({ slug }) => ({ url: `${base}/danh-muc/${slug}/`, priority: .8 })),

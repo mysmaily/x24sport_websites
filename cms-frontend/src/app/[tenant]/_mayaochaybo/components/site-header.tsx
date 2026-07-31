@@ -10,7 +10,7 @@ import { LOGO_URL, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '../lib/site'
 
 const sampleLinks = [
   { href: '/san-pham/', label: 'Mẫu mới' },
-  { href: '/san-pham/?sort=xem-nhieu', label: 'Xem nhiều' },
+  { href: '/mau-ao-chay-bo-duoc-xem-nhieu/', label: 'Xem nhiều' },
   { href: '/may-ao-chay-bo-thiet-ke-rieng-x24/', label: 'Áo chạy bộ thiết kế' },
   { href: '/ao-chay-bo-co-tay/', label: 'Áo chạy bộ có tay' },
   { href: '/ao-chay-bo-sat-nach/', label: 'Áo chạy bộ sát nách' },
