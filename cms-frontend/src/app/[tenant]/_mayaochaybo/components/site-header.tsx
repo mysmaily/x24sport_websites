@@ -8,6 +8,15 @@ import { useEffect, useRef, useState } from 'react'
 import { COLOR_LANDINGS, TYPE_LANDINGS } from '../lib/catalog-landings'
 import { LOGO_URL, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '../lib/site'
 
+const sampleLinks = [
+  { href: '/san-pham/', label: 'Mẫu mới' },
+  { href: '/san-pham/?sort=xem-nhieu', label: 'Xem nhiều' },
+  { href: '/may-ao-chay-bo-thiet-ke-rieng-x24/', label: 'Áo chạy bộ thiết kế' },
+  { href: '/ao-chay-bo-co-tay/', label: 'Áo chạy bộ có tay' },
+  { href: '/ao-chay-bo-sat-nach/', label: 'Áo chạy bộ sát nách' },
+  { href: '/ao-chay-bo-co-do-sao-vang/', label: 'Áo chạy bộ cờ đỏ sao vàng' },
+]
+
 const links = [
   { href: '/logo-doi-chay/', label: 'Logo đội chạy' },
   { href: '/blog/', label: 'Kinh nghiệm' },
@@ -18,16 +27,17 @@ const links = [
 export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
-  const [productsOpen, setProductsOpen] = useState(false)
+  const [activeMenu, setActiveMenu] = useState<'samples' | 'colors' | null>(null)
   const [searchOpen, setSearchOpen] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const productActive = pathname === '/san-pham/' || [...TYPE_LANDINGS, ...COLOR_LANDINGS].some((item) => pathname.startsWith(item.path))
-  const showProducts = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setProductsOpen(true) }
-  const hideProductsSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setProductsOpen(false), 120) }
-  useEffect(() => { setOpen(false); setProductsOpen(false); setSearchOpen(false) }, [pathname])
+  const productActive = pathname === '/san-pham/' || TYPE_LANDINGS.some((item) => pathname.startsWith(item.path))
+  const colorActive = COLOR_LANDINGS.some((item) => pathname.startsWith(item.path))
+  const showMenu = (menu: 'samples' | 'colors') => { if (closeTimer.current) clearTimeout(closeTimer.current); setActiveMenu(menu) }
+  const hideMenuSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setActiveMenu(null), 120) }
+  useEffect(() => { setOpen(false); setActiveMenu(null); setSearchOpen(false) }, [pathname])
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
-              if (event.key === 'Escape') { setOpen(false); setProductsOpen(false); setSearchOpen(false) }
+              if (event.key === 'Escape') { setOpen(false); setActiveMenu(null); setSearchOpen(false) }
     }
     document.addEventListener('keydown', closeOnEscape)
     return () => document.removeEventListener('keydown', closeOnEscape)
@@ -42,20 +52,38 @@ export function SiteHeader() {
         <nav className="hidden items-center justify-center gap-5 text-sm font-extrabold text-slate-300 lg:flex xl:gap-7" aria-label="Điều hướng chính">
           <div
             className="relative"
-            onBlur={hideProductsSoon}
-            onFocus={showProducts}
-            onMouseEnter={showProducts}
-            onMouseLeave={hideProductsSoon}
+            onBlur={hideMenuSoon}
+            onFocus={() => showMenu('samples')}
+            onMouseEnter={() => showMenu('samples')}
+            onMouseLeave={hideMenuSoon}
           >
             <button
               aria-controls="product-mega-menu"
-              aria-expanded={productsOpen}
+              aria-expanded={activeMenu === 'samples'}
               className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`}
-              onClick={() => setProductsOpen((value) => !value)}
+              onClick={() => setActiveMenu((value) => value === 'samples' ? null : 'samples')}
               type="button"
             >
-              Mẫu áo <ChevronDown className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} size={16} />
+              Mẫu áo <ChevronDown className={`transition-transform duration-200 ${activeMenu === 'samples' ? 'rotate-180' : ''}`} size={16} />
               {productActive ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}
+            </button>
+          </div>
+          <div
+            className="relative"
+            onBlur={hideMenuSoon}
+            onFocus={() => showMenu('colors')}
+            onMouseEnter={() => showMenu('colors')}
+            onMouseLeave={hideMenuSoon}
+          >
+            <button
+              aria-controls="color-mega-menu"
+              aria-expanded={activeMenu === 'colors'}
+              className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${colorActive ? 'text-brand' : ''}`}
+              onClick={() => setActiveMenu((value) => value === 'colors' ? null : 'colors')}
+              type="button"
+            >
+              Màu áo <ChevronDown className={`transition-transform duration-200 ${activeMenu === 'colors' ? 'rotate-180' : ''}`} size={16} />
+              {colorActive ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}
             </button>
           </div>
           {links.map((link) => {
@@ -75,35 +103,44 @@ export function SiteHeader() {
       </div>
       {searchOpen ? <div className="absolute right-4 top-full z-[70] mt-2 w-[min(520px,calc(100vw-32px))] rounded-xl bg-white p-1.5 text-slate-950 shadow-[0_14px_40px_rgba(2,6,23,.24)]"><form action="/tim-kiem/" className="grid grid-cols-[1fr_auto_auto] gap-1.5" role="search"><label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label><input autoComplete="off" className="min-h-11 min-w-0 rounded-lg bg-slate-50 px-3 text-sm outline-none" id="header-search-q" name="q" placeholder="Tên mẫu, màu áo, tag ảnh..." type="search" /><button className="rounded-lg bg-brand px-4 text-sm font-black text-white" type="submit">Tìm</button><button aria-label="Đóng tìm kiếm" className="grid size-11 place-items-center rounded-lg text-slate-700 hover:bg-slate-100" onClick={() => setSearchOpen(false)} type="button"><X size={17} /></button></form></div> : null}
       <div
-        aria-hidden={!productsOpen}
-        className={`absolute inset-x-0 top-full hidden border-t border-slate-200 bg-[#f8f6f2] text-slate-950 shadow-[0_28px_70px_rgba(2,6,23,.32)] transition duration-200 lg:block ${productsOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`}
+        aria-hidden={activeMenu !== 'samples'}
+        className={`absolute inset-x-0 top-full hidden border-t border-slate-200 bg-[#f8f6f2] text-slate-950 shadow-[0_28px_70px_rgba(2,6,23,.32)] transition duration-200 lg:block ${activeMenu === 'samples' ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`}
         id="product-mega-menu"
-        onBlur={hideProductsSoon}
-        onFocus={showProducts}
-        onMouseEnter={showProducts}
-        onMouseLeave={hideProductsSoon}
+        onBlur={hideMenuSoon}
+        onFocus={() => showMenu('samples')}
+        onMouseEnter={() => showMenu('samples')}
+        onMouseLeave={hideMenuSoon}
       >
-        <div className="mx-auto grid max-w-[1240px] grid-cols-[.9fr_1.35fr] gap-12 px-8 py-9">
+        <div className="mx-auto max-w-[820px] px-8 py-9">
           <section aria-labelledby="menu-types-title">
-            <p className="mb-5 flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-brand" id="menu-types-title"><span className="size-2 rounded-full bg-brand" /> Theo kiểu áo</p>
+            <p className="mb-5 flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-brand" id="menu-types-title"><span className="size-2 rounded-full bg-brand" /> Mẫu áo</p>
             <div className="grid grid-cols-2 gap-2.5">
-              {TYPE_LANDINGS.map((item, index) => <Link className="group flex min-h-16 items-center justify-between rounded-xl border border-slate-200 bg-white px-4 text-sm font-black shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.path} key={item.slug} tabIndex={productsOpen ? 0 : -1}><span><span className="mb-1 block text-[10px] font-black tracking-[.16em] text-slate-400">0{index + 1}</span>{item.navLabel}</span><ArrowUpRight className="text-slate-300 transition group-hover:text-brand" size={17} /></Link>)}
-            </div>
-            <Link className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-black text-brand hover:text-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/san-pham/" tabIndex={productsOpen ? 0 : -1}>Xem toàn bộ 603 mẫu áo <ArrowUpRight size={17} /></Link>
-          </section>
-          <section aria-labelledby="menu-colors-title">
-            <p className="mb-5 flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-slate-600" id="menu-colors-title"><span className="size-2 rounded-full bg-brand" /> Theo màu sắc</p>
-            <div className="grid grid-cols-3 gap-2.5">
-              {COLOR_LANDINGS.map((item) => <Link className="group flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 text-sm font-extrabold shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.path} key={item.slug} tabIndex={productsOpen ? 0 : -1}><span aria-hidden="true" className="size-5 shrink-0 rounded-full border border-black/15 shadow-inner" style={{ background: item.swatch }} /><span>{item.navLabel}</span></Link>)}
+              {sampleLinks.map((item, index) => <Link className="group flex min-h-16 items-center justify-between rounded-xl border border-slate-200 bg-white px-4 text-sm font-black shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={activeMenu === 'samples' ? 0 : -1}><span><span className="mb-1 block text-[10px] font-black tracking-[.16em] text-slate-400">0{index + 1}</span>{item.label}</span><ArrowUpRight className="text-slate-300 transition group-hover:text-brand" size={17} /></Link>)}
             </div>
           </section>
         </div>
       </div>
+      <div
+        aria-hidden={activeMenu !== 'colors'}
+        className={`absolute inset-x-0 top-full hidden border-t border-slate-200 bg-[#f8f6f2] text-slate-950 shadow-[0_28px_70px_rgba(2,6,23,.32)] transition duration-200 lg:block ${activeMenu === 'colors' ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`}
+        id="color-mega-menu"
+        onBlur={hideMenuSoon}
+        onFocus={() => showMenu('colors')}
+        onMouseEnter={() => showMenu('colors')}
+        onMouseLeave={hideMenuSoon}
+      >
+        <section aria-labelledby="menu-colors-title" className="mx-auto max-w-[900px] px-8 py-9">
+          <p className="mb-5 flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-brand" id="menu-colors-title"><span className="size-2 rounded-full bg-brand" /> Màu áo</p>
+          <div className="grid grid-cols-3 gap-2.5">
+            {COLOR_LANDINGS.map((item) => <Link className="group flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 text-sm font-extrabold shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.path} key={item.slug} tabIndex={activeMenu === 'colors' ? 0 : -1}><span aria-hidden="true" className="size-5 shrink-0 rounded-full border border-black/15 shadow-inner" style={{ background: item.swatch }} /><span>{item.navLabel}</span></Link>)}
+          </div>
+        </section>
+      </div>
       <div aria-hidden={!open} className={`absolute inset-x-0 top-full max-h-[calc(100vh-72px)] overflow-y-auto border-b border-white/10 bg-[#0b1220] p-4 shadow-2xl transition duration-200 lg:hidden ${open ? 'visible opacity-100' : 'pointer-events-none invisible opacity-0'}`} id="mobile-navigation">
         <nav className="mx-auto grid max-w-2xl gap-3" aria-label="Điều hướng di động">
           <section className="rounded-xl border border-white/10 bg-white/[.04] p-3">
-            <div className="mb-3 flex items-center justify-between px-1"><p className="text-xs font-black uppercase tracking-[.16em] text-brand">Mẫu áo theo kiểu</p><Link className="text-xs font-bold text-white underline decoration-white/30 underline-offset-4" href="/san-pham/" tabIndex={open ? 0 : -1}>Xem tất cả</Link></div>
-            <div className="grid gap-2 sm:grid-cols-2">{TYPE_LANDINGS.map((item) => <Link className="flex min-h-12 items-center rounded-lg border border-white/10 px-3 text-sm font-extrabold hover:border-brand/60" href={item.path} key={item.slug} tabIndex={open ? 0 : -1}>{item.navLabel}</Link>)}</div>
+            <p className="mb-3 px-1 text-xs font-black uppercase tracking-[.16em] text-brand">Mẫu áo</p>
+            <div className="grid gap-2 sm:grid-cols-2">{sampleLinks.map((item) => <Link className="flex min-h-12 items-center rounded-lg border border-white/10 px-3 text-sm font-extrabold hover:border-brand/60" href={item.href} key={item.href} tabIndex={open ? 0 : -1}>{item.label}</Link>)}</div>
           </section>
           <section className="rounded-xl border border-white/10 bg-white/[.04] p-3">
             <p className="mb-3 px-1 text-xs font-black uppercase tracking-[.16em] text-brand">Mẫu áo theo màu</p>

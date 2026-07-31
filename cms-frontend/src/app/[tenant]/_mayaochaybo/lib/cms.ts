@@ -16,6 +16,7 @@ export type Product = {
   id: number
   name: string
   slug: string
+  viewCount?: number | null
   price?: number | null
   compareAtPrice?: number | null
   sku?: string | null
@@ -116,14 +117,14 @@ export async function hasProductInterestForm() {
   }
 }
 
-export async function getProducts({ page = 1, limit = 12, search, categorySlug }: { page?: number; limit?: number; search?: string; categorySlug?: string } = {}) {
+export async function getProducts({ page = 1, limit = 12, search, categorySlug, sort }: { page?: number; limit?: number; search?: string; categorySlug?: string; sort?: string } = {}) {
   const tenant = await getTenant()
   const category = categorySlug ? await getProductCategory(categorySlug) : null
   if (categorySlug && !category) return { docs: [], totalDocs: 0, totalPages: 0, page, hasNextPage: false }
   const params = new URLSearchParams({
     'where[and][0][tenant][equals]': String(tenant.id),
     'where[and][1][publicationStatus][equals]': 'publish',
-    limit: String(limit), page: String(page), depth: '1', sort: '-sourceModifiedAt',
+    limit: String(limit), page: String(page), depth: '1', sort: sort === 'popular' ? '-viewCount' : '-sourceModifiedAt',
   })
   let index = 2
   if (category) params.set(`where[and][${index++}][categories][equals]`, String(category.id))
