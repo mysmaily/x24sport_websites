@@ -25,11 +25,22 @@ import { RynoCard, RynoDesignGrid } from './ryno-catalog'
 import { RynoSiteFooter, RynoSiteHeader } from './ryno-shell'
 import MayaoCauLongHomePage from './_mayaocaulong/page'
 import MayaoPickleballHomePage from './_mayaopickleball/page'
+import MayaoBongChuyenHomePage from './_mayaobongchuyen/page'
+import MayaoBongRoHomePage from './_mayaobongro/page'
+import { MayaoBongRoShell } from './_mayaobongro/shell'
+import MayaoChayBoHomePage from './_mayaochaybo/page'
+import { MayaoChayBoShell } from './_mayaochaybo/shell'
+import MayaoBongDaHomePage from './_mayaobongda/page'
+import { MayaoBongDaShell } from './_mayaobongda/shell'
 
 export async function generateMetadata({ params }: { params: Promise<{ tenant: string }> }): Promise<Metadata> {
   const { tenant } = await params
   if (tenant === 'mayaocaulong') return {}
   if (tenant === 'mayaopickleball') return {}
+  if (tenant === 'mayaobongchuyen') return {}
+  if (tenant === 'mayaobongro') return {}
+  if (tenant === 'mayaochaybo') return {}
+  if (tenant === 'mayaobongda') return {}
   if (tenant !== 'rynosport') return {}
 
   return {
@@ -88,6 +99,10 @@ export default async function TenantHomePage({ params }: { params: Promise<{ ten
   if (tenant === 'x24sport') return <X24HomePage />
   if (tenant === 'mayaocaulong') return <MayaoCauLongHomePage />
   if (tenant === 'mayaopickleball') return <MayaoPickleballHomePage />
+  if (tenant === 'mayaobongchuyen') return <MayaoBongChuyenHomePage />
+  if (tenant === 'mayaobongro') return <MayaoBongRoShell><MayaoBongRoHomePage /></MayaoBongRoShell>
+  if (tenant === 'mayaochaybo') return <MayaoChayBoShell><MayaoChayBoHomePage /></MayaoChayBoShell>
+  if (tenant === 'mayaobongda') return <MayaoBongDaShell><MayaoBongDaHomePage /></MayaoBongDaShell>
   if (tenant !== 'rynosport') notFound()
 
   const [{ products }, categories] = await Promise.all([

@@ -85,10 +85,10 @@ Tenant identities used by this repository are:
 | `rynosport.vn` | `rynosport` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container |
 | `mayaocaulong.vn` | `mayaocaulong` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container |
 | `mayaopickleball.vn` | `mayaopickleball` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container |
-| `mayaobongchuyen.vn` | `mayaobongchuyen` | Website folder | Active |
-| `mayaobongro.vn` | `mayaobongro` | Website folder | Active |
-| `mayaobongda.vn` | `mayaobongda` | Website folder | Active Next.js + Payload apex; WordPress runtime remains available behind the application host |
-| `mayaochaybo.vn` | `mayaochaybo` | Website folder | Active Next.js + Payload apex; WordPress archive at `wp.mayaochaybo.vn` |
+| `mayaobongchuyen.vn` | `mayaobongchuyen` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container |
+| `mayaobongro.vn` | `mayaobongro` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container |
+| `mayaobongda.vn` | `mayaobongda` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container |
+| `mayaochaybo.vn` | `mayaochaybo` | `cms-frontend/` | Active shared Next.js tenant; served by the `cms-frontend` container; WordPress archive at `wp.mayaochaybo.vn` |
 
 ## Shared Next.js tenant routing
 
@@ -115,8 +115,9 @@ For shared frontend tenants:
   explicitly asks to share them;
 - deploy shared frontend tenant code with the `cms-frontend` procedure in
   `PRODUCTION-DEPLOYMENT-RUNBOOK.md`, because `x24sport.vn`, `rynosport.vn`,
-  `mayaocaulong.vn`, and `mayaopickleball.vn` currently run in the same
-  `cms-frontend` container.
+  `mayaocaulong.vn`, `mayaopickleball.vn`, `mayaobongchuyen.vn`,
+  `mayaobongro.vn`, `mayaochaybo.vn`, and `mayaobongda.vn` currently run in the
+  same `cms-frontend` container.
 
 Examples:
 
@@ -126,6 +127,10 @@ Examples:
 | `rynosport.vn` | `rynosport` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "rynosport"` |
 | `mayaocaulong.vn` | `mayaocaulong` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "mayaocaulong"` |
 | `mayaopickleball.vn` | `mayaopickleball` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "mayaopickleball"` |
+| `mayaobongchuyen.vn` | `mayaobongchuyen` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "mayaobongchuyen"` |
+| `mayaobongro.vn` | `mayaobongro` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "mayaobongro"` |
+| `mayaochaybo.vn` | `mayaochaybo` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "mayaochaybo"` |
+| `mayaobongda.vn` | `mayaobongda` | `cms-frontend/src/app/[tenant]/...` with `params.tenant === "mayaobongda"` |
 
 Determine the active platform from the website folder:
 

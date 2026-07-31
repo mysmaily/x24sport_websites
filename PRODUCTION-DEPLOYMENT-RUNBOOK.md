@@ -62,10 +62,10 @@ unrecognized runtime file.
 | `rynosport.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
 | `mayaocaulong.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
 | `mayaopickleball.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| `mayaochaybo.vn` | `root@10.10.0.58` | `/root/websites/next.mayaochaybo.vn` | `next-mayaochaybo` | `10.10.0.58:3011` |
-| `mayaobongda.vn` | `root@10.10.0.58` | `/root/websites/next.mayaobongda.vn` | `next-mayaobongda` | `10.10.0.58:3012` |
-| `mayaobongchuyen.vn` | `root@10.10.0.28` | `/opt/sports-cms/mayaobongchuyen.vn` | `sports-cms-mayaobongchuyen-1` | `10.10.0.28:3003` |
-| `mayaobongro.vn` | `root@10.10.0.28` | `/opt/sports-cms/mayaobongro.vn` | `sports-cms-mayaobongro-1` | `10.10.0.28:3005` |
+| `mayaobongchuyen.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
+| `mayaobongro.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
+| `mayaochaybo.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
+| `mayaobongda.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
 | Shared `cms-api` | `root@10.10.0.28` | `/opt/sports-cms/cms-api` | `sports-cms-cms-api-1` | `10.10.0.28:3001` |
 
 ## Compose frontends on 10.10.0.58
@@ -78,6 +78,10 @@ This shared frontend currently serves:
 - `rynosport.vn`
 - `mayaocaulong.vn`
 - `mayaopickleball.vn`
+- `mayaobongchuyen.vn`
+- `mayaobongro.vn`
+- `mayaochaybo.vn`
+- `mayaobongda.vn`
 
 Synchronize `cms-frontend/` to `/root/websites/cms-frontend/`, then run only:
 
@@ -96,45 +100,16 @@ curl -fsSI https://x24sport.vn/
 curl -fsSI https://rynosport.vn/
 curl -fsSI https://mayaocaulong.vn/
 curl -fsSI https://mayaopickleball.vn/
-```
-
-### mayaochaybo.vn
-
-Synchronize `mayaochaybo.vn/` to
-`/root/websites/next.mayaochaybo.vn/`, then run only:
-
-```bash
-ssh root@10.10.0.58 \
-  'cd /root/websites/next.mayaochaybo.vn && docker compose -f compose.production.yml up -d --build web'
-```
-
-Verify:
-
-```bash
-ssh root@10.10.0.58 \
-  'docker inspect -f "{{.State.Status}} {{.State.Health.Status}}" next-mayaochaybo && docker logs --tail 120 next-mayaochaybo'
-curl -fsSI http://10.10.0.58:3011/
+curl -fsSI https://mayaobongchuyen.vn/
+curl -fsSI https://mayaobongro.vn/
 curl -fsSI https://mayaochaybo.vn/
-```
-
-### mayaobongda.vn
-
-Synchronize `mayaobongda.vn/` to
-`/root/websites/next.mayaobongda.vn/`, then run only:
-
-```bash
-ssh root@10.10.0.58 \
-  'cd /root/websites/next.mayaobongda.vn && docker compose -f compose.production.yml up -d --build web'
-```
-
-Verify:
-
-```bash
-ssh root@10.10.0.58 \
-  'docker inspect -f "{{.State.Status}} {{.State.Health.Status}}" next-mayaobongda && docker logs --tail 120 next-mayaobongda'
-curl -fsSI http://10.10.0.58:3012/
 curl -fsSI https://mayaobongda.vn/
 ```
+
+The retired standalone containers `next-mayaochaybo`,
+`next-mayaobongda`, `sports-cms-mayaobongchuyen-1`, and
+`sports-cms-mayaobongro-1` are historical after the shared frontend merge. Do
+not deploy them for normal frontend work.
 
 ## Standalone frontends on 10.10.0.28
 
@@ -151,24 +126,10 @@ The shared frontend Telegram bot token file is:
 It must be mode `0600` and contain `TELEGRAM_BOT_TOKEN` before replacing any
 standalone frontend container that can serve the product consultation form.
 
-### mayaobongchuyen.vn
-
-```bash
-DEPLOY_ID=$(date -u +%Y%m%d%H%M%S)
-ssh root@10.10.0.28 "docker build -t sports-cms-mayaobongchuyen:deploy-${DEPLOY_ID} /opt/sports-cms/mayaobongchuyen.vn"
-ssh root@10.10.0.28 "set -e; test -f /opt/sports-cms/frontend-telegram.env && test \"\$(stat -c %a /opt/sports-cms/frontend-telegram.env)\" = 600; docker stop sports-cms-mayaobongchuyen-1; docker container rm sports-cms-mayaobongchuyen-1; docker run -d --name sports-cms-mayaobongchuyen-1 --restart unless-stopped --network sports-cms_default --env-file /opt/sports-cms/frontend-telegram.env -p 3003:3003 -e NODE_ENV=production -e PORT=3003 -e TENANT_SLUG=mayaobongchuyen -e PAYLOAD_API_URL=http://10.10.0.28:3001 sports-cms-mayaobongchuyen:deploy-${DEPLOY_ID}"
-```
-
-### mayaobongro.vn
-
-```bash
-DEPLOY_ID=$(date -u +%Y%m%d%H%M%S)
-ssh root@10.10.0.28 "docker build -t sports-cms-mayaobongro:deploy-${DEPLOY_ID} /opt/sports-cms/mayaobongro.vn"
-ssh root@10.10.0.28 "set -e; test -f /opt/sports-cms/frontend-telegram.env && test \"\$(stat -c %a /opt/sports-cms/frontend-telegram.env)\" = 600; docker stop sports-cms-mayaobongro-1; docker container rm sports-cms-mayaobongro-1; docker run -d --name sports-cms-mayaobongro-1 --restart unless-stopped --network sports-cms_default --env-file /opt/sports-cms/frontend-telegram.env -p 3005:3005 -e NODE_ENV=production -e PORT=3005 -e TENANT_SLUG=mayaobongro -e PAYLOAD_API_URL=http://10.10.0.28:3001 sports-cms-mayaobongro:deploy-${DEPLOY_ID}"
-```
-
-Verify the selected service with its origin and public URL, then inspect the
-selected container's last 120 log lines. Do not rebuild the other containers.
+No active public frontend currently deploys from this section. The historical
+`mayaobongchuyen.vn` and `mayaobongro.vn` standalone containers must not be
+rebuilt for normal frontend changes; they have been merged into
+`cms-frontend/`.
 
 ## Shared cms-api
 

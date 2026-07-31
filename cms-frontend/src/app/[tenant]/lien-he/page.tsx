@@ -5,9 +5,12 @@ import { ArrowRight, Phone, Ruler, Shirt, SwatchBook } from 'lucide-react'
 
 import X24ContactPage from '../../lien-he/page'
 import { RYNO_PHONE, RYNO_PHONE_LABEL, RynoSiteFooter, RynoSiteHeader } from '../ryno-shell'
+import MayaoChayBoContactPage, { metadata as mayaoChayBoContactMetadata } from '../_mayaochaybo/lien-he/page'
+import { MayaoChayBoShell } from '../_mayaochaybo/shell'
 
 export async function generateMetadata({ params }: { params: Promise<{ tenant: string }> }): Promise<Metadata> {
   const { tenant } = await params
+  if (tenant === 'mayaochaybo') return mayaoChayBoContactMetadata
   if (tenant !== 'rynosport') return {}
 
   return {
@@ -24,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
 
 export default async function TenantContactPage({ params }: { params: Promise<{ tenant: string }> }) {
   const { tenant } = await params
+  if (tenant === 'mayaochaybo') return <MayaoChayBoShell><MayaoChayBoContactPage /></MayaoChayBoShell>
 
   if (tenant === 'rynosport') {
     return <div className="ryno-store">

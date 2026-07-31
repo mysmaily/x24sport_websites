@@ -10,6 +10,14 @@ const hosts: Record<string, string> = {
   'www.mayaocaulong.vn': 'mayaocaulong',
   'mayaopickleball.vn': 'mayaopickleball',
   'www.mayaopickleball.vn': 'mayaopickleball',
+  'mayaobongchuyen.vn': 'mayaobongchuyen',
+  'www.mayaobongchuyen.vn': 'mayaobongchuyen',
+  'mayaobongro.vn': 'mayaobongro',
+  'www.mayaobongro.vn': 'mayaobongro',
+  'mayaochaybo.vn': 'mayaochaybo',
+  'www.mayaochaybo.vn': 'mayaochaybo',
+  'mayaobongda.vn': 'mayaobongda',
+  'www.mayaobongda.vn': 'mayaobongda',
 }
 
 export function proxy(request: NextRequest) {

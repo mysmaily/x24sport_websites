@@ -4,6 +4,10 @@ import Script from 'next/script'
 import './styles.css'
 import './mayaocaulong.css'
 import './mayaopickleball.css'
+import './mayaobongchuyen.css'
+import './mayaobongro.css'
+import './mayaochaybo.css'
+import './mayaobongda.css'
 import { getAnalyticsSettings } from '../lib/analytics'
 import { SITE_LOGO_PATH } from '../lib/seo'
 import { getTenantContext } from '../lib/tenant'
@@ -22,25 +26,63 @@ const pickleballDisplayFont = Barlow_Condensed({
   display: 'swap',
 })
 
+const tenantHeadingFont = Barlow_Condensed({
+  subsets: ['latin', 'vietnamese'],
+  weight: ['500', '600', '700', '800'],
+  variable: '--font-heading',
+  display: 'swap',
+})
+
+const tenantBodyFont = Be_Vietnam_Pro({
+  subsets: ['latin', 'vietnamese'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-body-base',
+  display: 'swap',
+})
+
 export async function generateMetadata(): Promise<Metadata> {
   const tenant = await getTenantContext()
   const ryno = tenant.slug === 'rynosport'
   const badminton = tenant.slug === 'mayaocaulong'
   const pickleball = tenant.slug === 'mayaopickleball'
+  const volleyball = tenant.slug === 'mayaobongchuyen'
+  const basketball = tenant.slug === 'mayaobongro'
+  const running = tenant.slug === 'mayaochaybo'
+  const football = tenant.slug === 'mayaobongda'
   const description = ryno
     ? 'Khám phá trang phục thể thao và dịch vụ đặt áo đội tại RynoSport.'
-    : badminton || pickleball
+    : badminton || pickleball || volleyball || basketball || running || football
       ? tenant.description
     : tenant.description
-  const ogImage = ryno ? '/images/rynosport/hero.png' : badminton ? '/images/mayaocaulong/badminton-team-hero.png?v=20260728b' : pickleball ? '/images/mayaopickleball/pickleball-team-hero.webp' : SITE_LOGO_PATH
+  const ogImage = ryno
+    ? '/images/rynosport/hero.png'
+    : badminton
+      ? '/images/mayaocaulong/badminton-team-hero.png?v=20260728b'
+      : pickleball
+        ? '/images/mayaopickleball/pickleball-team-hero.webp'
+        : volleyball
+          ? '/images/mayaobongchuyen/volleyball-team-hero.png'
+          : basketball
+            ? '/images/mayaobongro/basketball-audience-hero-bright-20260722.webp'
+            : running
+              ? '/images/mayaochaybo/audience-landings/doi-nhom-viet-nam-running-club.webp'
+              : SITE_LOGO_PATH
   const title = badminton
     ? 'MayaoCauLong.vn - Áo cầu lông đặt may cho CLB'
     : pickleball
       ? 'MayaoPickleball.vn - Áo pickleball đặt may cho CLB'
+      : volleyball
+        ? 'MayaoBongChuyen.vn - Áo bóng chuyền đặt may'
+        : basketball
+          ? 'MayaoBongRo.vn - Áo bóng rổ thiết kế riêng'
+          : running
+            ? 'MayaoChayBo.vn - Áo chạy bộ thiết kế riêng'
+            : football
+              ? 'MayaoBongDa.vn - Áo bóng đá thiết kế riêng'
       : `${tenant.name}${ryno ? ' -' : ' —'} Trang phục thể thao`
   return {
     metadataBase: new URL(`https://${tenant.domain}`),
-    title: badminton || pickleball ? title : { default: title, template: `%s | ${tenant.name}` },
+    title: badminton || pickleball || volleyball || basketball || running || football ? title : { default: title, template: `%s | ${tenant.name}` },
     description,
     alternates: { canonical: '/' },
     icons: {
@@ -53,7 +95,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website', locale: 'vi_VN', siteName: tenant.name,
       title,
       description,
-      images: [{ url: ogImage, width: ryno ? 864 : badminton || pickleball ? 1672 : 1200, height: ryno ? 1821 : badminton || pickleball ? 941 : 158, alt: badminton ? 'Đội cầu lông mặc áo thi đấu đặt may MayaoCauLong' : pickleball ? 'Đội pickleball mặc đồng phục đặt may MayaoPickleball' : ryno ? 'Trang phục thể thao RynoSport' : `Logo ${tenant.name}` }],
+      images: [{ url: ogImage, width: ryno ? 864 : badminton || pickleball || volleyball ? 1672 : basketball ? 1920 : running ? 1448 : 1200, height: ryno ? 1821 : badminton || pickleball || volleyball ? 941 : basketball ? 1080 : running ? 1086 : 158, alt: badminton ? 'Đội cầu lông mặc áo thi đấu đặt may MayaoCauLong' : pickleball ? 'Đội pickleball mặc đồng phục đặt may MayaoPickleball' : volleyball ? 'Đội bóng chuyền mặc đồng phục đặt may MayaoBongChuyen' : basketball ? 'Đội bóng rổ mặc đồng phục thiết kế riêng' : running ? 'Đội chạy bộ mặc áo thiết kế riêng' : ryno ? 'Trang phục thể thao RynoSport' : `Logo ${tenant.name}` }],
     },
     twitter: { card: 'summary_large_image' },
     robots: process.env.SITE_ENV === 'preview' ? { index: false, follow: false } : undefined,
@@ -76,5 +118,5 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       : null
   const metaPixelId = getMetaPixelId(analytics)
 
-  return <html className={`${pickleballBodyFont.variable} ${pickleballDisplayFont.variable}`} lang="vi"><head><link rel="preconnect" href="https://static.x24sport.vn" crossOrigin="anonymous" /><link rel="preconnect" href="https://cdn.x24sport.vn" crossOrigin="anonymous" /></head><body className={`tenant-${tenant.slug}`}>{measurementId ? <><Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" /><Script id="ga4-tag" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${measurementId}');`}</Script></> : null}{metaPixelId ? <><Script id="meta-pixel" strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', ${JSON.stringify(metaPixelId)}); fbq('track', 'PageView');`}</Script><noscript><img alt="" height="1" src={`https://www.facebook.com/tr?id=${encodeURIComponent(metaPixelId)}&ev=PageView&noscript=1`} style={{ display: 'none' }} width="1" /></noscript></> : null}{children}</body></html>
+  return <html className={`${pickleballBodyFont.variable} ${pickleballDisplayFont.variable} ${tenantHeadingFont.variable} ${tenantBodyFont.variable}`} lang="vi"><head><link rel="preconnect" href="https://static.x24sport.vn" crossOrigin="anonymous" /><link rel="preconnect" href="https://cdn.x24sport.vn" crossOrigin="anonymous" /></head><body className={`tenant-${tenant.slug}`}>{measurementId ? <><Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" /><Script id="ga4-tag" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${measurementId}');`}</Script></> : null}{metaPixelId ? <><Script id="meta-pixel" strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', ${JSON.stringify(metaPixelId)}); fbq('track', 'PageView');`}</Script><noscript><img alt="" height="1" src={`https://www.facebook.com/tr?id=${encodeURIComponent(metaPixelId)}&ev=PageView&noscript=1`} style={{ display: 'none' }} width="1" /></noscript></> : null}{children}</body></html>
 }

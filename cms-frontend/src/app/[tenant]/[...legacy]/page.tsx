@@ -7,6 +7,13 @@ import MayaoCauLongCatalogFilterPage, { generateMetadata as generateMayaoCauLong
 import { getCatalogFilterBySlug } from '../_mayaocaulong/lib/content'
 import MayaoPickleballCatalogFilterPage, { generateMetadata as generateMayaoPickleballCatalogMetadata } from '../_mayaopickleball/[catalogSlug]/page'
 import { getCatalogFilterBySlug as getMayaoPickleballCatalogFilterBySlug } from '../_mayaopickleball/lib/content'
+import MayaoBongChuyenLegacyPage, { generateMetadata as generateMayaoBongChuyenLegacyMetadata } from '../_mayaobongchuyen/[slug]/page'
+import MayaoBongRoLegacyPage, { generateMetadata as generateMayaoBongRoLegacyMetadata } from '../_mayaobongro/[...segments]/page'
+import { MayaoBongRoShell } from '../_mayaobongro/shell'
+import MayaoChayBoLegacyPage, { generateMetadata as generateMayaoChayBoLegacyMetadata } from '../_mayaochaybo/[...segments]/page'
+import { MayaoChayBoShell } from '../_mayaochaybo/shell'
+import MayaoBongDaLegacyPage, { generateMetadata as generateMayaoBongDaLegacyMetadata } from '../_mayaobongda/[...segments]/page'
+import { MayaoBongDaShell } from '../_mayaobongda/shell'
 
 export async function generateMetadata({ params }: { params: Promise<{ tenant: string; legacy: string[] }> }): Promise<Metadata> {
   const { tenant, legacy } = await params
@@ -18,6 +25,18 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
       params: Promise.resolve({ catalogSlug: legacy[0] }),
       searchParams: Promise.resolve({}),
     })
+  }
+  if (tenant === 'mayaobongchuyen' && legacy.length === 1) {
+    return generateMayaoBongChuyenLegacyMetadata({ params: Promise.resolve({ slug: legacy[0] }) })
+  }
+  if (tenant === 'mayaobongro') {
+    return generateMayaoBongRoLegacyMetadata({ params: Promise.resolve({ segments: legacy }) })
+  }
+  if (tenant === 'mayaochaybo') {
+    return generateMayaoChayBoLegacyMetadata({ params: Promise.resolve({ segments: legacy }), searchParams: Promise.resolve({}) })
+  }
+  if (tenant === 'mayaobongda') {
+    return generateMayaoBongDaLegacyMetadata({ params: Promise.resolve({ segments: legacy }), searchParams: Promise.resolve({}) })
   }
   if (tenant !== 'rynosport' || legacy.length !== 1) return {}
 
@@ -50,6 +69,18 @@ export default async function TenantLegacyPage(props: Parameters<typeof X24Legac
       params={Promise.resolve({ catalogSlug: legacy[0] })}
       searchParams={props.searchParams as Promise<{ page?: string }>}
     />
+  }
+  if (tenant === 'mayaobongchuyen' && legacy.length === 1) {
+    return <MayaoBongChuyenLegacyPage params={Promise.resolve({ slug: legacy[0] })} />
+  }
+  if (tenant === 'mayaobongro') {
+    return <MayaoBongRoShell><MayaoBongRoLegacyPage params={Promise.resolve({ segments: legacy })} searchParams={props.searchParams as Promise<Record<string, string | string[] | undefined>>} /></MayaoBongRoShell>
+  }
+  if (tenant === 'mayaochaybo') {
+    return <MayaoChayBoShell><MayaoChayBoLegacyPage params={Promise.resolve({ segments: legacy })} searchParams={props.searchParams as Promise<Record<string, string | string[] | undefined>>} /></MayaoChayBoShell>
+  }
+  if (tenant === 'mayaobongda') {
+    return <MayaoBongDaShell><MayaoBongDaLegacyPage params={Promise.resolve({ segments: legacy })} searchParams={props.searchParams as Promise<Record<string, string | string[] | undefined>>} /></MayaoBongDaShell>
   }
   if (tenant === 'rynosport' && legacy.length === 1) return <RynoProductPage slug={legacy[0]} />
   if (tenant !== 'x24sport') notFound()
