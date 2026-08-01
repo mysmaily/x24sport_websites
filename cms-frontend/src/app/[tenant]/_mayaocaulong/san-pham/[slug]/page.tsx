@@ -85,6 +85,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const discountPercent = product.compareAtPrice
     ? Math.max(1, Math.round(((product.compareAtPrice - product.price) / product.compareAtPrice) * 100))
     : 0
+  const savings = product.compareAtPrice ? Math.max(0, product.compareAtPrice - product.price) : 0
   const colorSummary = colorTags.length ? colorTags.map((tag) => tag.label).join(', ') : 'Thiết kế theo màu đội'
 
   const productSpecs = [
@@ -163,31 +164,23 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               Thương hiệu: <strong>MayaoCauLong</strong> | Áo cầu lông thiết kế
             </p>
 
-            <div className="product-rating-line" aria-label="Thông tin đặt may">
-              <strong>Đặt may theo yêu cầu</strong>
-              <em>In tên số và logo</em>
-              <em className="product-stock-inline">
-                Tư vấn theo số lượng đội
-              </em>
-            </div>
+            <p className="product-order-note">Đặt may theo yêu cầu · nhận đơn từ 5 áo</p>
 
             <div className="product-deal-box">
-              <div>
+              <div className="product-deal-price">
+                <span>Giá ưu đãi</span>
                 <strong>{formatPrice(product.price)}</strong>
-                <p>
-                  {discountPercent ? <span>-{discountPercent}%</span> : null}
-                  {product.compareAtPrice ? <del>{formatPrice(product.compareAtPrice)}</del> : null}
-                  Đã gồm VAT
-                </p>
               </div>
-              <div>
-                <span>Kết thúc sau</span>
-                <div className="product-countdown" aria-label="Thời gian ưu đãi">
-                  <b>11 giờ</b>
-                  <b>55 phút</b>
-                  <b>30 giây</b>
-                </div>
+              <div className="product-deal-meta">
+                {product.compareAtPrice ? (
+                  <p>
+                    <del>{formatPrice(product.compareAtPrice)}</del>
+                    {discountPercent ? <span>Giảm {discountPercent}%</span> : null}
+                  </p>
+                ) : null}
+                <small>Đã gồm VAT</small>
               </div>
+              {savings ? <p className="product-deal-saving">Tiết kiệm {formatPrice(savings)} trên mỗi áo</p> : null}
             </div>
 
             {badges.length ? (
