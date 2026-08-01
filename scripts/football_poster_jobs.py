@@ -84,6 +84,14 @@ BACKGROUND_STYLES = [
     },
 ]
 
+COLLAR_STYLES = [
+    {"slug": "round-neck", "label": "Cổ tròn"},
+    {"slug": "v-neck-rib", "label": "Cổ V viền"},
+    {"slug": "cross-v-neck", "label": "Cổ V chéo"},
+    {"slug": "contrast-v-neck", "label": "Cổ V phối"},
+    {"slug": "polo-collar", "label": "Cổ polo"},
+]
+
 
 def read_inputs(args: argparse.Namespace) -> list[str]:
     values: list[str] = []
@@ -178,10 +186,15 @@ def choose_background_style(index: int, mode: str, rng: random.Random) -> dict[s
     return rng.choice(pool)
 
 
+def choose_collar_style(rng: random.Random) -> dict[str, str]:
+    return rng.choice(COLLAR_STYLES)
+
+
 def prompt_for_job(
     *,
     source_image: str,
     background_style: dict[str, str],
+    worn_collar: dict[str, str],
     chest_logo: Path,
     jersey_number: str,
 ) -> str:
@@ -202,11 +215,12 @@ Poster layout: square 1:1 split layout. Left half shows one Vietnamese adult mal
 Background style: {background_style["prompt"]}. {contrast}
 Background composition: make the whole square feel like one cohesive poster, not two unrelated vertical halves. The left model area and right catalog area may have different contrast levels, but they should share the same gradient language, light direction, accent colors, and atmospheric depth.
 Top title: show text exactly "Football 2026 Collection" centered at the top of the right half. No top logo or brand badge. Treat it as a custom sports-poster title lockup, not default typed text: use premium display lettering, confident tracking, subtle outline/shadow or metallic/ink texture when appropriate, and designer-level spacing. It should feel like football campaign typography, elegant and intentional, without dominating the product.
-Kit design: preserve the source image's main color blocking and design DNA, adapted into a football jersey. Prioritize balanced shirt proportions, clean seams, symmetrical shoulders, natural sleeve length, and premium product mockup quality. On the worn model, make the jersey photorealistic with natural fabric wrinkles, fabric tension around chest/waist/shoulders, sleeve folds, hem shadows, contact shadows under arms, and realistic drape. Avoid flat AI-painted clothing. Keep a round-neck base on the main displayed kit unless a collar option swatch is shown.
+Selected worn collar: use exactly "{worn_collar["label"]}" ({worn_collar["slug"]}) on the football kit worn by the model. Apply the same selected collar to the main front and back jersey mockups so the displayed product is consistent. Keep the source design's colors/patterns adapted cleanly around this collar shape.
+Kit design: preserve the source image's main color blocking and design DNA, adapted into a football jersey. Prioritize balanced shirt proportions, clean seams, symmetrical shoulders, natural sleeve length, and premium product mockup quality. On the worn model, make the jersey photorealistic with natural fabric wrinkles, fabric tension around chest/waist/shoulders, sleeve folds, hem shadows, contact shadows under arms, and realistic drape. Avoid flat AI-painted clothing.
 Chest logo: use the random chest logo reference as the left-chest team badge inspiration. The right chest must always show jersey number "{jersey_number}".
 Back jersey: show "TÊN CẦU THỦ" above a large number "{jersey_number}" and "TÊN ĐỘI BÓNG" below.
 Shorts: Shorts are one solid color. No pattern, no gradient, no decorative print, no stripes, no contrast side panels, no contrast waistband, no contrast hem trim, no piping, no colored cuffs. Choose a single color that fits the source kit palette. The only allowed visual marks on the shorts are the number "{jersey_number}" and natural fabric wrinkles/shadows.
-Collar options: include a polished strip titled exactly "TÙY CHỌN CỔ ÁO" with five cards: "Cổ tròn", "Cổ V viền", "Cổ V chéo", "Cổ V phối", "Cổ polo". Match the swatches to the current kit palette. Center the entire collar-options group horizontally inside the right panel.
+Collar options: include a polished strip titled exactly "TÙY CHỌN CỔ ÁO" with five cards: "Cổ tròn", "Cổ V viền", "Cổ V chéo", "Cổ V phối", "Cổ polo". Match the swatches to the current kit palette. Center the entire collar-options group horizontally inside the right panel. Visually emphasize "{worn_collar["label"]}" as the selected collar without making the other options disappear.
 Size row: show boxes exactly "S" "M" "L" "XL" "2XL" "3XL" "4XL". Center the entire size row horizontally inside the right panel, aligned to the same center axis as the collar-options group.
 Footer: show "XEM THÊM SẢN PHẨM" and compact text "X24SPORT.VN | HOTLINE: 0989 353 247".
 Constraints: male Vietnamese model only; no female model; no pickleball paddle; no source-site watermark/logo; no top logo; no X24 logo at the top; all text must be readable; product mockups must stay prominent and visually balanced; worn kit must have realistic fabric shadows and wrinkles.
@@ -228,11 +242,13 @@ def build_jobs(args: argparse.Namespace) -> list[dict[str, object]]:
     for index, original in enumerate(source_inputs, start=1):
         source_path = download(original, source_dir, f"source-{index}") if is_url(original) else Path(original).expanduser().resolve()
         background_style = choose_background_style(index - 1, args.background, rng)
+        worn_collar = choose_collar_style(rng)
         chest_logo_url = rng.choice(logo_urls)
         chest_logo_path = download(chest_logo_url, chest_dir, f"chest-logo-{index}")
         prompt = prompt_for_job(
             source_image=str(source_path),
             background_style=background_style,
+            worn_collar=worn_collar,
             chest_logo=chest_logo_path,
             jersey_number=args.number,
         )
@@ -244,6 +260,8 @@ def build_jobs(args: argparse.Namespace) -> list[dict[str, object]]:
                 "background": background_style["tone"],
                 "background_style": background_style["slug"],
                 "background_prompt": background_style["prompt"],
+                "worn_collar": worn_collar["slug"],
+                "worn_collar_label": worn_collar["label"],
                 "chest_logo_source_url": chest_logo_url,
                 "chest_logo": str(chest_logo_path),
                 "jersey_number": args.number,
@@ -299,8 +317,12 @@ def update_source_history(jobs: list[dict[str, object]], output_dir: Path, histo
             existing[entry["source_input"]] = entry
 
     now = utc_now()
+    portable_count = 0
     for job in jobs:
         source_input = str(job["source_input"])
+        if not is_url(source_input):
+            continue
+        portable_count += 1
         entry = existing.get(source_input)
         if entry is None:
             entry = {
@@ -317,9 +339,15 @@ def update_source_history(jobs: list[dict[str, object]], output_dir: Path, histo
         entry["last_source_image"] = repo_relative(str(job["source_image"]))
         entry["last_background"] = job["background"]
         entry["last_background_style"] = job["background_style"]
+        entry["last_worn_collar"] = job["worn_collar"]
+        entry["last_worn_collar_label"] = job["worn_collar_label"]
         entry["last_chest_logo_source_url"] = job["chest_logo_source_url"]
         entry["last_chest_logo"] = repo_relative(str(job["chest_logo"]))
         entry["last_number"] = job["jersey_number"]
+
+    if portable_count == 0:
+        print(f"History: skipped; no URL source inputs to persist in {history_path}")
+        return
 
     history["updated_at"] = now
     history["sources"] = sorted(existing.values(), key=lambda item: str(item["source_input"]))

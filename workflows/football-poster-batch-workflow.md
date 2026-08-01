@@ -26,11 +26,18 @@ recovered after switching machines or reopening the task.
   X24 badge or logo at the top.
 - Chest logo source: random image from `https://x24sport.vn/danh-muc/dich-vu/`.
 - Default number: `24`.
+- Worn collar: random one of five options per job: `Cổ tròn`, `Cổ V viền`,
+  `Cổ V chéo`, `Cổ V phối`, or `Cổ polo`. The model-worn kit and the main
+  front/back mockups should use the same selected collar, while the right-side
+  collar strip still shows all five choices.
 - Persistent source history:
   - default path: `workflows/football-poster-source-history.json`;
-  - every script run upserts each source URL into that JSON by `source_input`;
+  - every script run upserts each URL source into that JSON by `source_input`;
+  - local clipboard/temp image paths are not persisted because they will not
+    work on another machine;
   - the JSON records first/last seen time, run count, last output directory,
-    background style, random chest-logo URL, and jersey number;
+    background style, selected worn collar, random chest-logo URL, and jersey
+    number;
   - pass `--no-history` only for throwaway tests.
 
 ## Chat-First Agent Flow
@@ -114,6 +121,9 @@ python3 scripts/football_poster_jobs.py \
   kit.
 - Right side shows front jersey, back jersey, shorts, collar options, size row,
   and footer.
+- The model-worn kit and the main front/back jersey mockups use one random
+  selected collar from the five available collar choices. The selected collar is
+  recorded as `worn_collar` and `worn_collar_label` in `jobs.json`.
 - Top title is exactly `Football 2026 Collection`.
 - Title should be a designer-level sports poster lockup, not plain/default typed
   text. Use premium display lettering, intentional spacing, and subtle depth
@@ -139,6 +149,8 @@ python3 scripts/football_poster_jobs.py \
 - Collar strip title is `TÙY CHỌN CỔ ÁO`.
 - Collar options are `Cổ tròn`, `Cổ V viền`, `Cổ V chéo`, `Cổ V phối`, and
   `Cổ polo`.
+- The collar strip should show all five choices and subtly emphasize the
+  selected collar used on the model-worn kit.
 - Size row is `S`, `M`, `L`, `XL`, `2XL`, `3XL`, `4XL`.
 - Collar options and size row are centered horizontally in the right panel and
   aligned to the same center axis.
@@ -159,6 +171,8 @@ Before accepting an output, visually verify:
 - the chest and shorts numbers are both visible;
 - the shorts are a single solid color;
 - the random chest logo is present as a small left-chest badge;
+- the collar worn by the model matches `worn_collar_label` in `jobs.json`;
+- the front/back mockups use the same selected collar as the worn model;
 - the generated layout does not crowd the collar options or footer.
 - the collar options and size row are centered inside the right-side frame.
 - shirt mockups are not warped, lopsided, stretched, or visually unbalanced.
