@@ -18,7 +18,7 @@ import Link from 'next/link'
 
 import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
-import { getProducts } from '../lib/cms'
+import { getProductCategory, getProducts } from '../lib/cms'
 import { FOOTBALL_AUDIENCE_LANDINGS, type FootballAudienceLanding } from '../lib/audience-landings'
 import { canonical, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '../lib/site'
 
@@ -45,28 +45,26 @@ const process = [
 ]
 
 export async function FootballAudienceLandingPage({ landing }: { landing: FootballAudienceLanding }) {
-  const categoryCatalog = landing.categorySlug ? await getProducts({ limit: 4, categorySlug: landing.categorySlug }) : null
-  const catalog = categoryCatalog?.docs.length ? categoryCatalog : await getProducts({ limit: 4 })
+  const isCorporateBankLanding = landing.slug === 'ao-bong-da-cong-ty-ngan-hang'
+  const categoryCatalog = landing.categorySlug ? await getProducts({ limit: isCorporateBankLanding ? 48 : 4, categorySlug: landing.categorySlug }) : null
+  const emptyCatalog = { docs: [], totalDocs: 0, totalPages: 0, page: 1, hasNextPage: false }
+  const catalog = categoryCatalog?.docs.length ? categoryCatalog : isCorporateBankLanding ? (categoryCatalog || emptyCatalog) : await getProducts({ limit: 4 })
+  const category = landing.categorySlug ? await getProductCategory(landing.categorySlug) : null
+  const categoryLabel = landing.categoryLabel || category?.name || landing.navLabel
+  const categoryPath = category?.legacyPath || `/${landing.slug}/`
   const AudienceIcon = audienceIcons[landing.slug as keyof typeof audienceIcons]
   const related = FOOTBALL_AUDIENCE_LANDINGS.filter((item) => item.slug !== landing.slug)
 
-  return <>
-    <JsonLd data={{
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: canonical('/') },
-        { '@type': 'ListItem', position: 2, name: landing.navLabel, item: canonical(`/${landing.slug}/`) },
-      ],
-    }} />
-
+  const hero = (
     <section className="football-audience-dark relative isolate overflow-hidden text-white">
       <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-25 [background-image:linear-gradient(rgba(255,255,255,.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.07)_1px,transparent_1px)] [background-size:56px_56px]" />
       <div className="section-shell py-6 sm:py-8">
-        <nav aria-label="Đường dẫn" className="flex items-center gap-2 text-xs font-bold text-slate-400">
-          <Link className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/">Trang chủ</Link>
-          <ChevronRight aria-hidden="true" size={14} />
-          <span aria-current="page" className="truncate text-slate-200">{landing.navLabel}</span>
+        <nav aria-label="Đường dẫn" className="flex items-center gap-2 overflow-hidden text-xs font-bold text-slate-400">
+          <Link className="shrink-0 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/">Trang chủ</Link>
+          <ChevronRight aria-hidden="true" className="shrink-0" size={14} />
+          <Link className="shrink-0 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/shop/">Sản Phẩm</Link>
+          <ChevronRight aria-hidden="true" className="shrink-0" size={14} />
+          <span aria-current="page" className="truncate text-slate-200">{categoryLabel}</span>
         </nav>
       </div>
 
@@ -77,7 +75,7 @@ export async function FootballAudienceLandingPage({ landing }: { landing: Footba
           <p className="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">{landing.description}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black transition duration-200 hover:-translate-y-0.5 hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle aria-hidden="true" size={19} /> Nhận tư vấn mẫu áo</a>
-            <Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-sm font-black transition duration-200 hover:border-white/55 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="#mau-ao">Xem mẫu để bắt đầu <ArrowRight aria-hidden="true" size={18} /></Link>
+            <Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-sm font-black transition duration-200 hover:border-white/55 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="#mau-ao">Xem mẫu áo <ArrowRight aria-hidden="true" size={18} /></Link>
           </div>
           <ul aria-label="Phù hợp với" className="mt-8 flex flex-wrap gap-2">
             {landing.contexts.map((item) => <li className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/12 bg-black/15 px-3.5 text-xs font-bold text-slate-200" key={item}><Check aria-hidden="true" className="text-brand" size={15} />{item}</li>)}
@@ -94,6 +92,76 @@ export async function FootballAudienceLandingPage({ landing }: { landing: Footba
         </div>
       </div>
     </section>
+  )
+
+  const productSection = (
+    <section className="bg-white py-12 sm:py-16" id="mau-ao">
+      <div className="section-shell">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="section-kicker">{categoryLabel}</p>
+            <h2 className="section-title">Mẫu áo bóng đá công ty, ngân hàng.</h2>
+            <p className="section-lead">Danh sách mẫu thuộc danh mục này, có thể đổi màu, thêm logo, tên số và nội dung theo nhận diện tổ chức.</p>
+          </div>
+          <Link className="inline-flex min-h-12 items-center gap-2 self-start rounded-lg border border-slate-300 px-5 text-sm font-black transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={categoryPath}>Xem danh mục <ArrowRight aria-hidden="true" size={18} /></Link>
+        </div>
+        <div className="mt-8"><ProductGrid products={catalog.docs} /></div>
+      </div>
+    </section>
+  )
+
+  if (isCorporateBankLanding) {
+    return <>
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: canonical('/') },
+          { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: canonical('/shop/') },
+          { '@type': 'ListItem', position: 3, name: categoryLabel, item: canonical(categoryPath) },
+        ],
+      }} />
+
+      {hero}
+      {productSection}
+
+      <section className="section-shell grid gap-8 py-12 sm:py-16 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)]">
+        <div>
+          <p className="section-kicker">Đặt may gọn hơn</p>
+          <h2 className="section-title">{landing.briefTitle}</h2>
+          <p className="section-lead">{landing.processNote}</p>
+        </div>
+        <ol className="grid gap-3 sm:grid-cols-2">
+          {landing.briefItems.map((item, index) => <li className="flex min-h-20 items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4" key={item}><span className="font-display text-2xl font-bold text-brand">{index + 1}</span><strong className="text-sm leading-5 text-slate-900">{item}</strong></li>)}
+        </ol>
+      </section>
+
+      <section className="section-shell grid gap-8 pb-12 sm:pb-16 lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)]">
+        <div><p className="section-kicker">Câu hỏi thường gặp</p><h2 className="section-title">Thông tin cần rõ trước khi chốt áo.</h2></div>
+        <dl className="grid gap-3">{landing.faq.map((item) => <div className="rounded-2xl border border-slate-200 bg-white p-5" key={item.question}><dt className="font-display text-xl font-bold leading-tight">{item.question}</dt><dd className="mt-3 text-sm leading-7 text-slate-600">{item.answer}</dd></div>)}</dl>
+      </section>
+
+      <section className="football-audience-dark text-white">
+        <div className="section-shell flex flex-col gap-6 py-12 sm:py-16 lg:flex-row lg:items-end lg:justify-between">
+          <div><p className="text-xs font-black uppercase tracking-[.16em] text-orange-300">Tư vấn theo nhận diện</p><h2 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-none sm:text-5xl">{landing.ctaTitle}</h2><p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300">{landing.ctaText}</p></div>
+          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col"><a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-7 text-sm font-black transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle aria-hidden="true" size={19} /> Trao đổi qua Zalo</a><a className="inline-flex min-h-12 items-center justify-center gap-2 px-4 text-sm font-black text-slate-300 transition hover:text-white" href={`tel:${PHONE_VALUE}`}>Gọi {PHONE_DISPLAY} <ArrowRight aria-hidden="true" size={17} /></a></div>
+        </div>
+      </section>
+    </>
+  }
+
+  return <>
+    <JsonLd data={{
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: canonical('/') },
+        { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: canonical('/shop/') },
+        { '@type': 'ListItem', position: 3, name: categoryLabel, item: canonical(categoryPath) },
+      ],
+    }} />
+
+    {hero}
 
     <section className="border-b border-slate-200 bg-white">
       <div className="football-audience-commitments section-shell grid divide-y divide-slate-200 sm:grid-cols-2">
