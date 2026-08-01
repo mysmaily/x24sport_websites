@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import { CatalogPageContent } from '../san-pham/page'
 import {
   catalogFilters,
   getCatalogFilterBySlug,
+  getProductBySlug,
   getProductsByCatalogFilter,
 } from '../lib/content'
 
@@ -51,7 +52,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CatalogFilterPage({ params }: Props) {
   const { catalogSlug } = await params
   const filter = getCatalogFilterBySlug(catalogSlug)
-  if (!filter) notFound()
+  if (!filter) {
+    const product = await getProductBySlug(catalogSlug)
+    if (product) permanentRedirect(`/san-pham/${product.slug}/`)
+    notFound()
+  }
 
   const products = await getProductsByCatalogFilter(filter)
 

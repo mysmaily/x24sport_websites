@@ -5,7 +5,7 @@ import { JsonLd } from './json-ld'
 import { ProductInterestForm } from './product-interest-form'
 import { ProductGallery } from './product-gallery'
 import { ProductGrid } from './product-grid'
-import { hasProductInterestForm, productImages, type Product, type ProductCategory } from '../lib/cms'
+import { hasProductInterestForm, productImages, productPath, type Product, type ProductCategory } from '../lib/cms'
 import { PHONE_DISPLAY, PHONE_VALUE, ZALO_URL, canonical, excerpt } from '../lib/site'
 import { rewriteLegacyHtml } from '../lib/legacy-content'
 
@@ -34,7 +34,7 @@ export async function ProductDetailPage({
   related: Product[]
 }) {
   const images = productImages(product)
-  const productPath = product.legacyPath || `/${product.slug}/`
+  const productHref = productPath(product)
   const hasPrice = !isLogo && typeof product.price === 'number' && product.price > 0
   const showInterestForm = await hasProductInterestForm()
   const breadcrumbCategory = productBreadcrumbCategory(product)
@@ -42,9 +42,9 @@ export async function ProductDetailPage({
     { name: 'Trang chủ', item: canonical('/') },
     { name: catalogLabel, item: canonical(catalogHref) },
     ...(breadcrumbCategory ? [{ name: breadcrumbCategory.name, item: canonical(categoryPath(breadcrumbCategory)) }] : []),
-    { name: product.name, item: canonical(productPath) },
+    { name: product.name, item: canonical(productHref) },
   ]
-  const productSchema = hasPrice ? { '@context': 'https://schema.org', '@type': 'Product', name: product.name, sku: product.sku || undefined, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productPath), brand: { '@type': 'Brand', name: 'X24 Sport' }, offers: { '@type': 'Offer', priceCurrency: 'VND', price: product.price, availability: product.stockStatus === 'outofstock' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url: canonical(productPath) } } : null
+  const productSchema = hasPrice ? { '@context': 'https://schema.org', '@type': 'Product', name: product.name, sku: product.sku || undefined, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productHref), brand: { '@type': 'Brand', name: 'X24 Sport' }, offers: { '@type': 'Offer', priceCurrency: 'VND', price: product.price, availability: product.stockStatus === 'outofstock' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url: canonical(productHref) } } : null
 
   return (
     <>
@@ -74,7 +74,7 @@ export async function ProductDetailPage({
               <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={19} /> Gửi mẫu này qua Zalo</a>
               <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 px-5 text-sm font-black text-slate-950 transition hover:border-brand hover:text-brand" href={`tel:${PHONE_VALUE}`}><Phone size={18} /> Gọi {PHONE_DISPLAY}</a>
             </div>
-            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={canonical(productPath)} /> : null}
+            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={canonical(productHref)} /> : null}
           </div>
         </div>
 

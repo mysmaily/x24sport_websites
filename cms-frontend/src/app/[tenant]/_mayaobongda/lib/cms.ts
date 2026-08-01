@@ -205,6 +205,19 @@ export const resolveProductPath = cache(async (legacyPath: string) => {
   return result.docs[0] ?? null
 })
 
+export const resolveProductSlug = cache(async (slug: string) => {
+  const tenant = await getTenant()
+  const params = new URLSearchParams({
+    'where[and][0][tenant][equals]': String(tenant.id),
+    'where[and][1][slug][equals]': slug,
+    'where[and][2][publicationStatus][equals]': 'publish',
+    limit: '1',
+    depth: '1',
+  })
+  const result = await api<Paginated<Product>>(`/api/products?${params}`)
+  return result.docs[0] ?? null
+})
+
 export const resolveContentPath = cache(async (legacyPath: string) => {
   const tenant = await getTenant()
   const params = new URLSearchParams({
@@ -268,4 +281,8 @@ export async function getAllCanonicalRoutes() {
     load<ProductCategory>('product-categories'),
   ])
   return { products, content, categories }
+}
+
+export function productPath(product: Pick<Product, 'slug'>) {
+  return `/san-pham/${product.slug}/`
 }

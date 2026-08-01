@@ -116,7 +116,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/blog/`, priority: .7 },
     ...categories.map(({ slug }) => ({ url: `${base}/danh-muc/${slug}/`, priority: .8 })),
     ...products.map((product) => ({
-      url: tenant.slug === 'mayaochaybo' ? `${base}/san-pham/${product.slug}/` : `${base}${product.legacyPath || `/${product.slug}/`}`,
+      url: tenant.slug.startsWith('mayao') ? `${base}/san-pham/${product.slug}/` : `${base}${product.legacyPath || `/${product.slug}/`}`,
       lastModified: product.sourceModifiedAt ? new Date(product.sourceModifiedAt) : undefined,
       priority: .7,
     })),

@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowUpRight, Phone, ShieldCheck } from 'lucide-react'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import { HeaderSearch } from '../_components/header-search'
-import { formatPrice, getPageData } from '../lib/content'
+import { formatPrice, getPageData, getProductBySlug } from '../lib/content'
 
 type RouteProps = {
   params: Promise<{ slug: string }>
@@ -70,7 +70,11 @@ export default async function CmsPage({ params }: RouteProps) {
   const data = await getPageData(slug)
   const { tenant, page, products } = data
 
-  if (!page) notFound()
+  if (!page) {
+    const product = await getProductBySlug(slug)
+    if (product) permanentRedirect(`/san-pham/${product.slug || slug}/`)
+    notFound()
+  }
 
   const menu = buildMenu(data)
 

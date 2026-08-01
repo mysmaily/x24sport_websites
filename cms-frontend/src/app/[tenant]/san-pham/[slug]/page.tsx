@@ -7,6 +7,8 @@ import MayaoBongRoProductPage, { generateMetadata as generateMayaoBongRoProductM
 import { MayaoBongRoShell } from '../../_mayaobongro/shell'
 import MayaoChayBoProductPage, { generateMetadata as generateMayaoChayBoProductMetadata } from '../../_mayaochaybo/san-pham/[slug]/page'
 import { MayaoChayBoShell } from '../../_mayaochaybo/shell'
+import MayaoBongDaProductPage, { generateMetadata as generateMayaoBongDaProductMetadata } from '../../_mayaobongda/san-pham/[slug]/page'
+import { MayaoBongDaShell } from '../../_mayaobongda/shell'
 
 type Props = {
   params: Promise<{ tenant: string; slug: string }>
@@ -19,6 +21,7 @@ export async function generateMetadata({ params, searchParams }: Props) {
   if (tenant === 'mayaopickleball') return generateMayaoPickleballProductMetadata({ params: Promise.resolve({ slug }) })
   if (tenant === 'mayaobongro') return generateMayaoBongRoProductMetadata({ params: Promise.resolve({ slug }), searchParams })
   if (tenant === 'mayaochaybo') return generateMayaoChayBoProductMetadata({ params: Promise.resolve({ slug }) })
+  if (tenant === 'mayaobongda') return generateMayaoBongDaProductMetadata({ params: Promise.resolve({ slug }) })
   if (tenant !== 'x24sport') return {}
   return generateX24ProductMetadata({ params: Promise.resolve({ slug }) })
 }
@@ -29,6 +32,7 @@ export default async function TenantProductPage({ params, searchParams }: Props)
   if (tenant === 'mayaopickleball') return <MayaoPickleballProductPage params={Promise.resolve({ slug })} />
   if (tenant === 'mayaobongro') return <MayaoBongRoShell><MayaoBongRoProductPage params={Promise.resolve({ slug })} searchParams={searchParams} /></MayaoBongRoShell>
   if (tenant === 'mayaochaybo') return <MayaoChayBoShell><MayaoChayBoProductPage params={Promise.resolve({ slug })} /></MayaoChayBoShell>
+  if (tenant === 'mayaobongda') return <MayaoBongDaShell><MayaoBongDaProductPage params={Promise.resolve({ slug })} /></MayaoBongDaShell>
   if (tenant !== 'x24sport') notFound()
   return <X24ProductPage params={Promise.resolve({ slug })} searchParams={searchParams} />
 }

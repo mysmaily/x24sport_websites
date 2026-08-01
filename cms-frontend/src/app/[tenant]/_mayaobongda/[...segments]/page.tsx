@@ -6,8 +6,7 @@ import { notFound, permanentRedirect } from 'next/navigation'
 import { CatalogPageView } from '../components/catalog-page-view'
 import { FabricGuidePage } from '../components/fabric-guide-page'
 import { PostArchivePage } from '../components/post-archive-page'
-import { ProductDetailPage } from '../components/product-detail-page'
-import { getProducts, productImages, resolveCategoryPath, resolveContentPath, resolveProductPath } from '../lib/cms'
+import { getProducts, productImages, productPath, resolveCategoryPath, resolveContentPath, resolveProductPath } from '../lib/cms'
 import { rewriteLegacyHtml } from '../lib/legacy-content'
 import { getPostCategoryArchive, isIndexableContent } from '../lib/legacy-routes'
 import { excerpt } from '../lib/site'
@@ -46,7 +45,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     return {
       title: product.seoTitle || product.name,
       description: product.metaDescription || excerpt(product.shortDescription || product.name, 160),
-      alternates: { canonical: path },
+      alternates: { canonical: productPath(product) },
       openGraph: { images: image?.url ? [image.url] : [] },
     }
   }
@@ -95,8 +94,7 @@ export default async function LegacyRoutePage({ params, searchParams }: { params
 
   const product = await resolveProductPath(path)
   if (product) {
-    const related = await getProducts({ limit: 5 })
-    return <ProductDetailPage catalogHref="/shop/" catalogLabel="Sản Phẩm" isLogo={false} product={product} related={related.docs} />
+    permanentRedirect(productPath(product))
   }
 
   const category = await resolveCategoryPath(path)

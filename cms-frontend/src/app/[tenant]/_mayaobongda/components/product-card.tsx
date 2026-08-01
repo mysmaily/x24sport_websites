@@ -2,7 +2,7 @@ import { ArrowRight, Shirt } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { productImages, type Product } from '../lib/cms'
+import { productImages, productPath, type Product } from '../lib/cms'
 
 const priceFormatter = new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 0 })
 
@@ -12,7 +12,7 @@ function formatPrice(value: number) {
 
 export function ProductCard({ product }: { product: Product; index?: number }) {
   const image = productImages(product)[0]
-  const href = product.legacyPath || `/${product.slug}/`
+  const href = productPath(product)
 
   return (
     <article className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-200 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_55px_rgba(15,23,42,.10)]">

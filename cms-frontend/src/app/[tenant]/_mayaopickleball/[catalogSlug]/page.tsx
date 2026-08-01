@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import { CatalogPageContent } from '../san-pham/page'
-import { getCatalogFilterBySlug, getProductsByCatalogFilter } from '../lib/content'
+import { getCatalogFilterBySlug, getProductBySlug, getProductsByCatalogFilter } from '../lib/content'
 import { absoluteUrl, defaultOgImage } from '../lib/seo'
 
 type CatalogPageProps = {
@@ -35,7 +35,11 @@ export default async function CatalogFilterPage({ params, searchParams }: Catalo
   const { catalogSlug } = await params
   const filter = getCatalogFilterBySlug(catalogSlug)
 
-  if (!filter) notFound()
+  if (!filter) {
+    const product = await getProductBySlug(catalogSlug)
+    if (product) permanentRedirect(`/san-pham/${product.slug}/`)
+    notFound()
+  }
 
   const { page: pageParam } = await searchParams
   const page = Math.max(1, Number(pageParam) || 1)
