@@ -149,7 +149,86 @@ platform adapters rather than rebuilding multi-row filter clouds per site.
 - Keep selected variant state shareable and understandable when distinct variants
   have their own URLs.
 - Make gallery controls keyboard/touch accessible and prevent image layout shift.
+  Product-detail media must also follow the repository **Shared product media
+  gallery contract**.
 - Keep visible facts synchronized with Product/ProductGroup JSON-LD.
+
+#### Shared Next.js product media gallery
+
+For shared Next.js/Payload tenants, prefer the reusable product gallery over
+tenant-local interaction logic:
+
+```tsx
+import {
+  ProductMediaGallery,
+  type ProductMediaGalleryImage,
+} from '../../../../_components/product-media-gallery'
+
+type ProductGalleryProps = {
+  discountPercent?: number
+  images: ProductMediaGalleryImage[]
+  productName: string
+}
+
+export function ProductGallery({ discountPercent = 0, images, productName }: ProductGalleryProps) {
+  return (
+    <ProductMediaGallery
+      discountPercent={discountPercent}
+      images={images}
+      productName={productName}
+    />
+  )
+}
+```
+
+Use the correct relative import path for the tenant component location. Current
+wrapper examples:
+
+- `cms-frontend/src/app/[tenant]/_mayaopickleball/san-pham/[slug]/product-gallery.tsx`
+- `cms-frontend/src/app/[tenant]/_mayaocaulong/san-pham/[slug]/product-gallery.tsx`
+- `cms-frontend/src/app/[tenant]/_mayaobongro/components/product-gallery.tsx`
+- `cms-frontend/src/app/[tenant]/_mayaobongda/components/product-gallery.tsx`
+- `cms-frontend/src/app/[tenant]/_mayaochaybo/components/product-gallery.tsx`
+
+The shared component accepts:
+
+- `images`: CMS/media objects with `url`, `alt`, `width`, `height`, and optional
+  `id`.
+- `productName`: fallback alt and accessible gallery label.
+- `discountPercent`: optional sale badge for product-detail pages.
+- `label`: optional small media label used by tenants that need one.
+- `fallbackText`: optional fallback shown when a product has no images.
+- `variant`: `css` for tenants with existing `.product-detail-gallery` styles,
+  or `utility` for newer utility-styled tenants.
+
+Implementation requirements:
+
+- Keep `photoswipe` in `cms-frontend/package.json` and import
+  `photoswipe/style.css` once in `cms-frontend/src/app/layout.tsx`.
+- Keep PhotoSwipe anchors as real `<a href>` elements with
+  `data-pswp-width`/`data-pswp-height`. Do not replace them with button-only
+  markup; the anchor contract supports progressive navigation and PhotoSwipe
+  dimension reservation.
+- Keep the square stage and `object-fit: contain` behavior in the shared
+  component. Tenant CSS may style borders, background, thumbnails, and controls,
+  but must not make the product-detail image frame vertical or crop the product
+  image.
+- Preserve the `.pswp img.pswp__img { max-width: none !important; }` override in
+  shared CSS because tenant/Tailwind resets commonly apply `max-width: 100%` to
+  all images and can collapse PhotoSwipe images to zero width.
+
+Verification checklist for product-detail media changes:
+
+- `pnpm typecheck` and `pnpm build` pass in `cms-frontend`.
+- At `390x844` and a desktop viewport, `.product-gallery-stage` renders square.
+- The active `.product-media-image` computes `object-fit: contain`.
+- Main-image click/tap and the zoom control open `.pswp`.
+- Preview images inside `.pswp` have non-zero rendered width and height.
+- Previous/next controls and thumbnails update the active image with a visible
+  slide transition.
+- PhotoSwipe zoom is available through the preview zoom button; on touch devices
+  tap/click-to-zoom and double-tap zoom should be exercised when browser
+  automation supports real touch gestures.
 
 ### Content/article
 

@@ -286,6 +286,40 @@ it; otherwise product templates and product-list components must follow it.
 - Verify these rules from rendered computed styles at mobile and desktop widths,
   not only from source classes or design files.
 
+## Shared product media gallery contract
+
+This contract applies to every X24Sport product-detail page with product images
+unless the user's latest explicit instruction overrides it for a specific task.
+
+- Product-detail galleries must render the primary product image area as a
+  stable responsive square. The image itself uses `object-fit: contain` so model
+  poses, apparel edges, and product details are not cropped by the viewport.
+- On shared Next.js/Payload tenants, use the common
+  `cms-frontend/src/app/_components/product-media-gallery.tsx` component, which
+  wraps PhotoSwipe for image preview and zoom. Tenant-local product gallery
+  components should be thin wrappers that pass CMS gallery images, product name,
+  discount state, and any tenant-specific styling variant into the shared
+  component.
+- Product image preview must open from the main image and from the visible zoom
+  control. The preview must support left/right navigation, touch swipe,
+  keyboard navigation, click/tap-to-zoom, double-tap zoom on touch devices, and
+  mouse wheel zoom on desktop where supported by PhotoSwipe.
+- Keep the product gallery usable without the preview: thumbnails and
+  previous/next controls must update the selected image with a visible slide
+  transition and must remain keyboard/touch operable.
+- Preserve accurate image `alt`, width, and height values from CMS/media data
+  whenever available. PhotoSwipe anchors must include `data-pswp-width` and
+  `data-pswp-height` so the preview can reserve dimensions and avoid layout
+  jumps.
+- Import PhotoSwipe CSS once at the shared Next.js root layout and include the
+  repository CSS reset override for `.pswp img.pswp__img { max-width: none
+  !important; }` so tenant image resets do not collapse the preview image.
+- Verify from rendered pages, not only source code: product gallery stage is
+  square at mobile and desktop widths, images compute to `object-fit: contain`,
+  PhotoSwipe opens, preview images have non-zero rendered width/height, slide
+  navigation changes the active image, and zoom changes the rendered preview
+  transform or image size.
+
 ## Shared customer-facing copy contract
 
 This contract applies to every public-facing X24Sport website experience unless
