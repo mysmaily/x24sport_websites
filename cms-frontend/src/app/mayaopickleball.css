@@ -673,18 +673,20 @@ body.tenant-mayaopickleball .product-card-featured {
 body.tenant-mayaopickleball .product-card-media {
   display: block;
   overflow: hidden;
+  aspect-ratio: 1 / 1;
   background: var(--court-soft);
 }
 
 body.tenant-mayaopickleball .product-card-media img {
   width: 100%;
+  height: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   transition: transform 360ms ease;
 }
 
 body.tenant-mayaopickleball .product-card-featured .product-card-media img {
-  aspect-ratio: 1 / 1.12;
+  aspect-ratio: 1 / 1;
 }
 
 body.tenant-mayaopickleball .product-card:hover .product-card-media img, body.tenant-mayaopickleball .catalog-card:hover .catalog-card-media img {
