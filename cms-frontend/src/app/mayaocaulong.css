@@ -3100,3 +3100,23 @@ body.tenant-mayaocaulong .product-spec-card {
     min-width: 0;
   }
 }
+body.tenant-mayaocaulong .contact-way-section .order-step-grid a {
+  display: block;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.82);
+  padding: 24px;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+body.tenant-mayaocaulong .contact-way-section .order-step-grid a:hover,
+body.tenant-mayaocaulong .contact-way-section .order-step-grid a:focus-visible {
+  border-color: rgba(10, 108, 121, 0.36);
+  box-shadow: 0 15px 30px rgba(8, 35, 57, 0.1);
+  transform: translateY(-2px);
+}
+body.tenant-mayaocaulong .contact-way-section .order-step-grid h3 {
+  margin: 18px 0 10px;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.18;
+}
