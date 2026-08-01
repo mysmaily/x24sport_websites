@@ -1605,6 +1605,8 @@ body.tenant-mayaocaulong {
 }body.tenant-mayaocaulong .product-shell, body.tenant-mayaocaulong .product-detail-shell {
   padding: clamp(14px, 3vw, 42px);
 }body.tenant-mayaocaulong .product-detail-shell {
+  width: min(100%, 1440px);
+  margin: 0 auto;
   padding-top: clamp(12px, 2vw, 28px);
 }body.tenant-mayaocaulong .product-crumbs {
   display: flex;
