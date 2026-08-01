@@ -5,8 +5,8 @@ directly into the ChatGPT/Codex chat and asks for football-kit sales posters.
 The user does not run commands. The agent runs the local job builder, calls
 image generation, saves the output, and returns the rendered image/file path.
 The script also persists pasted source-image history to
-`workflows/football-poster-source-history.json` so the same source URLs can be
-recovered after switching machines or reopening the task.
+`mayaobongda.vn/workflows/football-poster-source-history.json` so the same
+source URLs can be recovered after switching machines or reopening the task.
 
 ## Inputs
 
@@ -31,7 +31,7 @@ recovered after switching machines or reopening the task.
   front/back mockups should use the same selected collar, while the right-side
   collar strip still shows all five choices.
 - Persistent source history:
-  - default path: `workflows/football-poster-source-history.json`;
+  - default path: `mayaobongda.vn/workflows/football-poster-source-history.json`;
   - every script run upserts each URL source into that JSON by `source_input`;
   - local clipboard/temp image paths are not persisted because they will not
     work on another machine;
@@ -45,42 +45,43 @@ recovered after switching machines or reopening the task.
 When the user pastes URL(s) in chat:
 
 1. Treat every pasted image URL as a source apparel reference.
-2. Check `workflows/football-poster-source-history.json` first. If a pasted URL
-   already exists, use the stored entry to understand the previous run and avoid
-   asking the user to paste older URLs again.
-3. Run `scripts/football_poster_jobs.py` with the URL(s) as positional
+2. Check `mayaobongda.vn/workflows/football-poster-source-history.json` first.
+   If a pasted URL already exists, use the stored entry to understand the
+   previous run and avoid asking the user to paste older URLs again.
+3. Run `mayaobongda.vn/scripts/football_poster_jobs.py` with the URL(s) as positional
    arguments. Do not ask the user to create an input file.
 4. Inspect the generated `jobs.json` for `background`, `background_style`,
    `chest_logo_source_url`, `referenced_image_paths`, and `prompt`.
 5. Confirm the run also updated
-   `workflows/football-poster-source-history.json`.
+   `mayaobongda.vn/workflows/football-poster-source-history.json`.
 6. Call the built-in image generation tool once per job, using that job's
    `referenced_image_paths` and `prompt`.
 7. Copy the generated image from `$CODEX_HOME/generated_images/...` into
-   `tmp/imagegen/outputs/` with a descriptive filename.
+   `mayaobongda.vn/imagegen/outputs/` with a descriptive filename. Generated
+   images in this folder are local-only and ignored by Git.
 8. Render the saved image back to the user and include the absolute file link.
 
 Single pasted URL command template:
 
 ```bash
-python3 scripts/football_poster_jobs.py \
+python3 mayaobongda.vn/scripts/football_poster_jobs.py \
   'https://static.x24sport.vn/mayaopickleball/pb281-round-neck.png' \
   --background auto \
   --seed 24 \
   --number 24 \
-  --output-dir tmp/imagegen/football-poster-<slug>
+  --output-dir mayaobongda.vn/imagegen/football-poster-<slug>
 ```
 
 Multiple pasted URLs command template:
 
 ```bash
-python3 scripts/football_poster_jobs.py \
+python3 mayaobongda.vn/scripts/football_poster_jobs.py \
   'https://static.x24sport.vn/mayaopickleball/image-1.webp' \
   'https://static.x24sport.vn/mayaopickleball/image-2.webp' \
   --background auto \
   --seed 24 \
   --number 24 \
-  --output-dir tmp/imagegen/football-poster-batch-<date-or-slug>
+  --output-dir mayaobongda.vn/imagegen/football-poster-batch-<date-or-slug>
 ```
 
 The script writes:
@@ -99,7 +100,7 @@ values with the built-in `image_gen` edit/generate flow.
 Use this only if the user explicitly provides or requests a list file:
 
 ```bash
-python3 scripts/football_poster_jobs.py \
+python3 mayaobongda.vn/scripts/football_poster_jobs.py \
   --input-file /tmp/x24-football-inputs.txt \
   --background auto \
   --seed 24 \

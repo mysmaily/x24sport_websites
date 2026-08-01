@@ -16,10 +16,11 @@ from urllib.parse import unquote, urlparse
 from urllib.request import Request, urlopen
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+SITE_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = SITE_ROOT.parent
 DEFAULT_LOGO_PAGE = "https://x24sport.vn/danh-muc/dich-vu/"
-DEFAULT_OUTPUT_DIR = REPO_ROOT / "tmp/imagegen/football-poster-jobs"
-DEFAULT_HISTORY_PATH = REPO_ROOT / "workflows/football-poster-source-history.json"
+DEFAULT_OUTPUT_DIR = SITE_ROOT / "imagegen/football-poster-jobs"
+DEFAULT_HISTORY_PATH = SITE_ROOT / "workflows/football-poster-source-history.json"
 
 BACKGROUND_STYLES = [
     {
@@ -279,11 +280,11 @@ def utc_now() -> str:
 def repo_relative(path: str | Path) -> str:
     resolved = Path(path).expanduser()
     if not resolved.is_absolute():
-        resolved = (REPO_ROOT / resolved).resolve()
+        resolved = (Path.cwd() / resolved).resolve()
     else:
         resolved = resolved.resolve()
     try:
-        return str(resolved.relative_to(REPO_ROOT))
+        return str(resolved.relative_to(PROJECT_ROOT))
     except ValueError:
         return str(resolved)
 

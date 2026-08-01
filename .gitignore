@@ -42,6 +42,8 @@ test-results/
 
 mayaobongda.vn/remote-work/*.server
 mayaobongda.vn/audit-output/lighthouse-mobile-postfix.json
+mayaobongda.vn/imagegen/**
+!mayaobongda.vn/imagegen/.gitkeep
 
 # AI image-generation outputs (keep locally, never commit)
 **/operations/**/generated/
