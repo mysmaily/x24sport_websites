@@ -1,6 +1,6 @@
 'use client'
 
-import { ChevronLeft, ChevronRight, Search, X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Search } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 export type ProductMediaGalleryImage = {
@@ -31,8 +31,19 @@ export function ProductMediaGallery({
   const usableImages = images.filter((image): image is ProductMediaGalleryImage & { url: string } => Boolean(image.url))
   const total = usableImages.length
   const [activeIndex, setActiveIndex] = useState(0)
-  const [zoomOpen, setZoomOpen] = useState(false)
-  const touchStartX = useRef<number | null>(null)
+  const [dragOffset, setDragOffset] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const galleryRef = useRef<HTMLDivElement>(null)
+  const stageRef = useRef<HTMLDivElement>(null)
+  const activeLinkRef = useRef<HTMLAnchorElement>(null)
+  const lightboxRef = useRef<{ loadAndOpen: (index: number) => void } | null>(null)
+  const touchRef = useRef({
+    startX: 0,
+    startY: 0,
+    currentX: 0,
+    horizontal: false,
+    locked: false,
+  })
 
   const activeImage = usableImages[activeIndex] || usableImages[0]
 
@@ -53,35 +64,90 @@ export function ProductMediaGallery({
   }, [activeIndex, total])
 
   useEffect(() => {
-    if (!zoomOpen) return
+    const gallery = galleryRef.current
+    if (!gallery || !total) return
 
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+    let destroyed = false
+    let lightbox: { destroy: () => void } | undefined
 
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setZoomOpen(false)
-      if (event.key === 'ArrowLeft') goPrev()
-      if (event.key === 'ArrowRight') goNext()
-    }
+    import('photoswipe/lightbox').then(({ default: PhotoSwipeLightbox }) => {
+      if (destroyed) return
+      const nextLightbox = new PhotoSwipeLightbox({
+        bgOpacity: 0.92,
+        children: 'a',
+        doubleTapAction: 'zoom',
+        gallery,
+        initialZoomLevel: 'fit',
+        pswpModule: () => import('photoswipe'),
+        wheelToZoom: true,
+      })
+      nextLightbox.on('change', () => {
+        const pswp = nextLightbox.pswp
+        if (typeof pswp?.currIndex === 'number') setActiveIndex(pswp.currIndex)
+      })
+      nextLightbox.init()
+      lightbox = nextLightbox
+      lightboxRef.current = nextLightbox
+    })
 
-    window.addEventListener('keydown', onKeyDown)
     return () => {
-      document.body.style.overflow = previousOverflow
-      window.removeEventListener('keydown', onKeyDown)
+      destroyed = true
+      lightbox?.destroy()
+      lightboxRef.current = null
     }
-  }, [goNext, goPrev, zoomOpen])
+  }, [total])
 
   const onTouchStart = (event: React.TouchEvent) => {
-    touchStartX.current = event.changedTouches[0]?.clientX ?? null
+    const touch = event.touches[0]
+    if (!touch) return
+    touchRef.current = {
+      startX: touch.clientX,
+      startY: touch.clientY,
+      currentX: touch.clientX,
+      horizontal: false,
+      locked: false,
+    }
+    setIsDragging(true)
+    setDragOffset(0)
+  }
+
+  const onTouchMove = (event: React.TouchEvent) => {
+    if (!isDragging || total < 2) return
+    const touch = event.touches[0]
+    if (!touch) return
+
+    const state = touchRef.current
+    const dx = touch.clientX - state.startX
+    const dy = touch.clientY - state.startY
+
+    if (!state.locked && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+      state.locked = true
+      state.horizontal = Math.abs(dx) > Math.abs(dy)
+    }
+
+    if (!state.horizontal) return
+    state.currentX = touch.clientX
+    setDragOffset(dx)
   }
 
   const onTouchEnd = (event: React.TouchEvent) => {
-    const startX = touchStartX.current
+    const state = touchRef.current
     const endX = event.changedTouches[0]?.clientX
-    touchStartX.current = null
-    if (startX === null || endX === undefined || Math.abs(startX - endX) < 48 || total < 2) return
-    if (startX > endX) goNext()
-    else goPrev()
+    setIsDragging(false)
+
+    if (!state.horizontal || endX === undefined || total < 2) {
+      setDragOffset(0)
+      return
+    }
+
+    const width = stageRef.current?.clientWidth || 1
+    const dx = endX - state.startX
+    const threshold = Math.max(48, width * 0.16)
+    if (Math.abs(dx) > threshold) {
+      if (dx < 0) goNext()
+      else goPrev()
+    }
+    setDragOffset(0)
   }
 
   const rootClassName = variant === 'utility' ? 'product-media-gallery product-media-gallery--utility' : 'product-detail-gallery'
@@ -106,21 +172,46 @@ export function ProductMediaGallery({
     >
       <div
         className={stageClassName}
+        ref={stageRef}
         onTouchEnd={onTouchEnd}
+        onTouchMove={onTouchMove}
         onTouchStart={onTouchStart}
         style={{ aspectRatio: '1 / 1', overflow: 'hidden', position: 'relative' }}
       >
         {activeImage ? (
-          <img
-            alt={activeImage.alt || `${productName} - ảnh ${activeIndex + 1}`}
-            className="product-media-image"
-            draggable={false}
-            height={activeImage.height || 1254}
-            key={activeImage.url}
-            src={activeImage.url}
-            style={{ display: 'block', height: '100%', objectFit: 'contain', width: '100%' }}
-            width={activeImage.width || 1254}
-          />
+          <div
+            className="product-media-track"
+            ref={galleryRef}
+            style={{
+              transform: `translate3d(calc(${-activeIndex * 100}% + ${dragOffset}px), 0, 0)`,
+              transition: isDragging ? 'none' : 'transform 320ms cubic-bezier(.22, .61, .36, 1)',
+            }}
+          >
+            {usableImages.map((image, index) => (
+              <a
+                aria-label={`Mở ảnh sản phẩm ${index + 1}`}
+                className="product-media-slide"
+                data-pswp-height={image.height || 1254}
+                data-pswp-width={image.width || 1254}
+                href={image.url}
+                key={`${image.id || image.url}-${index}`}
+                onClick={() => setActiveIndex(index)}
+                rel="noreferrer"
+                ref={index === activeIndex ? activeLinkRef : undefined}
+                target="_blank"
+              >
+                <img
+                  alt={image.alt || `${productName} - ảnh ${index + 1}`}
+                  className="product-media-image"
+                  draggable={false}
+                  height={image.height || 1254}
+                  src={image.url}
+                  style={{ display: 'block', height: '100%', objectFit: 'contain', width: '100%' }}
+                  width={image.width || 1254}
+                />
+              </a>
+            ))}
+          </div>
         ) : (
           <div className="product-image-fallback" style={{ height: '100%', width: '100%' }}>{fallbackText || productName}</div>
         )}
@@ -129,16 +220,34 @@ export function ProductMediaGallery({
         {total > 1 ? <span className="product-media-count">{activeIndex + 1} / {total}</span> : null}
         {total > 1 ? (
           <>
-            <button aria-label="Ảnh trước" className="gallery-nav gallery-nav-prev" onClick={goPrev} type="button">
+            <button
+              aria-label="Ảnh trước"
+              className="gallery-nav gallery-nav-prev"
+              onClick={goPrev}
+              style={{ left: 12, position: 'absolute', top: '50%', transform: 'translateY(-50%)', zIndex: 12 }}
+              type="button"
+            >
               <ChevronLeft aria-hidden="true" size={23} />
             </button>
-            <button aria-label="Ảnh tiếp theo" className="gallery-nav gallery-nav-next" onClick={goNext} type="button">
+            <button
+              aria-label="Ảnh tiếp theo"
+              className="gallery-nav gallery-nav-next"
+              onClick={goNext}
+              style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', zIndex: 12 }}
+              type="button"
+            >
               <ChevronRight aria-hidden="true" size={23} />
             </button>
           </>
         ) : null}
         {activeImage ? (
-          <button aria-label="Phóng to ảnh sản phẩm" className="product-zoom-button" onClick={() => setZoomOpen(true)} type="button">
+          <button
+            aria-label="Phóng to ảnh sản phẩm"
+            className="product-zoom-button"
+            onClick={() => lightboxRef.current?.loadAndOpen(activeIndex) || activeLinkRef.current?.click()}
+            style={{ position: 'absolute', right: 16, bottom: 16, zIndex: 14 }}
+            type="button"
+          >
             <Search aria-hidden="true" size={20} />
           </button>
         ) : null}
@@ -167,35 +276,6 @@ export function ProductMediaGallery({
         </div>
       ) : null}
 
-      {zoomOpen && activeImage ? (
-        <div className="product-image-lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh sản phẩm">
-          <button aria-label="Đóng ảnh" className="product-image-lightbox-backdrop" onClick={() => setZoomOpen(false)} type="button" />
-          <div className="product-image-lightbox-panel">
-            <button aria-label="Đóng ảnh" className="product-image-lightbox-close" onClick={() => setZoomOpen(false)} type="button">
-              <X aria-hidden="true" size={22} />
-            </button>
-            {total > 1 ? (
-              <>
-                <button aria-label="Ảnh trước" className="product-image-lightbox-nav product-image-lightbox-prev" onClick={goPrev} type="button">
-                  <ChevronLeft aria-hidden="true" size={28} />
-                </button>
-                <button aria-label="Ảnh tiếp theo" className="product-image-lightbox-nav product-image-lightbox-next" onClick={goNext} type="button">
-                  <ChevronRight aria-hidden="true" size={28} />
-                </button>
-              </>
-            ) : null}
-            <img
-              alt={activeImage.alt || `${productName} - ảnh ${activeIndex + 1}`}
-              className="product-image-lightbox-image"
-              draggable={false}
-              height={activeImage.height || 1254}
-              src={activeImage.url}
-              width={activeImage.width || 1254}
-            />
-            {total > 1 ? <div className="product-image-lightbox-count">{activeIndex + 1} / {total}</div> : null}
-          </div>
-        </div>
-      ) : null}
     </section>
   )
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Barlow_Condensed, Be_Vietnam_Pro } from 'next/font/google'
 import Script from 'next/script'
+import 'photoswipe/style.css'
 import './styles.css'
 import './mayaocaulong.css'
 import './mayaopickleball.css'
