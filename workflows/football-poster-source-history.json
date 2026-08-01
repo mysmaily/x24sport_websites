@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-01T04:38:56Z",
+  "sources": [
+    {
+      "source_input": "https://static.x24sport.vn/mayaobongro/ao-bong-ro-x24-br-32-do-026.webp",
+      "first_seen_at": "2026-08-01T04:38:56Z",
+      "run_count": 1,
+      "last_seen_at": "2026-08-01T04:38:56Z",
+      "last_job_id": "football-poster-006",
+      "last_output_dir": "tmp/imagegen/football-poster-history-seed",
+      "last_source_image": "tmp/imagegen/football-poster-history-seed/sources/ao-bong-ro-x24-br-32-do-026.webp",
+      "last_background": "light",
+      "last_background_style": "light-speed-streaks",
+      "last_chest_logo_source_url": "https://static.x24sport.vn/x24sport/wp-2670.jpg",
+      "last_chest_logo": "tmp/imagegen/football-poster-history-seed/chest-logos/wp-2670.jpg",
+      "last_number": "24"
+    },
+    {
+      "source_input": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-656-do-phoi-vang-den.webp",
+      "first_seen_at": "2026-08-01T04:38:56Z",
+      "run_count": 1,
+      "last_seen_at": "2026-08-01T04:38:56Z",
+      "last_job_id": "football-poster-005",
+      "last_output_dir": "tmp/imagegen/football-poster-history-seed",
+      "last_source_image": "tmp/imagegen/football-poster-history-seed/sources/bo-quan-ao-pickleball-nam-nu-x24-pb-656-do-phoi-vang-den.webp",
+      "last_background": "dark",
+      "last_background_style": "dark-smoke-spotlight",
+      "last_chest_logo_source_url": "https://static.x24sport.vn/x24sport/wp-2653.jpg",
+      "last_chest_logo": "tmp/imagegen/football-poster-history-seed/chest-logos/wp-2653.jpg",
+      "last_number": "24"
+    },
+    {
+      "source_input": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-678-trang-phoi-xanh-duong-navy.webp",
+      "first_seen_at": "2026-08-01T04:38:56Z",
+      "run_count": 1,
+      "last_seen_at": "2026-08-01T04:38:56Z",
+      "last_job_id": "football-poster-004",
+      "last_output_dir": "tmp/imagegen/football-poster-history-seed",
+      "last_source_image": "tmp/imagegen/football-poster-history-seed/sources/bo-quan-ao-pickleball-nam-nu-x24-pb-678-trang-phoi-xanh-duong-navy.webp",
+      "last_background": "light",
+      "last_background_style": "light-technical-grid",
+      "last_chest_logo_source_url": "https://static.x24sport.vn/x24sport/wp-2658.jpg",
+      "last_chest_logo": "tmp/imagegen/football-poster-history-seed/chest-logos/wp-2658.jpg",
+      "last_number": "24"
+    },
+    {
+      "source_input": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-nam-nu-x24-pb-695-xanh-ve-chai-phoi-trang-co-co-tay-ngan.webp",
+      "first_seen_at": "2026-08-01T04:38:56Z",
+      "run_count": 1,
+      "last_seen_at": "2026-08-01T04:38:56Z",
+      "last_job_id": "football-poster-001",
+      "last_output_dir": "tmp/imagegen/football-poster-history-seed",
+      "last_source_image": "tmp/imagegen/football-poster-history-seed/sources/bo-quan-ao-pickleball-nam-nu-x24-pb-695-xanh-ve-chai-phoi-trang-co-co-tay-ngan.webp",
+      "last_background": "dark",
+      "last_background_style": "dark-color-energy",
+      "last_chest_logo_source_url": "https://static.x24sport.vn/x24sport/wp-2666.jpg",
+      "last_chest_logo": "tmp/imagegen/football-poster-history-seed/chest-logos/wp-2666.jpg",
+      "last_number": "24"
+    },
+    {
+      "source_input": "https://static.x24sport.vn/mayaopickleball/bo-quan-ao-pickleball-x24-pb-507-trang-xanh-mint-xanh-ve-chai-nang-dong-ao-co-tay-co-co.webp",
+      "first_seen_at": "2026-08-01T04:38:56Z",
+      "run_count": 1,
+      "last_seen_at": "2026-08-01T04:38:56Z",
+      "last_job_id": "football-poster-003",
+      "last_output_dir": "tmp/imagegen/football-poster-history-seed",
+      "last_source_image": "tmp/imagegen/football-poster-history-seed/sources/bo-quan-ao-pickleball-x24-pb-507-trang-xanh-mint-xanh-ve-chai-nang-dong-ao-co-tay-co-co.webp",
+      "last_background": "light",
+      "last_background_style": "light-technical-grid",
+      "last_chest_logo_source_url": "https://static.x24sport.vn/x24sport/wp-2658.jpg",
+      "last_chest_logo": "tmp/imagegen/football-poster-history-seed/chest-logos/wp-2658.jpg",
+      "last_number": "24"
+    },
+    {
+      "source_input": "https://static.x24sport.vn/mayaopickleball/pb281-round-neck.png",
+      "first_seen_at": "2026-08-01T04:38:56Z",
+      "run_count": 1,
+      "last_seen_at": "2026-08-01T04:38:56Z",
+      "last_job_id": "football-poster-002",
+      "last_output_dir": "tmp/imagegen/football-poster-history-seed",
+      "last_source_image": "tmp/imagegen/football-poster-history-seed/sources/pb281-round-neck.png",
+      "last_background": "dark",
+      "last_background_style": "dark-tactical-grid",
+      "last_chest_logo_source_url": "https://static.x24sport.vn/x24sport/wp-2667.jpg",
+      "last_chest_logo": "tmp/imagegen/football-poster-history-seed/chest-logos/wp-2667.jpg",
+      "last_number": "24"
+    }
+  ]
+}

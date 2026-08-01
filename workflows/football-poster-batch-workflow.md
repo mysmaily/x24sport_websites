@@ -4,6 +4,9 @@ Use this workflow when the user pastes one or more apparel reference image URLs
 directly into the ChatGPT/Codex chat and asks for football-kit sales posters.
 The user does not run commands. The agent runs the local job builder, calls
 image generation, saves the output, and returns the rendered image/file path.
+The script also persists pasted source-image history to
+`workflows/football-poster-source-history.json` so the same source URLs can be
+recovered after switching machines or reopening the task.
 
 ## Inputs
 
@@ -23,21 +26,32 @@ image generation, saves the output, and returns the rendered image/file path.
   X24 badge or logo at the top.
 - Chest logo source: random image from `https://x24sport.vn/danh-muc/dich-vu/`.
 - Default number: `24`.
+- Persistent source history:
+  - default path: `workflows/football-poster-source-history.json`;
+  - every script run upserts each source URL into that JSON by `source_input`;
+  - the JSON records first/last seen time, run count, last output directory,
+    background style, random chest-logo URL, and jersey number;
+  - pass `--no-history` only for throwaway tests.
 
 ## Chat-First Agent Flow
 
 When the user pastes URL(s) in chat:
 
 1. Treat every pasted image URL as a source apparel reference.
-2. Run `scripts/football_poster_jobs.py` with the URL(s) as positional
+2. Check `workflows/football-poster-source-history.json` first. If a pasted URL
+   already exists, use the stored entry to understand the previous run and avoid
+   asking the user to paste older URLs again.
+3. Run `scripts/football_poster_jobs.py` with the URL(s) as positional
    arguments. Do not ask the user to create an input file.
-3. Inspect the generated `jobs.json` for `background`, `background_style`,
+4. Inspect the generated `jobs.json` for `background`, `background_style`,
    `chest_logo_source_url`, `referenced_image_paths`, and `prompt`.
-4. Call the built-in image generation tool once per job, using that job's
+5. Confirm the run also updated
+   `workflows/football-poster-source-history.json`.
+6. Call the built-in image generation tool once per job, using that job's
    `referenced_image_paths` and `prompt`.
-5. Copy the generated image from `$CODEX_HOME/generated_images/...` into
+7. Copy the generated image from `$CODEX_HOME/generated_images/...` into
    `tmp/imagegen/outputs/` with a descriptive filename.
-6. Render the saved image back to the user and include the absolute file link.
+8. Render the saved image back to the user and include the absolute file link.
 
 Single pasted URL command template:
 

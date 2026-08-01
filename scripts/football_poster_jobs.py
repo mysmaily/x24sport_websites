@@ -9,6 +9,7 @@ import json
 import random
 import re
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 from urllib.parse import unquote, urlparse
@@ -18,6 +19,7 @@ from urllib.request import Request, urlopen
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_LOGO_PAGE = "https://x24sport.vn/danh-muc/dich-vu/"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "tmp/imagegen/football-poster-jobs"
+DEFAULT_HISTORY_PATH = REPO_ROOT / "workflows/football-poster-source-history.json"
 
 BACKGROUND_STYLES = [
     {
@@ -252,6 +254,80 @@ def build_jobs(args: argparse.Namespace) -> list[dict[str, object]]:
     return jobs
 
 
+def utc_now() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def repo_relative(path: str | Path) -> str:
+    resolved = Path(path).expanduser()
+    if not resolved.is_absolute():
+        resolved = (REPO_ROOT / resolved).resolve()
+    else:
+        resolved = resolved.resolve()
+    try:
+        return str(resolved.relative_to(REPO_ROOT))
+    except ValueError:
+        return str(resolved)
+
+
+def load_history(history_path: Path) -> dict[str, object]:
+    if not history_path.exists():
+        return {"schema_version": 1, "updated_at": None, "sources": []}
+    try:
+        history = json.loads(history_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f"Could not parse history JSON at {history_path}: {exc}") from exc
+    if not isinstance(history, dict):
+        raise SystemExit(f"History JSON must be an object: {history_path}")
+    sources = history.get("sources", [])
+    if not isinstance(sources, list):
+        raise SystemExit(f"History JSON field 'sources' must be a list: {history_path}")
+    history.setdefault("schema_version", 1)
+    history.setdefault("updated_at", None)
+    history["sources"] = sources
+    return history
+
+
+def update_source_history(jobs: list[dict[str, object]], output_dir: Path, history_path: Path) -> None:
+    history = load_history(history_path)
+    sources = history["sources"]
+    assert isinstance(sources, list)
+
+    existing: dict[str, dict[str, object]] = {}
+    for entry in sources:
+        if isinstance(entry, dict) and isinstance(entry.get("source_input"), str):
+            existing[entry["source_input"]] = entry
+
+    now = utc_now()
+    for job in jobs:
+        source_input = str(job["source_input"])
+        entry = existing.get(source_input)
+        if entry is None:
+            entry = {
+                "source_input": source_input,
+                "first_seen_at": now,
+                "run_count": 0,
+            }
+            existing[source_input] = entry
+
+        entry["last_seen_at"] = now
+        entry["run_count"] = int(entry.get("run_count", 0)) + 1
+        entry["last_job_id"] = job["id"]
+        entry["last_output_dir"] = repo_relative(output_dir)
+        entry["last_source_image"] = repo_relative(str(job["source_image"]))
+        entry["last_background"] = job["background"]
+        entry["last_background_style"] = job["background_style"]
+        entry["last_chest_logo_source_url"] = job["chest_logo_source_url"]
+        entry["last_chest_logo"] = repo_relative(str(job["chest_logo"]))
+        entry["last_number"] = job["jersey_number"]
+
+    history["updated_at"] = now
+    history["sources"] = sorted(existing.values(), key=lambda item: str(item["source_input"]))
+    history_path.parent.mkdir(parents=True, exist_ok=True)
+    history_path.write_text(json.dumps(history, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"History: {history_path}")
+
+
 def write_outputs(jobs: list[dict[str, object]], output_dir: Path) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     manifest_path = output_dir / "jobs.json"
@@ -275,13 +351,18 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     parser.add_argument("--number", default="24", help="Jersey and shorts number.")
     parser.add_argument("--logo-source-url", default=DEFAULT_LOGO_PAGE, help="Category page used for random chest-logo references.")
     parser.add_argument("--logo-pages", type=int, default=3, help="How many category pages to scrape for chest-logo references.")
+    parser.add_argument("--history-path", default=str(DEFAULT_HISTORY_PATH), help="Persistent JSON file for pasted source-image URL history.")
+    parser.add_argument("--no-history", action="store_true", help="Do not update the persistent source-image history JSON.")
     return parser.parse_args(list(argv))
 
 
 def main(argv: Iterable[str]) -> int:
     args = parse_args(argv)
     jobs = build_jobs(args)
-    write_outputs(jobs, Path(args.output_dir))
+    output_dir = Path(args.output_dir)
+    write_outputs(jobs, output_dir)
+    if not args.no_history:
+        update_source_history(jobs, output_dir, Path(args.history_path))
     return 0
 
 
