@@ -5,12 +5,12 @@ import { categoryMenu } from '../../lib/catalog'
 
 const HEADER_LOGO_SRC = 'https://cdn.x24sport.vn/wp-content/uploads/2025/03/Asset-1-1200x158.png'
 const pricingLinks: Record<string, string> = {
-  'bong-da': 'https://mayaobongda.vn/bang-gia-may-ao-bong-da/',
-  'bong-chuyen': 'https://mayaobongchuyen.vn/bang-gia-may-ao-bong-chuyen/',
-  'bong-ro': 'https://mayaobongro.vn/bang-gia-may-ao-bong-ro/',
-  'cau-long': 'https://mayaocaulong.vn/bang-gia-may-ao-cau-long/',
-  pickleball: 'https://mayaopickleball.vn/bang-gia-may-ao-pickleball/',
-  'chay-bo': 'https://mayaochaybo.vn/bang-gia-may-ao-chay-bo/',
+  'bong-da': '/bang-gia-may-ao-bong-da/',
+  'bong-chuyen': '/bang-gia-may-ao-bong-chuyen/',
+  'bong-ro': '/bang-gia-may-ao-bong-ro/',
+  'cau-long': '/bang-gia-may-ao-cau-long/',
+  pickleball: '/bang-gia-may-ao-pickleball/',
+  'chay-bo': '/bang-gia-may-ao-chay-bo/',
 }
 
 export function Logo() {

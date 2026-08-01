@@ -118,7 +118,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${base}/bang-gia-may-ao-chay-bo/`, priority: .82 },
       { url: `${base}/mau-ao-chay-bo-duoc-xem-nhieu/`, priority: .82 },
     ] : []),
-    ...(tenant.slug === 'x24sport' ? [{ url: `${base}/mau-logo/`, priority: .8 }] : []),
+    ...(tenant.slug === 'x24sport' ? [
+      { url: `${base}/bang-gia-may-ao-bong-da/`, priority: .82 },
+      { url: `${base}/bang-gia-may-ao-bong-chuyen/`, priority: .82 },
+      { url: `${base}/bang-gia-may-ao-bong-ro/`, priority: .82 },
+      { url: `${base}/bang-gia-may-ao-cau-long/`, priority: .82 },
+      { url: `${base}/bang-gia-may-ao-pickleball/`, priority: .82 },
+      { url: `${base}/bang-gia-may-ao-chay-bo/`, priority: .82 },
+      { url: `${base}/mau-logo/`, priority: .8 },
+    ] : []),
     { url: `${base}/blog/`, priority: .7 },
     ...categories.map(({ slug }) => ({ url: `${base}/danh-muc/${slug}/`, priority: .8 })),
     ...products.map((product) => ({
