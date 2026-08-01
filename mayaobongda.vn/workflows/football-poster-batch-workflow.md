@@ -30,6 +30,19 @@ source URLs can be recovered after switching machines or reopening the task.
   `Cổ V chéo`, `Cổ V phối`, or `Cổ polo`. The model-worn kit and the main
   front/back mockups should use the same selected collar, while the right-side
   collar strip still shows all five choices.
+- Collar construction rule:
+  - `Cổ tròn`: flat round crew neck, no collar leaves, no button placket.
+  - `Cổ V viền`: flat V-neck with a simple ribbed border, no collar leaves, no
+    button placket.
+  - `Cổ V chéo`: flat overlapping cross V-neck, no collar leaves, no button
+    placket.
+  - `Cổ V phối`: flat contrast V-neck with color blocking or contrast trim only,
+    no folded polo collar leaves, no raised collar, no button placket.
+  - `Cổ polo`: the only collar option with folded collar leaves and a short
+    button placket.
+- Never accept or prompt for a hybrid polo-and-V collar. In particular, do not
+  create the unavailable style where a folded polo collar is combined with a
+  V-neck insert.
 - Persistent source history:
   - default path: `mayaobongda.vn/workflows/football-poster-source-history.json`;
   - every script run upserts each URL source into that JSON by `source_input`;
@@ -125,6 +138,9 @@ python3 mayaobongda.vn/scripts/football_poster_jobs.py \
 - The model-worn kit and the main front/back jersey mockups use one random
   selected collar from the five available collar choices. The selected collar is
   recorded as `worn_collar` and `worn_collar_label` in `jobs.json`.
+- The selected collar must follow the construction rule above. `Cổ V phối` is
+  not a polo/V hybrid; it is a flat contrast V-neck. Only `Cổ polo` may use a
+  folded collar and button placket.
 - Top title is exactly `Football 2026 Collection`.
 - Title should be a designer-level sports poster lockup, not plain/default typed
   text. Use premium display lettering, intentional spacing, and subtle depth
@@ -152,6 +168,8 @@ python3 mayaobongda.vn/scripts/football_poster_jobs.py \
   `Cổ polo`.
 - The collar strip should show all five choices and subtly emphasize the
   selected collar used on the model-worn kit.
+- The collar strip must not show a folded polo collar or button placket on
+  `Cổ V viền`, `Cổ V chéo`, or `Cổ V phối`.
 - Size row is `S`, `M`, `L`, `XL`, `2XL`, `3XL`, `4XL`.
 - Collar options and size row are centered horizontally in the right panel and
   aligned to the same center axis.
@@ -173,6 +191,10 @@ Before accepting an output, visually verify:
 - the shorts are a single solid color;
 - the random chest logo is present as a small left-chest badge;
 - the collar worn by the model matches `worn_collar_label` in `jobs.json`;
+- no unavailable hybrid polo-and-V collar appears;
+- `Cổ V phối` appears as a flat contrast V-neck, not as a folded polo collar
+  with a V insert;
+- only `Cổ polo` has folded collar leaves or a button placket;
 - the front/back mockups use the same selected collar as the worn model;
 - the generated layout does not crowd the collar options or footer.
 - the collar options and size row are centered inside the right-side frame.

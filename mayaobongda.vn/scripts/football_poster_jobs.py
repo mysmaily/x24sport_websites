@@ -86,11 +86,31 @@ BACKGROUND_STYLES = [
 ]
 
 COLLAR_STYLES = [
-    {"slug": "round-neck", "label": "Cổ tròn"},
-    {"slug": "v-neck-rib", "label": "Cổ V viền"},
-    {"slug": "cross-v-neck", "label": "Cổ V chéo"},
-    {"slug": "contrast-v-neck", "label": "Cổ V phối"},
-    {"slug": "polo-collar", "label": "Cổ polo"},
+    {
+        "slug": "round-neck",
+        "label": "Cổ tròn",
+        "description": "flat round crew neck with rib trim only; no collar leaves, no button placket",
+    },
+    {
+        "slug": "v-neck-rib",
+        "label": "Cổ V viền",
+        "description": "flat V-neck with a simple ribbed border; no collar leaves, no button placket",
+    },
+    {
+        "slug": "cross-v-neck",
+        "label": "Cổ V chéo",
+        "description": "flat overlapping cross V-neck construction; no collar leaves, no button placket",
+    },
+    {
+        "slug": "contrast-v-neck",
+        "label": "Cổ V phối",
+        "description": "flat V-neck with contrasting color panels or trim; no polo collar leaves, no button placket, no raised folded collar",
+    },
+    {
+        "slug": "polo-collar",
+        "label": "Cổ polo",
+        "description": "classic polo collar with folded collar leaves and a short button placket",
+    },
 ]
 
 
@@ -216,16 +236,16 @@ Poster layout: square 1:1 split layout. Left half shows one Vietnamese adult mal
 Background style: {background_style["prompt"]}. {contrast}
 Background composition: make the whole square feel like one cohesive poster, not two unrelated vertical halves. The left model area and right catalog area may have different contrast levels, but they should share the same gradient language, light direction, accent colors, and atmospheric depth.
 Top title: show text exactly "Football 2026 Collection" centered at the top of the right half. No top logo or brand badge. Treat it as a custom sports-poster title lockup, not default typed text: use premium display lettering, confident tracking, subtle outline/shadow or metallic/ink texture when appropriate, and designer-level spacing. It should feel like football campaign typography, elegant and intentional, without dominating the product.
-Selected worn collar: use exactly "{worn_collar["label"]}" ({worn_collar["slug"]}) on the football kit worn by the model. Apply the same selected collar to the main front and back jersey mockups so the displayed product is consistent. Keep the source design's colors/patterns adapted cleanly around this collar shape.
+Selected worn collar: use exactly "{worn_collar["label"]}" ({worn_collar["slug"]}) on the football kit worn by the model. Collar construction definition: {worn_collar["description"]}. Apply the same selected collar to the main front and back jersey mockups so the displayed product is consistent. Keep the source design's colors/patterns adapted cleanly around this collar shape. Do not invent unavailable hybrid collars: never combine polo collar leaves or a button placket with any V-neck option. Only "Cổ polo" may have folded collar leaves or buttons.
 Kit design: preserve the source image's main color blocking and design DNA, adapted into a football jersey. Prioritize balanced shirt proportions, clean seams, symmetrical shoulders, natural sleeve length, and premium product mockup quality. On the worn model, make the jersey photorealistic with natural fabric wrinkles, fabric tension around chest/waist/shoulders, sleeve folds, hem shadows, contact shadows under arms, and realistic drape. Avoid flat AI-painted clothing.
 Chest logo: use the random chest logo reference as the left-chest team badge inspiration. The right chest must always show jersey number "{jersey_number}".
 Back jersey: show "TÊN CẦU THỦ" above a large number "{jersey_number}" and "TÊN ĐỘI BÓNG" below.
 Shorts: Shorts are one solid color. No pattern, no gradient, no decorative print, no stripes, no contrast side panels, no contrast waistband, no contrast hem trim, no piping, no colored cuffs. Choose a single color that fits the source kit palette. The only allowed visual marks on the shorts are the number "{jersey_number}" and natural fabric wrinkles/shadows.
-Collar options: include a polished strip titled exactly "TÙY CHỌN CỔ ÁO" with five cards: "Cổ tròn", "Cổ V viền", "Cổ V chéo", "Cổ V phối", "Cổ polo". Match the swatches to the current kit palette. Center the entire collar-options group horizontally inside the right panel. Visually emphasize "{worn_collar["label"]}" as the selected collar without making the other options disappear.
+Collar options: include a polished strip titled exactly "TÙY CHỌN CỔ ÁO" with five cards: "Cổ tròn", "Cổ V viền", "Cổ V chéo", "Cổ V phối", "Cổ polo". Match the swatches to the current kit palette. Center the entire collar-options group horizontally inside the right panel. Visually emphasize "{worn_collar["label"]}" as the selected collar without making the other options disappear. The "Cổ V phối" card must show a flat contrast V-neck only, not a polo/V hybrid. The "Cổ polo" card is the only card that may show folded collar leaves and a button placket.
 Size row: show boxes exactly "S" "M" "L" "XL" "2XL" "3XL" "4XL". Center the entire size row horizontally inside the right panel, aligned to the same center axis as the collar-options group.
 Footer: show "XEM THÊM SẢN PHẨM" and compact text "X24SPORT.VN | HOTLINE: 0989 353 247".
 Constraints: male Vietnamese model only; no female model; no pickleball paddle; no source-site watermark/logo; no top logo; no X24 logo at the top; all text must be readable; product mockups must stay prominent and visually balanced; worn kit must have realistic fabric shadows and wrinkles.
-Avoid: default office-document font, plain typed-looking headline, flat AI clothing, plastic-smooth jersey, patterned shorts, gradient shorts, contrast-trim shorts, striped shorts, missing chest/shorts number, missing random chest logo, Brazil branding, distorted Vietnamese text, oversized footer, watermark, top logo, unbalanced shirt mockups, warped jersey proportions."""
+Avoid: default office-document font, plain typed-looking headline, flat AI clothing, plastic-smooth jersey, patterned shorts, gradient shorts, contrast-trim shorts, striped shorts, missing chest/shorts number, missing random chest logo, Brazil branding, distorted Vietnamese text, oversized footer, watermark, top logo, unbalanced shirt mockups, warped jersey proportions, hybrid polo-and-V collar, polo collar leaves on V-neck styles, button placket on V-neck styles."""
 
 
 def build_jobs(args: argparse.Namespace) -> list[dict[str, object]]:
