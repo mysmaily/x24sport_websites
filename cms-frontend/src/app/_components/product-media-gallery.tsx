@@ -77,6 +77,7 @@ export function ProductMediaGallery({
         children: 'a',
         doubleTapAction: 'zoom',
         gallery,
+        imageClickAction: 'zoom',
         initialZoomLevel: 'fit',
         pswpModule: () => import('photoswipe'),
         wheelToZoom: true,
