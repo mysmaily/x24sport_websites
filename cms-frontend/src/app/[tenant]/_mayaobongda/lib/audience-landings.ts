@@ -17,6 +17,7 @@ export type FootballAudienceLanding = {
   faq: Array<{ question: string; answer: string }>
   ctaTitle: string
   ctaText: string
+  categorySlug?: string
   metaTitle: string
   metaDescription: string
 }
@@ -92,6 +93,7 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
   },
   {
     slug: 'ao-bong-da-cong-ty-ngan-hang',
+    categorySlug: 'ao-bong-da-cong-ty-ngan-hang',
     navLabel: 'Công ty & ngân hàng',
     eyebrow: 'Áo bóng đá cho công ty & ngân hàng',
     title: 'Tinh thần đồng đội bước ra khỏi văn phòng và vào sân bóng.',

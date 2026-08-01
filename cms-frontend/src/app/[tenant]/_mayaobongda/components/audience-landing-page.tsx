@@ -45,7 +45,8 @@ const process = [
 ]
 
 export async function FootballAudienceLandingPage({ landing }: { landing: FootballAudienceLanding }) {
-  const catalog = await getProducts({ limit: 4 })
+  const categoryCatalog = landing.categorySlug ? await getProducts({ limit: 4, categorySlug: landing.categorySlug }) : null
+  const catalog = categoryCatalog?.docs.length ? categoryCatalog : await getProducts({ limit: 4 })
   const AudienceIcon = audienceIcons[landing.slug as keyof typeof audienceIcons]
   const related = FOOTBALL_AUDIENCE_LANDINGS.filter((item) => item.slug !== landing.slug)
 
