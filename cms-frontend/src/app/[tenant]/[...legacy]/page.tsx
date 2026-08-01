@@ -1,12 +1,12 @@
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import type { Metadata } from 'next'
 import X24LegacyPage from '../../[...legacy]/page'
 import { getProductBySlug, productImages } from '../../../lib/content'
 import { RynoProductPage } from '../ryno-catalog'
 import MayaoCauLongCatalogFilterPage, { generateMetadata as generateMayaoCauLongCatalogMetadata } from '../_mayaocaulong/[catalogSlug]/page'
-import { getCatalogFilterBySlug } from '../_mayaocaulong/lib/content'
+import { getCatalogFilterBySlug, getProductBySlug as getMayaoCauLongProductBySlug } from '../_mayaocaulong/lib/content'
 import MayaoPickleballCatalogFilterPage, { generateMetadata as generateMayaoPickleballCatalogMetadata } from '../_mayaopickleball/[catalogSlug]/page'
-import { getCatalogFilterBySlug as getMayaoPickleballCatalogFilterBySlug } from '../_mayaopickleball/lib/content'
+import { getCatalogFilterBySlug as getMayaoPickleballCatalogFilterBySlug, getProductBySlug as getMayaoPickleballProductBySlug } from '../_mayaopickleball/lib/content'
 import MayaoBongChuyenLegacyPage, { generateMetadata as generateMayaoBongChuyenLegacyMetadata } from '../_mayaobongchuyen/[slug]/page'
 import MayaoBongRoLegacyPage, { generateMetadata as generateMayaoBongRoLegacyMetadata } from '../_mayaobongro/[...segments]/page'
 import { MayaoBongRoShell } from '../_mayaobongro/shell'
@@ -64,11 +64,19 @@ export default async function TenantLegacyPage(props: Parameters<typeof X24Legac
   if (tenant === 'mayaocaulong' && legacy.length === 1 && getCatalogFilterBySlug(legacy[0])) {
     return <MayaoCauLongCatalogFilterPage params={Promise.resolve({ catalogSlug: legacy[0] })} />
   }
+  if (tenant === 'mayaocaulong' && legacy.length === 1) {
+    const product = await getMayaoCauLongProductBySlug(legacy[0])
+    if (product) permanentRedirect(`/san-pham/${product.slug}/`)
+  }
   if (tenant === 'mayaopickleball' && legacy.length === 1 && getMayaoPickleballCatalogFilterBySlug(legacy[0])) {
     return <MayaoPickleballCatalogFilterPage
       params={Promise.resolve({ catalogSlug: legacy[0] })}
       searchParams={props.searchParams as Promise<{ page?: string }>}
     />
+  }
+  if (tenant === 'mayaopickleball' && legacy.length === 1) {
+    const product = await getMayaoPickleballProductBySlug(legacy[0])
+    if (product) permanentRedirect(`/san-pham/${product.slug}/`)
   }
   if (tenant === 'mayaobongchuyen' && legacy.length === 1) {
     return <MayaoBongChuyenLegacyPage params={Promise.resolve({ slug: legacy[0] })} />
