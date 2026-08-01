@@ -117,7 +117,7 @@ Website tenant contract:
 - `mayaobongchuyen` for `mayaobongchuyen.vn`
 - `mayaopickleball` for `mayaopickleball.vn`
 - `mayaobongro` for `mayaobongro.vn`
-- `mayaochaybo` for the `next.mayaochaybo.vn` migration preview; the apex remains WordPress until cutover
+- `mayaochaybo` for `mayaochaybo.vn`
 
 `mayaobongda.vn` has no Next.js source in this repository and no Payload tenant
 record. It remains an active WordPress website and is not a CMS tenant. Do not

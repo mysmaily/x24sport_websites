@@ -106,10 +106,8 @@ curl -fsSI https://mayaochaybo.vn/
 curl -fsSI https://mayaobongda.vn/
 ```
 
-The retired standalone containers `next-mayaochaybo`,
-`next-mayaobongda`, `sports-cms-mayaobongchuyen-1`, and
-`sports-cms-mayaobongro-1` are historical after the shared frontend merge. Do
-not deploy them for normal frontend work.
+Retired standalone preview containers for the mayao tenants are historical
+after the shared frontend merge. Do not deploy them for normal frontend work.
 
 ## Standalone frontends on 10.10.0.28
 

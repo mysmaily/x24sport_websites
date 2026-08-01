@@ -124,7 +124,7 @@ verify_frontend() {
   local health_format="{{.State.Status}}"
 
   echo "Verifying ${container}..."
-  if [[ "$container" == "next-x24sport" || "$container" == "next-mayaochaybo" ]]; then
+  if [[ "$container" == "next-x24sport" || "$container" == "cms-frontend" ]]; then
     health_format="{{.State.Status}} {{.State.Health.Status}}"
   fi
   ssh "$host" "docker inspect -f '${health_format}' ${container} && docker logs --tail 120 ${container}"
@@ -267,7 +267,7 @@ case "$TARGET" in
     deploy_compose_frontend "x24sport.vn" "root@10.10.0.58" "/root/websites/x24sport.vn" "next-x24sport" "http://10.10.0.58:3010/" "https://x24sport.vn/"
     ;;
   mayaochaybo.vn)
-    deploy_compose_frontend "mayaochaybo.vn" "root@10.10.0.58" "/root/websites/next.mayaochaybo.vn" "next-mayaochaybo" "http://10.10.0.58:3011/" "https://mayaochaybo.vn/"
+    deploy_compose_frontend "cms-frontend" "root@10.10.0.58" "/root/websites/cms-frontend" "cms-frontend" "http://10.10.0.58:3010/" "https://mayaochaybo.vn/"
     ;;
   mayaocaulong.vn)
     deploy_standalone_frontend "mayaocaulong.vn" "root@10.10.0.28" "/opt/sports-cms/mayaocaulong.vn" "sports-cms-mayaocaulong" "sports-cms-mayaocaulong-1" "3002" "--network sports-cms_default --add-host host.docker.internal:host-gateway -p 3002:3002 -e NODE_ENV=production -e PORT=3002 -e TENANT_SLUG=mayaocaulong -e PAYLOAD_API_URL=http://host.docker.internal:3001" "http://10.10.0.28:3002/" "https://mayaocaulong.vn/"

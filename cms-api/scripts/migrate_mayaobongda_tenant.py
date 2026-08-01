@@ -18,7 +18,7 @@ from migrate_wordpress_tenant import api_session, checksum, plain_text, sanitize
 SOURCE_SYSTEM = "wordpress"
 SOURCE_URL = "https://mayaobongda.vn"
 TENANT_SLUG = "mayaobongda"
-TENANT_DOMAINS = ["mayaobongda.vn", "next.mayaobongda.vn"]
+TENANT_DOMAINS = ["mayaobongda.vn"]
 CATEGORY_SOURCE_SYSTEM = "wordpress-product-category"
 TAG_SOURCE_SYSTEM = "wordpress-product-tag"
 SETTINGS = {

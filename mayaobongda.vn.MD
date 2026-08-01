@@ -34,9 +34,8 @@
 | Public upstream | `http://10.10.0.58:3010` |
 | Public site | `https://mayaobongda.vn` |
 
-The former standalone source path `/root/websites/next.mayaobongda.vn` and
-container `next-mayaobongda` are historical after the shared frontend merge.
-Do not deploy them for normal frontend changes.
+The former standalone preview runtime has been removed after the shared
+frontend merge. Do not deploy preview runtimes for normal frontend changes.
 
 ## Local Development
 
@@ -58,4 +57,3 @@ curl -fsSI https://mayaobongda.vn/
 curl -fsSI https://mayaobongda.vn/san-pham/
 curl -fsSI https://mayaobongda.vn/blog/
 ```
-

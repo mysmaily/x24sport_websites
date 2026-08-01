@@ -35,9 +35,8 @@
 | Public upstream | `http://10.10.0.58:3010` |
 | Public site | `https://mayaochaybo.vn` |
 
-The former standalone source path `/root/websites/next.mayaochaybo.vn` and
-container `next-mayaochaybo` are historical after the shared frontend merge.
-Do not deploy them for normal frontend changes.
+The former standalone preview runtime has been removed after the shared
+frontend merge. Do not deploy preview runtimes for normal frontend changes.
 
 ## Local Development
 
