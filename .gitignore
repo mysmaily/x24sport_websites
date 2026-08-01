@@ -66,6 +66,17 @@ mayaobongda.vn/audit-output/lighthouse-mobile-postfix.json
 !**/operations/**/*uploaded*url*.json
 !**/operations/**/*uploaded*urls*.json
 
+# Social campaign media (keep only text/content manifests in Git)
+social/**/images/
+social/**/downloads/
+social/**/output/
+social/**/*.png
+social/**/*.jpg
+social/**/*.jpeg
+social/**/*.webp
+social/**/*.avif
+social/**/*.gif
+
 # Runtime migration/generated reconciliation output
 **/migration-data/
 **/backups/
