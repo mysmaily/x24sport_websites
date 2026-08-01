@@ -4,6 +4,14 @@ import { Menu, Phone, Search, X } from 'lucide-react'
 import { categoryMenu } from '../../lib/catalog'
 
 const HEADER_LOGO_SRC = 'https://cdn.x24sport.vn/wp-content/uploads/2025/03/Asset-1-1200x158.png'
+const pricingLinks: Record<string, string> = {
+  'bong-da': 'https://mayaobongda.vn/bang-gia-may-ao-bong-da/',
+  'bong-chuyen': 'https://mayaobongchuyen.vn/bang-gia-may-ao-bong-chuyen/',
+  'bong-ro': 'https://mayaobongro.vn/bang-gia-may-ao-bong-ro/',
+  'cau-long': 'https://mayaocaulong.vn/bang-gia-may-ao-cau-long/',
+  pickleball: 'https://mayaopickleball.vn/bang-gia-may-ao-pickleball/',
+  'chay-bo': 'https://mayaochaybo.vn/bang-gia-may-ao-chay-bo/',
+}
 
 export function Logo() {
   return (
@@ -38,6 +46,7 @@ export function SiteHeader() {
                     <summary>{group.name}</summary>
                     <div>
                       {group.children.map((child) => <Link href={`/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}
+                      {pricingLinks[group.slug] ? <a href={pricingLinks[group.slug]}>Bảng giá</a> : null}
                     </div>
                   </details>
                   : <Link href={`/danh-muc/${group.slug}`} key={group.slug}>{group.name}</Link>
@@ -67,6 +76,7 @@ export function SiteHeader() {
                   <Link className="nav-trigger" href={`/danh-muc/${group.slug}`}>{group.name}</Link>
                   <div className="nav-submenu" role="menu">
                     {group.children.map((child) => <Link href={`/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}
+                    {pricingLinks[group.slug] ? <a href={pricingLinks[group.slug]}>Bảng giá</a> : null}
                   </div>
                 </div>
                 : <Link href={`/danh-muc/${group.slug}`} key={group.slug}>{group.name}</Link>

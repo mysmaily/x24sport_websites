@@ -4,7 +4,9 @@ import { formatPrice, getHomeData } from './lib/content'
 
 export default async function Home() {
   const { products, posts, settings, categories } = await getHomeData()
-  const navigation = settings.navigation || []
+  const navigation = (settings.navigation || []).map((item) =>
+    item.label === 'Bảng giá' ? { ...item, href: '/bang-gia-may-ao-bong-chuyen/' } : item,
+  )
   const typeCategories = categories.filter((category) => category.group === 'type')
   const colorCategories = categories.filter((category) => category.group === 'color')
   const menu = navigation.map((item) =>

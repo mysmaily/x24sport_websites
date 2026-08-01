@@ -35,6 +35,8 @@ const buildMenu = ({ settings, categories }: PageData) => {
             },
           ],
         }
+      : item.label === 'Bảng giá'
+        ? { ...item, href: '/bang-gia-may-ao-bong-chuyen/' }
       : item,
   )
 }

@@ -26,7 +26,9 @@ export function proxy(request: NextRequest) {
   if (!tenant) return NextResponse.next()
   const url = request.nextUrl.clone()
   url.pathname = `/${tenant}${request.nextUrl.pathname}`
-  return NextResponse.rewrite(url)
+  const requestHeaders = new Headers(request.headers)
+  requestHeaders.set('x-x24-public-host', hostname)
+  return NextResponse.rewrite(url, { request: { headers: requestHeaders } })
 }
 
 export const config = {

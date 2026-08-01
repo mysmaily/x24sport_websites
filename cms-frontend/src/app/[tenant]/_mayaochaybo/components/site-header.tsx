@@ -18,6 +18,7 @@ const sampleLinks: Array<{ href: string; icon: LucideIcon; label: string }> = [
 ]
 
 const links = [
+  { href: '/bang-gia-may-ao-chay-bo/', label: 'Bảng giá' },
   { href: '/logo-doi-chay/', label: 'Logo đội chạy' },
   { href: '/blog/', label: 'Kinh nghiệm' },
   { href: '/gioi-thieu/', label: 'Về chúng tôi' },

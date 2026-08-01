@@ -39,7 +39,7 @@ function hostname(value: string | null) {
  */
 export async function getTenantContext(): Promise<TenantContext> {
   const requestHeaders = await headers()
-  const host = hostname(requestHeaders.get('host'))
+  const host = hostname(requestHeaders.get('x-x24-public-host') || requestHeaders.get('host'))
   if (host === 'localhost' || host === '127.0.0.1' || !host) return tenantsByHost['x24sport.vn']
 
   const tenant = tenantsByHost[host]

@@ -192,7 +192,7 @@ const fallbackNavigation: NavItem[] = [
     ],
   },
   { label: 'Đặt may theo yêu cầu', href: '/dat-may-theo-yeu-cau' },
-  { label: 'Bảng giá', href: '/bang-gia' },
+  { label: 'Bảng giá', href: '/bang-gia-may-ao-bong-chuyen/' },
   { label: 'Chất liệu & Size', href: '/chat-lieu-size' },
   { label: 'Mẫu đã làm', href: '/mau-da-lam' },
   { label: 'Liên hệ', href: '/lien-he' },

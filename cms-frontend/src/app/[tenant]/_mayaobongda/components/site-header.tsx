@@ -10,6 +10,7 @@ import { LOGO_URL, PHONE_DISPLAY, PHONE_VALUE, SITE_NAME, ZALO_URL } from '../li
 const links = [
   { href: '/ao-thiet-ke/', label: 'Áo thiết kế' },
   { href: '/ao-khong-logo/', label: 'Áo không logo' },
+  { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá' },
   { href: '/blog/', label: 'Tin tức' },
   { href: '/chat-lieu-vai/', label: 'Chất liệu vải' },
 ]
@@ -104,8 +105,9 @@ export function SiteHeader() {
                 { href: '/ao-bong-da-doi-bong-cau-lac-bo/', label: 'Đội bóng & câu lạc bộ' },
                 { href: '/ao-bong-da-giai-phong-trao/', label: 'Giải phong trào' },
                 { href: '/ao-bong-da-cong-ty-ngan-hang/', label: 'Công ty & ngân hàng' },
-                { href: '/chat-lieu-vai/', label: 'Chất liệu & bảng size' },
-              ].map((item) => <Link className="group flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 text-sm font-extrabold shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={productsOpen ? 0 : -1}><span>{item.label}</span></Link>)}
+              { href: '/chat-lieu-vai/', label: 'Chất liệu & bảng size' },
+              { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá may áo' },
+            ].map((item) => <Link className="group flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 text-sm font-extrabold shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={productsOpen ? 0 : -1}><span>{item.label}</span></Link>)}
             </div>
           </section>
         </div>
@@ -133,6 +135,7 @@ export function SiteHeader() {
             <p className="mb-3 px-1 text-xs font-black uppercase tracking-[.16em] text-brand">Nội dung nổi bật</p>
             <div className="grid grid-cols-2 gap-2">{[
               { href: '/chat-lieu-vai/', label: 'Chất liệu vải' },
+              { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá' },
               { href: '/category/chua-phan-loai/', label: 'Tin tức' },
               { href: '/shop/?q=x24', label: 'Tìm mẫu X24' },
               { href: '/shop/', label: 'Toàn bộ sản phẩm' },

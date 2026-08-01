@@ -107,11 +107,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/`, priority: 1 },
     { url: `${base}/san-pham/`, priority: .9 },
     ...(tenant.slug === 'mayaobongda' ? [
+      { url: `${base}/bang-gia-may-ao-bong-da/`, priority: .82 },
       { url: `${base}/ao-bong-da-doi-bong-cau-lac-bo/`, priority: .82 },
       { url: `${base}/ao-bong-da-giai-phong-trao/`, priority: .82 },
       { url: `${base}/ao-bong-da-cong-ty-ngan-hang/`, priority: .82 },
     ] : []),
-    ...(tenant.slug === 'mayaochaybo' ? [{ url: `${base}/mau-ao-chay-bo-duoc-xem-nhieu/`, priority: .82 }] : []),
+    ...(tenant.slug === 'mayaobongchuyen' ? [{ url: `${base}/bang-gia-may-ao-bong-chuyen/`, priority: .82 }] : []),
+    ...(tenant.slug === 'mayaobongro' ? [{ url: `${base}/bang-gia-may-ao-bong-ro/`, priority: .82 }] : []),
+    ...(tenant.slug === 'mayaochaybo' ? [
+      { url: `${base}/bang-gia-may-ao-chay-bo/`, priority: .82 },
+      { url: `${base}/mau-ao-chay-bo-duoc-xem-nhieu/`, priority: .82 },
+    ] : []),
     ...(tenant.slug === 'x24sport' ? [{ url: `${base}/mau-logo/`, priority: .8 }] : []),
     { url: `${base}/blog/`, priority: .7 },
     ...categories.map(({ slug }) => ({ url: `${base}/danh-muc/${slug}/`, priority: .8 })),
