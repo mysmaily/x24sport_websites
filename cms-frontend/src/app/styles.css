@@ -356,6 +356,10 @@ img{display:block}
   outline-offset: -6px;
 }
 
+.pswp img.pswp__img {
+  max-width: none !important;
+}
+
 .product-detail-gallery .product-gallery-stage .product-media-track,
 .product-media-stage .product-media-track {
   height: 100%;
