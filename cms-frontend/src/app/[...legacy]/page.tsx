@@ -102,7 +102,8 @@ function ProductDetail({ product, related, showInterestForm }: { product: CmsPro
   }
   const breadcrumbs = breadcrumbSchema([
     { name: 'Trang chủ', path: '/' },
-    { name: primaryCategory?.name || 'Sản phẩm', path: primaryCategoryPath },
+    { name: 'Sản Phẩm', path: '/san-pham/' },
+    ...(primaryCategory ? [{ name: primaryCategory.name, path: primaryCategoryPath }] : []),
     { name: product.name, path: canonical },
   ])
   const lazyContentHtml = prepareContentHtml(product.contentHtml)
@@ -120,7 +121,7 @@ function ProductDetail({ product, related, showInterestForm }: { product: CmsPro
       <JsonLd data={jsonLd} />
       <JsonLd data={breadcrumbs} />
       <nav className="detail-breadcrumb site-container" aria-label="Đường dẫn">
-        <Link href="/">Trang chủ</Link><span>/</span><Link href={primaryCategoryPath}>{primaryCategory?.name || 'Sản phẩm'}</Link><span>/</span><b>{product.name}</b>
+        <Link href="/">Trang chủ</Link><span>/</span><Link href="/san-pham/">Sản Phẩm</Link>{primaryCategory ? <><span>/</span><Link href={primaryCategoryPath}>{primaryCategory.name}</Link></> : null}<span>/</span><b>{product.name}</b>
       </nav>
       <header className="product-detail-heading site-container">
         <h1>{product.name}</h1>

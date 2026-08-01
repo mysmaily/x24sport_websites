@@ -96,7 +96,7 @@ export default async function LegacyRoutePage({ params, searchParams }: { params
   const product = await resolveProductPath(path)
   if (product) {
     const related = await getProducts({ limit: 5 })
-    return <ProductDetailPage catalogHref="/shop/" catalogLabel="sản phẩm" isLogo={false} product={product} related={related.docs} />
+    return <ProductDetailPage catalogHref="/shop/" catalogLabel="Sản Phẩm" isLogo={false} product={product} related={related.docs} />
   }
 
   const category = await resolveCategoryPath(path)

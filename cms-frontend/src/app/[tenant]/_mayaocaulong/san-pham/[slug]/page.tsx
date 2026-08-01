@@ -8,6 +8,7 @@ import { ProductViewTracker } from '../../_components/product-view-tracker'
 import { SiteFooter, SiteHeader, phoneHref, zaloHref } from '../../_components/info-pages'
 import {
   formatPrice,
+  getProductCatalogLinks,
   getProductColorTags,
   getProductBySlug,
   getProductDescriptionParagraphs,
@@ -82,6 +83,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const showInterestForm = await hasProductInterestForm()
   const badges = product.badges?.map((badge) => badge.label).filter((badge) => badge && badge.toLowerCase() !== 'mới') || []
   const colorTags = getProductColorTags(product)
+  const productCatalogLinks = getProductCatalogLinks(product)
+  const breadcrumbCategory = productCatalogLinks.find((link) => link.group === 'type') || productCatalogLinks[0]
   const discountPercent = product.compareAtPrice
     ? Math.max(1, Math.round(((product.compareAtPrice - product.price) / product.compareAtPrice) * 100))
     : 0
@@ -119,8 +122,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: 'https://mayaocaulong.vn/' },
-      { '@type': 'ListItem', position: 2, name: 'Sản phẩm', item: 'https://mayaocaulong.vn/san-pham/' },
-      { '@type': 'ListItem', position: 3, name: product.name, item: canonicalProductUrl },
+      { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: 'https://mayaocaulong.vn/san-pham/' },
+      ...(breadcrumbCategory ? [{ '@type': 'ListItem', position: 3, name: breadcrumbCategory.label, item: `https://mayaocaulong.vn${breadcrumbCategory.href}` }] : []),
+      { '@type': 'ListItem', position: breadcrumbCategory ? 4 : 3, name: product.name, item: canonicalProductUrl },
     ],
   }
 
@@ -142,12 +146,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <div className="product-crumbs">
           <Link className="inline-flex items-center gap-2" href="/">
             <ArrowLeft size={16} />
-            Về trang chủ
+            Trang chủ
           </Link>
           <span>/</span>
-          <Link href="/san-pham">Sản phẩm</Link>
+          <Link href="/san-pham/">Sản Phẩm</Link>
           <span>/</span>
-          <strong>{product.sku}</strong>
+          {breadcrumbCategory ? <><Link href={breadcrumbCategory.href}>{breadcrumbCategory.label}</Link><span>/</span></> : null}
+          <strong>{product.name}</strong>
         </div>
 
         <h1 className="product-page-title">{product.name}</h1>

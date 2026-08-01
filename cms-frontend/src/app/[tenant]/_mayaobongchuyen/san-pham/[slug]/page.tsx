@@ -3,7 +3,7 @@ import { ArrowLeft, Phone, ShieldCheck } from 'lucide-react'
 import { notFound } from 'next/navigation'
 
 import { ProductInterestForm } from '../../_components/product-interest-form'
-import { formatPrice, getProductBySlug, hasProductInterestForm } from '../../lib/content'
+import { formatPrice, getProductBreadcrumbCategory, getProductBySlug, hasProductInterestForm } from '../../lib/content'
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>
@@ -34,9 +34,23 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   if (!product) notFound()
 
   const image = product.gallery?.find((item) => item.url)
+  const productPath = `/san-pham/${product.slug || slug}`
+  const breadcrumbCategory = getProductBreadcrumbCategory(product)
+  const breadcrumbItems = [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: 'https://mayaobongchuyen.vn/' },
+    { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: 'https://mayaobongchuyen.vn/tim-kiem' },
+    ...(breadcrumbCategory ? [{ '@type': 'ListItem', position: 3, name: breadcrumbCategory.name, item: `https://mayaobongchuyen.vn/${breadcrumbCategory.slug}` }] : []),
+    { '@type': 'ListItem', position: breadcrumbCategory ? 4 : 3, name: product.name, item: `https://mayaobongchuyen.vn${productPath}` },
+  ]
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbItems,
+  }
 
   return (
     <main className="min-h-screen bg-[#080909] text-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <header className="sticky top-0 z-40 flex h-[72px] items-center justify-between border-b-[3px] border-[var(--accent)] bg-[#080909] px-4 shadow-[0_10px_28px_rgba(0,0,0,.22)] md:h-[82px] md:px-[clamp(20px,5vw,92px)]">
         <a className="flex items-center gap-3 uppercase" href="/">
           <span className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-full border-2 border-white/90 bg-[linear-gradient(135deg,var(--accent),#911410)] text-[13px] font-black text-white md:h-11 md:w-11">VB</span>
@@ -54,9 +68,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             Trang chủ
           </a>
           <span>/</span>
-          <a className="hover:text-white" href="/tim-kiem">Sản phẩm</a>
+          <a className="hover:text-white" href="/tim-kiem">Sản Phẩm</a>
           <span>/</span>
-          <span className="truncate">{product.sku}</span>
+          {breadcrumbCategory ? <><a className="hover:text-white" href={`/${breadcrumbCategory.slug}`}>{breadcrumbCategory.name}</a><span>/</span></> : null}
+          <span className="truncate">{product.name}</span>
         </nav>
 
         <h1 className="mb-5 max-w-5xl text-[20px] font-black leading-tight text-white lg:text-[22px]">{product.name}</h1>

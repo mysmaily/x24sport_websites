@@ -6,8 +6,21 @@ import { ProductInterestForm } from './product-interest-form'
 import { ProductGallery } from './product-gallery'
 import { ProductGrid } from './product-grid'
 import { ProductViewTracker } from './product-view-tracker'
-import { getProductImages, hasProductInterestForm, type Product } from '../lib/cms'
+import { getProductImages, hasProductInterestForm, type Product, type ProductCategory } from '../lib/cms'
 import { canonical, excerpt, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '../lib/site'
+
+function categoryPath(category: ProductCategory) {
+  if (category.slug === 'bo-quan-ao-bong-ro') return '/san-pham/'
+  if (category.slug === 'logo-doi-bong-ro') return '/logo-team/'
+  return `/san-pham/${category.slug}/`
+}
+
+function productBreadcrumbCategory(product: Product) {
+  const categories = (product.categories || []).filter(
+    (category): category is ProductCategory => typeof category === 'object',
+  )
+  return categories[0]
+}
 
 export async function ProductDetailPage({
   catalogHref,
@@ -25,6 +38,13 @@ export async function ProductDetailPage({
   const images = getProductImages(product)
   const productPath = `/san-pham/${product.slug}/`
   const showInterestForm = await hasProductInterestForm()
+  const breadcrumbCategory = productBreadcrumbCategory(product)
+  const breadcrumbItems = [
+    { name: 'Trang chủ', item: canonical('/') },
+    { name: 'Sản Phẩm', item: canonical('/san-pham/') },
+    ...(breadcrumbCategory ? [{ name: breadcrumbCategory.name, item: canonical(categoryPath(breadcrumbCategory)) }] : []),
+    { name: product.name, item: canonical(productPath) },
+  ]
 
   return (
     <>
@@ -36,8 +56,9 @@ export async function ProductDetailPage({
         tenantSlug="mayaobongro"
       />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Product', name: product.name, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productPath), brand: { '@type': 'Brand', name: 'X24 Sport' } }} />
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems.map((item, index) => ({ '@type': 'ListItem', position: index + 1, ...item })) }} />
       <article className="section-shell pb-16 sm:pb-22">
-        <nav className="flex gap-2 overflow-hidden py-5 text-xs text-slate-500" aria-label="Đường dẫn"><Link className="hover:text-brand" href="/">Trang chủ</Link><span>/</span><Link className="hover:text-brand" href={catalogHref}>{catalogLabel}</Link><span>/</span><span className="truncate text-slate-700">{product.name}</span></nav>
+        <nav className="flex gap-2 overflow-hidden py-5 text-xs text-slate-500" aria-label="Đường dẫn"><Link className="shrink-0 hover:text-brand" href="/">Trang chủ</Link><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href="/san-pham/">Sản Phẩm</Link>{breadcrumbCategory ? <><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={categoryPath(breadcrumbCategory)}>{breadcrumbCategory.name}</Link></> : null}<span className="shrink-0">/</span><span className="truncate text-slate-700">{product.name}</span></nav>
         <h1 className="mb-5 font-display text-[20px] font-bold leading-tight tracking-[-.01em] text-slate-950 lg:text-[22px]">{product.name}</h1>
 
         <div className="grid overflow-hidden rounded-3xl border border-slate-200 bg-white lg:grid-cols-[1.15fr_.85fr]">

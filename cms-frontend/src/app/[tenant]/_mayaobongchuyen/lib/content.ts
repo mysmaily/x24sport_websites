@@ -19,6 +19,7 @@ export type Product = {
   shortDescription: string
   gallery?: Array<{ url?: string; alt?: string; width?: number; height?: number; searchTags?: Array<{ value?: string }> }>
   searchTags?: Array<{ value?: string }>
+  categories?: Array<ProductCategory | string>
 }
 
 export type Post = { id: string; title: string; slug: string; excerpt: string }
@@ -347,6 +348,24 @@ export async function getProductBySlug(slug: string) {
   } catch {
     return null
   }
+}
+
+export function getProductBreadcrumbCategory(product: Product) {
+  const categories = (product.categories || []).filter(
+    (category): category is ProductCategory => typeof category === 'object',
+  )
+  if (categories.length) return categories.find((category) => category.group === 'type') || categories[0]
+
+  const text = [
+    product.name,
+    product.shortDescription,
+    ...(product.searchTags || []).map((tag) => tag.value || ''),
+    ...(product.gallery || []).flatMap((image) => image.searchTags?.map((tag) => tag.value || '') || []),
+  ]
+    .join(' ')
+    .toLocaleLowerCase('vi-VN')
+
+  return fallbackCategories.find((category) => text.includes(category.slug.replaceAll('-', ' '))) || null
 }
 
 export const formatPrice = (value: number) =>

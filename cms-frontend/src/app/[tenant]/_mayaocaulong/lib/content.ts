@@ -501,6 +501,26 @@ export function getProductColorTags(product: ProductDetail) {
   return deduped
 }
 
+export function getProductCatalogLinks(product: ProductDetail) {
+  const text = [
+    product.name,
+    product.shortDescription,
+    ...(product.searchTags || []).map((tag) => tag.value || ''),
+    ...(product.gallery || []).flatMap((image) => image.searchTags?.map((tag) => tag.value || '') || []),
+  ]
+    .join(' ')
+    .toLocaleLowerCase('vi-VN')
+
+  const colorLabels = getProductColorTags(product).map((tag) => tag.label.toLocaleLowerCase('vi-VN'))
+
+  return catalogFilters
+    .filter((filter) => {
+      const tag = filter.tag.toLocaleLowerCase('vi-VN')
+      return text.includes(tag) || colorLabels.some((label) => label.includes(tag) || tag.includes(label))
+    })
+    .slice(0, 5)
+}
+
 export const formatPrice = (value: number) =>
   new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value)
 

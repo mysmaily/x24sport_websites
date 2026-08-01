@@ -92,6 +92,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const discountPercent = getDiscountPercent(product)
   const promotionSavings = compareAtPrice ? compareAtPrice - product.price : 0
   const relatedCatalogLinks = getProductCatalogLinks(product)
+  const breadcrumbCategory = relatedCatalogLinks.find((link) => link.group === 'type') || relatedCatalogLinks[0]
   const colorSummary = colorTags.length ? colorTags.map((tag) => tag.label).join(', ') : 'Thiết kế theo màu đội'
 
   const productSpecs = [
@@ -117,7 +118,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         data={[
           breadcrumbJsonLd([
             { name: 'Trang chủ', path: '/' },
-            { name: 'Sản phẩm', path: '/san-pham' },
+            { name: 'Sản Phẩm', path: '/san-pham/' },
+            ...(breadcrumbCategory ? [{ name: breadcrumbCategory.label, path: breadcrumbCategory.href }] : []),
             { name: product.name, path: `/san-pham/${product.slug}` },
           ]),
           productJsonLd(product),
@@ -129,12 +131,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <div className="product-crumbs">
           <Link className="inline-flex items-center gap-2" href="/">
             <ArrowLeft size={16} />
-            Về trang chủ
+            Trang chủ
           </Link>
           <span>/</span>
-          <Link href="/san-pham">Sản phẩm</Link>
+          <Link href="/san-pham/">Sản Phẩm</Link>
           <span>/</span>
-          <strong>{product.sku}</strong>
+          {breadcrumbCategory ? <><Link href={breadcrumbCategory.href}>{breadcrumbCategory.label}</Link><span>/</span></> : null}
+          <strong>{product.name}</strong>
         </div>
 
         <h1 className="product-title-heading">{product.name}</h1>
