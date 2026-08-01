@@ -182,14 +182,9 @@ export function CatalogPageContent({
                   <h2>
                     <Link href={`/san-pham/${product.slug}`}>{product.name}</Link>
                   </h2>
-                  <p>{product.shortDescription}</p>
                   <div className="catalog-price">
                     <strong>{formatPrice(product.price)}</strong>
                     {compareAtPrice ? <span>{formatPrice(compareAtPrice)}</span> : null}
-                  </div>
-                  <div className="catalog-card-actions">
-                    <Link href={`/san-pham/${product.slug}`}>Xem chi tiết</Link>
-                    <a href={zaloHref}>Nhắn Zalo</a>
                   </div>
                 </div>
               </article>

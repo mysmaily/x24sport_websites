@@ -703,8 +703,8 @@ body.tenant-mayaopickleball .product-card-fallback, body.tenant-mayaopickleball 
 
 body.tenant-mayaopickleball .product-card-body, body.tenant-mayaopickleball .catalog-card-body {
   display: grid;
-  gap: 12px;
-  padding: 20px;
+  gap: 10px;
+  padding: 14px;
 }
 
 body.tenant-mayaopickleball .product-card-meta, body.tenant-mayaopickleball .catalog-card-topline {
@@ -726,9 +726,18 @@ body.tenant-mayaopickleball .product-card h3 {
 }
 
 body.tenant-mayaopickleball .catalog-card h2 {
-  font-size: 18px;
+  display: -webkit-box;
+  min-height: calc(14px * 1.35 * 2);
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 14px;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.35;
+}
+
+body.tenant-mayaopickleball .catalog-card h2 a {
+  overflow-wrap: anywhere;
 }
 
 body.tenant-mayaopickleball .product-card p, body.tenant-mayaopickleball .catalog-card p, body.tenant-mayaopickleball .buyer-grid p, body.tenant-mayaopickleball .process-grid p, body.tenant-mayaopickleball .fabric-grid p, body.tenant-mayaopickleball .article-grid p {
@@ -740,6 +749,8 @@ body.tenant-mayaopickleball .product-card-price, body.tenant-mayaopickleball .ca
   display: flex;
   align-items: baseline;
   gap: 10px;
+  min-width: 0;
+  white-space: nowrap;
 }
 
 body.tenant-mayaopickleball .product-card-price strong, body.tenant-mayaopickleball .catalog-price strong {
@@ -752,6 +763,18 @@ body.tenant-mayaopickleball .product-card-price span, body.tenant-mayaopicklebal
   color: var(--muted);
   font-size: 21px;
   text-decoration: line-through;
+}
+
+body.tenant-mayaopickleball .catalog-price {
+  gap: 6px;
+}
+
+body.tenant-mayaopickleball .catalog-price strong {
+  font-size: 18px;
+}
+
+body.tenant-mayaopickleball .catalog-price span {
+  font-size: 16px;
 }
 
 body.tenant-mayaopickleball .text-link {
@@ -1563,7 +1586,7 @@ body.tenant-mayaopickleball .catalog-card {
   border: 1px solid rgba(16, 19, 26, 0.07);
   border-radius: var(--radius-md);
   background: white;
-  box-shadow: 0 16px 44px rgba(26, 42, 32, 0.1);
+  box-shadow: 0 12px 30px rgba(26, 42, 32, 0.08);
 }
 
 body.tenant-mayaopickleball .catalog-card-media {
@@ -4056,12 +4079,8 @@ body.tenant-mayaopickleball .home-reviews-track::-webkit-scrollbar {
   }
 
   body.tenant-mayaopickleball .catalog-card h2 {
-    font-size: 18px;
-    line-height: 1.22;
-  }
-
-  body.tenant-mayaopickleball .catalog-card p {
-    display: none;
+    font-size: 14px;
+    line-height: 1.35;
   }
 
   body.tenant-mayaopickleball .catalog-price {
@@ -4080,10 +4099,6 @@ body.tenant-mayaopickleball .home-reviews-track::-webkit-scrollbar {
     grid-template-columns: 1fr;
     margin-right: 16px;
     margin-left: 16px;
-  }
-
-  body.tenant-mayaopickleball .catalog-card-actions {
-    grid-template-columns: 1fr;
   }
 
   body.tenant-mayaopickleball .product-meta {
@@ -6012,25 +6027,25 @@ body.tenant-mayaopickleball .product-deal-savings {
 
 body.tenant-mayaopickleball .catalog-price {
   flex-wrap: nowrap;
-  gap: 8px;
+  gap: 6px;
   white-space: nowrap;
 }
 
 body.tenant-mayaopickleball .catalog-price strong {
-  font-size: 22px;
+  font-size: 18px;
 }
 
 body.tenant-mayaopickleball .catalog-price span {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 @media (max-width: 760px) {
   body.tenant-mayaopickleball .catalog-price strong {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   body.tenant-mayaopickleball .catalog-price span {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
