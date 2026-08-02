@@ -133,8 +133,8 @@ body.tenant-mayaobongda .promo-hero-slider::before {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(90deg, rgba(2, 6, 23, .96) 0%, rgba(2, 6, 23, .9) 28%, rgba(2, 6, 23, .55) 50%, rgba(2, 6, 23, .18) 74%, rgba(2, 6, 23, .04) 100%),
-    linear-gradient(0deg, rgba(2, 6, 23, .34), rgba(2, 6, 23, .08) 42%, rgba(2, 6, 23, .22));
+    linear-gradient(90deg, rgba(2, 6, 23, .97) 0%, rgba(2, 6, 23, .91) 29%, rgba(2, 6, 23, .62) 48%, rgba(2, 6, 23, .2) 70%, rgba(2, 6, 23, .06) 100%),
+    linear-gradient(0deg, rgba(2, 6, 23, .28), rgba(2, 6, 23, .05) 46%, rgba(2, 6, 23, .2));
   pointer-events: none;
 }
 
@@ -154,10 +154,10 @@ body.tenant-mayaobongda .promo-hero-slider::after {
 body.tenant-mayaobongda .promo-hero-image {
   z-index: 0;
   object-fit: cover;
-  object-position: center;
+  object-position: center center;
   opacity: 0;
   animation: mayaobongda-promo-crossfade 9s ease-in-out infinite;
-  transform: scale(1.012);
+  transform: scale(1.01);
 }
 
 body.tenant-mayaobongda .promo-hero-image:nth-of-type(2) {
@@ -168,7 +168,9 @@ body.tenant-mayaobongda .promo-hero-readable-overlay {
   position: absolute;
   inset: 0;
   z-index: 3;
-  background: linear-gradient(90deg, rgba(0, 0, 0, .28), rgba(0, 0, 0, 0) 58%);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, .24) 0%, rgba(0, 0, 0, .12) 34%, rgba(0, 0, 0, 0) 62%),
+    radial-gradient(circle at 55% 50%, rgba(2, 6, 23, .26), rgba(2, 6, 23, 0) 34%);
   pointer-events: none;
 }
 
@@ -258,13 +260,6 @@ body.tenant-mayaobongda .promo-hero-dots span:first-child {
 @keyframes mayaobongda-loading-spin {
   to {
     transform: rotate(360deg);
-  }
-}
-
-@media (min-width: 1024px) {
-  body.tenant-mayaobongda .promo-hero-image {
-    object-fit: contain;
-    object-position: right center;
   }
 }
 

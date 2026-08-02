@@ -9,11 +9,11 @@ type PromoSlide = {
 const slides: PromoSlide[] = [
   {
     alt: 'Khuyến mãi áo bóng đá thiết kế từ 119K, miễn phí thiết kế và in tên số',
-    src: '/images/mayaobongda/home/football-promo-119k-blue.webp',
+    src: '/images/mayaobongda/home/football-promo-119k-blue-wide.webp',
   },
   {
     alt: 'Khuyến mãi áo bóng đá đỏ đen thiết kế từ 119K, miễn phí thiết kế và in tên số',
-    src: '/images/mayaobongda/home/football-promo-119k-red.webp',
+    src: '/images/mayaobongda/home/football-promo-119k-red-wide.webp',
   },
 ]
 
