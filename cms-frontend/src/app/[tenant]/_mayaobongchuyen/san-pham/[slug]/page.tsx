@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { ProductInterestForm } from '../../_components/product-interest-form'
 import { formatPrice, getProductBreadcrumbCategory, getProductBySlug, hasProductInterestForm } from '../../lib/content'
+import { ProductGallery } from './product-gallery'
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>
@@ -33,7 +34,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const [product, showInterestForm] = await Promise.all([getProductBySlug(slug), hasProductInterestForm()])
   if (!product) notFound()
 
-  const image = product.gallery?.find((item) => item.url)
+  const images = product.gallery || []
   const productPath = `/san-pham/${product.slug || slug}`
   const breadcrumbCategory = getProductBreadcrumbCategory(product)
   const breadcrumbItems = [
@@ -77,11 +78,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <h1 className="mb-5 max-w-5xl text-[20px] font-black leading-tight text-white lg:text-[22px]">{product.name}</h1>
 
         <div className="grid overflow-hidden border border-[var(--line)] bg-white/6 lg:grid-cols-[1.08fr_.92fr]">
-          <div className="relative flex min-h-[340px] items-center justify-center bg-[#111] p-5 sm:min-h-[520px]">
-            {image?.url ? (
-              <img className="max-h-[640px] w-full object-contain" src={image.url} alt={image.alt || product.name} width={image.width || 900} height={image.height || 900} />
+          <div className="relative bg-[#111]">
+            {images.some((image) => image.url) ? (
+              <ProductGallery images={images} productName={product.name} />
             ) : (
-              <ShieldCheck className="text-[var(--accent)]" size={64} />
+              <div className="flex aspect-square min-h-[340px] items-center justify-center sm:min-h-[520px]">
+                <ShieldCheck className="text-[var(--accent)]" size={64} />
+              </div>
             )}
           </div>
 

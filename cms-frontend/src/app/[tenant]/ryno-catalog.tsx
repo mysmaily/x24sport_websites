@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { ArrowRight, CheckCircle2, Phone, Ruler, Search, Shirt, Sparkles, SwatchBook } from 'lucide-react'
 
 import { JsonLd } from '../_components/json-ld'
+import { ProductMediaGallery } from '../_components/product-media-gallery'
 import type { ProductPreview, SportCategory } from '../../lib/catalog'
 import { getCategories, getCategory, getProductBySlug, getProductsPage, getRelatedProducts, productImages } from '../../lib/content'
 import { RynoSiteFooter, RynoSiteHeader } from './ryno-shell'
@@ -157,7 +158,7 @@ export async function RynoProductPage({ slug }: { slug: string }) {
   if (!product) notFound()
 
   const related = await getRelatedProducts(product)
-  const image = productImages(product)[0]
+  const images = productImages(product)
   const category = typeof product.categories?.[0] === 'object' ? product.categories[0] : undefined
   const categoryHref = `/danh-muc/${category?.slug || 'bong-da'}/`
   const inStock = product.stockStatus !== 'outofstock'
@@ -165,7 +166,7 @@ export async function RynoProductPage({ slug }: { slug: string }) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
-    image: productImages(product).map((item) => item.url),
+    image: images.map((item) => item.url),
     ...(product.shortDescription ? { description: product.shortDescription } : {}),
     ...(product.sku ? { sku: product.sku } : {}),
     brand: { '@type': 'Brand', name: 'RynoSport' },
@@ -210,13 +211,7 @@ export async function RynoProductPage({ slug }: { slug: string }) {
 
       <section className="ryno-detail-main" aria-label="Thông tin sản phẩm">
         <div className="ryno-detail-image">
-          {image ? <Image
-            src={image.url}
-            alt={image.alt || product.name}
-            width={1000}
-            height={1000}
-            priority
-          /> : <div aria-label="Chưa có ảnh sản phẩm" />}
+          <ProductMediaGallery fallbackText="Ryno" images={images} productName={product.name} variant="utility" />
         </div>
         <div className="ryno-detail-copy">
           <div className="ryno-detail-price">
