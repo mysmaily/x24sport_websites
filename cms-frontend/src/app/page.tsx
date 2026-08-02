@@ -17,7 +17,7 @@ function ProductShelf({ title, subtitle, category, products: items }: { title: s
   return (
     <section className="product-shelf">
       <Link className="shelf-promo" href={`/danh-muc/${category.slug}`}>
-        <Image src={category.image} alt={`Trang phục ${category.name} X24Sport`} fill sizes="(max-width: 760px) 100vw, 25vw" />
+        <Image src={category.promoImage || category.image} alt={`Trang phục ${category.name} X24Sport`} fill sizes="(max-width: 760px) 100vw, 25vw" />
         <div className="shelf-promo-copy"><span>X24 COLLECTION</span><strong>{category.name}</strong><small>Xem bộ sưu tập <ArrowRight size={15} /></small></div>
       </Link>
       <div className="shelf-products">

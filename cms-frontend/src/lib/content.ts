@@ -137,6 +137,7 @@ function mapCategory(category: CmsCategory, index: number): SportCategory {
     eyebrow: design?.eyebrow || 'Trang phục thể thao',
     description: category.description || design?.description || '',
     tone: design?.tone || '#ed642d', image: design?.image || '/images/football.jpg',
+    promoImage: design?.promoImage,
     parentSlug: design?.parentSlug,
   }
 }
@@ -352,7 +353,7 @@ export async function getCatalogData() {
   const categories = await getCategories()
   const shelves = await Promise.all(categories.map(async (category) => ({
     category,
-    products: (await getProductsPage({ categorySlug: category.slug, limit: 4 })).products,
+    products: (await getProductsPage({ categorySlug: category.slug, limit: 8 })).products,
   })))
   return { categories, shelves }
 }

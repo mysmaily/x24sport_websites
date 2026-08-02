@@ -6,6 +6,7 @@ export type SportCategory = {
   description: string
   tone: string
   image: string
+  promoImage?: string
   parentSlug?: string
 }
 
@@ -53,6 +54,7 @@ export const categories: SportCategory[] = [
     slug: 'bong-da', index: '01', name: 'Bóng đá', eyebrow: 'Tốc độ · Đồng đội', tone: '#ff5b35',
     description: 'Áo bóng đá, giày, quả bóng và phụ kiện cho đội bóng, câu lạc bộ.',
     image: '/images/football.jpg',
+    promoImage: '/images/categories/football-teamwear-promo.webp',
   },
   {
     slug: 'cau-long', index: '02', name: 'Cầu lông', eyebrow: 'Linh hoạt · Nhẹ thoáng', tone: '#a7df3d',
