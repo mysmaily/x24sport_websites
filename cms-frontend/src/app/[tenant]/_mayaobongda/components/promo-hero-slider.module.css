@@ -30,6 +30,11 @@
   animation: promoHeroFade 10s infinite;
 }
 
+.slider[data-count='1'] .slide {
+  opacity: 1;
+  animation: none;
+}
+
 .picture {
   position: absolute;
   inset: 0;
@@ -83,6 +88,10 @@
 
 .dots span:nth-child(2) {
   animation-delay: 5s;
+}
+
+.slider[data-count='1'] .dots {
+  display: none;
 }
 
 @keyframes promoHeroFade {

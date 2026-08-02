@@ -10,11 +10,6 @@ type PromoSlide = {
 
 const slides: PromoSlide[] = [
   {
-    alt: 'Áo chạy bộ gradient thiết kế riêng cho đội nhóm với chất vải co giãn, thoáng khí và may theo đội',
-    mobileSrc: '/images/mayaochaybo/home/running-promo-gradient-fabric-mobile.webp',
-    src: '/images/mayaochaybo/home/running-promo-gradient-fabric-wide.webp',
-  },
-  {
     alt: 'Áo chạy bộ màu trắng phong cách Việt Nam có thể in logo đội, tên nhóm, số áo và duyệt mẫu trước',
     mobileSrc: '/images/mayaochaybo/home/running-promo-vietnam-mobile.webp',
     src: '/images/mayaochaybo/home/running-promo-vietnam-wide.webp',
@@ -28,7 +23,7 @@ const slides: PromoSlide[] = [
 
 export function PromoHeroSlider() {
   return (
-    <section aria-label="Hình ảnh may áo chạy bộ thiết kế riêng" className={styles.slider}>
+    <section aria-label="Hình ảnh may áo chạy bộ thiết kế riêng" className={styles.slider} data-count={slides.length}>
       <div aria-hidden="true" className={styles.loader}><LoaderCircle size={28} /></div>
       {slides.map((slide, index) => (
         <div className={styles.slide} key={slide.src} style={{ animationDelay: `${index * 5}s` }}>
