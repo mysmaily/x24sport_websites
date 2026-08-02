@@ -36,17 +36,17 @@ export default async function HomePage() {
     <JsonLd data={{ '@context': 'https://schema.org', '@type': 'OnlineStore', name: SITE_NAME, url: SITE_URL, logo: LOGO_URL, telephone: '+84989353247' }} />
     <section className="relative overflow-hidden bg-[#0b1220] text-white">
       <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:56px_56px]" />
-      <div className="section-shell relative z-10 grid min-h-[720px] items-center gap-10 py-12 lg:grid-cols-[.94fr_1.06fr] lg:py-16 xl:gap-14">
+      <div className="section-shell relative z-10 grid min-h-[560px] items-center gap-10 py-7 sm:min-h-[720px] sm:py-12 lg:grid-cols-[.94fr_1.06fr] lg:py-16 xl:gap-14">
         <div className="z-10 min-w-0 max-w-3xl">
-          <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-[.1em] text-orange-200 sm:text-xs sm:tracking-[.16em]"><TimerReset className="shrink-0" size={16} /><span className="sm:hidden">Thiết kế riêng · Duyệt maket</span><span className="hidden sm:inline">May trực tiếp tại xưởng · Duyệt maket trước</span></p>
-          <h1 className="mt-7 max-w-[760px] font-display text-[3.25rem] font-extrabold leading-[.9] tracking-[.012em] sm:text-[4.75rem] lg:text-[clamp(4.4rem,5.25vw,6.15rem)]">ÁO BÓNG ĐÁ<br /><span className="text-brand">THIẾT KẾ RIÊNG</span></h1>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">Chọn mẫu làm điểm xuất phát, rồi tinh chỉnh màu sắc, logo, tên số và nội dung theo đúng nhận diện đội bóng hoặc giải đấu của bạn.</p>
+          <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-[10px] font-black uppercase tracking-[.08em] text-orange-200 sm:px-4 sm:text-xs sm:tracking-[.16em]"><TimerReset className="shrink-0" size={16} /><span className="sm:hidden">Thiết kế riêng · Duyệt maket</span><span className="hidden sm:inline">May trực tiếp tại xưởng · Duyệt maket trước</span></p>
+          <h1 className="mt-5 max-w-[760px] font-display text-[2.55rem] font-extrabold leading-[.9] tracking-[.012em] sm:mt-7 sm:text-[4.75rem] lg:text-[clamp(4.4rem,5.25vw,6.15rem)]">ÁO BÓNG ĐÁ<br /><span className="text-brand">THIẾT KẾ RIÊNG</span></h1>
+          <p className="mt-4 max-w-xl text-sm leading-6 text-slate-300 sm:mt-5 sm:max-w-2xl sm:text-lg sm:leading-7">Chọn mẫu rồi tinh chỉnh màu sắc, logo, tên số theo nhận diện đội bóng hoặc giải đấu của bạn.</p>
 
-          <ul className="mt-6 grid gap-2 sm:grid-cols-3" aria-label="Doi tuong khach hang chinh">
+          <div className="mt-5 grid max-w-sm gap-3 sm:mt-7 sm:max-w-lg sm:flex sm:flex-wrap"><Link className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black uppercase transition duration-200 hover:bg-brand-dark sm:min-h-13" href="/shop/">Xem mẫu áo <ArrowRight size={19} /></Link><a className="hidden min-h-13 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-sm font-black transition duration-200 hover:border-white/50 hover:bg-white/10 sm:inline-flex" href={ZALO_URL} rel="noreferrer" target="_blank">Nhận tư vấn thiết kế</a></div>
+
+          <ul className="mt-6 hidden gap-2 sm:grid sm:grid-cols-3" aria-label="Doi tuong khach hang chinh">
             {audiences.map(({ href, icon: Icon, label, text }) => <li className="min-w-0" key={label}><Link className="group block h-full rounded-xl border border-white/10 bg-white/[.055] p-3.5 backdrop-blur transition duration-200 hover:-translate-y-0.5 hover:border-brand/50 hover:bg-white/[.085] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={href}><Icon className="text-brand" size={21} /><strong className="mt-3 flex items-center gap-1.5 text-sm font-black text-white">{label}<ArrowRight className="opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-100" size={14} /></strong><span className="mt-1 block text-[11px] leading-4 text-slate-400">{text}</span></Link></li>)}
           </ul>
-
-          <div className="mt-7 grid max-w-lg gap-3 sm:flex sm:flex-wrap"><Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black transition duration-200 hover:bg-brand-dark" href="/shop/">Khám phá mẫu áo <ArrowRight size={19} /></Link><a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-sm font-black transition duration-200 hover:border-white/50 hover:bg-white/10" href={ZALO_URL} rel="noreferrer" target="_blank">Nhận tư vấn thiết kế</a></div>
         </div>
       </div>
       <PromoHeroSlider />

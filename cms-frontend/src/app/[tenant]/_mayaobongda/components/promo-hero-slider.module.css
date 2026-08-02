@@ -1,9 +1,10 @@
 .slider {
   position: absolute;
   inset: 0;
+  z-index: 0;
   overflow: hidden;
   background:
-    radial-gradient(circle at 78% 20%, rgba(249, 82, 30, 0.2), transparent 32%),
+    radial-gradient(circle at 76% 22%, rgba(241, 90, 36, 0.16), transparent 32%),
     linear-gradient(90deg, #030712 0%, #06101f 52%, #091221 100%);
 }
 
@@ -26,7 +27,7 @@
   inset: 0;
   z-index: 1;
   opacity: 0;
-  animation: promoHeroFade 15s infinite;
+  animation: promoHeroFade 10s infinite;
 }
 
 .picture {
@@ -48,8 +49,8 @@
   z-index: 2;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(3, 7, 18, 0.99) 0%, rgba(3, 7, 18, 0.94) 34%, rgba(3, 7, 18, 0.62) 50%, rgba(3, 7, 18, 0.2) 64%, rgba(3, 7, 18, 0.08) 100%),
-    linear-gradient(180deg, rgba(3, 7, 18, 0.3) 0%, transparent 22%, transparent 72%, rgba(3, 7, 18, 0.36) 100%);
+    linear-gradient(90deg, rgba(3, 7, 18, 0.99) 0%, rgba(3, 7, 18, 0.95) 33%, rgba(3, 7, 18, 0.6) 51%, rgba(3, 7, 18, 0.18) 66%, rgba(3, 7, 18, 0.08) 100%),
+    linear-gradient(180deg, rgba(3, 7, 18, 0.28) 0%, transparent 22%, transparent 74%, rgba(3, 7, 18, 0.34) 100%);
 }
 
 .dots {
@@ -73,7 +74,7 @@
   height: 0.55rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.42);
-  animation: promoHeroDot 15s infinite;
+  animation: promoHeroDot 10s infinite;
 }
 
 .dots span:nth-child(1) {
@@ -84,18 +85,14 @@
   animation-delay: 5s;
 }
 
-.dots span:nth-child(3) {
-  animation-delay: 10s;
-}
-
 @keyframes promoHeroFade {
   0%,
-  30% {
+  45% {
     opacity: 1;
   }
 
-  36%,
-  94% {
+  53%,
+  92% {
     opacity: 0;
   }
 
@@ -106,12 +103,12 @@
 
 @keyframes promoHeroDot {
   0%,
-  30% {
+  45% {
     width: 1.35rem;
     background: #ffffff;
   }
 
-  36%,
+  53%,
   100% {
     width: 0.55rem;
     background: rgba(255, 255, 255, 0.42);
@@ -127,21 +124,15 @@
 @media (max-width: 1023px) {
   .readableOverlay {
     background:
-      linear-gradient(90deg, rgba(3, 7, 18, 0.98) 0%, rgba(3, 7, 18, 0.9) 46%, rgba(3, 7, 18, 0.36) 78%, rgba(3, 7, 18, 0.2) 100%),
-      linear-gradient(180deg, rgba(3, 7, 18, 0.36) 0%, transparent 30%, rgba(3, 7, 18, 0.45) 100%);
+      linear-gradient(90deg, rgba(3, 7, 18, 0.98) 0%, rgba(3, 7, 18, 0.9) 50%, rgba(3, 7, 18, 0.46) 100%),
+      linear-gradient(180deg, rgba(3, 7, 18, 0.28) 0%, rgba(3, 7, 18, 0.1) 44%, rgba(3, 7, 18, 0.64) 100%);
   }
 }
 
 @media (max-width: 640px) {
-  .readableOverlay {
-    background:
-      linear-gradient(90deg, rgba(3, 7, 18, 0.98) 0%, rgba(3, 7, 18, 0.92) 58%, rgba(3, 7, 18, 0.62) 100%),
-      linear-gradient(180deg, rgba(3, 7, 18, 0.24) 0%, rgba(3, 7, 18, 0.12) 45%, rgba(3, 7, 18, 0.66) 100%);
-  }
-
   .dots {
     right: 50%;
-    bottom: 1.25rem;
+    bottom: 1.1rem;
     transform: translateX(50%);
   }
 }
