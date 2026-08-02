@@ -12,8 +12,8 @@ const slides: PromoSlide[] = [
     src: '/images/mayaobongda/home/football-promo-119k-blue-wide.webp',
   },
   {
-    alt: 'Đặt áo bóng đá thiết kế riêng, gửi logo đội để nhận maket nhanh và duyệt trước khi may',
-    src: '/images/mayaobongda/home/football-custom-mockup-fast-wide.webp',
+    alt: 'Bộ sưu tập áo bóng đá 2026 với mẫu áo trắng cam xanh, tuỳ chọn cổ áo, size và in tên số theo đội',
+    src: '/images/mayaobongda/home/football-2026-collection-orange-wide.webp',
   },
 ]
 
