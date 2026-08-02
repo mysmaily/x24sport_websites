@@ -11,7 +11,7 @@ type PromoSlide = {
 const slides: PromoSlide[] = [
   {
     alt: 'Áo chạy bộ gradient thiết kế riêng cho đội nhóm với chất vải co giãn, thoáng khí và may theo đội',
-    src: '/images/mayaochaybo/home/running-promo-gradient-wide.webp',
+    src: '/images/mayaochaybo/home/running-promo-gradient-fabric-wide.webp',
   },
   {
     alt: 'Áo chạy bộ màu trắng phong cách Việt Nam có thể in logo đội, tên nhóm, số áo và duyệt mẫu trước',

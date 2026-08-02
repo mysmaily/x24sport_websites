@@ -13,7 +13,7 @@ const slides: PromoSlide[] = [
   },
   {
     alt: 'Đặt áo bóng đá thiết kế riêng với mẫu áo trắng cam xanh, nhận maket nhanh và duyệt trước khi may',
-    src: '/images/mayaobongda/home/football-custom-mockup-reference-wide.webp',
+    src: '/images/mayaobongda/home/football-custom-mockup-reference-fabric-wide.webp',
   },
 ]
 
@@ -30,6 +30,7 @@ export function PromoHeroSlider() {
           priority={index === 0}
           sizes="100vw"
           src={slide.src}
+          unoptimized
         />
       ))}
       <div aria-hidden="true" className="promo-hero-readable-overlay" />
