@@ -60,11 +60,13 @@ export const categories: SportCategory[] = [
     slug: 'cau-long', index: '02', name: 'Cầu lông', eyebrow: 'Linh hoạt · Nhẹ thoáng', tone: '#a7df3d',
     description: 'Áo cầu lông, giày và phụ kiện cho cá nhân, câu lạc bộ hoặc đội nhóm.',
     image: '/images/badminton.jpg',
+    promoImage: '/images/categories/badminton-teamwear-promo.webp',
   },
   {
     slug: 'bong-chuyen', index: '03', name: 'Bóng chuyền', eyebrow: 'Bứt phá · Bền bỉ', tone: '#5d8cff',
     description: 'Áo bóng chuyền, giày, quả bóng và phụ kiện cho đội nam, nữ và giải phong trào.',
     image: '/images/volleyball.jpg',
+    promoImage: '/images/categories/volleyball-teamwear-promo.webp',
   },
   {
     slug: 'bong-ro', index: '04', name: 'Bóng rổ', eyebrow: 'Năng lượng · Cá tính', tone: '#ffb52e',
