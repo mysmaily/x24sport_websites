@@ -2,10 +2,10 @@ import { ArrowRight, BadgeCheck, Building2, CalendarDays, Flag, Palette, Ruler, 
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-import { HeroGallery, type HeroSlide } from './components/hero-gallery'
 import { JsonLd } from './components/json-ld'
+import { PromoHeroSlider } from './components/promo-hero-slider'
 import { ProductGrid } from './components/product-grid'
-import { getCategories, getLatestPosts, getProducts, productImages, productPath } from './lib/cms'
+import { getCategories, getLatestPosts, getProducts } from './lib/cms'
 import { DEFAULT_OG_IMAGE, excerpt, LOGO_URL, SITE_URL, ZALO_URL } from './lib/site'
 
 export const dynamic = 'force-dynamic'
@@ -44,17 +44,13 @@ const categoryCardBackground = '/images/mayaochaybo/home/running-shirt-category-
 
 export default async function HomePage() {
   const [catalog, posts, categoryResult] = await Promise.all([getProducts({ limit: 8 }), getLatestPosts(3), getCategories()])
-  const heroSlides: HeroSlide[] = catalog.docs.flatMap((product) => {
-    const image = productImages(product)[0]
-    return image ? [{ alt: image.alt || product.name, href: productPath(product), name: product.name, src: image.url }] : []
-  }).slice(0, 5)
   const categories = categoryResult.docs.filter((item) => item.group !== 'color').slice(0, 5)
 
   return <>
     <JsonLd data={{ '@context': 'https://schema.org', '@type': 'OnlineStore', name: 'May Áo Chạy Bộ', url: SITE_URL, logo: LOGO_URL, telephone: '+84989353247' }} />
     <section className="relative overflow-hidden bg-[#0b1220] text-white">
-      <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:56px_56px]" />
-      <div className="section-shell relative grid min-h-[720px] items-center gap-10 py-12 lg:grid-cols-[.94fr_1.06fr] lg:py-16 xl:gap-14">
+      <PromoHeroSlider />
+      <div className="section-shell relative flex min-h-[720px] items-center py-12 lg:py-16">
         <div className="z-10 min-w-0 max-w-3xl">
           <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-[.1em] text-orange-200 sm:text-xs sm:tracking-[.16em]"><TimerReset className="shrink-0" size={16} /><span className="sm:hidden">Thiết kế riêng · Duyệt maket</span><span className="hidden sm:inline">May theo nhận diện riêng · Duyệt maket trước</span></p>
           <h1 className="mt-7 max-w-[760px] font-display text-[3.25rem] font-extrabold leading-none tracking-[.012em] sm:text-[4.75rem] lg:text-[clamp(4.4rem,5.25vw,6.15rem)]">
@@ -69,7 +65,6 @@ export default async function HomePage() {
 
           <div className="mt-7 grid max-w-lg gap-3 sm:flex sm:flex-wrap"><Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black transition duration-200 hover:bg-brand-dark" href="/san-pham/">Khám phá mẫu áo <ArrowRight size={19} /></Link><a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-sm font-black transition duration-200 hover:border-white/50 hover:bg-white/10" href={ZALO_URL} rel="noreferrer" target="_blank">Nhận tư vấn thiết kế</a></div>
         </div>
-        <HeroGallery slides={heroSlides} totalProducts={catalog.totalDocs} />
       </div>
     </section>
 
