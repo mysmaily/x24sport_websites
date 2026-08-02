@@ -15,7 +15,7 @@ const pricingLinks: Record<string, string> = {
 
 export function Logo() {
   return (
-    <Link className="logo" href="/" title="X24Sport – Trang chủ">
+    <Link className="logo" href="/" title="X24Sport - Trang chủ">
       <Image
         src={HEADER_LOGO_SRC}
         alt="X24Sport"
@@ -31,7 +31,7 @@ export function SiteHeader() {
   return (
     <>
       <a className="skip-link" href="#noi-dung">Bỏ qua điều hướng</a>
-      <div className="top-strip">X24SPORT — TRANG PHỤC THỂ THAO THIẾT KẾ</div>
+      <div className="top-strip">X24SPORT - TRANG PHỤC THỂ THAO THIẾT KẾ</div>
       <header className="commerce-header">
         <div className="header-main site-container">
           <details className="mobile-nav">
