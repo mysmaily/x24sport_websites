@@ -12,8 +12,8 @@ const slides: PromoSlide[] = [
     src: '/images/mayaobongda/home/football-promo-119k-blue-wide.webp',
   },
   {
-    alt: 'Khuyến mãi áo bóng đá đỏ đen thiết kế từ 119K, miễn phí thiết kế và in tên số',
-    src: '/images/mayaobongda/home/football-promo-119k-red-wide.webp',
+    alt: 'Đặt áo bóng đá thiết kế riêng, gửi logo đội để nhận maket nhanh và duyệt trước khi may',
+    src: '/images/mayaobongda/home/football-custom-mockup-fast-wide.webp',
   },
 ]
 
