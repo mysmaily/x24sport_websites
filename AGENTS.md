@@ -420,22 +420,23 @@ expand the task into an optimization audit.
 
 ### Mobile-first UI priority
 
-When building, redesigning, or editing a public interface, treat mobile as the
+When building, redesigning, or editing a public interface, treat mobile as a
 primary customer experience unless the user explicitly scopes the work to
-desktop only. X24Sport mayao tenants should be designed and verified mobile
-first because most shoppers browse on phones.
+desktop only. X24Sport mayao tenants should be designed and verified on phones
+because most shoppers browse there, but mobile changes must not degrade desktop
+layout, brand seriousness, or the existing visual hierarchy.
 
 - Start layout decisions from `390x844` and nearby mobile widths, then expand to
   tablet and desktop.
-- On homepage and landing-page heroes, the primary shopping CTA, such as
-  `Xem mẫu áo`, must be visible in the first mobile viewport without requiring
-  the user to scroll or hunt past secondary cards.
+- On homepage and landing-page heroes, keep the primary shopping CTA easy to
+  reach on mobile, but do not shrink the hero, trivialize typography, hide
+  important context, or create oversized call-to-action blocks solely to force it
+  above the fold.
 - Use mobile-specific image crops for large hero/banner media when a desktop
   crop wastes bytes or hides the subject on phone screens.
-- Do not let decorative cards, audience chips, long copy, or secondary CTAs push
-  the primary mobile action below the fold.
-- Verify mobile screenshots and rendered measurements before calling a UI change
-  complete; desktop-only screenshots are not enough for public-facing changes.
+- Verify mobile and desktop screenshots and rendered measurements before calling
+  a UI change complete; one viewport passing is not enough for public-facing
+  changes.
 
 ### 1. Establish scope and baseline
 
