@@ -261,6 +261,13 @@ body.tenant-mayaobongda .promo-hero-dots span:first-child {
   }
 }
 
+@media (min-width: 1024px) {
+  body.tenant-mayaobongda .promo-hero-image {
+    object-fit: contain;
+    object-position: right center;
+  }
+}
+
 @media (max-width: 1023px) {
   body.tenant-mayaobongda .promo-hero-slider {
     min-height: 720px;
