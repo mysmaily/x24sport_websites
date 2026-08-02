@@ -7,7 +7,7 @@ export function ProductGallery({ images, productName }: { images: LegacyImage[];
     <ProductMediaGallery
       fallbackText="24"
       images={images}
-      label="X24 / Basketball"
+      label="MayAoBongRo / Basketball"
       productName={productName}
       variant="utility"
     />

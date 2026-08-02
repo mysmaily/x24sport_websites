@@ -44,7 +44,7 @@ export async function ProductDetailPage({
     ...(breadcrumbCategory ? [{ name: breadcrumbCategory.name, item: canonical(categoryPath(breadcrumbCategory)) }] : []),
     { name: product.name, item: canonical(productHref) },
   ]
-  const productSchema = hasPrice ? { '@context': 'https://schema.org', '@type': 'Product', name: product.name, sku: product.sku || undefined, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productHref), brand: { '@type': 'Brand', name: 'X24 Sport' }, offers: { '@type': 'Offer', priceCurrency: 'VND', price: product.price, availability: product.stockStatus === 'outofstock' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url: canonical(productHref) } } : null
+  const productSchema = hasPrice ? { '@context': 'https://schema.org', '@type': 'Product', name: product.name, sku: product.sku || undefined, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productHref), brand: { '@type': 'Brand', name: 'May Áo Bóng Đá' }, offers: { '@type': 'Offer', priceCurrency: 'VND', price: product.price, availability: product.stockStatus === 'outofstock' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url: canonical(productHref) } } : null
 
   return (
     <>

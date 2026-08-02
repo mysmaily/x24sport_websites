@@ -55,7 +55,7 @@ export async function ProductDetailPage({
         productId={product.id}
         tenantSlug="mayaobongro"
       />
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Product', name: product.name, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productPath), brand: { '@type': 'Brand', name: 'X24 Sport' } }} />
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Product', name: product.name, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productPath), brand: { '@type': 'Brand', name: 'May Áo Bóng Rổ' } }} />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems.map((item, index) => ({ '@type': 'ListItem', position: index + 1, ...item })) }} />
       <article className="section-shell pb-16 sm:pb-22">
         <nav className="flex gap-2 overflow-hidden py-5 text-xs text-slate-500" aria-label="Đường dẫn"><Link className="shrink-0 hover:text-brand" href="/">Trang chủ</Link><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href="/san-pham/">Sản Phẩm</Link>{breadcrumbCategory ? <><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={categoryPath(breadcrumbCategory)}>{breadcrumbCategory.name}</Link></> : null}<span className="shrink-0">/</span><span className="truncate text-slate-700">{product.name}</span></nav>

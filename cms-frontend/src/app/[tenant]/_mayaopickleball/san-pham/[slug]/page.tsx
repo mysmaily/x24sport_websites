@@ -96,7 +96,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const colorSummary = colorTags.length ? colorTags.map((tag) => tag.label).join(', ') : 'Thiết kế theo màu đội'
 
   const productSpecs = [
-    ['Thương hiệu', 'X24 SPORT'],
+    ['Thương hiệu', 'MayaoPickleball'],
     ['Dòng sản phẩm', 'Áo pickleball thiết kế đặt may'],
     ['Chất liệu vải', 'Chất vải co giãn chuẩn thi đấu'],
     ['Form áo', 'Form thể thao gọn, dễ di chuyển'],
@@ -151,7 +151,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
           <section className="product-buy-panel">
             <p className="product-brand-line">
-              Thương hiệu: <strong>X24 Sport</strong> | Áo pickleball thiết kế
+              Thương hiệu: <strong>MayaoPickleball</strong> | Áo pickleball thiết kế
             </p>
 
             <div className="product-rating-line" aria-label="Trạng thái đặt may">

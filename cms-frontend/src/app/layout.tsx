@@ -56,19 +56,36 @@ export async function generateMetadata(): Promise<Metadata> {
     : badminton || pickleball || volleyball || basketball || running || football
       ? tenant.description
     : tenant.description
+  const tenantOgImage = {
+    mayaocaulong: {
+      url: '/images/mayaocaulong/og-share.webp',
+      alt: 'Đội cầu lông mặc áo thi đấu đặt may MayaoCauLong',
+    },
+    mayaopickleball: {
+      url: '/images/mayaopickleball/og-share.webp',
+      alt: 'Đội pickleball mặc đồng phục đặt may MayaoPickleball',
+    },
+    mayaobongchuyen: {
+      url: '/images/mayaobongchuyen/og-share.webp',
+      alt: 'Đội bóng chuyền mặc đồng phục đặt may MayaoBongChuyen',
+    },
+    mayaobongro: {
+      url: '/images/mayaobongro/og-share.webp',
+      alt: 'Đội bóng rổ mặc đồng phục thiết kế riêng',
+    },
+    mayaochaybo: {
+      url: '/images/mayaochaybo/og-share.webp',
+      alt: 'Đội chạy bộ mặc áo thiết kế riêng',
+    },
+    mayaobongda: {
+      url: '/images/mayaobongda/og-share.webp',
+      alt: 'Mẫu áo bóng đá thiết kế riêng MayaoBongDa',
+    },
+  } as const
+  const mayaoOgImage = tenant.slug in tenantOgImage ? tenantOgImage[tenant.slug as keyof typeof tenantOgImage] : null
   const ogImage = ryno
     ? '/images/rynosport/hero.png'
-    : badminton
-      ? '/images/mayaocaulong/badminton-team-hero.png?v=20260728b'
-      : pickleball
-        ? '/images/mayaopickleball/pickleball-team-hero.webp'
-        : volleyball
-          ? '/images/mayaobongchuyen/volleyball-team-hero.png'
-          : basketball
-            ? '/images/mayaobongro/basketball-audience-hero-bright-20260722.webp'
-            : running
-              ? '/images/mayaochaybo/audience-landings/doi-nhom-viet-nam-running-club.webp'
-              : SITE_LOGO_PATH
+    : mayaoOgImage?.url || SITE_LOGO_PATH
   const title = badminton
     ? 'MayaoCauLong.vn - Áo cầu lông đặt may cho CLB'
     : pickleball
@@ -97,7 +114,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website', locale: 'vi_VN', siteName: tenant.name,
       title,
       description,
-      images: [{ url: ogImage, width: ryno ? 864 : badminton || pickleball || volleyball ? 1672 : basketball ? 1920 : running ? 1448 : 1200, height: ryno ? 1821 : badminton || pickleball || volleyball ? 941 : basketball ? 1080 : running ? 1086 : 158, alt: badminton ? 'Đội cầu lông mặc áo thi đấu đặt may MayaoCauLong' : pickleball ? 'Đội pickleball mặc đồng phục đặt may MayaoPickleball' : volleyball ? 'Đội bóng chuyền mặc đồng phục đặt may MayaoBongChuyen' : basketball ? 'Đội bóng rổ mặc đồng phục thiết kế riêng' : running ? 'Đội chạy bộ mặc áo thiết kế riêng' : ryno ? 'Trang phục thể thao RynoSport' : `Logo ${tenant.name}` }],
+      images: [{ url: ogImage, width: ryno ? 864 : mayaoOgImage ? 1200 : 1200, height: ryno ? 1821 : mayaoOgImage ? 630 : 158, alt: mayaoOgImage?.alt || (ryno ? 'Trang phục thể thao RynoSport' : `Logo ${tenant.name}`) }],
     },
     twitter: { card: 'summary_large_image' },
     robots: process.env.SITE_ENV === 'preview' ? { index: false, follow: false } : undefined,

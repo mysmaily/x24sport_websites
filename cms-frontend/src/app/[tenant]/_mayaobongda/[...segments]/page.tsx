@@ -26,7 +26,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   if (path === '/chat-lieu-vai/') {
     return {
       title: 'Chất liệu vải may áo bóng đá',
-      description: 'So sánh 5 chất liệu vải may áo bóng đá tại X24 Sport: Thun lạnh, Mè sọc mịn, Mè luxury, Mè Thái và Mè nano.',
+      description: 'So sánh 5 chất liệu vải may áo bóng đá: Thun lạnh, Mè sọc mịn, Mè luxury, Mè Thái và Mè nano.',
       alternates: { canonical: path },
     }
   }

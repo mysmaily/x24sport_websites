@@ -75,7 +75,7 @@ export function FabricGuidePage() {
             <Link className="inline-flex min-h-10 items-center gap-2 text-sm font-black text-white/80 transition hover:text-white" href="/">
               <ArrowLeft size={18} /> Trang chủ
             </Link>
-            <p className="mt-7 text-xs font-black uppercase tracking-[.2em] text-brand">Chất liệu vải X24 Sport</p>
+            <p className="mt-7 text-xs font-black uppercase tracking-[.2em] text-brand">Chất liệu vải áo bóng đá</p>
             <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.55rem,6.25vw,5.9rem)] font-extrabold uppercase leading-[.9] tracking-normal">
               Chọn vải trước khi chọn mẫu áo
             </h1>
@@ -151,7 +151,7 @@ export function FabricGuidePage() {
           <p className="mt-4 text-sm leading-7 text-slate-300">Dùng bảng size làm mốc, sau đó gửi chiều cao và cân nặng nếu đội có nhiều dáng người khác nhau.</p>
         </div>
         <div className="overflow-hidden rounded-lg border border-black/10 bg-white p-2 shadow-[0_18px_50px_rgba(16,19,26,.08)]">
-          <img alt="Bảng size may áo bóng đá X24 Sport" className="h-auto w-full rounded-md" loading="eager" src="https://static.x24sport.vn/mayaobongda/wp-1442-bang-size-may-ao-bong-da.jpg" />
+          <img alt="Bảng size may áo bóng đá" className="h-auto w-full rounded-md" loading="eager" src="https://static.x24sport.vn/mayaobongda/wp-1442-bang-size-may-ao-bong-da.jpg" />
         </div>
       </section>
 

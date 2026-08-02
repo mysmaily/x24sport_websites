@@ -5,9 +5,9 @@ export const ZALO_URL = `https://zalo.me/${PHONE_VALUE}`
 export const FACEBOOK_URL = 'https://facebook.com/mayaochaybo'
 export const LOGO_URL = 'https://static.x24sport.vn/mayaochaybo/wp-2371-mayaochaybo-header-logo-horizontal-2026.png'
 export const DEFAULT_OG_IMAGE = {
-  url: '/images/mayaochaybo/audience-landings/doi-nhom-viet-nam-running-club.webp',
-  width: 1448,
-  height: 1086,
+  url: '/images/mayaochaybo/og-share.webp',
+  width: 1200,
+  height: 630,
   alt: 'Đội chạy bộ mặc áo thiết kế riêng May Áo Chạy Bộ',
 }
 

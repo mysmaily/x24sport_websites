@@ -6,7 +6,7 @@ export const ZALO_URL = `https://zalo.me/${PHONE_VALUE}`
 export const FACEBOOK_URL = 'https://www.facebook.com/x24sport.vn'
 export const LOGO_URL = 'https://cdn.mayaobongda.vn/wp-content/uploads/2026/07/mayaobongda-header-logo.png'
 export const DEFAULT_OG_IMAGE = {
-  url: LOGO_URL,
+  url: '/images/mayaobongda/og-share.webp',
   width: 1200,
   height: 630,
   alt: SITE_NAME,

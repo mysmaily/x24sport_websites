@@ -194,7 +194,7 @@ export default function FabricSizePage() {
             <Link className="fabric-back-link" href="/">
               <ArrowLeft size={18} /> Trang chủ
             </Link>
-            <p className="hero-kicker">Chất liệu vải X24 Sport</p>
+            <p className="hero-kicker">Chất liệu vải áo pickleball</p>
             <h1 id="fabric-page-title">Chọn vải trước khi chọn mẫu áo</h1>
             <p>4 chất liệu thường dùng cho áo pickleball, được đặt cạnh nhau để đội dễ so sánh cảm giác mặc, độ thoáng và tình huống sử dụng.</p>
           </div>
@@ -226,12 +226,12 @@ export default function FabricSizePage() {
           {fabrics.map(({ bestFor, icon: Icon, image, tags, title, text }) => (
             <article className="fabric-first-card" key={title}>
               <FabricLightbox
-                alt={`Chất liệu ${title} áo pickleball X24 Sports`}
+                alt={`Chất liệu ${title} áo pickleball`}
                 className="fabric-first-media"
                 image={image}
                 title={title}
               >
-                <img alt={`Chất liệu ${title} áo pickleball X24 Sports`} src={image} />
+                <img alt={`Chất liệu ${title} áo pickleball`} src={image} />
               </FabricLightbox>
               <div className="fabric-first-body">
                 <div className="fabric-first-title">

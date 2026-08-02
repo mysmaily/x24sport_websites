@@ -136,7 +136,7 @@ export default function FabricSizePage() {
             <Link className="badminton-back-link" href="/">
               <ArrowLeft size={18} /> Trang chủ
             </Link>
-            <p className="hero-kicker">Chất liệu vải X24 Sport</p>
+            <p className="hero-kicker">Chất liệu vải áo cầu lông</p>
             <h1 id="fabric-page-title">Chọn vải trước khi chốt size áo</h1>
             <p>4 chất liệu thường dùng cho áo cầu lông, đặt cạnh nhau để đội dễ so sánh độ thoáng, cảm giác mặc và độ rõ của màu in.</p>
           </div>
@@ -167,12 +167,12 @@ export default function FabricSizePage() {
           {fabrics.map(({ bestFor, icon: Icon, image, tags, title, text }) => (
             <article className="badminton-fabric-card" key={title}>
               <FabricLightbox
-                alt={`Chất liệu ${title} áo cầu lông X24 Sports`}
+                alt={`Chất liệu ${title} áo cầu lông`}
                 className="badminton-fabric-media"
                 image={image}
                 title={title}
               >
-                <img alt={`Chất liệu ${title} áo cầu lông X24 Sports`} src={image} />
+                <img alt={`Chất liệu ${title} áo cầu lông`} src={image} />
               </FabricLightbox>
               <div className="badminton-fabric-body">
                 <div className="badminton-fabric-title">

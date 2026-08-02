@@ -61,7 +61,7 @@ export function SiteFooter() {
             </div>
           </div>
         </div>
-        <div className="border-t border-white/10 py-5 text-center text-xs text-slate-500">© {new Date().getFullYear()} MayAoBongRo.vn · X24 Sport</div>
+        <div className="border-t border-white/10 py-5 text-center text-xs text-slate-500">© {new Date().getFullYear()} MayAoBongRo.vn</div>
       </footer>
 
       <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-slate-200 bg-white p-2 pb-[max(.5rem,env(safe-area-inset-bottom))] shadow-[0_-10px_30px_rgba(15,23,42,.12)] lg:hidden" aria-label="Liên hệ nhanh">

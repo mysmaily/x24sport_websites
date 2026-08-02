@@ -2,7 +2,7 @@ export const POST_CATEGORY_ARCHIVES = [
   {
     path: '/category/chua-phan-loai/',
     title: 'Tin tức áo bóng đá',
-    description: 'Bài viết tư vấn đặt may, quy trình sản xuất và cập nhật mẫu áo bóng đá từ X24 Sport.',
+    description: 'Bài viết tư vấn đặt may, quy trình sản xuất và cập nhật mẫu áo bóng đá từ May Áo Bóng Đá.',
   },
 ] as const
 

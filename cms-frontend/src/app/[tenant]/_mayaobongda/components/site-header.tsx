@@ -137,7 +137,7 @@ export function SiteHeader() {
               { href: '/chat-lieu-vai/', label: 'Chất liệu vải' },
               { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá' },
               { href: '/category/chua-phan-loai/', label: 'Tin tức' },
-              { href: '/shop/?q=x24', label: 'Tìm mẫu X24' },
+              { href: '/shop/', label: 'Tất cả mẫu áo' },
               { href: '/shop/', label: 'Toàn bộ sản phẩm' },
             ].map((item) => <Link className="flex min-h-12 items-center gap-2 rounded-lg border border-white/10 px-3 text-xs font-extrabold hover:border-brand/60" href={item.href} key={item.href} tabIndex={open ? 0 : -1}>{item.label}</Link>)}</div>
           </section>

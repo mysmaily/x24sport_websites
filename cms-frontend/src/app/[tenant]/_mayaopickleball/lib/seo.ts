@@ -8,9 +8,9 @@ export const businessName = 'MayaoPickleball.vn'
 export const businessPhone = '0989353247'
 export const businessEmail = 'lienhe@mayaopickleball.vn'
 export const defaultOgImage = {
-  url: '/images/mayaopickleball/pickleball-team-hero.webp',
-  width: 1672,
-  height: 941,
+  url: '/images/mayaopickleball/og-share.webp',
+  width: 1200,
+  height: 630,
   alt: 'Đội pickleball mặc đồng phục đặt may MayaoPickleball',
 }
 
@@ -140,7 +140,7 @@ export function productJsonLd(product: ProductDetail) {
     image: images,
     brand: {
       '@type': 'Brand',
-      name: 'X24 Sport',
+      name: businessName,
     },
     offers: {
       '@type': 'Offer',

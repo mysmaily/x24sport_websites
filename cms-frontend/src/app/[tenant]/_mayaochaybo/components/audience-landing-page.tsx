@@ -29,11 +29,11 @@ const corporateHeroImages = [
 
 const eventHeroImages = [
   {
-    alt: 'Vận động viên xuất phát dưới cổng vòm X24 Run với áo sự kiện và số báo danh',
+    alt: 'Vận động viên xuất phát dưới cổng vòm giải chạy với áo sự kiện và số báo danh',
     src: '/images/mayaochaybo/audience-landings/giai-chay-x24-run-start.webp',
   },
   {
-    alt: 'Vận động viên mặc áo đồng bộ và đeo số báo danh tại cổng về đích X24 Run',
+    alt: 'Vận động viên mặc áo đồng bộ và đeo số báo danh tại cổng về đích giải chạy',
     src: '/images/mayaochaybo/audience-landings/giai-chay-x24-run-finish.webp',
   },
 ]
