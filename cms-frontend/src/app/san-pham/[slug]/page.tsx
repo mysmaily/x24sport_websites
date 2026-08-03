@@ -3,13 +3,17 @@ import type { Metadata } from 'next'
 import { LegacyContentPage } from '../../[...legacy]/page'
 import { getProductBySlug, productImages } from '../../../lib/content'
 import { cleanSeoTitle, metadataDescription } from '../../../lib/seo'
+import { getTenantContext } from '../../../lib/tenant'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const product = await getProductBySlug((await params).slug)
+  const [product, tenant] = await Promise.all([
+    getProductBySlug((await params).slug),
+    getTenantContext(),
+  ])
   if (!product) return { title: 'Không tìm thấy sản phẩm' }
 
   const title = cleanSeoTitle(product.seoTitle || product.name)
-  const description = metadataDescription(product.metaDescription || product.shortDescription, `${product.name} tại X24Sport.`)
+  const description = metadataDescription(product.metaDescription || product.shortDescription, `${product.name} tại ${tenant.name}.`)
   const images = productImages(product).map((image) => ({ url: image.url, alt: image.alt || product.name }))
   const canonical = `/san-pham/${product.slug}/`
   return {

@@ -44,41 +44,19 @@ services:
       TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
       TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID:-}
 
-  mayaocaulong:
+  cms-frontend:
     build:
-      context: ./mayaocaulong.vn
+      context: ./cms-frontend
+      args:
+        SITE_ENV: ${SITE_ENV:-production}
+        PAYLOAD_API_URL: http://cms-api:3001
     restart: unless-stopped
     depends_on:
       - cms-api
     environment:
       PAYLOAD_API_URL: http://cms-api:3001
-      PORT: 3002
-      TENANT_SLUG: mayaocaulong
+      PORT: 3010
+      SITE_ENV: ${SITE_ENV:-production}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
     ports:
-      - "3002:3002"
-
-  mayaobongchuyen:
-    build:
-      context: ./mayaobongchuyen.vn
-    restart: unless-stopped
-    depends_on:
-      - cms-api
-    environment:
-      PAYLOAD_API_URL: http://cms-api:3001
-      PORT: 3003
-      TENANT_SLUG: mayaobongchuyen
-    ports:
-      - "3003:3003"
-
-  mayaobongro:
-    build:
-      context: ./mayaobongro.vn
-    restart: unless-stopped
-    depends_on:
-      - cms-api
-    environment:
-      PAYLOAD_API_URL: http://cms-api:3001
-      PORT: 3005
-      TENANT_SLUG: mayaobongro
-    ports:
-      - "3005:3005"
+      - "3010:3010"

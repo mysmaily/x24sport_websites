@@ -35,6 +35,27 @@ local `AGENTS.md`:
 Never store the actual API key in this guide, a tenant profile, source code,
 logs, commits, shell tracing, or handoff output.
 
+## Current credential inventory
+
+Verified on 2026-08-03: every current production tenant has one dedicated
+`tenant_admin` REST account, successful `/api/users/me` authentication, zero
+visibility for a sibling-tenant product query, and a mode-`0600` secret file on
+`root@10.10.0.28`:
+
+| Tenant | Service user | Secret file |
+|---|---|---|
+| `x24sport` | `x24sport-rest@internal.invalid` | `/root/sports-cms/x24sport-rest-api.env` |
+| `rynosport` | `rynosport-rest@internal.invalid` | `/root/sports-cms/rynosport-rest-api.env` |
+| `mayaocaulong` | `mayaocaulong-rest@internal.invalid` | `/root/sports-cms/mayaocaulong-rest-api.env` |
+| `mayaopickleball` | `mayaopickleball-rest@internal.invalid` | `/root/sports-cms/mayaopickleball-rest-api.env` |
+| `mayaobongchuyen` | `mayaobongchuyen-rest@internal.invalid` | `/root/sports-cms/mayaobongchuyen-rest-api.env` |
+| `mayaobongro` | `mayaobongro-rest@internal.invalid` | `/root/sports-cms/mayaobongro-rest-api.env` |
+| `mayaochaybo` | `mayaochaybo-rest@internal.invalid` | `/root/sports-cms/mayaochaybo-rest-api.env` |
+| `mayaobongda` | `mayaobongda-rest@internal.invalid` | `/root/sports-cms/mayaobongda-rest-api.env` |
+
+Use only the row matching the requested website. Do not enumerate or load
+sibling secret files during a normal content task.
+
 ## Load credentials safely
 
 Use the secret location from the target tenant profile:

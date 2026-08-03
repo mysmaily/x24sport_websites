@@ -1,19 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { resolveTenantByHost } from '../../../lib/tenant-registry'
 
 const API_URL = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
 const rateLimit = new Map<string, { count: number; resetAt: number }>()
 const rateLimitWindowMs = 10 * 60 * 1000
 const maxRequestsPerWindow = 5
-const tenantsByHost: Record<string, string> = {
-  'x24sport.vn': 'x24sport',
-  'rynosport.vn': 'rynosport',
-  'mayaocaulong.vn': 'mayaocaulong',
-  'mayaopickleball.vn': 'mayaopickleball',
-  'mayaobongchuyen.vn': 'mayaobongchuyen',
-  'mayaobongro.vn': 'mayaobongro',
-  'mayaochaybo.vn': 'mayaochaybo',
-  'mayaobongda.vn': 'mayaobongda',
-}
 
 type InterestPayload = {
   phone?: unknown
@@ -61,9 +52,9 @@ function isRateLimited(ip: string) {
   return current.count > maxRequestsPerWindow
 }
 
-function getTenantSlugFromRequest(request: NextRequest) {
+async function getTenantSlugFromRequest(request: NextRequest) {
   const host = requestHostCandidates(request).values().next().value as string | undefined
-  return host ? tenantsByHost[host] || '' : ''
+  return host ? (await resolveTenantByHost(host))?.slug || '' : ''
 }
 
 async function getTelegramChatId(tenantSlug: string) {
@@ -108,7 +99,7 @@ function productUrlFromRequest(value: string, request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const tenantSlug = getTenantSlugFromRequest(request)
+  const tenantSlug = await getTenantSlugFromRequest(request)
   if (!tenantSlug) {
     return NextResponse.json({ message: 'Không xác định được website gửi yêu cầu.' }, { status: 400 })
   }

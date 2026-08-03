@@ -1,4 +1,3 @@
-import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -32,6 +31,7 @@ import MayaoChayBoHomePage from './_mayaochaybo/page'
 import { MayaoChayBoShell } from './_mayaochaybo/shell'
 import MayaoBongDaHomePage from './_mayaobongda/page'
 import { MayaoBongDaShell } from './_mayaobongda/shell'
+import { GenericTenantHomePage } from './generic-tenant-home'
 
 export async function generateMetadata({ params }: { params: Promise<{ tenant: string }> }): Promise<Metadata> {
   const { tenant } = await params
@@ -113,7 +113,7 @@ export default async function TenantHomePage({ params }: { params: Promise<{ ten
   if (tenant === 'mayaobongro') return <MayaoBongRoShell><MayaoBongRoHomePage /></MayaoBongRoShell>
   if (tenant === 'mayaochaybo') return <MayaoChayBoShell><MayaoChayBoHomePage /></MayaoChayBoShell>
   if (tenant === 'mayaobongda') return <MayaoBongDaShell><MayaoBongDaHomePage /></MayaoBongDaShell>
-  if (tenant !== 'rynosport') notFound()
+  if (tenant !== 'rynosport') return <GenericTenantHomePage />
 
   const [{ products }, categories] = await Promise.all([
     getProductsPage({ limit: 4 }),

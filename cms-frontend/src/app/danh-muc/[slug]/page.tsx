@@ -9,6 +9,7 @@ import { SiteHeader } from '../../_components/site-header'
 import { FloatingContact, PageFooter } from '../../_components/store-footer'
 import { getCategory, getProductsPage, type CatalogPage } from '../../../lib/content'
 import { breadcrumbSchema, metadataDescription, pageCanonical, pageTitle, truncateText } from '../../../lib/seo'
+import { getTenantContext } from '../../../lib/tenant'
 
 const PRODUCTS_PER_PAGE = 20
 
@@ -106,13 +107,16 @@ async function getProductsWithDeferredCategories(options: {
 }
 
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ page?: string; sort?: string }> }): Promise<Metadata> {
-  const category = await getCategory((await params).slug)
+  const [category, tenant] = await Promise.all([
+    getCategory((await params).slug),
+    getTenantContext(),
+  ])
   if (!category) return { title: 'Không tìm thấy danh mục' }
   const search = await searchParams
   const page = Math.max(1, Number(search.page) || 1)
   const seo = getCategorySeoProfile(category)
   const title = pageTitle(seo.title, search.sort ? 1 : page)
-  const description = metadataDescription(seo.description, `Sản phẩm ${category.name} thiết kế theo yêu cầu tại X24Sport.`)
+  const description = metadataDescription(seo.description, `Sản phẩm ${category.name} thiết kế theo yêu cầu tại ${tenant.name}.`)
   return {
     title, description,
     alternates: { canonical: search.sort ? `/danh-muc/${category.slug}/` : pageCanonical(`/danh-muc/${category.slug}`, page) },

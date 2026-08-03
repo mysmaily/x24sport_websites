@@ -1,4 +1,3 @@
-import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import X24ProductsPage, { getX24ProductsMetadata } from '../../san-pham/page'
 import { RynoProductsPage } from '../ryno-catalog'
@@ -44,6 +43,5 @@ export default async function TenantProductsPage(props: Parameters<typeof X24Pro
   if (tenant === 'mayaochaybo') return <MayaoChayBoShell><MayaoChayBoProductsPage searchParams={props.searchParams} /></MayaoChayBoShell>
   if (tenant === 'mayaobongda') return <MayaoBongDaShell><MayaoBongDaProductsPage searchParams={props.searchParams} /></MayaoBongDaShell>
   if (tenant === 'rynosport') return <RynoProductsPage searchParams={props.searchParams} />
-  if (tenant !== 'x24sport') notFound()
   return <X24ProductsPage searchParams={props.searchParams} />
 }

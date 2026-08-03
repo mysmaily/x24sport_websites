@@ -1,6 +1,6 @@
 ---
 name: develop-x24sport-websites
-description: Build, redesign, extend, or audit the X24Sport mayao*.vn websites across Next.js/Payload and WordPress. Use for public UI/UX, layouts, navigation, product and category pages, content architecture, technical or on-page SEO, structured data, accessibility, responsive behavior, Core Web Vitals, conversion flows, and production-readiness work on mayaocaulong.vn, mayaobongchuyen.vn, mayaopickleball.vn, mayaobongro.vn, mayaochaybo.vn, or mayaobongda.vn.
+description: Build, redesign, extend, or audit the dynamic X24Sport Next.js/Payload tenant websites. Use for public UI/UX, layouts, navigation, product and category pages, content architecture, technical or on-page SEO, structured data, accessibility, responsive behavior, Core Web Vitals, conversion flows, and production readiness.
 ---
 
 # Develop X24Sport Websites
@@ -19,7 +19,7 @@ engineering constraints, never as a promise of ranking.
 4. Read the references required by the task:
    - Public UI, SEO, content, crawlability, or indexing: read
      `references/google-search-requirements.md`.
-   - Next.js, Payload, or WordPress implementation: read
+   - Next.js or Payload implementation: read
      `references/implementation-adapters.md`.
    - Any change that will be handed off as complete: read
      `references/quality-gates.md`.
@@ -29,13 +29,10 @@ engineering constraints, never as a promise of ranking.
 
 ## Classify the task
 
-- **Next.js tenant**: `mayaocaulong.vn`, `mayaobongchuyen.vn`,
-  `mayaopickleball.vn`, `mayaobongro.vn`, and `mayaochaybo.vn`; use App Router,
-  Server Components by default, Payload tenant data, and the shared `cms-api`.
-- **WordPress site**: `mayaobongda.vn`; use the child theme, site-specific plugin,
-  or documented operational mechanism. Never edit WordPress core or a parent
-  theme. Archived WordPress runtimes for migrated tenants are not active
-  development targets.
+- **Dynamic Next.js tenant**: resolve the target from Payload by domain, use App
+  Router and Server Components by default, and read `<domain>/AGENTS.md` for its
+  business scope and visual override. Current tenants include X24Sport,
+  RynoSport and all specialist `mayao*.vn` websites.
 - **Shared CMS change**: trace every affected tenant and verify tenant isolation.
   A shared collection or API change is not site-local merely because one site
   requested it.
@@ -58,7 +55,7 @@ engineering constraints, never as a promise of ranking.
 - Preserve the site's brand while creating a clear visual hierarchy, predictable
   navigation, readable typography, and purposeful calls to action.
 - Keep every customer-visible word shopper-facing. Do not place technical,
-  internal, staging, preview, migration, CMS, WordPress, AI, SEO, QA, or
+  internal, staging, preview, migration, CMS, AI, SEO, QA, or
   developer-process language in rendered UI copy unless the user explicitly asks
   for that wording on the page.
 - Do not explain SEO or route mechanics to shoppers. Terms and ideas such as URL

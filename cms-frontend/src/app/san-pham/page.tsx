@@ -10,20 +10,21 @@ import { FloatingContact, PageFooter } from '../_components/store-footer'
 import { getCategories, getProductsPage } from '../../lib/content'
 import { logoCategorySlugs } from '../../lib/catalog'
 import { breadcrumbSchema, metadataDescription, pageCanonical, pageTitle } from '../../lib/seo'
+import { getTenantContext } from '../../lib/tenant'
 
 type ProductSearchParams = { page?: string; q?: string; sort?: string }
 
 export async function getX24ProductsMetadata(searchParams: Promise<ProductSearchParams>): Promise<Metadata> {
-  const search = await searchParams
+  const [search, tenant] = await Promise.all([searchParams, getTenantContext()])
   const page = Math.max(1, Number(search.page) || 1)
   const isFiltered = Boolean(search.q?.trim() || search.sort)
   const title = pageTitle('Tất cả sản phẩm', isFiltered ? 1 : page)
   return {
     title,
-    description: metadataDescription('Khám phá toàn bộ sản phẩm bóng đá, cầu lông, bóng chuyền, bóng rổ, pickleball và chạy bộ tại X24Sport.'),
+    description: metadataDescription(`Khám phá toàn bộ sản phẩm tại ${tenant.name}.`),
     alternates: { canonical: isFiltered ? '/san-pham/' : pageCanonical('/san-pham', page) },
     robots: isFiltered ? { index: false, follow: true } : undefined,
-    openGraph: { title, description: 'Khám phá toàn bộ sản phẩm thể thao thiết kế tại X24Sport.', url: isFiltered ? '/san-pham/' : pageCanonical('/san-pham', page) },
+    openGraph: { title, description: `Khám phá toàn bộ sản phẩm thể thao tại ${tenant.name}.`, url: isFiltered ? '/san-pham/' : pageCanonical('/san-pham', page) },
   }
 }
 

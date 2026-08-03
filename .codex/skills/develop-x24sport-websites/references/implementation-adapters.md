@@ -5,20 +5,16 @@
 1. Repository map
 2. Shared design and content rules
 3. Next.js 16 and Payload adapter
-4. WordPress and Flatsome adapter
-5. Ecommerce page contracts
-6. Official framework sources
+4. Ecommerce page contracts
+5. Official framework sources
 
 ## 1. Repository map
 
-| Site | Primary stack | Shared dependency |
+| Layer | Primary stack | Tenant behavior |
 |---|---|---|
-| `mayaocaulong.vn` | Next.js 16 App Router | `cms-api` / Payload tenant data |
-| `mayaobongchuyen.vn` | Next.js 16 App Router | `cms-api` / Payload tenant data |
-| `mayaopickleball.vn` | Next.js 16 App Router | `cms-api` / Payload tenant data |
-| `mayaobongro.vn` | Next.js 16 App Router | `cms-api` / Payload tenant data |
-| `mayaochaybo.vn` | Next.js 16 App Router | `cms-api` / Payload tenant data |
-| `mayaobongda.vn` | WordPress | Shared infrastructure in local profile |
+| Public websites | Next.js 16 App Router | Host resolves dynamically from Payload; optional slug-specific visual overrides |
+| Content/admin | Payload CMS 3 | Tenant-scoped collections, users and media |
+| Portfolio | X24Sport, RynoSport and specialist `mayao*.vn` domains | One shared `cms-frontend` runtime |
 
 Treat `PRODUCTION-DEPLOYMENT-RUNBOOK.md` as the authority for deployment. Use the
 local `AGENTS.md` for tenant identity, cache behavior, access scope, and
@@ -35,7 +31,7 @@ shared-resource risks.
 - Make the main CTA specific to the next action. Avoid competing CTAs with equal
   visual weight.
 - Use real product media and factual copy. Optimize generated media before it
-  becomes a committed `public` or WordPress media asset.
+  becomes a committed `public` or Payload media asset.
 - Preserve parity between visual copy, CMS data, metadata, schema, and transaction
   behavior.
 
@@ -95,24 +91,7 @@ production output and exercise `next start` for performance checks.
 For `cms-api` changes, also run the relevant type generation or tests and verify
 tenant isolation using representative records from every affected tenant.
 
-## 4. WordPress and Flatsome adapter
-
-- Find existing hooks, templates, shortcodes, schema generators, SEO plugins,
-  cache layers, and child-theme overrides before adding anything.
-- Prefer a child theme or site-specific plugin. Never edit WordPress core or the
-  Flatsome parent theme.
-- Avoid duplicate metadata or schema from multiple plugins/custom hooks. Choose
-  one owner per output and inspect rendered HTML.
-- Use WordPress APIs for escaping, sanitization, nonces, capability checks,
-  queries, media, metadata, and URLs.
-- Preserve WooCommerce product, variation, price, stock, cart, checkout, and
-  account behavior. Test simple and variable products relevant to the change.
-- Use real WordPress attachment alt text; do not use filenames or keyword lists
-  as automatic alt text.
-- Validate PHP syntax, then use only the site profile's documented deployment,
-  cache purge, service reload, and rollback procedures.
-
-## 5. Ecommerce page contracts
+## 4. Ecommerce page contracts
 
 All product-detail and product-list implementations must follow the repository
 `AGENTS.md` **Shared product typography contract**. Treat its heading position,
@@ -243,7 +222,7 @@ Verification checklist for product-detail media changes:
   validation.
 - Do not expose secrets or trust client validation.
 
-## 6. Official framework sources
+## 5. Official framework sources
 
 - [Next.js production checklist](https://nextjs.org/docs/app/guides/production-checklist)
 - [Next.js Metadata and OG images](https://nextjs.org/docs/app/getting-started/metadata-and-og-images)
@@ -251,6 +230,3 @@ Verification checklist for product-detail media changes:
 - [Next.js sitemap convention](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap)
 - [Next.js Server and Client Components](https://nextjs.org/docs/app/getting-started/server-and-client-components)
 - [Next.js accessibility](https://nextjs.org/docs/architecture/accessibility)
-- [WordPress coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/)
-- [WordPress theme handbook](https://developer.wordpress.org/themes/)
-- [WooCommerce developer documentation](https://developer.woocommerce.com/docs/)

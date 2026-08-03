@@ -1,33 +1,18 @@
 import { NextResponse, type NextRequest } from 'next/server'
+import { encodeTenantHeader, resolveTenantByHost } from './lib/tenant-registry'
 
-const hosts: Record<string, string> = {
-  'x24sport.vn': 'x24sport',
-  'www.x24sport.vn': 'x24sport',
-  '10.10.0.58': 'x24sport',
-  'rynosport.vn': 'rynosport',
-  'www.rynosport.vn': 'rynosport',
-  'mayaocaulong.vn': 'mayaocaulong',
-  'www.mayaocaulong.vn': 'mayaocaulong',
-  'mayaopickleball.vn': 'mayaopickleball',
-  'www.mayaopickleball.vn': 'mayaopickleball',
-  'mayaobongchuyen.vn': 'mayaobongchuyen',
-  'www.mayaobongchuyen.vn': 'mayaobongchuyen',
-  'mayaobongro.vn': 'mayaobongro',
-  'www.mayaobongro.vn': 'mayaobongro',
-  'mayaochaybo.vn': 'mayaochaybo',
-  'www.mayaochaybo.vn': 'mayaochaybo',
-  'mayaobongda.vn': 'mayaobongda',
-  'www.mayaobongda.vn': 'mayaobongda',
-}
-
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const hostname = request.headers.get('host')?.split(':')[0].toLowerCase() || ''
-  const tenant = hosts[hostname]
+  const tenant = await resolveTenantByHost(hostname)
   if (!tenant) return NextResponse.next()
   const url = request.nextUrl.clone()
-  url.pathname = `/${tenant}${request.nextUrl.pathname}`
+  url.pathname = `/${tenant.slug}${request.nextUrl.pathname}`
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-x24-public-host', hostname)
+  requestHeaders.set('x-x24-tenant-slug', encodeTenantHeader(tenant.slug))
+  requestHeaders.set('x-x24-tenant-domain', encodeTenantHeader(tenant.domain))
+  requestHeaders.set('x-x24-tenant-name', encodeTenantHeader(tenant.name))
+  requestHeaders.set('x-x24-tenant-description', encodeTenantHeader(tenant.description))
   return NextResponse.rewrite(url, { request: { headers: requestHeaders } })
 }
 

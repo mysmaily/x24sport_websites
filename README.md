@@ -1,24 +1,16 @@
 # X24Sport Websites
 
-Source and operational workspace for the X24Sport `mayao*.vn` websites.
+Dynamic multi-tenant commerce platform for X24Sport, RynoSport and the specialist
+`mayao*.vn` satellite websites.
 
-## Websites
+- Shared Next.js storefront: `cms-frontend/`
+- Shared Payload CMS/API: `cms-api/`
+- Shared agent and business rules: `AGENTS.md`
+- Per-domain profiles: `<domain>/AGENTS.md`
+- Production deployment: `PRODUCTION-DEPLOYMENT-RUNBOOK.md`
+- Product/media/content operations: `PAYLOAD-REST-API-GUIDE.md`
 
-- `mayaocaulong.vn`
-- `mayaobongchuyen.vn`
-- `mayaopickleball.vn`
-- `mayaobongro.vn`
-- `mayaochaybo.vn`
-- `mayaobongda.vn`
-
-The shared Payload CMS is in `cms-api/`. The Next.js tenants can be run together
-with it through `docker-compose.yml`.
-
-## Website registry
-
-Refresh one website profile at a time so this repository remains scoped to the
-X24Sport websites:
-
-```bash
-ruby scripts/website_registry.rb sync domain=mayaobongda.vn
-```
+Tenant/domain resolution is database-driven. Creating a Payload tenant and its
+domain record makes the generic storefront resolvable once DNS/Nginx routes the
+domain to the shared frontend. Existing tenants may keep slug-specific visual
+overrides under `cms-frontend/src/app/[tenant]/_<slug>/`.

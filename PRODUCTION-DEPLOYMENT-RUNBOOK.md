@@ -106,28 +106,8 @@ curl -fsSI https://mayaochaybo.vn/
 curl -fsSI https://mayaobongda.vn/
 ```
 
-Retired standalone preview containers for the mayao tenants are historical
-after the shared frontend merge. Do not deploy them for normal frontend work.
-
-## Standalone frontends on 10.10.0.28
-
-There is no live `/opt/sports-cms/docker-compose.yml`. Do not run Docker Compose
-for these services even if their containers retain historical Compose labels.
-Use a UTC deployment ID and the exact runtime definitions below.
-
-The shared frontend Telegram bot token file is:
-
-```text
-/opt/sports-cms/frontend-telegram.env
-```
-
-It must be mode `0600` and contain `TELEGRAM_BOT_TOKEN` before replacing any
-standalone frontend container that can serve the product consultation form.
-
-No active public frontend currently deploys from this section. The historical
-`mayaobongchuyen.vn` and `mayaobongro.vn` standalone containers must not be
-rebuilt for normal frontend changes; they have been merged into
-`cms-frontend/`.
+There are no standalone public frontends. Do not create or deploy a per-domain
+frontend container; every tenant is served by `cms-frontend`.
 
 ## Shared cms-api
 

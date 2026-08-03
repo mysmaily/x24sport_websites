@@ -27,9 +27,8 @@ ask for the private proxy address before changing Nginx.
 
 ```bash
 ssh root@10.10.0.28
-cd /opt/sports-cms
-docker compose ps
-docker compose logs --tail=120 cms-api
+docker inspect sports-cms-cms-api-1
+docker logs --tail=120 sports-cms-cms-api-1
 ```
 
 Database checks:
@@ -110,18 +109,16 @@ or Chrome headless.
 
 ## Tenants
 
-Website tenant contract:
+Tenant identity is dynamic. Payload `tenants.slug` plus `tenants.domains` is the
+source of truth; the frontend resolves the request host from this collection.
+The current records are `x24sport`, `rynosport`, `mayaocaulong`,
+`mayaobongchuyen`, `mayaopickleball`, `mayaobongro`, `mayaochaybo` and
+`mayaobongda`. Do not maintain a second hard-coded CMS tenant registry.
 
-- `x24sport` for `x24sport.vn` and preview `next.x24sport.vn`
-- `mayaocaulong` for `mayaocaulong.vn`
-- `mayaobongchuyen` for `mayaobongchuyen.vn`
-- `mayaopickleball` for `mayaopickleball.vn`
-- `mayaobongro` for `mayaobongro.vn`
-- `mayaochaybo` for `mayaochaybo.vn`
-
-`mayaobongda.vn` has no Next.js source in this repository and no Payload tenant
-record. It remains an active WordPress website and is not a CMS tenant. Do not
-invent a `mayaobongda` tenant filter.
+Adding a tenant record does not authorize cross-tenant content access. Every
+tenant-owned collection, service user, media key and relationship remains
+tenant-scoped. Create the matching domain folder profile and proxy/DNS route as
+defined by root `AGENTS.md`.
 
 Tenant records live in `src/collections/Tenants.ts` and include:
 

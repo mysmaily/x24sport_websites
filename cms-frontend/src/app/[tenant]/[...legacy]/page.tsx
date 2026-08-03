@@ -91,6 +91,5 @@ export default async function TenantLegacyPage(props: Parameters<typeof X24Legac
     return <MayaoBongDaShell><MayaoBongDaLegacyPage params={Promise.resolve({ segments: legacy })} searchParams={props.searchParams as Promise<Record<string, string | string[] | undefined>>} /></MayaoBongDaShell>
   }
   if (tenant === 'rynosport' && legacy.length === 1) return <RynoProductPage slug={legacy[0]} />
-  if (tenant !== 'x24sport') notFound()
   return <X24LegacyPage params={Promise.resolve({ legacy })} searchParams={props.searchParams} />
 }

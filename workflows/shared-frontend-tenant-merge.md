@@ -1,16 +1,15 @@
 # Shared Frontend Tenant Merge Workflow
 
-Use this workflow when merging a standalone `mayao*.vn` Next.js tenant into the
-shared `cms-frontend/` application.
+This workflow is retained only as a checklist for importing a tenant-specific
+visual implementation into the shared `cms-frontend/` application. All current
+public websites already use the shared runtime.
 
 ## Scope
 
 - Preserve the public URL/page contract for the tenant.
 - Preserve tenant-specific UI and CSS isolation.
-- Move reusable operational knowledge into this workflow or a skill, not ad hoc
-  root-level notes.
-- After merge, keep only the domain metadata document at the repository root,
-  such as `mayaopickleball.vn.MD`.
+- Move reusable operational knowledge into this workflow or a skill.
+- Keep domain identity and business rules in `<domain>/AGENTS.md`.
 
 ## Local Merge
 
@@ -26,8 +25,8 @@ shared `cms-frontend/` application.
    more than one tenant.
 6. Run route parity checks for all non-product pages. Product pages may be
    sampled when the catalog is large.
-7. Delete the merged standalone source folder only after local verification and
-   create/update `<domain>.MD` with tenant metadata and production evidence.
+7. Keep only domain-specific workflows/assets plus `<domain>/AGENTS.md` in the
+   domain folder; application source remains in `cms-frontend/`.
 
 ## Production Cutover
 
@@ -37,9 +36,7 @@ shared `cms-frontend/` application.
 3. Validate Nginx config before reload.
 4. Verify HTTP status, redirects, canonical tenant marker, and representative
    pages on public HTTPS.
-5. Stop old standalone frontend containers only after public verification passes.
-6. Leave archive WordPress containers, media/CDN origins, reporters, and the CMS
-   API running unless the user explicitly asks to consolidate those services too.
+5. Verify the shared container remains healthy and sibling tenants are unaffected.
 
 ## Git Hygiene
 

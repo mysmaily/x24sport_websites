@@ -20,8 +20,6 @@ gate before claiming completion.
   contact/order flows work with mouse, touch, and keyboard as applicable.
 - Empty, loading, error, validation, unavailable, 404, and success states behave
   intentionally.
-- WordPress/WooCommerce changes preserve cart, checkout, login/account, and
-  product variation behavior when touched.
 - Shared CMS changes do not leak content across tenants.
 
 ## 2. Visual and responsive
@@ -80,7 +78,6 @@ gate before claiming completion.
 - Product price, currency, availability, variants, image, shipping, and returns
   match the page and transaction behavior.
 - JSON-LD parses successfully and representative pages pass Rich Results Test.
-- No duplicate/conflicting schema owners exist in WordPress output.
 
 ## 6. Performance
 
