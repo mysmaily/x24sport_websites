@@ -14,7 +14,7 @@ export async function CatalogPageView({ page, search = '', heading = 'Toàn bộ
   const activeSecondary = secondaryCategories.find((item) => item.slug === categorySlug)
   const cleanDescription = description.replace(/\s+/g, ' ').trim()
   const shortDescription = excerpt(cleanDescription, 210)
-  const hasLongDescription = cleanDescription.length > shortDescription.length
+  const hasLongDescription = cleanDescription.length > 210
   const pageHref = (nextPage: number) => {
     const params = new URLSearchParams({ ...(search ? { q: search } : {}), page: String(nextPage) })
     return `${canonicalPath}?${params}`
