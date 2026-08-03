@@ -2,8 +2,7 @@
 
 This is the single authoritative procedure for moving code from this local
 workspace to X24Sport production. All agents and operators must use this file
-instead of inventing commands from container names, old Compose labels, shell
-history, or legacy deployment sections in website profiles.
+instead of inventing commands from container names or shell history.
 
 ## Non-negotiable rules
 

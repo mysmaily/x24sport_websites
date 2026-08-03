@@ -3,7 +3,10 @@
 ## Scope and platform
 
 This repository operates one dynamic Next.js/Payload multi-tenant platform.
-All current website, content, deployment and recovery work uses this platform.
+All current website, content and deployment work uses this platform. These are
+new websites with their own requirements. Work only on the exact requested
+outcome; do not derive requirements from another implementation or initiate
+unsolicited full-site analysis or visual rebuilding.
 
 Shared runtime:
 
@@ -132,7 +135,7 @@ of the production runbook. Normal content edits never rebuild CMS.
 ## Shared content and customer experience rules
 
 - Public copy must help shoppers browse, choose, customize, order or contact.
-  Never expose CMS, migration, AI, SEO, cache, staging or developer language.
+  Never expose CMS, AI, SEO, cache, staging or developer language.
 - Product-detail `h1` is immediately below the breadcrumb: `20px` below the
   desktop breakpoint and `22px` at/above it. Product-card names are `18px`.
 - Original and discounted prices stay on one line; discounted price is exactly

@@ -32,8 +32,8 @@ shared-resource risks.
   visual weight.
 - Use real product media and factual copy. Optimize generated media before it
   becomes a committed `public` or Payload media asset.
-- Preserve parity between visual copy, CMS data, metadata, schema, and transaction
-  behavior.
+- Keep visual copy, CMS data, metadata, schema, and transaction behavior
+  consistent with each other.
 
 ## 3. Next.js 16 and Payload adapter
 

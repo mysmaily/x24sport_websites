@@ -1,6 +1,6 @@
 ---
 name: develop-x24sport-websites
-description: Build, redesign, extend, or audit the dynamic X24Sport Next.js/Payload tenant websites. Use for public UI/UX, layouts, navigation, product and category pages, content architecture, technical or on-page SEO, structured data, accessibility, responsive behavior, Core Web Vitals, conversion flows, and production readiness.
+description: Build, extend, and operate the new dynamic X24Sport Next.js/Payload tenant websites. Use for requested public UI/UX, layouts, navigation, product and category pages, content architecture, technical or on-page SEO, structured data, accessibility, responsive behavior, Core Web Vitals, conversion flows, and production readiness.
 ---
 
 # Develop X24Sport Websites
@@ -14,8 +14,9 @@ engineering constraints, never as a promise of ranking.
 1. Read the repository `AGENTS.md` and the target website's `AGENTS.md` in full.
 2. Identify exactly one target domain unless the user explicitly requests a
    cross-site component or rollout.
-3. Inspect the existing implementation before proposing architecture or adding
-   components, plugins, schema, routes, or content.
+3. Inspect the current implementation only to locate the code and data involved
+   in the requested outcome. Do not treat another site or a prior implementation
+   as a reference design unless the user explicitly requests it.
 4. Read the references required by the task:
    - Public UI, SEO, content, crawlability, or indexing: read
      `references/google-search-requirements.md`.
@@ -44,9 +45,7 @@ engineering constraints, never as a promise of ranking.
 - Translate the request into observable user outcomes and acceptance criteria.
 - Identify the key page types and user journeys affected: home, category,
   product, article, quote/order, cart, checkout, contact, and search.
-- Record the pre-change baseline with screenshots, HTML/HTTP evidence, relevant
-  analytics or Search Console data when available, and field Core Web Vitals
-  when performance is in scope.
+- Record only the current evidence required to verify the requested change.
 - Separate facts from assumptions. Do not invent product claims, prices,
   availability, reviews, policies, addresses, or business credentials.
 
@@ -55,7 +54,7 @@ engineering constraints, never as a promise of ranking.
 - Preserve the site's brand while creating a clear visual hierarchy, predictable
   navigation, readable typography, and purposeful calls to action.
 - Keep every customer-visible word shopper-facing. Do not place technical,
-  internal, staging, preview, migration, CMS, AI, SEO, QA, or
+  internal, staging, preview, CMS, AI, SEO, QA, or
   developer-process language in rendered UI copy unless the user explicitly asks
   for that wording on the page.
 - Do not explain SEO or route mechanics to shoppers. Terms and ideas such as URL
@@ -135,28 +134,15 @@ engineering constraints, never as a promise of ranking.
 
 1. Run syntax, type, unit, and production build checks appropriate to the stack.
    Note that Next.js 16 does not run a linter as part of `next build`.
-2. Run `scripts/audit_page.py` against representative public or local production
-   pages after rendering them.
-3. Inspect rendered HTML, not only source code: metadata, canonical, robots,
+2. Inspect rendered HTML, not only source code: metadata, canonical, robots,
    headings, links, image alternatives, and JSON-LD.
-4. Validate structured data with Google's Rich Results Test and representative
+3. Validate structured data with Google's Rich Results Test and representative
    URLs with URL Inspection when connected access is available.
-5. Check HTTP status, redirects, sitemap, robots.txt, desktop/mobile UI, browser
+4. Check HTTP status, redirects, sitemap, robots.txt, desktop/mobile UI, browser
    console, logs, forms, product/catalog navigation, and any affected conversion
    flow.
-6. Compare post-change evidence with the baseline. Do not claim a ranking gain or
-   Core Web Vitals pass without the corresponding data.
-
-## Run the page audit
-
-```bash
-python3 .codex/skills/develop-x24sport-websites/scripts/audit_page.py \
-  https://mayaocaulong.vn/san-pham/example
-```
-
-Use `--allow-noindex` only for an intentionally non-indexable page. Treat the
-script as a fast deterministic gate; it does not replace Search Console, Rich
-Results Test, browser accessibility testing, or field performance data.
+5. Confirm the requested outcome from fresh post-change evidence. Do not claim a
+   ranking gain or Core Web Vitals pass without the corresponding data.
 
 ## Report the result
 

@@ -38,10 +38,10 @@ async function resolve(segments: string[]) {
 }
 
 export async function generateMetadata({ params, searchParams }: {
-  params: Promise<{ legacy: string[] }>
+  params: Promise<{ path: string[] }>
   searchParams: Promise<{ page?: string }>
 }): Promise<Metadata> {
-  const result = await resolve((await params).legacy)
+  const result = await resolve((await params).path)
   if (result.product) {
     const canonical = result.product.legacyPath || `/${result.product.slug}/`
     const title = cleanSeoTitle(result.product.seoTitle || result.product.name)
@@ -197,12 +197,12 @@ function ContentDetail({ content }: { content: CmsWebContent }) {
   </>
 }
 
-export async function LegacyContentPage({ params, searchParams, redirectProducts = false }: {
-  params: Promise<{ legacy: string[] }>
+export async function ContentPathPage({ params, searchParams, redirectProducts = false }: {
+  params: Promise<{ path: string[] }>
   searchParams: Promise<{ page?: string }>
   redirectProducts?: boolean
 }) {
-  const result = await resolve((await params).legacy)
+  const result = await resolve((await params).path)
   if (result.product) {
     if (redirectProducts) permanentRedirect(`/san-pham/${result.product.slug}/`)
     const [related, showInterestForm] = await Promise.all([getRelatedProducts(result.product), hasProductInterestForm()])
@@ -227,9 +227,9 @@ export async function LegacyContentPage({ params, searchParams, redirectProducts
   notFound()
 }
 
-export default async function LegacyPage(props: {
-  params: Promise<{ legacy: string[] }>
+export default async function PathPage(props: {
+  params: Promise<{ path: string[] }>
   searchParams: Promise<{ page?: string }>
 }) {
-  return <LegacyContentPage {...props} redirectProducts />
+  return <ContentPathPage {...props} redirectProducts />
 }

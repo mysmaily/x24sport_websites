@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { LegacyContentPage } from '../../[...legacy]/page'
+import { ContentPathPage } from '../../[...path]/page'
 import { getProductBySlug, productImages } from '../../../lib/content'
 import { cleanSeoTitle, metadataDescription } from '../../../lib/seo'
 import { getTenantContext } from '../../../lib/tenant'
@@ -29,8 +29,8 @@ export default async function ProductPage({ params, searchParams }: {
   params: Promise<{ slug: string }>
   searchParams: Promise<{ page?: string }>
 }) {
-  return <LegacyContentPage
-    params={params.then(({ slug }) => ({ legacy: [slug] }))}
+  return <ContentPathPage
+    params={params.then(({ slug }) => ({ path: [slug] }))}
     searchParams={searchParams}
   />
 }

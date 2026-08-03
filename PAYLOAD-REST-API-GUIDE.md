@@ -195,7 +195,7 @@ reuse its R2 URL instead of uploading a second binary.
 - Run a dry-run before every programmatic content mutation.
 - Do not create rollback copies, record exports, database dumps, archives, or
   snapshots before `--apply`; follow the repository-wide mutation safety rule.
-- Prefer a stable tenant-scoped identity: SKU, tenant slug key, legacy path,
+- Prefer a stable tenant-scoped identity: SKU, tenant slug key, canonical path,
   `sourceSystem + sourceId`, or checksum as appropriate.
 - Query first, then create or update; a retry must not create duplicates.
 - Never use direct SQL for normal content creation or editing.

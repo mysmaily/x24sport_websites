@@ -4,8 +4,8 @@
 > sports multi-tenant stack. Use this profile when changing CMS schema, admin,
 > content collections, media upload, seed data, or API behavior.
 
-> Deployment authority: `../PRODUCTION-DEPLOYMENT-RUNBOOK.md`. Any deployment
-> commands later in this profile are historical context and must not be executed.
+> Deployment authority: `../PRODUCTION-DEPLOYMENT-RUNBOOK.md`. Do not substitute
+> commands from this profile for the canonical deployment procedure.
 
 ## Current Stack
 
