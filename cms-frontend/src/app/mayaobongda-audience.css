@@ -41,6 +41,10 @@ body.tenant-mayaobongda .football-audience-final {
   grid-template-columns: minmax(0, 1fr);
 }
 
+body.tenant-mayaobongda .mabd-home-audience-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 @media (min-width: 640px) {
   body.tenant-mayaobongda .football-audience-title {
     font-size: 4.7rem;
