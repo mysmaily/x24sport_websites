@@ -46,11 +46,11 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1220]/95 text-white backdrop-blur-xl">
-      <div className="mx-auto grid min-h-16 w-full max-w-[1440px] grid-cols-[1fr_auto] items-center gap-3 px-4 sm:px-6 lg:grid-cols-[minmax(190px,.8fr)_auto_minmax(250px,.9fr)] lg:px-6 xl:px-8">
+      <div className="mx-auto grid min-h-18 w-full max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-6 lg:grid-cols-[minmax(220px,1fr)_auto_minmax(220px,1fr)] lg:px-8">
         <Link className="inline-flex w-fit items-center" href="/" aria-label="May Áo Chạy Bộ — Trang chủ">
           <img alt="May Áo Chạy Bộ" className="h-auto w-[228px] max-w-[calc(100vw-96px)]" height="58" src={LOGO_URL} width="372" />
         </Link>
-        <nav className="hidden items-center justify-center gap-3 text-[13px] font-extrabold text-slate-300 lg:flex xl:gap-5 xl:text-sm" aria-label="Điều hướng chính">
+        <nav className="hidden items-center justify-center gap-5 text-sm font-extrabold text-slate-300 lg:flex xl:gap-7" aria-label="Điều hướng chính">
           <div
             className="relative"
             onBlur={hideMenuSoon}
@@ -61,7 +61,7 @@ export function SiteHeader() {
             <button
               aria-controls="product-mega-menu"
               aria-expanded={activeMenu === 'samples'}
-              className={`relative flex min-h-11 cursor-pointer items-center gap-1.5 py-5 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`}
+              className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`}
               onClick={() => setActiveMenu((value) => value === 'samples' ? null : 'samples')}
               type="button"
             >
@@ -79,7 +79,7 @@ export function SiteHeader() {
             <button
               aria-controls="color-mega-menu"
               aria-expanded={activeMenu === 'colors'}
-              className={`relative flex min-h-11 cursor-pointer items-center gap-1.5 py-5 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${colorActive ? 'text-brand' : ''}`}
+              className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${colorActive ? 'text-brand' : ''}`}
               onClick={() => setActiveMenu((value) => value === 'colors' ? null : 'colors')}
               type="button"
             >
@@ -89,13 +89,13 @@ export function SiteHeader() {
           </div>
           {links.map((link) => {
             const active = pathname === link.href || pathname.startsWith(link.href)
-            return <Link aria-current={active ? 'page' : undefined} className={`relative whitespace-nowrap py-5 transition hover:text-white ${active ? 'text-brand' : ''}`} href={link.href} key={link.href}>{link.label}{active ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}</Link>
+            return <Link aria-current={active ? 'page' : undefined} className={`relative py-6 transition hover:text-white ${active ? 'text-brand' : ''}`} href={link.href} key={link.href}>{link.label}{active ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}</Link>
           })}
         </nav>
-        <div className="hidden min-w-0 items-center justify-end gap-2 lg:flex">
-          <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-10 shrink-0 cursor-pointer place-items-center rounded-lg border border-white/20 transition hover:border-brand/50 hover:bg-white/5" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={17} /></button>
-          <a className="inline-flex min-h-10 min-w-0 items-center gap-2 rounded-lg border border-white/20 px-3 text-[13px] font-black leading-tight transition hover:border-brand/50 hover:bg-white/5 xl:text-sm" href={`tel:${PHONE_VALUE}`}><Phone className="shrink-0" size={16} /> <span className="whitespace-nowrap tabular-nums">{PHONE_DISPLAY}</span></a>
-          <a className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-lg bg-brand px-3.5 text-[13px] font-black leading-tight text-white transition hover:bg-brand-dark xl:text-sm" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle className="shrink-0" size={16} /> <span className="whitespace-nowrap">Tư vấn mẫu</span></a>
+        <div className="hidden items-center justify-end gap-2 lg:flex">
+          <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20 hover:border-brand/50" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
+          <a className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 px-3.5 text-sm font-black hover:border-brand/50" href={`tel:${PHONE_VALUE}`}><Phone size={17} /> {PHONE_DISPLAY}</a>
+          <a className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-brand px-4 text-sm font-black hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={17} /> Tư vấn mẫu</a>
         </div>
         <div className="flex items-center justify-end gap-2 lg:hidden">
           <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
