@@ -45,6 +45,11 @@ body.tenant-mayaobongda .mabd-home-audience-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+body.tenant-mayaobongda .mabd-home-audience-grid > li > a {
+  min-height: 4.75rem;
+  padding: .9rem 1rem;
+}
+
 body.tenant-mayaobongda .mabd-category-section {
   background:
     radial-gradient(circle at 92% 10%, rgba(241, 90, 36, .13), transparent 31%),
