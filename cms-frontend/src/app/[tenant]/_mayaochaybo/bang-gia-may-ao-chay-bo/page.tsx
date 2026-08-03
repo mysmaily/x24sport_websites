@@ -27,35 +27,35 @@ const notes = [
 export default function RunningPricingPage() {
   return <>
     <section className="bg-[#0b1220] text-white">
-      <div className="section-shell py-5">
+      <div className="section-shell py-3">
         <nav className="flex items-center gap-2 text-xs font-bold text-slate-400" aria-label="Đường dẫn">
-          <Link className="min-h-11 content-center transition hover:text-white" href="/">Trang chủ</Link>
+          <Link className="min-h-9 content-center transition hover:text-white" href="/">Trang chủ</Link>
           <span aria-hidden="true">/</span>
           <span className="text-slate-200">Bảng giá</span>
         </nav>
       </div>
-      <div className="section-shell grid gap-6 pb-10 pt-1 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,.65fr)] lg:items-end lg:gap-8">
+      <div className="section-shell grid gap-5 pb-7 pt-1 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start lg:gap-7">
         <div>
           <p className="section-kicker text-orange-300">Bảng giá may áo chạy bộ</p>
-          <h1 className="max-w-4xl font-display text-4xl font-bold leading-none text-balance sm:text-5xl lg:text-6xl">Bảng giá may áo chạy bộ.</h1>
-          <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">Giá tham khảo theo số lượng và chất vải cho đội chạy, câu lạc bộ, doanh nghiệp hoặc giải chạy. Gửi mẫu và deadline để được báo giá sát hơn.</p>
-          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-            <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black text-white transition hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank">Nhận báo giá qua Zalo <ArrowRight size={18} /></a>
-            <Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 text-sm font-black text-white transition hover:border-white/40 hover:bg-white/10" href="/san-pham/">Xem mẫu áo</Link>
+          <h1 className="max-w-3xl font-display text-[38px] font-bold leading-[.98] text-balance sm:text-[48px] lg:text-[58px]">Bảng giá may áo chạy bộ</h1>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:text-[15px]">Giá tham khảo theo số lượng và chất vải cho đội chạy, câu lạc bộ, doanh nghiệp hoặc giải chạy. Gửi mẫu và deadline để báo giá sát hơn.</p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <a className="inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-black text-white transition hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank">Báo giá qua Zalo <ArrowRight size={17} /></a>
+            <Link className="inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-5 text-sm font-black text-white transition hover:border-white/40 hover:bg-white/10" href="/san-pham/">Xem mẫu áo</Link>
           </div>
         </div>
-        <aside className="hidden rounded-2xl border border-white/15 bg-white/5 p-5 sm:block" aria-label="Tóm tắt bảng giá">
+        <aside className="rounded-xl border border-white/15 bg-white/[.06] p-4" aria-label="Tóm tắt bảng giá">
           <p className="flex items-center gap-2 text-sm font-bold text-orange-200"><CircleDollarSign aria-hidden="true" size={18} /> Giá tham khảo từ</p>
-          <strong className="mt-2 block font-display text-6xl font-bold leading-none text-white">105.000đ</strong>
+          <strong className="mt-2 block font-display text-[38px] font-bold leading-none text-white sm:text-[46px]">105.000đ</strong>
           <span className="mt-1 block text-sm text-slate-300">mỗi áo · đơn trên 100 áo</span>
         </aside>
       </div>
     </section>
 
-    <section className="section-shell py-10 sm:py-14" id="bang-gia">
+    <section className="section-shell py-8 sm:py-12" id="bang-gia">
       <header className="max-w-4xl">
         <p className="section-kicker">So sánh trực tiếp</p>
-        <h2 className="font-display text-3xl font-bold leading-none text-slate-950 sm:text-5xl">Bảng giá theo chất liệu và số lượng</h2>
+        <h2 className="font-display text-3xl font-bold leading-[1.02] text-slate-950 sm:text-5xl">Bảng giá theo chất liệu và số lượng</h2>
         <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">Giá đã bao gồm thiết kế, in ấn, vận chuyển và VAT. Các chi tiết như tên cá nhân, logo nhà tài trợ hoặc tiến độ gấp sẽ được tư vấn trước khi chốt đơn.</p>
       </header>
       <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm" role="region" aria-label="Bảng giá may áo chạy bộ" tabIndex={0}>
