@@ -139,6 +139,7 @@ function mapCategory(category: CmsCategory, index: number): SportCategory {
     tone: design?.tone || '#ed642d', image: design?.image || '/images/football.jpg',
     promoImage: design?.promoImage,
     parentSlug: design?.parentSlug,
+    legacyPath: category.legacyPath,
   }
 }
 

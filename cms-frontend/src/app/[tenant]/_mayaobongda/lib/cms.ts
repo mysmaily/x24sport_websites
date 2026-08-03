@@ -75,7 +75,9 @@ type Paginated<T> = {
   hasNextPage: boolean
 }
 
-async function api<T>(path: string, revalidate = 0): Promise<T> {
+const STORE_REVALIDATE_SECONDS = 180
+
+async function api<T>(path: string, revalidate = STORE_REVALIDATE_SECONDS): Promise<T> {
   const response = await fetch(`${API_URL}${path}`, {
     next: { revalidate },
     headers: { Accept: 'application/json' },

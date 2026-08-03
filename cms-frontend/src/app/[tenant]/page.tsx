@@ -40,7 +40,17 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
   if (tenant === 'mayaobongchuyen') return {}
   if (tenant === 'mayaobongro') return {}
   if (tenant === 'mayaochaybo') return {}
-  if (tenant === 'mayaobongda') return {}
+  if (tenant === 'mayaobongda') return {
+    title: 'May Áo Bóng Đá Thiết Kế, Áo Không Logo Giá Xưởng',
+    description: 'May áo bóng đá thiết kế riêng, áo không logo và đồng phục thi đấu cho đội bóng, câu lạc bộ, công ty, ngân hàng và giải phong trào.',
+    alternates: { canonical: 'https://mayaobongda.vn/' },
+    openGraph: {
+      title: 'May Áo Bóng Đá Thiết Kế, Áo Không Logo Giá Xưởng',
+      description: 'Chọn mẫu áo bóng đá, chỉnh màu, logo, tên số và đặt may trực tiếp tại xưởng.',
+      url: 'https://mayaobongda.vn/',
+      images: [{ url: '/images/mayaobongda/og-share.webp', width: 1200, height: 630, alt: 'Mẫu áo bóng đá thiết kế riêng MayaoBongDa' }],
+    },
+  }
   if (tenant !== 'rynosport') return {}
 
   return {

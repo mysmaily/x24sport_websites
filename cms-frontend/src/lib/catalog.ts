@@ -8,6 +8,7 @@ export type SportCategory = {
   image: string
   promoImage?: string
   parentSlug?: string
+  legacyPath?: string
 }
 
 export type CategoryMenuGroup = {

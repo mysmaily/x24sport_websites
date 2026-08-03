@@ -62,7 +62,7 @@ export async function FootballAudienceLandingPage({ landing }: { landing: Footba
         <nav aria-label="Đường dẫn" className="flex items-center gap-2 overflow-hidden text-xs font-bold text-slate-400">
           <Link className="shrink-0 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/">Trang chủ</Link>
           <ChevronRight aria-hidden="true" className="shrink-0" size={14} />
-          <Link className="shrink-0 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/shop/">Sản Phẩm</Link>
+          <Link className="shrink-0 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/san-pham/">Sản Phẩm</Link>
           <ChevronRight aria-hidden="true" className="shrink-0" size={14} />
           <span aria-current="page" className="truncate text-slate-200">{categoryLabel}</span>
         </nav>
@@ -117,7 +117,7 @@ export async function FootballAudienceLandingPage({ landing }: { landing: Footba
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: canonical('/') },
-          { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: canonical('/shop/') },
+          { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: canonical('/san-pham/') },
           { '@type': 'ListItem', position: 3, name: categoryLabel, item: canonical(categoryPath) },
         ],
       }} />
@@ -156,7 +156,7 @@ export async function FootballAudienceLandingPage({ landing }: { landing: Footba
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: canonical('/') },
-        { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: canonical('/shop/') },
+        { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: canonical('/san-pham/') },
         { '@type': 'ListItem', position: 3, name: categoryLabel, item: canonical(categoryPath) },
       ],
     }} />
@@ -209,7 +209,7 @@ export async function FootballAudienceLandingPage({ landing }: { landing: Footba
 
     <section className="bg-white py-16 sm:py-22" id="mau-ao">
       <div className="section-shell">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><p className="section-kicker">Chọn điểm xuất phát</p><h2 className="section-title">Tìm một mẫu gần với ý tưởng của bạn.</h2><p className="section-lead">Màu sắc, logo, tên số và nội dung có thể tiếp tục được điều chỉnh theo nhu cầu thực tế.</p></div><Link className="inline-flex min-h-12 items-center gap-2 self-start rounded-lg border border-slate-300 px-5 text-sm font-black transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/shop/">Xem toàn bộ mẫu áo <ArrowRight aria-hidden="true" size={18} /></Link></div>
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><p className="section-kicker">Chọn điểm xuất phát</p><h2 className="section-title">Tìm một mẫu gần với ý tưởng của bạn.</h2><p className="section-lead">Màu sắc, logo, tên số và nội dung có thể tiếp tục được điều chỉnh theo nhu cầu thực tế.</p></div><Link className="inline-flex min-h-12 items-center gap-2 self-start rounded-lg border border-slate-300 px-5 text-sm font-black transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/san-pham/">Xem toàn bộ mẫu áo <ArrowRight aria-hidden="true" size={18} /></Link></div>
         <div className="mt-10"><ProductGrid products={catalog.docs} /></div>
       </div>
     </section>

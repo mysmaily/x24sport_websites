@@ -1,8 +1,6 @@
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 
 import MayaoChayBoShopPage from '../_mayaochaybo/shop/page'
-import MayaoBongDaShopPage, { generateMetadata as generateMayaoBongDaShopMetadata } from '../_mayaobongda/shop/page'
-import { MayaoBongDaShell } from '../_mayaobongda/shell'
 
 type Props = {
   params: Promise<{ tenant: string }>
@@ -11,7 +9,12 @@ type Props = {
 
 export async function generateMetadata({ params, searchParams }: Props) {
   const { tenant } = await params
-  if (tenant === 'mayaobongda') return generateMayaoBongDaShopMetadata({ searchParams })
+  void searchParams
+  if (tenant === 'mayaobongda') return {
+    title: 'Mẫu Áo Bóng Đá Thiết Kế',
+    description: 'Xem mẫu áo bóng đá thiết kế sẵn, áo không logo và bộ đồ thi đấu có thể chỉnh màu, logo, tên số theo đội.',
+    alternates: { canonical: '/san-pham/' },
+  }
   return {}
 }
 
@@ -21,6 +24,6 @@ export default async function TenantShopPage({ params, searchParams }: Props) {
     await MayaoChayBoShopPage({ searchParams })
     notFound()
   }
-  if (tenant === 'mayaobongda') return <MayaoBongDaShell><MayaoBongDaShopPage searchParams={searchParams} /></MayaoBongDaShell>
+  if (tenant === 'mayaobongda') permanentRedirect('/san-pham/')
   notFound()
 }

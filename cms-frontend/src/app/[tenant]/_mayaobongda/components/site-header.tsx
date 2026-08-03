@@ -21,7 +21,7 @@ export function SiteHeader() {
   const [productsOpen, setProductsOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const productActive = pathname === '/shop/' || pathname === '/san-pham/' || pathname.startsWith('/ao-') || pathname.startsWith('/quan-') || pathname.startsWith('/bo-')
+  const productActive = pathname === '/san-pham/' || pathname.startsWith('/ao-') || pathname.startsWith('/quan-') || pathname.startsWith('/bo-')
   const showProducts = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setProductsOpen(true) }
   const hideProductsSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setProductsOpen(false), 120) }
   useEffect(() => { setOpen(false); setProductsOpen(false); setSearchOpen(false) }, [pathname])
@@ -73,7 +73,7 @@ export function SiteHeader() {
           <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setOpen(!open)} type="button">{open ? <X /> : <Menu />}</button>
         </div>
       </div>
-      {searchOpen ? <div className="absolute right-4 top-full z-[70] mt-2 w-[min(520px,calc(100vw-32px))] rounded-xl bg-white p-1.5 text-slate-950 shadow-[0_14px_40px_rgba(2,6,23,.24)]"><form action="/tim-kiem/" className="grid grid-cols-[1fr_auto_auto] gap-1.5" role="search"><label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label><input autoComplete="off" className="min-h-11 min-w-0 rounded-lg bg-slate-50 px-3 text-sm outline-none" id="header-search-q" name="q" placeholder="Tên mẫu, màu áo, tag ảnh..." type="search" /><button className="rounded-lg bg-brand px-4 text-sm font-black text-white" type="submit">Tìm</button><button aria-label="Đóng tìm kiếm" className="grid size-11 place-items-center rounded-lg text-slate-700 hover:bg-slate-100" onClick={() => setSearchOpen(false)} type="button"><X size={17} /></button></form></div> : null}
+      {searchOpen ? <div className="absolute right-4 top-full z-[70] mt-2 w-[min(520px,calc(100vw-32px))] rounded-xl bg-white p-1.5 text-slate-950 shadow-[0_14px_40px_rgba(2,6,23,.24)]"><form action="/tim-kiem/" className="grid grid-cols-[1fr_auto_auto] gap-1.5" role="search"><label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label><input autoComplete="off" className="min-h-11 min-w-0 rounded-lg bg-slate-50 px-3 text-sm outline-none" id="header-search-q" name="q" placeholder="Tên mẫu, mã áo hoặc màu sắc..." type="search" /><button className="rounded-lg bg-brand px-4 text-sm font-black text-white" type="submit">Tìm</button><button aria-label="Đóng tìm kiếm" className="grid size-11 place-items-center rounded-lg text-slate-700 hover:bg-slate-100" onClick={() => setSearchOpen(false)} type="button"><X size={17} /></button></form></div> : null}
       <div
         aria-hidden={!productsOpen}
         className={`absolute inset-x-0 top-full hidden border-t border-slate-200 bg-[#f8f6f2] text-slate-950 shadow-[0_28px_70px_rgba(2,6,23,.32)] transition duration-200 lg:block ${productsOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`}
@@ -88,7 +88,7 @@ export function SiteHeader() {
             <p className="mb-5 flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-brand" id="menu-types-title"><span className="size-2 rounded-full bg-brand" /> Theo nhóm sản phẩm</p>
             <div className="grid grid-cols-2 gap-2.5">
               {[
-                { href: '/shop/', label: 'Tất cả sản phẩm' },
+                { href: '/san-pham/', label: 'Tất cả sản phẩm' },
                 { href: '/ao-thiet-ke/', label: 'Áo thiết kế' },
                 { href: '/ao-khong-logo/', label: 'Áo không logo' },
                 { href: '/cau-lac-bo/', label: 'Câu lạc bộ' },
@@ -96,7 +96,7 @@ export function SiteHeader() {
                 { href: '/cong-ty/', label: 'Công ty' },
               ].map((item, index) => <Link className="group flex min-h-16 items-center justify-between rounded-xl border border-slate-200 bg-white px-4 text-sm font-black shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={productsOpen ? 0 : -1}><span><span className="mb-1 block text-[10px] font-black tracking-[.16em] text-slate-400">0{index + 1}</span>{item.label}</span></Link>)}
             </div>
-            <Link className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-black text-brand hover:text-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/shop/" tabIndex={productsOpen ? 0 : -1}>Xem toàn bộ sản phẩm</Link>
+            <Link className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-black text-brand hover:text-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/san-pham/" tabIndex={productsOpen ? 0 : -1}>Xem toàn bộ sản phẩm</Link>
           </section>
           <section aria-labelledby="menu-colors-title">
             <p className="mb-5 flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-slate-600" id="menu-colors-title"><span className="size-2 rounded-full bg-brand" /> Theo nhu cầu</p>
@@ -115,7 +115,7 @@ export function SiteHeader() {
       <div aria-hidden={!open} className={`absolute inset-x-0 top-full max-h-[calc(100vh-72px)] overflow-y-auto border-b border-white/10 bg-[#0b1220] p-4 shadow-2xl transition duration-200 lg:hidden ${open ? 'visible opacity-100' : 'pointer-events-none invisible opacity-0'}`} id="mobile-navigation">
         <nav className="mx-auto grid max-w-2xl gap-3" aria-label="Điều hướng di động">
           <section className="rounded-xl border border-white/10 bg-white/[.04] p-3">
-            <div className="mb-3 flex items-center justify-between px-1"><p className="text-xs font-black uppercase tracking-[.16em] text-brand">Nhóm sản phẩm</p><Link className="text-xs font-bold text-white underline decoration-white/30 underline-offset-4" href="/shop/" tabIndex={open ? 0 : -1}>Xem tất cả</Link></div>
+            <div className="mb-3 flex items-center justify-between px-1"><p className="text-xs font-black uppercase tracking-[.16em] text-brand">Nhóm sản phẩm</p><Link className="text-xs font-bold text-white underline decoration-white/30 underline-offset-4" href="/san-pham/" tabIndex={open ? 0 : -1}>Xem tất cả</Link></div>
             <div className="grid gap-2 sm:grid-cols-2">{[
               { href: '/ao-thiet-ke/', label: 'Áo thiết kế' },
               { href: '/ao-khong-logo/', label: 'Áo không logo' },
@@ -136,9 +136,9 @@ export function SiteHeader() {
             <div className="grid grid-cols-2 gap-2">{[
               { href: '/chat-lieu-vai/', label: 'Chất liệu vải' },
               { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá' },
-              { href: '/category/chua-phan-loai/', label: 'Tin tức' },
-              { href: '/shop/', label: 'Tất cả mẫu áo' },
-              { href: '/shop/', label: 'Toàn bộ sản phẩm' },
+              { href: '/blog/', label: 'Tin tức' },
+              { href: '/lien-he/', label: 'Liên hệ' },
+              { href: '/san-pham/', label: 'Tất cả mẫu áo' },
             ].map((item) => <Link className="flex min-h-12 items-center gap-2 rounded-lg border border-white/10 px-3 text-xs font-extrabold hover:border-brand/60" href={item.href} key={item.href} tabIndex={open ? 0 : -1}>{item.label}</Link>)}</div>
           </section>
           {links.map((link) => <Link className="flex min-h-12 items-center rounded-lg border border-white/10 px-4 font-extrabold hover:border-brand/50" href={link.href} key={link.href} tabIndex={open ? 0 : -1}>{link.label}</Link>)}

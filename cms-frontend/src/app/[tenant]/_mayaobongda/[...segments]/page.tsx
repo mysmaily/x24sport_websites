@@ -11,7 +11,7 @@ import { rewriteLegacyHtml } from '../lib/legacy-content'
 import { getPostCategoryArchive, isIndexableContent } from '../lib/legacy-routes'
 import { excerpt } from '../lib/site'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 180
 
 type SearchParams = Record<string, string | string[] | undefined>
 
@@ -82,7 +82,7 @@ export default async function LegacyRoutePage({ params, searchParams }: { params
     const page = Number(segments.at(-1))
     const baseSegments = segments.slice(0, -2)
     const base = `/${baseSegments.join('/')}/`
-    if (base === '/shop/' || base === '/san-pham/') permanentRedirect(`${base}?page=${page}`)
+    if (base === '/san-pham/') permanentRedirect(`${base}?page=${page}`)
     if (base === '/blog/' || getPostCategoryArchive(base) || await resolveCategoryPath(base)) permanentRedirect(`${base}?page=${page}`)
   }
 

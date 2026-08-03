@@ -5,7 +5,7 @@ import { ProductDetailPage } from '../../components/product-detail-page'
 import { getProducts, productImages, productPath, resolveProductSlug } from '../../lib/cms'
 import { DEFAULT_OG_IMAGE, excerpt } from '../../lib/site'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 180
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const product = await resolveProductSlug((await params).slug)
@@ -30,5 +30,5 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   if (!product) notFound()
 
   const related = await getProducts({ limit: 5 })
-  return <ProductDetailPage catalogHref="/shop/" catalogLabel="Sản Phẩm" isLogo={false} product={product} related={related.docs} />
+  return <ProductDetailPage catalogHref="/san-pham/" catalogLabel="Sản Phẩm" isLogo={false} product={product} related={related.docs} />
 }

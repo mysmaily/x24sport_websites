@@ -97,7 +97,7 @@ export async function generateMetadata(): Promise<Metadata> {
           : running
             ? 'MayaoChayBo.vn - Áo chạy bộ thiết kế riêng'
             : football
-              ? 'MayaoBongDa.vn - Áo bóng đá thiết kế riêng'
+              ? 'May Áo Bóng Đá Thiết Kế, Áo Không Logo Giá Xưởng'
       : `${tenant.name}${ryno ? ' -' : ' —'} Trang phục thể thao`
   return {
     metadataBase: new URL(`https://${tenant.domain}`),

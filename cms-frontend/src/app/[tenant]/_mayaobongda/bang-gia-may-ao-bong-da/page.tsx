@@ -48,7 +48,7 @@ export default function FootballPricingPage() {
           <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">Xem nhanh giá áo bóng đá theo số lượng và chất vải. Giá thực tế có thể thay đổi theo mẫu thiết kế, tiến độ và chi tiết in riêng.</p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black text-white transition hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank">Nhận báo giá qua Zalo <ArrowRight size={18} /></a>
-            <Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 text-sm font-black text-white transition hover:border-white/40 hover:bg-white/10" href="/shop/">Xem mẫu áo</Link>
+            <Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 text-sm font-black text-white transition hover:border-white/40 hover:bg-white/10" href="/san-pham/">Xem mẫu áo</Link>
           </div>
         </div>
         <aside className="hidden rounded-2xl border border-white/15 bg-white/5 p-5 sm:block" aria-label="Tóm tắt bảng giá">

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { PostArchivePage } from '../components/post-archive-page'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 180
 type SearchParams = Promise<Record<string, string | string[] | undefined>>
 
 export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
