@@ -17,7 +17,28 @@ export function canonical(path: string) {
 
 export function excerpt(value?: string | null, limit = 150) {
   const clean = (value || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
-  return clean.length > limit ? `${clean.slice(0, limit).trimEnd()}…` : clean
+  if (clean.length <= limit) return clean
+  const sliced = clean.slice(0, limit).trimEnd()
+  const lastSpace = sliced.lastIndexOf(' ')
+  const readableSlice = lastSpace > limit * 0.7 ? sliced.slice(0, lastSpace) : sliced
+  return `${readableSlice.trimEnd()}…`
+}
+
+export function cleanSeoText(value?: string | null) {
+  return (value || '')
+    .replace(/\s+-\s+May Áo Chạy Bộ\s+-\s+VN$/i, '')
+    .replace(/\s+-\s+MayaoChayBo\.vn$/i, '')
+    .replace(/\.\.\./g, '…')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+export function seoTitle(value: string, limit = 60) {
+  return excerpt(cleanSeoText(value), limit)
+}
+
+export function seoDescription(value?: string | null, limit = 155) {
+  return excerpt(cleanSeoText(value), limit)
 }
 
 export function pageMetadata({

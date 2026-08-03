@@ -7,11 +7,11 @@ import { PostArchivePage } from '../components/post-archive-page'
 import { ProductDetailPage } from '../components/product-detail-page'
 import { getCatalogLanding } from '../lib/catalog-landings'
 import { getProducts, productImages, productPath, resolveCategoryPath, resolveContentPath, resolveProductPath } from '../lib/cms'
-import { DEFAULT_OG_IMAGE, excerpt } from '../lib/site'
+import { DEFAULT_OG_IMAGE, excerpt, seoDescription, seoTitle } from '../lib/site'
 import { rewriteLegacyHtml } from '../lib/legacy-content'
 import { isIndexableContent, postCategoryFromPath } from '../lib/legacy-routes'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 300
 type SearchParams = Record<string, string | string[] | undefined>
 function pathFrom(segments: string[]) {
   const encoded = segments.map((segment) => encodeURIComponent(decodeURIComponent(segment)).replace(/%[0-9A-F]{2}/g, (token) => token.toLowerCase()))
@@ -24,7 +24,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   const postCategory = postCategoryFromPath(path)
   if (postCategory) { const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1); const title = `${postCategory.title}${page > 1 ? ` – Trang ${page}` : ''}`; const canonical = page > 1 ? `${path}?page=${page}` : path; return { title, description: postCategory.description, alternates: { canonical }, openGraph: { title, description: postCategory.description, images: [DEFAULT_OG_IMAGE], url: canonical }, twitter: { card: 'summary_large_image', title, description: postCategory.description, images: [DEFAULT_OG_IMAGE.url] } } }
   const [product, category, content] = await Promise.all([resolveProductPath(path), resolveCategoryPath(path), resolveContentPath(path)])
-  if (product) { const image = productImages(product)[0]; const title = product.seoTitle || product.name; const description = product.metaDescription || excerpt(product.shortDescription || product.name, 160); const canonicalPath = productPath(product); return { title, description, alternates: { canonical: canonicalPath }, openGraph: { title, description, images: image?.url ? [image.url] : [DEFAULT_OG_IMAGE], url: canonicalPath }, twitter: { card: 'summary_large_image', title, description, images: [image?.url || DEFAULT_OG_IMAGE.url] } } }
+  if (product) { const image = productImages(product)[0]; const title = seoTitle(product.seoTitle || product.name); const description = seoDescription(product.metaDescription || product.shortDescription || product.name); const canonicalPath = productPath(product); return { title, description, alternates: { canonical: canonicalPath }, openGraph: { title, description, images: image?.url ? [image.url] : [DEFAULT_OG_IMAGE], url: canonicalPath }, twitter: { card: 'summary_large_image', title, description, images: [image?.url || DEFAULT_OG_IMAGE.url] } } }
   if (category) {
     const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
     const search = String(Array.isArray(query.q) ? query.q[0] : query.q || '').trim()

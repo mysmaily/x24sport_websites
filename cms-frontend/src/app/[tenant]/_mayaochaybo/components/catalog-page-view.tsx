@@ -2,7 +2,7 @@ import { ChevronDown, ChevronLeft, ChevronRight, Search } from 'lucide-react'
 import Link from 'next/link'
 import { COLOR_LANDINGS, TYPE_LANDINGS } from '../lib/catalog-landings'
 import { getCategories, getProducts } from '../lib/cms'
-import { SITE_URL } from '../lib/site'
+import { canonical, SITE_URL } from '../lib/site'
 import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
 
@@ -13,12 +13,25 @@ export async function CatalogPageView({ page, search = '', sort = 'popular', hea
   const activeColor = COLOR_LANDINGS.find((item) => item.slug === categorySlug)
   const includeSortQuery = sort === 'popular' && canonicalPath === '/san-pham/'
   const pageHref = (nextPage: number) => { const params = new URLSearchParams({ ...(search ? { q: search } : {}), ...(includeSortQuery ? { sort: 'xem-nhieu' } : {}), page: String(nextPage) }); return `${canonicalPath}?${params}` }
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: result.docs.map((product, index) => ({
+      '@type': 'ListItem',
+      position: (result.page - 1) * 24 + index + 1,
+      url: canonical(`/san-pham/${product.slug}/`),
+      name: product.name,
+    })),
+    numberOfItems: result.totalDocs,
+    url: canonical(canonicalPath),
+  }
   return <div className="section-shell py-4 sm:py-8">
     <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Trang chủ', item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: breadcrumbLabel, item: `${SITE_URL}${canonicalPath}` }] }} />
+    <JsonLd data={itemListSchema} />
     <nav className="mb-3 flex items-center gap-2 text-xs font-semibold text-slate-500"><Link href="/">Trang chủ</Link><ChevronRight size={13} /><span className="truncate text-slate-800">{breadcrumbLabel}</span></nav>
     <header className="grid gap-2 border-b border-slate-200 pb-4 sm:gap-3 sm:pb-5 lg:grid-cols-[1fr_.8fr] lg:items-end"><div><p className="section-kicker hidden sm:block">Bộ sưu tập theo yêu cầu</p><h1 className="font-display text-[28px] font-bold leading-[1.05] tracking-[-.02em] text-slate-950 sm:text-[34px] lg:text-[42px]">{heading}</h1></div><p className="max-w-2xl text-sm leading-5 text-slate-600">{description}</p></header>
-    <form action={searchAction} className="mt-4 grid max-w-3xl grid-cols-[auto_1fr_auto] overflow-hidden rounded-lg border border-slate-300 bg-white" role="search"><Search className="ml-3 self-center text-slate-500" size={17} /><label className="sr-only" htmlFor="catalog-q">Tìm mẫu áo</label><input className="min-h-11 min-w-0 px-3 text-sm outline-none" defaultValue={search} id="catalog-q" name="q" placeholder="Tên mẫu, mã hoặc màu sắc..." type="search" />{includeSortQuery ? <input name="sort" type="hidden" value="xem-nhieu" /> : null}<button className="bg-[#0b1220] px-4 text-sm font-black text-white hover:bg-brand">Tìm</button></form>
-    <nav className="relative mt-3 flex items-center gap-2 rounded-xl border border-slate-200 bg-[#f8f6f2] p-2" aria-label="Lọc mẫu áo theo kiểu và màu sắc">
+    <form action={searchAction} className="mt-4 grid max-w-3xl grid-cols-[auto_1fr_auto] overflow-hidden rounded-lg border border-slate-300 bg-white" role="search"><Search className="ml-3 self-center text-slate-500" size={17} /><label className="sr-only" htmlFor="catalog-q">Tìm mẫu áo</label><input className="min-h-11 min-w-0 px-3 text-sm outline-none" defaultValue={search} id="catalog-q" name="q" placeholder="Tên mẫu, mã hoặc màu sắc…" type="search" />{includeSortQuery ? <input name="sort" type="hidden" value="xem-nhieu" /> : null}<button className="bg-[#0b1220] px-4 text-sm font-black text-white hover:bg-brand">Tìm</button></form>
+    <nav className="relative mt-3 flex items-center gap-2 rounded-xl border border-slate-200 bg-[#f8f6f2] p-2 after:pointer-events-none after:absolute after:inset-y-2 after:right-[108px] after:w-8 after:bg-gradient-to-l after:from-[#f8f6f2] after:to-transparent sm:after:hidden" aria-label="Lọc mẫu áo theo kiểu và màu sắc">
       <span className="hidden shrink-0 pl-1 text-[10px] font-black uppercase tracking-[.14em] text-slate-500 sm:block">Kiểu áo</span>
       <div className="flex min-w-0 flex-1 snap-x gap-1.5 overflow-x-auto overscroll-x-contain scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-catalog-type-strip>
         <Link aria-current={!activeType ? 'page' : undefined} className={`inline-flex min-h-10 shrink-0 snap-start items-center rounded-full border px-3 text-xs font-black transition ${!activeType ? 'border-[#0b1220] bg-[#0b1220] text-white' : 'border-slate-200 bg-white hover:border-brand hover:text-brand'}`} href="/san-pham/">Tất cả kiểu</Link>

@@ -2,6 +2,7 @@ import { cache } from 'react'
 
 const API_URL = process.env.PAYLOAD_API_URL || 'http://10.10.0.28:3001'
 const TENANT_SLUG = process.env.TENANT_SLUG || 'mayaochaybo'
+const PUBLIC_REVALIDATE_SECONDS = 300
 
 export type MediaImage = {
   id?: number
@@ -77,8 +78,11 @@ export type Paginated<T> = {
 
 async function api<T>(path: string): Promise<T> {
   const response = await fetch(`${API_URL}${path}`, {
-    cache: 'no-store',
     headers: { Accept: 'application/json' },
+    next: {
+      revalidate: PUBLIC_REVALIDATE_SECONDS,
+      tags: [`tenant:${TENANT_SLUG}`],
+    },
   })
   if (!response.ok) throw new Error(`CMS request failed: ${response.status} ${path}`)
   return response.json() as Promise<T>

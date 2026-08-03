@@ -8,7 +8,7 @@ import { ProductGrid } from './components/product-grid'
 import { getCategories, getLatestPosts, getProducts } from './lib/cms'
 import { DEFAULT_OG_IMAGE, excerpt, LOGO_URL, SITE_URL, ZALO_URL } from './lib/site'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 300
 export const metadata: Metadata = {
   title: 'May Áo Chạy Bộ Thiết Kế Riêng',
   description: 'May áo chạy bộ thiết kế riêng cho công ty, doanh nghiệp, giải chạy, event, đội nhóm và câu lạc bộ.',
@@ -47,7 +47,14 @@ export default async function HomePage() {
   const categories = categoryResult.docs.filter((item) => item.group !== 'color').slice(0, 5)
 
   return <>
-    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'OnlineStore', name: 'May Áo Chạy Bộ', url: SITE_URL, logo: LOGO_URL, telephone: '+84989353247' }} />
+    <JsonLd data={{
+      '@context': 'https://schema.org',
+      '@graph': [
+        { '@type': 'Organization', name: 'May Áo Chạy Bộ', url: SITE_URL, logo: LOGO_URL, telephone: '+84989353247', sameAs: ['https://facebook.com/mayaochaybo'] },
+        { '@type': 'OnlineStore', name: 'May Áo Chạy Bộ', url: SITE_URL, logo: LOGO_URL, telephone: '+84989353247' },
+        { '@type': 'WebSite', name: 'MayAoChayBo.vn', url: SITE_URL, potentialAction: { '@type': 'SearchAction', target: `${SITE_URL}/san-pham/?q={search_term_string}`, 'query-input': 'required name=search_term_string' } },
+      ],
+    }} />
     <section className="relative overflow-hidden bg-[#0b1220] text-white">
       <PromoHeroSlider />
       <div className="section-shell relative flex min-h-[720px] items-center py-12 lg:py-16">

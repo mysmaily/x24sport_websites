@@ -52,7 +52,7 @@ export function ProductInterestForm({ productName, productUrl }: ProductInterest
   }
 
   return (
-    <section className="mt-5 rounded-2xl border border-slate-200 bg-white p-5" id="nhan-tu-van">
+    <section id="nhan-tu-van">
       <h2 className="text-xl font-black leading-tight text-slate-950">Bạn quan tâm mẫu này?</h2>
       <form className="mt-4 grid gap-3" onSubmit={handleSubmit}>
         <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_160px]">
@@ -71,7 +71,7 @@ export function ProductInterestForm({ productName, productUrl }: ProductInterest
         </label>
         <button className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-black text-white transition hover:bg-brand-dark disabled:cursor-wait disabled:opacity-60" disabled={state === 'submitting'} type="submit">
           <Send aria-hidden="true" size={18} />
-          {state === 'submitting' ? 'Đang gửi...' : 'Nhận Tư Vấn'}
+          {state === 'submitting' ? 'Đang gửi…' : 'Nhận Tư Vấn'}
         </button>
         <p aria-live="polite" className={`min-h-5 text-sm ${state === 'success' ? 'text-emerald-700' : state === 'error' ? 'text-red-700' : 'text-slate-500'}`} role="status">
           {message}

@@ -3,7 +3,7 @@ import { AudienceLandingPage } from '../components/audience-landing-page'
 import { getAudienceLanding } from '../lib/audience-landings'
 import { pageMetadata } from '../lib/site'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 300
 export const metadata: Metadata = pageMetadata({
   title: 'Áo Giải Chạy & Sự Kiện Thiết Kế Theo Chương Trình',
   description: 'Thiết kế áo giải chạy, áo sự kiện và race kit theo chủ đề chương trình, logo ban tổ chức và nhà tài trợ.',

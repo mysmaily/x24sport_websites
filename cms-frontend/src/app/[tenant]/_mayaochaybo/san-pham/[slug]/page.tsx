@@ -2,15 +2,15 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { ProductDetailPage } from '../../components/product-detail-page'
 import { getProducts, productImages, productPath, resolveProductSlug } from '../../lib/cms'
-import { DEFAULT_OG_IMAGE, excerpt } from '../../lib/site'
-export const dynamic = 'force-dynamic'
+import { DEFAULT_OG_IMAGE, seoDescription, seoTitle } from '../../lib/site'
+export const revalidate = 300
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const product = await resolveProductSlug((await params).slug)
   if (!product) return { title: 'Không tìm thấy sản phẩm', robots: { index: false, follow: false } }
   const image = productImages(product)[0]
-  const title = product.seoTitle || product.name
-  const description = product.metaDescription || excerpt(product.shortDescription || product.name, 160)
+  const title = seoTitle(product.seoTitle || product.name)
+  const description = seoDescription(product.metaDescription || product.shortDescription || product.name)
   const path = productPath(product)
   return {
     title,

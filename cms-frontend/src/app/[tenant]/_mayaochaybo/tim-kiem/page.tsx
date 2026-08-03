@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { CatalogPageView } from '../components/catalog-page-view'
 import { DEFAULT_OG_IMAGE } from '../lib/site'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 300
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }): Promise<Metadata> {
   const query = await searchParams

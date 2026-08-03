@@ -103,9 +103,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const [categories, products, content] = await Promise.all([getSitemapCategories(), getAllProductPaths(), getAllWebContentPaths()])
+  const now = new Date()
   return [
-    { url: `${base}/`, priority: 1 },
-    { url: `${base}/san-pham/`, priority: .9 },
+    { url: `${base}/`, lastModified: now, priority: 1 },
+    { url: `${base}/san-pham/`, lastModified: now, priority: .9 },
     ...(tenant.slug === 'mayaobongda' ? [
       { url: `${base}/bang-gia-may-ao-bong-da/`, priority: .82 },
       { url: `${base}/ao-bong-da-doi-bong-cau-lac-bo/`, priority: .82 },
@@ -115,8 +116,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...(tenant.slug === 'mayaobongchuyen' ? [{ url: `${base}/bang-gia-may-ao-bong-chuyen/`, priority: .82 }] : []),
     ...(tenant.slug === 'mayaobongro' ? [{ url: `${base}/bang-gia-may-ao-bong-ro/`, priority: .82 }] : []),
     ...(tenant.slug === 'mayaochaybo' ? [
-      { url: `${base}/bang-gia-may-ao-chay-bo/`, priority: .82 },
-      { url: `${base}/mau-ao-chay-bo-duoc-xem-nhieu/`, priority: .82 },
+      { url: `${base}/bang-gia-may-ao-chay-bo/`, lastModified: now, priority: .82 },
+      { url: `${base}/mau-ao-chay-bo-duoc-xem-nhieu/`, lastModified: now, priority: .82 },
     ] : []),
     ...(tenant.slug === 'x24sport' ? [
       { url: `${base}/bang-gia-may-ao-bong-da/`, priority: .82 },
@@ -127,8 +128,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${base}/bang-gia-may-ao-chay-bo/`, priority: .82 },
       { url: `${base}/mau-logo/`, priority: .8 },
     ] : []),
-    { url: `${base}/blog/`, priority: .7 },
-    ...categories.map(({ slug }) => ({ url: `${base}/danh-muc/${slug}/`, priority: .8 })),
+    { url: `${base}/blog/`, lastModified: now, priority: .7 },
+    ...categories.map(({ slug, legacyPath }) => ({
+      url: (tenant.slug === 'mayaobongda' || tenant.slug === 'mayaochaybo') && legacyPath ? `${base}${legacyPath}` : `${base}/danh-muc/${slug}/`,
+      lastModified: now,
+      priority: .8,
+    })),
     ...products.map((product) => ({
       url: tenant.slug.startsWith('mayao') ? `${base}/san-pham/${product.slug}/` : `${base}${product.legacyPath || `/${product.slug}/`}`,
       lastModified: product.sourceModifiedAt ? new Date(product.sourceModifiedAt) : undefined,
