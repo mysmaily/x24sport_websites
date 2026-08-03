@@ -25,6 +25,13 @@ const slides: PromoSlide[] = [
     src: '/images/mayaobongro/home/basketball-team-indoor-wide.webp',
     width: 1915,
   },
+  {
+    alt: 'Cầu thủ mặc đồng phục bóng rổ xanh navy chuyển hồng dẫn bóng trên sân ngoài trời',
+    height: 821,
+    mobileSrc: '/images/mayaobongro/home/basketball-player-navy-magenta-mobile.webp',
+    src: '/images/mayaobongro/home/basketball-player-navy-magenta-wide.webp',
+    width: 1915,
+  },
 ]
 
 export function PromoHeroSlider() {
