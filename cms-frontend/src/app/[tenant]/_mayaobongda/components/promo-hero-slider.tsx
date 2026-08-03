@@ -15,9 +15,9 @@ const slides: PromoSlide[] = [
     src: '/images/mayaobongda/home/football-promo-119k-blue-wide.webp',
   },
   {
-    alt: 'Khuyến mãi áo bóng đá đỏ đen thiết kế từ 119K, miễn phí thiết kế và in tên số',
-    mobileSrc: '/images/mayaobongda/home/football-promo-119k-red-mobile.webp',
-    src: '/images/mayaobongda/home/football-promo-119k-red-wide.webp',
+    alt: 'Bộ sưu tập áo bóng đá 2026 trắng cam xanh, tùy chọn cổ áo và in tên số theo đội',
+    mobileSrc: '/images/mayaobongda/home/football-promo-2026-white-mobile.webp',
+    src: '/images/mayaobongda/home/football-promo-2026-white-wide.webp',
   },
 ]
 
