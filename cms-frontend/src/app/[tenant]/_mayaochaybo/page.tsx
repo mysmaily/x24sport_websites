@@ -2,8 +2,8 @@ import { ArrowRight, BadgeCheck, Building2, CalendarDays, Flag, Palette, Ruler, 
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { TenantPromoHero, type TenantPromoHeroSlide } from '../../_components/tenant-promo-hero'
 import { JsonLd } from './components/json-ld'
-import { PromoHeroSlider } from './components/promo-hero-slider'
 import { ProductGrid } from './components/product-grid'
 import { getCategories, getLatestPosts, getProducts } from './lib/cms'
 import { DEFAULT_OG_IMAGE, excerpt, LOGO_URL, SITE_URL, ZALO_URL } from './lib/site'
@@ -40,6 +40,23 @@ const audiences = [
   { href: '/ao-chay-bo-doi-nhom-cau-lac-bo/', icon: UsersRound, label: 'Đội nhóm & câu lạc bộ', text: 'Nhận diện đồng nhất' },
 ]
 
+const heroSlides: TenantPromoHeroSlide[] = [
+  {
+    alt: 'Áo chạy bộ màu trắng phong cách Việt Nam có thể in logo đội, tên nhóm, số áo và duyệt mẫu trước',
+    height: 809,
+    mobileSrc: '/images/mayaochaybo/home/running-promo-vietnam-mobile.webp',
+    src: '/images/mayaochaybo/home/running-promo-vietnam-wide.webp',
+    width: 1942,
+  },
+  {
+    alt: 'Áo ba lỗ chạy bộ race day nhẹ, khô nhanh, đủ size cho đội chạy và sự kiện',
+    height: 809,
+    mobileSrc: '/images/mayaochaybo/home/running-promo-singlet-mobile.webp',
+    src: '/images/mayaochaybo/home/running-promo-singlet-wide.webp',
+    width: 1944,
+  },
+]
+
 const categoryCardBackground = '/images/mayaochaybo/home/running-shirt-category-bg.webp'
 
 export default async function HomePage() {
@@ -55,25 +72,22 @@ export default async function HomePage() {
         { '@type': 'WebSite', name: 'MayAoChayBo.vn', url: SITE_URL, potentialAction: { '@type': 'SearchAction', target: `${SITE_URL}/san-pham/?q={search_term_string}`, 'query-input': 'required name=search_term_string' } },
       ],
     }} />
-    <section className="relative overflow-hidden bg-[#0b1220] text-white">
-      <PromoHeroSlider />
-      <div className="section-shell relative flex min-h-[720px] items-center py-12 lg:py-16">
-        <div className="z-10 min-w-0 max-w-3xl">
+    <TenantPromoHero ariaLabel="Hình ảnh may áo chạy bộ thiết kế riêng" slides={heroSlides}>
+        <div className="min-w-0 max-w-3xl">
           <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-[.1em] text-orange-200 sm:text-xs sm:tracking-[.16em]"><TimerReset className="shrink-0" size={16} /><span className="sm:hidden">Thiết kế riêng · Duyệt maket</span><span className="hidden sm:inline">May theo nhận diện riêng · Duyệt maket trước</span></p>
-          <h1 className="mt-7 max-w-[760px] font-display text-[3.25rem] font-extrabold leading-none tracking-[.012em] sm:text-[4.75rem] lg:text-[clamp(4.4rem,5.25vw,6.15rem)]">
+          <h1 className="mt-5 max-w-[760px] font-display text-[3.25rem] font-extrabold leading-none tracking-[.012em] sm:mt-7 sm:text-[4.75rem] lg:text-[clamp(4.4rem,5.25vw,6.15rem)]">
             <span className="block">ÁO CHẠY BỘ</span>
             <span className="mt-[.2em] block text-brand">THIẾT KẾ RIÊNG</span>
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">Thiết kế đồng bộ với màu sắc, logo và tinh thần của tổ chức — từ buổi chạy nội bộ đến ngày diễn ra sự kiện.</p>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:mt-5 sm:text-lg sm:leading-7">Thiết kế đồng bộ với màu sắc, logo và tinh thần của tổ chức — từ buổi chạy nội bộ đến ngày diễn ra sự kiện.</p>
 
-          <ul className="mt-6 grid gap-2 sm:grid-cols-3" aria-label="Đối tượng khách hàng chính">
-            {audiences.map(({ href, icon: Icon, label, text }) => <li className="min-w-0" key={label}><Link className="group block h-full rounded-xl border border-white/10 bg-white/[.055] p-3.5 backdrop-blur transition duration-200 hover:border-brand/50 hover:bg-white/[.085]" href={href}><Icon className="text-brand" size={21} /><strong className="mt-3 flex items-center gap-1 text-sm font-black text-white">{label}<ArrowRight aria-hidden="true" className="opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100" size={14} /></strong><span className="mt-1 block text-[11px] leading-4 text-slate-400">{text}</span></Link></li>)}
+          <ul className="mt-5 grid grid-cols-3 gap-2 sm:mt-6" aria-label="Đối tượng khách hàng chính">
+            {audiences.map(({ href, icon: Icon, label, text }) => <li className="min-w-0" key={label}><Link className="group block h-full rounded-xl border border-white/10 bg-white/[.055] p-2.5 backdrop-blur transition duration-200 hover:border-brand/50 hover:bg-white/[.085] sm:p-3.5" href={href}><Icon className="text-brand" size={21} /><strong className="mt-2 flex items-center gap-1 text-[11px] font-black leading-tight text-white sm:mt-3 sm:text-sm">{label}<ArrowRight aria-hidden="true" className="hidden opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100 sm:block" size={14} /></strong><span className="mt-1 hidden text-[11px] leading-4 text-slate-400 sm:block">{text}</span></Link></li>)}
           </ul>
 
-          <div className="mt-7 grid max-w-lg gap-3 sm:flex sm:flex-wrap"><Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black transition duration-200 hover:bg-brand-dark" href="/san-pham/">Khám phá mẫu áo <ArrowRight size={19} /></Link><a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-sm font-black transition duration-200 hover:border-white/50 hover:bg-white/10" href={ZALO_URL} rel="noreferrer" target="_blank">Nhận tư vấn thiết kế</a></div>
+          <div className="mt-5 grid max-w-lg grid-cols-2 gap-2 sm:mt-7 sm:flex sm:flex-wrap sm:gap-3"><Link className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-brand px-3 text-xs font-black transition duration-200 hover:bg-brand-dark sm:min-h-13 sm:px-6 sm:text-sm" href="/san-pham/">Khám phá mẫu áo <ArrowRight size={19} /></Link><a className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/25 px-3 text-xs font-black transition duration-200 hover:border-white/50 hover:bg-white/10 sm:min-h-13 sm:px-6 sm:text-sm" href={ZALO_URL} rel="noreferrer" target="_blank">Nhận tư vấn thiết kế</a></div>
         </div>
-      </div>
-    </section>
+    </TenantPromoHero>
 
     <section className="border-b border-slate-200 bg-white"><div className="section-shell grid divide-y divide-slate-200 md:grid-cols-2 md:divide-x md:divide-y-0 xl:grid-cols-4">{commitments.map(({ icon: Icon, title, text }) => <article className="flex gap-4 py-6 md:px-5 first:pl-0 last:pr-0" key={title}><span className="grid size-11 shrink-0 place-items-center rounded-xl bg-orange-50 text-brand"><Icon size={22} /></span><div><h2 className="text-sm font-black">{title}</h2><p className="mt-1 text-xs leading-5 text-slate-600">{text}</p></div></article>)}</div></section>
 

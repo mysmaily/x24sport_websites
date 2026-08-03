@@ -1,9 +1,26 @@
+.banner {
+  position: relative;
+  overflow: hidden;
+  background: #0b1220;
+  color: #ffffff;
+}
+
+.content {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  height: 720px;
+  align-items: center;
+  padding-block: 3rem;
+}
+
 .slider {
   position: absolute;
   inset: 0;
+  z-index: 0;
   overflow: hidden;
   background:
-    radial-gradient(circle at 78% 20%, rgba(249, 82, 30, 0.2), transparent 32%),
+    radial-gradient(circle at 78% 20%, rgba(249, 82, 30, 0.18), transparent 32%),
     linear-gradient(90deg, #030712 0%, #06101f 52%, #091221 100%);
 }
 
@@ -18,7 +35,7 @@
 }
 
 .loader svg {
-  animation: promoHeroSpin 1s linear infinite;
+  animation: tenantPromoHeroSpin 1s linear infinite;
 }
 
 .slide {
@@ -26,7 +43,7 @@
   inset: 0;
   z-index: 1;
   opacity: 0;
-  animation: promoHeroFade 15s infinite;
+  animation: tenantPromoHeroFadeThree 15s infinite;
 }
 
 .slider[data-count='1'] .slide {
@@ -35,7 +52,8 @@
 }
 
 .slider[data-count='2'] .slide {
-  animation: promoHeroFadeTwo 10s infinite;
+  animation-name: tenantPromoHeroFadeTwo;
+  animation-duration: 10s;
 }
 
 .picture {
@@ -82,15 +100,12 @@
   height: 0.55rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.42);
-  animation: promoHeroDot 15s infinite;
+  animation: tenantPromoHeroDotThree 15s infinite;
 }
 
 .slider[data-count='2'] .dots span {
-  animation: promoHeroDotTwo 10s infinite;
-}
-
-.dots span:nth-child(1) {
-  animation-delay: 0s;
+  animation-name: tenantPromoHeroDotTwo;
+  animation-duration: 10s;
 }
 
 .dots span:nth-child(2) {
@@ -105,7 +120,7 @@
   display: none;
 }
 
-@keyframes promoHeroFade {
+@keyframes tenantPromoHeroFadeThree {
   0%,
   30% {
     opacity: 1;
@@ -121,7 +136,7 @@
   }
 }
 
-@keyframes promoHeroFadeTwo {
+@keyframes tenantPromoHeroFadeTwo {
   0%,
   45% {
     opacity: 1;
@@ -137,7 +152,7 @@
   }
 }
 
-@keyframes promoHeroDot {
+@keyframes tenantPromoHeroDotThree {
   0%,
   30% {
     width: 1.35rem;
@@ -151,7 +166,7 @@
   }
 }
 
-@keyframes promoHeroDotTwo {
+@keyframes tenantPromoHeroDotTwo {
   0%,
   45% {
     width: 1.35rem;
@@ -165,7 +180,7 @@
   }
 }
 
-@keyframes promoHeroSpin {
+@keyframes tenantPromoHeroSpin {
   to {
     transform: rotate(360deg);
   }
@@ -180,6 +195,10 @@
 }
 
 @media (max-width: 640px) {
+  .content {
+    padding-block: 2rem;
+  }
+
   .readableOverlay {
     background:
       linear-gradient(90deg, rgba(3, 7, 18, 0.98) 0%, rgba(3, 7, 18, 0.92) 58%, rgba(3, 7, 18, 0.62) 100%),
@@ -190,5 +209,17 @@
     right: 50%;
     bottom: 1.25rem;
     transform: translateX(50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader svg,
+  .slide,
+  .dots span {
+    animation: none;
+  }
+
+  .slide:nth-of-type(2) {
+    opacity: 1;
   }
 }
