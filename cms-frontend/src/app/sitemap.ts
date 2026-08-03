@@ -129,11 +129,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${base}/mau-logo/`, priority: .8 },
     ] : []),
     { url: `${base}/blog/`, lastModified: now, priority: .7 },
-    ...categories.map(({ slug, legacyPath }) => ({
-      url: (tenant.slug === 'mayaobongda' || tenant.slug === 'mayaochaybo') && legacyPath ? `${base}${legacyPath}` : `${base}/danh-muc/${slug}/`,
+    ...categories.map((category) => {
+      const legacyPath = 'legacyPath' in category && typeof category.legacyPath === 'string' ? category.legacyPath : undefined
+      return {
+      url: (tenant.slug === 'mayaobongda' || tenant.slug === 'mayaochaybo') && legacyPath ? `${base}${legacyPath}` : `${base}/danh-muc/${category.slug}/`,
       lastModified: now,
       priority: .8,
-    })),
+      }
+    }),
     ...products.map((product) => ({
       url: tenant.slug.startsWith('mayao') ? `${base}/san-pham/${product.slug}/` : `${base}${product.legacyPath || `/${product.slug}/`}`,
       lastModified: product.sourceModifiedAt ? new Date(product.sourceModifiedAt) : undefined,
