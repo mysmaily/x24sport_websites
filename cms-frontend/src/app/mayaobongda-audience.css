@@ -45,7 +45,104 @@ body.tenant-mayaobongda .mabd-home-audience-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+body.tenant-mayaobongda .mabd-category-section {
+  background:
+    radial-gradient(circle at 92% 10%, rgba(241, 90, 36, .13), transparent 31%),
+    radial-gradient(circle at 8% 92%, rgba(15, 23, 42, .07), transparent 34%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f4f7 100%);
+}
+
+body.tenant-mayaobongda .mabd-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.tenant-mayaobongda .mabd-category-card {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  color: #fff;
+  background:
+    radial-gradient(circle at 82% 14%, rgba(249, 115, 22, .26), transparent 36%),
+    linear-gradient(145deg, #111c30 0%, #07101e 100%);
+  border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 18px 45px rgba(7, 16, 30, .14);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+body.tenant-mayaobongda .mabd-category-card:nth-child(1) {
+  background:
+    radial-gradient(circle at 82% 14%, rgba(255, 255, 255, .24), transparent 35%),
+    linear-gradient(140deg, #cf4117 0%, #c33b14 56%, #9b260d 100%);
+}
+
+body.tenant-mayaobongda .mabd-category-card:nth-child(3) {
+  background:
+    radial-gradient(circle at 18% 88%, rgba(249, 115, 22, .22), transparent 38%),
+    linear-gradient(145deg, #172033 0%, #090f1b 100%);
+}
+
+body.tenant-mayaobongda .mabd-category-card:nth-child(4) {
+  background:
+    radial-gradient(circle at 88% 82%, rgba(239, 68, 68, .18), transparent 38%),
+    linear-gradient(145deg, #101a2b 0%, #050a13 100%);
+}
+
+body.tenant-mayaobongda .mabd-category-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(115deg, rgba(255, 255, 255, .08), transparent 42%);
+  pointer-events: none;
+}
+
+body.tenant-mayaobongda .mabd-category-card,
+body.tenant-mayaobongda .mabd-category-card h3,
+body.tenant-mayaobongda .mabd-category-card span,
+body.tenant-mayaobongda .mabd-category-card svg {
+  color: #fff;
+}
+
+body.tenant-mayaobongda .mabd-category-number {
+  z-index: -1;
+  color: rgba(255, 255, 255, .09);
+  pointer-events: none;
+}
+
+body.tenant-mayaobongda .mabd-category-icon {
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .2));
+}
+
+body.tenant-mayaobongda .mabd-category-arrow {
+  transition: transform .25s ease;
+}
+
+body.tenant-mayaobongda .mabd-category-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, .28);
+  box-shadow: 0 24px 55px rgba(7, 16, 30, .22);
+}
+
+body.tenant-mayaobongda .mabd-category-card:hover .mabd-category-arrow {
+  transform: translateX(4px);
+}
+
+body.tenant-mayaobongda .mabd-category-card:active {
+  transform: translateY(-1px) scale(.99);
+}
+
+body.tenant-mayaobongda .mabd-category-card:focus-visible {
+  outline: 3px solid rgba(241, 90, 36, .65);
+  outline-offset: 4px;
+}
+
 @media (min-width: 640px) {
+  body.tenant-mayaobongda .mabd-category-card {
+    min-height: 240px;
+  }
+
   body.tenant-mayaobongda .football-audience-title {
     font-size: 4.7rem;
   }
@@ -56,6 +153,10 @@ body.tenant-mayaobongda .mabd-home-audience-grid {
 }
 
 @media (min-width: 1024px) {
+  body.tenant-mayaobongda .mabd-category-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   body.tenant-mayaobongda .football-audience-hero-shell {
     min-height: 690px;
     grid-template-columns: .86fr 1.14fr;

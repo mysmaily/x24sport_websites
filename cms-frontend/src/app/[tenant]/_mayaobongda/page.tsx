@@ -30,7 +30,7 @@ const audiences = [
 
 export default async function HomePage() {
   const [catalog, posts, categoryResult] = await Promise.all([getProducts({ limit: 8 }), getLatestPosts(3), getCategories()])
-  const categories = categoryResult.docs.filter((item) => item.group === 'type' && (item.productCount || 0) > 0).slice(0, 6)
+  const categories = categoryResult.docs.filter((item) => item.group === 'type' && (item.productCount || 0) > 0).slice(0, 4)
 
   return <>
     <JsonLd data={{ '@context': 'https://schema.org', '@type': 'OnlineStore', name: SITE_NAME, url: SITE_URL, logo: LOGO_URL, telephone: '+84989353247' }} />
@@ -54,7 +54,29 @@ export default async function HomePage() {
 
     <section className="border-b border-slate-200 bg-white"><div className="section-shell grid divide-y divide-slate-200 md:grid-cols-2 md:divide-x md:divide-y-0 xl:grid-cols-4">{commitments.map(({ icon: Icon, title, text }) => <article className="flex gap-4 py-6 md:px-5 first:pl-0 last:pr-0" key={title}><span className="grid size-11 shrink-0 place-items-center rounded-xl bg-orange-50 text-brand"><Icon size={22} /></span><div><h2 className="text-sm font-black">{title}</h2><p className="mt-1 text-xs leading-5 text-slate-600">{text}</p></div></article>)}</div></section>
 
-    <section className="section-shell py-10 sm:py-18"><div className="max-w-3xl"><p className="section-kicker">Chọn điểm xuất phát</p><h2 className="section-title">Mẫu áo cho từng kiểu đội hình.</h2><p className="section-lead">Duyệt nhanh theo nhóm sản phẩm. Mỗi mẫu đều có thể chỉnh màu, logo và tên số.</p></div><div className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-9 sm:gap-4 lg:grid-cols-3">{categories.map((category, index) => <Link className={`group relative min-h-36 overflow-hidden rounded-xl p-4 text-white sm:min-h-56 sm:rounded-2xl sm:p-6 ${index === 0 ? 'bg-brand' : 'bg-[#0b1220]'}`} href={category.legacyPath || `/${category.slug}/`} key={category.id}><span className="absolute -bottom-8 -right-4 font-display text-[6rem] font-black leading-none text-white/[.06] sm:-bottom-12 sm:-right-5 sm:text-[10rem]">0{index + 1}</span><Flag size={24} /><h3 className="mt-8 max-w-sm font-display text-2xl font-bold leading-none sm:mt-16 sm:text-4xl">{category.name}</h3><span className="mt-3 inline-flex items-center gap-1.5 text-xs font-black sm:mt-5 sm:text-sm">Xem mẫu <ArrowRight size={16} /></span></Link>)}</div></section>
+    <section className="mabd-category-section py-10 sm:py-18">
+      <div className="section-shell">
+        <div className="max-w-3xl">
+          <p className="section-kicker">Chọn điểm xuất phát</p>
+          <h2 className="section-title">Mẫu áo cho từng kiểu đội hình.</h2>
+          <p className="section-lead">Duyệt nhanh theo nhóm sản phẩm. Mỗi mẫu đều có thể chỉnh màu, logo và tên số.</p>
+        </div>
+        <div className="mabd-category-grid mt-5 gap-2.5 sm:mt-9 sm:gap-4">
+          {categories.map((category, index) => (
+            <Link
+              className="mabd-category-card group relative overflow-hidden rounded-xl p-4 sm:rounded-2xl sm:p-6"
+              href={category.legacyPath || `/${category.slug}/`}
+              key={category.id}
+            >
+              <span aria-hidden="true" className="mabd-category-number absolute -bottom-8 -right-4 font-display text-[6rem] font-black leading-none sm:-bottom-12 sm:-right-5 sm:text-[9rem]">0{index + 1}</span>
+              <Flag aria-hidden="true" className="mabd-category-icon relative" size={24} />
+              <h3 className="relative mt-8 max-w-sm font-display text-xl font-bold leading-[.98] sm:mt-14 sm:text-3xl">{category.name}</h3>
+              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-5 text-xs font-black sm:pt-6 sm:text-sm">Xem mẫu <ArrowRight aria-hidden="true" className="mabd-category-arrow" size={16} /></span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
 
     <section className="bg-white py-10 sm:py-18"><div className="section-shell"><div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p className="section-kicker">Mẫu mới cập nhật</p><h2 className="section-title">Chọn mẫu, rồi hoàn thiện phiên bản của đội.</h2></div><Link className="inline-flex min-h-11 items-center gap-2 self-start rounded-lg border border-slate-300 px-4 text-sm font-black hover:border-brand hover:text-brand sm:min-h-12 sm:px-5" href="/san-pham/">Xem {catalog.totalDocs.toLocaleString('vi-VN')} mẫu <ArrowRight size={18} /></Link></div><div className="mt-6 sm:mt-10"><ProductGrid products={catalog.docs} /></div></div></section>
 
