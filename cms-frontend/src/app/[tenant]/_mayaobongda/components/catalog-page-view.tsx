@@ -2,7 +2,7 @@ import { ChevronDown, ChevronLeft, ChevronRight, Search } from 'lucide-react'
 import Link from 'next/link'
 
 import { getCategories, getProducts } from '../lib/cms'
-import { SITE_URL } from '../lib/site'
+import { excerpt, SITE_URL } from '../lib/site'
 
 import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
@@ -12,6 +12,9 @@ export async function CatalogPageView({ page, search = '', heading = 'Toàn bộ
   const primaryCategories = categoryResult.docs.filter((item) => item.group === 'type' && (item.productCount || 0) > 0)
   const secondaryCategories = categoryResult.docs.filter((item) => item.group === 'tag' && (item.productCount || 0) > 0)
   const activeSecondary = secondaryCategories.find((item) => item.slug === categorySlug)
+  const cleanDescription = description.replace(/\s+/g, ' ').trim()
+  const shortDescription = excerpt(cleanDescription, 210)
+  const hasLongDescription = cleanDescription.length > shortDescription.length
   const pageHref = (nextPage: number) => {
     const params = new URLSearchParams({ ...(search ? { q: search } : {}), page: String(nextPage) })
     return `${canonicalPath}?${params}`
@@ -20,8 +23,8 @@ export async function CatalogPageView({ page, search = '', heading = 'Toàn bộ
   return <div className="section-shell py-3 sm:py-8">
     <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Trang chủ', item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: breadcrumbLabel, item: `${SITE_URL}${canonicalPath}` }] }} />
     <nav className="mb-3 flex items-center gap-2 text-xs font-semibold text-slate-500"><Link href="/">Trang chủ</Link><ChevronRight size={13} /><span className="truncate text-slate-800">{breadcrumbLabel}</span></nav>
-    <header className="grid gap-1.5 border-b border-slate-200 pb-3 sm:gap-3 sm:pb-5 lg:grid-cols-[1fr_.8fr] lg:items-end"><div><p className="section-kicker hidden sm:block">Bộ sưu tập theo yêu cầu</p><h1 className="font-display text-[24px] font-bold leading-[1.05] text-slate-950 sm:text-[34px] lg:text-[42px]">{heading}</h1></div><p className="max-w-2xl text-xs leading-5 text-slate-600 sm:text-sm">{description}</p></header>
-    <form action={searchAction} className="mt-3 grid max-w-3xl grid-cols-[auto_1fr_auto] overflow-hidden rounded-lg border border-slate-300 bg-white sm:mt-4" role="search"><Search className="ml-3 self-center text-slate-500" size={17} /><label className="sr-only" htmlFor="catalog-q">Tìm mẫu áo</label><input className="min-h-10 min-w-0 px-3 text-sm outline-none sm:min-h-11" defaultValue={search} id="catalog-q" name="q" placeholder="Tên mẫu, mã hoặc màu sắc..." type="search" /><button className="bg-[#0b1220] px-4 text-sm font-black text-white hover:bg-brand">Tìm</button></form>
+    <header className="border-b border-slate-200 pb-3 sm:pb-5"><div className="max-w-4xl"><p className="section-kicker hidden sm:block">Bộ sưu tập theo yêu cầu</p><h1 className="font-display text-[24px] font-bold leading-[1.05] text-slate-950 sm:text-[34px] lg:text-[42px]">{heading}</h1>{cleanDescription ? <p className="mt-2 max-w-3xl text-xs leading-5 text-slate-600 sm:mt-3 sm:text-sm">{shortDescription}</p> : null}</div></header>
+    <form action={searchAction} className="mt-3 grid max-w-3xl grid-cols-[auto_1fr_auto] overflow-hidden rounded-lg border border-slate-300 bg-white sm:mt-4" role="search"><Search className="ml-3 self-center text-slate-500" size={17} /><label className="sr-only" htmlFor="catalog-q">Tìm mẫu áo</label><input className="min-h-10 min-w-0 px-3 text-sm outline-none sm:min-h-11" defaultValue={search} id="catalog-q" name="q" placeholder="Tên mẫu, mã hoặc màu sắc…" type="search" /><button className="bg-[#0b1220] px-4 text-sm font-black text-white hover:bg-brand">Tìm</button></form>
     <nav className="relative mt-2 flex items-center gap-2 rounded-xl border border-slate-200 bg-[#f8f6f2] p-1.5 sm:mt-3 sm:p-2" aria-label="Lọc mẫu áo theo nhóm và từ khóa">
       <span className="hidden shrink-0 pl-1 text-[10px] font-black uppercase tracking-[.14em] text-slate-500 sm:block">Nhóm sản phẩm</span>
       <div className="flex min-w-0 flex-1 snap-x gap-1.5 overflow-x-auto overscroll-x-contain scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-catalog-type-strip>
@@ -41,6 +44,7 @@ export async function CatalogPageView({ page, search = '', heading = 'Toàn bộ
     </nav>
     <div className="mb-2 mt-3 flex justify-between border-t border-slate-200 pt-2 text-xs text-slate-600 sm:mb-3 sm:mt-4 sm:pt-3"><span><b className="text-brand">{result.totalDocs.toLocaleString('vi-VN')}</b> mẫu phù hợp</span><span>Trang {result.page}/{Math.max(result.totalPages, 1)}</span></div>
     <ProductGrid products={result.docs} />
+    {hasLongDescription ? <details className="mt-8 rounded-xl border border-slate-200 bg-white p-4 text-sm leading-7 text-slate-600 sm:p-5"><summary className="cursor-pointer list-none font-black text-slate-900 transition hover:text-brand [&::-webkit-details-marker]:hidden">Thông tin chi tiết về {heading.toLocaleLowerCase('vi-VN')}</summary><p className="mt-3 max-w-4xl">{cleanDescription}</p></details> : null}
     {result.totalPages > 1 ? <nav className="mt-9 grid grid-cols-[1fr_auto_1fr] items-center border-t border-slate-200 pt-5 text-sm font-black" aria-label="Phân trang">{page > 1 ? <Link className="inline-flex min-h-11 items-center gap-2" href={pageHref(page - 1)}><ChevronLeft size={18} /> Trang trước</Link> : <span />}<span>{page} / {result.totalPages}</span>{page < result.totalPages ? <Link className="inline-flex min-h-11 items-center gap-2 justify-self-end" href={pageHref(page + 1)}>Trang sau <ChevronRight size={18} /></Link> : <span />}</nav> : null}
   </div>
 }

@@ -18,5 +18,5 @@ export function canonical(path: string) {
 
 export function excerpt(value?: string | null, limit = 160) {
   const clean = (value || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
-  return clean.length > limit ? `${clean.slice(0, limit).trimEnd()}...` : clean
+  return clean.length > limit ? `${clean.slice(0, limit).trimEnd()}…` : clean
 }
