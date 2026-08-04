@@ -11,6 +11,7 @@ import {
   Sparkles,
   Truck,
 } from 'lucide-react'
+import { TenantPromoHero, type TenantPromoHeroSlide } from '../../_components/tenant-promo-hero'
 import { JsonLd } from './_components/json-ld'
 import { SiteHeader, phone, phoneHref, zaloHref } from './_components/info-pages'
 import { formatPrice, getHomeData, getPostHref, getValidCompareAtPrice, type Product } from './lib/content'
@@ -22,6 +23,30 @@ const trustItems = [
   { icon: PackageCheck, title: 'Đóng gói theo size', text: 'Tách size, tên, số để đội phát áo nhanh hơn.' },
   { icon: Truck, title: 'Giao hàng toàn quốc', text: 'Phù hợp trường học, doanh nghiệp và giải phong trào.' },
 ] as const
+
+const heroSlides: TenantPromoHeroSlide[] = [
+  {
+    alt: 'Bốn người chơi pickleball mặc đồng phục xanh navy thi đấu trên sân ngoài trời',
+    height: 821,
+    mobileSrc: '/images/mayaopickleball/home/pickleball-team-navy-play-mobile.webp',
+    src: '/images/mayaopickleball/home/pickleball-team-navy-play-wide.webp',
+    width: 1916,
+  },
+  {
+    alt: 'Đội pickleball nam nữ mặc đồng phục trắng chuyển màu cam đỏ trên sân trong nhà',
+    height: 824,
+    mobileSrc: '/images/mayaopickleball/home/pickleball-team-white-orange-mobile.webp',
+    src: '/images/mayaopickleball/home/pickleball-team-white-orange-wide.webp',
+    width: 1909,
+  },
+  {
+    alt: 'Đội pickleball nam nữ mặc đồng phục trắng chuyển màu xanh hồng trên sân trong nhà',
+    height: 821,
+    mobileSrc: '/images/mayaopickleball/home/pickleball-team-white-gradient-mobile.webp',
+    src: '/images/mayaopickleball/home/pickleball-team-white-gradient-wide.webp',
+    width: 1915,
+  },
+]
 
 const buyerPaths = [
   {
@@ -153,10 +178,7 @@ export default async function Home() {
       <JsonLd data={organizationJsonLd()} />
       <SiteHeader />
 
-      <section className="hero-section">
-        <div className="hero-media" aria-hidden="true">
-          <img src="/images/mayaopickleball/pickleball-team-hero.webp" alt="" />
-        </div>
+      <TenantPromoHero ariaLabel="Hình ảnh đồng phục pickleball thiết kế riêng" slides={heroSlides}>
         <div className="hero-content">
           <p className="hero-kicker">Áo pickleball đặt may cho CLB</p>
           <h1>Đồng phục pickleball lên màu sắc nét, mặc nhẹ khi vào sân</h1>
@@ -190,7 +212,7 @@ export default async function Home() {
             <strong>CLB, trường lớp, công ty</strong>
           </div>
         </aside>
-      </section>
+      </TenantPromoHero>
 
       <section className="trust-strip" aria-label="Cam kết dịch vụ">
         {trustItems.map(({ icon: Icon, title, text }) => (

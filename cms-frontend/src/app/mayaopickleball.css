@@ -386,58 +386,6 @@ body.tenant-mayaopickleball .search-popover button, body.tenant-mayaopickleball 
   cursor: pointer;
 }
 
-body.tenant-mayaopickleball .hero-section {
-  position: relative;
-  display: grid;
-  min-height: min(640px, calc(100dvh - 68px));
-  grid-template-columns: minmax(0, 1fr);
-  align-items: end;
-  overflow: hidden;
-  padding: clamp(24px, 4.5vw, 58px);
-  color: white;
-  isolation: isolate;
-}
-
-body.tenant-mayaopickleball .hero-media {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-}
-
-body.tenant-mayaopickleball .hero-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 70% top;
-}
-
-body.tenant-mayaopickleball .hero-section::before {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  content: "";
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(8, 12, 18, 0.88) 0%, rgba(8, 12, 18, 0.62) 40%, rgba(8, 12, 18, 0.1) 78%),
-    linear-gradient(0deg, rgba(8, 12, 18, 0.76) 0%, transparent 44%);
-}
-
-body.tenant-mayaopickleball .hero-section::after {
-  position: absolute;
-  inset: auto 0 0 0;
-  z-index: 0;
-  height: 28%;
-  content: "";
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
-  background-size: 120px 64px;
-  mask-image: linear-gradient(to top, black, transparent);
-  opacity: 0.35;
-}
-
 body.tenant-mayaopickleball .hero-content {
   position: relative;
   z-index: 2;
@@ -540,7 +488,7 @@ body.tenant-mayaopickleball .hero-panel {
   position: absolute;
   z-index: 2;
   right: clamp(18px, 4vw, 64px);
-  bottom: clamp(18px, 3.4vw, 42px);
+  bottom: 5.5rem;
   display: grid;
   width: min(390px, calc(100% - 36px));
   grid-template-columns: 1fr;
@@ -3590,11 +3538,7 @@ body.tenant-mayaopickleball .home-reviews-track::-webkit-scrollbar {
   }
 
   body.tenant-mayaopickleball .hero-panel {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    width: min(580px, 100%);
-    margin-top: 26px;
+    display: none;
   }
 
   body.tenant-mayaopickleball .trust-strip, body.tenant-mayaopickleball .process-grid, body.tenant-mayaopickleball .catalog-grid, body.tenant-mayaopickleball .info-price-grid, body.tenant-mayaopickleball .factor-grid, body.tenant-mayaopickleball .fabric-card-grid, body.tenant-mayaopickleball .order-step-grid, body.tenant-mayaopickleball .project-grid {
@@ -3646,21 +3590,6 @@ body.tenant-mayaopickleball .home-reviews-track::-webkit-scrollbar {
 
   body.tenant-mayaopickleball .header-phone span, body.tenant-mayaopickleball .icon-button:not(.menu-button) {
     display: none;
-  }
-
-  body.tenant-mayaopickleball .hero-section {
-    min-height: 650px;
-    align-items: end;
-    padding: 240px 18px 24px;
-  }
-
-  body.tenant-mayaopickleball .hero-section::before {
-    background:
-      linear-gradient(180deg, rgba(8, 12, 18, 0.18) 0%, rgba(8, 12, 18, 0.22) 30%, rgba(8, 12, 18, 0.9) 57%, rgba(8, 12, 18, 0.96) 100%);
-  }
-
-  body.tenant-mayaopickleball .hero-media img {
-    object-position: 72% top;
   }
 
   body.tenant-mayaopickleball .hero-content {
