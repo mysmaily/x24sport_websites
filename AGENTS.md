@@ -136,8 +136,17 @@ of the production runbook. Normal content edits never rebuild CMS.
 
 - Public copy must help shoppers browse, choose, customize, order or contact.
   Never expose CMS, AI, SEO, cache, staging or developer language.
+- Default frontend taste is compact, scan-first and commerce-first. Avoid
+  oversized typography, excessive whitespace and hero-like spacing for ordinary
+  content, product titles, category headings, forms, filters and operational UI.
+  Large display text is appropriate only for deliberate brand moments such as
+  banners, slogans or campaign heroes, and must not force routine shopping
+  content far below the initial viewport.
 - Product-detail `h1` is immediately below the breadcrumb: `20px` below the
   desktop breakpoint and `22px` at/above it. Product-card names are `18px`.
+- Product and category titles should read as normal shopping UI, not marketing
+  hero typography. Keep product-detail headings responsive and restrained; never
+  inflate product names into very large display sizes such as `80px`-`100px`.
 - Original and discounted prices stay on one line; discounted price is exactly
   `2px` larger.
 - Product galleries use the shared `product-media-gallery.tsx`, a square stage,
