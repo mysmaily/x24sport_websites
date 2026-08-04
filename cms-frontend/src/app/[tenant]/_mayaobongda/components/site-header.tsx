@@ -8,26 +8,36 @@ import { useEffect, useRef, useState } from 'react'
 import { LOGO_URL, PHONE_DISPLAY, PHONE_VALUE, SITE_NAME, ZALO_URL } from '../lib/site'
 
 const links = [
-  { href: '/ao-thiet-ke/', label: 'Áo thiết kế' },
-  { href: '/ao-khong-logo/', label: 'Áo không logo' },
   { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá' },
+  { href: '/cong-tac-vien/', label: 'Cộng tác viên' },
   { href: '/blog/', label: 'Tin tức' },
   { href: '/chat-lieu-vai/', label: 'Chất liệu vải' },
+]
+
+const designLinks = [
+  { href: '/ao-bong-da-thiet-ke-2026/', label: 'Áo thiết kế 2026' },
+  { href: '/ao-bong-da-thiet-ke-2025/', label: 'Áo thiết kế 2025' },
+  { href: '/ao-bong-da-thiet-ke-2024/', label: 'Áo thiết kế 2024' },
+  { href: '/ao-thiet-ke/', label: 'Tất cả' },
 ]
 
 export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
+  const [designOpen, setDesignOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const productActive = pathname === '/san-pham/' || pathname.startsWith('/ao-') || pathname.startsWith('/quan-') || pathname.startsWith('/bo-')
+  const designActive = designLinks.some((item) => pathname === item.href || pathname.startsWith(item.href))
   const showProducts = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setProductsOpen(true) }
   const hideProductsSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setProductsOpen(false), 120) }
-  useEffect(() => { setOpen(false); setProductsOpen(false); setSearchOpen(false) }, [pathname])
+  const showDesign = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setDesignOpen(true) }
+  const hideDesignSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setDesignOpen(false), 120) }
+  useEffect(() => { setOpen(false); setProductsOpen(false); setDesignOpen(false); setSearchOpen(false) }, [pathname])
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') { setOpen(false); setProductsOpen(false); setSearchOpen(false) }
+      if (event.key === 'Escape') { setOpen(false); setProductsOpen(false); setDesignOpen(false); setSearchOpen(false) }
     }
     document.addEventListener('keydown', closeOnEscape)
     return () => document.removeEventListener('keydown', closeOnEscape)
@@ -58,6 +68,30 @@ export function SiteHeader() {
               {productActive ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}
             </button>
           </div>
+          <div
+            className="relative"
+            onBlur={hideDesignSoon}
+            onFocus={showDesign}
+            onMouseEnter={showDesign}
+            onMouseLeave={hideDesignSoon}
+          >
+            <button
+              aria-controls="design-year-menu"
+              aria-expanded={designOpen}
+              className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${designActive ? 'text-brand' : ''}`}
+              onClick={() => setDesignOpen((value) => !value)}
+              type="button"
+            >
+              Áo thiết kế <ChevronDown className={`transition-transform duration-200 ${designOpen ? 'rotate-180' : ''}`} size={16} />
+              {designActive ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}
+            </button>
+            <div
+              className={`absolute left-1/2 top-full z-[75] w-56 -translate-x-1/2 rounded-xl border border-slate-200 bg-white p-2 text-slate-950 shadow-[0_18px_50px_rgba(2,6,23,.24)] transition duration-150 ${designOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-1 opacity-0'}`}
+              id="design-year-menu"
+            >
+              {designLinks.map((item) => <Link className="flex min-h-10 items-center rounded-lg px-3 text-sm font-black transition hover:bg-orange-50 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={designOpen ? 0 : -1}>{item.label}</Link>)}
+            </div>
+          </div>
           {links.map((link) => {
             const active = pathname === link.href || pathname.startsWith(link.href)
             return <Link aria-current={active ? 'page' : undefined} className={`relative py-6 transition hover:text-white ${active ? 'text-brand' : ''}`} href={link.href} key={link.href}>{link.label}{active ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}</Link>
@@ -66,7 +100,6 @@ export function SiteHeader() {
         <div className="hidden items-center justify-end gap-2 lg:flex">
           <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20 hover:border-brand/50" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
           <a className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 px-3.5 text-sm font-black hover:border-brand/50" href={`tel:${PHONE_VALUE}`}><Phone size={17} /> {PHONE_DISPLAY}</a>
-          <a className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-brand px-4 text-sm font-black hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={17} /> Tư vấn mẫu</a>
         </div>
         <div className="flex items-center justify-end gap-2 lg:hidden">
           <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
@@ -89,8 +122,10 @@ export function SiteHeader() {
             <div className="grid grid-cols-2 gap-2.5">
               {[
                 { href: '/san-pham/', label: 'Tất cả sản phẩm' },
-                { href: '/ao-thiet-ke/', label: 'Áo thiết kế' },
-                { href: '/ao-khong-logo/', label: 'Áo không logo' },
+                { href: '/ao-bong-da-thiet-ke-2026/', label: 'Áo thiết kế 2026' },
+                { href: '/ao-bong-da-thiet-ke-2025/', label: 'Áo thiết kế 2025' },
+                { href: '/ao-bong-da-thiet-ke-2024/', label: 'Áo thiết kế 2024' },
+                { href: '/ao-thiet-ke/', label: 'Tất cả áo thiết kế' },
                 { href: '/cau-lac-bo/', label: 'Câu lạc bộ' },
                 { href: '/doi-tuyen/', label: 'Đội tuyển' },
                 { href: '/cong-ty/', label: 'Công ty' },
@@ -117,8 +152,10 @@ export function SiteHeader() {
           <section className="rounded-xl border border-white/10 bg-white/[.04] p-3">
             <div className="mb-3 flex items-center justify-between px-1"><p className="text-xs font-black uppercase tracking-[.16em] text-brand">Nhóm sản phẩm</p><Link className="text-xs font-bold text-white underline decoration-white/30 underline-offset-4" href="/san-pham/" tabIndex={open ? 0 : -1}>Xem tất cả</Link></div>
             <div className="grid gap-2 sm:grid-cols-2">{[
-              { href: '/ao-thiet-ke/', label: 'Áo thiết kế' },
-              { href: '/ao-khong-logo/', label: 'Áo không logo' },
+              { href: '/ao-bong-da-thiet-ke-2026/', label: 'Áo thiết kế 2026' },
+              { href: '/ao-bong-da-thiet-ke-2025/', label: 'Áo thiết kế 2025' },
+              { href: '/ao-bong-da-thiet-ke-2024/', label: 'Áo thiết kế 2024' },
+              { href: '/ao-thiet-ke/', label: 'Tất cả áo thiết kế' },
               { href: '/cau-lac-bo/', label: 'Câu lạc bộ' },
               { href: '/doi-tuyen/', label: 'Đội tuyển' },
             ].map((item) => <Link className="flex min-h-12 items-center rounded-lg border border-white/10 px-3 text-sm font-extrabold hover:border-brand/60" href={item.href} key={item.href} tabIndex={open ? 0 : -1}>{item.label}</Link>)}</div>
@@ -136,6 +173,7 @@ export function SiteHeader() {
             <div className="grid grid-cols-2 gap-2">{[
               { href: '/chat-lieu-vai/', label: 'Chất liệu vải' },
               { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá' },
+              { href: '/cong-tac-vien/', label: 'Cộng tác viên' },
               { href: '/blog/', label: 'Tin tức' },
               { href: '/lien-he/', label: 'Liên hệ' },
               { href: '/san-pham/', label: 'Tất cả mẫu áo' },

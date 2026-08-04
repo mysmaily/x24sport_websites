@@ -12,6 +12,9 @@ import {
   catalogFilters as mayaoPickleballCatalogFilters,
 } from './[tenant]/_mayaopickleball/lib/catalog-filters'
 import {
+  getAllCanonicalRoutes as getMayaoBongDaCanonicalRoutes,
+} from './[tenant]/_mayaobongda/lib/cms'
+import {
   getAllPostPaths as getMayaoPickleballPostPaths,
   getSitemapProducts as getMayaoPickleballProductPaths,
 } from './[tenant]/_mayaopickleball/lib/content'
@@ -32,6 +35,47 @@ const mayaoCauLongStaticPages = [
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const tenant = await getTenantContext()
   const base = `https://${tenant.domain}`
+  if (tenant.slug === 'mayaobongda') {
+    const now = new Date()
+    const { categories, products, content } = await getMayaoBongDaCanonicalRoutes()
+    const seen = new Set<string>()
+    const keepUnique = <T extends { url: string }>(item: T) => {
+      if (seen.has(item.url)) return false
+      seen.add(item.url)
+      return true
+    }
+
+    return [
+      { url: `${base}/`, lastModified: now, priority: 1 },
+      { url: `${base}/san-pham/`, lastModified: now, priority: 0.9 },
+      { url: `${base}/bang-gia-may-ao-bong-da/`, priority: 0.82 },
+      { url: `${base}/ao-bong-da-doi-bong-cau-lac-bo/`, priority: 0.82 },
+      { url: `${base}/ao-bong-da-giai-phong-trao/`, priority: 0.82 },
+      { url: `${base}/ao-bong-da-cong-ty-ngan-hang/`, priority: 0.82 },
+      { url: `${base}/blog/`, lastModified: now, priority: 0.7 },
+      ...categories
+        .filter((category) => category.legacyPath && (category.productCount || 0) > 0)
+        .map((category) => ({
+          url: `${base}${category.legacyPath}`,
+          lastModified: now,
+          changeFrequency: 'weekly' as const,
+          priority: category.group === 'type' ? 0.8 : 0.65,
+        })),
+      ...products.map((product) => ({
+        url: `${base}/san-pham/${product.slug}/`,
+        lastModified: product.sourceModifiedAt ? new Date(product.sourceModifiedAt) : undefined,
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      })),
+      ...content.map((item) => ({
+        url: `${base}${item.legacyPath}`,
+        lastModified: item.sourceModifiedAt ? new Date(item.sourceModifiedAt) : undefined,
+        changeFrequency: item.kind === 'post' ? 'monthly' as const : 'weekly' as const,
+        priority: item.kind === 'post' ? 0.6 : 0.72,
+      })),
+    ].filter(keepUnique)
+  }
+
   if (tenant.slug === 'mayaocaulong') {
     const now = new Date()
     const [products, posts] = await Promise.all([
