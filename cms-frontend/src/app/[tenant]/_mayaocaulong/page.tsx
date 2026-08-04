@@ -12,6 +12,7 @@ import {
   Truck,
 } from 'lucide-react'
 import { JsonLd } from '../../_components/json-ld'
+import { TenantPromoHero, type TenantPromoHeroSlide } from '../../_components/tenant-promo-hero'
 import { SiteHeader, phone, phoneHref, zaloHref } from './_components/info-pages'
 import { formatPrice, getHomeData, getPostHref, type Product } from './lib/content'
 
@@ -21,6 +22,30 @@ const trustItems = [
   { icon: PackageCheck, title: 'Đóng gói theo size', text: 'Tách size, tên, số để đội phát áo nhanh hơn.' },
   { icon: Truck, title: 'Giao hàng toàn quốc', text: 'Phù hợp trường học, doanh nghiệp và giải phong trào.' },
 ] as const
+
+const heroSlides: TenantPromoHeroSlide[] = [
+  {
+    alt: 'Bốn vận động viên mặc đồng phục cầu lông xanh navy thi đấu đôi trong nhà',
+    height: 818,
+    mobileSrc: '/images/mayaocaulong/home/badminton-doubles-navy-mobile.webp',
+    src: '/images/mayaocaulong/home/badminton-doubles-navy-wide.webp',
+    width: 1923,
+  },
+  {
+    alt: 'Đội cầu lông nam nữ mặc đồng phục trắng chuyển màu xanh chụp ảnh trên sân',
+    height: 820,
+    mobileSrc: '/images/mayaocaulong/home/badminton-club-white-blue-mobile.webp',
+    src: '/images/mayaocaulong/home/badminton-club-white-blue-wide.webp',
+    width: 1919,
+  },
+  {
+    alt: 'Đội cầu lông công ty mặc áo polo trắng chuyển màu đỏ cam trên sân trong nhà',
+    height: 820,
+    mobileSrc: '/images/mayaocaulong/home/badminton-company-white-red-mobile.webp',
+    src: '/images/mayaocaulong/home/badminton-company-white-red-wide.webp',
+    width: 1919,
+  },
+]
 
 const buyerPaths = [
   {
@@ -176,10 +201,7 @@ export default async function Home() {
       <JsonLd data={websiteJsonLd} />
       <SiteHeader />
 
-      <section className="hero-section">
-        <div className="hero-media" aria-hidden="true">
-          <img src="/images/mayaocaulong/badminton-team-hero.png?v=20260728b" alt="" />
-        </div>
+      <TenantPromoHero ariaLabel="Hình ảnh đồng phục cầu lông thiết kế riêng" slides={heroSlides}>
         <div className="hero-content">
           <p className="hero-kicker">Áo cầu lông đặt may cho CLB</p>
           <h1>Đồng phục cầu lông lên màu sắc nét, mặc nhẹ khi vào sân</h1>
@@ -213,7 +235,7 @@ export default async function Home() {
             <strong>CLB, trường lớp, công ty</strong>
           </div>
         </aside>
-      </section>
+      </TenantPromoHero>
 
       <section className="trust-strip" aria-label="Cam kết dịch vụ">
         {trustItems.map(({ icon: Icon, title, text }) => (
