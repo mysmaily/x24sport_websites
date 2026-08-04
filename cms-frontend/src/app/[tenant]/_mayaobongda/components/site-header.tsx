@@ -86,10 +86,10 @@ export function SiteHeader() {
               {designActive ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}
             </button>
             <div
-              className={`absolute left-1/2 top-full z-[75] w-56 -translate-x-1/2 rounded-xl border border-slate-200 bg-white p-2 text-slate-950 shadow-[0_18px_50px_rgba(2,6,23,.24)] transition duration-150 ${designOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-1 opacity-0'}`}
+              className={`absolute left-1/2 top-full z-[75] w-[260px] -translate-x-1/2 rounded-xl border border-slate-200 bg-white p-2 text-slate-950 shadow-[0_18px_50px_rgba(2,6,23,.24)] transition duration-150 ${designOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-1 opacity-0'}`}
               id="design-year-menu"
             >
-              {designLinks.map((item) => <Link className="flex min-h-10 items-center rounded-lg px-3 text-sm font-black transition hover:bg-orange-50 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={designOpen ? 0 : -1}>{item.label}</Link>)}
+              {designLinks.map((item) => <Link className="flex min-h-10 items-center whitespace-nowrap rounded-lg px-3 text-sm font-black leading-none transition hover:bg-orange-50 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={designOpen ? 0 : -1}>{item.label}</Link>)}
             </div>
           </div>
           {links.map((link) => {
