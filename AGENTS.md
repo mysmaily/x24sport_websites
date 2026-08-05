@@ -170,8 +170,9 @@ of the production runbook. Normal content edits never rebuild CMS.
 - Do not restart PostgreSQL for application or content work.
 - Verify after mutation; an edit or successful API response alone is not
   completion.
-- After verified code work, commit and deploy by default unless the user requests
-  local-only, review-only or no deployment.
+- After verified code work, commit and push by default without asking, then
+  deploy by default unless the user requests local-only, review-only, no push or
+  no deployment.
 
 ## Result reporting
 
