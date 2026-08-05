@@ -3,6 +3,7 @@ import {
   BadgeCheck,
   Building2,
   Check,
+  ChevronLeft,
   ChevronRight,
   ClipboardCheck,
   MessageCircle,
@@ -44,6 +45,8 @@ const process = [
   ['Xác nhận sản xuất', 'Rà soát lại phương án cùng toàn bộ thông tin đã thống nhất.'],
 ]
 
+const LANDING_PRODUCT_LIMIT = 24
+
 function landingHeroSlide(landing: FootballAudienceLanding): TenantPromoHeroSlide {
   return {
     alt: landing.heroAlt,
@@ -54,16 +57,18 @@ function landingHeroSlide(landing: FootballAudienceLanding): TenantPromoHeroSlid
   }
 }
 
-export async function FootballAudienceLandingPage({ landing }: { landing: FootballAudienceLanding }) {
+export async function FootballAudienceLandingPage({ landing, page = 1 }: { landing: FootballAudienceLanding; page?: number }) {
+  const currentPage = Math.max(1, page)
   const isCorporateBankLanding = landing.slug === 'ao-bong-da-cong-ty-ngan-hang'
-  const categoryCatalog = landing.categorySlug ? await getProducts({ limit: isCorporateBankLanding ? 48 : 4, categorySlug: landing.categorySlug }) : null
+  const categoryCatalog = landing.categorySlug ? await getProducts({ page: currentPage, limit: LANDING_PRODUCT_LIMIT, categorySlug: landing.categorySlug }) : null
   const emptyCatalog = { docs: [], totalDocs: 0, totalPages: 0, page: 1, hasNextPage: false }
-  const catalog = categoryCatalog?.docs.length ? categoryCatalog : isCorporateBankLanding ? (categoryCatalog || emptyCatalog) : await getProducts({ limit: 4 })
+  const catalog = categoryCatalog?.docs.length ? categoryCatalog : isCorporateBankLanding ? (categoryCatalog || emptyCatalog) : await getProducts({ page: currentPage, limit: LANDING_PRODUCT_LIMIT })
   const category = landing.categorySlug ? await getProductCategory(landing.categorySlug) : null
   const categoryLabel = landing.categoryLabel || category?.name || landing.navLabel
   const categoryPath = category?.legacyPath || `/${landing.slug}/`
   const AudienceIcon = audienceIcons[landing.slug as keyof typeof audienceIcons]
   const related = FOOTBALL_AUDIENCE_LANDINGS.filter((item) => item.slug !== landing.slug)
+  const pageHref = (value: number) => value === 1 ? `/${landing.slug}/#mau-ao` : `/${landing.slug}/?page=${value}#mau-ao`
 
   const hero = (
     <section className="football-audience-hero">
@@ -101,15 +106,35 @@ export async function FootballAudienceLandingPage({ landing }: { landing: Footba
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="section-kicker">{categoryLabel}</p>
-            <h2 className="section-title">Mẫu áo bóng đá công ty, ngân hàng.</h2>
-            <p className="section-lead">Danh sách mẫu thuộc danh mục này, có thể đổi màu, thêm logo, tên số và nội dung theo nhận diện tổ chức.</p>
+            <h2 className="section-title">{isCorporateBankLanding ? 'Mẫu áo bóng đá công ty, ngân hàng.' : 'Mẫu áo có thể phát triển theo nhu cầu này.'}</h2>
+            <p className="section-lead">Chọn một mẫu gần đúng để làm điểm xuất phát. Màu sắc, logo, tên số và nội dung in có thể tiếp tục điều chỉnh theo đội.</p>
           </div>
-          <Link className="inline-flex min-h-12 items-center gap-2 self-start rounded-lg border border-slate-300 px-5 text-sm font-black transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={categoryPath}>Xem danh mục <ArrowRight aria-hidden="true" size={18} /></Link>
+          <Link className="inline-flex min-h-12 items-center gap-2 self-start rounded-lg border border-slate-300 px-5 text-sm font-black transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={categoryPath}>{isCorporateBankLanding ? 'Xem danh mục' : 'Xem landing từ đầu'} <ArrowRight aria-hidden="true" size={18} /></Link>
+        </div>
+        <div className="mb-2 mt-6 flex justify-between border-t border-slate-200 pt-3 text-xs text-slate-600">
+          <span><b className="text-brand">{catalog.totalDocs.toLocaleString('vi-VN')}</b> mẫu phù hợp</span>
+          <span>Trang {catalog.page}/{Math.max(catalog.totalPages, 1)}</span>
         </div>
         <div className="mt-8"><ProductGrid products={catalog.docs} /></div>
+        {catalog.totalPages > 1 ? <nav className="mt-9 grid grid-cols-[1fr_auto_1fr] items-center border-t border-slate-200 pt-5 text-sm font-black" aria-label="Phân trang mẫu áo landing">{currentPage > 1 ? <Link className="inline-flex min-h-11 items-center gap-2" href={pageHref(currentPage - 1)}><ChevronLeft size={18} /> Trang trước</Link> : <span />}<span>{currentPage} / {catalog.totalPages}</span>{currentPage < catalog.totalPages ? <Link className="inline-flex min-h-11 items-center gap-2 justify-self-end" href={pageHref(currentPage + 1)}>Trang sau <ChevronRight size={18} /></Link> : <span />}</nav> : null}
       </div>
     </section>
   )
+
+  if (currentPage > 1) {
+    return <>
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: canonical('/') },
+          { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: canonical('/san-pham/') },
+          { '@type': 'ListItem', position: 3, name: categoryLabel, item: canonical(categoryPath) },
+        ],
+      }} />
+      {productSection}
+    </>
+  }
 
   if (isCorporateBankLanding) {
     return <>
@@ -208,12 +233,7 @@ export async function FootballAudienceLandingPage({ landing }: { landing: Footba
       </div>
     </section>
 
-    <section className="bg-white py-16 sm:py-22" id="mau-ao">
-      <div className="section-shell">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><p className="section-kicker">Chọn điểm xuất phát</p><h2 className="section-title">Tìm một mẫu gần với ý tưởng của bạn.</h2><p className="section-lead">Màu sắc, logo, tên số và nội dung có thể tiếp tục được điều chỉnh theo nhu cầu thực tế.</p></div><Link className="inline-flex min-h-12 items-center gap-2 self-start rounded-lg border border-slate-300 px-5 text-sm font-black transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/san-pham/">Xem toàn bộ mẫu áo <ArrowRight aria-hidden="true" size={18} /></Link></div>
-        <div className="mt-10"><ProductGrid products={catalog.docs} /></div>
-      </div>
-    </section>
+    {productSection}
 
     <section className="section-shell py-16 sm:py-22">
       <div className="football-audience-split grid gap-12">

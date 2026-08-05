@@ -5,13 +5,19 @@ import { getFootballAudienceLanding } from '../lib/audience-landings'
 
 const landing = getFootballAudienceLanding('ao-bong-da-cong-ty-ngan-hang')
 
-export const metadata: Metadata = {
-  title: landing.metaTitle,
-  description: landing.metaDescription,
-  alternates: { canonical: `/${landing.slug}/` },
-  openGraph: { title: landing.metaTitle, description: landing.metaDescription, url: `/${landing.slug}/`, images: [{ url: landing.heroImage, width: 1536, height: 1024, alt: landing.heroAlt }] },
+export async function generateMetadata({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }): Promise<Metadata> {
+  const query = await searchParams
+  const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
+  return {
+    title: `${landing.metaTitle}${page > 1 ? ` - Trang ${page}` : ''}`,
+    description: landing.metaDescription,
+    alternates: { canonical: page > 1 ? `/${landing.slug}/?page=${page}` : `/${landing.slug}/` },
+    openGraph: { title: landing.metaTitle, description: landing.metaDescription, url: `/${landing.slug}/`, images: [{ url: landing.heroImage, width: 1536, height: 1024, alt: landing.heroAlt }] },
+  }
 }
 
-export default function CorporateLanding() {
-  return <FootballAudienceLandingPage landing={landing} />
+export default async function CorporateLanding({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  const query = await searchParams
+  const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
+  return <FootballAudienceLandingPage landing={landing} page={page} />
 }
