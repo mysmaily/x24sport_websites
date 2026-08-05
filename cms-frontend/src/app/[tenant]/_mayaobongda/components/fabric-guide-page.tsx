@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Check, MessageCircle, Phone, Sparkles, Wind } from 'lucide-react'
+import { ArrowLeft, ArrowLeftRight, ArrowRight, Check, MessageCircle, Phone, Ruler, Sparkles, Wind } from 'lucide-react'
 import Link from 'next/link'
 
 import { FabricLightbox } from './fabric-lightbox'
@@ -65,6 +65,58 @@ const quickPicks = [
   ['Hiệu năng cao', 'Mè nano'],
 ]
 
+const adultSizeColumns = ['SIZE', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL']
+
+const adultSizeRows = [
+  ['Cân nặng (kg)', '40 - 50', '50 - 58', '58 - 65', '65 - 72', '72 - 80', '80 - 88', '88 - 98', '98 - 110'],
+  ['Chiều cao (m)', '1.50 - 1.60', '1.60 - 1.66', '1.66 - 1.72', '1.72 - 1.78', '1.78 - 1.83', '1.83 - 1.88', '1.88 - 1.92', '1.92+'],
+]
+
+const childSizeColumns = ['SIZE', '1', '3', '5', '7', '9', '11', '13']
+
+const childSizeRows = [
+  ['Cân nặng (kg)', '8 - 10', '10 - 15', '15 - 20', '20 - 25', '25 - 30', '30 - 35', '35 - 40'],
+  ['Độ tuổi', '1 - 2', '2 - 3', '4 - 5', '6 - 7', '8 - 9', '10 - 11', '12 - 13'],
+]
+
+function SizeTable({ columns, rows, title }: { columns: string[]; rows: string[][]; title: string }) {
+  return (
+    <article className="football-fabric-size-table-card">
+      <h3>{title}</h3>
+      <p className="football-fabric-table-hint">
+        <ArrowLeftRight aria-hidden="true" size={16} /> Vuốt ngang để xem đầy đủ bảng
+      </p>
+      <div className="football-fabric-table-scroll" role="region" aria-label={title} tabIndex={0}>
+        <table>
+          <caption>{title} áo bóng đá theo cân nặng và chiều cao</caption>
+          <thead>
+            <tr>
+              {columns.map((column, index) => (
+                <th className={index === 0 ? 'football-fabric-table-sticky' : undefined} key={column} scope="col">
+                  {column}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row[0]}>
+                {row.map((cell, index) => (
+                  index === 0 ? (
+                    <th className="football-fabric-table-sticky" key={cell} scope="row">{cell}</th>
+                  ) : (
+                    <td key={`${row[0]}-${cell}-${index}`}>{cell}</td>
+                  )
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </article>
+  )
+}
+
 export function FabricGuidePage() {
   return (
     <article className="football-fabric-page">
@@ -82,8 +134,17 @@ export function FabricGuidePage() {
             <p className="football-fabric-lead">
               5 chất liệu thường dùng cho áo bóng đá, được đặt cạnh nhau để đội dễ so sánh cảm giác mặc, độ thoáng và tình huống sử dụng.
             </p>
+            <div className="football-fabric-hero-actions">
+              <a className="football-fabric-primary-link" href={ZALO_URL} rel="noreferrer" target="_blank">
+                <MessageCircle size={18} /> Gửi nhu cầu may áo
+              </a>
+              <Link className="football-fabric-secondary-hero-link" href="#bang-size">
+                Tra bảng size <ArrowRight size={17} />
+              </Link>
+            </div>
           </div>
           <div className="football-fabric-picks" aria-label="Gợi ý chọn nhanh chất liệu">
+            <p className="football-fabric-picks-title"><Ruler aria-hidden="true" size={17} /> Chọn nhanh cho đội</p>
             <div className="football-fabric-picks-grid">
               {quickPicks.map(([label, value]) => (
                 <div className="football-fabric-pick" key={label}>
@@ -144,14 +205,21 @@ export function FabricGuidePage() {
         </div>
       </section>
 
-      <section className="section-shell football-fabric-size-section">
-        <div className="football-fabric-size-copy">
-          <p><Wind size={15} /> Size và form áo</p>
-          <h2>Chọn vải xong, chốt size cho cả đội.</h2>
-          <span>Dùng bảng size làm mốc, sau đó gửi chiều cao và cân nặng nếu đội có nhiều dáng người khác nhau.</span>
-        </div>
-        <div className="football-fabric-size-image">
-          <img alt="Bảng size may áo bóng đá" loading="eager" src="https://static.x24sport.vn/mayaobongda/wp-1442-bang-size-may-ao-bong-da.jpg" />
+      <section className="football-fabric-size-section" id="bang-size">
+        <div className="section-shell">
+          <div className="football-fabric-size-copy">
+            <p><Wind size={15} /> Bảng size châu Á</p>
+            <h2>Tra theo cân nặng và chiều cao.</h2>
+            <span>Thông số dưới đây là mốc tham khảo. Nếu muốn mặc rộng rãi, thoải mái, có thể chọn tăng 1-2 size và gửi danh sách để được tư vấn lại.</span>
+          </div>
+          <div className="football-fabric-size-tables">
+            <SizeTable columns={adultSizeColumns} rows={adultSizeRows} title="Bảng size người lớn" />
+            <SizeTable columns={childSizeColumns} rows={childSizeRows} title="Bảng size trẻ em" />
+          </div>
+          <aside className="football-fabric-size-note">
+            <Ruler aria-hidden="true" size={22} />
+            <p><strong>Lưu ý khi chốt size:</strong> cân nặng và chiều cao chỉ là mốc tham khảo; form mặc rộng hoặc ôm còn phụ thuộc sở thích. Hãy gửi danh sách size trước khi sản xuất để được kiểm tra lại.</p>
+          </aside>
         </div>
       </section>
 

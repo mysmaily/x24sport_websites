@@ -571,3 +571,327 @@ body.tenant-mayaobongda .football-fabric-lightbox-tools button:nth-child(2) {
   }
 }
 
+/* Stable layout for /chat-lieu-vai/ after the legacy stylesheet import. */
+body.tenant-mayaobongda .football-fabric-page {
+  overflow-x: clip;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+body.tenant-mayaobongda .football-fabric-hero {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #020617;
+}
+
+body.tenant-mayaobongda .football-fabric-hero-bg {
+  background:
+    radial-gradient(circle at 76% 16%, rgba(241, 90, 36, 0.34), transparent 30%),
+    linear-gradient(135deg, rgba(2, 6, 23, 0.92), rgba(15, 23, 42, 0.96));
+}
+
+body.tenant-mayaobongda .football-fabric-hero-grid {
+  gap: 28px;
+  min-height: auto;
+  padding-block: 16px 32px;
+}
+
+body.tenant-mayaobongda .football-fabric-back {
+  min-height: 44px;
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+body.tenant-mayaobongda .football-fabric-kicker,
+body.tenant-mayaobongda .football-fabric-sticky-copy > p,
+body.tenant-mayaobongda .football-fabric-size-copy > p,
+body.tenant-mayaobongda .football-fabric-cta p {
+  color: #ffb96d;
+  letter-spacing: 0.12em;
+}
+
+body.tenant-mayaobongda .football-fabric-hero h1 {
+  max-width: 850px;
+  margin-top: 10px;
+  color: #fff;
+  font-size: clamp(2.75rem, 10vw, 5.75rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaobongda .football-fabric-lead {
+  max-width: 690px;
+  margin-top: 18px;
+  color: #cbd5e1;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+body.tenant-mayaobongda .football-fabric-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+body.tenant-mayaobongda .football-fabric-secondary-hero-link {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  padding-inline: 24px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+body.tenant-mayaobongda .football-fabric-picks {
+  border-radius: 16px;
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.065);
+  padding: 16px;
+}
+
+body.tenant-mayaobongda .football-fabric-picks-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  color: #fed7aa;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+body.tenant-mayaobongda .football-fabric-picks-grid {
+  grid-template-columns: 1fr;
+}
+
+body.tenant-mayaobongda .football-fabric-materials {
+  padding-block: 44px 56px;
+}
+
+body.tenant-mayaobongda .football-fabric-material-layout {
+  gap: 28px;
+}
+
+body.tenant-mayaobongda .football-fabric-sticky-copy h2,
+body.tenant-mayaobongda .football-fabric-size-copy h2,
+body.tenant-mayaobongda .football-fabric-cta h2 {
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaobongda .football-fabric-card-list {
+  gap: 18px;
+}
+
+body.tenant-mayaobongda .football-fabric-card {
+  border-color: #e2e8f0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: none;
+}
+
+body.tenant-mayaobongda .football-fabric-media {
+  min-height: 224px;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+}
+
+body.tenant-mayaobongda .football-fabric-card-body {
+  padding: 22px;
+}
+
+body.tenant-mayaobongda .football-fabric-card h3 {
+  font-size: clamp(2.15rem, 8vw, 3.2rem);
+  letter-spacing: 0;
+}
+
+body.tenant-mayaobongda .football-fabric-size-section {
+  display: block;
+  padding-block: 56px;
+  background: #020617;
+  color: #fff;
+}
+
+body.tenant-mayaobongda .football-fabric-size-copy {
+  max-width: 860px;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+body.tenant-mayaobongda .football-fabric-size-copy span {
+  max-width: 740px;
+}
+
+body.tenant-mayaobongda .football-fabric-size-tables {
+  display: grid;
+  gap: 32px;
+  margin-top: 36px;
+}
+
+body.tenant-mayaobongda .football-fabric-size-table-card {
+  min-width: 0;
+}
+
+body.tenant-mayaobongda .football-fabric-size-table-card h3 {
+  margin-bottom: 14px;
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(2rem, 7vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+body.tenant-mayaobongda .football-fabric-table-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+body.tenant-mayaobongda .football-fabric-table-scroll {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #fff;
+  color: #0f172a;
+  outline-offset: 4px;
+}
+
+body.tenant-mayaobongda .football-fabric-table-scroll table {
+  width: 100%;
+  min-width: 880px;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+body.tenant-mayaobongda .football-fabric-table-scroll caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+body.tenant-mayaobongda .football-fabric-table-scroll th,
+body.tenant-mayaobongda .football-fabric-table-scroll td {
+  padding: 18px 20px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  font-weight: 800;
+}
+
+body.tenant-mayaobongda .football-fabric-table-scroll thead th {
+  border-top: 0;
+  background: #f15a24;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+body.tenant-mayaobongda .football-fabric-table-scroll tbody tr:nth-child(even) th,
+body.tenant-mayaobongda .football-fabric-table-scroll tbody tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+body.tenant-mayaobongda .football-fabric-table-sticky {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 154px;
+  text-align: left !important;
+  box-shadow: 1px 0 0 #e2e8f0;
+}
+
+body.tenant-mayaobongda thead .football-fabric-table-sticky {
+  z-index: 2;
+  background: #d84312 !important;
+}
+
+body.tenant-mayaobongda tbody .football-fabric-table-sticky {
+  background: #fff;
+}
+
+body.tenant-mayaobongda .football-fabric-size-note {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+  border: 1px solid rgba(255, 185, 109, 0.26);
+  border-radius: 16px;
+  background: rgba(255, 185, 109, 0.1);
+  padding: 18px;
+  color: #ffedd5;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+body.tenant-mayaobongda .football-fabric-size-note svg {
+  color: #ffb96d;
+}
+
+body.tenant-mayaobongda .football-fabric-size-note strong {
+  color: #fff;
+}
+
+body.tenant-mayaobongda .football-fabric-cta {
+  background: #fff;
+}
+
+body.tenant-mayaobongda .football-fabric-primary-link,
+body.tenant-mayaobongda .football-fabric-secondary-link {
+  min-height: 52px;
+  border-radius: 8px;
+}
+
+@media (min-width: 640px) {
+  body.tenant-mayaobongda .football-fabric-hero-actions {
+    flex-direction: row;
+  }
+
+  body.tenant-mayaobongda .football-fabric-picks-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.tenant-mayaobongda .football-fabric-size-note {
+    grid-template-columns: auto 1fr;
+    align-items: start;
+  }
+}
+
+@media (min-width: 768px) {
+  body.tenant-mayaobongda .football-fabric-card {
+    grid-template-columns: minmax(220px, 0.86fr) minmax(0, 1.14fr);
+  }
+
+  body.tenant-mayaobongda .football-fabric-media {
+    min-height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  body.tenant-mayaobongda .football-fabric-hero-grid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+    align-items: end;
+    padding-block: 20px 44px;
+  }
+
+  body.tenant-mayaobongda .football-fabric-material-layout {
+    grid-template-columns: 300px minmax(0, 1fr);
+  }
+
+  body.tenant-mayaobongda .football-fabric-size-section {
+    padding-block: 72px;
+  }
+}
