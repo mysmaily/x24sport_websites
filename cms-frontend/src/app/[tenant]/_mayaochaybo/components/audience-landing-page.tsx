@@ -16,45 +16,50 @@ const audienceIcons = {
 
 const benefitIcons = [Palette, ClipboardCheck, BadgeCheck]
 
-const corporateHeroImages = [
-  {
-    alt: 'Tập thể nhân viên doanh nghiệp mặc đồng phục VINASEED Green Run cùng tham gia chạy bộ',
-    src: '/images/mayaochaybo/audience-landings/doanh-nghiep-vinaseed-green-run.webp',
-  },
-  {
-    alt: 'Tập thể nhân viên doanh nghiệp mặc áo chạy bộ sát nách trắng xanh trong hoạt động gắn kết',
-    src: '/images/mayaochaybo/audience-landings/doanh-nghiep-finisher-team.webp',
-  },
-]
+type LandingHeroImage = {
+  alt: string
+  fit?: 'contain' | 'cover'
+  src: string
+}
 
-const eventHeroImages = [
-  {
-    alt: 'Vận động viên xuất phát dưới cổng vòm giải chạy với áo sự kiện và số báo danh',
-    src: '/images/mayaochaybo/audience-landings/giai-chay-x24-run-start.webp',
-  },
-  {
-    alt: 'Vận động viên mặc áo đồng bộ và đeo số báo danh tại cổng về đích giải chạy',
-    src: '/images/mayaochaybo/audience-landings/giai-chay-x24-run-finish.webp',
-  },
-]
-
-const clubHeroImages = [
-  {
-    alt: 'Các thành viên Bình Minh Runner mặc đồng phục câu lạc bộ sau buổi chạy',
-    src: '/images/mayaochaybo/audience-landings/doi-nhom-binh-minh-runner-feedback.webp',
-  },
-  {
-    alt: 'Nhóm chạy bộ mặc đồng phục đỏ trắng Việt Nam cùng tham gia chạy',
-    src: '/images/mayaochaybo/audience-landings/doi-nhom-viet-nam-running-club.webp',
-  },
-]
+const audienceHeroImages: Record<string, [LandingHeroImage, LandingHeroImage]> = {
+  'ao-chay-bo-doanh-nghiep': [
+    {
+      alt: 'Tập thể nhân viên doanh nghiệp mặc đồng phục VINASEED Green Run cùng tham gia chạy bộ',
+      src: '/images/mayaochaybo/images/audience-landings/doanh-nghiep-vinaseed-green-run.webp',
+    },
+    {
+      alt: 'Tập thể nhân viên doanh nghiệp mặc áo chạy bộ sát nách trắng xanh trong hoạt động gắn kết',
+      src: '/images/mayaochaybo/images/audience-landings/doanh-nghiep-finisher-team.webp',
+    },
+  ],
+  'ao-giai-chay-su-kien': [
+    {
+      alt: 'Vận động viên xuất phát dưới cổng vòm giải chạy với áo sự kiện và số báo danh',
+      src: '/images/mayaochaybo/images/audience-landings/giai-chay-x24-run-start.webp',
+    },
+    {
+      alt: 'Vận động viên mặc áo đồng bộ và đeo số báo danh tại cổng về đích giải chạy',
+      src: '/images/mayaochaybo/images/audience-landings/giai-chay-x24-run-finish.webp',
+    },
+  ],
+  'ao-chay-bo-doi-nhom-cau-lac-bo': [
+    {
+      alt: 'Các thành viên Bình Minh Runner mặc đồng phục câu lạc bộ sau buổi chạy',
+      fit: 'contain',
+      src: '/images/mayaochaybo/images/audience-landings/doi-nhom-binh-minh-runner-feedback.webp',
+    },
+    {
+      alt: 'Nhóm chạy bộ mặc đồng phục đỏ trắng Việt Nam cùng tham gia chạy',
+      src: '/images/mayaochaybo/images/audience-landings/doi-nhom-viet-nam-running-club.webp',
+    },
+  ],
+}
 
 export async function AudienceLandingPage({ landing }: { landing: AudienceLanding }) {
   const catalog = await getProducts({ limit: 4 })
   const heroProducts = catalog.docs.slice(0, 2).map((product) => ({ product, image: productImages(product)[0] })).filter((item) => item.image?.url)
-  const isCorporateLanding = landing.slug === 'ao-chay-bo-doanh-nghiep'
-  const isEventLanding = landing.slug === 'ao-giai-chay-su-kien'
-  const isClubLanding = landing.slug === 'ao-chay-bo-doi-nhom-cau-lac-bo'
+  const heroImages = audienceHeroImages[landing.slug]
   const AudienceIcon = audienceIcons[landing.slug as keyof typeof audienceIcons]
   const related = AUDIENCE_LANDINGS.filter((item) => item.slug !== landing.slug)
 
@@ -92,26 +97,12 @@ export async function AudienceLandingPage({ landing }: { landing: AudienceLandin
             <p className="text-[11px] font-black uppercase tracking-[.16em] text-orange-200">{landing.contextLabel}</p>
             <ul className="mt-4 grid gap-2 text-sm font-bold text-slate-200">{landing.contexts.map((item) => <li className="flex items-center gap-2" key={item}><Check aria-hidden="true" className="text-brand" size={17} />{item}</li>)}</ul>
           </div>
-          {isCorporateLanding ? <>
-            <div className="absolute bottom-0 left-0 w-[72%] overflow-hidden rounded-2xl border border-white/10 bg-slate-100 shadow-[0_26px_80px_rgba(0,0,0,.35)]">
-              <div className="relative aspect-[4/3]"><Image alt={corporateHeroImages[0].alt} className="object-cover" fill priority sizes="(max-width: 1024px) 72vw, 34vw" src={corporateHeroImages[0].src} /></div>
-            </div>
-            <div className="absolute bottom-8 right-0 w-[58%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-slate-100 shadow-[0_20px_60px_rgba(0,0,0,.4)]">
-              <div className="relative aspect-[4/3]"><Image alt={corporateHeroImages[1].alt} className="object-cover" fill sizes="(max-width: 1024px) 58vw, 27vw" src={corporateHeroImages[1].src} /></div>
-            </div>
-          </> : isEventLanding ? <>
-            <div className="absolute bottom-0 left-0 w-[72%] overflow-hidden rounded-2xl border border-white/10 bg-slate-100 shadow-[0_26px_80px_rgba(0,0,0,.35)]">
-              <div className="relative aspect-[4/3]"><Image alt={eventHeroImages[0].alt} className="object-cover" fill priority sizes="(max-width: 1024px) 72vw, 34vw" src={eventHeroImages[0].src} /></div>
-            </div>
-            <div className="absolute bottom-8 right-0 w-[58%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-slate-100 shadow-[0_20px_60px_rgba(0,0,0,.4)]">
-              <div className="relative aspect-[4/3]"><Image alt={eventHeroImages[1].alt} className="object-cover" fill sizes="(max-width: 1024px) 58vw, 27vw" src={eventHeroImages[1].src} /></div>
-            </div>
-          </> : isClubLanding ? <>
+          {heroImages ? <>
             <div className="absolute bottom-0 left-0 w-[72%] overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_26px_80px_rgba(0,0,0,.35)]">
-              <div className="relative aspect-[4/3]"><Image alt={clubHeroImages[0].alt} className="object-contain" fill priority sizes="(max-width: 1024px) 72vw, 34vw" src={clubHeroImages[0].src} /></div>
+              <div className="relative aspect-[4/3] bg-slate-100"><Image alt={heroImages[0].alt} className={heroImages[0].fit === 'contain' ? 'object-contain' : 'object-cover'} fill priority sizes="(max-width: 1024px) 72vw, 34vw" src={heroImages[0].src} /></div>
             </div>
-            <div className="absolute bottom-8 right-0 w-[58%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-slate-100 shadow-[0_20px_60px_rgba(0,0,0,.4)]">
-              <div className="relative aspect-[4/3]"><Image alt={clubHeroImages[1].alt} className="object-cover" fill sizes="(max-width: 1024px) 58vw, 27vw" src={clubHeroImages[1].src} /></div>
+            <div className="absolute bottom-8 right-0 w-[58%] overflow-hidden rounded-2xl border-4 border-[#0b1220] bg-white shadow-[0_20px_60px_rgba(0,0,0,.4)]">
+              <div className="relative aspect-[4/3] bg-slate-100"><Image alt={heroImages[1].alt} className={heroImages[1].fit === 'contain' ? 'object-contain' : 'object-cover'} fill sizes="(max-width: 1024px) 58vw, 27vw" src={heroImages[1].src} /></div>
             </div>
           </> : <>
             {heroProducts[0] ? <Link className="group absolute bottom-0 left-0 w-[64%] overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_26px_80px_rgba(0,0,0,.35)]" href={productPath(heroProducts[0].product)}>

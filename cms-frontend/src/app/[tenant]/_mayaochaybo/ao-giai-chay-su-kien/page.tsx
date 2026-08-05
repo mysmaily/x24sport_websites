@@ -7,7 +7,7 @@ export const revalidate = 300
 export const metadata: Metadata = pageMetadata({
   title: 'Áo Giải Chạy & Sự Kiện Thiết Kế Theo Chương Trình',
   description: 'Thiết kế áo giải chạy, áo sự kiện và race kit theo chủ đề chương trình, logo ban tổ chức và nhà tài trợ.',
-  image: { url: '/images/mayaochaybo/audience-landings/giai-chay-x24-run-start.webp', width: 1448, height: 1086, alt: 'Áo giải chạy và sự kiện thiết kế theo chương trình' },
+  image: { url: '/images/mayaochaybo/images/audience-landings/giai-chay-x24-run-start.webp', width: 1448, height: 1086, alt: 'Áo giải chạy và sự kiện thiết kế theo chương trình' },
   path: '/ao-giai-chay-su-kien/',
 })
 
