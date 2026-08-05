@@ -13,9 +13,9 @@ import {
   Truck,
   UsersRound,
 } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 
+import { TenantPromoHero, type TenantPromoHeroSlide } from '../../../_components/tenant-promo-hero'
 import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
 import { getProductCategory, getProducts } from '../lib/cms'
@@ -44,6 +44,16 @@ const process = [
   ['Xác nhận sản xuất', 'Rà soát lại phương án cùng toàn bộ thông tin đã thống nhất.'],
 ]
 
+function landingHeroSlide(landing: FootballAudienceLanding): TenantPromoHeroSlide {
+  return {
+    alt: landing.heroAlt,
+    height: 1024,
+    mobileSrc: landing.heroImage,
+    src: landing.heroImage,
+    width: 1536,
+  }
+}
+
 export async function FootballAudienceLandingPage({ landing }: { landing: FootballAudienceLanding }) {
   const isCorporateBankLanding = landing.slug === 'ao-bong-da-cong-ty-ngan-hang'
   const categoryCatalog = landing.categorySlug ? await getProducts({ limit: isCorporateBankLanding ? 48 : 4, categorySlug: landing.categorySlug }) : null
@@ -56,9 +66,8 @@ export async function FootballAudienceLandingPage({ landing }: { landing: Footba
   const related = FOOTBALL_AUDIENCE_LANDINGS.filter((item) => item.slug !== landing.slug)
 
   const hero = (
-    <section className="football-audience-dark relative isolate overflow-hidden text-white">
-      <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-25 [background-image:linear-gradient(rgba(255,255,255,.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.07)_1px,transparent_1px)] [background-size:56px_56px]" />
-      <div className="section-shell py-6 sm:py-8">
+    <section className="football-audience-hero">
+      <div className="football-audience-breadcrumb section-shell py-4 sm:py-5">
         <nav aria-label="Đường dẫn" className="flex items-center gap-2 overflow-hidden text-xs font-bold text-slate-400">
           <Link className="shrink-0 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/">Trang chủ</Link>
           <ChevronRight aria-hidden="true" className="shrink-0" size={14} />
@@ -68,29 +77,21 @@ export async function FootballAudienceLandingPage({ landing }: { landing: Footba
         </nav>
       </div>
 
-      <div className="football-audience-hero-shell section-shell grid gap-8 pb-12 pt-3 sm:pb-16">
-        <div className="football-audience-hero-copy relative z-10 max-w-3xl">
-          <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[.07] px-4 py-2 text-[11px] font-black uppercase tracking-[.13em] text-orange-200 backdrop-blur sm:text-xs sm:tracking-[.16em]"><AudienceIcon aria-hidden="true" size={17} />{landing.eyebrow}</p>
-          <h1 className="football-audience-title mt-7 max-w-[820px] text-balance font-display font-extrabold">{landing.title}</h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">{landing.description}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black transition duration-200 hover:-translate-y-0.5 hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle aria-hidden="true" size={19} /> Nhận tư vấn mẫu áo</a>
-            <Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-sm font-black transition duration-200 hover:border-white/55 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="#mau-ao">Xem mẫu áo <ArrowRight aria-hidden="true" size={18} /></Link>
-          </div>
-          <ul aria-label="Phù hợp với" className="mt-8 flex flex-wrap gap-2">
-            {landing.contexts.map((item) => <li className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/12 bg-black/15 px-3.5 text-xs font-bold text-slate-200" key={item}><Check aria-hidden="true" className="text-brand" size={15} />{item}</li>)}
+      <TenantPromoHero ariaLabel={landing.eyebrow} slides={[landingHeroSlide(landing)]}>
+        <div className="football-audience-hero-copy min-w-0 max-w-3xl">
+          <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.1em] text-orange-200 backdrop-blur sm:px-4 sm:py-2 sm:text-xs sm:tracking-[.16em]"><AudienceIcon aria-hidden="true" className="shrink-0" size={16} /><span className="truncate">{landing.eyebrow}</span></p>
+          <h1 className="football-audience-title mt-4 max-w-[860px] text-balance font-display font-extrabold sm:mt-7">{landing.title}</h1>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:mt-5 sm:text-lg sm:leading-7">{landing.description}</p>
+          <ul aria-label="Phù hợp với" className="mt-5 grid max-w-2xl grid-cols-1 gap-2 sm:mt-7 sm:grid-cols-3">
+            {landing.contexts.map((item) => <li className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-white/10 bg-white/[.055] px-3 text-xs font-bold leading-5 text-slate-100 backdrop-blur" key={item}><Check aria-hidden="true" className="shrink-0 text-brand" size={15} />{item}</li>)}
           </ul>
-        </div>
-
-        <div className="football-audience-hero-media relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-[0_28px_90px_rgba(0,0,0,.42)]">
-          <Image alt={landing.heroAlt} className="football-audience-hero-image object-cover object-center" fill priority sizes="(max-width: 1023px) 100vw, 54vw" src={landing.heroImage} />
-          <div aria-hidden="true" className="football-audience-hero-overlay absolute inset-0" />
-          <div className="football-audience-hero-note absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 p-4 backdrop-blur-md sm:bottom-6 sm:left-auto sm:right-6">
-            <p className="text-[10px] font-black uppercase tracking-[.18em] text-orange-300">Bắt đầu từ đội hình thật</p>
-            <p className="mt-2 text-sm font-bold leading-6 text-white">Thiết kế, size và nội dung in được rà soát trước khi chốt sản xuất.</p>
+          <div className="mt-5 flex flex-col gap-2 sm:mt-7 sm:flex-row sm:flex-wrap sm:gap-3">
+            <a className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-brand px-4 text-sm font-black transition duration-200 hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:min-h-13 sm:px-6" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle aria-hidden="true" size={19} /> Nhận tư vấn mẫu áo</a>
+            <Link className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/25 px-4 text-sm font-black transition duration-200 hover:border-white/55 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:min-h-13 sm:px-6" href="#mau-ao">Xem mẫu áo <ArrowRight aria-hidden="true" size={18} /></Link>
           </div>
+          <p className="football-audience-hero-note mt-6 max-w-xl border-l-2 border-brand pl-4 text-sm font-bold leading-6 text-slate-200 sm:mt-8">Thiết kế, size và nội dung in được rà soát trước khi chốt sản xuất.</p>
         </div>
-      </div>
+      </TenantPromoHero>
     </section>
   )
 
