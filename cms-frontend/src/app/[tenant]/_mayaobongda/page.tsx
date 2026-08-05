@@ -91,7 +91,53 @@ export default async function HomePage() {
       </div>
     </section>
 
-    <section className="bg-white py-10 sm:py-18"><div className="section-shell"><div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p className="section-kicker">Mẫu mới cập nhật</p><h2 className="section-title">Chọn mẫu, rồi hoàn thiện phiên bản của đội.</h2></div><Link className="inline-flex min-h-11 items-center gap-2 self-start rounded-lg border border-slate-300 px-4 text-sm font-black hover:border-brand hover:text-brand sm:min-h-12 sm:px-5" href="/san-pham/">Xem {catalog.totalDocs.toLocaleString('vi-VN')} mẫu <ArrowRight size={18} /></Link></div><div className="mt-6 sm:mt-10"><ProductGrid products={catalog.docs} /></div></div></section>
+    <section className="bg-white py-10 sm:py-18">
+      <div className="section-shell">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="section-kicker">Mẫu mới cập nhật</p>
+            <h2 className="section-title">Chọn mẫu, rồi hoàn thiện phiên bản của đội.</h2>
+          </div>
+          <Link className="inline-flex min-h-11 items-center gap-2 self-start rounded-lg border border-slate-300 px-4 text-sm font-black hover:border-brand hover:text-brand sm:min-h-12 sm:px-5" href="/san-pham/">Xem {catalog.totalDocs.toLocaleString('vi-VN')} mẫu <ArrowRight size={18} /></Link>
+        </div>
+        <div className="mt-6 sm:mt-10"><ProductGrid products={catalog.docs} /></div>
+
+        <div className="mabd-product-next mt-7 grid gap-3 rounded-2xl border border-slate-200 bg-[#f8fafc] p-4 sm:mt-10 sm:p-5 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] lg:items-center">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[.14em] text-brand">Tiếp tục xem mẫu</p>
+            <h3 className="mt-2 font-display text-3xl font-bold leading-none text-slate-950 sm:text-4xl">Chưa thấy mẫu hợp ý? Lướt tiếp theo đúng nhu cầu của đội.</h3>
+            <p className="mt-3 text-sm leading-6 text-slate-600">Người mua thường chọn một mẫu gần đúng trước, rồi chỉnh màu, logo, tên số và form áo sau. Bạn có thể xem toàn bộ kho mẫu hoặc lọc nhanh theo nhóm bên dưới.</p>
+          </div>
+
+          <div className="grid gap-3">
+            <Link className="mabd-product-next-primary group flex min-h-14 items-center justify-between rounded-xl bg-[#07101e] px-4 text-sm font-black text-white transition duration-200 hover:-translate-y-0.5 hover:bg-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:px-5" href="/san-pham/">
+              <span>Xem tất cả {catalog.totalDocs.toLocaleString('vi-VN')} mẫu áo</span>
+              <ArrowRight aria-hidden="true" className="shrink-0 transition group-hover:translate-x-1" size={19} />
+            </Link>
+
+            <div className="grid gap-2 sm:grid-cols-2" aria-label="Xem mẫu theo danh mục sản phẩm">
+              {categories.map((category) => (
+                <Link className="group flex min-h-12 items-center justify-between rounded-xl border border-slate-200 bg-white px-4 text-sm font-black text-slate-900 transition duration-200 hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={category.legacyPath || `/${category.slug}/`} key={category.id}>
+                  <span className="min-w-0 truncate">{category.name}</span>
+                  <ArrowRight aria-hidden="true" className="shrink-0 transition group-hover:translate-x-1" size={17} />
+                </Link>
+              ))}
+            </div>
+
+            <div className="grid gap-2 sm:grid-cols-3" aria-label="Xem mẫu theo đối tượng đặt áo">
+              {audiences.map(({ href, icon: Icon, label }) => (
+                <Link className="group flex min-h-12 items-center gap-2 rounded-xl border border-orange-100 bg-orange-50 px-3 text-xs font-black text-slate-900 transition duration-200 hover:border-brand hover:bg-white hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={href} key={label}>
+                  <Icon aria-hidden="true" className="shrink-0 text-brand" size={17} />
+                  <span className="min-w-0 leading-4">{label}</span>
+                </Link>
+              ))}
+            </div>
+
+            <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 text-sm font-black text-slate-900 transition duration-200 hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={ZALO_URL} rel="noreferrer" target="_blank">Gửi mẫu đang thích để được tư vấn phối lại <ArrowRight aria-hidden="true" size={17} /></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section className="bg-[#0b1220] text-white"><div className="section-shell grid gap-12 py-16 sm:py-22 lg:grid-cols-[.85fr_1.15fr]"><div><p className="section-kicker text-orange-300">Từ ý tưởng đến ngày ra sân</p><h2 className="section-title text-white">Bốn bước để cả đội mặc đúng tinh thần thi đấu.</h2><p className="mt-5 max-w-xl leading-7 text-slate-400">Gửi mẫu tham khảo, chốt logo và màu sắc. Thiết kế, size và nội dung in được rà soát trước khi bắt đầu sản xuất.</p></div><ol className="grid gap-3 sm:grid-cols-2">{[['01','Gửi ý tưởng','Mẫu tham khảo, logo, tên đội và số lượng cần đặt.'],['02','Duyệt thiết kế','Kiểm tra bố cục, màu áo, tên số và font in.'],['03','Chốt size','Tổng hợp form, size và thời gian cần giao hàng.'],['04','Sản xuất & giao','Hoàn thiện đơn theo nội dung đã được duyệt.']].map(([number,title,text]) => <li className="rounded-2xl border border-white/10 bg-white/[.05] p-6" key={number}><span className="font-display text-4xl font-bold text-brand">{number}</span><h3 className="mt-8 font-display text-3xl font-bold">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-400">{text}</p></li>)}</ol></div></section>
 
