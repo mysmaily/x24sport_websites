@@ -52,17 +52,17 @@ export function ProductInterestForm({ productName, productUrl }: ProductInterest
   }
 
   return (
-    <section id="nhan-tu-van">
-      <h2 className="text-xl font-black leading-tight text-slate-950">Bạn quan tâm mẫu này?</h2>
-      <form className="mt-4 grid gap-3" onSubmit={handleSubmit}>
+    <section className="mcb-interest-form" id="nhan-tu-van">
+      <h2 className="text-lg font-black leading-tight text-slate-950 sm:text-xl">Bạn quan tâm mẫu này?</h2>
+      <form className="mt-3 grid gap-3" onSubmit={handleSubmit}>
         <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_160px]">
           <label className="grid gap-1.5 text-sm font-bold text-slate-700">
             <span>Số điện thoại</span>
-            <input className="min-h-11 rounded-lg border border-slate-300 px-3 outline-none focus:border-brand focus:ring-4 focus:ring-orange-100" autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
+            <input className="min-h-11 rounded-lg border border-slate-300 bg-white px-3 outline-none focus:border-brand focus:ring-4 focus:ring-orange-100" autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
           </label>
           <label className="grid gap-1.5 text-sm font-bold text-slate-700">
             <span>Số lượng cần đặt</span>
-            <input className="min-h-11 rounded-lg border border-slate-300 px-3 outline-none focus:border-brand focus:ring-4 focus:ring-orange-100" inputMode="numeric" max="10000" min="1" name="quantity" required type="number" />
+            <input className="min-h-11 rounded-lg border border-slate-300 bg-white px-3 outline-none focus:border-brand focus:ring-4 focus:ring-orange-100" inputMode="numeric" max="10000" min="1" name="quantity" required type="number" />
           </label>
         </div>
         <label className="hidden" aria-hidden="true">

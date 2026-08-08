@@ -70,6 +70,44 @@ body.tenant-mayaochaybo .mcb-product-title {
   line-height: 1.16;
 }
 
+body.tenant-mayaochaybo .mcb-product-shell {
+  align-items: start;
+}
+
+body.tenant-mayaochaybo .mcb-product-gallery-box,
+body.tenant-mayaochaybo .mcb-product-summary-box,
+body.tenant-mayaochaybo .mcb-process-box,
+body.tenant-mayaochaybo .mcb-interest-box {
+  min-width: 0;
+}
+
+body.tenant-mayaochaybo .mcb-product-side {
+  min-width: 0;
+}
+
+body.tenant-mayaochaybo .mcb-product-summary-box,
+body.tenant-mayaochaybo .mcb-process-box,
+body.tenant-mayaochaybo .mcb-interest-box {
+  border: 0;
+}
+
+body.tenant-mayaochaybo .mcb-interest-box {
+  background: #fff7ed;
+}
+
+body.tenant-mayaochaybo .mcb-interest-form h2 {
+  font-size: 1.125rem;
+  line-height: 1.2;
+}
+
+body.tenant-mayaochaybo .mcb-interest-form input {
+  box-shadow: inset 0 1px 0 rgba(15, 23, 42, .03);
+}
+
+body.tenant-mayaochaybo .mcb-interest-form button {
+  width: 100%;
+}
+
 body.tenant-mayaochaybo .mcb-product-copy-section {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
@@ -162,6 +200,10 @@ body.tenant-mayaochaybo .mcb-footer-cta-button svg {
 
   body.tenant-mayaochaybo .mcb-product-title {
     font-size: 1.65rem;
+  }
+
+  body.tenant-mayaochaybo .mcb-interest-form h2 {
+    font-size: 1.25rem;
   }
 
   body.tenant-mayaochaybo .mcb-related-section {

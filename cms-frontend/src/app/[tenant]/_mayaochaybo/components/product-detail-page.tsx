@@ -87,10 +87,13 @@ export async function ProductDetailPage({
         <nav className="mcb-product-breadcrumb flex gap-2 overflow-hidden py-3 text-xs text-slate-500 sm:py-4" aria-label="Đường dẫn"><Link className="shrink-0 hover:text-brand" href="/">Trang chủ</Link><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={catalogHref}>Mẫu áo</Link>{breadcrumbCategory ? <><span className="hidden shrink-0 sm:inline">/</span><Link className="hidden shrink-0 hover:text-brand sm:inline" href={categoryPath(breadcrumbCategory)}>{breadcrumbCategory.name}</Link></> : null}<span className="shrink-0">/</span><span className="truncate text-slate-700">{product.name}</span></nav>
         <h1 className="mcb-product-title line-clamp-2 pb-3 font-display text-[22px] font-bold leading-[1.08] tracking-tight text-slate-950 sm:pb-4 lg:text-[28px]">{product.name}</h1>
 
-        <div className="grid overflow-hidden rounded-xl border border-slate-200 bg-white lg:grid-cols-[1.15fr_.85fr]">
-          <ProductGallery images={images} key={product.id} productName={product.name} />
+        <div className="mcb-product-shell grid gap-4 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
+          <div className="mcb-product-gallery-box overflow-hidden rounded-xl border border-slate-200 bg-white">
+            <ProductGallery images={images} key={product.id} productName={product.name} />
+          </div>
 
-          <div className="flex flex-col p-4 sm:p-6 lg:p-7 xl:p-8">
+          <div className="mcb-product-side flex flex-col gap-4">
+            <section className="mcb-product-summary-box rounded-xl bg-white p-4 shadow-[0_1px_0_rgba(15,23,42,.08)] sm:p-5">
             {hasPrice ? <p className="text-sm font-bold text-slate-600">Giá tham khảo <strong className="ml-1 text-xl text-brand">{product.price!.toLocaleString('vi-VN')} ₫</strong></p> : <p className="text-sm font-bold text-slate-600">Mẫu tham khảo, nhận báo giá theo số lượng</p>}
             {product.shortDescription ? <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">{product.shortDescription}</p> : null}
 
@@ -101,13 +104,15 @@ export async function ProductDetailPage({
             <ul className="mt-4 grid gap-2 text-xs font-bold text-slate-700 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
               {quickFacts.map(({ icon: Icon, label }) => <li className="flex min-h-10 items-center gap-2 rounded-lg bg-orange-50 px-3" key={label}><Icon aria-hidden="true" className="shrink-0 text-brand" size={15} />{label}</li>)}
             </ul>
-            <details className="mt-4 rounded-xl border border-slate-200 bg-slate-50">
+            </section>
+
+            <details className="mcb-process-box rounded-xl bg-white shadow-[0_1px_0_rgba(15,23,42,.08)]">
               <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between px-4 text-sm font-black text-slate-950 [&::-webkit-details-marker]:hidden">Quy trình đặt may <ChevronDown aria-hidden="true" size={16} /></summary>
-              <ol className="grid gap-2 border-t border-slate-200 p-4 text-sm text-slate-700">
+              <ol className="grid gap-2 border-t border-slate-100 p-4 text-sm text-slate-700">
                 {processItems.map((item, index) => <li className="flex items-center gap-2" key={item}><span className="grid size-5 shrink-0 place-items-center rounded-full bg-brand text-[10px] font-black text-white">{index + 1}</span>{item}</li>)}
               </ol>
             </details>
-            {showInterestForm ? <details className="mt-3 rounded-xl border border-slate-200 bg-white"><summary className="flex min-h-11 cursor-pointer list-none items-center justify-between px-4 text-sm font-black text-slate-950 [&::-webkit-details-marker]:hidden">Để lại số điện thoại <ChevronDown aria-hidden="true" size={16} /></summary><div className="border-t border-slate-200 p-4"><ProductInterestForm productName={product.name} productUrl={canonical(productHref)} /></div></details> : null}
+            {showInterestForm ? <div className="mcb-interest-box rounded-xl bg-white p-4 shadow-[0_1px_0_rgba(15,23,42,.08)] sm:p-5"><ProductInterestForm productName={product.name} productUrl={canonical(productHref)} /></div> : null}
           </div>
         </div>
 
