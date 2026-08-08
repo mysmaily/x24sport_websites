@@ -17,7 +17,7 @@ export function ProductCard({ product }: { product: Product; index?: number }) {
   const price = typeof product.price === 'number' && product.price > 0 ? product.price : null
 
   return (
-    <article className="group flex h-full min-w-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition duration-200 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_55px_rgba(15,23,42,.10)]">
+    <article className="mcb-product-card group flex h-full min-w-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition duration-200 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_55px_rgba(15,23,42,.10)]">
       <Link className="relative block aspect-square overflow-hidden bg-slate-100" href={href} aria-label={`Xem ${product.name}`}>
         {image?.url ? (
           <Image
@@ -32,12 +32,12 @@ export function ProductCard({ product }: { product: Product; index?: number }) {
         )}
       </Link>
       <div className="flex flex-1 flex-col p-2.5 sm:p-4">
-        <h3 className="line-clamp-2 min-h-[38px] font-display text-[16px] font-bold leading-[1.15] tracking-tight text-slate-950 sm:min-h-[42px] sm:text-[18px]">
+        <h3 className="mcb-product-card-title line-clamp-2 min-h-[38px] font-display text-[16px] font-bold leading-[1.15] tracking-tight text-slate-950 sm:min-h-[42px] sm:text-[18px]">
           <Link href={href}>{product.name}</Link>
         </h3>
         <div className="mt-2 grid gap-2 border-t border-slate-100 pt-2">
           {price ? (
-            <span className="flex max-w-full min-w-0 flex-nowrap items-baseline gap-0.5 whitespace-nowrap tabular-nums">
+            <span className="mcb-product-card-price flex max-w-full min-w-0 flex-nowrap items-baseline gap-0.5 whitespace-nowrap tabular-nums">
               {typeof product.compareAtPrice === 'number' && product.compareAtPrice > price ? <del className="text-[12px] font-semibold text-slate-400 sm:text-sm">{formatPrice(product.compareAtPrice)}</del> : null}
               <strong className="text-[14px] font-black text-brand sm:text-base">{formatPrice(price)}</strong>
             </span>

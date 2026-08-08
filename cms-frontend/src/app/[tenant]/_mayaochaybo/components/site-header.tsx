@@ -45,10 +45,10 @@ export function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1220]/95 text-white backdrop-blur-xl">
-      <div className="mx-auto grid min-h-18 w-full max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-6 lg:grid-cols-[minmax(220px,1fr)_auto_minmax(220px,1fr)] lg:px-8">
-        <Link className="inline-flex w-fit items-center" href="/" aria-label="May Áo Chạy Bộ — Trang chủ">
-          <img alt="May Áo Chạy Bộ" className="h-auto w-[228px] max-w-[calc(100vw-96px)]" height="58" src={LOGO_URL} width="372" />
+    <header className="mcb-site-header z-50 border-b border-white/10 bg-[#0b1220]/95 text-white backdrop-blur-xl">
+      <div className="mcb-header-inner mx-auto grid min-h-18 w-full max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-6 lg:grid-cols-[minmax(220px,1fr)_auto_minmax(220px,1fr)] lg:px-8">
+        <Link className="mcb-logo-link inline-flex items-center" href="/" aria-label="May Áo Chạy Bộ — Trang chủ">
+          <img alt="May Áo Chạy Bộ" className="mcb-header-logo h-auto w-[228px] max-w-[calc(100vw-96px)]" height="58" src={LOGO_URL} width="372" />
         </Link>
         <nav className="hidden items-center justify-center gap-5 text-sm font-extrabold text-slate-300 lg:flex xl:gap-7" aria-label="Điều hướng chính">
           <div
@@ -97,7 +97,7 @@ export function SiteHeader() {
           <a className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 px-3.5 text-sm font-black hover:border-brand/50" href={`tel:${PHONE_VALUE}`}><Phone size={17} /> {PHONE_DISPLAY}</a>
           <a className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-brand px-4 text-sm font-black hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={17} /> Tư vấn mẫu</a>
         </div>
-        <div className="flex items-center justify-end gap-2 lg:hidden">
+        <div className="mcb-mobile-actions flex items-center justify-end gap-2 lg:hidden">
           <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
           <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setOpen(!open)} type="button">{open ? <X /> : <Menu />}</button>
         </div>

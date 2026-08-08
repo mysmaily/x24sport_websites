@@ -83,9 +83,9 @@ export async function ProductDetailPage({
       />
       <JsonLd data={productSchema} />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems.map((item, index) => ({ '@type': 'ListItem', position: index + 1, ...item })) }} />
-      <article className="section-shell pb-12 sm:pb-18">
-        <nav className="flex gap-2 overflow-hidden py-3 text-xs text-slate-500 sm:py-4" aria-label="Đường dẫn"><Link className="shrink-0 hover:text-brand" href="/">Trang chủ</Link><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={catalogHref}>Mẫu áo</Link>{breadcrumbCategory ? <><span className="hidden shrink-0 sm:inline">/</span><Link className="hidden shrink-0 hover:text-brand sm:inline" href={categoryPath(breadcrumbCategory)}>{breadcrumbCategory.name}</Link></> : null}<span className="shrink-0">/</span><span className="truncate text-slate-700">{product.name}</span></nav>
-        <h1 className="line-clamp-2 pb-3 font-display text-[22px] font-bold leading-[1.08] tracking-tight text-slate-950 sm:pb-4 lg:text-[28px]">{product.name}</h1>
+      <article className="mcb-product-detail section-shell pb-12 sm:pb-18">
+        <nav className="mcb-product-breadcrumb flex gap-2 overflow-hidden py-3 text-xs text-slate-500 sm:py-4" aria-label="Đường dẫn"><Link className="shrink-0 hover:text-brand" href="/">Trang chủ</Link><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={catalogHref}>Mẫu áo</Link>{breadcrumbCategory ? <><span className="hidden shrink-0 sm:inline">/</span><Link className="hidden shrink-0 hover:text-brand sm:inline" href={categoryPath(breadcrumbCategory)}>{breadcrumbCategory.name}</Link></> : null}<span className="shrink-0">/</span><span className="truncate text-slate-700">{product.name}</span></nav>
+        <h1 className="mcb-product-title line-clamp-2 pb-3 font-display text-[22px] font-bold leading-[1.08] tracking-tight text-slate-950 sm:pb-4 lg:text-[28px]">{product.name}</h1>
 
         <div className="grid overflow-hidden rounded-xl border border-slate-200 bg-white lg:grid-cols-[1.15fr_.85fr]">
           <ProductGallery images={images} key={product.id} productName={product.name} />
@@ -112,7 +112,7 @@ export async function ProductDetailPage({
         </div>
 
         {product.contentHtml ? (
-          <section className="py-8 sm:py-12">
+          <section className="mcb-product-copy-section py-8 sm:py-12">
             <details className="rounded-xl border border-slate-200 bg-white" open={false}>
               <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between px-4 text-sm font-black text-slate-950 sm:px-5 [&::-webkit-details-marker]:hidden">
                 <span>Thông tin chi tiết mẫu áo</span>
@@ -124,7 +124,7 @@ export async function ProductDetailPage({
         ) : null}
       </article>
 
-      <section className="border-t border-slate-200 bg-white py-16 sm:py-22">
+      <section className="mcb-related-section border-t border-slate-200 bg-white py-16 sm:py-22">
         <div className="section-shell">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><p className="section-kicker">Tiếp tục khám phá</p><h2 className="section-title">Mẫu mới cập nhật.</h2></div><Link className="inline-flex min-h-11 items-center gap-2 self-start text-sm font-black text-brand" href={catalogHref}>Tất cả {catalogLabel.toLocaleLowerCase('vi-VN')} <ArrowRight size={18} /></Link></div>
           <div className="mt-9"><ProductGrid products={related.filter((item) => item.id !== product.id).slice(0, 4)} /></div>

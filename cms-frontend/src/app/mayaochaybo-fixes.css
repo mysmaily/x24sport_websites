@@ -1,0 +1,177 @@
+body.tenant-mayaochaybo .mcb-site-header {
+  position: relative;
+}
+
+body.tenant-mayaochaybo .mcb-header-inner {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+body.tenant-mayaochaybo .mcb-logo-link {
+  flex: 0 1 auto;
+  width: min(176px, calc(100vw - 148px));
+  min-width: 0;
+}
+
+body.tenant-mayaochaybo .mcb-header-logo {
+  width: 100%;
+  max-width: 100%;
+}
+
+body.tenant-mayaochaybo .mcb-mobile-actions {
+  flex: 0 0 auto;
+}
+
+@media (min-width: 1024px) {
+  body.tenant-mayaochaybo .mcb-site-header {
+    position: sticky;
+    top: 0;
+  }
+
+  body.tenant-mayaochaybo .mcb-header-logo {
+    width: 228px;
+    max-width: 228px;
+  }
+
+  body.tenant-mayaochaybo .mcb-logo-link {
+    width: 228px;
+  }
+
+  body.tenant-mayaochaybo .mcb-header-inner {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+    overflow: visible;
+  }
+}
+
+body.tenant-mayaochaybo main {
+  padding-bottom: calc(72px + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 1024px) {
+  body.tenant-mayaochaybo main {
+    padding-bottom: 0;
+  }
+}
+
+body.tenant-mayaochaybo .mcb-product-detail {
+  padding-bottom: 1.75rem;
+}
+
+body.tenant-mayaochaybo .mcb-product-breadcrumb {
+  padding-top: .65rem;
+  padding-bottom: .45rem;
+}
+
+body.tenant-mayaochaybo .mcb-product-title {
+  padding-bottom: .65rem;
+  font-size: 1.25rem;
+  line-height: 1.16;
+}
+
+body.tenant-mayaochaybo .mcb-product-copy-section {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+body.tenant-mayaochaybo .mcb-related-section {
+  padding-top: 2.25rem;
+  padding-bottom: 2.5rem;
+}
+
+body.tenant-mayaochaybo .mcb-related-section .section-title {
+  font-size: clamp(2rem, 9vw, 2.65rem);
+  line-height: 1;
+}
+
+body.tenant-mayaochaybo .mcb-product-card-title {
+  min-height: 3.5em;
+  font-size: .98rem;
+  line-height: 1.18;
+}
+
+body.tenant-mayaochaybo .mcb-product-card-price {
+  flex-wrap: wrap;
+  column-gap: .35rem;
+  row-gap: .1rem;
+  white-space: normal;
+}
+
+body.tenant-mayaochaybo .mcb-product-card-price del {
+  font-size: .8rem;
+  line-height: 1;
+}
+
+body.tenant-mayaochaybo .mcb-product-card-price strong {
+  font-size: .96rem;
+  line-height: 1;
+}
+
+body.tenant-mayaochaybo .mcb-footer-idea .section-shell {
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
+}
+
+body.tenant-mayaochaybo .mcb-footer-idea h2 {
+  font-size: clamp(2.35rem, 11vw, 3.7rem);
+  line-height: .98;
+}
+
+body.tenant-mayaochaybo .mcb-footer-cta-button {
+  min-height: 52px;
+  color: #f15a24 !important;
+  background: #fff !important;
+}
+
+body.tenant-mayaochaybo .mcb-bottom-cta {
+  z-index: 80;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  padding: .5rem .5rem calc(.5rem + env(safe-area-inset-bottom));
+  box-shadow: 0 -10px 30px rgba(15, 23, 42, .16);
+}
+
+body.tenant-mayaochaybo .mcb-bottom-cta a {
+  min-height: 52px;
+  color: #fff !important;
+  letter-spacing: 0;
+  min-width: 0;
+  padding-inline: .5rem;
+  white-space: nowrap;
+}
+
+body.tenant-mayaochaybo .mcb-bottom-call {
+  background: #0b1220 !important;
+}
+
+body.tenant-mayaochaybo .mcb-bottom-zalo {
+  background: #f15a24 !important;
+}
+
+body.tenant-mayaochaybo .mcb-bottom-cta svg,
+body.tenant-mayaochaybo .mcb-footer-cta-button svg {
+  color: currentColor;
+  stroke: currentColor;
+}
+
+@media (min-width: 640px) {
+  body.tenant-mayaochaybo .mcb-product-detail {
+    padding-bottom: 3rem;
+  }
+
+  body.tenant-mayaochaybo .mcb-product-title {
+    font-size: 1.65rem;
+  }
+
+  body.tenant-mayaochaybo .mcb-related-section {
+    padding-top: 3.5rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  body.tenant-mayaochaybo .mcb-product-title {
+    font-size: 1.75rem;
+  }
+}
