@@ -2,6 +2,7 @@ import { ArrowRight, ChevronDown, MessageCircle, Phone, Ruler, Sparkles, TimerRe
 import Link from 'next/link'
 
 import { JsonLd } from './json-ld'
+import { ProductContentPreview } from './product-content-preview'
 import { ProductInterestForm } from './product-interest-form'
 import { ProductGallery } from './product-gallery'
 import { ProductGrid } from './product-grid'
@@ -118,13 +119,7 @@ export async function ProductDetailPage({
 
         {product.contentHtml ? (
           <section className="mcb-product-copy-section py-8 sm:py-12">
-            <details className="rounded-xl border border-slate-200 bg-white" open={false}>
-              <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between px-4 text-sm font-black text-slate-950 sm:px-5 [&::-webkit-details-marker]:hidden">
-                <span>Thông tin chi tiết mẫu áo</span>
-                <ChevronDown aria-hidden="true" size={18} />
-              </summary>
-              <div className="prose border-t border-slate-200 p-4 sm:p-6" dangerouslySetInnerHTML={{ __html: rewriteLegacyHtml(product.contentHtml) }} />
-            </details>
+            <ProductContentPreview html={rewriteLegacyHtml(product.contentHtml)} />
           </section>
         ) : null}
       </article>

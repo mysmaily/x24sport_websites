@@ -113,6 +113,74 @@ body.tenant-mayaochaybo .mcb-product-copy-section {
   padding-bottom: 1.25rem;
 }
 
+body.tenant-mayaochaybo .mcb-content-preview {
+  position: relative;
+  border-radius: .75rem;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, .08);
+}
+
+body.tenant-mayaochaybo .mcb-content-preview-body {
+  position: relative;
+  max-height: 21rem;
+  overflow: hidden;
+}
+
+body.tenant-mayaochaybo .mcb-content-preview-body::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 7rem;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #fff 78%);
+}
+
+body.tenant-mayaochaybo .mcb-content-preview-body.is-expanded {
+  max-height: none;
+  overflow: visible;
+}
+
+body.tenant-mayaochaybo .mcb-content-preview-body.is-expanded::after {
+  content: none;
+}
+
+body.tenant-mayaochaybo .mcb-content-preview h2 {
+  margin: 0 0 .75rem;
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: 0;
+  color: #020617;
+}
+
+body.tenant-mayaochaybo .mcb-content-preview .prose {
+  max-width: 72ch;
+}
+
+body.tenant-mayaochaybo .mcb-content-preview-more {
+  position: relative;
+  z-index: 1;
+  min-height: 44px;
+  margin-top: .35rem;
+  padding: .25rem 0;
+  border: 0;
+  background: transparent;
+  color: #f15a24;
+  font-weight: 900;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+body.tenant-mayaochaybo .mcb-content-preview-more:focus-visible {
+  outline: 3px solid rgba(241, 90, 36, .28);
+  outline-offset: 3px;
+  border-radius: .5rem;
+}
+
 body.tenant-mayaochaybo .mcb-related-section {
   padding-top: 2.25rem;
   padding-bottom: 2.5rem;
@@ -204,6 +272,14 @@ body.tenant-mayaochaybo .mcb-footer-cta-button svg {
 
   body.tenant-mayaochaybo .mcb-interest-form h2 {
     font-size: 1.25rem;
+  }
+
+  body.tenant-mayaochaybo .mcb-content-preview {
+    padding: 1.25rem;
+  }
+
+  body.tenant-mayaochaybo .mcb-content-preview h2 {
+    font-size: 1.65rem;
   }
 
   body.tenant-mayaochaybo .mcb-related-section {
