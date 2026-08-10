@@ -1555,6 +1555,216 @@ body.tenant-mayaocaulong {
   font-size: 44px;
   font-weight: 950;
   line-height: 0.9;
+}body.tenant-mayaocaulong .finished-samples-page {
+  --samples-ink: #101417;
+  --samples-court: #0a6c79;
+  --samples-glow: #cde45d;
+  background:
+    linear-gradient(90deg, rgba(10, 108, 121, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(16, 20, 23, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 12% 10%, rgba(10, 108, 121, 0.14), transparent 28rem),
+    radial-gradient(circle at 92% 18%, rgba(205, 228, 93, 0.24), transparent 30rem),
+    #f8f6ef;
+  background-size: 56px 56px, 56px 56px, auto, auto, auto;
+}body.tenant-mayaocaulong .samples-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(380px, 0.82fr);
+  gap: clamp(22px, 4.5vw, 68px);
+  align-items: center;
+  padding: clamp(40px, 6vw, 84px) clamp(18px, 5vw, 72px) clamp(24px, 4vw, 46px);
+}body.tenant-mayaocaulong .samples-hero-copy h1 {
+  max-width: 900px;
+  margin: 0;
+  color: var(--samples-ink);
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-size: clamp(42px, 6.5vw, 86px);
+  line-height: 0.94;
+  letter-spacing: 0;
+  text-wrap: balance;
+}body.tenant-mayaocaulong .samples-hero-copy > p:not(.section-eyebrow) {
+  max-width: 660px;
+  margin: 22px 0 0;
+  color: #4d5961;
+  font-size: 19px;
+  line-height: 1.58;
+}body.tenant-mayaocaulong .samples-hero-copy .secondary-button {
+  border-color: rgba(16, 20, 23, 0.13);
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--samples-ink);
+}body.tenant-mayaocaulong .samples-hero-stack {
+  position: relative;
+  min-height: 560px;
+}body.tenant-mayaocaulong .samples-stack-image {
+  position: absolute;
+  overflow: hidden;
+  width: 72%;
+  height: 58%;
+  border: 1px solid rgba(16, 20, 23, 0.1);
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 24px 64px rgba(16, 20, 23, 0.18);
+}body.tenant-mayaocaulong .samples-stack-image-1 {
+  top: 0;
+  right: 0;
+  z-index: 3;
+}body.tenant-mayaocaulong .samples-stack-image-2 {
+  top: 25%;
+  left: 0;
+  z-index: 2;
+}body.tenant-mayaocaulong .samples-stack-image-3 {
+  right: 10%;
+  bottom: 0;
+  z-index: 1;
+}body.tenant-mayaocaulong .samples-proof-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 20, 23, 0.08);
+  border-radius: 12px;
+  background: rgba(16, 20, 23, 0.1);
+}body.tenant-mayaocaulong .samples-proof-row div {
+  background: rgba(255, 255, 255, 0.74);
+  padding: 20px clamp(16px, 3vw, 26px);
+}body.tenant-mayaocaulong .samples-proof-row strong {
+  display: block;
+  color: var(--samples-court);
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1;
+}body.tenant-mayaocaulong .samples-proof-row span {
+  display: block;
+  margin-top: 6px;
+  color: #657078;
+  font-weight: 850;
+}body.tenant-mayaocaulong .samples-guide-section {
+  display: grid;
+  width: min(1340px, calc(100% - clamp(36px, 7vw, 112px)));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 auto;
+  padding: clamp(26px, 4vw, 50px) 0;
+}body.tenant-mayaocaulong .samples-guide-section article {
+  border: 1px solid rgba(16, 20, 23, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  padding: 22px;
+  box-shadow: 0 18px 48px rgba(34, 48, 40, 0.07);
+}body.tenant-mayaocaulong .samples-guide-section svg {
+  color: var(--samples-court);
+}body.tenant-mayaocaulong .samples-guide-section h2 {
+  margin: 15px 0 8px;
+  font-size: 21px;
+  line-height: 1.12;
+}body.tenant-mayaocaulong .samples-guide-section p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.58;
+}body.tenant-mayaocaulong .samples-list-section {
+  width: min(1340px, calc(100% - clamp(36px, 7vw, 112px)));
+  margin: 0 auto;
+  padding: clamp(34px, 5vw, 72px) 0;
+}body.tenant-mayaocaulong .samples-list-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+}body.tenant-mayaocaulong .samples-list-heading h2 {
+  margin: 0;
+  color: var(--samples-ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 1;
+}body.tenant-mayaocaulong .samples-list-heading > span {
+  flex: 0 0 auto;
+  border: 1px solid rgba(10, 108, 121, 0.2);
+  border-radius: 999px;
+  background: rgba(10, 108, 121, 0.08);
+  padding: 9px 12px;
+  color: var(--samples-court);
+  font-weight: 900;
+}body.tenant-mayaocaulong .samples-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}body.tenant-mayaocaulong .sample-card {
+  overflow: hidden;
+  border: 1px solid rgba(16, 20, 23, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 48px rgba(34, 48, 40, 0.08);
+}body.tenant-mayaocaulong .sample-card-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 1.18 / 1;
+  overflow: hidden;
+  background: #e8efea;
+}body.tenant-mayaocaulong .sample-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 220ms ease;
+}body.tenant-mayaocaulong .sample-card:hover .sample-card-media img {
+  transform: scale(1.035);
+}body.tenant-mayaocaulong .sample-card-media span {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  border-radius: 999px;
+  background: rgba(16, 20, 23, 0.78);
+  padding: 7px 10px;
+  color: white;
+  font-size: 12px;
+  font-weight: 850;
+}body.tenant-mayaocaulong .sample-card-body {
+  padding: 20px;
+}body.tenant-mayaocaulong .sample-card-body > p {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 10px;
+  color: var(--samples-court);
+  font-size: 13px;
+  font-weight: 900;
+}body.tenant-mayaocaulong .sample-card h2 {
+  margin: 0;
+  font-size: 23px;
+  line-height: 1.13;
+}body.tenant-mayaocaulong .sample-card-body > span {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.58;
+}body.tenant-mayaocaulong .sample-card .text-link {
+  margin-top: 16px;
+}body.tenant-mayaocaulong .samples-bottom-cta {
+  display: flex;
+  width: min(1340px, calc(100% - clamp(36px, 7vw, 112px)));
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: clamp(10px, 2vw, 24px) auto clamp(34px, 6vw, 82px);
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(16, 20, 23, 0.93), rgba(10, 108, 121, 0.94)),
+    url("/images/mayaocaulong/home/badminton-club-white-blue-wide.webp") center / cover;
+  padding: clamp(28px, 5vw, 58px);
+  color: white;
+}body.tenant-mayaocaulong .samples-bottom-cta h2 {
+  max-width: 850px;
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(30px, 4.8vw, 58px);
+  line-height: 1;
+}body.tenant-mayaocaulong .samples-bottom-cta .section-eyebrow {
+  color: var(--samples-glow);
+}body.tenant-mayaocaulong .samples-bottom-cta .primary-button {
+  flex: 0 0 auto;
+  border-color: white;
+  background: white;
+  color: var(--samples-court);
+  box-shadow: none;
 }body.tenant-mayaocaulong .size-table {
   overflow: hidden;
   border-radius: var(--radius-lg);
@@ -2334,9 +2544,9 @@ body.tenant-mayaocaulong {
     display: inline-flex;
   }body.tenant-mayaocaulong .hero-panel {
     display: none;
-  }body.tenant-mayaocaulong .trust-strip, body.tenant-mayaocaulong .process-grid, body.tenant-mayaocaulong .catalog-grid, body.tenant-mayaocaulong .info-price-grid, body.tenant-mayaocaulong .factor-grid, body.tenant-mayaocaulong .fabric-card-grid, body.tenant-mayaocaulong .order-step-grid, body.tenant-mayaocaulong .project-grid {
+  }body.tenant-mayaocaulong .trust-strip, body.tenant-mayaocaulong .process-grid, body.tenant-mayaocaulong .catalog-grid, body.tenant-mayaocaulong .info-price-grid, body.tenant-mayaocaulong .factor-grid, body.tenant-mayaocaulong .fabric-card-grid, body.tenant-mayaocaulong .order-step-grid, body.tenant-mayaocaulong .samples-card-grid, body.tenant-mayaocaulong .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }body.tenant-mayaocaulong .runway-grid, body.tenant-mayaocaulong .buyer-grid, body.tenant-mayaocaulong .pricing-section, body.tenant-mayaocaulong .fabric-section, body.tenant-mayaocaulong .proof-section, body.tenant-mayaocaulong .catalog-hero, body.tenant-mayaocaulong .info-hero, body.tenant-mayaocaulong .order-atelier-hero, body.tenant-mayaocaulong .quote-section, body.tenant-mayaocaulong .size-guide-section {
+  }body.tenant-mayaocaulong .runway-grid, body.tenant-mayaocaulong .buyer-grid, body.tenant-mayaocaulong .pricing-section, body.tenant-mayaocaulong .fabric-section, body.tenant-mayaocaulong .proof-section, body.tenant-mayaocaulong .catalog-hero, body.tenant-mayaocaulong .info-hero, body.tenant-mayaocaulong .order-atelier-hero, body.tenant-mayaocaulong .samples-hero, body.tenant-mayaocaulong .quote-section, body.tenant-mayaocaulong .size-guide-section {
     grid-template-columns: 1fr;
   }body.tenant-mayaocaulong .pricing-intro {
     position: static;
@@ -2348,6 +2558,10 @@ body.tenant-mayaocaulong {
     min-height: 460px;
   }body.tenant-mayaocaulong .order-hero-board img {
     min-height: 460px;
+  }body.tenant-mayaocaulong .samples-hero-stack {
+    min-height: 470px;
+  }body.tenant-mayaocaulong .samples-guide-section {
+    grid-template-columns: 1fr;
   }body.tenant-mayaocaulong .product-gallery-stage img {
     min-height: 0;
   }}@media (max-width: 760px) {body.tenant-mayaocaulong .site-header {
@@ -2375,7 +2589,7 @@ body.tenant-mayaocaulong {
     grid-template-columns: 1fr;
   }body.tenant-mayaocaulong .quick-order-form button, body.tenant-mayaocaulong .quick-order-status {
     grid-column: auto;
-  }body.tenant-mayaocaulong .trust-strip, body.tenant-mayaocaulong .process-grid, body.tenant-mayaocaulong .price-grid, body.tenant-mayaocaulong .fabric-grid, body.tenant-mayaocaulong .fabric-card-grid, body.tenant-mayaocaulong .review-grid, body.tenant-mayaocaulong .catalog-grid, body.tenant-mayaocaulong .info-stat-row, body.tenant-mayaocaulong .info-price-grid, body.tenant-mayaocaulong .factor-grid, body.tenant-mayaocaulong .order-step-grid, body.tenant-mayaocaulong .split-info-section, body.tenant-mayaocaulong .project-grid {
+  }body.tenant-mayaocaulong .trust-strip, body.tenant-mayaocaulong .process-grid, body.tenant-mayaocaulong .price-grid, body.tenant-mayaocaulong .fabric-grid, body.tenant-mayaocaulong .fabric-card-grid, body.tenant-mayaocaulong .review-grid, body.tenant-mayaocaulong .catalog-grid, body.tenant-mayaocaulong .info-stat-row, body.tenant-mayaocaulong .info-price-grid, body.tenant-mayaocaulong .factor-grid, body.tenant-mayaocaulong .order-step-grid, body.tenant-mayaocaulong .samples-card-grid, body.tenant-mayaocaulong .split-info-section, body.tenant-mayaocaulong .project-grid {
     grid-template-columns: 1fr;
   }body.tenant-mayaocaulong .section-shell {
     width: min(100% - 32px, 1420px);
@@ -2432,6 +2646,29 @@ body.tenant-mayaocaulong {
     grid-template-columns: 1fr;
   }body.tenant-mayaocaulong .order-proof-strip div {
     padding: 16px;
+  }body.tenant-mayaocaulong .samples-hero {
+    padding: 34px 16px 22px;
+  }body.tenant-mayaocaulong .samples-hero-copy h1 {
+    font-size: clamp(38px, 12vw, 54px);
+    line-height: 0.98;
+  }body.tenant-mayaocaulong .samples-hero-copy > p:not(.section-eyebrow) {
+    font-size: 16px;
+  }body.tenant-mayaocaulong .samples-hero-stack {
+    min-height: 350px;
+  }body.tenant-mayaocaulong .samples-stack-image {
+    width: 78%;
+    height: 55%;
+  }body.tenant-mayaocaulong .samples-proof-row {
+    grid-template-columns: 1fr;
+  }body.tenant-mayaocaulong .samples-proof-row div {
+    padding: 16px;
+  }body.tenant-mayaocaulong .samples-guide-section, body.tenant-mayaocaulong .samples-list-section, body.tenant-mayaocaulong .samples-bottom-cta {
+    width: min(100% - 32px, 1340px);
+  }body.tenant-mayaocaulong .samples-list-heading, body.tenant-mayaocaulong .samples-bottom-cta {
+    display: grid;
+  }body.tenant-mayaocaulong .samples-bottom-cta .primary-button {
+    width: 100%;
+    justify-content: center;
   }body.tenant-mayaocaulong .info-hero-copy h1 {
     font-size: clamp(40px, 13vw, 56px);
     line-height: 0.95;
