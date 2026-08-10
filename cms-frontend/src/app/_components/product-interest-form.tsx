@@ -15,7 +15,14 @@ const quantityOptions = ['5-15 bộ', '15-30 bộ', 'Trên 30 bộ']
 const utilityFieldGridStyle: CSSProperties = {
   display: 'grid',
   gap: '12px',
-  gridTemplateColumns: 'minmax(0, 1fr) minmax(170px, 260px)',
+  gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
+}
+const utilityFieldLabelStyle: CSSProperties = {
+  minWidth: 0,
+}
+const utilityFieldControlStyle: CSSProperties = {
+  boxSizing: 'border-box',
+  width: '100%',
 }
 
 export function ProductInterestForm({ productName, productUrl, variant = 'interest' }: ProductInterestFormProps) {
@@ -114,13 +121,13 @@ export function ProductInterestForm({ productName, productUrl, variant = 'intere
         <h2 className={variant === 'mayaochaybo' ? 'text-lg font-black leading-tight text-slate-950 sm:text-xl' : 'text-xl font-black leading-tight text-slate-950'}>Bạn quan tâm mẫu này?</h2>
         <form className={variant === 'mayaochaybo' ? 'mt-3 grid gap-3' : 'mt-4 grid gap-3'} onSubmit={handleSubmit}>
           <div style={utilityFieldGridStyle}>
-            <label className="grid gap-1.5 text-sm font-bold text-slate-700">
+            <label className="grid gap-1.5 text-sm font-bold text-slate-700" style={utilityFieldLabelStyle}>
               <span>Số điện thoại</span>
-              <input className={accentInputClass} autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
+              <input className={accentInputClass} style={utilityFieldControlStyle} autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
             </label>
-            <label className="grid gap-1.5 text-sm font-bold text-slate-700">
+            <label className="grid gap-1.5 text-sm font-bold text-slate-700" style={utilityFieldLabelStyle}>
               <span>Số lượng cần đặt</span>
-              <select className={accentInputClass} name="quantity" required defaultValue={quantityOptions[0]}>
+              <select className={accentInputClass} style={utilityFieldControlStyle} name="quantity" required defaultValue={quantityOptions[0]}>
                 {quantityOptions.map((option) => <option key={option} value={option}>{option}</option>)}
               </select>
             </label>
