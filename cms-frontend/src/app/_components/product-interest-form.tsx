@@ -12,6 +12,7 @@ type ProductInterestFormProps = {
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
 
 const quantityOptions = ['5-15 bộ', '15-30 bộ', 'Trên 30 bộ']
+const utilityFieldGridClass = 'grid grid-cols-[minmax(0,1fr)_minmax(132px,180px)] gap-3'
 
 export function ProductInterestForm({ productName, productUrl, variant = 'interest' }: ProductInterestFormProps) {
   const [state, setState] = useState<SubmitState>('idle')
@@ -109,7 +110,7 @@ export function ProductInterestForm({ productName, productUrl, variant = 'intere
       <section className={variant === 'mayaochaybo' ? 'mcb-interest-form' : 'mt-5 rounded-2xl border border-slate-200 bg-white p-5'} id="nhan-tu-van">
         <h2 className={variant === 'mayaochaybo' ? 'text-lg font-black leading-tight text-slate-950 sm:text-xl' : 'text-xl font-black leading-tight text-slate-950'}>Bạn quan tâm mẫu này?</h2>
         <form className={variant === 'mayaochaybo' ? 'mt-3 grid gap-3' : 'mt-4 grid gap-3'} onSubmit={handleSubmit}>
-          <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_180px]">
+          <div className={utilityFieldGridClass}>
             <label className="grid gap-1.5 text-sm font-bold text-slate-700">
               <span>Số điện thoại</span>
               <input className={accentInputClass} autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />

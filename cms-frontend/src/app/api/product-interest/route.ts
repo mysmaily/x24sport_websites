@@ -5,6 +5,7 @@ const API_URL = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
 const rateLimit = new Map<string, { count: number; resetAt: number }>()
 const rateLimitWindowMs = 10 * 60 * 1000
 const maxRequestsPerWindow = 5
+const quantityOptions = new Set(['5-15 bộ', '15-30 bộ', 'Trên 30 bộ'])
 
 type InterestPayload = {
   phone?: unknown
@@ -125,15 +126,15 @@ export async function POST(request: NextRequest) {
 
   const phone = cleanText(payload.phone, 20)
   const normalizedPhone = phone.replace(/[ .-]/g, '')
-  const quantity = Number.parseInt(cleanText(payload.quantity, 10), 10)
+  const quantity = cleanText(payload.quantity, 30)
   const productName = cleanText(payload.productName, 180)
   const productUrl = productUrlFromRequest(cleanText(payload.productUrl, 500), request)
 
   if (!/^(?:\+84|0)\d{8,10}$/.test(normalizedPhone)) {
     return NextResponse.json({ message: 'Vui lòng nhập số điện thoại hợp lệ.' }, { status: 400 })
   }
-  if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10000) {
-    return NextResponse.json({ message: 'Vui lòng nhập số lượng cần đặt hợp lệ.' }, { status: 400 })
+  if (!quantityOptions.has(quantity)) {
+    return NextResponse.json({ message: 'Vui lòng chọn số lượng cần đặt hợp lệ.' }, { status: 400 })
   }
   if (!productName || !productUrl) {
     return NextResponse.json({ message: 'Không xác định được sản phẩm. Vui lòng tải lại trang.' }, { status: 400 })
