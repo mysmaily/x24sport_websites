@@ -1420,6 +1420,141 @@ body.tenant-mayaocaulong {
   background: white;
   color: var(--accent-dark);
   box-shadow: none;
+}body.tenant-mayaocaulong .badminton-order-page {
+  --order-ink: #101417;
+  --order-court: #0a6c79;
+  --order-lime: #cde45d;
+  --order-porcelain: #f8f6ef;
+  background:
+    linear-gradient(90deg, rgba(10, 108, 121, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(16, 20, 23, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 86% 18%, rgba(205, 228, 93, 0.28), transparent 30rem),
+    radial-gradient(circle at 12% 12%, rgba(10, 108, 121, 0.15), transparent 30rem),
+    var(--order-porcelain);
+  background-size: 54px 54px, 54px 54px, auto, auto, auto;
+}body.tenant-mayaocaulong .order-atelier-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.78fr);
+  gap: clamp(22px, 4.6vw, 70px);
+  align-items: center;
+  padding: clamp(40px, 6vw, 86px) clamp(18px, 5vw, 72px) clamp(24px, 4vw, 50px);
+}body.tenant-mayaocaulong .order-hero-copy h1 {
+  max-width: 850px;
+  margin: 0;
+  color: var(--order-ink);
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-size: clamp(44px, 7vw, 92px);
+  line-height: 0.92;
+  letter-spacing: 0;
+  text-wrap: balance;
+}body.tenant-mayaocaulong .order-hero-copy > p:not(.hero-kicker) {
+  max-width: 650px;
+  margin: 22px 0 0;
+  color: #48535a;
+  font-size: 19px;
+  line-height: 1.58;
+}body.tenant-mayaocaulong .order-hero-copy .secondary-button {
+  border-color: rgba(16, 20, 23, 0.13);
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--order-ink);
+}body.tenant-mayaocaulong .order-hero-board {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 20, 23, 0.1);
+  border-radius: 12px;
+  background: #101417;
+  box-shadow: 0 28px 70px rgba(16, 20, 23, 0.18);
+}body.tenant-mayaocaulong .order-hero-board img {
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+  object-fit: cover;
+}body.tenant-mayaocaulong .order-hero-board::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(16, 20, 23, 0.02) 35%, rgba(16, 20, 23, 0.72)),
+    linear-gradient(135deg, transparent 0 58%, rgba(205, 228, 93, 0.72) 58% 59%, transparent 59%);
+  pointer-events: none;
+}body.tenant-mayaocaulong .order-board-card {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  gap: 7px;
+  width: min(260px, calc(100% - 30px));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: rgba(16, 20, 23, 0.78);
+  padding: 16px;
+  color: white;
+  backdrop-filter: blur(16px);
+}body.tenant-mayaocaulong .order-board-card svg {
+  color: var(--order-lime);
+}body.tenant-mayaocaulong .order-board-card strong {
+  font-size: 20px;
+  line-height: 1.05;
+}body.tenant-mayaocaulong .order-board-card span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  font-weight: 760;
+  line-height: 1.4;
+}body.tenant-mayaocaulong .order-board-card-main {
+  right: 18px;
+  bottom: 18px;
+}body.tenant-mayaocaulong .order-board-card-side {
+  top: 18px;
+  left: 18px;
+}body.tenant-mayaocaulong .order-proof-strip {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 20, 23, 0.08);
+  border-radius: 12px;
+  background: rgba(16, 20, 23, 0.1);
+}body.tenant-mayaocaulong .order-proof-strip div {
+  background: rgba(255, 255, 255, 0.72);
+  padding: 20px clamp(16px, 3vw, 26px);
+}body.tenant-mayaocaulong .order-proof-strip strong {
+  display: block;
+  color: var(--order-court);
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1;
+}body.tenant-mayaocaulong .order-proof-strip span {
+  display: block;
+  margin-top: 6px;
+  color: #667078;
+  font-weight: 850;
+}body.tenant-mayaocaulong .order-section-heading span {
+  width: fit-content;
+  border: 1px solid rgba(10, 108, 121, 0.22);
+  border-radius: 999px;
+  background: rgba(10, 108, 121, 0.08);
+  padding: 7px 11px;
+  color: var(--order-court);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}body.tenant-mayaocaulong .badminton-order-page .order-step-grid article {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.88);
+}body.tenant-mayaocaulong .badminton-order-page .order-step-grid article::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  content: "";
+  background: linear-gradient(90deg, var(--order-court), var(--order-lime));
+}body.tenant-mayaocaulong .order-step-number {
+  display: block;
+  margin-bottom: 18px;
+  color: rgba(10, 108, 121, 0.2);
+  font-size: 44px;
+  font-weight: 950;
+  line-height: 0.9;
 }body.tenant-mayaocaulong .size-table {
   overflow: hidden;
   border-radius: var(--radius-lg);
@@ -2201,7 +2336,7 @@ body.tenant-mayaocaulong {
     display: none;
   }body.tenant-mayaocaulong .trust-strip, body.tenant-mayaocaulong .process-grid, body.tenant-mayaocaulong .catalog-grid, body.tenant-mayaocaulong .info-price-grid, body.tenant-mayaocaulong .factor-grid, body.tenant-mayaocaulong .fabric-card-grid, body.tenant-mayaocaulong .order-step-grid, body.tenant-mayaocaulong .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }body.tenant-mayaocaulong .runway-grid, body.tenant-mayaocaulong .buyer-grid, body.tenant-mayaocaulong .pricing-section, body.tenant-mayaocaulong .fabric-section, body.tenant-mayaocaulong .proof-section, body.tenant-mayaocaulong .catalog-hero, body.tenant-mayaocaulong .info-hero, body.tenant-mayaocaulong .quote-section, body.tenant-mayaocaulong .size-guide-section {
+  }body.tenant-mayaocaulong .runway-grid, body.tenant-mayaocaulong .buyer-grid, body.tenant-mayaocaulong .pricing-section, body.tenant-mayaocaulong .fabric-section, body.tenant-mayaocaulong .proof-section, body.tenant-mayaocaulong .catalog-hero, body.tenant-mayaocaulong .info-hero, body.tenant-mayaocaulong .order-atelier-hero, body.tenant-mayaocaulong .quote-section, body.tenant-mayaocaulong .size-guide-section {
     grid-template-columns: 1fr;
   }body.tenant-mayaocaulong .pricing-intro {
     position: static;
@@ -2209,6 +2344,10 @@ body.tenant-mayaocaulong {
     grid-template-columns: 1fr 1fr;
   }body.tenant-mayaocaulong .info-hero-media img {
     min-height: 420px;
+  }body.tenant-mayaocaulong .order-hero-board {
+    min-height: 460px;
+  }body.tenant-mayaocaulong .order-hero-board img {
+    min-height: 460px;
   }body.tenant-mayaocaulong .product-gallery-stage img {
     min-height: 0;
   }}@media (max-width: 760px) {body.tenant-mayaocaulong .site-header {
@@ -2267,6 +2406,32 @@ body.tenant-mayaocaulong {
     padding: 28px;
   }body.tenant-mayaocaulong .info-hero {
     padding: 40px 16px 22px;
+  }body.tenant-mayaocaulong .order-atelier-hero {
+    padding: 34px 16px 22px;
+  }body.tenant-mayaocaulong .order-hero-copy h1 {
+    font-size: clamp(38px, 12vw, 54px);
+    line-height: 0.98;
+  }body.tenant-mayaocaulong .order-hero-copy > p:not(.hero-kicker) {
+    font-size: 16px;
+  }body.tenant-mayaocaulong .order-hero-board {
+    min-height: 360px;
+  }body.tenant-mayaocaulong .order-hero-board img {
+    min-height: 360px;
+  }body.tenant-mayaocaulong .order-board-card {
+    width: min(220px, calc(100% - 24px));
+    padding: 12px;
+  }body.tenant-mayaocaulong .order-board-card strong {
+    font-size: 17px;
+  }body.tenant-mayaocaulong .order-board-card-side {
+    top: 12px;
+    left: 12px;
+  }body.tenant-mayaocaulong .order-board-card-main {
+    right: 12px;
+    bottom: 12px;
+  }body.tenant-mayaocaulong .order-proof-strip {
+    grid-template-columns: 1fr;
+  }body.tenant-mayaocaulong .order-proof-strip div {
+    padding: 16px;
   }body.tenant-mayaocaulong .info-hero-copy h1 {
     font-size: clamp(40px, 13vw, 56px);
     line-height: 0.95;

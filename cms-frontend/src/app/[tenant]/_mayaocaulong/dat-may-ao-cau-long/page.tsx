@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import { ArrowRight, BadgeCheck, ClipboardList, PackageCheck, Palette, Ruler, Send } from 'lucide-react'
-import { InfoPage, zaloHref } from '../_components/info-pages'
+import Link from 'next/link'
+import { ArrowRight, BadgeCheck, ClipboardList, PackageCheck, Palette, Ruler, Send, Shirt, Sparkles } from 'lucide-react'
+import { InfoFooter, SiteHeader, zaloHref } from '../_components/info-pages'
 import { pageMetadata } from '../lib/seo'
 
 export const metadata: Metadata = pageMetadata({
@@ -32,25 +33,71 @@ const checklist = [
 
 export default function OrderPage() {
   return (
-    <InfoPage
-      description="Nhận đặt may áo cầu lông theo mẫu có sẵn hoặc thiết kế riêng, hỗ trợ miễn phí phần maket để đội dễ duyệt trước khi sản xuất."
-      image="/images/mayaocaulong/badminton-team-hero.png?v=20260728b"
-      kicker="Đặt may áo cầu lông"
-      stats={[
-        { value: '4 bước', label: 'quy trình rõ ràng' },
-        { value: 'miễn phí', label: 'thiết kế theo yêu cầu' },
-        { value: 'toàn quốc', label: 'giao hàng cho CLB' },
-      ]}
-      title="Đặt áo cầu lông theo màu đội, logo và tên số riêng"
-    >
+    <main className="site-page info-page badminton-order-page">
+      <SiteHeader />
+
+      <section className="order-atelier-hero">
+        <div className="order-hero-copy">
+          <p className="hero-kicker">Đặt may áo cầu lông</p>
+          <h1>Áo đội lên đúng màu, đúng size, kịp ngày ra sân</h1>
+          <p>
+            Gửi logo, màu đội, danh sách tên số và deadline. MayaoCauLong lên maket miễn phí để đội duyệt trước khi sản xuất.
+          </p>
+          <div className="hero-actions">
+            <a className="primary-button" href={zaloHref}>
+              Gửi yêu cầu ngay <ArrowRight size={18} />
+            </a>
+            <Link className="secondary-button" href="/san-pham">
+              Xem mẫu áo
+            </Link>
+          </div>
+        </div>
+
+        <div className="order-hero-board" aria-label="Tóm tắt quy trình đặt may">
+          <img
+            alt="Đội cầu lông mặc đồng phục thiết kế riêng"
+            height={960}
+            src="/images/mayaocaulong/badminton-team-hero.png?v=20260728b"
+            width={1280}
+          />
+          <div className="order-board-card order-board-card-main">
+            <Sparkles size={22} strokeWidth={1.8} />
+            <strong>Miễn phí maket</strong>
+            <span>Chỉnh màu, logo, tên số trước khi may</span>
+          </div>
+          <div className="order-board-card order-board-card-side">
+            <Shirt size={22} strokeWidth={1.8} />
+            <strong>Đóng gói theo đội</strong>
+            <span>Tách size, tên, số để phát áo nhanh</span>
+          </div>
+        </div>
+
+        <div className="order-proof-strip">
+          <div>
+            <strong>4 bước</strong>
+            <span>quy trình rõ ràng</span>
+          </div>
+          <div>
+            <strong>Miễn phí</strong>
+            <span>thiết kế theo yêu cầu</span>
+          </div>
+          <div>
+            <strong>Toàn quốc</strong>
+            <span>giao hàng cho CLB</span>
+          </div>
+        </div>
+      </section>
+
       <section className="info-section order-flow-section">
-        <div className="info-section-heading">
-          <h2>Quy trình đặt may dễ theo dõi</h2>
-          <p>Mỗi bước đều có phần việc rõ để đội không bị rối khi chốt mẫu, chốt size và chuẩn bị cho ngày thi đấu.</p>
+        <div className="info-section-heading order-section-heading">
+          <span>Quy trình</span>
+          <h2>Đội chỉ cần chuẩn bị thông tin, phần còn lại có người dẫn từng bước</h2>
+          <p>Mỗi bước đều có đầu việc rõ để không bị rối khi chốt mẫu, chốt size và chuẩn bị cho ngày thi đấu.</p>
         </div>
         <div className="order-step-grid">
-          {orderSteps.map(({ icon: Icon, title, text }) => (
+          {orderSteps.map(({ icon: Icon, title, text }, index) => (
             <article key={title}>
+              <span className="order-step-number">{String(index + 1).padStart(2, '0')}</span>
               <Icon size={28} strokeWidth={1.6} />
               <h3>{title}</h3>
               <p>{text}</p>
@@ -89,6 +136,8 @@ export default function OrderPage() {
           Gửi ý tưởng <ArrowRight size={18} />
         </a>
       </section>
-    </InfoPage>
+
+      <InfoFooter />
+    </main>
   )
 }
