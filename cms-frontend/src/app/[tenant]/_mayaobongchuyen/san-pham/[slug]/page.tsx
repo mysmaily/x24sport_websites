@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { ArrowLeft, Phone, ShieldCheck } from 'lucide-react'
 import { notFound } from 'next/navigation'
 
-import { ProductInterestForm } from '../../_components/product-interest-form'
+import { ProductInterestForm } from '../../../../_components/product-interest-form'
 import { formatPrice, getProductBreadcrumbCategory, getProductBySlug, hasProductInterestForm } from '../../lib/content'
 import { ProductGallery } from './product-gallery'
 
@@ -100,7 +100,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <b className="text-base text-white">Có thể chỉnh theo yêu cầu đội bóng</b>
               <p>Trao đổi màu sắc, logo, tên số và số lượng trước khi chốt sản xuất.</p>
             </div>
-            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={`https://mayaobongchuyen.vn/san-pham/${product.slug || slug}`} /> : null}
+            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={`https://mayaobongchuyen.vn/san-pham/${product.slug || slug}`} variant="accent" /> : null}
           </section>
         </div>
       </article>

@@ -4,6 +4,7 @@ import type { CSSProperties } from 'react'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, BadgeCheck, Gift, MapPin, Phone, Search } from 'lucide-react'
 import { JsonLd } from '../../../../_components/json-ld'
+import { ProductInterestForm } from '../../../../_components/product-interest-form'
 import { ProductViewTracker } from '../../_components/product-view-tracker'
 import { SiteFooter, SiteHeader, phoneHref, zaloHref } from '../../_components/info-pages'
 import {
@@ -14,7 +15,6 @@ import {
   getProductDescriptionParagraphs,
   hasProductInterestForm,
 } from '../../lib/content'
-import { ProductInterestForm } from '../../_components/product-interest-form'
 import { ProductGallery } from './product-gallery'
 
 const defaultOgImage = {
@@ -237,6 +237,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <ProductInterestForm
                 productName={product.name}
                 productUrl={canonicalProductUrl}
+                variant="quick-order"
               />
             ) : null}
 

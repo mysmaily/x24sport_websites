@@ -2388,7 +2388,7 @@ body.tenant-mayaocaulong {
   color: #34373d;
   font-size: 13px;
   font-weight: 700;
-}body.tenant-mayaocaulong .quick-order-form input {
+}body.tenant-mayaocaulong .quick-order-form input, body.tenant-mayaocaulong .quick-order-form select {
   width: 100%;
   min-height: 42px;
   border: 1px solid #d8dadd;
@@ -2401,7 +2401,7 @@ body.tenant-mayaocaulong {
   font-weight: 400;
   outline: none;
   transition: border-color 180ms ease, box-shadow 180ms ease;
-}body.tenant-mayaocaulong .quick-order-form input:focus {
+}body.tenant-mayaocaulong .quick-order-form input:focus, body.tenant-mayaocaulong .quick-order-form select:focus {
   border-color: #df3f32;
   box-shadow: 0 0 0 3px rgba(223, 63, 50, 0.14);
 }body.tenant-mayaocaulong .quick-order-form button {

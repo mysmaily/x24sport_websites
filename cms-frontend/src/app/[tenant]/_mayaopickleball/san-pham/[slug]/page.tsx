@@ -4,6 +4,7 @@ import type { CSSProperties } from 'react'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, BadgeCheck, Gift, MapPin, Phone, Search } from 'lucide-react'
 import { JsonLd } from '../../_components/json-ld'
+import { ProductInterestForm } from '../../../../_components/product-interest-form'
 import { ProductViewTracker } from '../../_components/product-view-tracker'
 import { SiteFooter, SiteHeader, phoneHref, zaloHref } from '../../_components/info-pages'
 import { ZaloIcon } from '../../_components/zalo-icon'
@@ -19,7 +20,6 @@ import {
 } from '../../lib/content'
 import { absoluteUrl, breadcrumbJsonLd, defaultOgImage, productJsonLd } from '../../lib/seo'
 import { ProductGallery } from './product-gallery'
-import { QuickOrderForm } from './quick-order-form'
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>
@@ -225,9 +225,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             </div>
 
             {showInterestForm ? (
-              <QuickOrderForm
+              <ProductInterestForm
                 productName={product.name}
                 productUrl={`https://mayaopickleball.vn/san-pham/${product.slug}`}
+                variant="quick-order"
               />
             ) : null}
 

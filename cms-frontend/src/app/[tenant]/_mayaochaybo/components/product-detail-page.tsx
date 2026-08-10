@@ -1,9 +1,9 @@
 import { ArrowRight, ChevronDown, MessageCircle, Phone, Ruler, Sparkles, TimerReset } from 'lucide-react'
 import Link from 'next/link'
 
+import { ProductInterestForm } from '../../../_components/product-interest-form'
 import { JsonLd } from './json-ld'
 import { ProductContentPreview } from './product-content-preview'
-import { ProductInterestForm } from './product-interest-form'
 import { ProductGallery } from './product-gallery'
 import { ProductGrid } from './product-grid'
 import { ProductViewTracker } from './product-view-tracker'
@@ -113,7 +113,7 @@ export async function ProductDetailPage({
                 {processItems.map((item, index) => <li className="flex items-center gap-2" key={item}><span className="grid size-5 shrink-0 place-items-center rounded-full bg-brand text-[10px] font-black text-white">{index + 1}</span>{item}</li>)}
               </ol>
             </details>
-            {showInterestForm ? <div className="mcb-interest-box rounded-xl bg-white p-4 shadow-[0_1px_0_rgba(15,23,42,.08)] sm:p-5"><ProductInterestForm productName={product.name} productUrl={canonical(productHref)} /></div> : null}
+            {showInterestForm ? <div className="mcb-interest-box rounded-xl bg-white p-4 shadow-[0_1px_0_rgba(15,23,42,.08)] sm:p-5"><ProductInterestForm productName={product.name} productUrl={canonical(productHref)} variant="mayaochaybo" /></div> : null}
           </div>
         </div>
 
