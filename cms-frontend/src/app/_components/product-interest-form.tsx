@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
+import { type CSSProperties, FormEvent, useState } from 'react'
 import { Send } from 'lucide-react'
 
 type ProductInterestFormProps = {
@@ -12,7 +12,11 @@ type ProductInterestFormProps = {
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
 
 const quantityOptions = ['5-15 bộ', '15-30 bộ', 'Trên 30 bộ']
-const utilityFieldGridClass = 'grid grid-cols-[minmax(0,1fr)_minmax(132px,180px)] gap-3'
+const utilityFieldGridStyle: CSSProperties = {
+  display: 'grid',
+  gap: '12px',
+  gridTemplateColumns: 'minmax(0, 1fr) minmax(170px, 260px)',
+}
 
 export function ProductInterestForm({ productName, productUrl, variant = 'interest' }: ProductInterestFormProps) {
   const [state, setState] = useState<SubmitState>('idle')
@@ -71,8 +75,7 @@ export function ProductInterestForm({ productName, productUrl, variant = 'intere
 
             <label>
               <span>Số lượng cần đặt</span>
-              <select name="quantity" required defaultValue="">
-                <option disabled value="">Chọn số lượng</option>
+              <select name="quantity" required defaultValue={quantityOptions[0]}>
                 {quantityOptions.map((option) => <option key={option} value={option}>{option}</option>)}
               </select>
             </label>
@@ -110,15 +113,14 @@ export function ProductInterestForm({ productName, productUrl, variant = 'intere
       <section className={variant === 'mayaochaybo' ? 'mcb-interest-form' : 'mt-5 rounded-2xl border border-slate-200 bg-white p-5'} id="nhan-tu-van">
         <h2 className={variant === 'mayaochaybo' ? 'text-lg font-black leading-tight text-slate-950 sm:text-xl' : 'text-xl font-black leading-tight text-slate-950'}>Bạn quan tâm mẫu này?</h2>
         <form className={variant === 'mayaochaybo' ? 'mt-3 grid gap-3' : 'mt-4 grid gap-3'} onSubmit={handleSubmit}>
-          <div className={utilityFieldGridClass}>
+          <div style={utilityFieldGridStyle}>
             <label className="grid gap-1.5 text-sm font-bold text-slate-700">
               <span>Số điện thoại</span>
               <input className={accentInputClass} autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
             </label>
             <label className="grid gap-1.5 text-sm font-bold text-slate-700">
               <span>Số lượng cần đặt</span>
-              <select className={accentInputClass} name="quantity" required defaultValue="">
-                <option disabled value="">Chọn số lượng</option>
+              <select className={accentInputClass} name="quantity" required defaultValue={quantityOptions[0]}>
                 {quantityOptions.map((option) => <option key={option} value={option}>{option}</option>)}
               </select>
             </label>
@@ -150,8 +152,7 @@ export function ProductInterestForm({ productName, productUrl, variant = 'intere
           </label>
           <label>
             <span>Số lượng cần đặt</span>
-            <select name="quantity" required defaultValue="">
-              <option disabled value="">Chọn số lượng</option>
+            <select name="quantity" required defaultValue={quantityOptions[0]}>
               {quantityOptions.map((option) => <option key={option} value={option}>{option}</option>)}
             </select>
           </label>
