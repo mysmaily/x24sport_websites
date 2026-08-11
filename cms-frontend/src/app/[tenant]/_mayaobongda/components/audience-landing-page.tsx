@@ -49,14 +49,14 @@ const process = [
 
 const LANDING_PRODUCT_LIMIT = 24
 
-function landingHeroSlide(landing: FootballAudienceLanding): TenantPromoHeroSlide {
-  return {
-    alt: landing.heroAlt,
+function landingHeroSlides(landing: FootballAudienceLanding): TenantPromoHeroSlide[] {
+  return (landing.heroImages || [{ src: landing.heroImage, alt: landing.heroAlt }]).map((image) => ({
+    alt: image.alt,
     height: 1024,
-    mobileSrc: landing.heroImage,
-    src: landing.heroImage,
+    mobileSrc: image.src,
+    src: image.src,
     width: 1536,
-  }
+  }))
 }
 
 export async function FootballAudienceLandingPage({ landing, page = 1 }: { landing: FootballAudienceLanding; page?: number }) {
@@ -89,7 +89,7 @@ export async function FootballAudienceLandingPage({ landing, page = 1 }: { landi
         </nav>
       </div>
 
-      <TenantPromoHero ariaLabel={landing.eyebrow} slides={[landingHeroSlide(landing)]}>
+      <TenantPromoHero ariaLabel={landing.eyebrow} slides={landingHeroSlides(landing)}>
         <div className="football-audience-hero-copy min-w-0 max-w-3xl">
           <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.1em] text-orange-200 backdrop-blur sm:px-4 sm:py-2 sm:text-xs sm:tracking-[.16em]"><AudienceIcon aria-hidden="true" className="shrink-0" size={16} /><span className="truncate">{landing.eyebrow}</span></p>
           <h1 className="football-audience-title mt-4 max-w-[860px] text-balance font-display font-extrabold sm:mt-7">{landing.title}</h1>

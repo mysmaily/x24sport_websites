@@ -6,6 +6,7 @@ export type FootballAudienceLanding = {
   tagline?: string
   description: string
   heroImage: string
+  heroImages?: Array<{ src: string; alt: string }>
   heroAlt: string
   contexts: string[]
   problemTitle: string
@@ -141,8 +142,18 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
     title: 'Thiết kế áo bóng đá ngân hàng',
     tagline: 'Chỉn chu như nhận diện thương hiệu. Linh hoạt như một đội bóng.',
     description: 'Thiết kế áo bóng đá cho ngân hàng theo màu nhận diện, logo chi nhánh và tinh thần giải nội bộ, giúp đội hình nổi bật mà vẫn giữ sự chuyên nghiệp.',
-    heroImage: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang.webp',
-    heroAlt: 'Đội bóng ngân hàng Việt Nam mặc áo thi đấu xanh trắng trên sân bóng gần tòa nhà tài chính',
+    heroImage: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang-nam.webp',
+    heroImages: [
+      {
+        src: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang-nam.webp',
+        alt: 'Đội bóng nam ngân hàng Việt Nam mặc áo thi đấu gradient xanh trắng có logo BANK giả trên sân bóng cạnh tòa nhà tài chính',
+      },
+      {
+        src: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang-nu.webp',
+        alt: 'Đội bóng nữ ngân hàng Việt Nam mặc áo thi đấu gradient xanh trắng có logo BANK giả trên sân bóng cạnh tòa nhà tài chính',
+      },
+    ],
+    heroAlt: 'Đội bóng ngân hàng Việt Nam mặc áo thi đấu gradient xanh trắng có logo BANK giả trên sân bóng cạnh tòa nhà tài chính',
     contexts: ['Giải ngân hàng nội bộ', 'Giao lưu giữa chi nhánh', 'Team building thể thao'],
     problemTitle: 'Áo thi đấu ngân hàng cần nổi bật trên sân nhưng vẫn đúng tinh thần thương hiệu.',
     problemText: 'Màu chủ đạo, logo, tên chi nhánh và quy chuẩn nhận diện cần được đặt vào một thiết kế thể thao có bố cục gọn, dễ duyệt và dễ sản xuất theo danh sách đông người.',
