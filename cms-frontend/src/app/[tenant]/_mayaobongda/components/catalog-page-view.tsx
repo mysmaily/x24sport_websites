@@ -2,6 +2,7 @@ import { ChevronDown, ChevronLeft, ChevronRight, Search } from 'lucide-react'
 import Link from 'next/link'
 
 import { getCategories, getProducts } from '../lib/cms'
+import { footballCategoryPath } from '../lib/category-paths'
 import { excerpt, SITE_URL } from '../lib/site'
 
 import { JsonLd } from './json-ld'
@@ -29,7 +30,7 @@ export async function CatalogPageView({ page, search = '', heading = 'Toàn bộ
       <span className="hidden shrink-0 pl-1 text-[10px] font-black uppercase tracking-[.14em] text-slate-500 sm:block">Nhóm sản phẩm</span>
       <div className="flex min-w-0 flex-1 snap-x gap-1.5 overflow-x-auto overscroll-x-contain scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-catalog-type-strip>
         <Link aria-current={!categorySlug ? 'page' : undefined} className={`inline-flex min-h-10 shrink-0 snap-start items-center rounded-full border px-3 text-xs font-black transition ${!categorySlug ? 'border-[#0b1220] bg-[#0b1220] text-white' : 'border-slate-200 bg-white hover:border-brand hover:text-brand'}`} href="/san-pham/">Tất cả mẫu</Link>
-        {primaryCategories.map((item) => <Link aria-current={categorySlug === item.slug ? 'page' : undefined} className={`inline-flex min-h-10 shrink-0 snap-start items-center gap-1.5 rounded-full border px-3 text-xs font-black transition ${categorySlug === item.slug ? 'border-brand bg-brand text-white' : 'border-slate-200 bg-white hover:border-brand hover:text-brand'}`} href={item.legacyPath || `/${item.slug}/`} key={item.slug}>{item.name}{typeof item.productCount === 'number' ? <span className="text-[10px] opacity-60">{item.productCount}</span> : null}</Link>)}
+        {primaryCategories.map((item) => <Link aria-current={categorySlug === item.slug ? 'page' : undefined} className={`inline-flex min-h-10 shrink-0 snap-start items-center gap-1.5 rounded-full border px-3 text-xs font-black transition ${categorySlug === item.slug ? 'border-brand bg-brand text-white' : 'border-slate-200 bg-white hover:border-brand hover:text-brand'}`} href={footballCategoryPath(item)} key={item.slug}>{item.name}{typeof item.productCount === 'number' ? <span className="text-[10px] opacity-60">{item.productCount}</span> : null}</Link>)}
       </div>
         <details className="group relative shrink-0" data-catalog-color-filter>
           <summary className="flex min-h-10 cursor-pointer list-none items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 text-xs font-black text-slate-800 transition hover:border-brand hover:text-brand [&::-webkit-details-marker]:hidden">
@@ -38,7 +39,7 @@ export async function CatalogPageView({ page, search = '', heading = 'Toàn bộ
         </summary>
         <div className="absolute right-0 top-full z-30 mt-2 grid w-[min(320px,calc(100vw-32px))] grid-cols-2 gap-1.5 rounded-xl border border-slate-200 bg-white p-2 shadow-[0_18px_50px_rgba(15,23,42,.18)]">
           <Link className="col-span-2 flex min-h-10 items-center rounded-lg px-3 text-xs font-black text-slate-700 hover:bg-slate-100" href="/san-pham/">Tất cả từ khóa</Link>
-          {secondaryCategories.map((item) => <Link aria-current={categorySlug === item.slug ? 'page' : undefined} className={`flex min-h-10 items-center gap-2 rounded-lg px-3 text-xs font-black transition ${categorySlug === item.slug ? 'bg-orange-50 text-brand' : 'text-slate-700 hover:bg-slate-100'}`} href={item.legacyPath || `/${item.slug}/`} key={item.slug}><span className="truncate">{item.name}</span>{typeof item.productCount === 'number' ? <span className="ml-auto text-[10px] opacity-50">{item.productCount}</span> : null}</Link>)}
+          {secondaryCategories.map((item) => <Link aria-current={categorySlug === item.slug ? 'page' : undefined} className={`flex min-h-10 items-center gap-2 rounded-lg px-3 text-xs font-black transition ${categorySlug === item.slug ? 'bg-orange-50 text-brand' : 'text-slate-700 hover:bg-slate-100'}`} href={footballCategoryPath(item)} key={item.slug}><span className="truncate">{item.name}</span>{typeof item.productCount === 'number' ? <span className="ml-auto text-[10px] opacity-50">{item.productCount}</span> : null}</Link>)}
         </div>
       </details>
     </nav>

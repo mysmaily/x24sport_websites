@@ -21,6 +21,7 @@ import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
 import { getProductCategory, getProducts } from '../lib/cms'
 import { FOOTBALL_AUDIENCE_LANDINGS, type FootballAudienceLanding } from '../lib/audience-landings'
+import { footballCategoryPath } from '../lib/category-paths'
 import { canonical, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '../lib/site'
 
 const audienceIcons = {
@@ -71,7 +72,7 @@ export async function FootballAudienceLandingPage({ landing, page = 1 }: { landi
   const catalog = categoryCatalog?.docs.length ? categoryCatalog : isBusinessLanding ? (categoryCatalog || emptyCatalog) : await getProducts({ page: currentPage, limit: LANDING_PRODUCT_LIMIT })
   const category = landing.categorySlug ? await getProductCategory(landing.categorySlug) : null
   const categoryLabel = landing.categoryLabel || category?.name || landing.navLabel
-  const categoryPath = category?.legacyPath || `/${landing.slug}/`
+  const categoryPath = category ? footballCategoryPath(category) : `/${landing.slug}/`
   const AudienceIcon = audienceIcons[landing.slug as keyof typeof audienceIcons]
   const related = FOOTBALL_AUDIENCE_LANDINGS.filter((item) => item.slug !== landing.slug)
   const pageHref = (value: number) => value === 1 ? `/${landing.slug}/#mau-ao` : `/${landing.slug}/?page=${value}#mau-ao`

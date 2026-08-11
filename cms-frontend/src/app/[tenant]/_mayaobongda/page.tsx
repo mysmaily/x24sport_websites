@@ -6,6 +6,7 @@ import { TenantPromoHero, type TenantPromoHeroSlide } from '../../_components/te
 import { JsonLd } from './components/json-ld'
 import { ProductGrid } from './components/product-grid'
 import { getCategories, getLatestPosts, getProducts } from './lib/cms'
+import { footballCategoryPath } from './lib/category-paths'
 import { excerpt, LOGO_URL, SITE_NAME, SITE_URL, ZALO_URL } from './lib/site'
 
 export const revalidate = 180
@@ -79,7 +80,7 @@ export default async function HomePage() {
           {categories.map((category, index) => (
             <Link
               className="mabd-category-card group relative overflow-hidden rounded-xl p-4 sm:rounded-2xl sm:p-6"
-              href={category.legacyPath || `/${category.slug}/`}
+              href={footballCategoryPath(category)}
               key={category.id}
             >
               <span aria-hidden="true" className="mabd-category-number absolute -bottom-8 -right-4 font-display text-[6rem] font-black leading-none sm:-bottom-12 sm:-right-5 sm:text-[9rem]">0{index + 1}</span>
@@ -118,7 +119,7 @@ export default async function HomePage() {
 
             <div className="grid gap-2 sm:grid-cols-2" aria-label="Xem mẫu theo danh mục sản phẩm">
               {categories.map((category) => (
-                <Link className="group flex min-h-12 items-center justify-between rounded-xl border border-slate-200 bg-white px-4 text-sm font-black text-slate-900 transition duration-200 hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={category.legacyPath || `/${category.slug}/`} key={category.id}>
+                <Link className="group flex min-h-12 items-center justify-between rounded-xl border border-slate-200 bg-white px-4 text-sm font-black text-slate-900 transition duration-200 hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={footballCategoryPath(category)} key={category.id}>
                   <span className="min-w-0 truncate">{category.name}</span>
                   <ArrowRight aria-hidden="true" className="shrink-0 transition group-hover:translate-x-1" size={17} />
                 </Link>

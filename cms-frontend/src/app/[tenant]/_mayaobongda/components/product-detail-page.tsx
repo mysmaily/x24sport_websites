@@ -6,12 +6,9 @@ import { JsonLd } from './json-ld'
 import { ProductGallery } from './product-gallery'
 import { ProductGrid } from './product-grid'
 import { hasProductInterestForm, productImages, productPath, type Product, type ProductCategory } from '../lib/cms'
+import { footballCategoryPath } from '../lib/category-paths'
 import { PHONE_DISPLAY, PHONE_VALUE, ZALO_URL, canonical, excerpt } from '../lib/site'
 import { rewriteLegacyHtml } from '../lib/legacy-content'
-
-function categoryPath(category: ProductCategory) {
-  return category.legacyPath || `/${category.slug}/`
-}
 
 function productBreadcrumbCategory(product: Product) {
   const categories = (product.categories || []).filter(
@@ -41,7 +38,7 @@ export async function ProductDetailPage({
   const breadcrumbItems = [
     { name: 'Trang chủ', item: canonical('/') },
     { name: catalogLabel, item: canonical(catalogHref) },
-    ...(breadcrumbCategory ? [{ name: breadcrumbCategory.name, item: canonical(categoryPath(breadcrumbCategory)) }] : []),
+    ...(breadcrumbCategory ? [{ name: breadcrumbCategory.name, item: canonical(footballCategoryPath(breadcrumbCategory)) }] : []),
     { name: product.name, item: canonical(productHref) },
   ]
   const productSchema = hasPrice ? { '@context': 'https://schema.org', '@type': 'Product', name: product.name, sku: product.sku || undefined, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productHref), brand: { '@type': 'Brand', name: 'May Áo Bóng Đá' }, offers: { '@type': 'Offer', priceCurrency: 'VND', price: product.price, availability: product.stockStatus === 'outofstock' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url: canonical(productHref) } } : null
@@ -51,7 +48,7 @@ export async function ProductDetailPage({
       {productSchema ? <JsonLd data={productSchema} /> : null}
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems.map((item, index) => ({ '@type': 'ListItem', position: index + 1, ...item })) }} />
       <article className="section-shell pb-16 sm:pb-22">
-        <nav className="flex gap-2 overflow-hidden py-4 text-xs text-slate-500" aria-label="Đường dẫn"><Link className="shrink-0 hover:text-brand" href="/">Trang chủ</Link><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={catalogHref}>{catalogLabel}</Link>{breadcrumbCategory ? <><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={categoryPath(breadcrumbCategory)}>{breadcrumbCategory.name}</Link></> : null}<span className="shrink-0">/</span><span className="truncate text-slate-700">{product.name}</span></nav>
+        <nav className="flex gap-2 overflow-hidden py-4 text-xs text-slate-500" aria-label="Đường dẫn"><Link className="shrink-0 hover:text-brand" href="/">Trang chủ</Link><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={catalogHref}>{catalogLabel}</Link>{breadcrumbCategory ? <><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={footballCategoryPath(breadcrumbCategory)}>{breadcrumbCategory.name}</Link></> : null}<span className="shrink-0">/</span><span className="truncate text-slate-700">{product.name}</span></nav>
         <h1 className="pb-4 font-display text-xl font-bold leading-tight tracking-[-.01em] text-slate-950 lg:text-[22px]">{product.name}</h1>
 
         <div className="grid overflow-hidden rounded-3xl border border-slate-200 bg-white lg:grid-cols-[1.15fr_.85fr]">
