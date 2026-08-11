@@ -129,7 +129,7 @@ export function FabricGuidePage() {
             </Link>
             <p className="football-fabric-kicker">Chất liệu vải áo bóng đá</p>
             <h1>
-              Chọn vải trước khi chọn mẫu áo
+              Chất liệu vải may áo bóng đá
             </h1>
             <p className="football-fabric-lead">
               5 chất liệu thường dùng cho áo bóng đá, được đặt cạnh nhau để đội dễ so sánh cảm giác mặc, độ thoáng và tình huống sử dụng.

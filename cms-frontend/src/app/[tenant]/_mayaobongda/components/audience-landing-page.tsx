@@ -92,6 +92,7 @@ export async function FootballAudienceLandingPage({ landing, page = 1 }: { landi
         <div className="football-audience-hero-copy min-w-0 max-w-3xl">
           <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.1em] text-orange-200 backdrop-blur sm:px-4 sm:py-2 sm:text-xs sm:tracking-[.16em]"><AudienceIcon aria-hidden="true" className="shrink-0" size={16} /><span className="truncate">{landing.eyebrow}</span></p>
           <h1 className="football-audience-title mt-4 max-w-[860px] text-balance font-display font-extrabold sm:mt-7">{landing.title}</h1>
+          {landing.tagline ? <p className="mt-3 max-w-2xl font-display text-2xl font-bold leading-[1.05] text-white sm:mt-4 sm:text-4xl">{landing.tagline}</p> : null}
           <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:mt-5 sm:text-lg sm:leading-7">{landing.description}</p>
           <ul aria-label="Phù hợp với" className="mt-5 grid max-w-2xl grid-cols-1 gap-2 sm:mt-7 sm:grid-cols-3">
             {landing.contexts.map((item) => <li className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-white/10 bg-white/[.055] px-3 text-xs font-bold leading-5 text-slate-100 backdrop-blur" key={item}><Check aria-hidden="true" className="shrink-0 text-brand" size={15} />{item}</li>)}

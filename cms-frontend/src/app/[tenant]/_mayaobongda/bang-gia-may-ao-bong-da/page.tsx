@@ -44,7 +44,7 @@ export default function FootballPricingPage() {
       <div className="section-shell grid gap-6 pb-10 pt-1 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,.65fr)] lg:items-end lg:gap-8">
         <div>
           <p className="section-kicker text-orange-300">Bảng giá may theo đội</p>
-          <h1 className="max-w-4xl font-display text-4xl font-bold leading-none text-balance sm:text-5xl lg:text-6xl">Bảng giá may áo bóng đá.</h1>
+          <h1 className="max-w-4xl font-display text-4xl font-bold leading-none text-balance sm:text-5xl lg:text-6xl">Bảng giá may áo bóng đá</h1>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">Xem nhanh giá áo bóng đá theo số lượng và chất vải. Giá thực tế có thể thay đổi theo mẫu thiết kế, tiến độ và chi tiết in riêng.</p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black text-white transition hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank">Nhận báo giá qua Zalo <ArrowRight size={18} /></a>

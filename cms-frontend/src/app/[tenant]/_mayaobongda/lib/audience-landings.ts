@@ -3,6 +3,7 @@ export type FootballAudienceLanding = {
   navLabel: string
   eyebrow: string
   title: string
+  tagline?: string
   description: string
   heroImage: string
   heroAlt: string
@@ -28,7 +29,8 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
     slug: 'ao-bong-da-doi-bong-cau-lac-bo',
     navLabel: 'Đội bóng & câu lạc bộ',
     eyebrow: 'Áo bóng đá cho đội bóng & CLB',
-    title: 'Mặc cùng một màu. Chơi đúng một tinh thần.',
+    title: 'Thiết kế áo bóng đá đội bóng, câu lạc bộ',
+    tagline: 'Mặc cùng một màu. Chơi đúng một tinh thần.',
     description: 'Thiết kế áo bóng đá theo tên đội, màu sắc và cá tính riêng cho lịch tập hằng tuần, trận giao hữu và những mùa giải mà cả đội muốn được nhận ra.',
     heroImage: '/images/mayaobongda/audience-landings/doi-bong-cau-lac-bo.webp',
     heroAlt: 'Đội bóng phong trào Việt Nam mặc áo thi đấu xanh cam thiết kế đồng bộ',
@@ -62,7 +64,8 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
     slug: 'ao-bong-da-giai-phong-trao',
     navLabel: 'Giải phong trào',
     eyebrow: 'Áo bóng đá cho giải phong trào',
-    title: 'Để mỗi đội ra sân khác màu, nhưng cùng thuộc về một giải đấu.',
+    title: 'Thiết kế áo bóng đá giải phong trào',
+    tagline: 'Để mỗi đội ra sân khác màu, nhưng cùng thuộc về một giải đấu.',
     description: 'Phát triển hệ thống áo thi đấu theo chủ đề giải, màu đội và vị trí nhận diện — giúp ban tổ chức tạo nên hình ảnh đồng bộ từ lễ khai mạc đến trận chung kết.',
     heroImage: '/images/mayaobongda/audience-landings/giai-phong-trao.webp',
     heroAlt: 'Hai đội bóng phong trào Việt Nam trong trang phục xanh và cam bước ra sân thi đấu',
@@ -98,7 +101,8 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
     categoryLabel: 'Áo bóng đá công ty',
     navLabel: 'Công ty',
     eyebrow: 'Thiết kế áo bóng đá công ty',
-    title: 'Một bộ áo riêng cho tinh thần doanh nghiệp trên sân bóng.',
+    title: 'Thiết kế áo bóng đá công ty',
+    tagline: 'Một bộ áo riêng cho tinh thần doanh nghiệp trên sân bóng.',
     description: 'Thiết kế áo bóng đá theo màu thương hiệu, logo và tinh thần tập thể cho giải nội bộ, team building thể thao và những trận giao lưu giữa phòng ban.',
     heroImage: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-cong-ty.webp',
     heroAlt: 'Đội bóng công ty Việt Nam mặc áo thi đấu đỏ trắng trên sân bóng gần khu văn phòng',
@@ -134,7 +138,8 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
     categoryLabel: 'Áo bóng đá ngân hàng',
     navLabel: 'Ngân hàng',
     eyebrow: 'Thiết kế áo bóng đá ngân hàng',
-    title: 'Chỉn chu như nhận diện thương hiệu. Linh hoạt như một đội bóng.',
+    title: 'Thiết kế áo bóng đá ngân hàng',
+    tagline: 'Chỉn chu như nhận diện thương hiệu. Linh hoạt như một đội bóng.',
     description: 'Thiết kế áo bóng đá cho ngân hàng theo màu nhận diện, logo chi nhánh và tinh thần giải nội bộ, giúp đội hình nổi bật mà vẫn giữ sự chuyên nghiệp.',
     heroImage: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang.webp',
     heroAlt: 'Đội bóng ngân hàng Việt Nam mặc áo thi đấu xanh trắng trên sân bóng gần tòa nhà tài chính',
