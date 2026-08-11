@@ -572,6 +572,19 @@ body.tenant-mayaochaybo .mcb-outline-button {
   box-shadow: 0 14px 34px rgba(15, 23, 42, .08);
 }
 
+body.tenant-mayaochaybo .mcb-hot-products-section .mcb-light-button {
+  color: #0f172a !important;
+}
+
+body.tenant-mayaochaybo .mcb-hot-products-section .mcb-light-button:hover {
+  color: #f15a24 !important;
+}
+
+body.tenant-mayaochaybo .mcb-hot-products-section .mcb-light-button svg {
+  color: currentColor;
+  stroke: currentColor;
+}
+
 body.tenant-mayaochaybo .mcb-process-section {
   position: relative;
   overflow: hidden;
