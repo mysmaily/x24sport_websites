@@ -14,13 +14,14 @@ export type TenantPromoHeroSlide = {
 type TenantPromoHeroProps = {
   ariaLabel: string
   children: ReactNode
+  className?: string
   slides: TenantPromoHeroSlide[]
 }
 
-export function TenantPromoHero({ ariaLabel, children, slides }: TenantPromoHeroProps) {
+export function TenantPromoHero({ ariaLabel, children, className, slides }: TenantPromoHeroProps) {
   return (
-    <section className={styles.banner}>
-      <div aria-label={ariaLabel} className={styles.slider} data-count={slides.length} role="group">
+    <section className={`${styles.banner}${className ? ` ${className}` : ''}`}>
+      <div aria-label={ariaLabel} className={styles.slider} data-count={slides.length} data-promo-hero-slider role="group">
         <div aria-hidden="true" className={styles.loader}><LoaderCircle size={28} /></div>
         {slides.map((slide, index) => (
           <div className={styles.slide} key={slide.src} style={{ animationDelay: `${index * 5}s` }}>
@@ -30,6 +31,7 @@ export function TenantPromoHero({ ariaLabel, children, slides }: TenantPromoHero
                 alt={slide.alt}
                 className={styles.image}
                 decoding="async"
+                data-promo-hero-image
                 fetchPriority={index === 0 ? 'high' : 'auto'}
                 height={slide.height}
                 loading={index === 0 ? 'eager' : 'lazy'}
@@ -39,12 +41,12 @@ export function TenantPromoHero({ ariaLabel, children, slides }: TenantPromoHero
             </picture>
           </div>
         ))}
-        <div aria-hidden="true" className={styles.readableOverlay} />
+        <div aria-hidden="true" className={styles.readableOverlay} data-promo-hero-overlay />
         <div aria-hidden="true" className={styles.dots}>
           {slides.map((slide) => <span key={slide.src} />)}
         </div>
       </div>
-      <div className={`section-shell ${styles.content}`}>{children}</div>
+      <div className={`section-shell ${styles.content}`} data-promo-hero-content>{children}</div>
     </section>
   )
 }

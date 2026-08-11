@@ -89,7 +89,7 @@ export async function FootballAudienceLandingPage({ landing, page = 1 }: { landi
         </nav>
       </div>
 
-      <TenantPromoHero ariaLabel={landing.eyebrow} slides={landingHeroSlides(landing)}>
+      <TenantPromoHero ariaLabel={landing.eyebrow} className={landing.slug === 'thiet-ke-ao-bong-da-ngan-hang' ? 'football-bank-promo-hero' : undefined} slides={landingHeroSlides(landing)}>
         <div className="football-audience-hero-copy min-w-0 max-w-3xl">
           <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.1em] text-orange-200 backdrop-blur sm:px-4 sm:py-2 sm:text-xs sm:tracking-[.16em]"><AudienceIcon aria-hidden="true" className="shrink-0" size={16} /><span className="truncate">{landing.eyebrow}</span></p>
           <h1 className="football-audience-title mt-4 max-w-[860px] text-balance font-display font-extrabold sm:mt-7">{landing.title}</h1>
