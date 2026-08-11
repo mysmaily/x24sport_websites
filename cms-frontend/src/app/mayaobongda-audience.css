@@ -241,6 +241,7 @@ body.tenant-mayaobongda .mabd-category-card:focus-visible {
   }
 
   body.tenant-mayaobongda .football-bank-promo-hero [data-promo-hero-image] {
+    object-fit: contain;
     object-position: center top;
     transform: none;
   }

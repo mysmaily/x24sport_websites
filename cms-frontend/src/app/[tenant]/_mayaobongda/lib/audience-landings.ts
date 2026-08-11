@@ -146,11 +146,12 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
     heroImages: [
       {
         src: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang-nam.webp',
+        mobileSrc: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang-nam-mobile-v2.webp',
         alt: 'Đội bóng nam ngân hàng Việt Nam mặc áo thi đấu gradient xanh trắng có logo BANK giả trên sân bóng cạnh tòa nhà tài chính',
       },
       {
         src: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang-nu-v3.webp',
-        mobileSrc: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang-nu-mobile-v3.webp',
+        mobileSrc: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang-nu-mobile-v4.webp',
         alt: 'Nhóm nhân viên ngân hàng nữ trẻ mặc áo bóng đá trắng xanh viền cam có chữ BANK trên sân bóng cạnh tòa nhà tài chính',
       },
     ],
