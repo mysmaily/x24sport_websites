@@ -55,7 +55,7 @@ export default async function HomePage() {
     <TenantPromoHero ariaLabel="Khuyến mãi áo bóng đá" slides={heroSlides}>
         <div className="min-w-0 max-w-3xl">
           <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.1em] text-orange-200 sm:px-4 sm:py-2 sm:text-xs sm:tracking-[.16em]"><TimerReset className="shrink-0" size={16} /><span className="sm:hidden">Duyệt maket trước</span><span className="hidden sm:inline">May trực tiếp tại xưởng · Duyệt maket trước</span></p>
-          <h1 className="mt-4 max-w-[760px] font-display text-[2.65rem] font-extrabold leading-[.9] tracking-[.012em] sm:mt-7 sm:text-[4.75rem] lg:text-[clamp(4.4rem,5.25vw,6.15rem)]">May áo bóng đá<br /><span className="text-brand">thiết kế riêng</span></h1>
+          <h1 className="mt-4 max-w-[760px] font-display text-[2.65rem] font-extrabold leading-[.9] tracking-[.012em] sm:mt-7 sm:text-[4.75rem] lg:text-[clamp(4.4rem,5.25vw,6.15rem)]">May áo bóng đá <br /><span className="text-brand">thiết kế riêng</span></h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:mt-5 sm:text-lg sm:leading-7">Chọn mẫu, chỉnh màu, logo, tên số và nội dung theo đúng nhận diện đội bóng hoặc giải đấu.</p>
 
           <ul className="mabd-home-audience-grid mt-4 grid grid-cols-2 gap-1.5 sm:mt-6 sm:grid-cols-4 sm:gap-2" aria-label="Doi tuong khach hang chinh">
