@@ -1,11 +1,12 @@
 import { ArrowRight, BadgeCheck, Building2, CalendarDays, Flag, Palette, Ruler, Sparkles, TimerReset, Truck, UsersRound } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import type { CSSProperties } from 'react'
 
 import { TenantPromoHero, type TenantPromoHeroSlide } from '../../_components/tenant-promo-hero'
 import { JsonLd } from './components/json-ld'
 import { ProductGrid } from './components/product-grid'
-import { getCategories, getLatestPosts, getProducts } from './lib/cms'
+import { getCategories, getLatestPosts, getProducts, type ProductCategory } from './lib/cms'
 import { DEFAULT_OG_IMAGE, excerpt, LOGO_URL, SITE_URL, ZALO_URL } from './lib/site'
 
 export const revalidate = 300
@@ -57,7 +58,57 @@ const heroSlides: TenantPromoHeroSlide[] = [
   },
 ]
 
-const categoryCardBackground = '/images/mayaochaybo/home/running-shirt-category-bg.webp'
+const categoryVisuals = [
+  {
+    accent: '#f15a24',
+    accentRgb: '241 90 36',
+    image: '/images/mayaochaybo/images/audience-landings/doi-nhom-viet-nam-running-club.webp',
+    label: 'Tinh thần Việt Nam',
+    match: ['co do', 'sao vang', 'viet nam'],
+    position: 'center',
+  },
+  {
+    accent: '#37b7a5',
+    accentRgb: '55 183 165',
+    image: '/images/mayaochaybo/images/audience-landings/doanh-nghiep-vinaseed-green-run.webp',
+    label: 'Áo có tay',
+    match: ['co tay'],
+    position: 'center',
+  },
+  {
+    accent: '#ffd33d',
+    accentRgb: '255 211 61',
+    image: '/images/mayaochaybo/home/running-promo-singlet-wide.webp',
+    label: 'Race day',
+    match: ['sat nach', 'ba lo', 'singlet'],
+    position: 'center',
+  },
+  {
+    accent: '#f15a24',
+    accentRgb: '241 90 36',
+    image: '/images/mayaochaybo/images/audience-landings/doanh-nghiep-finisher-team.webp',
+    label: 'Thiết kế riêng',
+    match: ['thiet ke rieng', 'custom'],
+    position: 'center',
+  },
+  {
+    accent: '#37b7a5',
+    accentRgb: '55 183 165',
+    image: '/images/mayaochaybo/images/audience-landings/giai-chay-x24-run-start.webp',
+    label: 'Logo đội chạy',
+    match: ['logo', 'doi chay', 'cau lac bo'],
+    position: 'center',
+  },
+]
+
+function normalizeCategoryText(value: string) {
+  return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
+function getCategoryVisual(category: ProductCategory, index: number) {
+  const searchable = normalizeCategoryText(`${category.name} ${category.slug}`)
+  return categoryVisuals.find((visual) => visual.match.some((term) => searchable.includes(term))) ?? categoryVisuals[index % categoryVisuals.length]
+}
 
 export default async function HomePage() {
   const [catalog, posts, categoryResult] = await Promise.all([getProducts({ limit: 8 }), getLatestPosts(3), getCategories()])
@@ -91,7 +142,17 @@ export default async function HomePage() {
 
     <section className="mcb-commitment-strip border-b border-slate-200 bg-white"><div className="section-shell grid divide-y divide-slate-200 md:grid-cols-2 md:divide-x md:divide-y-0 xl:grid-cols-4">{commitments.map(({ icon: Icon, title, text }) => <article className="mcb-commitment-item flex gap-4 py-6 md:px-5 first:pl-0 last:pr-0" key={title}><span className="grid size-11 shrink-0 place-items-center rounded-xl bg-orange-50 text-brand"><Icon size={22} /></span><div><h2 className="text-sm font-black">{title}</h2><p className="mt-1 text-xs leading-5 text-slate-600">{text}</p></div></article>)}</div></section>
 
-    <section className="mcb-category-section py-16 sm:py-22"><div className="section-shell"><div className="mcb-category-intro" style={{ alignItems: 'end', display: 'grid', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,420px),1fr))' }}><div className="max-w-3xl"><p className="section-kicker">Chọn điểm xuất phát</p><h2 className="section-title">Mẫu áo cho từng cách bạn chạy.</h2><p className="section-lead">Duyệt theo kiểu áo hoặc chọn toàn bộ bộ sưu tập. Các mẫu đều có thể phát triển lại theo nhận diện của đội.</p></div><div aria-hidden="true" className="mcb-category-photo overflow-hidden rounded-2xl bg-[#0b1220] bg-cover shadow-sm ring-1 ring-slate-900/10" style={{ backgroundImage: `linear-gradient(90deg,rgba(11,18,32,.18),rgba(11,18,32,0)),url(${categoryCardBackground})`, backgroundPosition: 'right center', minHeight: 'clamp(210px,22vw,320px)' }} /></div><div className="mcb-category-grid mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{categories.map((category, index) => <Link className={`mcb-category-card group relative min-h-56 overflow-hidden rounded-2xl p-6 shadow-sm ring-1 ring-slate-900/10 transition duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${index === 0 ? 'bg-brand text-white' : 'bg-[#0b1220] text-white'}`} href={category.legacyPath || `/danh-muc-san-pham/${category.slug}/`} key={category.id} style={{ color: '#fff' }}><span className={`absolute inset-0 ${index === 0 ? 'bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,.24),transparent_34%)]' : 'bg-[radial-gradient(circle_at_80%_20%,rgba(249,82,30,.22),transparent_36%)]'}`} /><span className="absolute -bottom-12 -right-5 z-10 font-display text-[10rem] font-black leading-none text-white/[.11]">0{index + 1}</span><Flag className="relative z-10 drop-shadow-sm" size={28} style={{ color: '#fff' }} /><h3 className="relative z-10 mt-16 max-w-sm font-display text-4xl font-bold leading-none drop-shadow-sm" style={{ color: '#fff' }}>{category.name}</h3><span className="relative z-10 mt-5 inline-flex items-center gap-2 text-sm font-black drop-shadow-sm" style={{ color: '#fff' }}>Xem bộ sưu tập <ArrowRight size={17} /></span></Link>)}</div></div></section>
+    <section className="mcb-category-section py-16 sm:py-22"><div className="section-shell"><div className="mcb-category-intro max-w-4xl"><p className="section-kicker">Chọn điểm xuất phát</p><h2 className="section-title">Mẫu áo cho từng cách bạn chạy.</h2><p className="section-lead">Duyệt theo kiểu áo hoặc chọn toàn bộ bộ sưu tập. Các mẫu đều có thể phát triển lại theo nhận diện của đội.</p></div><div className="mcb-category-grid mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{categories.map((category, index) => {
+      const visual = getCategoryVisual(category, index)
+      const categoryStyle = {
+        '--mcb-category-accent': visual.accent,
+        '--mcb-category-accent-rgb': visual.accentRgb,
+        '--mcb-category-image': `url(${visual.image})`,
+        '--mcb-category-position': visual.position,
+      } as CSSProperties
+
+      return <Link className="mcb-category-card group relative min-h-56 overflow-hidden rounded-2xl p-6 text-white shadow-sm ring-1 ring-slate-900/10 transition duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={category.legacyPath || `/danh-muc-san-pham/${category.slug}/`} key={category.id} style={categoryStyle}><span className="mcb-category-card-chrome" /><span className="mcb-category-card-media" /><span className="mcb-category-card-topline"><Flag size={18} /> {visual.label}</span><h3 className="relative z-10 mt-auto max-w-sm font-display text-[2.35rem] font-bold leading-none drop-shadow-sm sm:text-[2.6rem]">{category.name}</h3><span className="relative z-10 mt-5 inline-flex items-center gap-2 text-sm font-black drop-shadow-sm">Xem bộ sưu tập <ArrowRight size={17} /></span></Link>
+    })}</div></div></section>
 
     <section className="mcb-product-showcase bg-white py-16 sm:py-22"><div className="section-shell"><div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><p className="section-kicker">Mẫu mới cập nhật</p><h2 className="section-title">Chọn mẫu. Chúng tôi giúp bạn biến nó thành của riêng.</h2></div><Link className="mcb-outline-button inline-flex min-h-12 items-center gap-2 self-start rounded-lg border border-slate-300 px-5 text-sm font-black hover:border-brand hover:text-brand" href="/san-pham/">Xem toàn bộ {catalog.totalDocs.toLocaleString('vi-VN')} mẫu <ArrowRight size={18} /></Link></div><div className="mt-10"><ProductGrid products={catalog.docs} /></div></div></section>
 
