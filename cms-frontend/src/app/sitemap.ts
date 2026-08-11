@@ -55,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${base}/thiet-ke-ao-bong-da-ngan-hang/`, priority: 0.82 },
       { url: `${base}/blog/`, lastModified: now, priority: 0.7 },
       ...categories
-        .filter((category) => category.legacyPath && (category.productCount || 0) > 0)
+        .filter((category) => category.legacyPath && category.legacyPath !== '/ao-bong-da-cong-ty-ngan-hang/' && (category.productCount || 0) > 0)
         .map((category) => ({
           url: `${base}${category.legacyPath}`,
           lastModified: now,
