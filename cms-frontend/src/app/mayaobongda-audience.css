@@ -234,9 +234,9 @@ body.tenant-mayaobongda .mabd-category-card:focus-visible {
 
 @media (max-width: 639px) {
   body.tenant-mayaobongda .football-bank-promo-hero [data-promo-hero-content] {
-    min-height: 1120px;
+    min-height: 920px;
     align-items: flex-start;
-    padding-top: clamp(28rem, 58vh, 34rem);
+    padding-top: clamp(15rem, 34vh, 20rem);
     padding-bottom: 3.5rem;
   }
 
@@ -248,8 +248,8 @@ body.tenant-mayaobongda .mabd-category-card:focus-visible {
 
   body.tenant-mayaobongda .football-bank-promo-hero [data-promo-hero-overlay] {
     background:
-      linear-gradient(90deg, rgba(3, 7, 18, .48) 0%, rgba(3, 7, 18, .24) 42%, rgba(3, 7, 18, .08) 100%),
-      linear-gradient(180deg, rgba(3, 7, 18, .08) 0%, rgba(3, 7, 18, .04) 30%, rgba(3, 7, 18, .74) 50%, rgba(3, 7, 18, .94) 100%);
+      linear-gradient(90deg, rgba(3, 7, 18, .42) 0%, rgba(3, 7, 18, .2) 42%, rgba(3, 7, 18, .06) 100%),
+      linear-gradient(180deg, rgba(3, 7, 18, .06) 0%, rgba(3, 7, 18, .08) 28%, rgba(3, 7, 18, .74) 42%, rgba(3, 7, 18, .96) 100%);
   }
 
   body.tenant-mayaobongda .football-audience-hero-note {
