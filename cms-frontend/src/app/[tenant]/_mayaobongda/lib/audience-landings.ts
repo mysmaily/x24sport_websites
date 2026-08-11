@@ -6,7 +6,7 @@ export type FootballAudienceLanding = {
   tagline?: string
   description: string
   heroImage: string
-  heroImages?: Array<{ src: string; alt: string }>
+  heroImages?: Array<{ src: string; mobileSrc?: string; alt: string }>
   heroAlt: string
   contexts: string[]
   problemTitle: string
@@ -150,6 +150,7 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
       },
       {
         src: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang-nu-v3.webp',
+        mobileSrc: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang-nu-mobile-v3.webp',
         alt: 'Nhóm nhân viên ngân hàng nữ trẻ mặc áo bóng đá trắng xanh viền cam có chữ BANK trên sân bóng cạnh tòa nhà tài chính',
       },
     ],

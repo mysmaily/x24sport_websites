@@ -53,7 +53,7 @@ function landingHeroSlides(landing: FootballAudienceLanding): TenantPromoHeroSli
   return (landing.heroImages || [{ src: landing.heroImage, alt: landing.heroAlt }]).map((image) => ({
     alt: image.alt,
     height: 1024,
-    mobileSrc: image.src,
+    mobileSrc: image.mobileSrc || image.src,
     src: image.src,
     width: 1536,
   }))
