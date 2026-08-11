@@ -93,25 +93,25 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
     metaDescription: 'Thiết kế áo bóng đá cho giải phong trào, giải sân 5, sân 7 và giải nội bộ: phối màu từng đội, bố trí logo và duyệt maket trước sản xuất.',
   },
   {
-    slug: 'ao-bong-da-cong-ty-ngan-hang',
-    categorySlug: 'ao-bong-da-cong-ty-ngan-hang',
-    categoryLabel: 'Áo công ty ngân hàng',
-    navLabel: 'Công ty & ngân hàng',
-    eyebrow: 'Áo bóng đá cho công ty & ngân hàng',
-    title: 'Tinh thần đồng đội bước ra khỏi văn phòng và vào sân bóng.',
-    description: 'Thiết kế áo bóng đá theo màu nhận diện, logo và tinh thần tổ chức cho giải nội bộ, hoạt động gắn kết và những trận đấu giao lưu giữa các đơn vị.',
-    heroImage: '/images/mayaobongda/audience-landings/cong-ty-ngan-hang.webp',
-    heroAlt: 'Đội bóng công ty Việt Nam mặc đồng phục xanh trắng trên sân bóng đô thị',
-    contexts: ['Giải bóng đá nội bộ', 'Giao lưu giữa các đơn vị', 'Team building thể thao'],
+    slug: 'thiet-ke-ao-bong-da-cong-ty',
+    categorySlug: 'ao-bong-da-cong-ty',
+    categoryLabel: 'Áo bóng đá công ty',
+    navLabel: 'Công ty',
+    eyebrow: 'Thiết kế áo bóng đá công ty',
+    title: 'Một bộ áo riêng cho tinh thần doanh nghiệp trên sân bóng.',
+    description: 'Thiết kế áo bóng đá theo màu thương hiệu, logo và tinh thần tập thể cho giải nội bộ, team building thể thao và những trận giao lưu giữa phòng ban.',
+    heroImage: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-cong-ty.webp',
+    heroAlt: 'Đội bóng công ty Việt Nam mặc áo thi đấu đỏ trắng trên sân bóng gần khu văn phòng',
+    contexts: ['Giải bóng đá nội bộ', 'Team building thể thao', 'Giao lưu giữa phòng ban'],
     problemTitle: 'Chiếc áo phải đủ thể thao để ra sân, đủ chỉn chu để đại diện cho tổ chức.',
-    problemText: 'Người phụ trách cần cân bằng màu thương hiệu, logo, sự thoải mái khi vận động và ý kiến của nhiều bên trước khi chốt một mẫu cho tập thể.',
+    problemText: 'Người phụ trách cần cân bằng màu thương hiệu, logo, sự thoải mái khi vận động và ý kiến của nhiều bên trước khi chốt một mẫu cho cả công ty.',
     challenges: [
       { title: 'Nhận diện cần đúng mực', text: 'Logo và màu thương hiệu phải dễ nhận ra nhưng vẫn hài hòa với một thiết kế áo thi đấu.' },
-      { title: 'Nhiều bên cùng góp ý', text: 'Bộ phận tổ chức, truyền thông và đại diện đội bóng cần nhìn thấy cùng một phương án để duyệt.' },
-      { title: 'Danh sách người mặc lớn', text: 'Size, tên và số áo của nhiều thành viên cần được tổng hợp theo một cấu trúc dễ kiểm tra.' },
+      { title: 'Nhiều phòng ban cùng góp ý', text: 'Bộ phận tổ chức, truyền thông và đại diện đội bóng cần nhìn thấy cùng một phương án để duyệt.' },
+      { title: 'Danh sách người mặc lớn', text: 'Size, tên và số áo của nhiều nhân sự cần được tổng hợp theo một cấu trúc dễ kiểm tra.' },
     ],
     benefits: [
-      { title: 'Bám sát nhận diện tổ chức', text: 'Màu sắc, logo và nội dung được bố trí trong một tổng thể chuyên nghiệp, dễ nhận ra.' },
+      { title: 'Bám sát nhận diện công ty', text: 'Màu sắc, logo và nội dung được bố trí trong một tổng thể chuyên nghiệp, dễ nhận ra.' },
       { title: 'Maket thuận tiện để duyệt', text: 'Phương án trực quan giúp các bên liên quan góp ý trên cùng một thiết kế trước khi chốt.' },
       { title: 'Sẵn sàng cho ngày thi đấu', text: 'Mẫu áo, số lượng và danh sách size được tập hợp qua một người phụ trách.' },
     ],
@@ -119,19 +119,60 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
     briefItems: ['Logo và màu nhận diện', 'Mục đích của hoạt động', 'Số đội hoặc số người tham gia', 'Danh sách size dự kiến', 'Tên, số hoặc nội dung cần in', 'Thời gian cần nhận áo'],
     processNote: 'Bạn có thể bắt đầu bằng logo, màu thương hiệu và mục đích chương trình. Đội ngũ sẽ cùng làm rõ phương án trước khi duyệt maket.',
     faq: [
-      { question: 'Có thể thiết kế theo bộ nhận diện của công ty hoặc ngân hàng không?', answer: 'Có. Bạn có thể gửi logo, mã màu, quy chuẩn sử dụng thương hiệu và hình ảnh tham khảo để trao đổi cách thể hiện phù hợp trên áo thi đấu.' },
+      { question: 'Có thể thiết kế theo bộ nhận diện của công ty không?', answer: 'Có. Bạn có thể gửi logo, mã màu, quy chuẩn sử dụng thương hiệu và hình ảnh tham khảo để trao đổi cách thể hiện phù hợp trên áo thi đấu.' },
       { question: 'Chưa chốt số lượng chính xác có trao đổi mẫu trước được không?', answer: 'Bạn có thể gửi số lượng dự kiến để bắt đầu định hướng mẫu. Số lượng và danh sách size cuối cùng vẫn cần được xác nhận trước khi sản xuất.' },
-      { question: 'Có thể phân biệt nhiều đội hoặc phòng ban không?', answer: 'Hãy cung cấp số đội, màu mong muốn và nội dung cần phân biệt. Đội ngũ sẽ trao đổi cách phối màu hoặc đặt tên phù hợp với hệ thống chung của chương trình.' },
+      { question: 'Có thể phân biệt nhiều phòng ban không?', answer: 'Hãy cung cấp số đội, màu mong muốn và nội dung cần phân biệt. Đội ngũ sẽ trao đổi cách phối màu hoặc đặt tên phù hợp với hệ thống chung của chương trình.' },
     ],
     ctaTitle: 'Đang chuẩn bị giải nội bộ hay một trận giao lưu?',
-    ctaText: 'Gửi logo, màu nhận diện, số lượng dự kiến và thời gian cần áo để bắt đầu trao đổi phương án.',
-    metaTitle: 'May Áo Bóng Đá Công Ty & Ngân Hàng Thiết Kế Riêng',
-    metaDescription: 'Thiết kế và may áo bóng đá cho công ty, ngân hàng, giải nội bộ và team building: phối màu nhận diện, thêm logo, tư vấn size, duyệt maket.',
+    ctaText: 'Gửi logo, màu nhận diện, số lượng dự kiến và thời gian cần áo để bắt đầu trao đổi phương án cho đội công ty.',
+    metaTitle: 'Thiết Kế Áo Bóng Đá Công Ty Theo Nhận Diện Riêng',
+    metaDescription: 'Thiết kế và may áo bóng đá công ty cho giải nội bộ, team building và giao lưu phòng ban: phối màu thương hiệu, thêm logo, tư vấn size.',
+  },
+  {
+    slug: 'thiet-ke-ao-bong-da-ngan-hang',
+    categorySlug: 'ao-bong-da-cong-ty-ngan-hang',
+    categoryLabel: 'Áo bóng đá ngân hàng',
+    navLabel: 'Ngân hàng',
+    eyebrow: 'Thiết kế áo bóng đá ngân hàng',
+    title: 'Chỉn chu như nhận diện thương hiệu. Linh hoạt như một đội bóng.',
+    description: 'Thiết kế áo bóng đá cho ngân hàng theo màu nhận diện, logo chi nhánh và tinh thần giải nội bộ, giúp đội hình nổi bật mà vẫn giữ sự chuyên nghiệp.',
+    heroImage: '/images/mayaobongda/audience-landings/thiet-ke-ao-bong-da-ngan-hang.webp',
+    heroAlt: 'Đội bóng ngân hàng Việt Nam mặc áo thi đấu xanh trắng trên sân bóng gần tòa nhà tài chính',
+    contexts: ['Giải ngân hàng nội bộ', 'Giao lưu giữa chi nhánh', 'Team building thể thao'],
+    problemTitle: 'Áo thi đấu ngân hàng cần nổi bật trên sân nhưng vẫn đúng tinh thần thương hiệu.',
+    problemText: 'Màu chủ đạo, logo, tên chi nhánh và quy chuẩn nhận diện cần được đặt vào một thiết kế thể thao có bố cục gọn, dễ duyệt và dễ sản xuất theo danh sách đông người.',
+    challenges: [
+      { title: 'Màu thương hiệu cần chính xác', text: 'Sắc độ áo và họa tiết phải giữ cảm giác quen thuộc của ngân hàng nhưng không làm mẫu áo bị nặng.' },
+      { title: 'Logo cần đặt đúng vai trò', text: 'Logo ngân hàng, chi nhánh, chương trình hoặc nhà tài trợ cần có thứ tự rõ ràng trên maket.' },
+      { title: 'Danh sách thường nhiều người', text: 'Size, tên số và đơn vị tham gia cần được gom thành bảng để giảm nhầm lẫn trước sản xuất.' },
+    ],
+    benefits: [
+      { title: 'Giữ tinh thần thương hiệu', text: 'Màu sắc, logo và các điểm nhấn được phát triển theo hướng chuyên nghiệp, dễ nhận diện.' },
+      { title: 'Dễ trình duyệt nội bộ', text: 'Maket thể hiện rõ mặt trước, mặt sau và vị trí nội dung để các bên cùng kiểm tra.' },
+      { title: 'Phù hợp giải nhiều chi nhánh', text: 'Có thể phân biệt đội, chi nhánh hoặc khu vực bằng màu phụ, tên đội và nội dung in.' },
+    ],
+    briefTitle: 'Sáu dữ liệu nên chuẩn bị khi đặt áo bóng đá ngân hàng.',
+    briefItems: ['Logo ngân hàng hoặc chi nhánh', 'Màu nhận diện cần ưu tiên', 'Tên giải hoặc chương trình', 'Số đội và số lượng người mặc', 'Danh sách size, tên và số', 'Ngày dự kiến cần nhận áo'],
+    processNote: 'Nếu cần trình duyệt nội bộ, hãy gửi trước quy chuẩn logo, màu nhận diện và thông tin chương trình để maket bám đúng yêu cầu ngay từ đầu.',
+    faq: [
+      { question: 'Có thể thiết kế theo màu nhận diện ngân hàng không?', answer: 'Có. Bạn có thể gửi logo, mã màu hoặc hình ảnh nhận diện hiện có để trao đổi cách phối lên áo thi đấu.' },
+      { question: 'Nhiều chi nhánh muốn phân biệt đội thì làm thế nào?', answer: 'Có thể dùng màu phụ, tên đội, tên chi nhánh hoặc chi tiết đồ họa riêng trong cùng một hệ thống thiết kế chung.' },
+      { question: 'Có hỗ trợ tổng hợp tên số cho đội đông người không?', answer: 'Người phụ trách nên gửi bảng tên, số và size. Thông tin này sẽ được rà soát cùng maket trước khi xác nhận sản xuất.' },
+    ],
+    ctaTitle: 'Đang chuẩn bị giải bóng đá cho ngân hàng?',
+    ctaText: 'Gửi logo, màu nhận diện, tên chương trình, số đội và thời gian cần áo để bắt đầu phát triển maket.',
+    metaTitle: 'Thiết Kế Áo Bóng Đá Ngân Hàng Theo Nhận Diện Riêng',
+    metaDescription: 'Thiết kế và may áo bóng đá ngân hàng cho giải nội bộ, giao lưu chi nhánh và team building: phối màu nhận diện, thêm logo, duyệt maket.',
   },
 ]
 
+const FOOTBALL_AUDIENCE_LANDING_ALIASES: Record<string, string> = {
+  'ao-bong-da-cong-ty-ngan-hang': 'thiet-ke-ao-bong-da-ngan-hang',
+}
+
 export function getFootballAudienceLanding(slug: string) {
-  const landing = FOOTBALL_AUDIENCE_LANDINGS.find((item) => item.slug === slug)
+  const resolvedSlug = FOOTBALL_AUDIENCE_LANDING_ALIASES[slug] || slug
+  const landing = FOOTBALL_AUDIENCE_LANDINGS.find((item) => item.slug === resolvedSlug)
   if (!landing) throw new Error(`Unknown football audience landing: ${slug}`)
   return landing
 }

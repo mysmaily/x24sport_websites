@@ -51,7 +51,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${base}/bang-gia-may-ao-bong-da/`, priority: 0.82 },
       { url: `${base}/ao-bong-da-doi-bong-cau-lac-bo/`, priority: 0.82 },
       { url: `${base}/ao-bong-da-giai-phong-trao/`, priority: 0.82 },
-      { url: `${base}/ao-bong-da-cong-ty-ngan-hang/`, priority: 0.82 },
+      { url: `${base}/thiet-ke-ao-bong-da-cong-ty/`, priority: 0.82 },
+      { url: `${base}/thiet-ke-ao-bong-da-ngan-hang/`, priority: 0.82 },
       { url: `${base}/blog/`, lastModified: now, priority: 0.7 },
       ...categories
         .filter((category) => category.legacyPath && (category.productCount || 0) > 0)
@@ -155,7 +156,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${base}/bang-gia-may-ao-bong-da/`, priority: .82 },
       { url: `${base}/ao-bong-da-doi-bong-cau-lac-bo/`, priority: .82 },
       { url: `${base}/ao-bong-da-giai-phong-trao/`, priority: .82 },
-      { url: `${base}/ao-bong-da-cong-ty-ngan-hang/`, priority: .82 },
+      { url: `${base}/thiet-ke-ao-bong-da-cong-ty/`, priority: .82 },
+      { url: `${base}/thiet-ke-ao-bong-da-ngan-hang/`, priority: .82 },
     ] : []),
     ...(tenant.slug === 'mayaobongchuyen' ? [{ url: `${base}/bang-gia-may-ao-bong-chuyen/`, priority: .82 }] : []),
     ...(tenant.slug === 'mayaobongro' ? [{ url: `${base}/bang-gia-may-ao-bong-ro/`, priority: .82 }] : []),

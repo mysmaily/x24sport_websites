@@ -49,7 +49,7 @@ body.tenant-mayaobongda .football-audience-final {
 }
 
 body.tenant-mayaobongda .mabd-home-audience-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 body.tenant-mayaobongda .mabd-home-audience-grid > li > a {
@@ -151,6 +151,10 @@ body.tenant-mayaobongda .mabd-category-card:focus-visible {
 }
 
 @media (min-width: 640px) {
+  body.tenant-mayaobongda .mabd-home-audience-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   body.tenant-mayaobongda .mabd-category-card {
     min-height: 240px;
   }

@@ -139,7 +139,8 @@ export function SiteHeader() {
               {[
                 { href: '/ao-bong-da-doi-bong-cau-lac-bo/', label: 'Đội bóng & câu lạc bộ' },
                 { href: '/ao-bong-da-giai-phong-trao/', label: 'Giải phong trào' },
-                { href: '/ao-bong-da-cong-ty-ngan-hang/', label: 'Công ty & ngân hàng' },
+                { href: '/thiet-ke-ao-bong-da-cong-ty/', label: 'Công ty' },
+                { href: '/thiet-ke-ao-bong-da-ngan-hang/', label: 'Ngân hàng' },
               { href: '/chat-lieu-vai/', label: 'Chất liệu & bảng size' },
               { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá may áo' },
             ].map((item) => <Link className="group flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 text-sm font-extrabold shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={productsOpen ? 0 : -1}><span>{item.label}</span></Link>)}
@@ -165,7 +166,8 @@ export function SiteHeader() {
             <div className="grid gap-2 sm:grid-cols-3">{[
               { href: '/ao-bong-da-doi-bong-cau-lac-bo/', label: 'Đội bóng & CLB' },
               { href: '/ao-bong-da-giai-phong-trao/', label: 'Giải phong trào' },
-              { href: '/ao-bong-da-cong-ty-ngan-hang/', label: 'Công ty & ngân hàng' },
+              { href: '/thiet-ke-ao-bong-da-cong-ty/', label: 'Công ty' },
+              { href: '/thiet-ke-ao-bong-da-ngan-hang/', label: 'Ngân hàng' },
             ].map((item) => <Link className="flex min-h-12 items-center rounded-lg border border-white/10 px-3 text-xs font-extrabold hover:border-brand/60" href={item.href} key={item.href} tabIndex={open ? 0 : -1}>{item.label}</Link>)}</div>
           </section>
           <section className="rounded-xl border border-white/10 bg-white/[.04] p-3">

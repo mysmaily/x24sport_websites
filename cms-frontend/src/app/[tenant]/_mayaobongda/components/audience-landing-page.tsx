@@ -26,7 +26,8 @@ import { canonical, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '../lib/site'
 const audienceIcons = {
   'ao-bong-da-doi-bong-cau-lac-bo': UsersRound,
   'ao-bong-da-giai-phong-trao': Trophy,
-  'ao-bong-da-cong-ty-ngan-hang': Building2,
+  'thiet-ke-ao-bong-da-cong-ty': Building2,
+  'thiet-ke-ao-bong-da-ngan-hang': Building2,
 }
 
 const benefitIcons = [Palette, ClipboardCheck, BadgeCheck]
@@ -59,10 +60,15 @@ function landingHeroSlide(landing: FootballAudienceLanding): TenantPromoHeroSlid
 
 export async function FootballAudienceLandingPage({ landing, page = 1 }: { landing: FootballAudienceLanding; page?: number }) {
   const currentPage = Math.max(1, page)
-  const isCorporateBankLanding = landing.slug === 'ao-bong-da-cong-ty-ngan-hang'
+  const isBusinessLanding = landing.slug === 'thiet-ke-ao-bong-da-cong-ty' || landing.slug === 'thiet-ke-ao-bong-da-ngan-hang'
+  const productHeading = landing.slug === 'thiet-ke-ao-bong-da-ngan-hang'
+    ? 'Mẫu áo bóng đá ngân hàng.'
+    : landing.slug === 'thiet-ke-ao-bong-da-cong-ty'
+      ? 'Mẫu áo bóng đá công ty.'
+      : 'Mẫu áo có thể phát triển theo nhu cầu này.'
   const categoryCatalog = landing.categorySlug ? await getProducts({ page: currentPage, limit: LANDING_PRODUCT_LIMIT, categorySlug: landing.categorySlug }) : null
   const emptyCatalog = { docs: [], totalDocs: 0, totalPages: 0, page: 1, hasNextPage: false }
-  const catalog = categoryCatalog?.docs.length ? categoryCatalog : isCorporateBankLanding ? (categoryCatalog || emptyCatalog) : await getProducts({ page: currentPage, limit: LANDING_PRODUCT_LIMIT })
+  const catalog = categoryCatalog?.docs.length ? categoryCatalog : isBusinessLanding ? (categoryCatalog || emptyCatalog) : await getProducts({ page: currentPage, limit: LANDING_PRODUCT_LIMIT })
   const category = landing.categorySlug ? await getProductCategory(landing.categorySlug) : null
   const categoryLabel = landing.categoryLabel || category?.name || landing.navLabel
   const categoryPath = category?.legacyPath || `/${landing.slug}/`
@@ -106,10 +112,10 @@ export async function FootballAudienceLandingPage({ landing, page = 1 }: { landi
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="section-kicker">{categoryLabel}</p>
-            <h2 className="section-title">{isCorporateBankLanding ? 'Mẫu áo bóng đá công ty, ngân hàng.' : 'Mẫu áo có thể phát triển theo nhu cầu này.'}</h2>
+            <h2 className="section-title">{productHeading}</h2>
             <p className="section-lead">Chọn một mẫu gần đúng để làm điểm xuất phát. Màu sắc, logo, tên số và nội dung in có thể tiếp tục điều chỉnh theo đội.</p>
           </div>
-          <Link className="inline-flex min-h-12 items-center gap-2 self-start rounded-lg border border-slate-300 px-5 text-sm font-black transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={categoryPath}>{isCorporateBankLanding ? 'Xem danh mục' : 'Xem landing từ đầu'} <ArrowRight aria-hidden="true" size={18} /></Link>
+          <Link className="inline-flex min-h-12 items-center gap-2 self-start rounded-lg border border-slate-300 px-5 text-sm font-black transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={categoryPath}>{isBusinessLanding && category ? 'Xem danh mục' : 'Xem landing từ đầu'} <ArrowRight aria-hidden="true" size={18} /></Link>
         </div>
         <div className="mb-2 mt-6 flex justify-between border-t border-slate-200 pt-3 text-xs text-slate-600">
           <span><b className="text-brand">{catalog.totalDocs.toLocaleString('vi-VN')}</b> mẫu phù hợp</span>
@@ -136,7 +142,7 @@ export async function FootballAudienceLandingPage({ landing, page = 1 }: { landi
     </>
   }
 
-  if (isCorporateBankLanding) {
+  if (isBusinessLanding) {
     return <>
       <JsonLd data={{
         '@context': 'https://schema.org',

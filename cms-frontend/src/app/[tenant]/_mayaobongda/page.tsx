@@ -25,7 +25,8 @@ const commitments = [
 const audiences = [
   { href: '/ao-bong-da-doi-bong-cau-lac-bo/', icon: UsersRound, label: 'Đội bóng & câu lạc bộ', text: 'Thi đấu · tập luyện · giao hữu' },
   { href: '/ao-bong-da-giai-phong-trao/', icon: Trophy, label: 'Giải phong trào', text: 'Đồng phục giải · kỷ niệm đội hình' },
-  { href: '/ao-bong-da-cong-ty-ngan-hang/', icon: ShieldCheck, label: 'Công ty & ngân hàng', text: 'Giải nội bộ · team building' },
+  { href: '/thiet-ke-ao-bong-da-cong-ty/', icon: ShieldCheck, label: 'Công ty', text: 'Giải nội bộ · team building' },
+  { href: '/thiet-ke-ao-bong-da-ngan-hang/', icon: ShieldCheck, label: 'Ngân hàng', text: 'Giao lưu chi nhánh · giải nội bộ' },
 ]
 
 const heroSlides: TenantPromoHeroSlide[] = [
@@ -57,7 +58,7 @@ export default async function HomePage() {
           <h1 className="mt-4 max-w-[760px] font-display text-[2.65rem] font-extrabold leading-[.9] tracking-[.012em] sm:mt-7 sm:text-[4.75rem] lg:text-[clamp(4.4rem,5.25vw,6.15rem)]">ÁO BÓNG ĐÁ<br /><span className="text-brand">THIẾT KẾ RIÊNG</span></h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:mt-5 sm:text-lg sm:leading-7">Chọn mẫu, chỉnh màu, logo, tên số và nội dung theo đúng nhận diện đội bóng hoặc giải đấu.</p>
 
-          <ul className="mabd-home-audience-grid mt-4 grid grid-cols-3 gap-1.5 sm:mt-6 sm:gap-2" aria-label="Doi tuong khach hang chinh">
+          <ul className="mabd-home-audience-grid mt-4 grid grid-cols-2 gap-1.5 sm:mt-6 sm:grid-cols-4 sm:gap-2" aria-label="Doi tuong khach hang chinh">
             {audiences.map(({ href, icon: Icon, label, text }) => <li className="min-w-0" key={label}><Link className="group block h-full rounded-lg border border-white/10 bg-white/[.055] p-2.5 backdrop-blur transition duration-200 hover:-translate-y-0.5 hover:border-brand/50 hover:bg-white/[.085] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:rounded-xl sm:p-3.5" href={href}><Icon className="text-brand" size={20} /><strong className="mt-2 flex items-center gap-1 text-[11px] font-black leading-4 text-white sm:mt-3 sm:text-sm">{label}<ArrowRight className="hidden opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-100 sm:block" size={14} /></strong><span className="mt-1 hidden text-[11px] leading-4 text-slate-400 sm:block">{text}</span></Link></li>)}
           </ul>
 
