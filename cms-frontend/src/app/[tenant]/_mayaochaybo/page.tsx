@@ -60,8 +60,8 @@ const heroSlides: TenantPromoHeroSlide[] = [
 
 const categoryVisuals = [
   {
-    accent: '#f15a24',
-    accentRgb: '241 90 36',
+    accent: '#d91a30',
+    accentRgb: '217 26 48',
     image: '/images/mayaochaybo/images/audience-landings/doi-nhom-viet-nam-running-club.webp',
     label: 'Tinh thần Việt Nam',
     match: ['co do', 'sao vang', 'viet nam'],
@@ -84,8 +84,8 @@ const categoryVisuals = [
     position: 'center',
   },
   {
-    accent: '#f15a24',
-    accentRgb: '241 90 36',
+    accent: '#d91a30',
+    accentRgb: '217 26 48',
     image: '/images/mayaochaybo/images/audience-landings/doanh-nghiep-finisher-team.webp',
     label: 'Thiết kế riêng',
     match: ['thiet ke rieng', 'custom'],
