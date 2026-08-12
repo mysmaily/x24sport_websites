@@ -85,7 +85,7 @@ export async function ProductDetailPage({
       <JsonLd data={productSchema} />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems.map((item, index) => ({ '@type': 'ListItem', position: index + 1, ...item })) }} />
       <article className="mcb-product-detail section-shell pb-12 sm:pb-18">
-        <nav className="mcb-product-breadcrumb flex gap-2 overflow-hidden py-3 text-xs text-slate-500 sm:py-4" aria-label="Đường dẫn"><Link className="shrink-0 hover:text-brand" href="/">Trang chủ</Link><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={catalogHref}>Mẫu áo</Link>{breadcrumbCategory ? <><span className="hidden shrink-0 sm:inline">/</span><Link className="hidden shrink-0 hover:text-brand sm:inline" href={categoryPath(breadcrumbCategory)}>{breadcrumbCategory.name}</Link></> : null}<span className="shrink-0">/</span><span className="truncate text-slate-700">{product.name}</span></nav>
+        <nav className="mcb-product-breadcrumb flex flex-nowrap items-baseline gap-1.5 overflow-hidden py-3 text-xs text-slate-500 sm:py-4" aria-label="Đường dẫn"><Link className="shrink-0 hover:text-brand" href="/">Trang chủ</Link><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={catalogHref}>Mẫu áo</Link>{breadcrumbCategory ? <><span className="hidden shrink-0 sm:inline">/</span><Link className="hidden shrink-0 hover:text-brand sm:inline" href={categoryPath(breadcrumbCategory)}>{breadcrumbCategory.name}</Link></> : null}<span className="shrink-0">/</span><span className="truncate text-slate-700">{product.name}</span></nav>
         <h1 className="mcb-product-title line-clamp-2 pb-3 font-display text-[22px] font-bold leading-[1.08] tracking-tight text-slate-950 sm:pb-4 lg:text-[28px]">{product.name}</h1>
 
         <div className="mcb-product-shell grid gap-4 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
@@ -95,7 +95,7 @@ export async function ProductDetailPage({
 
           <div className="mcb-product-side flex flex-col gap-4">
             <section className="mcb-product-summary-box rounded-xl bg-white p-4 shadow-[0_1px_0_rgba(15,23,42,.08)] sm:p-5">
-            {hasPrice ? <p className="text-sm font-bold text-slate-600">Giá tham khảo <strong className="ml-1 text-xl text-brand">{product.price!.toLocaleString('vi-VN')} ₫</strong></p> : <p className="text-sm font-bold text-slate-600">Mẫu tham khảo, nhận báo giá theo số lượng</p>}
+            {hasPrice ? <div className="mcb-product-price"><p className="text-xs font-bold uppercase tracking-[.08em] text-slate-400">Giá tham khảo từ</p><p className="mt-1 text-[1.65rem] font-extrabold leading-none text-brand">{product.price!.toLocaleString('vi-VN')} ₫</p></div> : <p className="text-sm font-bold text-slate-600">Mẫu tham khảo, nhận báo giá theo số lượng</p>}
             {product.shortDescription ? <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">{product.shortDescription}</p> : null}
 
             <div className="mt-4 grid grid-cols-2 gap-2">

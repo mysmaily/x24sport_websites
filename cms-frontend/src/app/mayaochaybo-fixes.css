@@ -60,6 +60,7 @@ body.tenant-mayaochaybo .mcb-product-detail {
 }
 
 body.tenant-mayaochaybo .mcb-product-breadcrumb {
+  flex-wrap: nowrap;
   padding-top: .65rem;
   padding-bottom: .45rem;
 }
@@ -89,6 +90,11 @@ body.tenant-mayaochaybo .mcb-product-summary-box,
 body.tenant-mayaochaybo .mcb-process-box,
 body.tenant-mayaochaybo .mcb-interest-box {
   border: 0;
+}
+
+body.tenant-mayaochaybo .mcb-product-price {
+  padding-bottom: .25rem;
+  border-bottom: 1px solid #f1f5f9;
 }
 
 body.tenant-mayaochaybo .mcb-interest-box {
