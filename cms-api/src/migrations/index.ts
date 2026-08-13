@@ -11,6 +11,8 @@ import * as migration_20260720_120000_media_shared_tenants from './20260720_1200
 import * as migration_20260722_120000_product_views from './20260722_120000_product_views';
 import * as migration_20260722_150000_product_view_count from './20260722_150000_product_view_count';
 import * as migration_20260722_180000_store_settings_meta_pixel from './20260722_180000_store_settings_meta_pixel';
+import * as migration_20260727_090000_store_settings_telegram_chat_id from './20260727_090000_store_settings_telegram_chat_id';
+import * as migration_20260813_020000_store_settings_custom_scripts from './20260813_020000_store_settings_custom_scripts';
 
 export const migrations = [
   {
@@ -77,5 +79,15 @@ export const migrations = [
     up: migration_20260722_180000_store_settings_meta_pixel.up,
     down: migration_20260722_180000_store_settings_meta_pixel.down,
     name: '20260722_180000_store_settings_meta_pixel'
+  },
+  {
+    up: migration_20260727_090000_store_settings_telegram_chat_id.up,
+    down: migration_20260727_090000_store_settings_telegram_chat_id.down,
+    name: '20260727_090000_store_settings_telegram_chat_id'
+  },
+  {
+    up: migration_20260813_020000_store_settings_custom_scripts.up,
+    down: migration_20260813_020000_store_settings_custom_scripts.down,
+    name: '20260813_020000_store_settings_custom_scripts'
   },
 ];

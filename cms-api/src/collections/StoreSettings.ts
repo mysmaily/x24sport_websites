@@ -74,6 +74,51 @@ export const StoreSettings: CollectionConfig = {
             description: 'Meta Pixel ID dạng số để frontend ghi nhận PageView.',
           },
         },
+        {
+          name: 'customScripts',
+          type: 'array',
+          admin: {
+            description: 'Thêm mã HTML/JS như Google Tag, Meta Pixel, TikTok Pixel hoặc thẻ xác minh. Chỉ quản trị viên đáng tin cậy nên chỉnh mục này.',
+          },
+          fields: [
+            {
+              name: 'label',
+              type: 'text',
+              required: true,
+              admin: {
+                description: 'Tên nội bộ để nhận biết đoạn mã, ví dụ: Google Tag, Meta Pixel, TikTok Pixel.',
+              },
+            },
+            {
+              name: 'enabled',
+              type: 'checkbox',
+              defaultValue: true,
+            },
+            {
+              name: 'position',
+              type: 'select',
+              required: true,
+              defaultValue: 'bodyEnd',
+              options: [
+                { label: 'Trong thẻ <head>', value: 'head' },
+                { label: 'Ngay sau khi mở <body>', value: 'bodyStart' },
+                { label: 'Cuối thẻ <body>', value: 'bodyEnd' },
+              ],
+              admin: {
+                description: 'Chọn đúng vị trí theo hướng dẫn của nền tảng cung cấp mã.',
+              },
+            },
+            {
+              name: 'code',
+              type: 'textarea',
+              required: true,
+              admin: {
+                rows: 12,
+                description: 'Dán nguyên đoạn mã HTML/JS do nền tảng cung cấp.',
+              },
+            },
+          ],
+        },
       ],
     },
     {

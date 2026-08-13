@@ -8,6 +8,13 @@ type StoreSettings = {
     gaMeasurementId?: string
     metaPixelEnabled?: boolean
     metaPixelId?: string
+    customScripts?: Array<{
+      id?: string
+      label?: string
+      enabled?: boolean
+      position?: 'head' | 'bodyStart' | 'bodyEnd'
+      code?: string
+    }>
   }
 }
 

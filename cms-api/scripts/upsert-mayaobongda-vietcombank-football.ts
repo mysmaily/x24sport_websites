@@ -229,7 +229,7 @@ async function main() {
               sourceChecksum: checksum,
             }),
           )
-          form.set('file', new File([hero], `${PRODUCT_SLUG}.webp`, { type: 'image/webp' }))
+          form.set('file', new File([new Uint8Array(hero)], `${PRODUCT_SLUG}.webp`, { type: 'image/webp' }))
           return form
         })(),
       }),

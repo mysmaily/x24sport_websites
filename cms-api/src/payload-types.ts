@@ -592,6 +592,27 @@ export interface StoreSetting {
      * Meta Pixel ID dạng số để frontend ghi nhận PageView.
      */
     metaPixelId?: string | null;
+    /**
+     * Thêm mã HTML/JS như Google Tag, Meta Pixel, TikTok Pixel hoặc thẻ xác minh. Chỉ quản trị viên đáng tin cậy nên chỉnh mục này.
+     */
+    customScripts?:
+      | {
+          /**
+           * Tên nội bộ để nhận biết đoạn mã, ví dụ: Google Tag, Meta Pixel, TikTok Pixel.
+           */
+          label: string;
+          enabled?: boolean | null;
+          /**
+           * Chọn đúng vị trí theo hướng dẫn của nền tảng cung cấp mã.
+           */
+          position: 'head' | 'bodyStart' | 'bodyEnd';
+          /**
+           * Dán nguyên đoạn mã HTML/JS do nền tảng cung cấp.
+           */
+          code: string;
+          id?: string | null;
+        }[]
+      | null;
   };
   navigation?:
     | {
@@ -1038,6 +1059,15 @@ export interface StoreSettingsSelect<T extends boolean = true> {
         dailyTelegramReportEnabled?: T;
         metaPixelEnabled?: T;
         metaPixelId?: T;
+        customScripts?:
+          | T
+          | {
+              label?: T;
+              enabled?: T;
+              position?: T;
+              code?: T;
+              id?: T;
+            };
       };
   navigation?:
     | T
