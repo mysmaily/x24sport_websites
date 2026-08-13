@@ -1,5 +1,6 @@
 import { LoaderCircle } from 'lucide-react'
 import type { ReactNode } from 'react'
+import { preload } from 'react-dom'
 
 import styles from './tenant-promo-hero.module.css'
 
@@ -19,6 +20,22 @@ type TenantPromoHeroProps = {
 }
 
 export function TenantPromoHero({ ariaLabel, children, className, slides }: TenantPromoHeroProps) {
+  const firstSlide = slides[0]
+  if (firstSlide) {
+    preload(firstSlide.mobileSrc, {
+      as: 'image',
+      fetchPriority: 'high',
+      media: '(max-width: 1023px)',
+      type: 'image/webp',
+    })
+    preload(firstSlide.src, {
+      as: 'image',
+      fetchPriority: 'high',
+      media: '(min-width: 1024px)',
+      type: 'image/webp',
+    })
+  }
+
   return (
     <section className={`${styles.banner}${className ? ` ${className}` : ''}`}>
       <div aria-label={ariaLabel} className={styles.slider} data-count={slides.length} data-promo-hero-slider role="group">

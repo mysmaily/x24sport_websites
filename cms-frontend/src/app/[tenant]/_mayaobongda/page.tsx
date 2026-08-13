@@ -103,7 +103,7 @@ export default async function HomePage() {
           </div>
           <Link className="inline-flex min-h-11 items-center gap-2 self-start rounded-lg border border-slate-300 px-4 text-sm font-black hover:border-brand hover:text-brand sm:min-h-12 sm:px-5" href="/san-pham/">Xem {catalog.totalDocs.toLocaleString('vi-VN')} mẫu <ArrowRight size={18} /></Link>
         </div>
-        <div className="mt-6 sm:mt-10"><ProductGrid products={catalog.docs} /></div>
+        <div className="mt-6 sm:mt-10"><ProductGrid priorityImages={false} products={catalog.docs} /></div>
 
         <div className="mabd-product-next mt-7 grid gap-3 rounded-2xl border border-slate-200 bg-[#f8fafc] p-4 sm:mt-10 sm:p-5 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] lg:items-center">
           <div>
