@@ -38,6 +38,7 @@ export async function ProductDetailPage({
   const images = getProductImages(product)
   const productPath = `/san-pham/${product.slug}/`
   const showInterestForm = await hasProductInterestForm()
+  const isUnavailable = product.stockStatus === 'outofstock'
   const breadcrumbCategory = productBreadcrumbCategory(product)
   const breadcrumbItems = [
     { name: 'Trang chủ', item: canonical('/') },
@@ -55,7 +56,7 @@ export async function ProductDetailPage({
         productId={product.id}
         tenantSlug="mayaobongro"
       />
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Product', name: product.name, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productPath), brand: { '@type': 'Brand', name: 'May Áo Bóng Rổ' } }} />
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Product', name: product.name, description: excerpt(product.shortDescription || product.name, 300), image: images.map((item) => item.url), url: canonical(productPath), brand: { '@type': 'Brand', name: 'May Áo Bóng Rổ' }, offers: { '@type': 'Offer', availability: isUnavailable ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', price: product.price || undefined, priceCurrency: product.price ? 'VND' : undefined, url: canonical(productPath) } }} />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems.map((item, index) => ({ '@type': 'ListItem', position: index + 1, ...item })) }} />
       <article className="section-shell pb-16 sm:pb-22">
         <nav className="flex gap-2 overflow-hidden py-5 text-xs text-slate-500" aria-label="Đường dẫn"><Link className="shrink-0 hover:text-brand" href="/">Trang chủ</Link><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href="/san-pham/">Sản Phẩm</Link>{breadcrumbCategory ? <><span className="shrink-0">/</span><Link className="shrink-0 hover:text-brand" href={categoryPath(breadcrumbCategory)}>{breadcrumbCategory.name}</Link></> : null}<span className="shrink-0">/</span><span className="truncate text-slate-700">{product.name}</span></nav>
@@ -66,6 +67,12 @@ export async function ProductDetailPage({
 
           <div className="flex flex-col p-6 sm:p-9 lg:p-12">
             <p className="section-kicker">{isLogo ? 'Mẫu logo team bóng rổ' : 'Mẫu đồng phục bóng rổ'}</p>
+            {isUnavailable ? (
+              <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm leading-6 text-slate-700">
+                <b className="block text-base text-slate-950">Mẫu này đã ngừng bán.</b>
+                <p className="mt-1">Bạn vẫn có thể gửi mẫu để tham khảo hướng thiết kế tương tự cho đội.</p>
+              </div>
+            ) : null}
             {product.shortDescription ? <p className="mt-5 text-base leading-7 text-slate-600">{product.shortDescription}</p> : null}
 
             <div className="mt-8 grid gap-3 rounded-2xl bg-orange-50 p-5 text-sm text-slate-700">
@@ -77,7 +84,7 @@ export async function ProductDetailPage({
             </div>
 
             <div className="mt-auto grid gap-3 pt-8">
-              <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={19} /> Gửi mẫu này qua Zalo</a>
+              <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={19} /> {isUnavailable ? 'Hỏi mẫu tương tự qua Zalo' : 'Gửi mẫu này qua Zalo'}</a>
               <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 px-5 text-sm font-black text-slate-950 transition hover:border-brand hover:text-brand" href={`tel:${PHONE_VALUE}`}><Phone size={18} /> Gọi {PHONE_DISPLAY}</a>
             </div>
             {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={canonical(productPath)} variant="utility" /> : null}

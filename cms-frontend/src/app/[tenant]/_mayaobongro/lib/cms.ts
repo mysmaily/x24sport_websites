@@ -17,6 +17,7 @@ export type Product = {
   id: number
   name: string
   slug: string
+  stockStatus?: 'instock' | 'outofstock' | 'onbackorder' | null
   price?: number | null
   compareAtPrice?: number | null
   legacyPath?: string | null
@@ -143,12 +144,13 @@ export async function getProducts({
   const params = new URLSearchParams({
     'where[and][0][tenant][equals]': String(tenant.id),
     'where[and][1][publicationStatus][equals]': 'publish',
+    'where[and][2][stockStatus][not_equals]': 'outofstock',
     limit: String(limit),
     page: String(page),
     depth: '1',
     sort: '-sourceModifiedAt',
   })
-  let conditionIndex = 2
+  let conditionIndex = 3
   if (category) {
     params.set(`where[and][${conditionIndex}][categories][equals]`, String(category.id))
     conditionIndex += 1
@@ -260,6 +262,7 @@ export async function getAllCanonicalRoutes() {
       const params = new URLSearchParams({
         'where[and][0][tenant][equals]': String(tenant.id),
         'where[and][1][publicationStatus][equals]': 'publish',
+        ...(collection === 'products' ? { 'where[and][2][stockStatus][not_equals]': 'outofstock' } : {}),
         limit: '100',
         page: String(page),
         depth: '0',
