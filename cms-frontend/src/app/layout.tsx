@@ -130,6 +130,14 @@ function getMetaPixelId(analytics: Awaited<ReturnType<typeof getAnalyticsSetting
   return /^\d{5,32}$/.test(pixelId) ? pixelId : null
 }
 
+function getGoogleTagManagerId(tenantSlug: string) {
+  const tagManagerIds: Record<string, string> = {
+    mayaochaybo: 'GTM-MLGXWKRS',
+  }
+  const tagManagerId = tagManagerIds[tenantSlug]?.trim()
+  return /^GTM-[A-Z0-9]+$/.test(tagManagerId) ? tagManagerId : null
+}
+
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const tenant = await getTenantContext()
   const analytics = await getAnalyticsSettings()
@@ -138,6 +146,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       ? analytics.gaMeasurementId.trim()
       : null
   const metaPixelId = getMetaPixelId(analytics)
+  const googleTagManagerId = getGoogleTagManagerId(tenant.slug)
 
-  return <html className={`${pickleballBodyFont.variable} ${pickleballDisplayFont.variable} ${tenantHeadingFont.variable} ${tenantBodyFont.variable}`} lang="vi"><head><link rel="preconnect" href="https://static.x24sport.vn" crossOrigin="anonymous" /><link rel="preconnect" href="https://cdn.x24sport.vn" crossOrigin="anonymous" /></head><body className={`tenant-${tenant.slug}`}>{measurementId ? <><Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" /><Script id="ga4-tag" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${measurementId}');`}</Script></> : null}{metaPixelId ? <><Script id="meta-pixel" strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', ${JSON.stringify(metaPixelId)}); fbq('track', 'PageView');`}</Script><noscript><img alt="" height="1" src={`https://www.facebook.com/tr?id=${encodeURIComponent(metaPixelId)}&ev=PageView&noscript=1`} style={{ display: 'none' }} width="1" /></noscript></> : null}{children}</body></html>
+  return <html className={`${pickleballBodyFont.variable} ${pickleballDisplayFont.variable} ${tenantHeadingFont.variable} ${tenantBodyFont.variable}`} lang="vi"><head><link rel="preconnect" href="https://static.x24sport.vn" crossOrigin="anonymous" /><link rel="preconnect" href="https://cdn.x24sport.vn" crossOrigin="anonymous" />{googleTagManagerId ? <Script id="google-tag-manager" strategy="afterInteractive">{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${googleTagManagerId}');`}</Script> : null}</head><body className={`tenant-${tenant.slug}`}>{googleTagManagerId ? <noscript><iframe height="0" src={`https://www.googletagmanager.com/ns.html?id=${encodeURIComponent(googleTagManagerId)}`} style={{ display: 'none', visibility: 'hidden' }} width="0" /></noscript> : null}{measurementId ? <><Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" /><Script id="ga4-tag" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${measurementId}');`}</Script></> : null}{metaPixelId ? <><Script id="meta-pixel" strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', ${JSON.stringify(metaPixelId)}); fbq('track', 'PageView');`}</Script><noscript><img alt="" height="1" src={`https://www.facebook.com/tr?id=${encodeURIComponent(metaPixelId)}&ev=PageView&noscript=1`} style={{ display: 'none' }} width="1" /></noscript></> : null}{children}</body></html>
 }
