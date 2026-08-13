@@ -375,6 +375,7 @@ export async function getAllProductPaths() {
   try {
     const params = new URLSearchParams({
       'where[tenant.slug][equals]': tenantSlug, 'where[publicationStatus][equals]': 'publish',
+      'where[stockStatus][not_equals]': 'outofstock',
       depth: '0', limit: '100',
     })
     return await fetchAllDocs<Pick<CmsProduct, 'slug' | 'legacyPath' | 'sourceModifiedAt'>>('products', params)
