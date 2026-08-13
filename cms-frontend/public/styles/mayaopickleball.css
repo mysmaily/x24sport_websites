@@ -1,0 +1,6009 @@
+/* Scoped MayaoPickleball tenant styles. Source: mayaopickleball.vn/src/app/styles.css */
+body.tenant-mayaopickleball {
+  --ink: #10131a;
+  --ink-soft: #2b3340;
+  --muted: #647084;
+  --paper: #f5f7f4;
+  --paper-strong: #ffffff;
+  --line: #d8dfd8;
+  --accent: #2e7d32;
+  --accent-dark: #1b5e20;
+  --court: #1b5e20;
+  --court-soft: #dcedc8;
+  --night: #11151d;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --shadow: 0 24px 70px rgba(34, 48, 40, 0.12);
+}
+
+body.tenant-mayaopickleball * {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body.tenant-mayaopickleball {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+body.tenant-mayaopickleball a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body.tenant-mayaopickleball button, body.tenant-mayaopickleball input, body.tenant-mayaopickleball textarea {
+  font: inherit;
+}
+
+body.tenant-mayaopickleball img {
+  display: block;
+  max-width: 100%;
+}
+
+body.tenant-mayaopickleball :focus-visible {
+  outline: 3px solid rgba(46, 125, 50, 0.42);
+  outline-offset: 4px;
+}
+
+body.tenant-mayaopickleball .site-page {
+  min-height: 100dvh;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(27, 94, 32, 0.12), transparent 32rem),
+    linear-gradient(180deg, #f8faf6 0%, var(--paper) 100%);
+}
+
+body.tenant-mayaopickleball .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: minmax(180px, 0.9fr) minmax(0, 1.2fr) minmax(180px, 0.9fr);
+  align-items: center;
+  min-height: 68px;
+  padding: 0 clamp(18px, 4vw, 64px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(9, 12, 17, 0.94);
+  backdrop-filter: blur(18px);
+}
+
+body.tenant-mayaopickleball .brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+body.tenant-mayaopickleball .brand-mark span {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--night);
+  color: #fff;
+  font-family: var(--font-display), sans-serif;
+  font-size: 14px;
+}
+
+body.tenant-mayaopickleball .brand-mark strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.tenant-mayaopickleball .site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 1.7vw, 28px);
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+body.tenant-mayaopickleball .site-nav a, body.tenant-mayaopickleball .nav-dropdown-trigger {
+  white-space: nowrap;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+body.tenant-mayaopickleball .site-nav a:hover, body.tenant-mayaopickleball .nav-dropdown:hover .nav-dropdown-trigger, body.tenant-mayaopickleball .nav-dropdown:focus-within .nav-dropdown-trigger {
+  color: white;
+  transform: translateY(-1px);
+}
+
+body.tenant-mayaopickleball .nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  min-height: 68px;
+  align-items: center;
+}
+
+body.tenant-mayaopickleball .nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+body.tenant-mayaopickleball .nav-dropdown-panel {
+  position: absolute;
+  top: calc(100% - 10px);
+  left: 50%;
+  display: grid;
+  width: min(680px, calc(100vw - 32px));
+  grid-template-columns: minmax(220px, 0.85fr) minmax(320px, 1.15fr);
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid rgba(16, 19, 26, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 70px rgba(16, 19, 26, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+body.tenant-mayaopickleball .nav-dropdown:hover .nav-dropdown-panel, body.tenant-mayaopickleball .nav-dropdown:focus-within .nav-dropdown-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+body.tenant-mayaopickleball .nav-dropdown-panel > div {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
+}
+
+body.tenant-mayaopickleball .nav-dropdown-title {
+  margin: 2px 0 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .catalog-menu-link {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  gap: 10px;
+  border-radius: var(--radius-sm);
+  padding: 7px 9px;
+  color: var(--ink-soft);
+}
+
+body.tenant-mayaopickleball .catalog-menu-link:hover {
+  background: var(--court-soft);
+  color: var(--court);
+  transform: none;
+}
+
+body.tenant-mayaopickleball .catalog-menu-icon {
+  --menu-tone: var(--court);
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-sm);
+  background: var(--menu-tone);
+  color: white;
+  box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.04);
+}
+
+body.tenant-mayaopickleball .catalog-menu-link strong, body.tenant-mayaopickleball .catalog-menu-link small {
+  display: block;
+  line-height: 1.25;
+}
+
+body.tenant-mayaopickleball .catalog-menu-link strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+body.tenant-mayaopickleball .catalog-menu-link small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+body.tenant-mayaopickleball .header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+body.tenant-mayaopickleball .header-phone, body.tenant-mayaopickleball .icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 14px;
+  font-weight: 850;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+body.tenant-mayaopickleball .header-phone {
+  gap: 8px;
+  padding: 0 14px;
+}
+
+body.tenant-mayaopickleball .icon-button {
+  width: 42px;
+}
+
+body.tenant-mayaopickleball .header-phone:hover, body.tenant-mayaopickleball .icon-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+body.tenant-mayaopickleball .menu-button {
+  display: none;
+}
+
+body.tenant-mayaopickleball .mobile-menu {
+  position: fixed;
+  top: 68px;
+  right: 0;
+  left: 0;
+  z-index: 45;
+  display: none;
+  max-height: calc(100dvh - 68px);
+  overflow-y: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(9, 12, 17, 0.98);
+  padding: 14px 16px 18px;
+  box-shadow: 0 26px 70px rgba(16, 19, 26, 0.16);
+}
+
+body.tenant-mayaopickleball .mobile-menu.is-open {
+  display: block;
+}
+
+body.tenant-mayaopickleball .mobile-menu nav {
+  display: grid;
+  gap: 8px;
+}
+
+body.tenant-mayaopickleball .mobile-menu nav a {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+body.tenant-mayaopickleball .mobile-catalog-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 14px;
+}
+
+body.tenant-mayaopickleball .mobile-catalog-menu > div {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+  min-width: 0;
+}
+
+body.tenant-mayaopickleball .mobile-menu-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+body.tenant-mayaopickleball .mobile-menu-actions a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--night);
+  color: white;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+body.tenant-mayaopickleball .mobile-menu-actions a:last-child {
+  background: var(--accent);
+}
+
+body.tenant-mayaopickleball .search-popover {
+  position: absolute;
+  right: max(20px, calc((100% - 1180px) / 2));
+  top: calc(100% + 10px);
+  z-index: 80;
+  width: min(520px, calc(100vw - 32px));
+}
+
+body.tenant-mayaopickleball .search-popover form, body.tenant-mayaopickleball .search-page-form {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+  min-height: 56px;
+  border: 0;
+  border-radius: var(--radius);
+  background: #fff;
+  padding: 8px;
+  box-shadow: 0 14px 38px rgba(23, 27, 38, 0.14);
+}
+
+body.tenant-mayaopickleball .search-page-form {
+  width: min(720px, calc(100% - 32px));
+  margin: 18px auto -8px;
+  grid-template-columns: auto 1fr auto;
+}
+
+body.tenant-mayaopickleball .search-popover input, body.tenant-mayaopickleball .search-page-form input {
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  padding: 0 10px;
+  color: var(--text);
+}
+
+body.tenant-mayaopickleball .search-popover button, body.tenant-mayaopickleball .search-page-form button {
+  min-height: 40px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 850;
+  padding: 0 14px;
+  cursor: pointer;
+}
+
+body.tenant-mayaopickleball .hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(760px, 100%);
+  padding-bottom: clamp(16px, 3vw, 38px);
+}
+
+body.tenant-mayaopickleball .hero-kicker {
+  margin: 0 0 16px;
+  color: #f8cbc8;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .hero-content h1, body.tenant-mayaopickleball .section-heading h2, body.tenant-mayaopickleball .court-story h2, body.tenant-mayaopickleball .pricing-intro h2, body.tenant-mayaopickleball .fabric-copy h2, body.tenant-mayaopickleball .proof-copy h2, body.tenant-mayaopickleball .final-cta h2, body.tenant-mayaopickleball .catalog-hero h1, body.tenant-mayaopickleball .catalog-bottom-cta h2 {
+  margin: 0;
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+body.tenant-mayaopickleball .hero-content h1 {
+  max-width: 820px;
+  font-size: clamp(44px, 5.7vw, 78px);
+  line-height: 0.9;
+}
+
+body.tenant-mayaopickleball .hero-content p:not(.hero-kicker) {
+  max-width: 560px;
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(17px, 1.7vw, 22px);
+  line-height: 1.45;
+}
+
+body.tenant-mayaopickleball .hero-actions, body.tenant-mayaopickleball .catalog-actions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+body.tenant-mayaopickleball .primary-button, body.tenant-mayaopickleball .secondary-button, body.tenant-mayaopickleball .text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 48px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+body.tenant-mayaopickleball .primary-button {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  padding: 0 20px;
+  color: white;
+  box-shadow: 0 18px 34px rgba(223, 63, 50, 0.24);
+}
+
+body.tenant-mayaopickleball .secondary-button {
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.12);
+  padding: 0 18px;
+  color: white;
+  backdrop-filter: blur(12px);
+}
+
+body.tenant-mayaopickleball .secondary-button.dark {
+  border-color: rgba(16, 19, 26, 0.12);
+  background: var(--night);
+  color: white;
+}
+
+body.tenant-mayaopickleball .catalog-page .secondary-button {
+  border-color: rgba(16, 19, 26, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink-soft);
+  box-shadow: 0 12px 30px rgba(16, 19, 26, 0.06);
+}
+
+body.tenant-mayaopickleball .catalog-page .secondary-button:hover {
+  border-color: var(--accent);
+  background: white;
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .primary-button:hover, body.tenant-mayaopickleball .secondary-button:hover, body.tenant-mayaopickleball .text-link:hover {
+  transform: translateY(-2px);
+}
+
+body.tenant-mayaopickleball .primary-button:active, body.tenant-mayaopickleball .secondary-button:active, body.tenant-mayaopickleball .text-link:active {
+  transform: translateY(0);
+}
+
+body.tenant-mayaopickleball .hero-panel {
+  position: absolute;
+  z-index: 2;
+  right: clamp(18px, 4vw, 64px);
+  bottom: 5.5rem;
+  display: grid;
+  width: min(390px, calc(100% - 36px));
+  grid-template-columns: 1fr;
+  gap: 1px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+body.tenant-mayaopickleball .hero-panel div {
+  padding: 18px;
+  background: rgba(13, 18, 25, 0.72);
+}
+
+body.tenant-mayaopickleball .hero-panel .hero-panel-highlight {
+  display: flex;
+  align-items: center;
+  min-height: 86px;
+  background: var(--accent);
+}
+
+body.tenant-mayaopickleball .hero-panel .hero-panel-highlight strong {
+  font-size: 22px;
+  line-height: 1.05;
+}
+
+body.tenant-mayaopickleball .hero-panel span, body.tenant-mayaopickleball .price-grid span, body.tenant-mayaopickleball .catalog-card-topline span, body.tenant-mayaopickleball .product-card-meta span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .hero-panel span {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+body.tenant-mayaopickleball .hero-panel strong {
+  display: block;
+  margin-top: 4px;
+  color: white;
+  font-size: 18px;
+}
+
+body.tenant-mayaopickleball .trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+body.tenant-mayaopickleball .trust-strip article {
+  display: flex;
+  gap: 14px;
+  min-height: 132px;
+  padding: 28px clamp(18px, 3vw, 34px);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+body.tenant-mayaopickleball .trust-strip svg {
+  flex: 0 0 auto;
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .trust-strip h2, body.tenant-mayaopickleball .trust-strip p, body.tenant-mayaopickleball .product-card h3, body.tenant-mayaopickleball .product-card p, body.tenant-mayaopickleball .buyer-grid h3, body.tenant-mayaopickleball .buyer-grid p, body.tenant-mayaopickleball .process-grid h3, body.tenant-mayaopickleball .process-grid p, body.tenant-mayaopickleball .fabric-grid h3, body.tenant-mayaopickleball .fabric-grid p, body.tenant-mayaopickleball .review-grid p, body.tenant-mayaopickleball .article-grid h3, body.tenant-mayaopickleball .article-grid p, body.tenant-mayaopickleball .faq-list p, body.tenant-mayaopickleball .site-footer p, body.tenant-mayaopickleball .catalog-card h2, body.tenant-mayaopickleball .catalog-card p {
+  margin: 0;
+}
+
+body.tenant-mayaopickleball .trust-strip h2 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .trust-strip p {
+  margin-top: 6px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+body.tenant-mayaopickleball .section-shell {
+  width: min(1420px, calc(100% - clamp(36px, 7vw, 112px)));
+  margin: 0 auto;
+  padding: clamp(72px, 9vw, 128px) 0;
+}
+
+body.tenant-mayaopickleball .section-heading {
+  display: grid;
+  gap: 16px;
+  width: min(840px, 100%);
+  margin-bottom: 34px;
+}
+
+body.tenant-mayaopickleball .section-heading.compact {
+  width: min(720px, 100%);
+}
+
+body.tenant-mayaopickleball .section-heading h2 {
+  font-size: clamp(36px, 5vw, 72px);
+  line-height: 0.95;
+}
+
+body.tenant-mayaopickleball .section-heading p, body.tenant-mayaopickleball .pricing-intro p, body.tenant-mayaopickleball .court-story-copy p, body.tenant-mayaopickleball .fabric-copy > p, body.tenant-mayaopickleball .proof-copy p, body.tenant-mayaopickleball .final-cta p, body.tenant-mayaopickleball .catalog-hero p, body.tenant-mayaopickleball .catalog-bottom-cta p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+body.tenant-mayaopickleball .runway-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  gap: 18px;
+}
+
+body.tenant-mayaopickleball .product-card {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+}
+
+body.tenant-mayaopickleball .product-card-featured {
+  grid-row: span 2;
+}
+
+body.tenant-mayaopickleball .product-card-media {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--court-soft);
+}
+
+body.tenant-mayaopickleball .product-card-media img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 360ms ease;
+}
+
+body.tenant-mayaopickleball .product-card-featured .product-card-media img {
+  aspect-ratio: 1 / 1;
+}
+
+body.tenant-mayaopickleball .product-card:hover .product-card-media img, body.tenant-mayaopickleball .catalog-card:hover .catalog-card-media img {
+  transform: scale(1.035);
+}
+
+body.tenant-mayaopickleball .product-card-fallback, body.tenant-mayaopickleball .catalog-card-media span {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .product-card-body, body.tenant-mayaopickleball .catalog-card-body {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+body.tenant-mayaopickleball .product-card-meta, body.tenant-mayaopickleball .catalog-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+body.tenant-mayaopickleball .product-card-meta span:last-child {
+  color: #e3a510;
+  letter-spacing: 0.08em;
+}
+
+body.tenant-mayaopickleball .product-card h3 {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+body.tenant-mayaopickleball .catalog-card h2 {
+  display: -webkit-box;
+  min-height: calc(14px * 1.35 * 2);
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+body.tenant-mayaopickleball .catalog-card h2 a {
+  overflow-wrap: anywhere;
+}
+
+body.tenant-mayaopickleball .product-card p, body.tenant-mayaopickleball .catalog-card p, body.tenant-mayaopickleball .buyer-grid p, body.tenant-mayaopickleball .process-grid p, body.tenant-mayaopickleball .fabric-grid p, body.tenant-mayaopickleball .article-grid p {
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+body.tenant-mayaopickleball .product-card-price, body.tenant-mayaopickleball .catalog-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+body.tenant-mayaopickleball .product-card-price strong, body.tenant-mayaopickleball .catalog-price strong {
+  color: var(--accent);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .product-card-price span, body.tenant-mayaopickleball .catalog-price span {
+  color: var(--muted);
+  font-size: 21px;
+  text-decoration: line-through;
+}
+
+body.tenant-mayaopickleball .catalog-price {
+  gap: 6px;
+}
+
+body.tenant-mayaopickleball .catalog-price strong {
+  font-size: 18px;
+}
+
+body.tenant-mayaopickleball .catalog-price span {
+  font-size: 16px;
+}
+
+body.tenant-mayaopickleball .text-link {
+  justify-content: flex-start;
+  min-height: auto;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+body.tenant-mayaopickleball .section-action {
+  margin-top: 28px;
+}
+
+body.tenant-mayaopickleball .buyer-section {
+  padding-top: 28px;
+}
+
+body.tenant-mayaopickleball .buyer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 0.85fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+body.tenant-mayaopickleball .buyer-grid article {
+  display: grid;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--night);
+  color: white;
+}
+
+body.tenant-mayaopickleball .buyer-grid img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  opacity: 0.88;
+}
+
+body.tenant-mayaopickleball .buyer-grid div {
+  padding: 24px;
+}
+
+body.tenant-mayaopickleball .buyer-grid h3 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+body.tenant-mayaopickleball .buyer-grid p {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.tenant-mayaopickleball .court-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 5vw, 70px);
+  align-items: center;
+  padding: clamp(72px, 8vw, 128px) clamp(24px, 6vw, 96px);
+  background: var(--night);
+  color: white;
+}
+
+body.tenant-mayaopickleball .court-story h2 {
+  font-size: clamp(38px, 5vw, 76px);
+  line-height: 0.95;
+}
+
+body.tenant-mayaopickleball .court-story-copy p {
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.tenant-mayaopickleball .court-story-copy ul {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.tenant-mayaopickleball .court-story-copy li {
+  border-left: 3px solid var(--accent);
+  padding-left: 14px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+body.tenant-mayaopickleball .court-story-products {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+body.tenant-mayaopickleball .court-story-products a {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.tenant-mayaopickleball .court-story-products a:nth-child(2) {
+  margin-top: 64px;
+}
+
+body.tenant-mayaopickleball .court-story-products a:nth-child(3) {
+  grid-column: 1 / -1;
+  width: 64%;
+  margin-left: auto;
+}
+
+body.tenant-mayaopickleball .court-story-products img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+body.tenant-mayaopickleball .process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.tenant-mayaopickleball .process-grid article, body.tenant-mayaopickleball .fabric-grid article, body.tenant-mayaopickleball .price-grid article, body.tenant-mayaopickleball .article-grid article, body.tenant-mayaopickleball .faq-list details {
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+body.tenant-mayaopickleball .process-grid article {
+  padding: 24px;
+}
+
+body.tenant-mayaopickleball .process-grid svg, body.tenant-mayaopickleball .fabric-grid svg {
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .process-grid h3, body.tenant-mayaopickleball .fabric-grid h3, body.tenant-mayaopickleball .article-grid h3 {
+  margin-top: 18px;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+body.tenant-mayaopickleball .process-grid p, body.tenant-mayaopickleball .fabric-grid p, body.tenant-mayaopickleball .article-grid p {
+  margin-top: 10px;
+}
+
+body.tenant-mayaopickleball .pricing-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 28px;
+  align-items: start;
+}
+
+body.tenant-mayaopickleball .pricing-intro {
+  position: sticky;
+  top: 96px;
+  display: grid;
+  gap: 22px;
+}
+
+body.tenant-mayaopickleball .pricing-intro h2, body.tenant-mayaopickleball .fabric-copy h2, body.tenant-mayaopickleball .proof-copy h2, body.tenant-mayaopickleball .final-cta h2, body.tenant-mayaopickleball .catalog-hero h1, body.tenant-mayaopickleball .catalog-bottom-cta h2 {
+  font-size: clamp(34px, 4.5vw, 64px);
+  line-height: 0.98;
+}
+
+body.tenant-mayaopickleball .price-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.tenant-mayaopickleball .price-grid article {
+  min-height: 190px;
+  padding: 26px;
+}
+
+body.tenant-mayaopickleball .price-grid span {
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .price-grid strong {
+  display: block;
+  margin-top: 18px;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(31px, 3vw, 46px);
+  line-height: 0.95;
+}
+
+body.tenant-mayaopickleball .price-grid p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+body.tenant-mayaopickleball .fabric-section {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 28px;
+  align-items: center;
+}
+
+body.tenant-mayaopickleball .fabric-visual {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+body.tenant-mayaopickleball .fabric-visual img {
+  width: 100%;
+  aspect-ratio: 0.88 / 1;
+  object-fit: cover;
+}
+
+body.tenant-mayaopickleball .fabric-copy {
+  display: grid;
+  gap: 28px;
+}
+
+body.tenant-mayaopickleball .fabric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.tenant-mayaopickleball .fabric-grid article {
+  padding: 22px;
+}
+
+body.tenant-mayaopickleball .proof-section {
+  display: grid;
+  grid-template-columns: 0.74fr 1.26fr;
+  gap: 28px;
+  align-items: center;
+}
+
+body.tenant-mayaopickleball .proof-copy {
+  display: grid;
+  gap: 18px;
+}
+
+body.tenant-mayaopickleball .proof-copy svg {
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .proof-mosaic {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 14px;
+}
+
+body.tenant-mayaopickleball .proof-mosaic img {
+  width: 100%;
+  min-height: 240px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+body.tenant-mayaopickleball .proof-mosaic img:first-child {
+  grid-row: span 2;
+  height: 100%;
+}
+
+body.tenant-mayaopickleball .review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body.tenant-mayaopickleball .review-grid article {
+  display: grid;
+  align-content: space-between;
+  min-height: 310px;
+  border-radius: var(--radius-lg);
+  background: var(--night);
+  padding: 28px;
+  color: white;
+}
+
+body.tenant-mayaopickleball .review-grid article > p {
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 18px;
+  line-height: 1.58;
+}
+
+body.tenant-mayaopickleball .review-grid div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+body.tenant-mayaopickleball .review-grid img {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+body.tenant-mayaopickleball .review-grid span {
+  display: grid;
+  gap: 2px;
+}
+
+body.tenant-mayaopickleball .review-grid small {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+body.tenant-mayaopickleball .content-section {
+  padding-top: 34px;
+}
+
+body.tenant-mayaopickleball .article-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(230px, 1fr));
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+body.tenant-mayaopickleball .article-grid article {
+  min-height: 250px;
+  padding: 24px;
+  scroll-snap-align: start;
+}
+
+body.tenant-mayaopickleball .article-grid a {
+  display: inline-flex;
+  margin-top: 16px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .blog-archive-page, body.tenant-mayaopickleball .blog-detail-page {
+  background: var(--paper);
+}
+
+body.tenant-mayaopickleball .blog-hero-section {
+  padding: clamp(42px, 7vw, 96px) clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(255, 255, 255, 0.86));
+}
+
+body.tenant-mayaopickleball .blog-hero-section h1, body.tenant-mayaopickleball .blog-detail-page h1 {
+  max-width: 980px;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(42px, 6vw, 82px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+body.tenant-mayaopickleball .blog-hero-section > p:last-child, body.tenant-mayaopickleball .blog-detail-excerpt {
+  max-width: 760px;
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+body.tenant-mayaopickleball .blog-list-section {
+  padding: clamp(34px, 5vw, 72px) clamp(20px, 5vw, 72px);
+}
+
+body.tenant-mayaopickleball .blog-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+body.tenant-mayaopickleball .blog-card, body.tenant-mayaopickleball .blog-empty-state {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: white;
+  padding: 26px;
+  box-shadow: var(--shadow);
+}
+
+body.tenant-mayaopickleball .blog-card {
+  display: flex;
+  min-height: 280px;
+  flex-direction: column;
+}
+
+body.tenant-mayaopickleball .blog-card > p {
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .blog-card h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.05;
+}
+
+body.tenant-mayaopickleball .blog-card span, body.tenant-mayaopickleball .blog-empty-state p {
+  margin-top: 16px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+body.tenant-mayaopickleball .blog-card > a, body.tenant-mayaopickleball .blog-empty-state a {
+  display: inline-flex;
+  margin-top: auto;
+  padding-top: 24px;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+body.tenant-mayaopickleball .blog-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+body.tenant-mayaopickleball .blog-pagination a, body.tenant-mayaopickleball .blog-pagination span {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: white;
+  padding: 12px 16px;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+body.tenant-mayaopickleball .blog-pagination span {
+  opacity: 0.42;
+}
+
+body.tenant-mayaopickleball .blog-pagination p {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .blog-detail-page {
+  padding: clamp(42px, 7vw, 96px) clamp(20px, 5vw, 72px);
+}
+
+body.tenant-mayaopickleball .blog-detail-page article {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+body.tenant-mayaopickleball .blog-back-link {
+  display: inline-flex;
+  margin-bottom: 30px;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+body.tenant-mayaopickleball .blog-detail-content {
+  display: grid;
+  gap: 20px;
+  margin-top: 34px;
+}
+
+body.tenant-mayaopickleball .blog-detail-content p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 18px;
+  line-height: 1.85;
+}
+
+body.tenant-mayaopickleball .faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+body.tenant-mayaopickleball .faq-list details {
+  padding: 22px 24px;
+}
+
+body.tenant-mayaopickleball .faq-list summary {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .faq-list p {
+  margin-top: 12px;
+  max-width: 780px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+body.tenant-mayaopickleball .final-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 clamp(18px, 5vw, 72px) clamp(28px, 5vw, 72px);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(223, 63, 50, 0.92), rgba(170, 33, 25, 0.94)),
+    url("/images/mayaopickleball/home/pickleball-club-delivery.webp") center / cover;
+  padding: clamp(28px, 5vw, 64px);
+  color: white;
+}
+
+body.tenant-mayaopickleball .final-cta h2 {
+  max-width: 850px;
+}
+
+body.tenant-mayaopickleball .final-cta p {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+body.tenant-mayaopickleball .final-cta .primary-button {
+  flex: 0 0 auto;
+  border-color: white;
+  background: white;
+  color: var(--accent-dark);
+  box-shadow: none;
+}
+
+body.tenant-mayaopickleball .site-footer {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 0.8fr;
+  gap: 28px;
+  padding: clamp(34px, 5vw, 64px);
+  background: var(--night);
+  color: white;
+}
+
+body.tenant-mayaopickleball .footer-brand span {
+  background: white;
+  color: var(--night);
+}
+
+body.tenant-mayaopickleball .site-footer h3 {
+  margin: 0 0 14px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body.tenant-mayaopickleball .site-footer p {
+  max-width: 460px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
+body.tenant-mayaopickleball .mobile-cta {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  z-index: 60;
+  display: none;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 8px;
+}
+
+body.tenant-mayaopickleball .mobile-cta a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  box-shadow: 0 18px 44px rgba(16, 19, 26, 0.2);
+}
+
+body.tenant-mayaopickleball .mobile-cta a:first-child {
+  background: white;
+  color: var(--ink);
+}
+
+body.tenant-mayaopickleball .mobile-cta a:last-child {
+  background: var(--accent);
+  color: white;
+}
+
+body.tenant-mayaopickleball .catalog-page {
+  background:
+    linear-gradient(180deg, #f6faf3 0%, #f7f9f6 38%, #ffffff 100%);
+}
+
+body.tenant-mayaopickleball .catalog-header {
+  background: rgba(247, 249, 246, 0.9);
+}
+
+body.tenant-mayaopickleball .catalog-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 360px);
+  gap: 24px;
+  align-items: center;
+  padding: clamp(28px, 4.5vw, 64px) clamp(20px, 5vw, 72px) clamp(22px, 4vw, 48px);
+  border-bottom: 1px solid var(--line);
+}
+
+body.tenant-mayaopickleball .catalog-hero h1 {
+  max-width: 840px;
+  letter-spacing: 0;
+  line-height: 0.96;
+}
+
+body.tenant-mayaopickleball .catalog-hero p {
+  margin-top: 14px;
+}
+
+body.tenant-mayaopickleball .catalog-guidance-list {
+  display: grid;
+  max-width: 880px;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.tenant-mayaopickleball .catalog-guidance-list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.48;
+}
+
+body.tenant-mayaopickleball .catalog-guidance-list li::before {
+  position: absolute;
+  top: 0.66em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  content: "";
+}
+
+body.tenant-mayaopickleball .catalog-hero aside {
+  display: grid;
+  gap: 10px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: transparent;
+}
+
+body.tenant-mayaopickleball .catalog-hero aside div {
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-sm);
+  background: white;
+  padding: 18px 20px;
+  box-shadow: 0 12px 34px rgba(22, 42, 32, 0.08);
+}
+
+body.tenant-mayaopickleball .catalog-hero aside strong {
+  display: block;
+  font-family: var(--font-display), sans-serif;
+  font-size: 31px;
+  line-height: 1;
+}
+
+body.tenant-mayaopickleball .catalog-hero aside span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .catalog-toolbar {
+  position: sticky;
+  top: 72px;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(247, 249, 246, 0.92);
+  backdrop-filter: blur(14px);
+}
+
+body.tenant-mayaopickleball .catalog-toolbar-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  color: var(--ink-soft);
+}
+
+body.tenant-mayaopickleball .filter-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  min-width: 0;
+  padding-bottom: 1px;
+  scrollbar-width: none;
+}
+
+body.tenant-mayaopickleball .filter-chips::-webkit-scrollbar {
+  display: none;
+}
+
+body.tenant-mayaopickleball .filter-chips a, body.tenant-mayaopickleball .catalog-color-dropdown summary, body.tenant-mayaopickleball .catalog-color-panel a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(16, 19, 26, 0.09);
+  background: white;
+  padding: 0 14px;
+  color: var(--muted);
+  font-weight: 850;
+}
+
+body.tenant-mayaopickleball .filter-chips a.active, body.tenant-mayaopickleball .filter-chips a:hover, body.tenant-mayaopickleball .catalog-color-panel a.active, body.tenant-mayaopickleball .catalog-color-panel a:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+body.tenant-mayaopickleball .catalog-color-dropdown {
+  position: relative;
+}
+
+body.tenant-mayaopickleball .catalog-color-dropdown summary {
+  gap: 7px;
+  min-width: 138px;
+  cursor: pointer;
+  list-style: none;
+}
+
+body.tenant-mayaopickleball .catalog-color-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+body.tenant-mayaopickleball .catalog-color-dropdown[open] summary {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .catalog-color-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  display: grid;
+  width: min(240px, calc(100vw - 32px));
+  gap: 6px;
+  border: 1px solid rgba(16, 19, 26, 0.1);
+  border-radius: var(--radius-md);
+  background: white;
+  padding: 8px;
+  box-shadow: 0 22px 58px rgba(16, 19, 26, 0.16);
+}
+
+body.tenant-mayaopickleball .catalog-color-panel a {
+  justify-content: flex-start;
+}
+
+body.tenant-mayaopickleball .catalog-grid-section {
+  padding: clamp(18px, 3.5vw, 46px) clamp(20px, 5vw, 72px) clamp(28px, 5vw, 72px);
+}
+
+body.tenant-mayaopickleball .catalog-results-bar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+body.tenant-mayaopickleball .catalog-results-bar span {
+  display: block;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .catalog-results-bar strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink);
+  font-size: 18px;
+}
+
+body.tenant-mayaopickleball .catalog-results-bar p {
+  max-width: 470px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+body.tenant-mayaopickleball .catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.tenant-mayaopickleball .catalog-card {
+  overflow: hidden;
+  border: 1px solid rgba(16, 19, 26, 0.07);
+  border-radius: var(--radius-md);
+  background: white;
+  box-shadow: 0 12px 30px rgba(26, 42, 32, 0.08);
+}
+
+body.tenant-mayaopickleball .catalog-card-media {
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--court-soft);
+}
+
+body.tenant-mayaopickleball .catalog-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 360ms ease;
+}
+
+body.tenant-mayaopickleball .catalog-card-topline span:first-child {
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .catalog-card-topline span:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--court);
+}
+
+body.tenant-mayaopickleball .catalog-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+body.tenant-mayaopickleball .catalog-card-actions a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(16, 19, 26, 0.1);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .catalog-card-actions a:last-child {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+body.tenant-mayaopickleball .catalog-order-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin: 0 clamp(20px, 5vw, 72px) clamp(22px, 5vw, 52px);
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-md);
+  background: var(--line);
+}
+
+body.tenant-mayaopickleball .catalog-order-strip div {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: white;
+  padding: 14px;
+  color: var(--ink-soft);
+  font-weight: 850;
+  text-align: center;
+}
+
+body.tenant-mayaopickleball .catalog-order-strip svg {
+  flex: 0 0 auto;
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .pagination-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 clamp(20px, 5vw, 72px) clamp(28px, 5vw, 72px);
+}
+
+body.tenant-mayaopickleball .pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+body.tenant-mayaopickleball .pagination-link {
+  display: inline-flex;
+  min-width: 42px;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(16, 19, 26, 0.09);
+  background: white;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 800;
+  padding: 0 10px;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+body.tenant-mayaopickleball .pagination-link:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .pagination-link.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+body.tenant-mayaopickleball .pagination-link.is-disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+body.tenant-mayaopickleball .pagination-ellipsis {
+  display: inline-flex;
+  min-width: 42px;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .catalog-bottom-cta {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  margin: 0 clamp(20px, 5vw, 72px) clamp(28px, 6vw, 82px);
+  border-radius: var(--radius-lg);
+  background: var(--night);
+  padding: clamp(32px, 6vw, 72px);
+  color: white;
+  text-align: center;
+}
+
+body.tenant-mayaopickleball .catalog-bottom-cta p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.tenant-mayaopickleball .info-page {
+  background:
+    radial-gradient(circle at 84% 10%, rgba(223, 63, 50, 0.1), transparent 30rem),
+    radial-gradient(circle at 8% 30%, rgba(17, 106, 92, 0.11), transparent 32rem),
+    var(--paper);
+}
+
+body.tenant-mayaopickleball .info-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.78fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: center;
+  padding: clamp(34px, 5.5vw, 78px) clamp(20px, 5vw, 72px) clamp(20px, 3vw, 42px);
+}
+
+body.tenant-mayaopickleball .info-hero-copy h1 {
+  max-width: 880px;
+  margin: 0;
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-size: clamp(46px, 7vw, 100px);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+body.tenant-mayaopickleball .info-hero-copy > p:not(.hero-kicker) {
+  max-width: 660px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+body.tenant-mayaopickleball .info-hero .secondary-button {
+  border-color: rgba(16, 19, 26, 0.12);
+  background: white;
+  color: var(--ink);
+}
+
+body.tenant-mayaopickleball .info-hero-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+body.tenant-mayaopickleball .info-hero-media img {
+  width: 100%;
+  min-height: 420px;
+  object-fit: cover;
+}
+
+body.tenant-mayaopickleball .info-page .info-hero-media img {
+  min-height: 360px;
+}
+
+body.tenant-mayaopickleball .info-hero-media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, transparent 45%, rgba(17, 21, 29, 0.68));
+  pointer-events: none;
+}
+
+body.tenant-mayaopickleball .info-hero-badge {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  max-width: 250px;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  padding: 18px;
+  color: white;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+}
+
+body.tenant-mayaopickleball .info-hero-badge strong, body.tenant-mayaopickleball .info-hero-badge span {
+  display: block;
+}
+
+body.tenant-mayaopickleball .info-hero-badge strong {
+  font-family: var(--font-display), sans-serif;
+  font-size: 30px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+body.tenant-mayaopickleball .info-hero-badge span {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 850;
+}
+
+body.tenant-mayaopickleball .info-stat-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--line);
+}
+
+body.tenant-mayaopickleball .info-stat-row div {
+  background: rgba(255, 255, 255, 0.82);
+  padding: 24px;
+}
+
+body.tenant-mayaopickleball .info-stat-row strong {
+  display: block;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 0.9;
+}
+
+body.tenant-mayaopickleball .info-stat-row span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-weight: 850;
+}
+
+body.tenant-mayaopickleball .info-section {
+  width: min(1340px, calc(100% - clamp(36px, 7vw, 112px)));
+  margin: 0 auto;
+  padding: clamp(54px, 7vw, 104px) 0;
+}
+
+body.tenant-mayaopickleball .section-eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid rgba(46, 125, 50, 0.18);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 8px 11px;
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .fabric-anchor-bar {
+  position: sticky;
+  top: 72px;
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  width: min(920px, calc(100% - clamp(36px, 7vw, 112px)));
+  padding: 10px;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 42px rgba(34, 48, 40, 0.09);
+  backdrop-filter: blur(18px);
+  -webkit-overflow-scrolling: touch;
+}
+
+body.tenant-mayaopickleball .fabric-anchor-bar a {
+  display: inline-flex;
+  min-height: 40px;
+  flex: 0 0 auto;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  padding: 0 14px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 900;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+body.tenant-mayaopickleball .fabric-anchor-bar a:hover {
+  background: var(--court-soft);
+  color: var(--court);
+  transform: translateY(-1px);
+}
+
+body.tenant-mayaopickleball nav.fabric-anchor-bar.info-section {
+  width: min(920px, calc(100% - clamp(36px, 7vw, 112px)));
+  padding: 10px;
+}
+
+body.tenant-mayaopickleball .info-section-heading {
+  display: grid;
+  gap: 14px;
+  max-width: 820px;
+  margin-bottom: 30px;
+}
+
+body.tenant-mayaopickleball .info-section-heading.compact {
+  max-width: 720px;
+}
+
+body.tenant-mayaopickleball .info-section-heading h2, body.tenant-mayaopickleball .quote-panel h2, body.tenant-mayaopickleball .size-guide-copy h2, body.tenant-mayaopickleball .split-info-section h2, body.tenant-mayaopickleball .design-free-band h2 {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(34px, 5vw, 68px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+body.tenant-mayaopickleball .info-section-heading p, body.tenant-mayaopickleball .quote-panel p, body.tenant-mayaopickleball .size-guide-copy p, body.tenant-mayaopickleball .design-free-band p, body.tenant-mayaopickleball .split-info-section p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+body.tenant-mayaopickleball .info-price-grid, body.tenant-mayaopickleball .factor-grid, body.tenant-mayaopickleball .order-step-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.tenant-mayaopickleball .info-price-grid article, body.tenant-mayaopickleball .factor-grid article, body.tenant-mayaopickleball .order-step-grid article, body.tenant-mayaopickleball .split-info-section article {
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  padding: 24px;
+  box-shadow: 0 18px 48px rgba(34, 48, 40, 0.07);
+}
+
+body.tenant-mayaopickleball .info-price-grid span {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .info-price-grid strong {
+  display: block;
+  margin-top: 18px;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(31px, 3vw, 46px);
+  line-height: 0.95;
+}
+
+body.tenant-mayaopickleball .info-price-grid p, body.tenant-mayaopickleball .factor-grid p, body.tenant-mayaopickleball .order-step-grid p, body.tenant-mayaopickleball .split-info-section li {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+body.tenant-mayaopickleball .quote-section, body.tenant-mayaopickleball .size-guide-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 24px;
+  align-items: start;
+}
+
+body.tenant-mayaopickleball .quote-panel, body.tenant-mayaopickleball .size-guide-copy {
+  display: grid;
+  gap: 18px;
+  border-radius: var(--radius-lg);
+  background: var(--night);
+  padding: clamp(26px, 4vw, 44px);
+  color: white;
+}
+
+body.tenant-mayaopickleball .quote-panel p, body.tenant-mayaopickleball .size-guide-copy p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.tenant-mayaopickleball .quote-panel svg, body.tenant-mayaopickleball .size-guide-copy svg, body.tenant-mayaopickleball .factor-grid svg, body.tenant-mayaopickleball .order-step-grid svg, body.tenant-mayaopickleball .split-info-section svg {
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .quote-list, body.tenant-mayaopickleball .size-guide-copy ol {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.tenant-mayaopickleball .quote-list li, body.tenant-mayaopickleball .size-guide-copy li {
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.82);
+  padding: 18px 20px;
+  color: var(--ink);
+  font-weight: 850;
+}
+
+body.tenant-mayaopickleball .size-guide-copy li {
+  display: grid;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.86);
+}
+
+body.tenant-mayaopickleball .size-guide-copy li strong {
+  color: white;
+  font-size: 14px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .size-guide-copy li span {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+body.tenant-mayaopickleball .factor-grid h3, body.tenant-mayaopickleball .order-step-grid h3 {
+  margin: 18px 0 10px;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.18;
+}
+
+body.tenant-mayaopickleball .fabric-decision-section {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.68fr) minmax(0, 1.32fr);
+  gap: clamp(22px, 4vw, 54px);
+  align-items: start;
+}
+
+body.tenant-mayaopickleball .fabric-decision-copy {
+  position: sticky;
+  top: 150px;
+  display: grid;
+  gap: 18px;
+}
+
+body.tenant-mayaopickleball .fabric-decision-copy h2, body.tenant-mayaopickleball .fabric-faq-section h2 {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+body.tenant-mayaopickleball .fabric-decision-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+body.tenant-mayaopickleball .fabric-decision-notes {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-md);
+  background: rgba(16, 19, 26, 0.08);
+}
+
+body.tenant-mayaopickleball .fabric-decision-notes div {
+  display: grid;
+  grid-template-columns: 0.56fr 1fr;
+  gap: 14px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 16px;
+}
+
+body.tenant-mayaopickleball .fabric-decision-notes strong {
+  color: var(--accent-dark);
+  font-size: 14px;
+  font-weight: 950;
+}
+
+body.tenant-mayaopickleball .fabric-decision-notes span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+body.tenant-mayaopickleball .fabric-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body.tenant-mayaopickleball .fabric-decision-section .fabric-card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.tenant-mayaopickleball .fabric-card {
+  overflow: hidden;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 48px rgba(34, 48, 40, 0.07);
+}
+
+body.tenant-mayaopickleball .fabric-card-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #eef3f4;
+}
+
+body.tenant-mayaopickleball .fabric-card-media::after {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  content: "Phóng to";
+  border-radius: 999px;
+  background: rgba(16, 19, 26, 0.78);
+  padding: 7px 10px;
+  color: white;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+body.tenant-mayaopickleball .fabric-card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 180ms ease;
+}
+
+body.tenant-mayaopickleball .fabric-card:hover .fabric-card-media img {
+  transform: scale(1.035);
+}
+
+body.tenant-mayaopickleball .fabric-card-body {
+  display: grid;
+  gap: 10px;
+  padding: 20px 20px 0;
+}
+
+body.tenant-mayaopickleball .fabric-card svg {
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .fabric-card h3 {
+  margin: 0;
+  font-size: 23px;
+  line-height: 1.08;
+}
+
+body.tenant-mayaopickleball .fabric-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+body.tenant-mayaopickleball .fabric-card-body strong {
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+body.tenant-mayaopickleball .fabric-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding-top: 16px;
+}
+
+body.tenant-mayaopickleball .fabric-tag-row span {
+  border: 1px solid rgba(223, 63, 50, 0.16);
+  border-radius: 999px;
+  background: rgba(223, 63, 50, 0.08);
+  padding: 6px 9px;
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+body.tenant-mayaopickleball .info-inline-cta {
+  margin-top: 24px;
+}
+
+body.tenant-mayaopickleball .split-info-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+body.tenant-mayaopickleball .split-info-section article {
+  display: grid;
+  gap: 16px;
+}
+
+body.tenant-mayaopickleball .split-info-section ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.tenant-mayaopickleball .split-info-section li {
+  border-left: 3px solid var(--accent);
+  padding-left: 14px;
+}
+
+body.tenant-mayaopickleball .design-free-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(223, 63, 50, 0.94), rgba(170, 33, 25, 0.96)),
+    url("/images/mayaopickleball/pickleball-team-hero.webp") center / cover;
+  padding: clamp(28px, 5vw, 58px);
+  color: white;
+}
+
+body.tenant-mayaopickleball .design-free-band p {
+  max-width: 720px;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+body.tenant-mayaopickleball .design-free-band .primary-button {
+  flex: 0 0 auto;
+  border-color: white;
+  background: white;
+  color: var(--accent-dark);
+  box-shadow: none;
+}
+
+body.tenant-mayaopickleball .size-table {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: white;
+}
+
+body.tenant-mayaopickleball .size-table div {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr 1fr 1.35fr;
+  gap: 1px;
+  border-bottom: 1px solid var(--line);
+}
+
+body.tenant-mayaopickleball .size-table div:last-child {
+  border-bottom: 0;
+}
+
+body.tenant-mayaopickleball .size-table span, body.tenant-mayaopickleball .size-table strong {
+  padding: 18px;
+}
+
+body.tenant-mayaopickleball .size-table strong {
+  background: var(--night);
+  color: white;
+}
+
+body.tenant-mayaopickleball .size-table span:first-child {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .html-size-panel {
+  overflow: hidden;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-lg);
+  background: white;
+  padding: clamp(20px, 3vw, 34px);
+  box-shadow: 0 18px 48px rgba(34, 48, 40, 0.07);
+}
+
+body.tenant-mayaopickleball .html-size-title {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+body.tenant-mayaopickleball .html-size-title h2 {
+  margin: 0;
+  color: #123f67;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .html-size-title p {
+  margin: 8px 0 0;
+  color: #d92832;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 900;
+}
+
+body.tenant-mayaopickleball .html-size-block {
+  margin-top: 24px;
+  --size-accent: #123f67;
+  --size-cell: #dce8f8;
+  --size-cell-alt: #edf3fb;
+  --size-text: #123f67;
+}
+
+body.tenant-mayaopickleball .html-size-block.is-red {
+  --size-accent: #9e0032;
+  --size-cell: #fde8f0;
+  --size-cell-alt: #fff3f7;
+  --size-text: #9e0032;
+}
+
+body.tenant-mayaopickleball .html-size-block h3 {
+  margin: 0 0 12px;
+  color: var(--size-accent);
+  font-size: 22px;
+  font-weight: 950;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .html-size-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+body.tenant-mayaopickleball .html-size-block table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: var(--size-text);
+  text-align: center;
+}
+
+body.tenant-mayaopickleball .html-size-block th, body.tenant-mayaopickleball .html-size-block td {
+  border: 2px solid white;
+  background: var(--size-cell);
+  padding: 15px 12px;
+  font-weight: 900;
+  vertical-align: middle;
+}
+
+body.tenant-mayaopickleball .html-size-block thead th {
+  background: var(--size-accent);
+  color: white;
+  font-size: 22px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .html-size-block tbody th {
+  width: 18%;
+  background: var(--size-cell-alt);
+  font-size: 14px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .html-size-block tbody td {
+  font-size: clamp(16px, 1.5vw, 23px);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+body.tenant-mayaopickleball .fabric-faq-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(22px, 4vw, 52px);
+  align-items: start;
+}
+
+body.tenant-mayaopickleball .fabric-faq-section > div:first-child {
+  display: grid;
+  gap: 16px;
+}
+
+body.tenant-mayaopickleball .fabric-faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+body.tenant-mayaopickleball .fabric-faq-list article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 14px;
+  row-gap: 8px;
+  border-bottom: 1px solid rgba(16, 19, 26, 0.1);
+  padding: 18px 0;
+}
+
+body.tenant-mayaopickleball .fabric-faq-list svg {
+  grid-row: span 2;
+  margin-top: 2px;
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .fabric-faq-list h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+body.tenant-mayaopickleball .fabric-faq-list p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+body.tenant-mayaopickleball .gallery-intro-section {
+  padding-bottom: 28px;
+}
+
+body.tenant-mayaopickleball .color-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+body.tenant-mayaopickleball .color-filter-row span {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(16, 19, 26, 0.1);
+  background: white;
+  padding: 0 14px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .project-gallery-section {
+  padding-top: 20px;
+}
+
+body.tenant-mayaopickleball .project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body.tenant-mayaopickleball .project-grid article {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+body.tenant-mayaopickleball .project-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 0.9;
+  object-fit: cover;
+}
+
+body.tenant-mayaopickleball .project-grid div {
+  padding: 22px;
+}
+
+body.tenant-mayaopickleball .project-grid span {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .project-grid h2 {
+  margin: 10px 0 0;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+body.tenant-mayaopickleball .project-grid p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+body.tenant-mayaopickleball .dual-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+body.tenant-mayaopickleball .info-final-cta {
+  margin-top: clamp(34px, 5vw, 72px);
+}
+
+body.tenant-mayaopickleball .product-page {
+  min-height: 100vh;
+}
+
+body.tenant-mayaopickleball .product-shell, body.tenant-mayaopickleball .product-detail-shell {
+  padding: clamp(14px, 3vw, 42px);
+}
+
+body.tenant-mayaopickleball .product-detail-shell {
+  padding-top: clamp(12px, 2vw, 28px);
+}
+
+body.tenant-mayaopickleball .product-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+body.tenant-mayaopickleball .product-crumbs a {
+  font-weight: 850;
+  transition: color 180ms ease;
+}
+
+body.tenant-mayaopickleball .product-crumbs a:hover {
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .product-title-heading {
+  margin: 0 0 16px;
+  color: #565656;
+  font-family: var(--font-body), sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaopickleball .product-hero {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+body.tenant-mayaopickleball .product-detail-grid {
+  display: grid;
+  gap: 22px;
+  align-items: start;
+}
+
+body.tenant-mayaopickleball .product-gallery-card, body.tenant-mayaopickleball .product-copy-card, body.tenant-mayaopickleball .product-side-card {
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: var(--radius-md);
+}
+
+body.tenant-mayaopickleball .product-gallery-card {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(223, 63, 50, 0.12), transparent 36%),
+    linear-gradient(180deg, #fff8fa 0%, #ffffff 42%);
+}
+
+body.tenant-mayaopickleball .product-main-image, body.tenant-mayaopickleball .product-gallery-stage img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+body.tenant-mayaopickleball .product-detail-gallery {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #f4f6f8;
+}
+
+body.tenant-mayaopickleball .product-gallery-stage {
+  position: relative;
+  overflow: hidden;
+  background: #f4f6f8;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+  touch-action: pan-y pinch-zoom;
+}
+
+body.tenant-mayaopickleball .gallery-track {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+body.tenant-mayaopickleball .gallery-slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.tenant-mayaopickleball .gallery-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+}
+
+/* Gallery nav arrows */
+body.tenant-mayaopickleball .gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.88);
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 200ms ease, transform 200ms ease;
+  z-index: 2;
+}
+
+body.tenant-mayaopickleball .gallery-nav-prev { left: 12px; }
+body.tenant-mayaopickleball .gallery-nav-next { right: 12px; }
+
+body.tenant-mayaopickleball .product-gallery-stage:hover .gallery-nav {
+  opacity: 1;
+}
+
+body.tenant-mayaopickleball .gallery-nav:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+body.tenant-mayaopickleball .gallery-nav:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+body.tenant-mayaopickleball .product-detail-gallery .product-image-fallback {
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+}
+
+body.tenant-mayaopickleball .product-gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 92px));
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  background: white;
+  border-top: 1px solid var(--line);
+  overflow-x: auto;
+}
+
+body.tenant-mayaopickleball .product-gallery-thumbnails button {
+  width: 92px;
+  height: 92px;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: #f4f6f8;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+body.tenant-mayaopickleball .product-gallery-thumbnails button:hover, body.tenant-mayaopickleball .product-gallery-thumbnails button:focus-visible, body.tenant-mayaopickleball .product-gallery-thumbnails button.is-active {
+  border-color: var(--accent);
+  box-shadow: 0 10px 22px rgba(223, 63, 50, 0.18);
+}
+
+body.tenant-mayaopickleball .product-gallery-thumbnails button:focus-visible {
+  outline: 3px solid rgba(223, 63, 50, 0.24);
+  outline-offset: 2px;
+}
+
+body.tenant-mayaopickleball .product-gallery-thumbnails button:hover {
+  transform: translateY(-1px);
+}
+
+body.tenant-mayaopickleball .product-gallery-thumbnails img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes product-image-slide {
+  from {
+    opacity: 0.72;
+    transform: translateX(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+body.tenant-mayaopickleball .product-sale-badge, body.tenant-mayaopickleball .product-zoom-button {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.tenant-mayaopickleball .product-sale-badge {
+  right: 18px;
+  bottom: 126px;
+  min-width: 54px;
+  min-height: 54px;
+  border-radius: 999px;
+  background: #ff7a00;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 14px 30px rgba(255, 122, 0, 0.28);
+}
+
+body.tenant-mayaopickleball .product-zoom-button {
+  left: 18px;
+  bottom: 126px;
+  width: 46px;
+  height: 46px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  background: rgba(23, 108, 178, 0.88);
+  color: white;
+  cursor: pointer;
+}
+
+body.tenant-mayaopickleball .product-image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  padding: 40px;
+  text-align: center;
+  font-size: clamp(24px, 4vw, 48px);
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .product-summary {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: white;
+  padding: clamp(24px, 4vw, 42px);
+}
+
+body.tenant-mayaopickleball .product-buy-panel {
+  min-width: 0;
+}
+
+body.tenant-mayaopickleball .product-kicker, body.tenant-mayaopickleball .section-label {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-summary h1 {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 0.95;
+}
+
+body.tenant-mayaopickleball .product-brand-line {
+  margin: 0;
+  color: #1c1f26;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+body.tenant-mayaopickleball .product-brand-line strong {
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-rating-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-top: 8px;
+  color: #5c5f66;
+  font-size: 13px;
+}
+
+body.tenant-mayaopickleball .product-rating-line span {
+  display: inline-flex;
+  gap: 1px;
+  color: #ffb000;
+}
+
+body.tenant-mayaopickleball .product-rating-line strong, body.tenant-mayaopickleball .product-rating-line em {
+  font-style: normal;
+  font-weight: 500;
+}
+
+body.tenant-mayaopickleball .product-stock-inline {
+  color: #666a72;
+}
+
+body.tenant-mayaopickleball .product-stock-inline strong {
+  color: #35a04a;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-deal-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 11px;
+  border-radius: 8px;
+  background: #ff6900;
+  padding: 13px 16px;
+  color: white;
+}
+
+body.tenant-mayaopickleball .product-deal-box strong {
+  display: block;
+  font-size: clamp(24px, 1.8vw, 31px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+body.tenant-mayaopickleball .product-deal-box p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+body.tenant-mayaopickleball .product-deal-box del {
+  color: rgba(255, 255, 255, 0.86);
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-deal-box > div:last-child {
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+  min-width: 148px;
+}
+
+body.tenant-mayaopickleball .product-deal-box > div:last-child > span {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .product-countdown {
+  display: flex;
+  gap: 6px;
+}
+
+body.tenant-mayaopickleball .product-countdown b {
+  display: inline-flex;
+  min-height: 29px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: white;
+  padding: 0 8px;
+  color: #ff6900;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-stock-line {
+  margin: 14px 0 0;
+  color: #666a72;
+  font-size: 14px;
+}
+
+body.tenant-mayaopickleball .product-stock-line strong {
+  color: #35a04a;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-short {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+body.tenant-mayaopickleball .product-price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+body.tenant-mayaopickleball .product-price-block strong {
+  font-size: clamp(32px, 4vw, 44px);
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .product-price-block span {
+  color: var(--muted);
+  text-decoration: line-through;
+  font-size: 18px;
+}
+
+body.tenant-mayaopickleball .product-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+body.tenant-mayaopickleball .product-meta div {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  background: #fbfdff;
+}
+
+body.tenant-mayaopickleball .product-meta span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-meta strong {
+  font-size: 16px;
+}
+
+body.tenant-mayaopickleball .product-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+body.tenant-mayaopickleball .product-badges span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  border-radius: var(--radius-sm);
+  padding: 0 12px;
+  background: #ffe5e2;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .product-color-tags {
+  display: grid;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+body.tenant-mayaopickleball .product-color-tags > span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-color-tags div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+body.tenant-mayaopickleball .product-color-tags strong {
+  --swatch: var(--accent);
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(16, 19, 26, 0.1);
+  background: white;
+  padding: 0 11px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-color-tags strong::before {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--swatch);
+  box-shadow: inset 0 0 0 1px rgba(16, 19, 26, 0.14);
+  content: "";
+}
+
+body.tenant-mayaopickleball .product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+body.tenant-mayaopickleball .product-primary-action, body.tenant-mayaopickleball .product-secondary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  border-radius: var(--radius-sm);
+  padding: 0 18px;
+  font-weight: 800;
+  border: 1px solid var(--line);
+}
+
+body.tenant-mayaopickleball .product-primary-action {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+body.tenant-mayaopickleball .product-secondary-action {
+  background: white;
+}
+
+body.tenant-mayaopickleball .product-trust-list {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.tenant-mayaopickleball .product-trust-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+body.tenant-mayaopickleball .product-content-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+body.tenant-mayaopickleball .product-offer-table, body.tenant-mayaopickleball .product-store-card, body.tenant-mayaopickleball .product-spec-card {
+  overflow: hidden;
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  background: white;
+}
+
+body.tenant-mayaopickleball .product-offer-table {
+  margin-top: 11px;
+}
+
+body.tenant-mayaopickleball .product-offer-table h2, body.tenant-mayaopickleball .product-store-card h2, body.tenant-mayaopickleball .product-spec-card h2 {
+  margin: 0;
+  color: #575757;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .product-offer-table h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #e7e7e7;
+  background: #f8f8f8;
+  padding: 9px 13px;
+}
+
+body.tenant-mayaopickleball .product-offer-table ol, body.tenant-mayaopickleball .product-store-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.tenant-mayaopickleball .product-offer-table li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  border-bottom: 1px solid #ececec;
+  padding: 5px 13px;
+  color: #666a72;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+body.tenant-mayaopickleball .product-offer-table li:last-child {
+  border-bottom: 0;
+}
+
+body.tenant-mayaopickleball .product-offer-table li span {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #ff6900;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-detail-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+body.tenant-mayaopickleball .product-sample-action, body.tenant-mayaopickleball .product-call-action {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 6px;
+  padding: 0 16px;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .product-sample-action {
+  background: #030303;
+}
+
+body.tenant-mayaopickleball .product-call-action {
+  background: #006239;
+}
+
+body.tenant-mayaopickleball .product-support-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 8px 0 0;
+  color: #6a6d73;
+  font-size: 13px;
+}
+
+body.tenant-mayaopickleball .product-right-column {
+  display: grid;
+  gap: 18px;
+}
+
+body.tenant-mayaopickleball .product-store-card, body.tenant-mayaopickleball .product-spec-card {
+  border-radius: 8px;
+}
+
+body.tenant-mayaopickleball .product-store-card {
+  padding: 16px 16px 11px;
+}
+
+body.tenant-mayaopickleball .product-store-card ul {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+body.tenant-mayaopickleball .product-store-card li {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 8px;
+  color: #30333a;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+body.tenant-mayaopickleball .product-store-card svg {
+  margin-top: 2px;
+}
+
+body.tenant-mayaopickleball .product-store-card strong {
+  display: block;
+  color: #2779ff;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-spec-card h2 {
+  border-bottom: 1px solid #e3e3e3;
+  background: #fbfbfb;
+  padding: 13px 16px;
+}
+
+body.tenant-mayaopickleball .product-spec-card dl {
+  margin: 0;
+}
+
+body.tenant-mayaopickleball .product-spec-card dl > div {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.82fr) minmax(0, 1.18fr);
+  border-bottom: 1px solid #e6e6e6;
+}
+
+body.tenant-mayaopickleball .product-spec-card dt, body.tenant-mayaopickleball .product-spec-card dd {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+body.tenant-mayaopickleball .product-spec-card dt {
+  color: #767a82;
+}
+
+body.tenant-mayaopickleball .product-spec-card dd {
+  color: #22252b;
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .product-spec-card a {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 7px;
+  float: right;
+  margin: 10px 14px 12px;
+  border: 1px solid #53565c;
+  border-radius: 6px;
+  padding: 0 12px;
+  color: #262a31;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .product-copy-card, body.tenant-mayaopickleball .product-side-card {
+  padding: clamp(24px, 4vw, 34px);
+}
+
+body.tenant-mayaopickleball .product-size-table-wrap {
+  overflow-x: auto;
+  margin-top: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+}
+
+body.tenant-mayaopickleball .product-size-table {
+  width: 100%;
+  min-width: 440px;
+  border-collapse: collapse;
+  color: #747474;
+  font-size: 14px;
+  text-align: center;
+}
+
+body.tenant-mayaopickleball .product-size-table th, body.tenant-mayaopickleball .product-size-table td {
+  border-right: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 13px 12px;
+}
+
+body.tenant-mayaopickleball .product-size-table tr > :last-child {
+  border-right: 0;
+}
+
+body.tenant-mayaopickleball .product-size-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+body.tenant-mayaopickleball .product-size-table thead th {
+  background: #ed1c24;
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .product-size-table tbody th {
+  color: #6b6b6b;
+  font-weight: 800;
+}
+
+body.tenant-mayaopickleball .product-size-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+body.tenant-mayaopickleball .quick-order-card, body.tenant-mayaopickleball .product-fit-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: white;
+}
+
+body.tenant-mayaopickleball .quick-order-card {
+  display: grid;
+  gap: 12px;
+  align-items: start;
+  margin-top: 12px;
+  padding: 16px;
+}
+
+body.tenant-mayaopickleball .quick-order-heading h2 {
+  margin: 0;
+  color: #24272d;
+  font-size: 18px;
+  line-height: 1.18;
+}
+
+body.tenant-mayaopickleball .quick-order-heading > p:last-child {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+body.tenant-mayaopickleball .quick-order-form {
+  display: grid;
+  gap: 10px;
+}
+
+body.tenant-mayaopickleball .quick-order-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 160px;
+  gap: 10px;
+}
+
+body.tenant-mayaopickleball .quick-order-form label {
+  display: grid;
+  gap: 6px;
+  color: #34373d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .quick-order-form input, body.tenant-mayaopickleball .quick-order-form select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #d8dadd;
+  border-radius: 7px;
+  background: white;
+  padding: 0 12px;
+  color: #22252b;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+body.tenant-mayaopickleball .quick-order-form input:focus, body.tenant-mayaopickleball .quick-order-form select:focus {
+  border-color: #df3f32;
+  box-shadow: 0 0 0 3px rgba(223, 63, 50, 0.14);
+}
+
+body.tenant-mayaopickleball .quick-order-form button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  grid-column: 1 / -1;
+  border: 0;
+  border-radius: 7px;
+  background: #df3f32;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, opacity 180ms ease;
+}
+
+body.tenant-mayaopickleball .quick-order-form button:hover {
+  background: #c93025;
+}
+
+body.tenant-mayaopickleball .quick-order-form button:disabled {
+  cursor: wait;
+  opacity: 0.58;
+}
+
+body.tenant-mayaopickleball .quick-order-honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+body.tenant-mayaopickleball .quick-order-status {
+  min-height: 21px;
+  grid-column: 1 / -1;
+  margin: -3px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+body.tenant-mayaopickleball .quick-order-status.is-success {
+  color: #176b34;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .quick-order-status.is-error {
+  color: #a40000;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-fit-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+  padding: clamp(24px, 4vw, 34px);
+}
+
+body.tenant-mayaopickleball .product-fit-card ul {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0 0;
+  padding-left: 18px;
+}
+
+body.tenant-mayaopickleball .product-fit-card li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+body.tenant-mayaopickleball .product-fit-card .product-trust-list {
+  margin: 0;
+  padding: 0;
+}
+
+body.tenant-mayaopickleball .product-related-links {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 18px;
+  align-items: center;
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: white;
+  padding: clamp(18px, 3vw, 28px);
+}
+
+body.tenant-mayaopickleball .product-related-links h2 {
+  margin: 8px 0 0;
+  color: #1e2530;
+  font-family: var(--font-body), sans-serif;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+body.tenant-mayaopickleball .product-related-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+body.tenant-mayaopickleball .product-related-link-row a {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 19, 26, 0.1);
+  background: #f7f9f6;
+  padding: 0 13px;
+  color: #27313f;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+body.tenant-mayaopickleball .product-related-link-row a:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+body.tenant-mayaopickleball .product-mobile-cta {
+  display: none;
+}
+
+body.tenant-mayaopickleball .product-copy-flow {
+  display: grid;
+  gap: 16px;
+}
+
+body.tenant-mayaopickleball .product-copy-flow p, body.tenant-mayaopickleball .product-side-card li {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+body.tenant-mayaopickleball .product-side-card ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+body.tenant-mayaopickleball .home-reviews-track {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body.tenant-mayaopickleball .home-reviews-track::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  body.tenant-mayaopickleball .product-title-heading {
+    font-size: 22px;
+  }
+
+  body.tenant-mayaopickleball .product-hero {
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  }
+
+  body.tenant-mayaopickleball .product-detail-grid {
+    grid-template-columns: minmax(430px, 1.22fr) minmax(380px, 0.96fr) minmax(300px, 0.72fr);
+  }
+
+  body.tenant-mayaopickleball .product-content-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  }
+}
+
+@media (max-width: 1320px) and (min-width: 960px) {
+  body.tenant-mayaopickleball .product-detail-grid {
+    grid-template-columns: minmax(380px, 1fr) minmax(360px, 1fr);
+  }
+
+  body.tenant-mayaopickleball .product-right-column {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1180px) {
+  body.tenant-mayaopickleball .site-header {
+    grid-template-columns: minmax(160px, 1fr) auto;
+  }
+
+  body.tenant-mayaopickleball .site-nav {
+    display: none;
+  }
+
+  body.tenant-mayaopickleball .menu-button {
+    display: inline-flex;
+  }
+
+  body.tenant-mayaopickleball .hero-panel {
+    display: none;
+  }
+
+  body.tenant-mayaopickleball .trust-strip, body.tenant-mayaopickleball .process-grid, body.tenant-mayaopickleball .catalog-grid, body.tenant-mayaopickleball .info-price-grid, body.tenant-mayaopickleball .factor-grid, body.tenant-mayaopickleball .fabric-card-grid, body.tenant-mayaopickleball .order-step-grid, body.tenant-mayaopickleball .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.tenant-mayaopickleball .catalog-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  body.tenant-mayaopickleball .runway-grid, body.tenant-mayaopickleball .buyer-grid, body.tenant-mayaopickleball .pricing-section, body.tenant-mayaopickleball .fabric-section, body.tenant-mayaopickleball .proof-section, body.tenant-mayaopickleball .catalog-hero, body.tenant-mayaopickleball .info-hero, body.tenant-mayaopickleball .fabric-decision-section, body.tenant-mayaopickleball .fabric-faq-section, body.tenant-mayaopickleball .quote-section, body.tenant-mayaopickleball .size-guide-section {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .fabric-decision-copy {
+    position: static;
+  }
+
+  body.tenant-mayaopickleball .pricing-intro {
+    position: static;
+  }
+
+  body.tenant-mayaopickleball .site-footer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body.tenant-mayaopickleball .info-hero-media img {
+    min-height: 420px;
+  }
+
+  body.tenant-mayaopickleball .product-gallery-stage img {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  body.tenant-mayaopickleball .product-page {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
+  }
+
+  body.tenant-mayaopickleball .site-header {
+    min-height: 60px;
+    padding: 0 14px;
+  }
+
+  body.tenant-mayaopickleball .brand-mark strong {
+    max-width: 150px;
+  }
+
+  body.tenant-mayaopickleball .header-phone span, body.tenant-mayaopickleball .icon-button:not(.menu-button) {
+    display: none;
+  }
+
+  body.tenant-mayaopickleball .hero-content {
+    padding-bottom: 0;
+  }
+
+  body.tenant-mayaopickleball .hero-content h1 {
+    font-size: clamp(34px, 10.8vw, 46px);
+    line-height: 0.94;
+  }
+
+  body.tenant-mayaopickleball .hero-content p:not(.hero-kicker) {
+    font-size: 16px;
+  }
+
+  body.tenant-mayaopickleball .hero-panel {
+    display: none;
+  }
+
+  body.tenant-mayaopickleball .hero-actions, body.tenant-mayaopickleball .catalog-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .product-detail-actions {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .product-size-table {
+    min-width: 100%;
+    font-size: 13px;
+  }
+
+  body.tenant-mayaopickleball .product-size-table th, body.tenant-mayaopickleball .product-size-table td {
+    padding: 11px 7px;
+  }
+
+  body.tenant-mayaopickleball .quick-order-card, body.tenant-mayaopickleball .product-fit-card {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .quick-order-fields {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .quick-order-form button, body.tenant-mayaopickleball .quick-order-status {
+    grid-column: auto;
+  }
+
+  body.tenant-mayaopickleball .product-mobile-cta {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    border-top: 1px solid #d9d9d9;
+    background: #d9d9d9;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -8px 24px rgba(17, 24, 39, 0.12);
+  }
+
+  body.tenant-mayaopickleball .product-mobile-cta a {
+    display: flex;
+    min-height: 64px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: white;
+    color: #1f2937;
+    font-size: 13px;
+    font-weight: 800;
+    touch-action: manipulation;
+  }
+
+  body.tenant-mayaopickleball .product-mobile-cta a:first-child {
+    color: #0877e8;
+  }
+
+  body.tenant-mayaopickleball .product-mobile-cta a:last-child {
+    color: #176b34;
+  }
+
+  body.tenant-mayaopickleball .trust-strip, body.tenant-mayaopickleball .process-grid, body.tenant-mayaopickleball .price-grid, body.tenant-mayaopickleball .fabric-grid, body.tenant-mayaopickleball .fabric-card-grid, body.tenant-mayaopickleball .review-grid, body.tenant-mayaopickleball .catalog-grid, body.tenant-mayaopickleball .info-stat-row, body.tenant-mayaopickleball .info-price-grid, body.tenant-mayaopickleball .factor-grid, body.tenant-mayaopickleball .order-step-grid, body.tenant-mayaopickleball .split-info-section, body.tenant-mayaopickleball .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  body.tenant-mayaopickleball .section-shell {
+    width: min(100% - 32px, 1420px);
+    padding: 58px 0;
+  }
+
+  body.tenant-mayaopickleball .section-heading h2, body.tenant-mayaopickleball .court-story h2, body.tenant-mayaopickleball .pricing-intro h2, body.tenant-mayaopickleball .fabric-copy h2, body.tenant-mayaopickleball .proof-copy h2, body.tenant-mayaopickleball .final-cta h2, body.tenant-mayaopickleball .catalog-hero h1, body.tenant-mayaopickleball .catalog-bottom-cta h2 {
+    font-size: clamp(34px, 11vw, 48px);
+    line-height: 1;
+  }
+
+  body.tenant-mayaopickleball .product-card-featured {
+    grid-row: auto;
+  }
+
+  body.tenant-mayaopickleball .buyer-grid img {
+    height: 260px;
+  }
+
+  body.tenant-mayaopickleball .court-story {
+    grid-template-columns: 1fr;
+    padding: 58px 18px;
+  }
+
+  body.tenant-mayaopickleball .court-story-products {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body.tenant-mayaopickleball .court-story-products a:nth-child(2) {
+    margin-top: 34px;
+  }
+
+  body.tenant-mayaopickleball .court-story-products a:nth-child(3) {
+    width: 100%;
+  }
+
+  body.tenant-mayaopickleball .proof-mosaic {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .proof-mosaic img:first-child {
+    grid-row: auto;
+  }
+
+  body.tenant-mayaopickleball .final-cta {
+    display: grid;
+    margin: 0 16px 82px;
+    padding: 28px;
+  }
+
+  body.tenant-mayaopickleball .info-hero {
+    padding: 30px 16px 20px;
+  }
+
+  body.tenant-mayaopickleball .fabric-anchor-bar {
+    top: 60px;
+    width: min(100% - 32px, 920px);
+    padding: 8px;
+  }
+
+  body.tenant-mayaopickleball .fabric-anchor-bar a {
+    min-height: 38px;
+    padding: 0 12px;
+  }
+
+  body.tenant-mayaopickleball .info-hero-copy h1 {
+    font-size: clamp(38px, 12vw, 52px);
+    line-height: 0.95;
+  }
+
+  body.tenant-mayaopickleball .info-hero-copy > p:not(.hero-kicker) {
+    font-size: 16px;
+  }
+
+  body.tenant-mayaopickleball .info-hero-media img {
+    min-height: 280px;
+  }
+
+  body.tenant-mayaopickleball .info-page .info-hero-media img {
+    min-height: 220px;
+  }
+
+  body.tenant-mayaopickleball .info-hero-badge {
+    right: 12px;
+    bottom: 12px;
+    max-width: 210px;
+    padding: 14px;
+  }
+
+  body.tenant-mayaopickleball .info-hero-badge strong {
+    font-size: 24px;
+  }
+
+  body.tenant-mayaopickleball .info-section {
+    width: min(100% - 32px, 1340px);
+    padding: 48px 0;
+  }
+
+  body.tenant-mayaopickleball .fabric-decision-section .fabric-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .fabric-decision-notes div {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  body.tenant-mayaopickleball .fabric-faq-list article {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .fabric-faq-list svg {
+    grid-row: auto;
+  }
+
+  body.tenant-mayaopickleball .design-free-band {
+    display: grid;
+    padding: 28px;
+  }
+
+  body.tenant-mayaopickleball .size-table {
+    overflow-x: auto;
+  }
+
+  body.tenant-mayaopickleball .size-table div {
+    min-width: 680px;
+  }
+
+  body.tenant-mayaopickleball .fabric-card h3 {
+    font-size: 21px;
+  }
+
+  body.tenant-mayaopickleball .html-size-panel {
+    padding: 18px 12px;
+  }
+
+  body.tenant-mayaopickleball .html-size-block h3 {
+    font-size: 19px;
+  }
+
+  body.tenant-mayaopickleball .html-size-block table {
+    min-width: 720px;
+  }
+
+  body.tenant-mayaopickleball .html-size-block th, body.tenant-mayaopickleball .html-size-block td {
+    padding: 12px 9px;
+  }
+
+  body.tenant-mayaopickleball .site-footer {
+    grid-template-columns: 1fr;
+    padding-bottom: 92px;
+  }
+
+  body.tenant-mayaopickleball .mobile-cta {
+    display: grid;
+  }
+
+  body.tenant-mayaopickleball .product-detail-shell {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  body.tenant-mayaopickleball .product-gallery-stage img {
+    min-height: 0;
+  }
+
+  body.tenant-mayaopickleball .product-sale-badge {
+    right: 12px;
+    top: 12px;
+    bottom: auto;
+    min-width: 46px;
+    min-height: 46px;
+    font-size: 14px;
+  }
+
+  body.tenant-mayaopickleball .product-zoom-button {
+    right: 12px;
+    bottom: 12px;
+    left: auto;
+    width: 42px;
+    height: 42px;
+  }
+
+  body.tenant-mayaopickleball .product-brand-line, body.tenant-mayaopickleball .product-rating-line, body.tenant-mayaopickleball .product-stock-line, body.tenant-mayaopickleball .product-store-card li, body.tenant-mayaopickleball .product-support-line {
+    font-size: 13px;
+  }
+
+  body.tenant-mayaopickleball .product-offer-table li {
+    font-size: 11px;
+  }
+
+  body.tenant-mayaopickleball .product-deal-box {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  body.tenant-mayaopickleball .product-deal-box > div:last-child {
+    justify-items: start;
+    min-width: 0;
+  }
+
+  body.tenant-mayaopickleball .product-countdown {
+    flex-wrap: wrap;
+  }
+
+  body.tenant-mayaopickleball .product-right-column {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .product-related-links {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .product-related-link-row {
+    justify-content: flex-start;
+  }
+
+  body.tenant-mayaopickleball .product-spec-card dl > div {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .product-spec-card dt {
+    padding-bottom: 4px;
+  }
+
+  body.tenant-mayaopickleball .product-spec-card dd {
+    padding-top: 0;
+  }
+
+  body.tenant-mayaopickleball .catalog-toolbar {
+    top: 64px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 8px 16px;
+  }
+
+  body.tenant-mayaopickleball .catalog-toolbar-label {
+    display: none;
+  }
+
+  body.tenant-mayaopickleball .filter-chips a, body.tenant-mayaopickleball .catalog-color-dropdown summary {
+    min-height: 40px;
+  }
+
+  body.tenant-mayaopickleball .catalog-color-dropdown summary {
+    min-width: 118px;
+    padding: 0 10px;
+  }
+
+  body.tenant-mayaopickleball .catalog-color-panel {
+    right: -2px;
+  }
+
+  body.tenant-mayaopickleball .mobile-menu {
+    top: 60px;
+    max-height: calc(100dvh - 60px);
+  }
+
+  body.tenant-mayaopickleball .catalog-hero, body.tenant-mayaopickleball .catalog-grid-section {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  body.tenant-mayaopickleball .catalog-hero {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-top: 20px;
+    padding-bottom: 14px;
+  }
+
+  body.tenant-mayaopickleball .catalog-hero h1 {
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: 0;
+  }
+
+  body.tenant-mayaopickleball .catalog-hero p {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  body.tenant-mayaopickleball .catalog-hero aside {
+    display: none;
+  }
+
+  body.tenant-mayaopickleball .catalog-guidance-list {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  body.tenant-mayaopickleball .catalog-guidance-list li {
+    font-size: 13px;
+    line-height: 1.38;
+  }
+
+  body.tenant-mayaopickleball .catalog-guidance-list li:nth-child(n+3) {
+    display: none;
+  }
+
+  body.tenant-mayaopickleball .catalog-actions {
+    margin-top: 12px;
+  }
+
+  body.tenant-mayaopickleball .catalog-grid-section {
+    padding-top: 16px;
+  }
+
+  body.tenant-mayaopickleball .catalog-results-bar {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  body.tenant-mayaopickleball .catalog-results-bar p {
+    font-size: 13px;
+  }
+
+  body.tenant-mayaopickleball .catalog-card-body {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  body.tenant-mayaopickleball .catalog-card-topline {
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  body.tenant-mayaopickleball .catalog-card h2 {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  body.tenant-mayaopickleball .catalog-price {
+    gap: 6px;
+  }
+
+  body.tenant-mayaopickleball .catalog-price strong {
+    font-size: 18px;
+  }
+
+  body.tenant-mayaopickleball .catalog-price span {
+    font-size: 16px;
+  }
+
+  body.tenant-mayaopickleball .catalog-order-strip {
+    grid-template-columns: 1fr;
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+
+  body.tenant-mayaopickleball .product-meta {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .product-summary h1 {
+    line-height: 1.02;
+  }
+}
+
+body.tenant-mayaopickleball .price-page-head, body.tenant-mayaopickleball .price-board-section, body.tenant-mayaopickleball .fabric-surface-section {
+  width: min(1180px, calc(100% - clamp(32px, 6vw, 96px)));
+  margin: 0 auto;
+}
+
+body.tenant-mayaopickleball .price-page-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  padding: clamp(26px, 4vw, 48px) 0 18px;
+}
+
+body.tenant-mayaopickleball .price-page-head h1 {
+  max-width: 760px;
+  margin: 0;
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-size: clamp(36px, 5vw, 70px);
+  line-height: 1;
+}
+
+body.tenant-mayaopickleball .price-page-head p:not(.hero-kicker) {
+  max-width: 720px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+body.tenant-mayaopickleball .price-page-head a:not(.primary-button) {
+  color: var(--accent-dark);
+  font-weight: 900;
+}
+
+body.tenant-mayaopickleball .price-board-section {
+  padding: 18px 0 clamp(34px, 5vw, 66px);
+}
+
+body.tenant-mayaopickleball .price-board {
+  border: 1px solid rgba(16, 19, 26, 0.09);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  padding: clamp(18px, 3vw, 34px);
+  box-shadow: 0 22px 64px rgba(34, 48, 40, 0.1);
+}
+
+body.tenant-mayaopickleball .price-board-title {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+body.tenant-mayaopickleball .price-board-title svg {
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .price-board-title h2, body.tenant-mayaopickleball .pants-note h2 {
+  margin: 0;
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-size: clamp(27px, 3vw, 42px);
+  line-height: 1.04;
+}
+
+body.tenant-mayaopickleball .price-board-title p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+body.tenant-mayaopickleball .price-table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  -webkit-overflow-scrolling: touch;
+}
+
+body.tenant-mayaopickleball .fabric-price-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+body.tenant-mayaopickleball .fabric-price-table caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+body.tenant-mayaopickleball .fabric-price-table th, body.tenant-mayaopickleball .fabric-price-table td {
+  border: 1px solid rgba(16, 19, 26, 0.12);
+  padding: 15px 16px;
+}
+
+body.tenant-mayaopickleball .fabric-price-table thead th {
+  background: var(--night);
+  color: white;
+}
+
+body.tenant-mayaopickleball .fabric-price-table thead th.is-highlight {
+  background: var(--accent);
+}
+
+body.tenant-mayaopickleball .fabric-price-table thead th span, body.tenant-mayaopickleball .fabric-price-table thead th small {
+  display: block;
+}
+
+body.tenant-mayaopickleball .fabric-price-table thead th span {
+  font-size: 18px;
+  font-weight: 950;
+}
+
+body.tenant-mayaopickleball .fabric-price-table thead th small {
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+}
+
+body.tenant-mayaopickleball .fabric-price-table .quantity-heading, body.tenant-mayaopickleball .fabric-price-table tbody th {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  width: 176px;
+  text-align: left;
+}
+
+body.tenant-mayaopickleball .fabric-price-table tbody th {
+  background: white;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 950;
+}
+
+body.tenant-mayaopickleball .fabric-price-table tbody tr.is-muted th, body.tenant-mayaopickleball .fabric-price-table tbody tr.is-muted td {
+  background: #ededed;
+}
+
+body.tenant-mayaopickleball .fabric-price-table tbody td {
+  color: var(--accent);
+  font-size: 20px;
+  font-weight: 950;
+}
+
+body.tenant-mayaopickleball .pants-note {
+  margin-top: 18px;
+}
+
+body.tenant-mayaopickleball .pants-note p {
+  margin: 7px 0 0;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+body.tenant-mayaopickleball .pants-note strong, body.tenant-mayaopickleball .pants-note b {
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .price-included-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+body.tenant-mayaopickleball .price-included-row div {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: 8px;
+  background: rgba(246, 248, 244, 0.88);
+  padding: 10px 12px;
+}
+
+body.tenant-mayaopickleball .price-included-row span {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #0a0f14;
+  color: #75d05f;
+}
+
+body.tenant-mayaopickleball .price-included-row strong {
+  font-size: 17px;
+}
+
+body.tenant-mayaopickleball .vat-note {
+  margin: 24px 0 0;
+  color: var(--accent);
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 950;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .fabric-surface-section {
+  padding: 0 0 clamp(48px, 7vw, 92px);
+}
+
+body.tenant-mayaopickleball .fabric-surface-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.tenant-mayaopickleball .fabric-surface-card {
+  overflow: hidden;
+  border: 1px solid rgba(16, 19, 26, 0.09);
+  border-radius: 8px;
+  background: white;
+  color: var(--ink);
+  box-shadow: 0 16px 44px rgba(34, 48, 40, 0.08);
+}
+
+body.tenant-mayaopickleball .fabric-surface-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 180ms ease;
+}
+
+body.tenant-mayaopickleball .fabric-surface-card span {
+  display: block;
+  padding: 14px;
+  font-weight: 950;
+}
+
+body.tenant-mayaopickleball .fabric-surface-card:hover img {
+  transform: scale(1.025);
+}
+
+@media (max-width: 760px) {
+  body.tenant-mayaopickleball .price-page-head, body.tenant-mayaopickleball .price-board-section, body.tenant-mayaopickleball .fabric-surface-section {
+    width: min(100% - 32px, 1180px);
+  }
+
+  body.tenant-mayaopickleball .price-page-head {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding-top: 26px;
+  }
+
+  body.tenant-mayaopickleball .price-page-head h1 {
+    font-size: 36px;
+    line-height: 1.05;
+  }
+
+  body.tenant-mayaopickleball .price-page-head p:not(.hero-kicker) {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  body.tenant-mayaopickleball .price-page-head .primary-button {
+    width: 100%;
+  }
+
+  body.tenant-mayaopickleball .price-board {
+    padding: 14px;
+  }
+
+  body.tenant-mayaopickleball .price-board-title {
+    align-items: start;
+  }
+
+  body.tenant-mayaopickleball .fabric-price-table th, body.tenant-mayaopickleball .fabric-price-table td {
+    padding: 13px 12px;
+  }
+
+  body.tenant-mayaopickleball .fabric-price-table tbody td {
+    font-size: 17px;
+  }
+
+  body.tenant-mayaopickleball .price-included-row, body.tenant-mayaopickleball .fabric-surface-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .price-included-row div {
+    justify-content: flex-start;
+  }
+
+  body.tenant-mayaopickleball .pants-note p {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.tenant-mayaopickleball *, body.tenant-mayaopickleball *::before, body.tenant-mayaopickleball *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+body.tenant-mayaopickleball .fabric-size-page {
+  --fabric-ink: #0f1714;
+  --fabric-court: #116a5c;
+  --fabric-line: rgba(15, 23, 20, 0.11);
+  background:
+    linear-gradient(rgba(15, 23, 20, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 20, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 12% 8%, rgba(223, 63, 50, 0.16), transparent 25rem),
+    radial-gradient(circle at 88% 18%, rgba(17, 106, 92, 0.18), transparent 28rem),
+    #f6f7f1;
+  background-size: 42px 42px, 42px 42px, auto, auto, auto;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-hero {
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.7fr);
+  gap: clamp(18px, 4vw, 54px);
+  align-items: end;
+  padding-top: clamp(26px, 4vw, 54px);
+  padding-bottom: 24px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-hero-copy {
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(17, 106, 92, 0.96), rgba(12, 19, 18, 0.98)),
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: auto, 34px 34px, 34px 34px;
+  padding: clamp(24px, 4vw, 48px);
+  color: white;
+  box-shadow: 0 28px 80px rgba(15, 23, 20, 0.18);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .hero-kicker {
+  color: #f47b42;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-hero-copy h1 {
+  max-width: 760px;
+  font-size: clamp(44px, 6.1vw, 86px);
+  line-height: 0.88;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-hero-copy > p:not(.hero-kicker) {
+  max-width: 620px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 1.65;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-hero .secondary-button {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-hero-media {
+  border: 1px solid rgba(15, 23, 20, 0.1);
+  border-radius: var(--radius-md);
+  box-shadow: 0 18px 48px rgba(15, 23, 20, 0.13);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-hero-media img {
+  min-height: 340px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-hero-badge {
+  right: 14px;
+  bottom: 14px;
+  max-width: 210px;
+  background: #df3f32;
+  padding: 14px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-hero-badge strong {
+  font-size: 25px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-stat-row {
+  border-radius: var(--radius-md);
+  background: rgba(15, 23, 20, 0.12);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-stat-row div {
+  background: rgba(255, 255, 255, 0.84);
+  padding: 18px 20px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .info-stat-row strong {
+  color: var(--fabric-court);
+  font-size: clamp(30px, 3.6vw, 48px);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-anchor-bar {
+  top: 76px;
+  justify-content: center;
+  width: min(760px, calc(100% - clamp(36px, 7vw, 112px)));
+  border-radius: 999px;
+  padding: 7px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-anchor-bar a {
+  border-radius: 999px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-decision-section {
+  grid-template-columns: minmax(280px, 0.58fr) minmax(0, 1.42fr);
+  align-items: start;
+  padding-top: clamp(40px, 5vw, 76px);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-decision-copy {
+  top: 140px;
+  border-left: 5px solid var(--fabric-court);
+  padding-left: 22px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-decision-copy h2, body.tenant-mayaopickleball .fabric-size-page .fabric-faq-section h2 {
+  font-size: clamp(34px, 4.2vw, 60px);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-decision-notes {
+  border-radius: var(--radius-sm);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-decision-notes div {
+  background: #fff;
+  padding: 14px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-card-grid {
+  gap: 12px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.55fr) minmax(0, 1fr);
+  border-color: var(--fabric-line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: 0 14px 38px rgba(15, 23, 20, 0.08);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-card-media {
+  aspect-ratio: auto;
+  min-height: 100%;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-card-media::after {
+  right: 10px;
+  bottom: 10px;
+  content: "Xem vải";
+  padding: 6px 9px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-card-body {
+  align-content: start;
+  padding: 18px 18px 0;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-card h3 {
+  font-family: var(--font-display), sans-serif;
+  font-size: 30px;
+  line-height: 0.95;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-card p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-tag-row {
+  grid-column: 2;
+  margin: 0 18px 18px;
+  padding-top: 12px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-tag-row span {
+  border-radius: var(--radius-sm);
+  border-color: rgba(17, 106, 92, 0.16);
+  background: rgba(17, 106, 92, 0.08);
+  color: var(--fabric-court);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .size-guide-section {
+  grid-template-columns: minmax(300px, 0.48fr) minmax(0, 1.52fr);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .size-guide-copy {
+  position: sticky;
+  top: 140px;
+  border-radius: var(--radius-md);
+  background: #101714;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .size-guide-copy h2 {
+  font-size: clamp(32px, 4vw, 54px);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .html-size-panel {
+  border-radius: var(--radius-md);
+  border-color: var(--fabric-line);
+  background: #fffdf8;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .html-size-title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .html-size-title h2 {
+  color: var(--fabric-ink);
+  font-size: clamp(32px, 4vw, 50px);
+  letter-spacing: 0;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .html-size-title p {
+  margin: 0;
+  color: #df3f32;
+  font-size: 15px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .html-size-block {
+  --size-accent: #116a5c;
+  --size-cell: #ecf3ee;
+  --size-cell-alt: #f7faf6;
+  --size-text: #0f4f45;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 20, 0.08);
+  border-radius: var(--radius-sm);
+  background: white;
+  padding: 14px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .html-size-block.is-red {
+  --size-accent: #df3f32;
+  --size-cell: #fff0ec;
+  --size-cell-alt: #fff8f6;
+  --size-text: #9d3028;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .html-size-block h3 {
+  font-size: 18px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .html-size-block th, body.tenant-mayaopickleball .fabric-size-page .html-size-block td {
+  border-width: 1px;
+  padding: 12px 10px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .html-size-block thead th {
+  font-size: 18px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .html-size-block tbody td {
+  font-size: clamp(14px, 1.1vw, 18px);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-faq-section {
+  border-top: 1px solid rgba(15, 23, 20, 0.1);
+  padding-top: clamp(44px, 6vw, 84px);
+}
+
+body.tenant-mayaopickleball .fabric-size-page .fabric-faq-list article {
+  border: 1px solid rgba(15, 23, 20, 0.08);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.76);
+  padding: 18px;
+}
+
+body.tenant-mayaopickleball .fabric-size-page .design-free-band {
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(135deg, rgba(17, 106, 92, 0.96), rgba(15, 23, 20, 0.98)),
+    url("/images/mayaopickleball/pickleball-team-hero.webp") center / cover;
+}
+
+@media (max-width: 900px) {
+  body.tenant-mayaopickleball .fabric-size-page .info-hero, body.tenant-mayaopickleball .fabric-size-page .fabric-decision-section, body.tenant-mayaopickleball .fabric-size-page .size-guide-section {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .fabric-decision-copy, body.tenant-mayaopickleball .fabric-size-page .size-guide-copy {
+    position: static;
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .fabric-card {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .fabric-tag-row {
+    grid-column: auto;
+    margin: 0 18px 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  body.tenant-mayaopickleball .fabric-size-page .info-hero {
+    padding: 22px 16px 18px;
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .info-hero-copy {
+    padding: 22px;
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .info-hero-copy h1 {
+    font-size: clamp(42px, 12vw, 54px);
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .info-stat-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .info-stat-row div {
+    padding: 12px 10px;
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .info-stat-row strong {
+    font-size: 28px;
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .info-stat-row span {
+    margin-top: 5px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .info-hero-media img {
+    min-height: 190px;
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .info-hero-badge {
+    max-width: 156px;
+    padding: 10px;
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .info-hero-badge strong {
+    font-size: 19px;
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .fabric-anchor-bar {
+    justify-content: flex-start;
+    width: min(100% - 32px, 760px);
+    border-radius: var(--radius-md);
+  }
+
+  body.tenant-mayaopickleball .fabric-size-page .html-size-title {
+    display: grid;
+  }
+}
+
+body.tenant-mayaopickleball .fabric-first-page {
+  --fabric-ink: #0f1714;
+  --fabric-muted: #667069;
+  --fabric-court: #116a5c;
+  --fabric-orange: #df4b2f;
+  background:
+    linear-gradient(rgba(15, 23, 20, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 20, 0.032) 1px, transparent 1px),
+    #f7f8f2;
+  background-size: 36px 36px;
+  color: var(--fabric-ink);
+}
+
+body.tenant-mayaopickleball .fabric-first-page .site-header {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(18px);
+}
+
+body.tenant-mayaopickleball .fabric-first-hero, body.tenant-mayaopickleball .fabric-first-nav, body.tenant-mayaopickleball .fabric-first-materials {
+  width: min(100% - clamp(32px, 6vw, 96px), 1220px);
+  margin-inline: auto;
+}
+
+body.tenant-mayaopickleball .fabric-first-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.68fr);
+  gap: clamp(18px, 4vw, 48px);
+  align-items: end;
+  min-height: 0;
+  padding: clamp(28px, 4vw, 48px) 0 18px;
+}
+
+body.tenant-mayaopickleball .fabric-first-hero .hero-kicker {
+  margin-bottom: 14px;
+  color: var(--fabric-orange);
+}
+
+body.tenant-mayaopickleball .fabric-first-hero h1 {
+  max-width: 760px;
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(42px, 5.8vw, 82px);
+  line-height: 0.92;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .fabric-first-hero p:not(.hero-kicker) {
+  max-width: 640px;
+  margin: 18px 0 0;
+  color: #535b56;
+  font-size: clamp(15px, 1.15vw, 18px);
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+body.tenant-mayaopickleball .fabric-first-picks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  border: 1px solid rgba(15, 23, 20, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 8px;
+  box-shadow: 0 16px 46px rgba(15, 23, 20, 0.08);
+}
+
+body.tenant-mayaopickleball .fabric-first-picks article {
+  min-width: 0;
+  border: 1px solid rgba(17, 106, 92, 0.12);
+  border-radius: 6px;
+  background: #fff;
+  padding: 12px;
+}
+
+body.tenant-mayaopickleball .fabric-first-picks span {
+  display: block;
+  color: var(--fabric-orange);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .fabric-first-picks strong {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-display), sans-serif;
+  font-size: 20px;
+  line-height: 1.05;
+}
+
+body.tenant-mayaopickleball .fabric-first-nav {
+  position: sticky;
+  z-index: 18;
+  top: 76px;
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  margin-top: 8px;
+  border: 1px solid rgba(15, 23, 20, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 7px;
+  box-shadow: 0 12px 36px rgba(15, 23, 20, 0.07);
+  scrollbar-width: none;
+}
+
+body.tenant-mayaopickleball .fabric-first-nav::-webkit-scrollbar {
+  display: none;
+}
+
+body.tenant-mayaopickleball .fabric-first-nav a {
+  flex: 0 0 auto;
+  border-radius: 6px;
+  padding: 9px 13px;
+  color: var(--fabric-ink);
+  font-size: 13px;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+body.tenant-mayaopickleball .fabric-first-nav a:hover {
+  background: rgba(17, 106, 92, 0.09);
+  color: var(--fabric-court);
+}
+
+body.tenant-mayaopickleball .fabric-first-materials {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 34px);
+  align-items: start;
+  padding-top: clamp(22px, 3vw, 34px);
+}
+
+body.tenant-mayaopickleball .fabric-first-copy {
+  position: sticky;
+  top: 138px;
+  border-left: 4px solid var(--fabric-orange);
+  padding-left: 18px;
+}
+
+body.tenant-mayaopickleball .fabric-first-copy h2 {
+  margin: 10px 0 12px;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(31px, 3.6vw, 52px);
+  line-height: 0.98;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .fabric-first-copy p {
+  margin: 0;
+  color: var(--fabric-muted);
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.62;
+}
+
+body.tenant-mayaopickleball .fabric-first-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+body.tenant-mayaopickleball .fabric-first-card {
+  display: grid;
+  grid-template-columns: minmax(132px, 0.44fr) minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 20, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 14px 38px rgba(15, 23, 20, 0.075);
+}
+
+body.tenant-mayaopickleball .fabric-first-media {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  background: #e8ebe4;
+}
+
+body.tenant-mayaopickleball .fabric-first-media::after {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 5px;
+  background: rgba(15, 23, 20, 0.82);
+  color: #fff;
+  content: "Xem vải";
+  padding: 6px 8px;
+  font-size: 11px;
+  font-weight: 950;
+}
+
+body.tenant-mayaopickleball .fabric-first-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 205px;
+  object-fit: cover;
+}
+
+body.tenant-mayaopickleball .fabric-first-body {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 16px;
+}
+
+body.tenant-mayaopickleball .fabric-first-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+  color: var(--fabric-court);
+}
+
+body.tenant-mayaopickleball .fabric-first-title h3 {
+  margin: 0;
+  color: var(--fabric-ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: 28px;
+  line-height: 0.95;
+}
+
+body.tenant-mayaopickleball .fabric-first-body p {
+  margin: 0;
+  color: #4f5953;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.52;
+}
+
+body.tenant-mayaopickleball .fabric-first-body > strong {
+  color: var(--fabric-ink);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+body.tenant-mayaopickleball .fabric-first-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+body.tenant-mayaopickleball .fabric-first-tags span {
+  border: 1px solid rgba(17, 106, 92, 0.13);
+  border-radius: 5px;
+  background: rgba(17, 106, 92, 0.07);
+  color: var(--fabric-court);
+  padding: 5px 7px;
+  font-size: 11px;
+  font-weight: 950;
+}
+
+body.tenant-mayaopickleball .fabric-first-page .size-guide-section {
+  margin-top: clamp(34px, 5vw, 68px);
+}
+
+body.tenant-mayaopickleball .fabric-first-page .design-free-band {
+  margin-top: clamp(34px, 5vw, 72px);
+}
+
+@media (max-width: 1020px) {
+  body.tenant-mayaopickleball .fabric-first-hero, body.tenant-mayaopickleball .fabric-first-materials {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-copy {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  body.tenant-mayaopickleball .fabric-first-hero, body.tenant-mayaopickleball .fabric-first-nav, body.tenant-mayaopickleball .fabric-first-materials {
+    width: min(100% - 28px, 1220px);
+  }
+
+  body.tenant-mayaopickleball .fabric-first-hero {
+    padding-top: 20px;
+    padding-bottom: 12px;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-hero h1 {
+    font-size: clamp(36px, 10.6vw, 48px);
+    line-height: 0.96;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-hero p:not(.hero-kicker) {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-picks {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body.tenant-mayaopickleball .fabric-first-picks article {
+    padding: 8px;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-picks strong {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.15;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-picks span {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-nav {
+    top: 64px;
+    margin-top: 0;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-materials {
+    padding-top: 18px;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-copy {
+    display: none;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-copy h2 {
+    font-size: 31px;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-grid, body.tenant-mayaopickleball .fabric-first-card {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .fabric-first-media img {
+    min-height: 210px;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+body.tenant-mayaopickleball .fabric-football-page {
+  background: #f5f3ee;
+  color: #10131a;
+}
+
+body.tenant-mayaopickleball .fabric-football-page .site-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  background: rgba(11, 18, 32, 0.96);
+  color: #fff;
+}
+
+body.tenant-mayaopickleball .fabric-football-shell {
+  width: min(100% - clamp(32px, 6vw, 96px), 1220px);
+  margin-inline: auto;
+}
+
+body.tenant-mayaopickleball .fabric-football-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: #111827;
+  color: #fff;
+}
+
+body.tenant-mayaopickleball .fabric-football-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(120deg, rgba(223, 63, 50, 0.48), transparent 36%),
+    radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.2), transparent 24%),
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: auto, auto, 34px 34px, 34px 34px;
+  content: "";
+  opacity: 0.4;
+}
+
+body.tenant-mayaopickleball .fabric-football-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(340px, 0.68fr);
+  gap: clamp(26px, 4vw, 48px);
+  align-items: center;
+  padding-block: clamp(28px, 4.2vw, 44px);
+}
+
+body.tenant-mayaopickleball .fabric-back-link {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  font-weight: 950;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+body.tenant-mayaopickleball .fabric-back-link:hover {
+  color: #fff;
+}
+
+body.tenant-mayaopickleball .fabric-football-hero .hero-kicker {
+  margin: 28px 0 0;
+  color: #ff5a2f;
+  font-size: 12px;
+  font-weight: 1000;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .fabric-football-hero h1 {
+  max-width: 820px;
+  margin: 12px 0 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(41px, 6.25vw, 94px);
+  font-weight: 950;
+  line-height: 0.9;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .fabric-football-hero p:not(.hero-kicker) {
+  max-width: 590px;
+  margin: 20px 0 0;
+  color: #d8dee8;
+  font-size: clamp(15px, 1.2vw, 17px);
+  font-weight: 650;
+  line-height: 1.7;
+}
+
+body.tenant-mayaopickleball .fabric-quick-picks {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 12px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(16px);
+}
+
+body.tenant-mayaopickleball .fabric-quick-picks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+body.tenant-mayaopickleball .fabric-quick-picks article {
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+}
+
+body.tenant-mayaopickleball .fabric-quick-picks span {
+  display: block;
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .fabric-quick-picks strong {
+  display: block;
+  margin-top: 6px;
+  color: #fff;
+  font-family: var(--font-display), sans-serif;
+  font-size: 22px;
+  line-height: 1;
+}
+
+body.tenant-mayaopickleball .fabric-material-section {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 16px;
+  padding-block: clamp(40px, 5vw, 56px);
+}
+
+body.tenant-mayaopickleball .fabric-material-aside {
+  align-self: start;
+}
+
+@media (min-width: 1021px) {
+  body.tenant-mayaopickleball .fabric-material-aside {
+    position: sticky;
+    top: 112px;
+  }
+}
+
+body.tenant-mayaopickleball .fabric-material-aside h2 {
+  margin: 8px 0 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaopickleball .fabric-material-aside p {
+  margin: 16px 0 0;
+  color: #5d6673;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.75;
+}
+
+body.tenant-mayaopickleball .fabric-football-card-list {
+  display: grid;
+  gap: 16px;
+}
+
+body.tenant-mayaopickleball .fabric-football-card {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(16, 19, 26, 0.08);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+@media (min-width: 760px) {
+  body.tenant-mayaopickleball .fabric-football-card {
+    grid-template-columns: minmax(240px, 0.92fr) minmax(0, 1.08fr);
+  }
+}
+
+body.tenant-mayaopickleball .fabric-football-card:hover {
+  box-shadow: 0 24px 70px rgba(16, 19, 26, 0.14);
+  transform: translateY(-2px);
+}
+
+body.tenant-mayaopickleball .fabric-football-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #e2e8f0;
+}
+
+@media (min-width: 760px) {
+  body.tenant-mayaopickleball .fabric-football-media {
+    aspect-ratio: auto;
+  }
+}
+
+body.tenant-mayaopickleball .fabric-football-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+body.tenant-mayaopickleball .fabric-football-card:hover .fabric-football-media img {
+  transform: scale(1.04);
+}
+
+body.tenant-mayaopickleball .fabric-football-media span {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 6px;
+  background: #10131a;
+  color: #fff;
+  padding: 5px 10px;
+  font-family: var(--font-display), sans-serif;
+  font-size: 20px;
+  font-weight: 950;
+}
+
+body.tenant-mayaopickleball .fabric-football-body {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+  padding: clamp(20px, 3vw, 28px);
+}
+
+body.tenant-mayaopickleball .fabric-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #df3f32;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .fabric-football-body h3 {
+  margin: 8px 0 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(38px, 4.4vw, 52px);
+  font-weight: 950;
+  line-height: 0.94;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaopickleball .fabric-football-body > p {
+  margin: 0;
+  color: #475569;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.7;
+}
+
+body.tenant-mayaopickleball .fabric-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+body.tenant-mayaopickleball .fabric-spec-grid div {
+  border-radius: 6px;
+  background: #f5f3ee;
+  padding: 12px;
+}
+
+body.tenant-mayaopickleball .fabric-spec-grid span {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .fabric-spec-grid strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+body.tenant-mayaopickleball .fabric-football-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+body.tenant-mayaopickleball .fabric-football-tags span {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 0 12px;
+  color: #10131a;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+body.tenant-mayaopickleball .fabric-football-page .size-guide-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 24px;
+  align-items: start;
+  padding-bottom: clamp(44px, 5vw, 64px);
+}
+
+body.tenant-mayaopickleball .fabric-football-page .size-guide-copy {
+  position: static;
+  border-radius: 8px;
+  background: #10131a;
+  padding: clamp(24px, 3vw, 32px);
+  color: #fff;
+}
+
+body.tenant-mayaopickleball .fabric-football-page .size-guide-copy h2 {
+  margin-top: 14px;
+  font-size: clamp(38px, 4.8vw, 56px);
+  line-height: 0.96;
+}
+
+body.tenant-mayaopickleball .fabric-football-page .size-guide-copy p:not(.fabric-note) {
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+body.tenant-mayaopickleball .fabric-football-page .html-size-panel {
+  border-radius: 8px;
+  border-color: rgba(0, 0, 0, 0.1);
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(16, 19, 26, 0.08);
+}
+
+body.tenant-mayaopickleball .fabric-football-page .fabric-faq-section {
+  padding-block: 0 clamp(42px, 5vw, 60px);
+}
+
+body.tenant-mayaopickleball .fabric-football-cta {
+  border-block: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+body.tenant-mayaopickleball .fabric-football-cta .fabric-football-shell {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: clamp(32px, 4vw, 40px);
+}
+
+body.tenant-mayaopickleball .fabric-football-cta h2 {
+  margin: 8px 0 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(34px, 4vw, 44px);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaopickleball .fabric-football-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 8px;
+}
+
+body.tenant-mayaopickleball .fabric-football-actions a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+body.tenant-mayaopickleball .fabric-football-actions a:first-child {
+  background: #df3f32;
+  color: #fff;
+}
+
+body.tenant-mayaopickleball .fabric-football-actions a:last-child {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #10131a;
+}
+
+@media (max-width: 1020px) {
+  body.tenant-mayaopickleball .fabric-football-hero-grid, body.tenant-mayaopickleball .fabric-material-section, body.tenant-mayaopickleball .fabric-football-page .size-guide-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  body.tenant-mayaopickleball .fabric-football-shell {
+    width: min(100% - 28px, 1220px);
+  }
+
+  body.tenant-mayaopickleball .fabric-football-hero-grid {
+    gap: 20px;
+    padding-block: 22px;
+  }
+
+  body.tenant-mayaopickleball .fabric-football-hero .hero-kicker {
+    margin-top: 18px;
+    letter-spacing: 0.14em;
+  }
+
+  body.tenant-mayaopickleball .fabric-football-hero h1 {
+    font-size: clamp(40px, 12vw, 52px);
+  }
+
+  body.tenant-mayaopickleball .fabric-football-hero p:not(.hero-kicker) {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  body.tenant-mayaopickleball .fabric-quick-picks {
+    padding: 8px;
+  }
+
+  body.tenant-mayaopickleball .fabric-quick-picks article {
+    padding: 10px;
+  }
+
+  body.tenant-mayaopickleball .fabric-quick-picks strong {
+    font-size: 19px;
+  }
+
+  body.tenant-mayaopickleball .fabric-material-section {
+    padding-block: 34px;
+  }
+
+  body.tenant-mayaopickleball .fabric-material-aside h2 {
+    font-size: 36px;
+  }
+
+  body.tenant-mayaopickleball .fabric-football-body {
+    gap: 16px;
+  }
+
+  body.tenant-mayaopickleball .fabric-football-cta .fabric-football-shell {
+    display: grid;
+  }
+
+  body.tenant-mayaopickleball .fabric-football-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.tenant-mayaopickleball .fabric-hybrid-page .site-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  background: rgba(11, 18, 32, 0.96);
+  color: #fff;
+}
+
+body.tenant-mayaopickleball.has-fabric-lightbox {
+  overflow: hidden;
+}
+
+body.tenant-mayaopickleball .fabric-card-media, body.tenant-mayaopickleball .fabric-first-media, body.tenant-mayaopickleball .fabric-surface-card {
+  cursor: zoom-in;
+  font: inherit;
+  text-align: inherit;
+}
+
+body.tenant-mayaopickleball button.fabric-card-media, body.tenant-mayaopickleball button.fabric-first-media, body.tenant-mayaopickleball button.fabric-surface-card {
+  border: 0;
+  padding: 0;
+}
+
+body.tenant-mayaopickleball .fabric-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  color: #fff;
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: zoom-out;
+  border: 0;
+  background: rgba(5, 10, 18, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-panel {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  left: 16px;
+  display: grid;
+  max-height: 92dvh;
+  max-width: 1120px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: #08111f;
+  box-shadow: 0 34px 120px rgba(0, 0, 0, 0.48);
+  transform: translateY(-50%);
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-head {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 16px;
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-head span {
+  display: block;
+  color: #f57b2a;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-head strong {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--font-display), sans-serif;
+  font-size: 24px;
+  line-height: 1;
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-head button, body.tenant-mayaopickleball .fabric-lightbox-tools button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 950;
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-head button {
+  width: 44px;
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-stage {
+  overflow: auto;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(245, 123, 42, 0.16), transparent 30rem),
+    #020817;
+  padding: 14px;
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-stage img {
+  display: block;
+  max-width: 100%;
+  max-height: 68dvh;
+  margin: 0 auto;
+  border-radius: 8px;
+  object-fit: contain;
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-tools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #101826;
+  padding: 10px;
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-tools button:first-child, body.tenant-mayaopickleball .fabric-lightbox-tools button:last-child {
+  width: 44px;
+}
+
+body.tenant-mayaopickleball .fabric-lightbox-tools button:nth-child(2) {
+  padding-inline: 14px;
+}
+
+@media (max-width: 760px) {
+  body.tenant-mayaopickleball .blog-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .blog-hero-section h1, body.tenant-mayaopickleball .blog-detail-page h1 {
+    font-size: clamp(36px, 12vw, 54px);
+  }
+}
+
+/* Product detail refinement: concentrate the decision journey around media, value and contact. */
+body.tenant-mayaopickleball .product-detail-shell {
+  width: min(100%, 1440px);
+  margin: 0 auto;
+  padding-top: clamp(16px, 2.4vw, 34px);
+}
+
+body.tenant-mayaopickleball .product-crumbs {
+  margin-bottom: 12px;
+}
+
+body.tenant-mayaopickleball .product-title-heading {
+  max-width: 920px;
+  margin-bottom: 24px;
+  color: #172034;
+  font-weight: 800;
+  line-height: 1.22;
+}
+
+body.tenant-mayaopickleball .product-detail-grid {
+  gap: clamp(20px, 2.6vw, 40px);
+}
+
+body.tenant-mayaopickleball .product-detail-gallery {
+  border-color: #dfe6eb;
+  border-radius: 18px;
+  background: #edf2f4;
+  box-shadow: 0 18px 42px rgba(19, 42, 61, 0.08);
+}
+
+body.tenant-mayaopickleball .product-gallery-stage {
+  background: #edf2f4;
+}
+
+body.tenant-mayaopickleball .product-gallery-stage .product-media-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+body.tenant-mayaopickleball .gallery-nav {
+  border-color: rgba(15, 43, 63, 0.12);
+  color: #123a57;
+}
+
+body.tenant-mayaopickleball .product-gallery-thumbnails {
+  display: flex;
+  padding: 12px 14px 14px;
+}
+
+body.tenant-mayaopickleball .product-gallery-thumbnails button {
+  width: 72px;
+  height: 72px;
+  border-radius: 10px;
+}
+
+body.tenant-mayaopickleball .product-sale-badge {
+  top: 16px;
+  right: 16px;
+  bottom: auto;
+  min-width: 52px;
+  min-height: 52px;
+  border-radius: 14px;
+  background: #eb5b1e;
+}
+
+body.tenant-mayaopickleball .product-zoom-button {
+  right: 16px;
+  bottom: 16px;
+  left: auto;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  background: rgba(18, 58, 87, 0.9);
+}
+
+body.tenant-mayaopickleball .product-buy-panel {
+  border: 1px solid #dfe6eb;
+  border-radius: 18px;
+  background: #fff;
+  padding: clamp(20px, 2.2vw, 30px);
+  box-shadow: 0 18px 42px rgba(19, 42, 61, 0.07);
+}
+
+body.tenant-mayaopickleball .product-brand-line {
+  font-size: 14px;
+}
+
+body.tenant-mayaopickleball .product-rating-line {
+  margin-top: 10px;
+}
+
+body.tenant-mayaopickleball .product-deal-box {
+  margin-top: 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0e4e72 0%, #167e9e 100%);
+  padding: 18px;
+}
+
+body.tenant-mayaopickleball .product-deal-box strong {
+  font-size: clamp(28px, 2.1vw, 36px);
+}
+
+body.tenant-mayaopickleball .product-badges {
+  margin-top: 16px;
+}
+
+body.tenant-mayaopickleball .product-badges span {
+  min-height: 30px;
+  border-radius: 999px;
+  background: #e5f5f4;
+  color: #116778;
+}
+
+body.tenant-mayaopickleball .product-color-tags {
+  margin-top: 18px;
+}
+
+body.tenant-mayaopickleball .product-offer-table, body.tenant-mayaopickleball .product-store-card, body.tenant-mayaopickleball .product-spec-card {
+  border-color: #dfe6eb;
+  border-radius: 14px;
+}
+
+body.tenant-mayaopickleball .product-offer-table {
+  margin-top: 20px;
+}
+
+body.tenant-mayaopickleball .product-offer-table h2, body.tenant-mayaopickleball .product-spec-card h2 {
+  background: #f4f8fa;
+}
+
+body.tenant-mayaopickleball .product-offer-table h2 {
+  padding: 12px 14px;
+}
+
+body.tenant-mayaopickleball .product-offer-table li {
+  min-height: 38px;
+  padding: 6px 14px;
+  font-size: 12px;
+}
+
+body.tenant-mayaopickleball .product-offer-table li span {
+  background: #e7672a;
+}
+
+body.tenant-mayaopickleball .product-detail-actions {
+  margin-top: 20px;
+}
+
+body.tenant-mayaopickleball .product-sample-action, body.tenant-mayaopickleball .product-call-action {
+  min-height: 50px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+body.tenant-mayaopickleball .product-sample-action { background: #1678bd; }
+body.tenant-mayaopickleball .product-call-action { background: #123a57; }
+
+body.tenant-mayaopickleball .product-support-line {
+  margin-top: 14px;
+}
+
+body.tenant-mayaopickleball .product-right-column {
+  gap: 20px;
+}
+
+body.tenant-mayaopickleball .product-store-card {
+  padding: 20px 20px 16px;
+}
+
+body.tenant-mayaopickleball .product-store-card strong { color: #1678bd; }
+
+body.tenant-mayaopickleball .product-spec-card h2 { padding: 15px 18px; }
+
+body.tenant-mayaopickleball .product-spec-card dt, body.tenant-mayaopickleball .product-spec-card dd { padding: 13px 16px; }
+
+body.tenant-mayaopickleball .product-content-grid { margin-top: 36px; }
+
+body.tenant-mayaopickleball .product-copy-card, body.tenant-mayaopickleball .product-side-card {
+  border-radius: 16px;
+  padding: clamp(24px, 3vw, 36px);
+}
+
+body.tenant-mayaopickleball .quick-order-card {
+  margin-top: 20px;
+  border-color: #cfe3e7;
+  border-radius: 14px;
+  background: #f6fbfb;
+  padding: 18px;
+}
+
+body.tenant-mayaopickleball .quick-order-heading h2 { font-size: 20px; }
+
+body.tenant-mayaopickleball .quick-order-form button {
+  min-height: 48px;
+  border-radius: 9px;
+  background: #e45b2b;
+}
+
+body.tenant-mayaopickleball .quick-order-form button:hover { background: #ca471a; }
+
+body.tenant-mayaopickleball .product-fit-card {
+  margin-top: 28px;
+  border-radius: 16px;
+}
+
+@media (min-width: 960px) {
+  body.tenant-mayaopickleball .product-detail-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(390px, 0.85fr);
+  }
+
+  body.tenant-mayaopickleball .product-right-column {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  body.tenant-mayaopickleball .product-title-heading { margin-bottom: 18px; }
+
+  body.tenant-mayaopickleball .product-detail-gallery, body.tenant-mayaopickleball .product-buy-panel { border-radius: 14px; }
+
+  body.tenant-mayaopickleball .product-sale-badge {
+    top: 12px;
+    right: 12px;
+    bottom: auto;
+  }
+
+  body.tenant-mayaopickleball .product-zoom-button {
+    right: 12px;
+    bottom: 12px;
+    left: auto;
+  }
+
+  body.tenant-mayaopickleball .product-gallery-thumbnails button {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Keep sale and original prices compact, readable and consistent across product surfaces. */
+body.tenant-mayaopickleball .product-deal-box {
+  display: flex;
+  align-items: end;
+  gap: 18px;
+  padding: 18px 20px;
+}
+
+body.tenant-mayaopickleball .product-deal-price {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  min-width: 152px;
+}
+
+body.tenant-mayaopickleball .product-deal-price > span {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+body.tenant-mayaopickleball .product-deal-main-price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body.tenant-mayaopickleball .product-deal-main-price > strong {
+  font-size: clamp(30px, 2.5vw, 38px);
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+
+body.tenant-mayaopickleball .product-deal-main-price > span {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 4px 8px;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+body.tenant-mayaopickleball .product-deal-original {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+body.tenant-mayaopickleball .product-deal-original del {
+  font-size: 15px;
+}
+
+body.tenant-mayaopickleball .product-deal-original span {
+  font-size: 12px;
+  font-weight: 650;
+}
+
+body.tenant-mayaopickleball .product-deal-savings {
+  margin: 0 0 3px auto;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: right;
+}
+
+body.tenant-mayaopickleball .catalog-price {
+  flex-wrap: nowrap;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+body.tenant-mayaopickleball .catalog-price strong {
+  font-size: 18px;
+}
+
+body.tenant-mayaopickleball .catalog-price span {
+  font-size: 16px;
+}
+
+@media (max-width: 760px) {
+  body.tenant-mayaopickleball .catalog-price strong {
+    font-size: 16px;
+  }
+
+  body.tenant-mayaopickleball .catalog-price span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  body.tenant-mayaopickleball .product-deal-box {
+    gap: 14px;
+    padding: 17px;
+  }
+
+  body.tenant-mayaopickleball .product-deal-price {
+    min-width: 128px;
+  }
+
+  body.tenant-mayaopickleball .product-deal-price > strong {
+    font-size: 29px;
+  }
+
+  body.tenant-mayaopickleball .product-deal-savings {
+    display: none;
+  }
+}

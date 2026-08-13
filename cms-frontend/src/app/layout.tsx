@@ -2,16 +2,6 @@ import type { Metadata } from 'next'
 import { Barlow_Condensed, Be_Vietnam_Pro } from 'next/font/google'
 import Script from 'next/script'
 import 'photoswipe/style.css'
-import './styles.css'
-import './mayaocaulong.css'
-import './mayaopickleball.css'
-import './mayaobongchuyen.css'
-import './mayaobongro.css'
-import './mayaobongro-header.css'
-import './mayaochaybo.css'
-import './mayaochaybo-fixes.css'
-import './mayaobongda.css'
-import './mayaobongda-audience.css'
 import { getAnalyticsSettings } from '../lib/analytics'
 import { SITE_LOGO_PATH } from '../lib/seo'
 import { getTenantContext } from '../lib/tenant'
@@ -174,13 +164,26 @@ function CustomScriptMarkup({
 function buildHeadMarkup({
   customScripts,
   googleTagManagerId,
+  tenantSlug,
 }: {
   customScripts: Array<{ id: string; code: string }>
   googleTagManagerId: string | null
+  tenantSlug: string
 }) {
+  const tenantStyles: Record<string, string[]> = {
+    mayaocaulong: ['/styles/mayaocaulong.css'],
+    mayaopickleball: ['/styles/mayaopickleball.css'],
+    mayaobongchuyen: ['/styles/mayaobongchuyen.css'],
+    mayaobongro: ['/styles/mayaobongro.css', '/styles/mayaobongro-header.css'],
+    mayaochaybo: ['/styles/mayaochaybo.css', '/styles/mayaochaybo-fixes.css'],
+    mayaobongda: ['/styles/mayaobongda.css', '/styles/mayaobongda-audience.css'],
+  }
+  const stylesheets = tenantStyles[tenantSlug] || ['/styles/shared.css']
+
   return [
     '<link rel="preconnect" href="https://static.x24sport.vn" crossorigin="anonymous">',
     '<link rel="preconnect" href="https://cdn.x24sport.vn" crossorigin="anonymous">',
+    ...stylesheets.map((href) => `<link rel="stylesheet" href="${href}">`),
     googleTagManagerId
       ? `<script id="google-tag-manager">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${googleTagManagerId}');</script>`
       : '',
@@ -200,7 +203,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const customHeadScripts = getCustomScripts(analytics, 'head')
   const customBodyStartScripts = getCustomScripts(analytics, 'bodyStart')
   const customBodyEndScripts = getCustomScripts(analytics, 'bodyEnd')
-  const headMarkup = buildHeadMarkup({ customScripts: customHeadScripts, googleTagManagerId })
+  const headMarkup = buildHeadMarkup({ customScripts: customHeadScripts, googleTagManagerId, tenantSlug: tenant.slug })
 
   return <html className={`${pickleballBodyFont.variable} ${pickleballDisplayFont.variable} ${tenantHeadingFont.variable} ${tenantBodyFont.variable}`} lang="vi"><head dangerouslySetInnerHTML={{ __html: headMarkup }} suppressHydrationWarning /><body className={`tenant-${tenant.slug}`}>{googleTagManagerId ? <noscript><iframe height="0" src={`https://www.googletagmanager.com/ns.html?id=${encodeURIComponent(googleTagManagerId)}`} style={{ display: 'none', visibility: 'hidden' }} width="0" /></noscript> : null}<CustomScriptMarkup position="bodyStart" scripts={customBodyStartScripts} />{measurementId ? <><Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" /><Script id="ga4-tag" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${measurementId}');`}</Script></> : null}{metaPixelId ? <><Script id="meta-pixel" strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', ${JSON.stringify(metaPixelId)}); fbq('track', 'PageView');`}</Script><noscript><img alt="" height="1" src={`https://www.facebook.com/tr?id=${encodeURIComponent(metaPixelId)}&ev=PageView&noscript=1`} style={{ display: 'none' }} width="1" /></noscript></> : null}{children}<CustomScriptMarkup position="bodyEnd" scripts={customBodyEndScripts} /></body></html>
 }

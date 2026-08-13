@@ -18,20 +18,9 @@ import {
   Users,
 } from 'lucide-react'
 
-import X24HomePage from '../page'
 import { getCategories, getProductsPage } from '../../lib/content'
 import { RynoCard, RynoDesignGrid } from './ryno-catalog'
 import { RynoSiteFooter, RynoSiteHeader } from './ryno-shell'
-import MayaoCauLongHomePage from './_mayaocaulong/page'
-import MayaoPickleballHomePage from './_mayaopickleball/page'
-import MayaoBongChuyenHomePage from './_mayaobongchuyen/page'
-import MayaoBongRoHomePage from './_mayaobongro/page'
-import { MayaoBongRoShell } from './_mayaobongro/shell'
-import MayaoChayBoHomePage from './_mayaochaybo/page'
-import { MayaoChayBoShell } from './_mayaochaybo/shell'
-import MayaoBongDaHomePage from './_mayaobongda/page'
-import { MayaoBongDaShell } from './_mayaobongda/shell'
-import { GenericTenantHomePage } from './generic-tenant-home'
 
 export async function generateMetadata({ params }: { params: Promise<{ tenant: string }> }): Promise<Metadata> {
   const { tenant } = await params
@@ -106,14 +95,47 @@ const trustItems = [
 
 export default async function TenantHomePage({ params }: { params: Promise<{ tenant: string }> }) {
   const { tenant } = await params
-  if (tenant === 'x24sport') return <X24HomePage />
-  if (tenant === 'mayaocaulong') return <MayaoCauLongHomePage />
-  if (tenant === 'mayaopickleball') return <MayaoPickleballHomePage />
-  if (tenant === 'mayaobongchuyen') return <MayaoBongChuyenHomePage />
-  if (tenant === 'mayaobongro') return <MayaoBongRoShell><MayaoBongRoHomePage /></MayaoBongRoShell>
-  if (tenant === 'mayaochaybo') return <MayaoChayBoShell><MayaoChayBoHomePage /></MayaoChayBoShell>
-  if (tenant === 'mayaobongda') return <MayaoBongDaShell><MayaoBongDaHomePage /></MayaoBongDaShell>
-  if (tenant !== 'rynosport') return <GenericTenantHomePage />
+  if (tenant === 'x24sport') {
+    const { default: X24HomePage } = await import('../page')
+    return <X24HomePage />
+  }
+  if (tenant === 'mayaocaulong') {
+    const { default: MayaoCauLongHomePage } = await import('./_mayaocaulong/page')
+    return <MayaoCauLongHomePage />
+  }
+  if (tenant === 'mayaopickleball') {
+    const { default: MayaoPickleballHomePage } = await import('./_mayaopickleball/page')
+    return <MayaoPickleballHomePage />
+  }
+  if (tenant === 'mayaobongchuyen') {
+    const { default: MayaoBongChuyenHomePage } = await import('./_mayaobongchuyen/page')
+    return <MayaoBongChuyenHomePage />
+  }
+  if (tenant === 'mayaobongro') {
+    const [{ default: MayaoBongRoHomePage }, { MayaoBongRoShell }] = await Promise.all([
+      import('./_mayaobongro/page'),
+      import('./_mayaobongro/shell'),
+    ])
+    return <MayaoBongRoShell><MayaoBongRoHomePage /></MayaoBongRoShell>
+  }
+  if (tenant === 'mayaochaybo') {
+    const [{ default: MayaoChayBoHomePage }, { MayaoChayBoShell }] = await Promise.all([
+      import('./_mayaochaybo/page'),
+      import('./_mayaochaybo/shell'),
+    ])
+    return <MayaoChayBoShell><MayaoChayBoHomePage /></MayaoChayBoShell>
+  }
+  if (tenant === 'mayaobongda') {
+    const [{ default: MayaoBongDaHomePage }, { MayaoBongDaShell }] = await Promise.all([
+      import('./_mayaobongda/page'),
+      import('./_mayaobongda/shell'),
+    ])
+    return <MayaoBongDaShell><MayaoBongDaHomePage /></MayaoBongDaShell>
+  }
+  if (tenant !== 'rynosport') {
+    const { GenericTenantHomePage } = await import('./generic-tenant-home')
+    return <GenericTenantHomePage />
+  }
 
   const [{ products }, categories] = await Promise.all([
     getProductsPage({ limit: 4 }),
