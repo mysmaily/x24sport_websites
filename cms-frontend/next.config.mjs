@@ -27,6 +27,7 @@ const nextConfig = {
     return [
       { source: '/fonts/:path*', headers: immutableAssetHeaders },
       { source: '/images/:path*', headers: immutableAssetHeaders },
+      { source: '/styles/:path*', headers: immutableAssetHeaders },
       { source: '/(.*)', headers: securityHeaders },
     ]
   },

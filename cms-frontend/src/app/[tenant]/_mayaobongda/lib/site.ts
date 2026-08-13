@@ -4,7 +4,8 @@ export const PHONE_DISPLAY = '0989 353 247'
 export const PHONE_VALUE = '0989353247'
 export const ZALO_URL = `https://zalo.me/${PHONE_VALUE}`
 export const FACEBOOK_URL = 'https://www.facebook.com/x24sport.vn'
-export const LOGO_URL = 'https://cdn.mayaobongda.vn/wp-content/uploads/2026/07/mayaobongda-header-logo.png'
+export const LOGO_URL = '/images/mayaobongda/header-logo.webp'
+export const LOGO_ABSOLUTE_URL = `${SITE_URL}${LOGO_URL}`
 export const DEFAULT_OG_IMAGE = {
   url: '/images/mayaobongda/og-share.webp',
   width: 1200,

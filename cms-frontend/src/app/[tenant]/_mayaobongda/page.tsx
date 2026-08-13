@@ -8,7 +8,7 @@ import { ProductGrid } from './components/product-grid'
 import { getCategories, getLatestPosts, getProducts } from './lib/cms'
 import { footballCategoryPath } from './lib/category-paths'
 import { HOT_FOOTBALL_PATH } from './lib/hot-football'
-import { excerpt, LOGO_URL, SITE_NAME, SITE_URL, ZALO_URL } from './lib/site'
+import { excerpt, LOGO_ABSOLUTE_URL, SITE_NAME, SITE_URL, ZALO_URL } from './lib/site'
 
 export const revalidate = 180
 export const metadata: Metadata = {
@@ -53,7 +53,7 @@ export default async function HomePage() {
   const categories = categoryResult.docs.filter((item) => item.group === 'type' && (item.productCount || 0) > 0).slice(0, 4)
 
   return <>
-    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'OnlineStore', name: SITE_NAME, url: SITE_URL, logo: LOGO_URL, telephone: '+84989353247' }} />
+    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'OnlineStore', name: SITE_NAME, url: SITE_URL, logo: LOGO_ABSOLUTE_URL, telephone: '+84989353247' }} />
     <TenantPromoHero ariaLabel="Khuyến mãi áo bóng đá" slides={heroSlides}>
         <div className="min-w-0 max-w-3xl">
           <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.1em] text-orange-200 sm:px-4 sm:py-2 sm:text-xs sm:tracking-[.16em]"><TimerReset className="shrink-0" size={16} /><span className="sm:hidden">Duyệt maket trước</span><span className="hidden sm:inline">May trực tiếp tại xưởng · Duyệt maket trước</span></p>
