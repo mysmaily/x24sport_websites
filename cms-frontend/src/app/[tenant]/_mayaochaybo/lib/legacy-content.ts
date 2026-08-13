@@ -23,3 +23,9 @@ export function rewriteLegacyHtml(html?: string | null) {
   })
   return rewritten
 }
+
+export function firstLegacyImage(html?: string | null) {
+  const rewritten = rewriteLegacyHtml(html)
+  const match = rewritten.match(/<img\b[^>]*\bsrc=["']([^"']+)["']/i)
+  return match?.[1]?.trim() || null
+}
