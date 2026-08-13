@@ -37,16 +37,16 @@ export function TenantPromoHero({ ariaLabel, children, className, slides }: Tena
   }
 
   return (
-    <section className={`${styles.banner}${className ? ` ${className}` : ''}`}>
-      <div aria-label={ariaLabel} className={styles.slider} data-count={slides.length} data-promo-hero-slider role="group">
-        <div aria-hidden="true" className={styles.loader}><LoaderCircle size={28} /></div>
+    <section className={`tenant-promo-hero ${styles.banner}${className ? ` ${className}` : ''}`} data-promo-hero>
+      <div aria-label={ariaLabel} className={`tenant-promo-slider ${styles.slider}`} data-count={slides.length} data-promo-hero-slider role="group">
+        <div aria-hidden="true" className={`tenant-promo-loader ${styles.loader}`}><LoaderCircle size={28} /></div>
         {slides.map((slide, index) => (
-          <div className={styles.slide} key={slide.src} style={{ animationDelay: `${index * 5}s` }}>
-            <picture className={styles.picture}>
+          <div className={`tenant-promo-slide ${styles.slide}`} data-promo-hero-slide key={slide.src} style={{ animationDelay: `${index * 5}s` }}>
+            <picture className={`tenant-promo-picture ${styles.picture}`}>
               <source media="(max-width: 1023px)" srcSet={slide.mobileSrc} />
               <img
                 alt={slide.alt}
-                className={styles.image}
+                className={`tenant-promo-image ${styles.image}`}
                 decoding="async"
                 data-promo-hero-image
                 fetchPriority={index === 0 ? 'high' : 'auto'}
@@ -58,12 +58,12 @@ export function TenantPromoHero({ ariaLabel, children, className, slides }: Tena
             </picture>
           </div>
         ))}
-        <div aria-hidden="true" className={styles.readableOverlay} data-promo-hero-overlay />
-        <div aria-hidden="true" className={styles.dots}>
+        <div aria-hidden="true" className={`tenant-promo-readable-overlay ${styles.readableOverlay}`} data-promo-hero-overlay />
+        <div aria-hidden="true" className={`tenant-promo-dots ${styles.dots}`}>
           {slides.map((slide) => <span key={slide.src} />)}
         </div>
       </div>
-      <div className={`section-shell ${styles.content}`} data-promo-hero-content>{children}</div>
+      <div className={`section-shell tenant-promo-content ${styles.content}`} data-promo-hero-content>{children}</div>
     </section>
   )
 }
