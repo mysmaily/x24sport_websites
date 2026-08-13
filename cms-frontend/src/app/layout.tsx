@@ -11,6 +11,7 @@ const pickleballBodyFont = Be_Vietnam_Pro({
   weight: ['400', '500', '600', '700', '800', '900'],
   variable: '--font-body',
   display: 'swap',
+  preload: false,
 })
 
 const pickleballDisplayFont = Barlow_Condensed({
@@ -18,20 +19,23 @@ const pickleballDisplayFont = Barlow_Condensed({
   weight: ['600', '700'],
   variable: '--font-display',
   display: 'swap',
+  preload: false,
 })
 
 const tenantHeadingFont = Barlow_Condensed({
   subsets: ['latin', 'vietnamese'],
-  weight: ['500', '600', '700', '800'],
+  weight: ['700', '800'],
   variable: '--font-heading',
   display: 'swap',
+  preload: false,
 })
 
 const tenantBodyFont = Be_Vietnam_Pro({
   subsets: ['latin', 'vietnamese'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '700'],
   variable: '--font-body-base',
   display: 'swap',
+  preload: false,
 })
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -191,6 +195,16 @@ function buildHeadMarkup({
   ].filter(Boolean).join('\n')
 }
 
+function getTenantFontVariables(tenantSlug: string) {
+  if (tenantSlug === 'mayaocaulong' || tenantSlug === 'mayaopickleball') {
+    return `${pickleballBodyFont.variable} ${pickleballDisplayFont.variable}`
+  }
+  if (tenantSlug === 'mayaobongda' || tenantSlug === 'mayaobongro' || tenantSlug === 'mayaochaybo') {
+    return `${tenantHeadingFont.variable} ${tenantBodyFont.variable}`
+  }
+  return ''
+}
+
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const tenant = await getTenantContext()
   const analytics = await getAnalyticsSettings()
@@ -204,6 +218,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const customBodyStartScripts = getCustomScripts(analytics, 'bodyStart')
   const customBodyEndScripts = getCustomScripts(analytics, 'bodyEnd')
   const headMarkup = buildHeadMarkup({ customScripts: customHeadScripts, googleTagManagerId, tenantSlug: tenant.slug })
+  const fontVariables = getTenantFontVariables(tenant.slug)
 
-  return <html className={`${pickleballBodyFont.variable} ${pickleballDisplayFont.variable} ${tenantHeadingFont.variable} ${tenantBodyFont.variable}`} lang="vi"><head dangerouslySetInnerHTML={{ __html: headMarkup }} suppressHydrationWarning /><body className={`tenant-${tenant.slug}`}>{googleTagManagerId ? <noscript><iframe height="0" src={`https://www.googletagmanager.com/ns.html?id=${encodeURIComponent(googleTagManagerId)}`} style={{ display: 'none', visibility: 'hidden' }} width="0" /></noscript> : null}<CustomScriptMarkup position="bodyStart" scripts={customBodyStartScripts} />{measurementId ? <><Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" /><Script id="ga4-tag" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${measurementId}');`}</Script></> : null}{metaPixelId ? <><Script id="meta-pixel" strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', ${JSON.stringify(metaPixelId)}); fbq('track', 'PageView');`}</Script><noscript><img alt="" height="1" src={`https://www.facebook.com/tr?id=${encodeURIComponent(metaPixelId)}&ev=PageView&noscript=1`} style={{ display: 'none' }} width="1" /></noscript></> : null}{children}<CustomScriptMarkup position="bodyEnd" scripts={customBodyEndScripts} /></body></html>
+  return <html className={fontVariables} lang="vi"><head dangerouslySetInnerHTML={{ __html: headMarkup }} suppressHydrationWarning /><body className={`tenant-${tenant.slug}`}>{googleTagManagerId ? <noscript><iframe height="0" src={`https://www.googletagmanager.com/ns.html?id=${encodeURIComponent(googleTagManagerId)}`} style={{ display: 'none', visibility: 'hidden' }} width="0" /></noscript> : null}<CustomScriptMarkup position="bodyStart" scripts={customBodyStartScripts} />{measurementId ? <><Script src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" /><Script id="ga4-tag" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${measurementId}');`}</Script></> : null}{metaPixelId ? <><Script id="meta-pixel" strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', ${JSON.stringify(metaPixelId)}); fbq('track', 'PageView');`}</Script><noscript><img alt="" height="1" src={`https://www.facebook.com/tr?id=${encodeURIComponent(metaPixelId)}&ev=PageView&noscript=1`} style={{ display: 'none' }} width="1" /></noscript></> : null}{children}<CustomScriptMarkup position="bodyEnd" scripts={customBodyEndScripts} /></body></html>
 }
