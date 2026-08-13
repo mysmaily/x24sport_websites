@@ -15,6 +15,9 @@ import {
   getAllCanonicalRoutes as getMayaoBongDaCanonicalRoutes,
 } from './[tenant]/_mayaobongda/lib/cms'
 import {
+  HOT_FOOTBALL_PATH,
+} from './[tenant]/_mayaobongda/lib/hot-football'
+import {
   getAllPostPaths as getMayaoPickleballPostPaths,
   getSitemapProducts as getMayaoPickleballProductPaths,
 } from './[tenant]/_mayaopickleball/lib/content'
@@ -48,6 +51,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return [
       { url: `${base}/`, lastModified: now, priority: 1 },
       { url: `${base}/san-pham/`, lastModified: now, priority: 0.9 },
+      { url: `${base}${HOT_FOOTBALL_PATH}`, lastModified: now, priority: 0.84 },
       { url: `${base}/bang-gia-may-ao-bong-da/`, priority: 0.82 },
       { url: `${base}/ao-bong-da-doi-bong-cau-lac-bo/`, priority: 0.82 },
       { url: `${base}/ao-bong-da-giai-phong-trao/`, priority: 0.82 },

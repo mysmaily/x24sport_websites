@@ -26,6 +26,7 @@ export type Product = {
   id: number
   name: string
   slug: string
+  viewCount?: number | null
   price?: number | null
   compareAtPrice?: number | null
   regularPrice?: number | null
@@ -128,11 +129,13 @@ export async function getProducts({
   limit = 24,
   search,
   categorySlug,
+  sort,
 }: {
   page?: number
   limit?: number
   search?: string
   categorySlug?: string
+  sort?: 'latest' | 'popular'
 } = {}) {
   const tenant = await getTenant()
   const category = categorySlug ? await getProductCategory(categorySlug) : null
@@ -145,7 +148,7 @@ export async function getProducts({
     limit: String(limit),
     page: String(page),
     depth: '1',
-    sort: '-sourceModifiedAt',
+    sort: sort === 'popular' ? '-viewCount' : '-sourceModifiedAt',
   })
   let index = 2
   if (category) params.set(`where[and][${index++}][categories][equals]`, String(category.id))

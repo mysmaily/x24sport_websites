@@ -8,8 +8,8 @@ import { excerpt, SITE_URL } from '../lib/site'
 import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
 
-export async function CatalogPageView({ page, search = '', heading = 'Toàn bộ mẫu áo bóng đá.', description = 'Chọn một mẫu làm điểm xuất phát rồi điều chỉnh màu sắc, logo, tên số và nội dung theo nhu cầu thực tế.', canonicalPath = '/san-pham/', breadcrumbLabel = 'Sản phẩm', categorySlug, searchAction = '/san-pham/' }: { page: number; search?: string; heading?: string; description?: string; canonicalPath?: string; breadcrumbLabel?: string; categorySlug?: string; searchAction?: string }) {
-  const [result, categoryResult] = await Promise.all([getProducts({ page, limit: 24, search, categorySlug }), getCategories()])
+export async function CatalogPageView({ page, search = '', heading = 'Toàn bộ mẫu áo bóng đá.', description = 'Chọn một mẫu làm điểm xuất phát rồi điều chỉnh màu sắc, logo, tên số và nội dung theo nhu cầu thực tế.', canonicalPath = '/san-pham/', breadcrumbLabel = 'Sản phẩm', categorySlug, searchAction = '/san-pham/', sort = 'latest' }: { page: number; search?: string; heading?: string; description?: string; canonicalPath?: string; breadcrumbLabel?: string; categorySlug?: string; searchAction?: string; sort?: 'latest' | 'popular' }) {
+  const [result, categoryResult] = await Promise.all([getProducts({ page, limit: 24, search, categorySlug, sort }), getCategories()])
   const primaryCategories = categoryResult.docs.filter((item) => item.group === 'type' && (item.productCount || 0) > 0)
   const secondaryCategories = categoryResult.docs.filter((item) => item.group === 'tag' && (item.productCount || 0) > 0)
   const activeSecondary = secondaryCategories.find((item) => item.slug === categorySlug)

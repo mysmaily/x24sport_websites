@@ -15,8 +15,8 @@ import { MayaoChayBoShell } from '../_mayaochaybo/shell'
 import MayaoBongDaPathPage, { generateMetadata as generateMayaoBongDaPathMetadata } from '../_mayaobongda/[...segments]/page'
 import { MayaoBongDaShell } from '../_mayaobongda/shell'
 
-export async function generateMetadata({ params }: { params: Promise<{ tenant: string; path: string[] }> }): Promise<Metadata> {
-  const { tenant, path } = await params
+export async function generateMetadata({ params, searchParams }: { params: Promise<{ tenant: string; path: string[] }>; searchParams: Promise<Record<string, string | string[] | undefined>> }): Promise<Metadata> {
+  const [{ tenant, path }, query] = await Promise.all([params, searchParams])
   if (tenant === 'mayaocaulong' && path.length === 1 && getCatalogFilterBySlug(path[0])) {
     return generateMayaoCauLongCatalogMetadata({ params: Promise.resolve({ catalogSlug: path[0] }) })
   }
@@ -33,10 +33,10 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
     return generateMayaoBongRoPathMetadata({ params: Promise.resolve({ segments: path }) })
   }
   if (tenant === 'mayaochaybo') {
-    return generateMayaoChayBoPathMetadata({ params: Promise.resolve({ segments: path }), searchParams: Promise.resolve({}) })
+    return generateMayaoChayBoPathMetadata({ params: Promise.resolve({ segments: path }), searchParams: Promise.resolve(query) })
   }
   if (tenant === 'mayaobongda') {
-    return generateMayaoBongDaPathMetadata({ params: Promise.resolve({ segments: path }), searchParams: Promise.resolve({}) })
+    return generateMayaoBongDaPathMetadata({ params: Promise.resolve({ segments: path }), searchParams: Promise.resolve(query) })
   }
   if (tenant !== 'rynosport' || path.length !== 1) return {}
 

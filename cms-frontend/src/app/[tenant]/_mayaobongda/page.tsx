@@ -7,6 +7,7 @@ import { JsonLd } from './components/json-ld'
 import { ProductGrid } from './components/product-grid'
 import { getCategories, getLatestPosts, getProducts } from './lib/cms'
 import { footballCategoryPath } from './lib/category-paths'
+import { HOT_FOOTBALL_PATH } from './lib/hot-football'
 import { excerpt, LOGO_URL, SITE_NAME, SITE_URL, ZALO_URL } from './lib/site'
 
 export const revalidate = 180
@@ -48,7 +49,7 @@ const heroSlides: TenantPromoHeroSlide[] = [
 ]
 
 export default async function HomePage() {
-  const [catalog, posts, categoryResult] = await Promise.all([getProducts({ limit: 8 }), getLatestPosts(3), getCategories()])
+  const [catalog, hotCatalog, posts, categoryResult] = await Promise.all([getProducts({ limit: 8 }), getProducts({ limit: 12, sort: 'popular' }), getLatestPosts(3), getCategories()])
   const categories = categoryResult.docs.filter((item) => item.group === 'type' && (item.productCount || 0) > 0).slice(0, 4)
 
   return <>
@@ -138,6 +139,19 @@ export default async function HomePage() {
             <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 text-sm font-black text-slate-900 transition duration-200 hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={ZALO_URL} rel="noreferrer" target="_blank">Gửi mẫu đang thích để được tư vấn phối lại <ArrowRight aria-hidden="true" size={17} /></a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section className="bg-white py-10 sm:py-18">
+      <div className="section-shell">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="section-kicker">Sản phẩm HOT</p>
+            <h2 className="section-title">Chọn mẫu, rồi hoàn thiện phiên bản của đội.</h2>
+          </div>
+          <Link className="inline-flex min-h-11 items-center gap-2 self-start rounded-lg border border-slate-300 px-4 text-sm font-black hover:border-brand hover:text-brand sm:min-h-12 sm:px-5" href={HOT_FOOTBALL_PATH}>Xem tất cả mẫu hot <ArrowRight size={18} /></Link>
+        </div>
+        <div className="mt-6 sm:mt-10"><ProductGrid priorityImages={false} products={hotCatalog.docs} /></div>
       </div>
     </section>
 

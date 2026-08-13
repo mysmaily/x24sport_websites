@@ -7,9 +7,10 @@ import { CatalogPageView } from '../components/catalog-page-view'
 import { FabricGuidePage } from '../components/fabric-guide-page'
 import { PostArchivePage } from '../components/post-archive-page'
 import { getProducts, productImages, productPath, resolveCategoryPath, resolveContentPath, resolveProductPath } from '../lib/cms'
+import { HOT_FOOTBALL_DESCRIPTION, HOT_FOOTBALL_PATH, HOT_FOOTBALL_TITLE, HOT_FOOTBALL_YEAR, isCurrentHotFootballPath } from '../lib/hot-football'
 import { rewriteLegacyHtml } from '../lib/legacy-content'
 import { getPostCategoryArchive, isIndexableContent } from '../lib/legacy-routes'
-import { excerpt } from '../lib/site'
+import { DEFAULT_OG_IMAGE, excerpt } from '../lib/site'
 
 export const revalidate = 180
 
@@ -23,6 +24,29 @@ function pathFrom(segments: string[]) {
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ segments: string[] }>; searchParams: Promise<SearchParams> }): Promise<Metadata> {
   const [{ segments }, query] = await Promise.all([params, searchParams])
   const path = pathFrom(segments)
+  if (isCurrentHotFootballPath(path)) {
+    const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
+    const search = String(Array.isArray(query.q) ? query.q[0] : query.q || '').trim()
+    const canonical = page > 1 ? `${HOT_FOOTBALL_PATH}?page=${page}` : HOT_FOOTBALL_PATH
+    return {
+      title: `${HOT_FOOTBALL_TITLE}${page > 1 ? ` - Trang ${page}` : ''}`,
+      description: HOT_FOOTBALL_DESCRIPTION,
+      alternates: { canonical },
+      robots: search ? { index: false, follow: true } : undefined,
+      openGraph: {
+        title: HOT_FOOTBALL_TITLE,
+        description: HOT_FOOTBALL_DESCRIPTION,
+        images: [DEFAULT_OG_IMAGE],
+        url: canonical,
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: HOT_FOOTBALL_TITLE,
+        description: HOT_FOOTBALL_DESCRIPTION,
+        images: [DEFAULT_OG_IMAGE.url],
+      },
+    }
+  }
   if (path === '/chat-lieu-vai/') {
     return {
       title: 'Chất liệu vải may áo bóng đá',
@@ -78,6 +102,20 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
 export default async function LegacyRoutePage({ params, searchParams }: { params: Promise<{ segments: string[] }>; searchParams: Promise<SearchParams> }) {
   const [{ segments }, query] = await Promise.all([params, searchParams])
   const path = pathFrom(segments)
+  if (isCurrentHotFootballPath(path)) {
+    const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
+    const q = String(Array.isArray(query.q) ? query.q[0] : query.q || '')
+    return <CatalogPageView
+      breadcrumbLabel={`Mẫu áo bóng đá hot ${HOT_FOOTBALL_YEAR}`}
+      canonicalPath={HOT_FOOTBALL_PATH}
+      description={HOT_FOOTBALL_DESCRIPTION}
+      heading={HOT_FOOTBALL_TITLE}
+      page={page}
+      search={q}
+      searchAction={HOT_FOOTBALL_PATH}
+      sort="popular"
+    />
+  }
   if (segments.length >= 2 && segments.at(-2) === 'page' && /^\d+$/.test(segments.at(-1) || '')) {
     const page = Number(segments.at(-1))
     const baseSegments = segments.slice(0, -2)
