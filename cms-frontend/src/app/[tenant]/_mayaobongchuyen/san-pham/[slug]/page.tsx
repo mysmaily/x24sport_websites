@@ -3,6 +3,7 @@ import { ArrowLeft, Phone, ShieldCheck } from 'lucide-react'
 import { notFound } from 'next/navigation'
 
 import { ProductInterestForm } from '../../../../_components/product-interest-form'
+import { ProductViewTracker } from '../../../../_components/product-view-tracker'
 import { formatPrice, getProductBreadcrumbCategory, getProductBySlug, hasProductInterestForm } from '../../lib/content'
 import { ProductGallery } from './product-gallery'
 
@@ -51,6 +52,14 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   return (
     <main className="min-h-screen bg-[#080909] text-white">
+      <ProductViewTracker
+        itemCategory="volleyball"
+        name={product.name}
+        price={product.price}
+        productId={product.id}
+        sku={product.sku}
+        tenantSlug="mayaobongchuyen"
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <header className="sticky top-0 z-40 flex h-[72px] items-center justify-between border-b-[3px] border-[var(--accent)] bg-[#080909] px-4 shadow-[0_10px_28px_rgba(0,0,0,.22)] md:h-[82px] md:px-[clamp(20px,5vw,92px)]">
         <a className="flex items-center gap-3 uppercase" href="/">

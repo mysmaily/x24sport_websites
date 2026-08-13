@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2, Phone, Ruler, Search, Shirt, Sparkles, Swatch
 
 import { JsonLd } from '../_components/json-ld'
 import { ProductMediaGallery } from '../_components/product-media-gallery'
+import { ProductViewTracker } from '../_components/product-view-tracker'
 import type { ProductPreview, SportCategory } from '../../lib/catalog'
 import { getCategories, getCategory, getProductBySlug, getProductsPage, getRelatedProducts, productImages } from '../../lib/content'
 import { RynoSiteFooter, RynoSiteHeader } from './ryno-shell'
@@ -192,6 +193,15 @@ export async function RynoProductPage({ slug }: { slug: string }) {
   }
 
   return <div className="ryno-store">
+    <ProductViewTracker
+      currency={product.currency || 'VND'}
+      itemCategory={product.sport}
+      name={product.name}
+      price={product.price}
+      productId={product.id}
+      sku={product.sku}
+      tenantSlug="rynosport"
+    />
     <JsonLd data={productJsonLd} />
     <JsonLd data={breadcrumbsJsonLd} />
     <RynoSiteHeader />

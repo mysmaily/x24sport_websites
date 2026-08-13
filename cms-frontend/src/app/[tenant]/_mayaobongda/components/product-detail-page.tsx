@@ -2,6 +2,7 @@ import { ArrowRight, MessageCircle, Phone } from 'lucide-react'
 import Link from 'next/link'
 
 import { ProductInterestForm } from '../../../_components/product-interest-form'
+import { ProductViewTracker } from '../../../_components/product-view-tracker'
 import { JsonLd } from './json-ld'
 import { ProductGallery } from './product-gallery'
 import { ProductGrid } from './product-grid'
@@ -45,6 +46,14 @@ export async function ProductDetailPage({
 
   return (
     <>
+      <ProductViewTracker
+        itemCategory="football"
+        name={product.name}
+        price={product.price}
+        productId={product.id}
+        sku={product.sku}
+        tenantSlug="mayaobongda"
+      />
       {productSchema ? <JsonLd data={productSchema} /> : null}
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems.map((item, index) => ({ '@type': 'ListItem', position: index + 1, ...item })) }} />
       <article className="section-shell pb-16 sm:pb-22">

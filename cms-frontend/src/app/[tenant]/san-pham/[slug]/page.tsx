@@ -7,6 +7,7 @@ import MayaoChayBoProductPage, { generateMetadata as generateMayaoChayBoProductM
 import { MayaoChayBoShell } from '../../_mayaochaybo/shell'
 import MayaoBongDaProductPage, { generateMetadata as generateMayaoBongDaProductMetadata } from '../../_mayaobongda/san-pham/[slug]/page'
 import { MayaoBongDaShell } from '../../_mayaobongda/shell'
+import MayaoBongChuyenProductPage, { generateMetadata as generateMayaoBongChuyenProductMetadata } from '../../_mayaobongchuyen/san-pham/[slug]/page'
 
 type Props = {
   params: Promise<{ tenant: string; slug: string }>
@@ -20,6 +21,7 @@ export async function generateMetadata({ params, searchParams }: Props) {
   if (tenant === 'mayaobongro') return generateMayaoBongRoProductMetadata({ params: Promise.resolve({ slug }), searchParams })
   if (tenant === 'mayaochaybo') return generateMayaoChayBoProductMetadata({ params: Promise.resolve({ slug }) })
   if (tenant === 'mayaobongda') return generateMayaoBongDaProductMetadata({ params: Promise.resolve({ slug }) })
+  if (tenant === 'mayaobongchuyen') return generateMayaoBongChuyenProductMetadata({ params: Promise.resolve({ slug }) })
   return generateX24ProductMetadata({ params: Promise.resolve({ slug }) })
 }
 
@@ -30,5 +32,6 @@ export default async function TenantProductPage({ params, searchParams }: Props)
   if (tenant === 'mayaobongro') return <MayaoBongRoShell><MayaoBongRoProductPage params={Promise.resolve({ slug })} searchParams={searchParams} /></MayaoBongRoShell>
   if (tenant === 'mayaochaybo') return <MayaoChayBoShell><MayaoChayBoProductPage params={Promise.resolve({ slug })} /></MayaoChayBoShell>
   if (tenant === 'mayaobongda') return <MayaoBongDaShell><MayaoBongDaProductPage params={Promise.resolve({ slug })} /></MayaoBongDaShell>
+  if (tenant === 'mayaobongchuyen') return <MayaoBongChuyenProductPage params={Promise.resolve({ slug })} />
   return <X24ProductPage params={Promise.resolve({ slug })} searchParams={searchParams} />
 }
