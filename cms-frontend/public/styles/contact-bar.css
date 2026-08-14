@@ -373,8 +373,8 @@ body {
 
   .x24-bottom-contact-bar {
     inset-inline: auto 18px;
-    top: 50%;
-    bottom: auto;
+    top: auto;
+    bottom: 96px;
     display: flex;
     width: 58px;
     max-width: none;
@@ -385,7 +385,7 @@ body {
     border-radius: 999px;
     background: rgba(255, 255, 255, .96);
     box-shadow: 0 16px 40px rgba(15, 23, 42, .18);
-    transform: translateY(-50%);
+    transform: none;
   }
 
   .x24-bottom-contact-item {
