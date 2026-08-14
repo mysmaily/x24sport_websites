@@ -1,7 +1,7 @@
 'use client'
 
 import { FormEvent, useEffect, useId, useState } from 'react'
-import { Facebook, MapPin, MessageCircle, PhoneCall, Send, X } from 'lucide-react'
+import { Facebook, MessageCircle, PhoneCall, Send, X } from 'lucide-react'
 
 import type { PublicStoreSettings, StoreMapLocation } from '../../lib/store-settings'
 
@@ -24,13 +24,8 @@ function displayPhone(phone?: string | null) {
   return local.replace(/(\d{4})(\d{3})(\d+)/, '$1 $2 $3')
 }
 
-function ZaloIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 48 48" focusable="false">
-      <path d="M11.6 37.7c-4.2-3.5-6.4-8.1-6.4-13.3C5.2 13.9 13.8 6 24.6 6s18.2 7.3 18.2 17.5S34.7 41 24.1 41c-2.2 0-4.4-.3-6.5-1l-8.1 2.1 2.1-4.4Z" fill="currentColor" />
-      <path d="M15.3 28.9h8.1v-2.4h-4.6l4.5-6.2v-2.2h-7.6v2.4h4.1l-4.5 6.2v2.2Zm10.2 0h2.7v-5.1c0-1.4.8-2.3 2-2.3 1.1 0 1.7.7 1.7 2v5.4h2.7v-5.9c0-2.4-1.4-3.8-3.6-3.8-1.2 0-2.1.5-2.8 1.3v-1.1h-2.7v9.5Z" fill="#fff" />
-    </svg>
-  )
+function BrandIcon({ alt, src }: { alt: string; src: string }) {
+  return <img alt={alt} height={34} src={src} width={34} />
 }
 
 function Dialog({
@@ -153,7 +148,7 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
         ) : null}
         {settings.zaloUrl ? (
           <a className="x24-bottom-contact-item is-zalo" href={settings.zaloUrl} rel="noreferrer" target="_blank">
-            <span className="x24-bottom-contact-icon"><ZaloIcon /></span>
+            <span className="x24-bottom-contact-icon"><BrandIcon alt="" src="/icons/zalo.svg" /></span>
             <span>Chat Zalo</span>
           </a>
         ) : null}
@@ -165,12 +160,12 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
         ) : null}
         {mapLocations.length === 1 ? (
           <a className="x24-bottom-contact-item is-map" href={mapLocations[0].googleMapUrl || '#'} rel="noreferrer" target="_blank">
-            <span className="x24-bottom-contact-icon"><MapPin size={36} fill="currentColor" strokeWidth={0} /></span>
+            <span className="x24-bottom-contact-icon"><BrandIcon alt="" src="/icons/google-maps.svg" /></span>
             <span>Chỉ đường</span>
           </a>
         ) : mapLocations.length > 1 ? (
           <button className="x24-bottom-contact-item is-map" onClick={() => setDialog('maps')} type="button">
-            <span className="x24-bottom-contact-icon"><MapPin size={36} fill="currentColor" strokeWidth={0} /></span>
+            <span className="x24-bottom-contact-icon"><BrandIcon alt="" src="/icons/google-maps.svg" /></span>
             <span>Chỉ đường</span>
           </button>
         ) : null}
