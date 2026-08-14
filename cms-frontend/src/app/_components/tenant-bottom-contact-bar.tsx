@@ -103,7 +103,7 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
       quantity: String(data.get('quantity') || ''),
       website: String(data.get('website') || ''),
       startedAt,
-      productName: 'Gọi lại cho tôi',
+      productName: 'Gọi cho tôi',
       productUrl: window.location.href,
     }
 
@@ -155,7 +155,7 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
         {settings.telegramChatId ? (
           <button className="x24-bottom-contact-item is-callback" onClick={openCallback} type="button">
             <span className="x24-bottom-contact-icon"><MessageCircle size={34} /></span>
-            <span>Gọi lại cho tôi</span>
+            <span>Gọi cho tôi</span>
           </button>
         ) : null}
         {mapLocations.length === 1 ? (
@@ -173,7 +173,7 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
 
       {dialog === 'callback' ? (
         <Dialog labelledBy={callbackTitleId} onClose={() => setDialog(null)}>
-          <h2 id={callbackTitleId}>Gọi lại cho tôi</h2>
+          <h2 id={callbackTitleId}>Gọi cho tôi</h2>
           <p>Để lại số điện thoại, {tenantName} sẽ liên hệ tư vấn sớm.</p>
           <form className="x24-callback-form" onSubmit={handleSubmit}>
             <label>

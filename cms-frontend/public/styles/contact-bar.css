@@ -99,8 +99,9 @@ body {
 .x24-bottom-contact-item.is-call .x24-bottom-contact-icon { background: #62d926; }
 .x24-bottom-contact-item.is-facebook .x24-bottom-contact-icon { background: #1877f2; }
 .x24-bottom-contact-item.is-zalo .x24-bottom-contact-icon { background: transparent; }
-.x24-bottom-contact-item.is-callback { background: #f7f9ff; color: #0757d8; }
+.x24-bottom-contact-item.is-callback { background: #f7f9ff; color: #334155; }
 .x24-bottom-contact-item.is-callback .x24-bottom-contact-icon { background: #0a84ff; }
+.x24-bottom-contact-item.is-map { color: #334155; }
 .x24-bottom-contact-item.is-map .x24-bottom-contact-icon { background: transparent; }
 
 .x24-contact-dialog-backdrop {
