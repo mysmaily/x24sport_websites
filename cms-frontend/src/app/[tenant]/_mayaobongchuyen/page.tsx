@@ -1,9 +1,14 @@
 import { ArrowUpRight, BadgeCheck, Droplets, Flame, Palette, PencilRuler, Phone, ShieldCheck } from 'lucide-react'
+import { FooterStoreDetails } from '../../_components/footer-store-details'
+import { getPublicStoreSettings } from '../../../lib/store-settings'
 import { HeaderSearch } from './_components/header-search'
 import { formatPrice, getHomeData } from './lib/content'
 
 export default async function Home() {
-  const { products, posts, settings, categories } = await getHomeData()
+  const [{ products, posts, settings, categories }, publicSettings] = await Promise.all([
+    getHomeData(),
+    getPublicStoreSettings(),
+  ])
   const navigation = (settings.navigation || []).map((item) =>
     item.label === 'Bảng giá' ? { ...item, href: '/bang-gia-may-ao-bong-chuyen/' } : item,
   )
@@ -233,11 +238,25 @@ export default async function Home() {
       </section>
 
       <footer id="contact" className="border-t border-[var(--line)] bg-[#05070c] px-[clamp(20px,5vw,76px)] py-[58px]">
-        <p className="font-black uppercase text-[var(--accent)]">Custom volleyball teamwear</p>
-        <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">San sang len mau cho doi cua ban.</h2>
-        <a className="mt-6 inline-flex min-h-11 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black text-white" href="/lien-he">
-          Goi tu van
-        </a>
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
+          <div>
+            <a className="mb-5 inline-flex items-center gap-3 uppercase" href="/">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-white/90 bg-[linear-gradient(135deg,var(--accent),#911410)] text-[13px] font-black text-white">VB</span>
+              <span className="inline-flex flex-col justify-center leading-[0.92]">
+                <strong className="text-lg font-black italic text-white">MAYAOBONGCHUYEN</strong>
+                <small className="text-[13px] font-black tracking-[0.08em] text-[var(--accent)]">.VN</small>
+              </span>
+            </a>
+            <FooterStoreDetails settings={publicSettings} />
+          </div>
+          <div>
+            <p className="font-black uppercase text-[var(--accent)]">Custom volleyball teamwear</p>
+            <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">San sang len mau cho doi cua ban.</h2>
+            <a className="mt-6 inline-flex min-h-11 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black text-white" href="/lien-he">
+              Goi tu van
+            </a>
+          </div>
+        </div>
       </footer>
     </main>
   )
