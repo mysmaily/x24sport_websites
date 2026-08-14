@@ -18,12 +18,25 @@ export const StoreSettings: CollectionConfig = {
     { name: 'siteName', type: 'text', required: true },
     { name: 'contactPhone', type: 'text' },
     { name: 'zaloUrl', type: 'text' },
+    { name: 'facebookUrl', type: 'text' },
     {
       name: 'telegramChatId',
       type: 'text',
       admin: {
         description: 'Telegram chat ID nhận thông báo từ form tư vấn trên trang chi tiết sản phẩm. Để trống để ẩn form.',
       },
+    },
+    {
+      name: 'mapLocations',
+      type: 'array',
+      admin: {
+        description: 'Địa chỉ cửa hàng/xưởng và link Google Maps dùng cho nút Chỉ đường trên website.',
+      },
+      fields: [
+        { name: 'label', type: 'text', required: true },
+        { name: 'address', type: 'textarea', required: true },
+        { name: 'googleMapUrl', type: 'text', required: true },
+      ],
     },
     {
       name: 'analytics',
