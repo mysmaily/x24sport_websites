@@ -14,9 +14,13 @@ export type StoreMapLocation = {
 export type PublicStoreSettings = {
   contactPhone?: string | null
   facebookUrl?: string | null
+  instagramUrl?: string | null
   mapLocations?: StoreMapLocation[] | null
+  pinterestUrl?: string | null
   siteName?: string | null
   telegramChatId?: string | null
+  threadsUrl?: string | null
+  tiktokUrl?: string | null
   zaloUrl?: string | null
 }
 
@@ -97,9 +101,13 @@ function mapSettings(settings: PublicStoreSettings | undefined, tenantSlug: stri
   return {
     contactPhone: phone,
     facebookUrl: cleanUrl(settings?.facebookUrl) || cleanUrl(defaultFacebookByTenant[tenantSlug]),
+    instagramUrl: cleanUrl(settings?.instagramUrl),
     mapLocations: locations.length ? locations : defaultMapLocations,
+    pinterestUrl: cleanUrl(settings?.pinterestUrl),
     siteName: cleanText(settings?.siteName, 120),
     telegramChatId: cleanText(settings?.telegramChatId, 120),
+    threadsUrl: cleanUrl(settings?.threadsUrl),
+    tiktokUrl: cleanUrl(settings?.tiktokUrl),
     zaloUrl,
   }
 }

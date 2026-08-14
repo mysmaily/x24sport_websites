@@ -19,6 +19,10 @@ export const StoreSettings: CollectionConfig = {
     { name: 'contactPhone', type: 'text' },
     { name: 'zaloUrl', type: 'text' },
     { name: 'facebookUrl', type: 'text' },
+    { name: 'tiktokUrl', type: 'text' },
+    { name: 'instagramUrl', type: 'text' },
+    { name: 'pinterestUrl', type: 'text' },
+    { name: 'threadsUrl', type: 'text' },
     {
       name: 'telegramChatId',
       type: 'text',

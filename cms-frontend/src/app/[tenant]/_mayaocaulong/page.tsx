@@ -11,8 +11,10 @@ import {
   Sparkles,
   Truck,
 } from 'lucide-react'
+import { FooterStoreDetails } from '../../_components/footer-store-details'
 import { JsonLd } from '../../_components/json-ld'
 import { TenantPromoHero, type TenantPromoHeroSlide } from '../../_components/tenant-promo-hero'
+import { getPublicStoreSettings } from '../../../lib/store-settings'
 import { SiteHeader, phone, phoneHref, zaloHref } from './_components/info-pages'
 import { formatPrice, getHomeData, getPostHref, type Product } from './lib/content'
 
@@ -191,7 +193,10 @@ function ProductCard({ product, featured = false }: { product: Product; featured
 }
 
 export default async function Home() {
-  const { products, posts } = await getHomeData()
+  const [{ products, posts }, settings] = await Promise.all([
+    getHomeData(),
+    getPublicStoreSettings(),
+  ])
   const runwayProducts = products.slice(0, 5)
   const heroProducts = products.slice(0, 3)
 
@@ -454,6 +459,7 @@ export default async function Home() {
             <span>MC</span>
             <strong>MayaoCauLong</strong>
           </Link>
+          <FooterStoreDetails settings={settings} />
           <p>Đồng phục cầu lông đặt may cho CLB, đội phong trào, trường lớp và doanh nghiệp.</p>
         </div>
         <div>

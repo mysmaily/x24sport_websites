@@ -3,6 +3,8 @@ import type { ReactNode } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { SiteHeader } from './site-header'
 import { phone, phoneHref, zaloHref } from './contact'
+import { FooterStoreDetails } from '../../../_components/footer-store-details'
+import { getPublicStoreSettings } from '../../../../lib/store-settings'
 
 export { phone, phoneHref, SiteHeader, zaloHref }
 
@@ -53,7 +55,9 @@ export function InfoHero({
   )
 }
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const settings = await getPublicStoreSettings()
+
   return (
     <footer className="site-footer">
       <div>
@@ -61,6 +65,7 @@ export function SiteFooter() {
           <span>MC</span>
           <strong>MayaoCauLong</strong>
         </Link>
+        <FooterStoreDetails settings={settings} />
         <p>Đồng phục cầu lông đặt may cho CLB, đội phong trào, trường lớp và doanh nghiệp.</p>
       </div>
       <div>
@@ -85,7 +90,7 @@ export function SiteFooter() {
   )
 }
 
-export function InfoFooter() {
+export async function InfoFooter() {
   return (
     <>
       <section className="final-cta info-final-cta">

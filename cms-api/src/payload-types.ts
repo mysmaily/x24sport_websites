@@ -564,6 +564,10 @@ export interface StoreSetting {
   contactPhone?: string | null;
   zaloUrl?: string | null;
   facebookUrl?: string | null;
+  tiktokUrl?: string | null;
+  instagramUrl?: string | null;
+  pinterestUrl?: string | null;
+  threadsUrl?: string | null;
   /**
    * Telegram chat ID nhận thông báo từ form tư vấn trên trang chi tiết sản phẩm. Để trống để ẩn form.
    */
@@ -1062,6 +1066,10 @@ export interface StoreSettingsSelect<T extends boolean = true> {
   contactPhone?: T;
   zaloUrl?: T;
   facebookUrl?: T;
+  tiktokUrl?: T;
+  instagramUrl?: T;
+  pinterestUrl?: T;
+  threadsUrl?: T;
   telegramChatId?: T;
   mapLocations?:
     | T

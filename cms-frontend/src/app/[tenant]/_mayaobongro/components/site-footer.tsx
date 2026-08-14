@@ -1,6 +1,8 @@
 import { ArrowRight, MessageCircle, Phone } from 'lucide-react'
 import Link from 'next/link'
 
+import { FooterStoreDetails } from '../../../_components/footer-store-details'
+import { getPublicStoreSettings } from '../../../../lib/store-settings'
 import { BASKETBALL_AUDIENCES } from '../lib/basketball-audiences'
 import { PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '../lib/site'
 
@@ -13,7 +15,8 @@ const footerLandingSlugs = new Set([
   'dong-phuc-clb',
 ])
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const settings = await getPublicStoreSettings()
   const footerLandings = BASKETBALL_AUDIENCES.filter((audience) => footerLandingSlugs.has(audience.slug))
 
   return (
@@ -32,6 +35,7 @@ export function SiteFooter() {
         <div className="section-shell grid gap-10 py-12 sm:py-16 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <img alt="May Áo Bóng Rổ" className="h-11 w-auto" height="44" src="https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/may-ao-bong-ro-logo.svg" width="287" />
+            <FooterStoreDetails settings={settings} />
             <p className="mt-5 max-w-md text-sm leading-7 text-slate-400">Đồng phục bóng rổ thiết kế theo màu đội, logo, tên số cho lớp học, câu lạc bộ và đội thi đấu.</p>
           </div>
           <div>

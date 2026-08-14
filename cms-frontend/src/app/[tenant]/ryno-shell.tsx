@@ -2,6 +2,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, Phone, Search, Sparkles } from 'lucide-react'
 
+import { getPublicStoreSettings } from '../../lib/store-settings'
+import { FooterStoreDetails } from '../_components/footer-store-details'
+
 export const RYNO_PHONE = '0989371161'
 export const RYNO_PHONE_LABEL = '098 937 11 61'
 
@@ -55,11 +58,14 @@ export function RynoSiteHeader() {
   </>
 }
 
-export function RynoSiteFooter() {
+export async function RynoSiteFooter() {
+  const settings = await getPublicStoreSettings()
+
   return <footer className="ryno-site-footer">
     <div className="ryno-footer-grid">
       <section className="ryno-footer-intro" aria-label="Giới thiệu RynoSport">
         <RynoBrand />
+        <FooterStoreDetails settings={settings} tone="light" />
         <p>Trang phục thể thao cho đội nhóm, câu lạc bộ và những người muốn ra sân với một bản sắc rõ ràng.</p>
       </section>
       <section>

@@ -4,9 +4,13 @@ import { MessageCircle, Phone, Search, Shirt } from 'lucide-react'
 import type { SportCategory } from '../../lib/catalog'
 import { contactItems } from '../../lib/contact'
 import { getCategories } from '../../lib/content'
+import { getPublicStoreSettings } from '../../lib/store-settings'
+import { FooterStoreDetails } from './footer-store-details'
 import { Logo } from './site-header'
 
-export function StoreFooter({ categories }: { categories: SportCategory[] }) {
+export async function StoreFooter({ categories }: { categories: SportCategory[] }) {
+  const settings = await getPublicStoreSettings()
+
   return (
     <footer className="store-footer" id="lien-he">
       <div className="site-container">
@@ -18,6 +22,7 @@ export function StoreFooter({ categories }: { categories: SportCategory[] }) {
           <div className="footer-about">
             <Logo />
             <p><strong>X24 Sport - Xưởng May Đồ Thể Thao</strong></p>
+            <FooterStoreDetails settings={settings} />
             <div className="footer-contact-list">
               {contactItems.map((item) => {
                 const Icon = item.icon
