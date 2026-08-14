@@ -46,6 +46,10 @@ body.tenant-mayaopickleball img {
   max-width: 100%;
 }
 
+body.tenant-mayaopickleball .pswp img.pswp__img {
+  max-width: none !important;
+}
+
 body.tenant-mayaopickleball :focus-visible {
   outline: 3px solid rgba(46, 125, 50, 0.42);
   outline-offset: 4px;
