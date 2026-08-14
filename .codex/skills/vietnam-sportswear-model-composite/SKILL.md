@@ -9,7 +9,16 @@ description: Create photorealistic Vietnamese male, female, or group model photo
 
 Generate realistic Vietnamese model photos wearing the user's exact sportswear design, composited into selected X24Sport shop backgrounds. Treat the shop as supporting context; the garment and model must be the main subject.
 
-Use the built-in `image_gen` tool. If the user supplies local image files, inspect every input with `view_image` before generation so they are visible as references.
+Use the built-in `image_gen` / default imagegen path. If the user supplies local image files, inspect every input with `view_image` before generation so they are visible as references.
+
+## Tool Mode
+
+Always use the default built-in image generation path for this skill. It must work when `OPENAI_API_KEY` is blank or unset.
+
+- Do not use CLI fallback or direct OpenAI API scripts for normal skill runs.
+- Do not require `OPENAI_API_KEY` for this skill.
+- If a caller mentions API key is blank, continue with built-in imagegen.
+- Use CLI/API fallback only if the user explicitly asks for CLI/API mode and confirms they have configured credentials.
 
 ## Bundled Backgrounds
 
