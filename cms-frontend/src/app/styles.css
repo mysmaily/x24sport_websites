@@ -425,7 +425,7 @@ img{display:block}
   outline-offset: -6px;
 }
 
-.pswp img.pswp__img {
+body .pswp img.pswp__img {
   max-width: none !important;
 }
 

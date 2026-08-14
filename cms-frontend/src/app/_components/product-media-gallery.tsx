@@ -35,8 +35,8 @@ export function ProductMediaGallery({
   const [isDragging, setIsDragging] = useState(false)
   const galleryRef = useRef<HTMLDivElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
-  const activeLinkRef = useRef<HTMLAnchorElement>(null)
   const lightboxRef = useRef<{ loadAndOpen: (index: number) => void } | null>(null)
+  const pendingLightboxIndexRef = useRef<number | null>(null)
   const touchRef = useRef({
     startX: 0,
     startY: 0,
@@ -89,13 +89,30 @@ export function ProductMediaGallery({
       nextLightbox.init()
       lightbox = nextLightbox
       lightboxRef.current = nextLightbox
+      if (pendingLightboxIndexRef.current !== null) {
+        nextLightbox.loadAndOpen(pendingLightboxIndexRef.current)
+        pendingLightboxIndexRef.current = null
+      }
     })
 
     return () => {
       destroyed = true
       lightbox?.destroy()
       lightboxRef.current = null
+      pendingLightboxIndexRef.current = null
     }
+  }, [total])
+
+  const openLightbox = useCallback((index: number) => {
+    if (!total) return
+    const safeIndex = ((index % total) + total) % total
+    setActiveIndex(safeIndex)
+    const lightbox = lightboxRef.current
+    if (lightbox) {
+      lightbox.loadAndOpen(safeIndex)
+      return
+    }
+    pendingLightboxIndexRef.current = safeIndex
   }, [total])
 
   const onTouchStart = (event: React.TouchEvent) => {
@@ -196,10 +213,11 @@ export function ProductMediaGallery({
                 data-pswp-width={image.width || 1254}
                 href={image.url}
                 key={`${image.id || image.url}-${index}`}
-                onClick={() => setActiveIndex(index)}
+                onClick={(event) => {
+                  event.preventDefault()
+                  openLightbox(index)
+                }}
                 rel="noreferrer"
-                ref={index === activeIndex ? activeLinkRef : undefined}
-                target="_blank"
               >
                 <img
                   alt={image.alt || `${productName} - ảnh ${index + 1}`}
@@ -245,7 +263,7 @@ export function ProductMediaGallery({
           <button
             aria-label="Phóng to ảnh sản phẩm"
             className="product-zoom-button"
-            onClick={() => lightboxRef.current?.loadAndOpen(activeIndex) || activeLinkRef.current?.click()}
+            onClick={() => openLightbox(activeIndex)}
             style={{ position: 'absolute', right: 16, bottom: 16, zIndex: 14 }}
             type="button"
           >
