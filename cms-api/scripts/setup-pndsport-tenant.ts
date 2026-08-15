@@ -30,10 +30,16 @@ const cloneValue = <T>(value: T): T | undefined =>
 
 const replaceBrand = (value: unknown): unknown => {
   if (typeof value === 'string') {
-    return value
-      .replace(/X24\s*Sport/gi, 'PND Sport')
+    const protectedMediaUrls: string[] = []
+    const withProtectedMedia = value.replace(/https?:\/\/static\.x24sport\.vn[^\s"'<>)]*/gi, (url) => {
+      protectedMediaUrls.push(url)
+      return `__PND_SHARED_MEDIA_${protectedMediaUrls.length - 1}__`
+    })
+    return withProtectedMedia
       .replace(/x24sport\.vn/gi, 'pndsport.vn')
+      .replace(/X24\s*Sport/gi, 'PND Sport')
       .replace(/X24/gi, 'PND')
+      .replace(/__PND_SHARED_MEDIA_(\d+)__/g, (_match, index) => protectedMediaUrls[Number(index)] || '')
   }
   if (Array.isArray(value)) return value.map(replaceBrand)
   if (value && typeof value === 'object') {
