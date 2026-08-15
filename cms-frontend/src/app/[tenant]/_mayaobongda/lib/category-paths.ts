@@ -33,6 +33,14 @@ export function footballColorSlugFromPath(path: string) {
   return match && INDEXABLE_COLOR_SLUGS.has(match[1]) ? match[1] : null
 }
 
+export function footballColorLandingLabel(categoryName: string) {
+  return `Áo bóng đá ${categoryName.trim().toLocaleLowerCase('vi-VN')}`
+}
+
+export function footballColorLandingDescription(categoryName: string) {
+  return `Khám phá các mẫu ${footballColorLandingLabel(categoryName).toLocaleLowerCase('vi-VN')}, có thể tùy chỉnh phối màu, logo, tên số và nội dung theo đội.`
+}
+
 export function isIndexableFootballColor(category: Pick<ProductCategory, 'name' | 'slug'>) {
   return /^màu\b/i.test(category.name.trim()) && INDEXABLE_COLOR_SLUGS.has(category.slug)
 }

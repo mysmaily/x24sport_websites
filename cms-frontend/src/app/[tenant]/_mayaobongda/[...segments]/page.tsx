@@ -7,7 +7,7 @@ import { CatalogPageView } from '../components/catalog-page-view'
 import { FabricGuidePage } from '../components/fabric-guide-page'
 import { PostArchivePage } from '../components/post-archive-page'
 import { getProductCategory, getProducts, productImages, productPath, resolveCategoryPath, resolveContentPath, resolveProductPath } from '../lib/cms'
-import { footballColorSlugFromPath } from '../lib/category-paths'
+import { footballColorLandingDescription, footballColorLandingLabel, footballColorSlugFromPath } from '../lib/category-paths'
 import { HOT_FOOTBALL_DESCRIPTION, HOT_FOOTBALL_PATH, HOT_FOOTBALL_TITLE, HOT_FOOTBALL_YEAR, isCurrentHotFootballPath } from '../lib/hot-football'
 import { rewriteLegacyHtml } from '../lib/legacy-content'
 import { getPostCategoryArchive, isIndexableContent } from '../lib/legacy-routes'
@@ -82,16 +82,18 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   if (category) {
     const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
     const search = String(Array.isArray(query.q) ? query.q[0] : query.q || '').trim()
-    const description = excerpt(category.description || `Khám phá các mẫu ${category.name.toLocaleLowerCase('vi-VN')} và tùy chỉnh theo nhu cầu đội bóng.`, 160)
+    const colorLanding = Boolean(footballColorSlugFromPath(path))
+    const label = colorLanding ? footballColorLandingLabel(category.name) : category.name
+    const description = excerpt(colorLanding ? footballColorLandingDescription(category.name) : category.description || `Khám phá các mẫu ${category.name.toLocaleLowerCase('vi-VN')} và tùy chỉnh theo nhu cầu đội bóng.`, 160)
     const canonical = page > 1 ? `${path}?page=${page}` : path
     const preview = await getProducts({ categorySlug: category.slug, limit: 1 })
     const image = preview.docs[0] ? productImages(preview.docs[0])[0] : undefined
     return {
-      title: `${category.name}${page > 1 ? ` - Trang ${page}` : ''}`,
+      title: `${label}${colorLanding ? ' – Mẫu đẹp, thiết kế theo đội' : ''}${page > 1 ? ` - Trang ${page}` : ''}`,
       description,
       alternates: { canonical },
       robots: search || preview.totalDocs === 0 ? { index: false, follow: true } : undefined,
-      openGraph: { title: category.name, description, url: canonical, images: image?.url ? [{ url: image.url, alt: category.name }] : [] },
+      openGraph: { title: label, description, url: canonical, images: image?.url ? [{ url: image.url, alt: label }] : [] },
     }
   }
   if (content) {
@@ -145,7 +147,10 @@ export default async function LegacyRoutePage({ params, searchParams }: { params
   if (category) {
     const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
     const q = String(Array.isArray(query.q) ? query.q[0] : query.q || '')
-    return <CatalogPageView page={page} search={q} heading={category.name} description={category.description || `Khám phá các mẫu ${category.name.toLocaleLowerCase('vi-VN')} và tùy chỉnh theo nhu cầu đội bóng.`} canonicalPath={path} breadcrumbLabel={category.name} categorySlug={category.slug} />
+    const colorLanding = Boolean(footballColorSlugFromPath(path))
+    const label = colorLanding ? footballColorLandingLabel(category.name) : category.name
+    const description = colorLanding ? footballColorLandingDescription(category.name) : category.description || `Khám phá các mẫu ${category.name.toLocaleLowerCase('vi-VN')} và tùy chỉnh theo nhu cầu đội bóng.`
+    return <CatalogPageView page={page} search={q} heading={label} description={description} canonicalPath={path} breadcrumbLabel={label} categorySlug={category.slug} />
   }
 
   const content = await resolveContentPath(path)
