@@ -78,15 +78,361 @@ body.tenant-mayaobongchuyen .mbc-product-price-row {
 
 body.tenant-mayaobongchuyen .mbc-product-original-price {
   color: #b9b9b9;
-  font-size: 22px;
+  font-size: 22px !important;
   line-height: 1;
 }
 
 body.tenant-mayaobongchuyen .mbc-product-sale-price {
   color: #fff;
-  font-size: 24px;
+  font-size: 24px !important;
   font-weight: 900;
   line-height: 1;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-page {
+  background:
+    linear-gradient(135deg, rgba(99, 178, 52, .12), transparent 34%),
+    radial-gradient(circle at 78% 8%, rgba(238, 43, 36, .24), transparent 28%),
+    #080909;
+  color: #fff;
+  min-height: 100vh;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-header {
+  align-items: center;
+  background: rgba(8, 9, 9, .96);
+  border-bottom: 3px solid var(--accent);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .22);
+  display: flex;
+  height: 72px;
+  justify-content: space-between;
+  padding-inline: clamp(16px, 5vw, 92px);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-brand,
+body.tenant-mayaobongchuyen .mbc-product-breadcrumb-home,
+body.tenant-mayaobongchuyen .mbc-product-primary-cta,
+body.tenant-mayaobongchuyen .mbc-product-secondary-cta,
+body.tenant-mayaobongchuyen .mbc-product-header-call {
+  align-items: center;
+  display: inline-flex;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-brand {
+  gap: 12px;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-brand-mark {
+  align-items: center;
+  background: linear-gradient(135deg, var(--accent), #911410);
+  border: 2px solid rgba(255, 255, 255, .9);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 900;
+  height: 38px;
+  justify-content: center;
+  width: 38px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-brand-name {
+  color: #fff;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 900;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-header-call {
+  border: 1px solid rgba(255, 255, 255, .16);
+  color: #fff;
+  height: 44px;
+  justify-content: center;
+  transition: border-color .2s ease, transform .2s ease;
+  width: 44px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-header-call:hover {
+  border-color: rgba(238, 43, 36, .8);
+  transform: translateY(-1px);
+}
+
+body.tenant-mayaobongchuyen .mbc-product-shell {
+  margin-inline: auto;
+  padding: 0 clamp(16px, 5vw, 76px) 64px;
+  width: min(1520px, 100%);
+}
+
+body.tenant-mayaobongchuyen .mbc-product-breadcrumb {
+  align-items: center;
+  color: #b9b9b9;
+  display: flex;
+  font-size: 12px;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+  padding-block: 20px;
+  white-space: nowrap;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-breadcrumb a {
+  color: inherit;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-breadcrumb a:hover {
+  color: #fff;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-breadcrumb span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-breadcrumb-home {
+  gap: 8px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-title {
+  color: #fff;
+  font-size: 20px !important;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 20px;
+  max-width: 980px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-layout {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .03)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .045) 0 1px, transparent 1px 96px);
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 0;
+  grid-template-columns: minmax(0, 1.08fr) minmax(380px, .92fr);
+  overflow: hidden;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-gallery-card {
+  background:
+    linear-gradient(145deg, rgba(11, 14, 16, .98), rgba(21, 24, 26, .9)),
+    radial-gradient(circle at 25% 20%, rgba(99, 178, 52, .22), transparent 32%);
+  min-width: 0;
+  padding: clamp(14px, 2vw, 28px);
+  position: relative;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-gallery-card .product-media-gallery--utility {
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-gallery-card .product-gallery-stage {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02)),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, .05) 0 1px, transparent 1px 18px);
+  border: 1px solid rgba(255, 255, 255, .12);
+}
+
+body.tenant-mayaobongchuyen .mbc-product-discount-badge {
+  align-items: center;
+  background: var(--accent);
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, .28);
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  font-weight: 900;
+  height: 54px;
+  justify-content: center;
+  position: absolute;
+  right: 28px;
+  top: 28px;
+  width: 54px;
+  z-index: 4;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-buybox {
+  align-content: start;
+  background:
+    linear-gradient(180deg, rgba(10, 12, 14, .95), rgba(6, 7, 8, .98)),
+    linear-gradient(90deg, rgba(238, 43, 36, .16), transparent 38%);
+  border-left: 1px solid rgba(255, 255, 255, .12);
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+  padding: clamp(20px, 3vw, 42px);
+}
+
+body.tenant-mayaobongchuyen .mbc-product-kicker {
+  color: var(--accent);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  font-weight: 900;
+  gap: 10px;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-kicker span {
+  border: 1px solid rgba(238, 43, 36, .36);
+  padding: 6px 9px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-summary {
+  color: #d7d7d7;
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-price-card {
+  background: rgba(255, 255, 255, .08);
+  border-left: 4px solid var(--accent);
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-price-card p {
+  color: #b9b9b9;
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-price-label {
+  color: #b9b9b9;
+  font-size: 14px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-cta-row {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-primary-cta,
+body.tenant-mayaobongchuyen .mbc-product-secondary-cta {
+  font-size: 14px;
+  font-weight: 900;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-primary-cta {
+  background: var(--accent);
+  color: #fff;
+  gap: 9px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-secondary-cta {
+  border: 1px solid rgba(255, 255, 255, .22);
+  color: #fff;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-custom-note {
+  align-items: flex-start;
+  background: rgba(99, 178, 52, .1);
+  border: 1px solid rgba(99, 178, 52, .34);
+  color: #e9f7e6;
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-custom-note svg {
+  color: var(--sport-green);
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-custom-note b {
+  color: #fff;
+  display: block;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-custom-note p {
+  color: #d8d8d8;
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-highlight-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.tenant-mayaobongchuyen .mbc-product-highlight {
+  background: rgba(255, 255, 255, .055);
+  border: 1px solid rgba(255, 255, 255, .12);
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  padding: 15px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-highlight svg {
+  color: var(--accent);
+}
+
+body.tenant-mayaobongchuyen .mbc-product-highlight b {
+  color: #fff;
+  font-size: 14px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-highlight p {
+  color: #b9b9b9;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-process {
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  padding-top: 18px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-process h2 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+  margin: 0 0 12px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-process ol {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-process li {
+  align-items: center;
+  color: #d8d8d8;
+  display: flex;
+  font-size: 14px;
+  gap: 10px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-process li span {
+  color: var(--sport-green);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-buybox #nhan-tu-van {
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 0;
+  box-shadow: none;
+  margin-top: 0;
 }
 
 body.tenant-mayaobongchuyen #new-products .mbc-product-card {
@@ -114,5 +460,71 @@ body.tenant-mayaobongchuyen #new-products .mbc-product-card .text-\[var\(--muted
 
   body.tenant-mayaobongchuyen [aria-label="Banner may áo bóng chuyền"] .after\:bg-\[linear-gradient\(90deg\,transparent_0\%\,transparent_43\%\,rgba\(255\,255\,255\,\.78\)_58\%\,\#fff_74\%\)\,linear-gradient\(180deg\,rgba\(255\,255\,255\,\.08\)\,rgba\(255\,255\,255\,\.22\)\)\]::after {
     background-image: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .72) 58%, rgba(255, 255, 255, .92));
+  }
+
+  body.tenant-mayaobongchuyen .mbc-product-shell {
+    padding-inline: 12px;
+    padding-bottom: 42px;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-product-breadcrumb {
+    padding-block: 16px;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-product-title {
+    font-size: 20px !important;
+    margin-bottom: 18px;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-product-layout {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-product-buybox {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    padding: 18px;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-product-cta-row,
+  body.tenant-mayaobongchuyen .mbc-product-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-product-discount-badge {
+    height: 48px;
+    right: 18px;
+    top: 18px;
+    width: 48px;
+  }
+}
+
+@media (min-width: 768px) {
+  body.tenant-mayaobongchuyen .mbc-product-header {
+    height: 82px;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-product-brand-mark {
+    height: 44px;
+    width: 44px;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-product-brand-name {
+    font-size: clamp(16px, 1.25vw, 22px);
+  }
+
+  body.tenant-mayaobongchuyen .mbc-product-title {
+    font-size: 22px !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  body.tenant-mayaobongchuyen .mbc-product-layout {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-product-buybox {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, .12);
   }
 }

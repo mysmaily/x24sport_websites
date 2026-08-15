@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ArrowLeft, Phone } from 'lucide-react'
+import { ArrowLeft, CheckCircle2, MessageCircle, Palette, Phone, Ruler, Shirt, Users } from 'lucide-react'
 import { notFound } from 'next/navigation'
 
 import { ProductInterestForm } from '../../../../_components/product-interest-form'
@@ -69,9 +69,17 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     },
   }
   const hasDiscount = Boolean(product.compareAtPrice && product.compareAtPrice > product.price)
+  const discountPercent = hasDiscount ? Math.round(((product.compareAtPrice! - product.price) / product.compareAtPrice!) * 100) : 0
+  const productHighlights = [
+    { icon: Shirt, label: 'Form thi đấu', text: 'Cổ tim, dáng gọn cho vận động liên tục trên sân.' },
+    { icon: Palette, label: 'Màu đội', text: 'Có thể đổi màu, logo, tên đội, tên số theo brief.' },
+    { icon: Ruler, label: 'Gom size', text: 'Tư vấn size nam, nữ và libero theo danh sách đội.' },
+    { icon: Users, label: 'Đơn đội', text: 'Phù hợp CLB, trường lớp, công ty và giải phong trào.' },
+  ]
+  const orderSteps = ['Gửi mẫu hoặc ý tưởng', 'Chốt màu, logo, tên số', 'Gom size và số lượng', 'Sản xuất sau khi duyệt mẫu']
 
   return (
-    <main className="min-h-screen bg-[#080909] text-white">
+    <main className="mbc-product-page">
       <ProductViewTracker
         itemCategory="volleyball"
         name={product.name}
@@ -82,50 +90,88 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
-      <header className="sticky top-0 z-40 flex h-[72px] items-center justify-between border-b-[3px] border-[var(--accent)] bg-[#080909] px-4 shadow-[0_10px_28px_rgba(0,0,0,.22)] md:h-[82px] md:px-[clamp(20px,5vw,92px)]">
-        <a className="flex items-center gap-3 uppercase" href="/">
-          <span className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-full border-2 border-white/90 bg-[linear-gradient(135deg,var(--accent),#911410)] text-[13px] font-black text-white md:h-11 md:w-11">VB</span>
-          <span className="text-base font-black italic text-white md:text-[clamp(16px,1.25vw,22px)]">MayaoBongChuyen</span>
+      <header className="mbc-product-header">
+        <a className="mbc-product-brand" href="/">
+          <span className="mbc-product-brand-mark">VB</span>
+          <span className="mbc-product-brand-name">MayaoBongChuyen</span>
         </a>
-        <a className="inline-flex h-11 w-11 items-center justify-center border border-white/16 text-white transition duration-200 hover:-translate-y-px hover:border-[rgba(238,43,36,.8)]" href="/lien-he" aria-label="Liên hệ">
+        <a className="mbc-product-header-call" href="/lien-he" aria-label="Liên hệ">
           <Phone size={18} />
         </a>
       </header>
 
-      <article className="px-[clamp(20px,5vw,76px)] pb-16">
-        <nav className="flex gap-2 overflow-hidden py-5 text-xs text-[#b9b9b9]" aria-label="Đường dẫn">
-          <a className="inline-flex items-center gap-2 hover:text-white" href="/">
+      <article className="mbc-product-shell">
+        <nav className="mbc-product-breadcrumb" aria-label="Đường dẫn">
+          <a className="mbc-product-breadcrumb-home" href="/">
             <ArrowLeft size={16} />
             Trang chủ
           </a>
           <span>/</span>
-          <a className="hover:text-white" href="/tim-kiem">Sản Phẩm</a>
+          <a href="/tim-kiem">Sản phẩm</a>
           <span>/</span>
-          {breadcrumbCategory ? <><a className="hover:text-white" href={`/${breadcrumbCategory.slug}`}>{breadcrumbCategory.name}</a><span>/</span></> : null}
-          <span className="truncate">{product.name}</span>
+          {breadcrumbCategory ? <><a href={`/${breadcrumbCategory.slug}`}>{breadcrumbCategory.name}</a><span>/</span></> : null}
+          <span>{product.name}</span>
         </nav>
 
-        <h1 className="mb-5 max-w-5xl text-[20px] font-black leading-tight text-white lg:text-[22px]">{product.name}</h1>
+        <h1 className="mbc-product-title">{product.name}</h1>
 
-        <div className="grid overflow-hidden border border-[var(--line)] bg-white/6 lg:grid-cols-[1.08fr_.92fr]">
-          <div className="relative bg-[#111]">
+        <div className="mbc-product-layout">
+          <div className="mbc-product-gallery-card">
+            {hasDiscount ? <div className="mbc-product-discount-badge">-{discountPercent}%</div> : null}
             <ProductGallery images={images} productName={product.name} />
           </div>
 
-          <section className="grid content-start gap-5 p-5 sm:p-8 lg:p-10">
-            <p className="text-xs font-black uppercase text-[var(--accent)]">{product.sku}</p>
-            <p className="text-base leading-7 text-[#b9b9b9]">{product.shortDescription}</p>
-            <div className="border-l-4 border-[var(--accent)] bg-white/8 p-5">
-              <span className="text-sm text-[#b9b9b9]">Giá tham khảo</span>
-              <div className="mbc-product-price-row mt-2">
+          <section className="mbc-product-buybox" aria-label="Thông tin đặt may">
+            <div className="mbc-product-kicker">
+              <span>{product.sku}</span>
+              <span>May áo bóng chuyền</span>
+            </div>
+            <p className="mbc-product-summary">{product.shortDescription}</p>
+            <div className="mbc-product-price-card">
+              <span className="mbc-product-price-label">Giá tham khảo</span>
+              <div className="mbc-product-price-row">
                 {hasDiscount ? <del className="mbc-product-original-price">{formatPrice(product.compareAtPrice!)}</del> : null}
                 <strong className="mbc-product-sale-price">{formatPrice(product.price)}</strong>
               </div>
+              <p>Giá có thể thay đổi theo chất liệu, số lượng, kiểu in và mức tuỳ biến.</p>
             </div>
-            <div className="grid gap-2 border border-white/12 bg-black/20 p-5 text-sm text-[#d8d8d8]">
-              <b className="text-base text-white">Có thể chỉnh theo yêu cầu đội bóng</b>
-              <p>Trao đổi màu sắc, logo, tên số và số lượng trước khi chốt sản xuất.</p>
+            <div className="mbc-product-cta-row">
+              <a className="mbc-product-primary-cta" href="#nhan-tu-van">
+                <MessageCircle size={18} />
+                Nhận tư vấn mẫu này
+              </a>
+              <a className="mbc-product-secondary-cta" href="/bang-gia-may-ao-bong-chuyen/">Xem bảng giá</a>
             </div>
+            <div className="mbc-product-custom-note">
+              <CheckCircle2 size={20} />
+              <div>
+                <b>Có thể chỉnh theo yêu cầu đội bóng</b>
+                <p>Trao đổi màu sắc, logo, tên số và số lượng trước khi chốt sản xuất.</p>
+              </div>
+            </div>
+            <div className="mbc-product-highlight-grid">
+              {productHighlights.map((item) => {
+                const Icon = item.icon
+                return (
+                  <div className="mbc-product-highlight" key={item.label}>
+                    <Icon aria-hidden="true" size={20} />
+                    <b>{item.label}</b>
+                    <p>{item.text}</p>
+                  </div>
+                )
+              })}
+            </div>
+            <section className="mbc-product-process" aria-labelledby="mbc-product-process-title">
+              <h2 id="mbc-product-process-title">Quy trình đặt may</h2>
+              <ol>
+                {orderSteps.map((step, index) => (
+                  <li key={step}>
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </section>
             {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={`https://mayaobongchuyen.vn/san-pham/${product.slug || slug}`} variant="accent" /> : null}
           </section>
         </div>
