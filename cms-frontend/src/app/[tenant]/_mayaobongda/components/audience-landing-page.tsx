@@ -3,7 +3,6 @@ import {
   BadgeCheck,
   Building2,
   Check,
-  ChevronLeft,
   ChevronRight,
   ClipboardCheck,
   MessageCircle,
@@ -17,6 +16,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 
+import { Pagination } from '../../../_components/pagination'
 import { TenantPromoHero, type TenantPromoHeroSlide } from '../../../_components/tenant-promo-hero'
 import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
@@ -126,7 +126,7 @@ export async function FootballAudienceLandingPage({ landing, page = 1 }: { landi
           <span>Trang {catalog.page}/{Math.max(catalog.totalPages, 1)}</span>
         </div>
         <div className="mt-8"><ProductGrid products={catalog.docs} /></div>
-        {catalog.totalPages > 1 ? <nav className="mt-9 grid grid-cols-[1fr_auto_1fr] items-center border-t border-slate-200 pt-5 text-sm font-black" aria-label="Phân trang mẫu áo landing">{currentPage > 1 ? <Link className="inline-flex min-h-11 items-center gap-2" href={pageHref(currentPage - 1)}><ChevronLeft size={18} /> Trang trước</Link> : <span />}<span>{currentPage} / {catalog.totalPages}</span>{currentPage < catalog.totalPages ? <Link className="inline-flex min-h-11 items-center gap-2 justify-self-end" href={pageHref(currentPage + 1)}>Trang sau <ChevronRight size={18} /></Link> : <span />}</nav> : null}
+        <Pagination ariaLabel="Phân trang mẫu áo" hrefForPage={pageHref} page={currentPage} totalPages={catalog.totalPages} />
       </div>
     </section>
   )

@@ -1,5 +1,6 @@
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import { Pagination } from '../../../_components/pagination'
 import { firstLegacyImage } from '../lib/legacy-content'
 import { getLatestPosts, getPostsBySlugs, type WebContent } from '../lib/cms'
 import { canonical, DEFAULT_OG_IMAGE, excerpt } from '../lib/site'
@@ -70,10 +71,6 @@ export async function PostArchivePage({ canonicalPath, description, page, postSl
       </article>)}
     </div> : <div className="mcb-blog-empty"><h2>Chưa có bài viết trong mục này.</h2><p>Quay lại sau để xem các kinh nghiệm mới cho đội và giải chạy.</p></div>}
 
-    {totalPages > 1 ? <nav className="mcb-blog-pagination" aria-label="Phân trang">
-      {page > 1 ? <Link href={href(page - 1)}><ChevronLeft aria-hidden="true" size={18} /> Trang trước</Link> : <span />}
-      <span>Trang {page}/{totalPages}</span>
-      {page < totalPages ? <Link href={href(page + 1)}>Trang sau <ChevronRight aria-hidden="true" size={18} /></Link> : <span />}
-    </nav> : null}
+    <Pagination ariaLabel="Phân trang bài viết" hrefForPage={href} page={page} totalPages={totalPages} />
   </div>
 }

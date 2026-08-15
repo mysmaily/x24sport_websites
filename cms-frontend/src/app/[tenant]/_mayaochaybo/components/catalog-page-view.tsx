@@ -1,5 +1,6 @@
-import { ChevronDown, ChevronLeft, ChevronRight, Search } from 'lucide-react'
+import { ChevronDown, ChevronRight, Search } from 'lucide-react'
 import Link from 'next/link'
+import { Pagination } from '../../../_components/pagination'
 import { COLOR_LANDINGS, TYPE_LANDINGS } from '../lib/catalog-landings'
 import { getCategories, getProducts } from '../lib/cms'
 import { canonical, SITE_URL } from '../lib/site'
@@ -12,7 +13,7 @@ export async function CatalogPageView({ page, search = '', sort = 'popular', hea
   const activeType = TYPE_LANDINGS.find((item) => item.slug === categorySlug)
   const activeColor = COLOR_LANDINGS.find((item) => item.slug === categorySlug)
   const includeSortQuery = sort === 'popular' && canonicalPath === '/san-pham/'
-  const pageHref = (nextPage: number) => { const params = new URLSearchParams({ ...(search ? { q: search } : {}), ...(includeSortQuery ? { sort: 'xem-nhieu' } : {}), page: String(nextPage) }); return `${canonicalPath}?${params}` }
+  const pageHref = (nextPage: number) => { const params = new URLSearchParams({ ...(search ? { q: search } : {}), ...(includeSortQuery ? { sort: 'xem-nhieu' } : {}) }); if (nextPage > 1) params.set('page', String(nextPage)); return `${canonicalPath}${params.size ? `?${params}` : ''}` }
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -85,6 +86,6 @@ export async function CatalogPageView({ page, search = '', sort = 'popular', hea
     </nav>
     <div className="mcb-catalog-result-bar"><span><b>{result.totalDocs.toLocaleString('vi-VN')}</b> mẫu phù hợp</span><span>Trang {result.page}/{Math.max(result.totalPages, 1)}</span></div>
     <ProductGrid products={result.docs} />
-    {result.totalPages > 1 ? <nav className="mt-9 grid grid-cols-[1fr_auto_1fr] items-center border-t border-slate-200 pt-5 text-sm font-black" aria-label="Phân trang">{page > 1 ? <Link className="inline-flex min-h-11 items-center gap-2" href={pageHref(page - 1)}><ChevronLeft size={18} /> Trang trước</Link> : <span />}<span>{page} / {result.totalPages}</span>{page < result.totalPages ? <Link className="inline-flex min-h-11 items-center gap-2 justify-self-end" href={pageHref(page + 1)}>Trang sau <ChevronRight size={18} /></Link> : <span />}</nav> : null}
+    <Pagination ariaLabel="Phân trang sản phẩm" hrefForPage={pageHref} page={page} totalPages={result.totalPages} />
   </div>
 }

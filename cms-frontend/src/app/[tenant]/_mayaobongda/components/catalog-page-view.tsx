@@ -1,6 +1,7 @@
-import { ChevronDown, ChevronLeft, ChevronRight, Search } from 'lucide-react'
+import { ChevronDown, ChevronRight, Search } from 'lucide-react'
 import Link from 'next/link'
 
+import { Pagination } from '../../../_components/pagination'
 import { getCategories, getProducts } from '../lib/cms'
 import { footballCategoryPath } from '../lib/category-paths'
 import { excerpt, SITE_URL } from '../lib/site'
@@ -17,8 +18,9 @@ export async function CatalogPageView({ page, search = '', heading = 'Toàn bộ
   const shortDescription = excerpt(cleanDescription, 210)
   const hasLongDescription = cleanDescription.length > 210
   const pageHref = (nextPage: number) => {
-    const params = new URLSearchParams({ ...(search ? { q: search } : {}), page: String(nextPage) })
-    return `${canonicalPath}?${params}`
+    const params = new URLSearchParams(search ? { q: search } : {})
+    if (nextPage > 1) params.set('page', String(nextPage))
+    return `${canonicalPath}${params.size ? `?${params}` : ''}`
   }
 
   return <div className="section-shell py-3 sm:py-8">
@@ -46,6 +48,6 @@ export async function CatalogPageView({ page, search = '', heading = 'Toàn bộ
     <div className="mb-2 mt-3 flex justify-between border-t border-slate-200 pt-2 text-xs text-slate-600 sm:mb-3 sm:mt-4 sm:pt-3"><span><b className="text-brand">{result.totalDocs.toLocaleString('vi-VN')}</b> mẫu phù hợp</span><span>Trang {result.page}/{Math.max(result.totalPages, 1)}</span></div>
     <ProductGrid products={result.docs} />
     {hasLongDescription ? <details className="mt-8 rounded-xl border border-slate-200 bg-white p-4 text-sm leading-7 text-slate-600 sm:p-5"><summary className="cursor-pointer list-none font-black text-slate-900 transition hover:text-brand [&::-webkit-details-marker]:hidden">Thông tin chi tiết về {heading.toLocaleLowerCase('vi-VN')}</summary><p className="mt-3 max-w-4xl">{cleanDescription}</p></details> : null}
-    {result.totalPages > 1 ? <nav className="mt-9 grid grid-cols-[1fr_auto_1fr] items-center border-t border-slate-200 pt-5 text-sm font-black" aria-label="Phân trang">{page > 1 ? <Link className="inline-flex min-h-11 items-center gap-2" href={pageHref(page - 1)}><ChevronLeft size={18} /> Trang trước</Link> : <span />}<span>{page} / {result.totalPages}</span>{page < result.totalPages ? <Link className="inline-flex min-h-11 items-center gap-2 justify-self-end" href={pageHref(page + 1)}>Trang sau <ChevronRight size={18} /></Link> : <span />}</nav> : null}
+    <Pagination ariaLabel="Phân trang sản phẩm" hrefForPage={pageHref} page={page} totalPages={result.totalPages} />
   </div>
 }
