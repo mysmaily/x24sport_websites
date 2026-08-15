@@ -12,7 +12,6 @@ import {
   Palette,
   Phone,
   Rows3,
-  Search,
   Shirt,
   Sparkles,
   Sun,
@@ -20,6 +19,7 @@ import {
 } from 'lucide-react'
 import { catalogColorFilters, catalogTypeFilters, type CatalogFilter } from '../lib/catalog-filters'
 import { phone, phoneHref, zaloHref } from './contact'
+import { SearchDialog } from '../../../_components/search-dialog'
 
 type MenuIcon = ComponentType<{ size?: number; strokeWidth?: number; className?: string }>
 
@@ -85,7 +85,6 @@ function CatalogMenuContent() {
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [searchOpen, setSearchOpen] = useState(false)
 
   return (
     <header className="site-header">
@@ -118,9 +117,7 @@ export function SiteHeader() {
           <Phone size={17} />
           <span>{phone}</span>
         </a>
-        <button className="icon-button" type="button" aria-label="Mở tìm kiếm" aria-expanded={searchOpen} onClick={() => setSearchOpen((open) => !open)}>
-          <Search size={18} />
-        </button>
+        <SearchDialog iconSize={18} triggerClassName="icon-button" />
         <button
           aria-controls="mobile-site-menu"
           aria-expanded={mobileOpen}
@@ -132,17 +129,6 @@ export function SiteHeader() {
           {mobileOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
       </div>
-
-      {searchOpen ? (
-        <div className="search-popover" role="dialog" aria-label="Tìm kiếm sản phẩm">
-          <form action="/tim-kiem" role="search">
-            <label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label>
-            <input id="header-search-q" name="q" type="search" placeholder="Tên mẫu, màu áo, tag ảnh..." autoComplete="off" />
-            <button type="submit">Tìm</button>
-            <button type="button" aria-label="Đóng tìm kiếm" onClick={() => setSearchOpen(false)}><X size={17} /></button>
-          </form>
-        </div>
-      ) : null}
 
       <div className={mobileOpen ? 'mobile-menu is-open' : 'mobile-menu'} id="mobile-site-menu">
         <nav aria-label="Điều hướng di động">

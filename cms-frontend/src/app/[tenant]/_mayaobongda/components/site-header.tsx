@@ -13,7 +13,6 @@ import {
   MessageCircle,
   Palette,
   Phone,
-  Search,
   Shield,
   Trophy,
   Users,
@@ -26,6 +25,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import type { ProductCategory } from '../lib/cms'
 import { LOGO_URL, PHONE_DISPLAY, PHONE_VALUE, SITE_NAME, ZALO_URL } from '../lib/site'
+import { SearchDialog } from '../../../_components/search-dialog'
 
 const links = [
   { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá' },
@@ -73,7 +73,6 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
   const [open, setOpen] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
   const [mobileSection, setMobileSection] = useState<MobileSection>('types')
-  const [searchOpen, setSearchOpen] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const categoryBySlug = new Map(categories.map((category) => [category.slug, category]))
   const collections = categories
@@ -112,10 +111,10 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
   const hideProductsSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setProductsOpen(false), 120) }
   const toggleMobileSection = (section: Exclude<MobileSection, null>) => setMobileSection((current) => current === section ? null : section)
 
-  useEffect(() => { setOpen(false); setProductsOpen(false); setSearchOpen(false) }, [pathname])
+  useEffect(() => { setOpen(false); setProductsOpen(false) }, [pathname])
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') { setOpen(false); setProductsOpen(false); setSearchOpen(false) }
+      if (event.key === 'Escape') { setOpen(false); setProductsOpen(false) }
     }
     document.addEventListener('keydown', closeOnEscape)
     return () => document.removeEventListener('keydown', closeOnEscape)
@@ -141,16 +140,14 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
           })}
         </nav>
         <div className="mabd-desktop-actions hidden items-center justify-end gap-2">
-          <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20 hover:border-brand/50" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
+          <SearchDialog iconSize={18} triggerClassName="size-11 rounded-lg border border-white/20 hover:border-brand/50" />
           <a className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 px-3 text-sm font-black hover:border-brand/50" href={`tel:${PHONE_VALUE}`}><Phone size={17} /> {PHONE_DISPLAY}</a>
         </div>
         <div className="mabd-mobile-actions flex items-center justify-end gap-2">
-          <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
+          <SearchDialog iconSize={18} triggerClassName="size-11 rounded-lg border border-white/20" />
           <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setOpen(!open)} type="button">{open ? <X /> : <Menu />}</button>
         </div>
       </div>
-
-      {searchOpen ? <div className="absolute right-4 top-full z-[70] mt-2 w-[min(520px,calc(100vw-32px))] rounded-xl bg-white p-1.5 text-slate-950 shadow-[0_14px_40px_rgba(2,6,23,.24)]"><form action="/tim-kiem/" className="grid grid-cols-[1fr_auto_auto] gap-1.5" role="search"><label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label><input autoComplete="off" className="min-h-11 min-w-0 rounded-lg bg-slate-50 px-3 text-sm outline-none" id="header-search-q" name="q" placeholder="Tên mẫu, mã áo hoặc màu sắc..." type="search" /><button className="rounded-lg bg-brand px-4 text-sm font-black text-white" type="submit">Tìm</button><button aria-label="Đóng tìm kiếm" className="grid size-11 place-items-center rounded-lg text-slate-700 hover:bg-slate-100" onClick={() => setSearchOpen(false)} type="button"><X size={17} /></button></form></div> : null}
 
       <div aria-hidden={!productsOpen} className={`mabd-desktop-mega absolute inset-x-0 top-full hidden text-slate-950 transition duration-200 ${productsOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`} id="product-mega-menu" onBlur={hideProductsSoon} onFocus={showProducts} onMouseEnter={showProducts} onMouseLeave={hideProductsSoon}>
         <div className="mabd-mega-grid mx-auto grid max-w-[1240px]">
