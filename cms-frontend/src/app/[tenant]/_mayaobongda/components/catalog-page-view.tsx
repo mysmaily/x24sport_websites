@@ -2,7 +2,7 @@ import { ChevronDown, ChevronRight, Search, SlidersHorizontal } from 'lucide-rea
 import Link from 'next/link'
 
 import { Pagination } from '../../../_components/pagination'
-import { footballCategoryPath } from '../lib/category-paths'
+import { footballCategoryPath, footballTopicPath } from '../lib/category-paths'
 import { getCategories, getProducts } from '../lib/cms'
 import { excerpt, SITE_URL } from '../lib/site'
 
@@ -100,7 +100,7 @@ export async function CatalogPageView({
             <div>
               <Link className="mabd-catalog-more-all" href="/san-pham/">Tất cả chủ đề</Link>
               {secondaryCategories.map((item) => (
-                <Link aria-current={categorySlug === item.slug ? 'page' : undefined} href={footballCategoryPath(item)} key={item.slug}>
+                <Link aria-current={categorySlug === item.slug ? 'page' : undefined} href={footballTopicPath(item)} key={item.slug}>
                   <span>{item.name}</span>
                   {typeof item.productCount === 'number' ? <small>{item.productCount}</small> : null}
                 </Link>
