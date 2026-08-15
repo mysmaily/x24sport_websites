@@ -9,6 +9,7 @@ const operationDir = path.resolve(__dirname, '..')
 const manifestPath = path.join(operationDir, 'source-products.json')
 
 const apply = process.argv.includes('--apply')
+const skipApproval = process.argv.includes('--skip-approval')
 const limitArg = process.argv.find((arg) => arg.startsWith('--limit='))
 const limit = limitArg ? Number(limitArg.split('=')[1]) : Infinity
 
@@ -59,6 +60,13 @@ const lexicalParagraphs = (paragraphs) => ({
     })),
   },
 })
+
+const kitTypeLabel = (kitType) => {
+  if (kitType === 'home') return 'sân nhà'
+  if (kitType === 'away') return 'sân khách'
+  if (kitType === 'third') return 'mẫu thứ ba'
+  return 'thi đấu'
+}
 
 const fetchJson = async (pathAndQuery, options = {}) => {
   const response = await fetch(`${CMS_API_URL}${pathAndQuery}`, options)
@@ -156,14 +164,23 @@ const productDisplayName = (item) => {
 }
 
 const productSummary = (item) =>
-  `${item.title} được làm mới thành mockup thương mại cho đặt may áo bóng đá câu lạc bộ, hỗ trợ in tên số, logo đội và phối size theo yêu cầu.`
+  `${item.title} là mẫu áo bóng đá câu lạc bộ giá từ 119.000đ, phù hợp đặt may đồng phục đội bóng, fan club và giải phong trào với hỗ trợ in tên số, logo và phối size.`
 
-const productDescription = (item) =>
-  lexicalParagraphs([
-    `Mẫu ${item.title} phù hợp cho đội bóng phong trào, fan club, trường học và doanh nghiệp muốn đặt áo câu lạc bộ theo phong cách thi đấu hiện đại.`,
-    'Sản phẩm hỗ trợ chỉnh tên đội, logo, sponsor, tên cầu thủ và số áo. Shop tư vấn chất vải, form áo, size và phối quần tất theo nhu cầu thực tế của đội.',
-    'Giá hiển thị là giá tham khảo từ 119.000đ. Liên hệ hotline 0989 353 247 để nhận báo giá theo số lượng, chất liệu và yêu cầu in ấn cụ thể.',
+const productDescription = (item, productName, clubName) => {
+  const seasonText = item.season ? item.season.replace('-', ' - ') : 'mới'
+  const kitText = kitTypeLabel(item.kitType)
+
+  return lexicalParagraphs([
+    `${productName} là lựa chọn phù hợp cho đội bóng phong trào, fan club, lớp học, công ty và các giải đấu cần một mẫu áo câu lạc bộ nổi bật, dễ nhận diện và có thể đặt may theo số lượng.`,
+    `Tổng quan mẫu áo: thiết kế lấy cảm hứng từ ${clubName}, phiên bản ${kitText} mùa ${seasonText}, giữ tinh thần bóng đá hiện đại nhưng được trình bày lại bằng mockup thương mại riêng cho MayAoBongDa.vn.`,
+    'Điểm mạnh khi đặt may: áo có thể tùy chỉnh logo đội, tên đội, sponsor, tên cầu thủ, số áo, màu chi tiết và phối quần tất đồng bộ. Shop hỗ trợ dựng demo trước khi sản xuất để đội dễ chốt mẫu.',
+    'Chất liệu và form áo: tư vấn vải mè thể thao, vải thun lạnh hoặc chất liệu phù hợp nhu cầu thi đấu/tập luyện; form nam nữ thoải mái, thoáng nhẹ, hỗ trợ size S-5XL và phối size theo danh sách thành viên.',
+    'Công nghệ in: hỗ trợ in chuyển nhiệt, in decal hoặc phương án in phù hợp theo thiết kế. Họa tiết, logo và số áo được xử lý để lên màu rõ, bền và đồng bộ khi sản xuất số lượng đội.',
+    'Bảng giá tham khảo: giá từ 119.000đ tùy số lượng, chất vải, yêu cầu in ấn và phụ kiện đi kèm. Đơn càng nhiều càng dễ tối ưu chi phí cho đội bóng, trường học hoặc doanh nghiệp.',
+    'Cách đặt hàng: gửi mẫu áo mong muốn, logo đội, danh sách tên số và size qua hotline 0989 353 247. Shop sẽ tư vấn chất liệu, báo giá, lên demo và xác nhận trước khi may.',
+    `Câu hỏi thường gặp: Mẫu ${clubName} có đổi màu được không? Có. Đội có thể đổi màu, thêm logo riêng, thêm sponsor và điều chỉnh chi tiết để tránh trùng mẫu. Có in tên số miễn phí không? Shop hỗ trợ theo chương trình và số lượng thực tế khi tư vấn.`,
   ])
+}
 
 const uploadMedia = async (tenantId, item, mockupPath, checksum) => {
   const existing = await findOne('media', {
@@ -224,8 +241,18 @@ async function main() {
 
   for (const item of manifest.items.slice(0, Number.isFinite(limit) ? limit : undefined)) {
     const mockupPath = path.join(operationDir, item.mockupPath)
+    const approvalPath = `${mockupPath}.approved`
     if (!existsSync(mockupPath)) {
       skipped.push({ sourceId: item.sourceId, title: item.title, reason: 'missing mockup', expected: item.mockupPath })
+      continue
+    }
+    if (!skipApproval && !existsSync(approvalPath)) {
+      skipped.push({
+        sourceId: item.sourceId,
+        title: item.title,
+        reason: 'mockup not approved',
+        expected: `${item.mockupPath}.approved`,
+      })
       continue
     }
 
@@ -234,13 +261,6 @@ async function main() {
       'where[sourceSystem][equals]': SOURCE_SYSTEM,
       'where[sourceId][equals]': item.sourceId,
     })
-    if (existingProduct) {
-      for (const id of existingProduct.categories || []) {
-        if (Number.isFinite(Number(id))) affectedCategoryIds.add(id)
-      }
-      skipped.push({ sourceId: item.sourceId, title: item.title, reason: 'already imported', id: existingProduct.id })
-      continue
-    }
 
     let seasonCategory = null
     if (item.season) {
@@ -289,7 +309,7 @@ async function main() {
       isPurchasable: false,
       isOnBackorder: false,
       shortDescription: productSummary(item),
-      description: productDescription(item),
+      description: productDescription(item, productName, clubName),
       attributes: [
         { name: 'Dòng áo', values: [{ value: 'Áo bóng đá câu lạc bộ' }] },
         { name: 'Câu lạc bộ', values: [{ value: clubName }] },
@@ -313,8 +333,14 @@ async function main() {
     }
 
     const media = await uploadMedia(tenantId, item, mockupPath, checksum)
+    if (existingProduct) {
+      const product = await patchJson('products', existingProduct.id, { ...productData, gallery: [media.id] })
+      processed.push({ sourceId: item.sourceId, productId: product.id, mediaId: media.id, slug: product.slug, action: 'updated' })
+      continue
+    }
+
     const product = await createJson('products', { ...productData, gallery: [media.id] })
-    processed.push({ sourceId: item.sourceId, productId: product.id, mediaId: media.id, slug: product.slug })
+    processed.push({ sourceId: item.sourceId, productId: product.id, mediaId: media.id, slug: product.slug, action: 'created' })
   }
 
   const categoryCounts = []

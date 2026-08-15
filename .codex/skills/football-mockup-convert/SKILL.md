@@ -17,6 +17,18 @@ Use this skill to turn one input football shirt design into a square commercial 
 5. Generate a polished ecommerce mockup with a front jersey, back jersey, shorts, socks, fabric/detail callouts, price, hotline, website, and one concise sales badge.
 6. If the output is for this repository, save the final image under a clear project path such as `generated/mockups/<slug>.png`.
 
+## Hard Quality Gate
+
+Before accepting or importing any generated mockup, inspect it visually. Reject and regenerate the image if any of these are true:
+
+- Any source maker/shop mark remains on apparel, especially the small triangle `V` mark on the shirt chest or shorts. This mark is not a club crest and must be removed.
+- Any competitor shop branding remains anywhere: `Vua Áo Đấu`, `VUAAODAU`, `vuaaodau.vn`, competitor phone numbers, social icons, diagonal hanger rods, or watermark-like marks.
+- The product still looks flat/2D/bẹt: no shoulder thickness, no sleeve opening depth, no chest/body volume, no hem thickness, weak shadows, or fabric hanging like a flat poster layer.
+- Fabric looks glossy plastic, rubbery, porcelain-smooth, or lacks visible polyester mesh/pores/wrinkles.
+- Collar options are wrong, extra, or `Cổ Trụ` is not a folded polo collar with a vertical 2-button placket.
+
+Do not upload or publish a product image that fails this gate. Regenerate first.
+
 ## Required Defaults
 
 Use these defaults unless the user overrides them:
@@ -93,7 +105,7 @@ Keep the apparel design faithful:
 - Preserve the key colors, pattern placement, collar shape, sleeve accents, trim, shorts/socks colors, and overall design identity from the input image.
 - Preserve club identity on the shirt itself when the user allows it: club crests, club symbols, and sponsor artwork may remain as part of the copied kit design.
 - Always remove competitor shop identity from the whole mockup: `Vua Áo Đấu`, `VUAAODAU`, competitor shop logos, competitor shop URL, competitor phone numbers, competitor social icons, and competitor watermarks. Replace them with the bundled mayaobongda.vn badge plus the default hotline/website.
-- Always remove source shop/manufacturer marks on apparel unless the user explicitly asks to keep them. This includes small triangle `V` marks, generic maker logos, sleeve shop badges, and shorts maker marks. Do not confuse these with club crests or sponsor artwork.
+- Always remove source shop/manufacturer marks on apparel unless the user explicitly asks to keep them. This includes small triangle `V` marks on the chest, generic maker logos, sleeve shop badges, and shorts maker marks. Do not confuse these with club crests or sponsor artwork. The triangle `V` is always a removable source/maker mark.
 - For other copied text on apparel, follow the user's latest instruction.
 - Convert rough/flat artwork into realistic polyester mesh with folds, seams, ribbed collar/cuffs, and commercial lighting.
 - Avoid inventing major graphic elements that conflict with the source design.
@@ -124,6 +136,6 @@ Subject: preserve the approved left model/hero kit area when present; improve th
 Style/medium: photorealistic football catalog poster, matte polyester mesh fabric, natural wrinkles, visible pores, stitched seams, soft fabric drape.
 Composition/framing: 1:1 square; left model/hero area remains unchanged when approved; right product mockup area shows front/back shirt views and shorts with stronger 3D fabric volume, sleeve depth, hem thickness, shadows, and natural cloth folds; bottom strip for collar options using only "Cổ Tròn", "Cổ Tim", "Cổ Trụ"; render Cổ Trụ as folded polo collar with vertical 2-button placket; size/hotline/website; brand logo badge visible; clean text hierarchy.
 Text (verbatim): "<inferred title>"; "Giá từ 119.000đ"; "Hotline 0989 353 247"; "x24sport.vn"; "Đặt tên + số miễn phí"; "Vải mè thể thao • In chuyển nhiệt • Size S-5XL".
-Constraints: preserve source shirt design identity; preserve allowed club crest/sponsor details when requested; always remove competitor shop branding and source maker marks, then replace seller branding with mayaobongda.vn/default hotline/default website; preserve the approved left/model area; improve only the right-side standalone product mockups from flat 2D to dimensional fabric forms; place mayaobongda.vn logo as seller badge; no copied competitor layout; no watermark.
-Avoid: changing the approved left model/hero area, competitor shop branding such as Vua Áo Đấu/VUAAODAU/competitor URL/competitor hotline/social icons, triangle V shop marks, generic source manufacturer marks, dark hanger template, diagonal rods, script Jersey typography, glossy plastic 3D, sterile sci-fi room, flat 2D right-side product mockups, incorrect Cổ Trụ without folded collar and 2-button placket, extra collar labels beyond "Cổ Tròn", "Cổ Tim", "Cổ Trụ", cluttered text.
+Constraints: preserve source shirt design identity; preserve allowed club crest/sponsor details when requested; always remove competitor shop branding and source maker marks including every small triangle V mark on shirt/shorts, then replace seller branding with mayaobongda.vn/default hotline/default website; preserve the approved left/model area; improve only the right-side standalone product mockups from flat 2D to dimensional fabric forms; place mayaobongda.vn logo as seller badge; no copied competitor layout; no watermark.
+Avoid: changing the approved left model/hero area, competitor shop branding such as Vua Áo Đấu/VUAAODAU/competitor URL/competitor hotline/social icons, any triangle V shop/maker mark on apparel, generic source manufacturer marks, dark hanger template, diagonal rods, script Jersey typography, glossy plastic 3D, sterile sci-fi room, flat/2D/bẹt product mockups, incorrect Cổ Trụ without folded collar and 2-button placket, extra collar labels beyond "Cổ Tròn", "Cổ Tim", "Cổ Trụ", cluttered text.
 ```
