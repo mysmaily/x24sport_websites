@@ -88,11 +88,11 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1220]/95 text-white backdrop-blur-xl">
-      <div className="mx-auto grid min-h-18 w-full max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-6 xl:grid-cols-[minmax(210px,1fr)_auto_minmax(200px,1fr)] xl:px-8">
+      <div className="mabd-header-shell mx-auto grid min-h-18 w-full max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-6">
         <Link aria-label={`${SITE_NAME} - Trang chủ`} className="inline-flex w-fit items-center" href="/">
           <img alt={SITE_NAME} className="h-auto w-[228px] max-w-[calc(100vw-96px)]" height="58" src={LOGO_URL} width="372" />
         </Link>
-        <nav aria-label="Điều hướng chính" className="hidden items-center justify-center gap-4 text-sm font-extrabold text-slate-300 xl:flex 2xl:gap-6">
+        <nav aria-label="Điều hướng chính" className="mabd-desktop-nav hidden items-center justify-center gap-4 text-sm font-extrabold text-slate-300">
           <div className="relative" onBlur={hideProductsSoon} onFocus={showProducts} onMouseEnter={showProducts} onMouseLeave={hideProductsSoon}>
             <button aria-controls="product-mega-menu" aria-expanded={productsOpen} className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`} onClick={() => setProductsOpen((value) => !value)} type="button">
               Sản phẩm <ChevronDown aria-hidden="true" className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} size={16} />
@@ -105,11 +105,11 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
             return <Link aria-current={active ? 'page' : undefined} className={`relative whitespace-nowrap py-6 transition hover:text-white ${active ? 'text-brand' : ''}`} href={link.href} key={link.href}>{link.label}{active ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}</Link>
           })}
         </nav>
-        <div className="hidden items-center justify-end gap-2 xl:flex">
+        <div className="mabd-desktop-actions hidden items-center justify-end gap-2">
           <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20 hover:border-brand/50" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
           <a className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 px-3 text-sm font-black hover:border-brand/50" href={`tel:${PHONE_VALUE}`}><Phone size={17} /> {PHONE_DISPLAY}</a>
         </div>
-        <div className="flex items-center justify-end gap-2 xl:hidden">
+        <div className="mabd-mobile-actions flex items-center justify-end gap-2">
           <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
           <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setOpen(!open)} type="button">{open ? <X /> : <Menu />}</button>
         </div>
@@ -117,7 +117,7 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
 
       {searchOpen ? <div className="absolute right-4 top-full z-[70] mt-2 w-[min(520px,calc(100vw-32px))] rounded-xl bg-white p-1.5 text-slate-950 shadow-[0_14px_40px_rgba(2,6,23,.24)]"><form action="/tim-kiem/" className="grid grid-cols-[1fr_auto_auto] gap-1.5" role="search"><label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label><input autoComplete="off" className="min-h-11 min-w-0 rounded-lg bg-slate-50 px-3 text-sm outline-none" id="header-search-q" name="q" placeholder="Tên mẫu, mã áo hoặc màu sắc..." type="search" /><button className="rounded-lg bg-brand px-4 text-sm font-black text-white" type="submit">Tìm</button><button aria-label="Đóng tìm kiếm" className="grid size-11 place-items-center rounded-lg text-slate-700 hover:bg-slate-100" onClick={() => setSearchOpen(false)} type="button"><X size={17} /></button></form></div> : null}
 
-      <div aria-hidden={!productsOpen} className={`absolute inset-x-0 top-full hidden border-t border-slate-200 bg-[#f8f6f2] text-slate-950 shadow-[0_28px_70px_rgba(2,6,23,.32)] transition duration-200 xl:block ${productsOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`} id="product-mega-menu" onBlur={hideProductsSoon} onFocus={showProducts} onMouseEnter={showProducts} onMouseLeave={hideProductsSoon}>
+      <div aria-hidden={!productsOpen} className={`mabd-desktop-mega absolute inset-x-0 top-full hidden border-t border-slate-200 bg-[#f8f6f2] text-slate-950 shadow-[0_28px_70px_rgba(2,6,23,.32)] transition duration-200 ${productsOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`} id="product-mega-menu" onBlur={hideProductsSoon} onFocus={showProducts} onMouseEnter={showProducts} onMouseLeave={hideProductsSoon}>
         <div className="mx-auto grid max-w-[1240px] grid-cols-3 gap-7 px-8 py-8">
           <section aria-labelledby="menu-types-title">
             <p className="mb-4 text-xs font-black uppercase tracking-[.18em] text-brand" id="menu-types-title">Theo mẫu áo</p>
@@ -140,7 +140,7 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
         </div>
       </div>
 
-      <div aria-hidden={!open} className={`absolute inset-x-0 top-full max-h-[calc(100vh-72px)] overflow-y-auto border-b border-white/10 bg-[#0b1220] p-4 shadow-2xl transition duration-200 xl:hidden ${open ? 'visible opacity-100' : 'pointer-events-none invisible opacity-0'}`} id="mobile-navigation">
+      <div aria-hidden={!open} className={`mabd-mobile-menu absolute inset-x-0 top-full max-h-[calc(100vh-72px)] overflow-y-auto border-b border-white/10 bg-[#0b1220] p-4 shadow-2xl transition duration-200 ${open ? 'visible opacity-100' : 'pointer-events-none invisible opacity-0'}`} id="mobile-navigation">
         <nav aria-label="Điều hướng di động" className="mx-auto grid max-w-2xl gap-3">
           <p className="px-1 text-xs font-black uppercase tracking-[.16em] text-brand">Sản phẩm</p>
           {[

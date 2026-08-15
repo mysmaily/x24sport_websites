@@ -182,7 +182,7 @@ function buildHeadMarkup({
     mayaobongchuyen: ['/styles/mayaobongchuyen.css?v=20260815b', '/styles/mayaobongchuyen-fixes.css?v=20260815b'],
     mayaobongro: ['/styles/mayaobongro.css', '/styles/mayaobongro-header.css'],
     mayaochaybo: ['/styles/mayaochaybo.css', '/styles/mayaochaybo-fixes.css'],
-    mayaobongda: ['/styles/mayaobongda.css', '/styles/mayaobongda-audience.css'],
+    mayaobongda: ['/styles/mayaobongda.css', '/styles/mayaobongda-audience.css', '/styles/mayaobongda-header.css?v=20260816a'],
   }
   const stylesheets = tenantStyles[tenantSlug] || ['/styles/shared.css']
 
