@@ -17,6 +17,7 @@ export type Product = {
   price: number
   compareAtPrice?: number
   shortDescription: string
+  viewCount?: number
   gallery?: Array<{ url?: string; alt?: string; width?: number; height?: number; searchTags?: Array<{ value?: string }> }>
   searchTags?: Array<{ value?: string }>
   categories?: Array<ProductCategory | string>
@@ -281,16 +282,21 @@ export async function getHomeData() {
   try {
     const [tenant] = await fetchDocs<Tenant>(`/api/tenants?where[slug][equals]=${slug}&limit=1`)
     const tenantFilter = `where[tenant.slug][equals]=${slug}`
-    const [products, posts, settings, categories] = await Promise.all([
-      fetchDocs<Product>(`/api/products?${tenantFilter}&where[featured][equals]=true&limit=6`),
+    const [hotProducts, newProducts, posts, settings, categories] = await Promise.all([
+      fetchDocs<Product>(`/api/products?${tenantFilter}&where[featured][equals]=true&sort=-viewCount&limit=6`),
+      fetchDocs<Product>(`/api/products?${tenantFilter}&sort=-createdAt&limit=6`),
       fetchDocs<Post>(`/api/posts?${tenantFilter}&sort=-publishedAt&limit=3`),
       fetchDocs<StoreSettings>(`/api/store-settings?${tenantFilter}&limit=1`),
       fetchDocs<ProductCategory>(`/api/product-categories?${tenantFilter}&sort=order&limit=30`),
     ])
+    const resolvedHotProducts = hotProducts.length ? hotProducts : (newProducts.length ? newProducts : fallbackProducts)
+    const resolvedNewProducts = newProducts.length ? newProducts : (hotProducts.length ? hotProducts : fallbackProducts)
 
     return {
       tenant: tenant || fallbackTenant,
-      products: products.length ? products : fallbackProducts,
+      products: resolvedHotProducts,
+      hotProducts: resolvedHotProducts,
+      newProducts: resolvedNewProducts,
       posts: posts.length ? posts : fallbackPosts,
       settings: settings[0] || { id: 'fallback-settings', siteName: fallbackTenant.name, navigation: fallbackNavigation },
       categories: categories.length ? categories : fallbackCategories,
@@ -299,6 +305,8 @@ export async function getHomeData() {
     return {
       tenant: fallbackTenant,
       products: fallbackProducts,
+      hotProducts: fallbackProducts,
+      newProducts: fallbackProducts,
       posts: fallbackPosts,
       settings: { id: 'fallback-settings', siteName: fallbackTenant.name, navigation: fallbackNavigation },
       categories: fallbackCategories,

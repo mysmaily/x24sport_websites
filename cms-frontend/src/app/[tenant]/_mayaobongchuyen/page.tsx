@@ -1,11 +1,27 @@
 import { ArrowUpRight, BadgeCheck, Droplets, Flame, Palette, PencilRuler, Phone, ShieldCheck } from 'lucide-react'
 import type { Metadata } from 'next'
+import type { CSSProperties } from 'react'
 import { FooterStoreDetails } from '../../_components/footer-store-details'
 import { getPublicStoreSettings } from '../../../lib/store-settings'
 import { HeaderSearch } from './_components/header-search'
 import { formatPrice, getHomeData, type Product } from './lib/content'
 
-const HERO_IMAGE = '/images/mayaobongchuyen/images/volleyball-team-hero.png'
+const HERO_IMAGE = '/images/mayaobongchuyen/home/volleyball-team-custom-wide.webp'
+
+const heroBanners = [
+  {
+    alt: 'Đội bóng chuyền Việt Nam mặc đồng phục đỏ đen trắng thiết kế riêng',
+    src: '/images/mayaobongchuyen/home/volleyball-team-custom-wide.webp',
+  },
+  {
+    alt: 'Bộ sưu tập áo bóng chuyền xanh đỏ đen trắng trưng bày trong shop',
+    src: '/images/mayaobongchuyen/home/volleyball-uniform-display-wide.webp',
+  },
+  {
+    alt: 'Vận động viên bóng chuyền mặc áo xanh trắng đang bật nhảy đập bóng',
+    src: '/images/mayaobongchuyen/home/volleyball-spike-action-wide.webp',
+  },
+]
 
 export const metadata: Metadata = {
   title: 'May áo bóng chuyền thiết kế riêng | MayaoBongChuyen',
@@ -28,8 +44,27 @@ function productAlt(product: Product) {
   return product.gallery?.find((image) => image.url)?.alt || `${product.name} đặt may cho đội bóng chuyền`
 }
 
+function ProductCard({ index, product }: { index: number; product: Product }) {
+  const href = product.slug ? `/san-pham/${product.slug}/` : '/lien-he'
+
+  return (
+    <article className="mbc-product-card border border-[var(--line)] bg-white/6" key={product.id}>
+      <a className="mbc-product-card-media" href={href}>
+        <img alt={productAlt(product)} className="mbc-product-card-image" loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} />
+        <span className="mbc-product-card-badge"><Flame size={18} /> {String(index + 1).padStart(2, '0')}</span>
+      </a>
+      <div className="p-[22px]">
+        <p className="mb-2 text-xs font-black text-[var(--accent)]">{product.sku}</p>
+        <h3 className="mb-2.5 text-[23px]"><a href={href}>{product.name}</a></h3>
+        <span className="leading-[1.55] text-[var(--muted)]">{product.shortDescription}</span>
+        <strong className="mt-4 block text-2xl">{formatPrice(product.price)}</strong>
+      </div>
+    </article>
+  )
+}
+
 export default async function Home() {
-  const [{ products, posts, settings, categories }, publicSettings] = await Promise.all([
+  const [{ hotProducts, newProducts, posts, settings, categories }, publicSettings] = await Promise.all([
     getHomeData(),
     getPublicStoreSettings(),
   ])
@@ -115,10 +150,18 @@ export default async function Home() {
       </header>
 
       <section className="relative min-h-[min(660px,calc(100dvh-72px))] overflow-hidden bg-[#f5f6f4] md:min-h-[min(660px,calc(100dvh-82px))]" aria-label="Banner may áo bóng chuyền">
-        <div
-          className="absolute inset-0 bg-cover bg-left bg-no-repeat after:absolute after:inset-0 after:bg-[linear-gradient(90deg,transparent_0%,transparent_43%,rgba(255,255,255,.78)_58%,#fff_74%),linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.22))] after:content-['']"
-          style={{ backgroundImage: `url('${HERO_IMAGE}')` }}
-        />
+        <div className="absolute inset-0">
+          {heroBanners.map((banner, index) => (
+            <div
+              aria-hidden={index !== 0}
+              aria-label={index === 0 ? banner.alt : undefined}
+              className="mbc-hero-banner-slide absolute inset-0 bg-cover bg-left bg-no-repeat after:absolute after:inset-0 after:bg-[linear-gradient(90deg,transparent_0%,transparent_43%,rgba(255,255,255,.78)_58%,#fff_74%),linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.22))] after:content-['']"
+              key={banner.src}
+              role={index === 0 ? 'img' : undefined}
+              style={{ '--mbc-slide-index': index, backgroundImage: `url('${banner.src}')` } as CSSProperties}
+            />
+          ))}
+        </div>
         <div className="relative z-10 ml-auto flex min-h-[min(660px,calc(100dvh-72px))] max-w-[650px] flex-col justify-center px-6 py-[34px] text-[#0d1422] md:min-h-[min(660px,calc(100dvh-82px))] md:px-[clamp(24px,5vw,82px)] md:py-[50px]">
           <p className="mb-[18px] text-[clamp(24px,2.3vw,40px)] font-black uppercase leading-[0.95] text-[var(--sport-green)]">May áo bóng chuyền</p>
           <h1 className="mb-[18px] text-[clamp(36px,4.3vw,70px)] font-black uppercase leading-[0.92] text-[#0b1423]">
@@ -145,8 +188,9 @@ export default async function Home() {
           </a>
         </div>
         <div className="absolute bottom-[22px] left-1/2 z-20 flex -translate-x-1/2 items-center gap-2.5" aria-hidden="true">
-          <span className="h-3 w-3 rounded-full bg-white shadow-[0_0_0_3px_rgba(0,0,0,.12)]" />
-          <span className="h-3 w-3 rounded-full bg-white/80" />
+          {heroBanners.map((banner, index) => (
+            <span className={index === 0 ? 'h-3 w-3 rounded-full bg-white shadow-[0_0_0_3px_rgba(0,0,0,.12)]' : 'h-3 w-3 rounded-full bg-white/80'} key={banner.src} />
+          ))}
         </div>
       </section>
 
@@ -205,28 +249,32 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="products" className="px-[clamp(20px,5vw,76px)] py-[58px]">
+      <section id="hot-products" className="px-[clamp(20px,5vw,76px)] py-[58px]">
         <div className="mb-[30px] flex flex-col justify-between gap-6 md:flex-row">
           <div>
-            <p className="mb-[14px] text-xs font-black uppercase text-[var(--accent)]">Mẫu đã làm</p>
-            <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">Mẫu áo bóng chuyền nổi bật</h2>
+            <p className="mb-[14px] text-xs font-black uppercase text-[var(--accent)]">Đang được quan tâm</p>
+            <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">Sản phẩm HOT</h2>
+            <p className="mt-4 max-w-[720px] leading-[1.65] text-[var(--muted)]">Những mẫu áo bóng chuyền khách thường mở để tham khảo phối màu, form áo, tên số và tinh thần thiết kế cho đội.</p>
           </div>
         </div>
         <div className="grid gap-[18px] md:grid-cols-2 xl:grid-cols-3">
-          {products.map((product, index) => (
-            <article className="mbc-product-card border border-[var(--line)] bg-white/6" key={product.id}>
-              <a className="mbc-product-card-media" href={product.slug ? `/san-pham/${product.slug}/` : '/lien-he'}>
-                <img alt={productAlt(product)} className="mbc-product-card-image" loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} />
-                <span className="mbc-product-card-badge"><Flame size={18} /> {String(index + 7).padStart(2, '0')}</span>
-              </a>
-              <div className="p-[22px]">
-                <p className="mb-2 text-xs font-black text-[var(--accent)]">{product.sku}</p>
-                <h3 className="mb-2.5 text-[23px]"><a href={product.slug ? `/san-pham/${product.slug}/` : '/lien-he'}>{product.name}</a></h3>
-                <span className="leading-[1.55] text-[var(--muted)]">{product.shortDescription}</span>
-                <strong className="mt-4 block text-2xl">{formatPrice(product.price)}</strong>
-              </div>
-            </article>
-          ))}
+          {hotProducts.map((product, index) => <ProductCard index={index} key={product.id} product={product} />)}
+        </div>
+      </section>
+
+      <section id="new-products" className="border-t border-[var(--line)] bg-white px-[clamp(20px,5vw,76px)] py-[58px] text-[#0d1422]">
+        <div className="mb-[30px] flex flex-col justify-between gap-6 md:flex-row">
+          <div>
+            <p className="mb-[14px] text-xs font-black uppercase text-[var(--accent)]">Mới cập nhật</p>
+            <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">Sản phẩm mới ra mắt</h2>
+            <p className="mt-4 max-w-[720px] leading-[1.65] text-[#5f6876]">Các mẫu vừa cập nhật để đội dễ chọn kiểu áo, phối màu, chất liệu và ý tưởng in ấn cho đơn tiếp theo.</p>
+          </div>
+          <a className="inline-flex min-h-11 items-center justify-center gap-2 border border-[#d7dce4] px-[18px] font-black text-[#0d1422] hover:border-[var(--accent)] hover:text-[var(--accent)]" href="/tim-kiem/">
+            Xem thêm mẫu <ArrowUpRight size={18} />
+          </a>
+        </div>
+        <div className="grid gap-[18px] md:grid-cols-2 xl:grid-cols-3">
+          {newProducts.map((product, index) => <ProductCard index={index} key={product.id} product={product} />)}
         </div>
       </section>
 
