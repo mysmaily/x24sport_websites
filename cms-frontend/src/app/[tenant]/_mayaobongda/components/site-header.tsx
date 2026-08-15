@@ -57,7 +57,7 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
     { category: categoryBySlug.get('cau-lac-bo'), label: 'Áo CLB nổi tiếng' },
     { category: categoryBySlug.get('doi-tuyen'), label: 'Áo đội tuyển quốc gia' },
   ].flatMap<MenuItem>((item) => {
-    if (!item.category || (item.category.productCount || 0) <= 0) return []
+    if (!item.category) return []
     return [{ href: categoryHref(item.category), label: item.label }]
   })
   const typeItems: MenuItem[] = [{ href: '/san-pham/', label: 'Tất cả mẫu áo' }, ...dynamicTypeItems]
