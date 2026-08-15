@@ -15,35 +15,41 @@ import type { ReactNode } from 'react'
 import styles from './pnd.module.css'
 import { categories, formatPrice, previewBase, type PreviewProduct } from './data'
 
-export function Brand() {
-  return <Link className={styles.brand} href={previewBase} aria-label="PND Sport Việt Nam - Trang chủ">
-    <strong>PND SPORT</strong><span>VIỆT NAM</span>
+export type PreviewVariant = 'v1' | 'v2' | 'v3'
+
+export function Brand({ base = previewBase, variant = 'v1' }: { base?: string; variant?: PreviewVariant }) {
+  return <Link className={styles.brand} href={base} aria-label="PND Sport Việt Nam - Trang chủ">
+    {variant === 'v1'
+      ? <><strong>PND SPORT</strong><span>VIỆT NAM</span></>
+      // eslint-disable-next-line @next/next/no-img-element
+      : <img src="/images/pndsport/logo.webp" alt="PND Sport Việt Nam" />}
   </Link>
 }
 
-export function SiteShell({ children }: { children: ReactNode }) {
-  return <div className={styles.site}>
+export function SiteShell({ children, base = previewBase, variant = 'v1' }: { children: ReactNode; base?: string; variant?: PreviewVariant }) {
+  const variantClass = variant === 'v2' ? styles.v2 : variant === 'v3' ? styles.v3 : ''
+  return <div className={`${styles.site} ${variantClass}`} data-preview-variant={variant}>
     <a className={styles.skipLink} href="#pnd-main">Bỏ qua đến nội dung</a>
     <div className={styles.notice}><span>PND SPORT VIỆT NAM</span><p>Tư vấn mẫu, màu sắc và báo giá theo nhu cầu thực tế</p><a href="tel:0989353247"><Phone size={14} /> 0989 353 247</a></div>
     <header className={styles.header}>
       <div className={styles.headerMain}>
-        <Brand />
+        <Brand base={base} variant={variant} />
         <form className={styles.search} role="search"><Search size={18} /><input aria-label="Tìm sản phẩm" placeholder="Tìm theo môn thể thao, mã mẫu..." /><button type="submit">Tìm</button></form>
         <a className={styles.headerCta} href="https://zalo.me/0989353247" target="_blank" rel="noreferrer"><MessageCircle size={18} /><span>Gửi yêu cầu thiết kế</span></a>
-        <details className={styles.mobileMenu}><summary aria-label="Mở menu"><Menu /></summary><nav>{categories.map((item) => <Link href={`${previewBase}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}<Link href={`${previewBase}/blog`}>Góc tư vấn</Link></nav></details>
+        <details className={styles.mobileMenu}><summary aria-label="Mở menu"><Menu /></summary><nav>{categories.map((item) => <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}<Link href={`${base}/blog`}>Góc tư vấn</Link></nav></details>
       </div>
       <nav className={styles.nav} aria-label="Danh mục chính">
-        <Link className={styles.allCategories} href={`${previewBase}/danh-muc/bong-da`}><Grid2X2 size={17} /> Danh mục <ChevronDown size={15} /></Link>
-        {categories.slice(0, 8).map((item) => <Link href={`${previewBase}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}
-        <Link href={`${previewBase}/blog`}>Góc tư vấn</Link>
+        <Link className={styles.allCategories} href={`${base}/danh-muc/bong-da`}><Grid2X2 size={17} /> Danh mục <ChevronDown size={15} /></Link>
+        {categories.slice(0, 8).map((item) => <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}
+        <Link href={`${base}/blog`}>Góc tư vấn</Link>
       </nav>
     </header>
     <main id="pnd-main">{children}</main>
     <footer className={styles.footer}>
       <div className={styles.footerTop}>
-        <div><Brand /><p>Nền tảng tham khảo mẫu áo thể thao và gửi yêu cầu thiết kế, báo giá theo đội nhóm.</p></div>
-        <div><h2>Môn thể thao</h2>{categories.slice(0, 5).map((item) => <Link href={`${previewBase}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}</div>
-        <div><h2>Hỗ trợ lựa chọn</h2><Link href={`${previewBase}/blog`}>Góc tư vấn</Link><Link href={`${previewBase}/thiet-ke-ao-bong-da-doi-nhom`}>Thiết kế theo yêu cầu</Link><a href="tel:0989353247">Hotline 0989 353 247</a></div>
+        <div><Brand base={base} variant={variant} /><p>Nền tảng tham khảo mẫu áo thể thao và gửi yêu cầu thiết kế, báo giá theo đội nhóm.</p></div>
+        <div><h2>Môn thể thao</h2>{categories.slice(0, 5).map((item) => <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}</div>
+        <div><h2>Hỗ trợ lựa chọn</h2><Link href={`${base}/blog`}>Góc tư vấn</Link><Link href={`${base}/thiet-ke-ao-bong-da-doi-nhom`}>Thiết kế theo yêu cầu</Link><a href="tel:0989353247">Hotline 0989 353 247</a></div>
         <div className={styles.footerContact}><h2>Bắt đầu yêu cầu</h2><p>Gửi mẫu tham khảo, số lượng, màu đội và thời gian dự kiến để nhận tư vấn.</p><a href="https://zalo.me/0989353247" target="_blank" rel="noreferrer">Nhắn Zalo <ArrowRight size={16} /></a></div>
       </div>
       <div className={styles.footerBottom}><span>© PND Sport Việt Nam</span><span>Nội dung đang ở trạng thái bản nháp chờ xác minh.</span></div>
@@ -52,27 +58,27 @@ export function SiteShell({ children }: { children: ReactNode }) {
   </div>
 }
 
-export function Breadcrumbs({ items }: { items: Array<{ label: string; href?: string }> }) {
-  return <nav className={styles.breadcrumbs} aria-label="Đường dẫn"><Link href={previewBase}>Trang chủ</Link>{items.map((item) => <span key={item.label}><b>/</b>{item.href ? <Link href={item.href}>{item.label}</Link> : item.label}</span>)}</nav>
+export function Breadcrumbs({ items, base = previewBase }: { items: Array<{ label: string; href?: string }>; base?: string }) {
+  return <nav className={styles.breadcrumbs} aria-label="Đường dẫn"><Link href={base}>Trang chủ</Link>{items.map((item) => <span key={item.label}><b>/</b>{item.href ? <Link href={item.href}>{item.label}</Link> : item.label}</span>)}</nav>
 }
 
 export function SectionHeading({ eyebrow, title, note, href, linkLabel = 'Xem tất cả' }: { eyebrow: string; title: string; note?: string; href?: string; linkLabel?: string }) {
   return <div className={styles.sectionHeading}><div><span>{eyebrow}</span><h2>{title}</h2>{note ? <p>{note}</p> : null}</div>{href ? <Link href={href}>{linkLabel}<ArrowRight size={17} /></Link> : null}</div>
 }
 
-export function ProductCard({ product }: { product: PreviewProduct }) {
+export function ProductCard({ product, base = previewBase }: { product: PreviewProduct; base?: string }) {
   return <article className={styles.productCard}>
-    <Link className={styles.productImage} href={`${previewBase}/san-pham/${product.slug}`}>
+    <Link className={styles.productImage} href={`${base}/san-pham/${product.slug}`}>
       {product.badge ? <span>{product.badge}</span> : null}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={product.image} alt={product.name} loading="lazy" />
     </Link>
-    <div className={styles.productMeta}><p>{product.category}<span>{product.code}</span></p><h3><Link href={`${previewBase}/san-pham/${product.slug}`}>{product.name}</Link></h3><div className={styles.priceRow}><div><small>Giá từ</small><strong>{formatPrice(product.price)}</strong></div><Link href={`${previewBase}/san-pham/${product.slug}`} aria-label={`Xem ${product.name}`}><ArrowRight size={17} /></Link></div></div>
+    <div className={styles.productMeta}><p>{product.category}<span>{product.code}</span></p><h3><Link href={`${base}/san-pham/${product.slug}`}>{product.name}</Link></h3><div className={styles.priceRow}><div><small>Giá từ</small><strong>{formatPrice(product.price)}</strong></div><Link href={`${base}/san-pham/${product.slug}`} aria-label={`Xem ${product.name}`}><ArrowRight size={17} /></Link></div></div>
   </article>
 }
 
-export function ProductGrid({ items }: { items: PreviewProduct[] }) {
-  return <div className={styles.productGrid}>{items.map((product, index) => <ProductCard product={product} key={`${product.slug}-${index}`} />)}</div>
+export function ProductGrid({ items, base = previewBase }: { items: PreviewProduct[]; base?: string }) {
+  return <div className={styles.productGrid}>{items.map((product, index) => <ProductCard product={product} base={base} key={`${product.slug}-${index}`} />)}</div>
 }
 
 export function QuoteBand({ compact = false }: { compact?: boolean }) {
