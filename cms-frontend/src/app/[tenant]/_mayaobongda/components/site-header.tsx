@@ -94,7 +94,7 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
         </Link>
         <nav aria-label="Điều hướng chính" className="mabd-desktop-nav hidden items-center justify-center gap-4 text-sm font-extrabold text-slate-300">
           <div className="relative" onBlur={hideProductsSoon} onFocus={showProducts} onMouseEnter={showProducts} onMouseLeave={hideProductsSoon}>
-            <button aria-controls="product-mega-menu" aria-expanded={productsOpen} className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`} onClick={() => setProductsOpen((value) => !value)} type="button">
+            <button aria-controls="product-mega-menu" aria-expanded={productsOpen} className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`} onClick={showProducts} type="button">
               Sản phẩm <ChevronDown aria-hidden="true" className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} size={16} />
               {productActive ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}
             </button>
