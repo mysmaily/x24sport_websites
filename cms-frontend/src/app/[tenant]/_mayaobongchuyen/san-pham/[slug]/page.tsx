@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ArrowLeft, Phone, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, Phone } from 'lucide-react'
 import { notFound } from 'next/navigation'
 
 import { ProductInterestForm } from '../../../../_components/product-interest-form'
@@ -109,13 +109,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
         <div className="grid overflow-hidden border border-[var(--line)] bg-white/6 lg:grid-cols-[1.08fr_.92fr]">
           <div className="relative bg-[#111]">
-            {images.some((image) => image.url) ? (
-              <ProductGallery images={images} productName={product.name} />
-            ) : (
-              <div className="flex aspect-square min-h-[340px] items-center justify-center sm:min-h-[520px]">
-                <ShieldCheck className="text-[var(--accent)]" size={64} />
-              </div>
-            )}
+            <ProductGallery images={images} productName={product.name} />
           </div>
 
           <section className="grid content-start gap-5 p-5 sm:p-8 lg:p-10">
