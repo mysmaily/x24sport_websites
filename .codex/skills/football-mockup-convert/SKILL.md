@@ -49,12 +49,15 @@ Examples:
 
 The mockup should feel like a premium commercial product image, not a copied competitor template.
 
+Use the public mayaobongda.vn product grid as the taste target: energetic football catalog posters with real-fabric apparel, a natural model or model-like mannequin, product flat-lays, and color-matched stadium/gradient backgrounds. Use it as a style reference, not as a source to copy exact graphics.
+
 Preferred composition:
 
 - 1:1 square ecommerce image.
-- Main front jersey large and clear.
-- Back jersey behind or beside it at smaller scale.
-- Shorts and socks grouped on a clean display surface.
+- Prefer a natural athletic model wearing the full kit on the left when the source supports it; otherwise use a soft-filled invisible mannequin with realistic cloth drape.
+- Show separate front and back shirt views on the right, plus shorts below or beside them.
+- Include socks only when useful; do not let socks dominate the layout.
+- Add a bottom options strip with collar variants, size buttons, website, and hotline when text space allows.
 - Small fabric/detail swatches or icons for breathability, print quality, stitching, and sizing.
 - Brand logo badge in a clean corner or header area.
 - Clear but not crowded text hierarchy: title, price, hotline, website, feature line.
@@ -62,18 +65,22 @@ Preferred composition:
 Background:
 
 - Choose the background from the shirt design palette and mood.
+- Use football-native environments: blurred stadium lights, grass/pitch texture, smoke/fog, spotlight beams, speed streaks, or clean diagonal panels.
+- Match the background family to the kit colors, then add dark/light contrast so white and dark garments stay readable.
 - MU/red kit: red-black or red-charcoal gradient, professional stadium light blur.
 - Arsenal/red-white kit: red, cream, white, graphite, subtle pitch or tunnel blur.
 - Blue kit: navy/royal blue gradient, cool stadium lighting.
 - White/light kit: light showroom, pale gray, soft color accents.
 - Dark kit: dark premium gradient with rim light so the apparel remains readable.
-- Use blur, gradient, light panels, stadium tunnel, technical showroom, or pitch-inspired depth as needed.
+- Avoid sterile sci-fi rooms. Prefer sports-catalog atmosphere over futuristic product-display plastic.
 
 Keep the apparel design faithful:
 
 - Preserve the key colors, stripe placement, collar shape, sleeve accents, crest/sponsor positions, and overall design identity from the input image.
 - Convert rough/flat artwork into realistic polyester mesh with folds, seams, ribbed collar/cuffs, and commercial lighting.
 - Avoid inventing major graphic elements that conflict with the source design.
+- Make fabric look matte and worn naturally: visible mesh pores, soft wrinkles, hem thickness, sleeve fold, shoulder tension, seam puckering, waistband ribbing, and natural drape.
+- When using a model, make the kit fit like real sportswear: slight cloth pull around chest/waist/shorts, not a smooth plastic shell.
 
 ## Avoid
 
@@ -81,6 +88,7 @@ Keep the apparel design faithful:
 - Do not use the reference competitor's logo, club assets, sponsors, or exact typography.
 - Do not add watermarks, fake QR codes, random social icons, or irrelevant props.
 - Do not overcrowd text. If text rendering is unreliable, keep fewer in-image text elements and report the intended text in the final answer.
+- Avoid glossy CGI, plastic/rubber shine, porcelain-smooth jerseys, futuristic tunnel showrooms, over-polished toy-like apparel, and floating garments that have no natural fabric weight.
 
 ## Prompt Template
 
@@ -92,10 +100,10 @@ Asset type: square ecommerce football kit mockup
 Primary request: Convert the input raw football shirt design into a polished commercial X24Sport/mayaobongda.vn product mockup.
 Input images: Image 1 is the raw jersey design to preserve; Image 2 is the mayaobongda.vn brand logo badge to place in the layout.
 Scene/backdrop: <dynamic background chosen from shirt colors and context>
-Subject: realistic football kit set with front jersey, back jersey, shorts, socks, and small fabric/detail callouts.
-Style/medium: photorealistic 3D apparel render, premium ecommerce catalog, realistic polyester mesh fabric and stitching.
-Composition/framing: 1:1 square; main front jersey prominent; back jersey secondary; shorts and socks grouped; brand logo badge visible; clean text hierarchy.
+Subject: realistic football kit presentation with a natural athletic model wearing the kit when appropriate, plus separate front/back shirt views, shorts, optional socks, and small fabric/detail callouts.
+Style/medium: photorealistic football catalog poster, matte polyester mesh fabric, natural wrinkles, visible pores, stitched seams, soft fabric drape.
+Composition/framing: 1:1 square; model or main kit on the left; flat front/back shirt views and shorts on the right; bottom strip for collar options/size/hotline/website; brand logo badge visible; clean text hierarchy.
 Text (verbatim): "<inferred title>"; "Giá từ 119.000đ"; "Hotline 0989 353 247"; "x24sport.vn"; "Đặt tên + số miễn phí"; "Vải mè thể thao • In chuyển nhiệt • Size S-5XL".
 Constraints: preserve source shirt design identity; place mayaobongda.vn logo as seller badge; no copied competitor layout; no watermark.
-Avoid: dark hanger template, diagonal rods, script Jersey typography, real-brand copying beyond what is present in the user-provided design, cluttered text.
+Avoid: dark hanger template, diagonal rods, script Jersey typography, glossy plastic 3D, sterile sci-fi room, real-brand copying beyond what is present in the user-provided design, cluttered text.
 ```
