@@ -72,7 +72,7 @@ export function ProductCard({ product }: { product: PreviewProduct }) {
 }
 
 export function ProductGrid({ items }: { items: PreviewProduct[] }) {
-  return <div className={styles.productGrid}>{items.map((product) => <ProductCard product={product} key={product.slug} />)}</div>
+  return <div className={styles.productGrid}>{items.map((product, index) => <ProductCard product={product} key={`${product.slug}-${index}`} />)}</div>
 }
 
 export function QuoteBand({ compact = false }: { compact?: boolean }) {
@@ -89,4 +89,3 @@ export function TrustStrip() {
     <div><MessageCircle /><span><b>Tư vấn theo nhu cầu</b><small>Đội nhóm, CLB, doanh nghiệp</small></span></div>
   </div>
 }
-
