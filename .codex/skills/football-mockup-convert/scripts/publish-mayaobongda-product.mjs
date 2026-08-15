@@ -106,6 +106,13 @@ const kitTypeLabel = (kitType) => {
   return 'thi đấu'
 }
 
+const fabricBenefit = (spec) => {
+  const options = ['co giãn tốt', 'thoáng mát', 'thấm hút mồ hôi']
+  const key = `${spec.sourceId || ''}:${spec.productName || ''}`
+  const score = [...key].reduce((sum, char) => sum + char.charCodeAt(0), 0)
+  return options[score % options.length]
+}
+
 const ensureCategory = async (tenantId, category) => {
   const existing = await findOne('product-categories', {
     'where[tenant.slug][equals]': TENANT_SLUG,
@@ -123,7 +130,7 @@ const ensureCategory = async (tenantId, category) => {
 
 const seoDescription = (spec) => {
   const colorText = spec.colors?.length ? ` màu ${spec.colors.join(' phối ')}` : ''
-  return `${spec.productName}${colorText} giá từ 125.000đ, phù hợp đặt may áo bóng đá câu lạc bộ, in tên số, logo đội và phối size cho đội bóng.`
+  return `${spec.productName}${colorText} giá từ 125.000đ, vải ${fabricBenefit(spec)}, phù hợp đặt may áo bóng đá câu lạc bộ, in tên + số miễn phí, logo đội và phối size.`
 }
 
 const content = (spec) => {
@@ -131,11 +138,12 @@ const content = (spec) => {
   const season = spec.season || 'mới'
   const kitText = kitTypeLabel(spec.kitType)
   const colorText = spec.colors?.length ? ` Tông màu chính: ${spec.colors.join(', ')}.` : ''
+  const fabricText = fabricBenefit(spec)
   return lexicalParagraphs([
     `${spec.productName} là mẫu áo bóng đá câu lạc bộ dành cho đội phong trào, fan club, lớp học, công ty và giải đấu cần một bộ trang phục nổi bật, đồng bộ và dễ đặt may.`,
     `Thiết kế lấy cảm hứng từ ${clubName}, phiên bản ${kitText} mùa ${season}.${colorText} Bố cục hình ảnh được trình bày lại theo phong cách thương mại riêng của mayaobongda.vn.`,
-    'Shop hỗ trợ tùy chỉnh logo đội, tên đội, sponsor, tên cầu thủ, số áo, màu chi tiết, quần và tất đi kèm. Trước khi sản xuất, đội có thể gửi yêu cầu để được tư vấn và chốt demo.',
-    'Chất liệu tư vấn gồm vải mè thể thao, thun lạnh hoặc dòng vải phù hợp nhu cầu thi đấu và tập luyện. Form áo thoáng nhẹ, hỗ trợ size S-5XL và phối size theo danh sách thành viên.',
+    'Shop hỗ trợ tùy chỉnh logo đội, tên đội, sponsor, tên cầu thủ, số áo, màu chi tiết và quần thi đấu đi kèm. Trước khi sản xuất, đội có thể gửi yêu cầu để được tư vấn và chốt demo.',
+    `Chất liệu tư vấn gồm vải mè thể thao, thun lạnh hoặc dòng vải phù hợp nhu cầu thi đấu và tập luyện; ưu tiên cảm giác ${fabricText}. Form áo thoải mái, hỗ trợ size S-5XL và phối size theo danh sách thành viên.`,
     'Công nghệ in chuyển nhiệt hoặc decal được chọn theo thiết kế thực tế để logo, họa tiết và số áo lên màu rõ, bền và đồng bộ khi may số lượng đội.',
     'Giá tham khảo từ 125.000đ tùy số lượng, chất vải, yêu cầu in ấn và phụ kiện đi kèm. Đơn đội bóng số lượng lớn sẽ được tư vấn để tối ưu chi phí.',
     'Cách đặt hàng: gửi mẫu áo mong muốn, logo đội, danh sách tên số và size qua hotline 0989 353 247. Shop sẽ tư vấn chất liệu, báo giá, lên demo và xác nhận trước khi may.',
@@ -206,6 +214,7 @@ const main = async () => {
   if (!spec.productName) throw new Error('product.json requires productName')
   if (!spec.imagePath) throw new Error('product.json requires imagePath')
   if (!spec.alt) throw new Error('product.json requires alt')
+  if (/\b(socks?)\b|tất/iu.test(spec.alt)) throw new Error('ALT must not mention socks/tất because mockups should not include socks')
 
   const imagePath = path.resolve(path.dirname(specPath), spec.imagePath)
   if (!existsSync(imagePath)) throw new Error(`Image not found: ${imagePath}`)
@@ -273,7 +282,7 @@ const main = async () => {
       ...(spec.kitType ? [{ name: 'Phiên bản', values: [{ value: spec.kitType }] }] : []),
       ...(spec.colors?.length ? [{ name: 'Màu sắc', values: spec.colors.map((value) => ({ value })) }] : []),
     ],
-    badges: [{ label: 'Đặt may' }, { label: 'In tên số' }],
+    badges: [{ label: 'In tên + số' }, { label: 'Miễn phí' }],
     searchTags: rows(['áo bóng đá', 'áo câu lạc bộ', 'đặt may áo bóng đá', spec.clubName, spec.season, spec.kitType, ...(spec.colors || [])]),
     seoTitle: spec.seoTitle || `${spec.productName} | MayAoBongDa.vn`,
     metaDescription: (spec.metaDescription || seoDescription(spec)).slice(0, 158),

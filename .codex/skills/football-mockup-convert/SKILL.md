@@ -27,8 +27,8 @@ Do not batch-upload unreviewed images. Finish and publish the current approved i
 - Website: `mayaobongda.vn`
 - Parent category: `Câu Lạc Bộ`, slug `cau-lac-bo`, path `/cau-lac-bo/`
 - Season category: reuse/create `Áo câu lạc bộ <season>`, e.g. `Áo câu lạc bộ 2025-2026`
-- Sales badge: `Đặt tên + số miễn phí`
-- Material line: `Vải mè thể thao • In chuyển nhiệt • Size S-5XL`
+- Sales badge: `In tên + số miễn phí`
+- Material line: randomly mention one fabric benefit in product copy and, when useful, in the image: `Vải mè thể thao • co giãn tốt • In chuyển nhiệt`, `Vải mè thể thao • thoáng mát • In chuyển nhiệt`, or `Vải mè thể thao • thấm hút mồ hôi • In chuyển nhiệt`
 - WebP command: `cwebp -q 92 -m 6 -sharp_yuv input.png -o output.webp`
 
 ## Quality Gate
@@ -36,10 +36,10 @@ Do not batch-upload unreviewed images. Finish and publish the current approved i
 Reject and regenerate if any item fails:
 
 - Any competitor or source shop branding remains: `Vua Áo Đấu`, `VUAAODAU`, `vuaaodau.vn`, old phone/socials, watermarks, diagonal hanger rods, script `Jersey` heading, copied shop layout.
-- Any source maker/shop mark remains on apparel, especially the small triangle `V` on chest, shorts, sleeves, collar labels, or socks. It is not a club crest.
+- Any source maker/shop mark remains on apparel, especially the small triangle `V` on chest, shorts, sleeves, or collar labels. It is not a club crest.
 - Apparel looks flat/2D/bẹt: no shoulder thickness, no sleeve opening depth, no chest/body volume, no hem thickness, weak shadows, or poster-like hanging.
 - Fabric looks impossible to make in real life: glossy plastic, rubber, porcelain-smooth, overly CGI, no mesh pores, no soft wrinkles, no seam/hem structure, no waistband ribbing.
-- Garment construction is implausible: pattern ignores seams/warps, sleeves attach badly, collar floats, shorts/socks lack textile volume.
+- Garment construction is implausible: pattern ignores seams/warps, sleeves attach badly, collar floats, or shorts lack textile volume.
 - Collar options are anything except `Cổ Tròn`, `Cổ Tim`, `Cổ Trụ`; `Cổ Trụ` must be folded polo collar with vertical placket and exactly two buttons.
 
 Natural fabric is the priority: make the shirt lively from fabric grain, sports mesh pores, seam puckering, soft drape, body pull, ribbed collar/cuffs, hem thickness, and realistic shadows. The mockup must look manufacturable.
@@ -53,7 +53,8 @@ Never copy the source product title verbatim. Rewrite it for search and uniquene
 - Unknown/custom: `Mẫu áo bóng đá thiết kế riêng <main color/style>`
 - Use natural Vietnamese capitalization: `Arsenal`, `Real Madrid`, `Paris Saint-Germain`.
 - Infer missing season from image text, source URL/title, visible design context, or use the current football kit season only when confident.
-- ALT must describe the real image content: club/team, season, version, colors, included shirt/shorts/socks, and `mayaobongda.vn`.
+- ALT must describe the real image content: club/team, season, version, colors, included shirt views/shorts, and `mayaobongda.vn`.
+- When writing about fabric, vary the wording across products by mentioning one of: `co giãn tốt`, `thoáng mát`, `thấm hút mồ hôi`.
 - SEO content must be useful shopping copy: overview, design identity, customization, fabric/form, printing, pricing from 125.000đ, ordering flow, FAQ. Avoid saying AI/mockup/CMS/cache.
 
 ## Visual Direction
@@ -61,7 +62,7 @@ Never copy the source product title verbatim. Rewrite it for search and uniquene
 Use mayaobongda.vn product style as the taste target without copying competitor templates:
 
 - 1:1 square ecommerce image.
-- Dimensional front/back shirt views plus shorts and socks.
+- Dimensional front/back shirt views plus shorts. Do not include socks in the mockup.
 - Background chosen from kit palette: stadium lights, grass, smoke/fog, speed streaks, soft gradient, or clean sports catalog panels.
 - Preserve club crest/sponsor only when allowed by the user's latest instruction.
 - Always remove source shop/manufacturer identity.
@@ -76,10 +77,10 @@ Asset type: square ecommerce football kit mockup for mayaobongda.vn
 Input images: Image 1 is the apparel design reference; Image 2 is the mayaobongda.vn seller logo badge.
 Primary request: Convert the input kit into a commercial product mockup that looks manufacturable and real.
 Scene/backdrop: <palette-matched football stadium/catalog background>
-Subject: front shirt, back shirt, shorts, socks, and collar option strip.
+Subject: front shirt, back shirt, shorts, and collar option strip; no socks.
 Style/medium: photorealistic sportswear catalog poster; matte polyester mesh; visible pores; soft wrinkles; seam puckering; ribbed collar/cuffs; hem thickness; realistic fabric drape.
 Composition/framing: 1:1; dimensional garments with shoulder curve, sleeve depth, chest volume, side shadows, shorts waistband ribbing; collar options only "Cổ Tròn", "Cổ Tim", "Cổ Trụ"; Cổ Trụ is folded polo with 2 buttons.
-Text (verbatim): "<rewritten title>"; "Giá từ 125.000đ"; "Hotline 0989 353 247"; "mayaobongda.vn"; "Đặt tên + số miễn phí"; "Vải mè thể thao • In chuyển nhiệt • Size S-5XL".
+Text (verbatim): "<rewritten title>"; "Giá từ 125.000đ"; "Hotline 0989 353 247"; "mayaobongda.vn"; "In tên + số miễn phí"; "Vải mè thể thao • <co giãn tốt|thoáng mát|thấm hút mồ hôi> • In chuyển nhiệt • Size S-5XL".
 Constraints: preserve kit colors/pattern/crest/sponsor when allowed; remove all competitor/shop branding and every triangle V/source maker mark from apparel; place mayaobongda.vn logo as seller badge.
 Avoid: Vua Áo Đấu/VUAAODAU/vuaaodau.vn/old phone/social icons/hanger rods/script Jersey; flat 2D/bẹt apparel; glossy plastic/rubber/CGI; impossible garment construction; wrong collar labels.
 ```
@@ -130,7 +131,7 @@ unset PAYLOAD_API_KEY PAYLOAD_API_USER PAYLOAD_AUTH_COLLECTION
   "kitType": "away",
   "colors": ["xanh navy", "đỏ"],
   "imagePath": "outputs/arsenal-away.webp",
-  "alt": "Mockup áo CLB Arsenal sân khách 2025-2026 màu xanh navy phối đỏ gồm áo trước sau, quần và tất tại mayaobongda.vn"
+  "alt": "Mockup áo CLB Arsenal sân khách 2025-2026 màu xanh navy phối đỏ gồm áo trước sau và quần tại mayaobongda.vn"
 }
 ```
 
