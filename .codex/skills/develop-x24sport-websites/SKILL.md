@@ -1,6 +1,16 @@
 ---
 name: develop-x24sport-websites
-description: Build, extend, and operate the new dynamic X24Sport Next.js/Payload tenant websites. Use for requested public UI/UX, layouts, navigation, product and category pages, content architecture, technical or on-page SEO, structured data, accessibility, responsive behavior, Core Web Vitals, conversion flows, and production readiness.
+description: >-
+  Build, materially change, or diagnose the dynamic X24Sport Next.js/Payload
+  tenant storefronts. Use when a request explicitly involves page or
+  shared-component development, navigation/catalog architecture, SEO or
+  structured data, accessibility, responsive behavior, conversion flows, Core
+  Web Vitals, or production readiness; also use when inspection shows that an
+  apparently small change can materially affect those concerns, shared behavior,
+  or multiple tenants. Do not trigger solely because the target is public
+  content. Routine tenant-scoped product/content CRUD, copy or image replacement,
+  and isolated cosmetic edits stay under repository/domain guidance unless
+  impact inspection reveals one of these risks.
 ---
 
 # Develop X24Sport Websites
@@ -35,6 +45,19 @@ engineering constraints, never as a promise of ranking.
 
 ## Classify the task
 
+- **Impact first**: classify by probable effect, not by the number of edited lines
+  or records. A small edit can require this workflow when it changes LCP media,
+  contrast, responsive layout, semantic meaning, crawlable links, metadata,
+  structured data, shared CSS/components, or cross-tenant behavior.
+- **Routine scoped change**: for isolated product/content CRUD, copy, image, or
+  cosmetic edits, use repository/domain instructions and the relevant content or
+  implementation guide. Inspect the affected render/data path, but do not load
+  unrelated SEO or performance references or run the full workflow when the
+  change cannot plausibly affect them.
+- **Escalation**: if inspection reveals a material SEO, performance,
+  accessibility, responsive, conversion, shared-code, or tenant-isolation impact,
+  continue with this workflow and load only the references relevant to that
+  impact.
 - **Dynamic Next.js tenant**: resolve the target from Payload by domain, use App
   Router and Server Components by default, and read `<domain>/AGENTS.md` for its
   business scope and visual override. Current tenants include X24Sport,
