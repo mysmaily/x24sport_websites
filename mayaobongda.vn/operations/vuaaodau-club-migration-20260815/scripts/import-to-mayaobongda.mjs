@@ -183,10 +183,12 @@ const productDescription = (item, productName, clubName) => {
 }
 
 const uploadMedia = async (tenantId, item, mockupPath, checksum) => {
+  const checksumShort = checksum.slice(0, 12)
+  const mediaSourceId = `${item.sourceId}-mockup-${checksumShort}`
   const existing = await findOne('media', {
     'where[tenant.slug][equals]': TENANT_SLUG,
     'where[sourceSystem][equals]': SOURCE_SYSTEM,
-    'where[sourceId][equals]': `${item.sourceId}-mockup`,
+    'where[sourceId][equals]': mediaSourceId,
   })
   if (existing) return existing
 
@@ -195,7 +197,7 @@ const uploadMedia = async (tenantId, item, mockupPath, checksum) => {
   form.append(
     'file',
     new Blob([buffer], { type: 'image/png' }),
-    path.basename(mockupPath),
+    `${path.basename(mockupPath, '.png')}-${checksumShort}.png`,
   )
   form.append(
     '_payload',
@@ -204,7 +206,7 @@ const uploadMedia = async (tenantId, item, mockupPath, checksum) => {
       alt: `${item.title} - mockup áo bóng đá câu lạc bộ`,
       searchTags: rows(['áo bóng đá', 'áo câu lạc bộ', item.season, item.kitType]),
       sourceSystem: SOURCE_SYSTEM,
-      sourceId: `${item.sourceId}-mockup`,
+      sourceId: mediaSourceId,
       sourceUrl: item.sourceUrl,
       sourceChecksum: checksum,
     }),
