@@ -15,7 +15,6 @@ import {
   Phone,
   Search,
   Shield,
-  Sparkles,
   Trophy,
   Users,
   X,
@@ -60,6 +59,14 @@ function collectionYear(category: ProductCategory) {
   return match ? Number(match[1]) : 0
 }
 
+function uniqueMenuItems(items: MenuItem[], seenHrefs: Set<string>) {
+  return items.filter((item) => {
+    if (seenHrefs.has(item.href)) return false
+    seenHrefs.add(item.href)
+    return true
+  })
+}
+
 export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
   const pathname = usePathname() || '/'
   const [open, setOpen] = useState(false)
@@ -72,6 +79,7 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
     .filter((category) => collectionYear(category) > 0 && (category.productCount || 0) > 0)
     .sort((left, right) => collectionYear(right) - collectionYear(left))
   const featuredCollection = collections[0]
+  const menuHrefs = new Set<string>()
   const dynamicTypeItems = [
     { category: categoryBySlug.get('ao-thiet-ke'), label: 'Mẫu thiết kế', description: 'Mẫu riêng, dễ chỉnh màu, logo và tên số', icon: Palette },
     { category: categoryBySlug.get('cau-lac-bo'), label: 'Áo CLB nổi tiếng', description: 'Mẫu lấy cảm hứng từ các CLB hàng đầu', icon: Shield },
@@ -80,13 +88,12 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
     if (!item.category) return []
     return [{ href: categoryHref(item.category), label: item.label, description: item.description, icon: item.icon }]
   })
-  const typeItems: MenuItem[] = [
+  const typeItems = uniqueMenuItems([
     { href: '/san-pham/', label: 'Tất cả mẫu áo', description: 'Xem toàn bộ mẫu áo đang có tại xưởng', icon: Grid2X2 },
     ...dynamicTypeItems,
-  ]
-  const collectionItems: MenuItem[] = [
+  ], menuHrefs)
+  const collectionItems = uniqueMenuItems([
     ...(featuredCollection ? [{ href: categoryHref(featuredCollection), label: `Mẫu thiết kế mới ${collectionYear(featuredCollection)}`, description: 'Bộ sưu tập mới nhất đang được ưu tiên', icon: Flame, featured: true }] : []),
-    { href: '/ao-thiet-ke/', label: 'Tất cả mẫu thiết kế', description: 'Duyệt toàn bộ mẫu thiết kế qua các năm', icon: Sparkles, featured: false },
     ...collections.filter((category) => category.id !== featuredCollection?.id).map((category) => ({
       href: categoryHref(category),
       label: `Mẫu thiết kế ${collectionYear(category)}`,
@@ -94,10 +101,10 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
       icon: CalendarDays,
       featured: false,
     })),
-  ]
-  const audienceItems: MenuItem[] = audienceSpecs
+  ], menuHrefs)
+  const audienceItems = uniqueMenuItems(audienceSpecs
     .filter((item) => (categoryBySlug.get(item.slug)?.productCount || 0) > 0)
-    .map(({ href, label, description, icon }) => ({ href, label, description, icon }))
+    .map(({ href, label, description, icon }) => ({ href, label, description, icon })), menuHrefs)
   const menuPaths = [...typeItems, ...collectionItems, ...audienceItems]
   const productActive = menuPaths.some((item) => pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)))
   const showProducts = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setProductsOpen(true) }
