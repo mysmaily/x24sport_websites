@@ -179,7 +179,7 @@ function buildHeadMarkup({
   const tenantStyles: Record<string, string[]> = {
     mayaocaulong: ['/styles/mayaocaulong.css'],
     mayaopickleball: ['/styles/mayaopickleball.css?v=20260815a'],
-    mayaobongchuyen: ['/styles/mayaobongchuyen.css', '/styles/mayaobongchuyen-fixes.css'],
+    mayaobongchuyen: ['/styles/mayaobongchuyen.css?v=20260815b', '/styles/mayaobongchuyen-fixes.css?v=20260815b'],
     mayaobongro: ['/styles/mayaobongro.css', '/styles/mayaobongro-header.css'],
     mayaochaybo: ['/styles/mayaochaybo.css', '/styles/mayaochaybo-fixes.css'],
     mayaobongda: ['/styles/mayaobongda.css', '/styles/mayaobongda-audience.css'],
