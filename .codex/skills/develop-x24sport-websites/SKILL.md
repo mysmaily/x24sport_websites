@@ -2,7 +2,8 @@
 name: develop-x24sport-websites
 description: >-
   Build, materially change, or diagnose the dynamic X24Sport Next.js/Payload
-  tenant storefronts. Use when a request explicitly involves page or
+  tenant storefronts for a bounded, specified outcome. Use when a request
+  explicitly involves a page or
   shared-component development, navigation/catalog architecture, SEO or
   structured data, accessibility, responsive behavior, conversion flows, Core
   Web Vitals, or production readiness; also use when inspection shows that an
@@ -10,7 +11,11 @@ description: >-
   or multiple tenants. Do not trigger solely because the target is public
   content. Routine tenant-scoped product/content CRUD, copy or image replacement,
   and isolated cosmetic edits stay under repository/domain guidance unless
-  impact inspection reveals one of these risks.
+  impact inspection reveals one of these risks. Do not use for adding a new
+  tenant/domain, completing an entire tenant, finishing an incomplete website
+  from UI through content, or launch-readiness work whose scope is the whole
+  tenant; those requests belong exclusively to
+  launch-or-complete-x24sport-tenant.
 ---
 
 # Develop X24Sport Websites
@@ -18,6 +23,15 @@ description: >-
 Build user-first ecommerce experiences that are visually coherent, crawlable,
 accessible, fast, and verifiable. Treat Google eligibility and best practices as
 engineering constraints, never as a promise of ranking.
+
+## Route whole-tenant requests
+
+If the requested outcome is to add, launch, rebuild, or complete a tenant as a
+whole—including coordinated discovery, design approval, taxonomy, content,
+implementation, and launch validation—stop this workflow and use only
+`$launch-or-complete-x24sport-tenant`. Do not run both workflows for the same
+outcome. Continue here only when the requested outcome is bounded to identified
+pages, components, routes, shared behavior, or technical concerns.
 
 ## Load context
 

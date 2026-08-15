@@ -8,8 +8,10 @@ description: >-
   “hoàn thiện tenant”, “hoàn thiện website”, or equivalent. Enforce discovery,
   design and information-architecture proposals, approval gates, representative
   demos, tenant-scoped implementation, production validation, and a documented
-  definition of done; do not use for isolated page, product, copy, image, or
-  cosmetic changes.
+  definition of done. This skill exclusively owns whole-tenant work: when it
+  applies, do not also invoke develop-x24sport-websites. Do not use this skill
+  for isolated page, product, copy, image, or cosmetic changes; route those to
+  develop-x24sport-websites or the relevant narrow workflow instead.
 ---
 
 # Launch or Complete an X24Sport Tenant
@@ -21,17 +23,32 @@ verified, or report a concrete external blocker.
 
 ## Load the operating context
 
+Treat this as the sole orchestrating workflow for the request. Do not invoke or
+run `$develop-x24sport-websites` in parallel or sequentially for the same
+whole-tenant outcome. Consume its technical references directly as needed,
+without starting its workflow.
+
 1. Read the repository `AGENTS.md`, `PRODUCTION-DEPLOYMENT-RUNBOOK.md`,
    `PAYLOAD-REST-API-GUIDE.md`, and the target domain's `AGENTS.md` in full.
 2. If this is a new domain, inspect two or three domain profiles only to learn
    the profile format and operational contract. Do not copy their visual design,
    taxonomy, content, or factual claims.
-3. Use `$develop-x24sport-websites` for implementation and quality rules. Use
-   `$ui-ux-pro-max` when proposing or evaluating a distinct visual system.
-4. Read all three workflow references before proposing the plan:
+3. Read all three workflow references before proposing the plan:
    - [discovery-and-design.md](references/discovery-and-design.md)
    - [content-and-taxonomy.md](references/content-and-taxonomy.md)
    - [delivery-and-validation.md](references/delivery-and-validation.md)
+4. Load only the relevant technical reference from the sibling development
+   skill when the corresponding concern enters the approved scope:
+   - UI, content, crawlability, or indexing:
+     `../develop-x24sport-websites/references/google-search-requirements.md`;
+   - catalog filters, variants, schema, policies, or sitemaps:
+     `../develop-x24sport-websites/references/ecommerce-search-contract.md`;
+   - Next.js or Payload implementation:
+     `../develop-x24sport-websites/references/implementation-adapters.md`;
+   - performance diagnosis:
+     `../develop-x24sport-websites/references/performance-insights-workflow.md`;
+   - implementation handoff:
+     `../develop-x24sport-websites/references/quality-gates.md`.
 5. Copy [tenant-completion-dossier.md](assets/tenant-completion-dossier.md) to a
    task-local working document when the project spans more than one turn. Keep it
    current throughout the work. Do not commit it unless the user wants a durable

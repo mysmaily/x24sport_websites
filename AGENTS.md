@@ -79,6 +79,18 @@ For a website request, read this root file, then `<domain>/AGENTS.md`.
 
 ## Request router: act without rediscovery
 
+### Whole-tenant creation, completion or launch
+
+Use `launch-or-complete-x24sport-tenant` as the exclusive orchestrating skill
+when the requested outcome is a new tenant/domain or completion of an entire
+tenant from design through content and launch validation. Do not additionally
+invoke `develop-x24sport-websites` for that same outcome. The completion skill
+loads the development skill's relevant technical references directly.
+
+Use `develop-x24sport-websites` only for bounded page, component, route,
+architecture, SEO, accessibility, performance, conversion, or production-
+readiness work that does not require the whole-tenant gated workflow.
+
 ### Frontend, layout, route, SEO or component change
 
 1. Work locally in `cms-frontend/`; tenant-specific work belongs under
