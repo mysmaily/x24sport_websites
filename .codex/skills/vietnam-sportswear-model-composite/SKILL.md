@@ -32,38 +32,60 @@ Default background:
 
 If the user names or attaches another background, use it only when it is square `1:1` and does not contain obvious low-shelf zip-bag stacks. Otherwise explain that it needs to be replaced or regenerated as a clean square background first.
 
+## Bundled Face References
+
+Read `references/face-references.md` whenever generating a female model and the user does not provide a specific face reference.
+
+- For female model requests, use one of the bundled images in `assets/face-references/` as an identity reference.
+- If the user requests multiple female outputs, rotate across the bundled female face references unless they specify one face.
+- If the user attaches or names a face reference, use the user's face reference instead of the bundled defaults.
+- Preserve the selected face identity across iterations for the same requested output set.
+- Do not invent a new female face when a bundled or user-provided face reference is available.
+
+## Style Locks
+
+Read `references/style-locks.md` whenever generating a female football jersey model, a vertical `9:16` social/catalog image, or when the user asks to reuse, lock, match, or continue an approved style.
+
+- For female football jersey model requests, default to the `female-football-9x16-long-leg-shop.png` style lock unless the user asks for a different pose, crop, bottom, or styling.
+- Preserve the approved style's practical choices: natural Vietnamese female model, tied-back hair, warm X24Sport shop, black athletic shorts, white socks/shoes, full-body catalog framing, and legs that read naturally long and balanced.
+- Avoid the failure mode that prompted the style lock: top-down camera, oversized shirt hem, compressed lower body, short-looking legs, or feet cropped too close to the bottom edge.
+
 ## Inputs To Resolve
 
 Identify these from the user's request:
 
 - Design image: required. It may be a flat jersey mockup, fabric design, product photo, or full kit.
 - Sport: football, running, badminton, basketball, volleyball, pickleball, esports, or the user's stated sport.
-- Model type: male, female, couple, team/group, child only if explicitly requested and appropriate.
+- Model type: male, female, couple, team/group, child only if explicitly requested and appropriate. For female, choose a bundled face reference unless the user provides one.
 - Pose and crop: full-body, half-body, front/back/side, walking, standing, action-lite, team lineup.
 - Output count and orientation: default to one image unless the user asks for several; infer vertical for social/model shots and horizontal for web banners.
 - Background: use requested bundled background or choose one from the priority list.
 
-When details are missing, make reasonable choices: Vietnamese adult model, full-body, natural standing pose, front view of the shirt, clean square shop background, catalog/social quality.
+When details are missing, make reasonable choices: Vietnamese adult model, full-body, natural standing pose, front view of the shirt, clean square shop background, catalog/social quality. For female football requests, use the locked female football shop style unless contradicted by the user.
 
 ## Generation Workflow
 
 1. Inspect the shirt design and chosen background images.
-2. Use the shirt design as the garment identity reference. Preserve:
+2. If generating a female model and the user did not provide a face reference, inspect the selected bundled female face reference.
+3. If the request matches a style lock, read `references/style-locks.md` and inspect the selected style reference image before generation.
+4. Use the shirt design as the garment identity reference. Preserve:
    - colors, panels, gradients, sponsor/logo positions, collar and sleeve details;
    - front/back layout if provided;
    - fabric texture and print boundaries;
    - proportions of stripes, trims, numbering, badges, and design motifs.
-3. Use the bundled shop background as a background plate reference. Preserve its perspective, lighting direction, cream walls, glossy beige floor, black racks, sports goods, and X24 shop mood.
-4. Generate Vietnamese model(s) wearing the design in the chosen shop background.
-5. Keep the output square `1:1` unless the user explicitly asks for a non-square crop after acknowledging the bundled background rule.
-6. Keep the model naturally grounded on the tile floor with correct scale, contact shadows, reflections, and matching warm indoor light.
-7. Validate the output before responding. If defects are obvious, run one targeted iteration.
+5. Use the bundled shop background as a background plate reference. Preserve its perspective, lighting direction, cream walls, glossy beige floor, black racks, sports goods, and X24 shop mood.
+6. Generate Vietnamese model(s) wearing the design in the chosen shop background.
+7. Keep the output square `1:1` unless the user explicitly asks for a non-square crop after acknowledging the bundled background rule.
+8. For requested vertical `9:16` outputs, keep a full-body or near full-body crop with shoes visible, floor below the feet, waist/chest-height camera, and naturally long balanced legs.
+9. Keep the model naturally grounded on the tile floor with correct scale, contact shadows, reflections, and matching warm indoor light.
+10. Validate the output before responding. If defects are obvious, run one targeted iteration.
 
 ## Prompt Requirements
 
 Include these constraints in the generation prompt:
 
 - Photorealistic Vietnamese adult model(s), natural face and body proportions.
+- Female models must use the selected bundled or user-provided face reference, preserving facial identity while adapting naturally to pose and lighting.
 - The provided shirt design is the exact garment to wear, not inspiration.
 - Real sportswear fabric: breathable polyester knit, subtle weave, collar seam, sleeve seam, hem stitching, side panels if present.
 - Natural wrinkles and tension: folds at shoulders, chest, waist, elbows, and where the garment hangs.
@@ -103,5 +125,6 @@ Before final response, inspect the generated image and check:
 - No zip-bagged or plastic-wrapped products are stacked under cabinets, on the floor, or on low shelves.
 - No hats/caps appear unless requested.
 - No obvious AI artifacts, random brands, unreadable dominant text, or warped merchandise.
+- For locked female football vertical style, legs are not short or compressed, torso is not oversized, shirt hem does not visually shorten the model, and shoes are fully visible with natural floor contact.
 
 Never promise that an image is impossible to detect as AI. Instead, iterate until the visible result has no obvious AI artifacts and is credible as a real shop/model photo.
