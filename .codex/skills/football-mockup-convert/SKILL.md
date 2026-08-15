@@ -27,6 +27,16 @@ Use these defaults unless the user overrides them:
 - Sales badge: `Đặt tên + số miễn phí`
 - Quality/material line: `Vải mè thể thao • In chuyển nhiệt • Size S-5XL`
 
+## Collar Options
+
+When the mockup includes collar options, use only these three choices:
+
+- `Cổ Tròn`
+- `Cổ Tim`
+- `Cổ Trụ`
+
+`Cổ Trụ` means a folded polo collar with a short placket and 2 buttons. Do not invent other labels such as cổ bẻ, cổ phối, cổ polo separately, cổ viền, cổ lật, cổ trái tim, or random collar names.
+
 ## Title Rules
 
 Do not always use generic text like `Mẫu áo bóng đá thiết kế riêng`.
@@ -102,8 +112,8 @@ Input images: Image 1 is the raw jersey design to preserve; Image 2 is the mayao
 Scene/backdrop: <dynamic background chosen from shirt colors and context>
 Subject: realistic football kit presentation with a natural athletic model wearing the kit when appropriate, plus separate front/back shirt views, shorts, optional socks, and small fabric/detail callouts.
 Style/medium: photorealistic football catalog poster, matte polyester mesh fabric, natural wrinkles, visible pores, stitched seams, soft fabric drape.
-Composition/framing: 1:1 square; model or main kit on the left; flat front/back shirt views and shorts on the right; bottom strip for collar options/size/hotline/website; brand logo badge visible; clean text hierarchy.
+Composition/framing: 1:1 square; model or main kit on the left; flat front/back shirt views and shorts on the right; bottom strip for collar options using only "Cổ Tròn", "Cổ Tim", "Cổ Trụ"; size/hotline/website; brand logo badge visible; clean text hierarchy.
 Text (verbatim): "<inferred title>"; "Giá từ 119.000đ"; "Hotline 0989 353 247"; "x24sport.vn"; "Đặt tên + số miễn phí"; "Vải mè thể thao • In chuyển nhiệt • Size S-5XL".
 Constraints: preserve source shirt design identity; place mayaobongda.vn logo as seller badge; no copied competitor layout; no watermark.
-Avoid: dark hanger template, diagonal rods, script Jersey typography, glossy plastic 3D, sterile sci-fi room, real-brand copying beyond what is present in the user-provided design, cluttered text.
+Avoid: dark hanger template, diagonal rods, script Jersey typography, glossy plastic 3D, sterile sci-fi room, extra collar labels beyond "Cổ Tròn", "Cổ Tim", "Cổ Trụ", real-brand copying beyond what is present in the user-provided design, cluttered text.
 ```
