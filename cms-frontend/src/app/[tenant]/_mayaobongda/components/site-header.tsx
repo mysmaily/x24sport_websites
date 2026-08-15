@@ -40,6 +40,7 @@ const categoryPaths: Record<string, string> = {
 }
 
 const audienceSpecs = [
+  { slug: 'ao-bong-da-nu', href: '/ao-bong-da-nu/', label: 'Áo bóng đá nữ', description: 'Form áo, phối size và thiết kế dành cho đội nữ', icon: Users },
   { slug: 'ao-bong-da-doi-bong-cau-lac-bo', href: '/ao-bong-da-doi-bong-cau-lac-bo/', label: 'Đội bóng & CLB phong trào', description: 'Đội phủi, FC, nhóm bạn và CLB địa phương', icon: Users },
   { slug: 'ao-bong-da-truong-hoc-sinh-vien', href: '/ao-bong-da-truong-hoc-sinh-vien/', label: 'Trường học & sinh viên', description: 'Đội lớp, khoa, trường và CLB sinh viên', icon: GraduationCap },
   { slug: 'ao-bong-da-cong-ty', href: '/thiet-ke-ao-bong-da-cong-ty/', label: 'Công ty & doanh nghiệp', description: 'Đội nội bộ, team building và hội thao', icon: Building2 },
