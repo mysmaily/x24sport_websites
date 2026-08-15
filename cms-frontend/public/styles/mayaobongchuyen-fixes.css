@@ -3,6 +3,21 @@ body.tenant-mayaobongchuyen .mbc-product-card {
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
+body.tenant-mayaobongchuyen .section-shell {
+  margin-inline: auto;
+  width: min(1360px, calc(100% - 32px));
+}
+
+body.tenant-mayaobongchuyen .mbc-home-hero [data-promo-hero-content] {
+  min-height: min(720px, calc(100dvh - 72px));
+}
+
+body.tenant-mayaobongchuyen .mbc-home-hero [data-promo-hero-overlay] {
+  background:
+    linear-gradient(90deg, rgba(3, 7, 18, .96) 0%, rgba(3, 7, 18, .88) 35%, rgba(3, 7, 18, .52) 58%, rgba(3, 7, 18, .12) 100%),
+    linear-gradient(180deg, rgba(3, 7, 18, .2), rgba(3, 7, 18, .45));
+}
+
 body.tenant-mayaobongchuyen .mbc-product-card:hover {
   border-color: rgba(238, 43, 36, .65);
   box-shadow: 0 18px 44px rgba(0, 0, 0, .24);
@@ -54,10 +69,24 @@ body.tenant-mayaobongchuyen .mbc-product-card h3 a:hover {
   color: var(--accent);
 }
 
-body.tenant-mayaobongchuyen .mbc-hero-banner-slide {
-  animation: mbc-hero-banner-fade 15s linear infinite;
-  animation-delay: calc(var(--mbc-slide-index) * 5s);
-  opacity: 0;
+body.tenant-mayaobongchuyen .mbc-product-price-row {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-original-price {
+  color: #b9b9b9;
+  font-size: 22px;
+  line-height: 1;
+}
+
+body.tenant-mayaobongchuyen .mbc-product-sale-price {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
 }
 
 body.tenant-mayaobongchuyen #new-products .mbc-product-card {
@@ -70,38 +99,20 @@ body.tenant-mayaobongchuyen #new-products .mbc-product-card .text-\[var\(--muted
   color: #5f6876;
 }
 
-@keyframes mbc-hero-banner-fade {
-  0%,
-  30% {
-    opacity: 1;
-  }
-
-  33%,
-  97% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @media (max-width: 767px) {
+  body.tenant-mayaobongchuyen .section-shell {
+    width: min(100% - 24px, 1360px);
+  }
+
+  body.tenant-mayaobongchuyen .mbc-home-hero [data-promo-hero-content] {
+    min-height: 650px;
+  }
+
   body.tenant-mayaobongchuyen [aria-label="Banner may áo bóng chuyền"] .bg-left {
     background-position: 28% center;
   }
 
   body.tenant-mayaobongchuyen [aria-label="Banner may áo bóng chuyền"] .after\:bg-\[linear-gradient\(90deg\,transparent_0\%\,transparent_43\%\,rgba\(255\,255\,255\,\.78\)_58\%\,\#fff_74\%\)\,linear-gradient\(180deg\,rgba\(255\,255\,255\,\.08\)\,rgba\(255\,255\,255\,\.22\)\)\]::after {
     background-image: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .72) 58%, rgba(255, 255, 255, .92));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body.tenant-mayaobongchuyen .mbc-hero-banner-slide {
-    animation: none;
-  }
-
-  body.tenant-mayaobongchuyen .mbc-hero-banner-slide:first-child {
-    opacity: 1;
   }
 }

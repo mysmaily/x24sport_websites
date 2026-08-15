@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Search } from 'lucide-react'
 import { HeaderSearch } from '../_components/header-search'
+import { SiteFooter } from '../_components/site-footer'
 import { formatPrice, searchProducts, type Product } from '../lib/content'
 
 type SearchParams = { q?: string }
@@ -62,6 +63,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         ))}
         {!products.length ? <p className="border border-dashed border-[var(--line)] p-8 text-[var(--muted)]">Chưa tìm thấy mẫu phù hợp. Hãy thử tên mẫu, màu áo hoặc tag ảnh ngắn hơn.</p> : null}
       </section>
+      <SiteFooter />
     </main>
   )
 }

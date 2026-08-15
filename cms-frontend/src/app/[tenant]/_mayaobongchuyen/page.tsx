@@ -1,25 +1,33 @@
 import { ArrowUpRight, BadgeCheck, Droplets, Flame, Palette, PencilRuler, Phone, ShieldCheck } from 'lucide-react'
 import type { Metadata } from 'next'
-import type { CSSProperties } from 'react'
-import { FooterStoreDetails } from '../../_components/footer-store-details'
-import { getPublicStoreSettings } from '../../../lib/store-settings'
+import { TenantPromoHero, type TenantPromoHeroSlide } from '../../_components/tenant-promo-hero'
 import { HeaderSearch } from './_components/header-search'
+import { SiteFooter } from './_components/site-footer'
 import { formatPrice, getHomeData, type Product } from './lib/content'
 
 const HERO_IMAGE = '/images/mayaobongchuyen/home/volleyball-team-custom-wide.webp'
 
-const heroBanners = [
+const heroBanners: TenantPromoHeroSlide[] = [
   {
     alt: 'Đội bóng chuyền Việt Nam mặc đồng phục đỏ đen trắng thiết kế riêng',
+    height: 887,
+    mobileSrc: '/images/mayaobongchuyen/home/volleyball-team-custom-wide.webp',
     src: '/images/mayaobongchuyen/home/volleyball-team-custom-wide.webp',
+    width: 1774,
   },
   {
     alt: 'Bộ sưu tập áo bóng chuyền xanh đỏ đen trắng trưng bày trong shop',
+    height: 819,
+    mobileSrc: '/images/mayaobongchuyen/home/volleyball-uniform-display-wide.webp',
     src: '/images/mayaobongchuyen/home/volleyball-uniform-display-wide.webp',
+    width: 1920,
   },
   {
     alt: 'Vận động viên bóng chuyền mặc áo xanh trắng đang bật nhảy đập bóng',
+    height: 867,
+    mobileSrc: '/images/mayaobongchuyen/home/volleyball-spike-action-wide.webp',
     src: '/images/mayaobongchuyen/home/volleyball-spike-action-wide.webp',
+    width: 1814,
   },
 ]
 
@@ -64,10 +72,7 @@ function ProductCard({ index, product }: { index: number; product: Product }) {
 }
 
 export default async function Home() {
-  const [{ hotProducts, newProducts, posts, settings, categories }, publicSettings] = await Promise.all([
-    getHomeData(),
-    getPublicStoreSettings(),
-  ])
+  const { hotProducts, newProducts, posts, settings, categories } = await getHomeData()
   const navigation = (settings.navigation || []).map((item) =>
     item.label === 'Bảng giá' ? { ...item, href: '/bang-gia-may-ao-bong-chuyen/' } : item,
   )
@@ -149,30 +154,18 @@ export default async function Home() {
         </div>
       </header>
 
-      <section className="relative min-h-[min(660px,calc(100dvh-72px))] overflow-hidden bg-[#f5f6f4] md:min-h-[min(660px,calc(100dvh-82px))]" aria-label="Banner may áo bóng chuyền">
-        <div className="absolute inset-0">
-          {heroBanners.map((banner, index) => (
-            <div
-              aria-hidden={index !== 0}
-              aria-label={index === 0 ? banner.alt : undefined}
-              className="mbc-hero-banner-slide absolute inset-0 bg-cover bg-left bg-no-repeat after:absolute after:inset-0 after:bg-[linear-gradient(90deg,transparent_0%,transparent_43%,rgba(255,255,255,.78)_58%,#fff_74%),linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.22))] after:content-['']"
-              key={banner.src}
-              role={index === 0 ? 'img' : undefined}
-              style={{ '--mbc-slide-index': index, backgroundImage: `url('${banner.src}')` } as CSSProperties}
-            />
-          ))}
-        </div>
-        <div className="relative z-10 ml-auto flex min-h-[min(660px,calc(100dvh-72px))] max-w-[650px] flex-col justify-center px-6 py-[34px] text-[#0d1422] md:min-h-[min(660px,calc(100dvh-82px))] md:px-[clamp(24px,5vw,82px)] md:py-[50px]">
+      <TenantPromoHero ariaLabel="Banner may áo bóng chuyền thiết kế riêng" className="mbc-home-hero" slides={heroBanners}>
+        <div className="mbc-home-hero-copy max-w-[650px]">
           <p className="mb-[18px] text-[clamp(24px,2.3vw,40px)] font-black uppercase leading-[0.95] text-[var(--sport-green)]">May áo bóng chuyền</p>
-          <h1 className="mb-[18px] text-[clamp(36px,4.3vw,70px)] font-black uppercase leading-[0.92] text-[#0b1423]">
+          <h1 className="mb-[18px] text-[clamp(36px,4.3vw,70px)] font-black uppercase leading-[0.92] text-white">
             Thiết kế theo yêu cầu
             <span className="block">Dấu ấn riêng</span>
             <em className="block leading-[1.05] text-[var(--sport-green)]">của đội bạn!</em>
           </h1>
-          <p className="mb-6 max-w-[520px] text-[17px] leading-[1.5] font-[650] text-[#4c5563]">Đồng phục bóng chuyền đặt may, in tên số và logo theo màu đội.</p>
+          <p className="mb-6 max-w-[520px] text-[17px] leading-[1.5] font-[650] text-[#d6dde8]">Đồng phục bóng chuyền đặt may, in tên số và logo theo màu đội.</p>
           <div className="mb-6 grid max-w-[560px] grid-cols-2 gap-px border border-[rgba(71,133,62,.58)] p-[18px] sm:grid-cols-4">
             {heroFeatures.map(({ icon: Icon, label }) => (
-              <div className="flex min-h-24 flex-col items-center justify-center gap-2 text-center text-[#253040]" key={label}>
+              <div className="flex min-h-24 flex-col items-center justify-center gap-2 bg-black/20 text-center text-white" key={label}>
                 <span className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-full border-2 border-[var(--accent)] text-[var(--accent)]">
                   <Icon size={25} />
                 </span>
@@ -187,12 +180,7 @@ export default async function Home() {
             Đặt may <ArrowUpRight size={18} />
           </a>
         </div>
-        <div className="absolute bottom-[22px] left-1/2 z-20 flex -translate-x-1/2 items-center gap-2.5" aria-hidden="true">
-          {heroBanners.map((banner, index) => (
-            <span className={index === 0 ? 'h-3 w-3 rounded-full bg-white shadow-[0_0_0_3px_rgba(0,0,0,.12)]' : 'h-3 w-3 rounded-full bg-white/80'} key={banner.src} />
-          ))}
-        </div>
-      </section>
+      </TenantPromoHero>
 
       <section
         id="custom-order"
@@ -301,27 +289,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <footer id="contact" className="border-t border-[var(--line)] bg-[#05070c] px-[clamp(20px,5vw,76px)] py-[58px]">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div>
-            <a className="mb-5 inline-flex items-center gap-3 uppercase" href="/">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-white/90 bg-[linear-gradient(135deg,var(--accent),#911410)] text-[13px] font-black text-white">VB</span>
-              <span className="inline-flex flex-col justify-center leading-[0.92]">
-                <strong className="text-lg font-black italic text-white">MAYAOBONGCHUYEN</strong>
-                <small className="text-[13px] font-black tracking-[0.08em] text-[var(--accent)]">.VN</small>
-              </span>
-            </a>
-            <FooterStoreDetails settings={publicSettings} />
-          </div>
-          <div>
-            <p className="font-black uppercase text-[var(--accent)]">Đồng phục bóng chuyền đặt đội</p>
-            <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">Sẵn sàng lên mẫu cho đội của bạn.</h2>
-            <a className="mt-6 inline-flex min-h-11 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black text-white" href="/lien-he">
-              Gọi tư vấn
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   )
 }

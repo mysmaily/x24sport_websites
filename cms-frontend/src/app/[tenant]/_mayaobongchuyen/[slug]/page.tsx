@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowUpRight, Phone, ShieldCheck } from 'lucide-react'
 import { notFound, permanentRedirect } from 'next/navigation'
 import { HeaderSearch } from '../_components/header-search'
+import { SiteFooter } from '../_components/site-footer'
 import { formatPrice, getPageData, getProductBySlug, type Product } from '../lib/content'
 
 type RouteProps = {
@@ -175,6 +176,7 @@ export default async function CmsPage({ params }: RouteProps) {
           ))}
         </div>
       </section>
+      <SiteFooter />
     </main>
   )
 }

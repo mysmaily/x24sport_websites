@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { ProductInterestForm } from '../../../../_components/product-interest-form'
 import { ProductViewTracker } from '../../../../_components/product-view-tracker'
+import { SiteFooter } from '../../_components/site-footer'
 import { formatPrice, getProductBreadcrumbCategory, getProductBySlug, hasProductInterestForm } from '../../lib/content'
 import { ProductGallery } from './product-gallery'
 
@@ -37,18 +38,37 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   const images = product.gallery || []
   const productPath = `/san-pham/${product.slug || slug}`
+  const canonicalUrl = `https://mayaobongchuyen.vn${productPath}`
   const breadcrumbCategory = getProductBreadcrumbCategory(product)
   const breadcrumbItems = [
     { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: 'https://mayaobongchuyen.vn/' },
     { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: 'https://mayaobongchuyen.vn/tim-kiem' },
     ...(breadcrumbCategory ? [{ '@type': 'ListItem', position: 3, name: breadcrumbCategory.name, item: `https://mayaobongchuyen.vn/${breadcrumbCategory.slug}` }] : []),
-    { '@type': 'ListItem', position: breadcrumbCategory ? 4 : 3, name: product.name, item: `https://mayaobongchuyen.vn${productPath}` },
+    { '@type': 'ListItem', position: breadcrumbCategory ? 4 : 3, name: product.name, item: canonicalUrl },
   ]
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: breadcrumbItems,
   }
+  const productImages = images
+    .filter((image) => image.url)
+    .map((image) => image.url!.startsWith('http') ? image.url : `https://mayaobongchuyen.vn${image.url}`)
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.shortDescription,
+    sku: product.sku,
+    image: productImages,
+    offers: {
+      '@type': 'Offer',
+      price: product.price,
+      priceCurrency: 'VND',
+      url: canonicalUrl,
+    },
+  }
+  const hasDiscount = Boolean(product.compareAtPrice && product.compareAtPrice > product.price)
 
   return (
     <main className="min-h-screen bg-[#080909] text-white">
@@ -61,6 +81,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         tenantSlug="mayaobongchuyen"
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       <header className="sticky top-0 z-40 flex h-[72px] items-center justify-between border-b-[3px] border-[var(--accent)] bg-[#080909] px-4 shadow-[0_10px_28px_rgba(0,0,0,.22)] md:h-[82px] md:px-[clamp(20px,5vw,92px)]">
         <a className="flex items-center gap-3 uppercase" href="/">
           <span className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-full border-2 border-white/90 bg-[linear-gradient(135deg,var(--accent),#911410)] text-[13px] font-black text-white md:h-11 md:w-11">VB</span>
@@ -102,8 +123,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             <p className="text-base leading-7 text-[#b9b9b9]">{product.shortDescription}</p>
             <div className="border-l-4 border-[var(--accent)] bg-white/8 p-5">
               <span className="text-sm text-[#b9b9b9]">Giá tham khảo</span>
-              <strong className="mt-1 block text-3xl text-white">{formatPrice(product.price)}</strong>
-              {product.compareAtPrice ? <del className="mt-1 block text-sm text-[#b9b9b9]">{formatPrice(product.compareAtPrice)}</del> : null}
+              <div className="mbc-product-price-row mt-2">
+                {hasDiscount ? <del className="mbc-product-original-price">{formatPrice(product.compareAtPrice!)}</del> : null}
+                <strong className="mbc-product-sale-price">{formatPrice(product.price)}</strong>
+              </div>
             </div>
             <div className="grid gap-2 border border-white/12 bg-black/20 p-5 text-sm text-[#d8d8d8]">
               <b className="text-base text-white">Có thể chỉnh theo yêu cầu đội bóng</b>
@@ -113,6 +136,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           </section>
         </div>
       </article>
+      <SiteFooter />
     </main>
   )
 }
