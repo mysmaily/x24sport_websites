@@ -1,6 +1,6 @@
 # Google Search requirements for X24Sport ecommerce
 
-Checked against official Google documentation on 2026-07-16. Recheck the linked
+Checked against official Google documentation on 2026-08-16. Recheck the linked
 page before relying on a changeable feature, supported schema field, or metric.
 
 ## Contents
@@ -93,6 +93,9 @@ Build a crawlable hierarchy:
 - Prevent unwanted filter and alternate-sort combinations from becoming an
   unbounded crawl/index space. Choose deliberately among crawl controls,
   `noindex`, canonicalization, and curated indexable filter landing pages.
+- For detailed URL classification, faceted-navigation controls, and the warning
+  that a robots-blocked URL cannot reliably expose `noindex`, read
+  `ecommerce-search-contract.md`.
 
 ## 6. Structured data
 
@@ -110,6 +113,9 @@ For X24Sport, evaluate:
   about page, with real name, URL, logo, and contact/business details.
 - Shipping and return properties only when the displayed policies and operational
   data exist and match.
+- For a tenant-wide standard policy, evaluate organization-level
+  `ShippingService` and return-policy markup on the corresponding visible policy
+  page. Use offer-level policy data only for factual product exceptions.
 
 Rules:
 
@@ -117,6 +123,9 @@ Rules:
   or return policies.
 - Keep structured price, currency, availability, and variant data synchronized
   with visible content, checkout behavior, and Merchant Center feeds.
+- Structured data and Merchant Center feeds complement each other. A current feed
+  provides more direct discovery and update control for frequently changing
+  product data than relying only on recrawling.
 - Include required properties, add relevant recommended properties, and validate
   representative pages in Rich Results Test.
 - A valid test result establishes technical eligibility, not that Google will
@@ -192,10 +201,14 @@ Google Search Central:
 - [Ecommerce SEO](https://developers.google.com/search/docs/specialty/ecommerce)
 - [Ecommerce site structure](https://developers.google.com/search/docs/specialty/ecommerce/help-google-understand-your-ecommerce-site-structure)
 - [Pagination and incremental loading](https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading)
+- [Managing faceted navigation](https://developers.google.com/crawling/docs/faceted-navigation)
+- [Share product data with Google](https://developers.google.com/search/docs/specialty/ecommerce/share-your-product-data-with-google)
 - [Product structured data](https://developers.google.com/search/docs/appearance/structured-data/product)
 - [Product variants](https://developers.google.com/search/docs/appearance/structured-data/product-variants)
 - [Breadcrumb structured data](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb)
 - [Organization structured data](https://developers.google.com/search/docs/appearance/structured-data/organization)
+- [Merchant shipping policy](https://developers.google.com/search/docs/appearance/structured-data/shipping-policy)
+- [Merchant return policy](https://developers.google.com/search/docs/appearance/structured-data/return-policy)
 - [General structured data guidelines](https://developers.google.com/search/docs/appearance/structured-data/sd-policies)
 
 Google web.dev:
@@ -205,5 +218,7 @@ Google web.dev:
 - [Interaction to Next Paint](https://web.dev/articles/inp)
 - [Optimize CLS](https://web.dev/articles/optimize-cls)
 - [Core Web Vitals tools](https://web.dev/articles/vitals-tools)
+- [Chrome Performance Insights](https://developer.chrome.com/docs/devtools/performance-insights)
+- [Chrome Performance features](https://developer.chrome.com/docs/devtools/performance/reference)
 - [Learn Accessibility](https://web.dev/learn/accessibility/)
 - [Accessible forms](https://web.dev/learn/accessibility/forms)

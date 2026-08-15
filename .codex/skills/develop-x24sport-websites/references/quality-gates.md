@@ -68,6 +68,9 @@ gate before claiming completion.
   reachable or included in an appropriate sitemap/feed.
 - Sitemap includes canonical indexable URLs only; robots.txt and meta robots do
   not conflict.
+- Every filter, sort, pagination, search, and variant URL has an explicit bounded
+  policy for crawlability, indexability, canonicalization, links, and sitemap
+  membership; equivalent filter states do not create an unbounded URL space.
 - Copy is factual, original, useful, natural, and free of keyword stuffing or
   unsupported superlatives.
 
@@ -76,18 +79,33 @@ gate before claiming completion.
 - Markup describes visible content and uses current Google-supported types.
 - Required properties exist and factual optional properties are synchronized.
 - Product price, currency, availability, variants, image, shipping, and returns
-  match the page and transaction behavior.
+  match Payload, visible content, Merchant Center data, and transaction behavior.
+- Tenant-wide shipping and return entities exist only when backed by visible,
+  factual policies; product-level overrides do not contradict the general policy.
 - JSON-LD parses successfully and representative pages pass Rich Results Test.
 
 ## 6. Performance
 
 - Record whether field data exists. Do not infer field success from Lighthouse.
-- Diagnose representative templates on mobile and desktop.
+- Record URL/tenant, template, device and viewport, network/CPU profile, cache and
+  page state, tool version, field-data scope/period, and cold/warm navigation.
+- Diagnose representative templates on mobile and desktop and compare before and
+  after under equivalent conditions.
+- Identify the dominant LCP or INP subpart, or the largest CLS cluster, and the
+  concrete element, request, task, handler, DOM work, or shift culprit before
+  prescribing a fix.
 - LCP resource is discoverable early, not lazy-loaded, correctly sized, and not
   delayed by avoidable CSS/JS waterfalls.
 - Images and embeds reserve space; dynamic UI and fonts do not create avoidable
   CLS.
 - Main-thread long tasks and third-party scripts do not block primary interaction.
+- Exercise changed commerce interactions in a trace, including relevant menu,
+  filter, gallery, variant, pagination, and form flows; inspect input delay,
+  processing duration, presentation delay, forced reflow, and DOM cost.
+- Review relevant failed and passed Performance Insights, including document
+  latency, render blocking, request discovery, dependency chains, image delivery,
+  fonts, third parties, duplicated/legacy JavaScript, DOM size, and layout-shift
+  culprits. Fix only findings connected to the measured outcome.
 - Cache headers, CDN behavior, compression, and public/origin responses are
   checked when performance or deployment is in scope.
 
