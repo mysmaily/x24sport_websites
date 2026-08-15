@@ -86,6 +86,16 @@ const fetchJson = async (pathAndQuery, options = {}) => {
 const getDocs = (data) => data?.docs || []
 const unwrapDoc = (data) => data?.doc || data
 
+const deliveryImagePath = (pngPath) => {
+  const webpPath = pngPath.replace(/\.png$/i, '.webp')
+  return existsSync(webpPath) ? webpPath : pngPath
+}
+
+const imageMimeType = (imagePath) => {
+  if (/\.webp$/i.test(imagePath)) return 'image/webp'
+  return 'image/png'
+}
+
 const query = (params) => {
   const search = new URLSearchParams()
   for (const [key, value] of Object.entries(params)) {
@@ -182,7 +192,7 @@ const productDescription = (item, productName, clubName) => {
   ])
 }
 
-const uploadMedia = async (tenantId, item, mockupPath, checksum) => {
+const uploadMedia = async (tenantId, item, imagePath, checksum) => {
   const checksumShort = checksum.slice(0, 12)
   const mediaSourceId = `${item.sourceId}-mockup-${checksumShort}`
   const existing = await findOne('media', {
@@ -192,12 +202,13 @@ const uploadMedia = async (tenantId, item, mockupPath, checksum) => {
   })
   if (existing) return existing
 
-  const buffer = await readFile(mockupPath)
+  const buffer = await readFile(imagePath)
+  const extension = path.extname(imagePath)
   const form = new FormData()
   form.append(
     'file',
-    new Blob([buffer], { type: 'image/png' }),
-    `${path.basename(mockupPath, '.png')}-${checksumShort}.png`,
+    new Blob([buffer], { type: imageMimeType(imagePath) }),
+    `${path.basename(imagePath, extension)}-${checksumShort}${extension}`,
   )
   form.append(
     '_payload',
@@ -243,7 +254,8 @@ async function main() {
 
   for (const item of manifest.items.slice(0, Number.isFinite(limit) ? limit : undefined)) {
     const mockupPath = path.join(operationDir, item.mockupPath)
-    const approvalPath = `${mockupPath}.approved`
+    const imagePath = deliveryImagePath(mockupPath)
+    const approvalPath = `${imagePath}.approved`
     if (!existsSync(mockupPath)) {
       skipped.push({ sourceId: item.sourceId, title: item.title, reason: 'missing mockup', expected: item.mockupPath })
       continue
@@ -253,7 +265,7 @@ async function main() {
         sourceId: item.sourceId,
         title: item.title,
         reason: 'mockup not approved',
-        expected: `${item.mockupPath}.approved`,
+        expected: `${path.relative(operationDir, imagePath)}.approved`,
       })
       continue
     }
@@ -284,7 +296,7 @@ async function main() {
       seasonCategory = seasonCategories.get(seasonSlug)
     }
 
-    const imageBuffer = await readFile(mockupPath)
+    const imageBuffer = await readFile(imagePath)
     const checksum = createHash('sha256').update(imageBuffer).digest('hex')
     const categoryIds = [parentCategory.id, seasonCategory?.id].filter((id) => Number.isFinite(Number(id)))
     categoryIds.forEach((id) => affectedCategoryIds.add(id))
@@ -330,11 +342,11 @@ async function main() {
     }
 
     if (!apply) {
-      processed.push({ sourceId: item.sourceId, title: productName, slug, categories: categoryIds, mockup: item.mockupPath })
+      processed.push({ sourceId: item.sourceId, title: productName, slug, categories: categoryIds, mockup: path.relative(operationDir, imagePath) })
       continue
     }
 
-    const media = await uploadMedia(tenantId, item, mockupPath, checksum)
+    const media = await uploadMedia(tenantId, item, imagePath, checksum)
     if (existingProduct) {
       const product = await patchJson('products', existingProduct.id, { ...productData, gallery: [media.id] })
       processed.push({ sourceId: item.sourceId, productId: product.id, mediaId: media.id, slug: product.slug, action: 'updated' })
