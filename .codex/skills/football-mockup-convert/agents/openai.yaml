@@ -1,0 +1,4 @@
+interface:
+  display_name: "Football Mockup Convert"
+  short_description: "Convert raw football kit designs into sales mockups"
+  default_prompt: "Use $football-mockup-convert to turn this raw football shirt design into a commercial product mockup."
