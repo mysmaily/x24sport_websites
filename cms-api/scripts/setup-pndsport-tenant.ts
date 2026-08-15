@@ -33,6 +33,7 @@ const replaceBrand = (value: unknown): unknown => {
     return value
       .replace(/X24\s*Sport/gi, 'PND Sport')
       .replace(/x24sport\.vn/gi, 'pndsport.vn')
+      .replace(/X24/gi, 'PND')
   }
   if (Array.isArray(value)) return value.map(replaceBrand)
   if (value && typeof value === 'object') {
@@ -89,8 +90,8 @@ function productData(source: Doc, tenantId: number | string, categoryIds: Array<
   return {
     tenant: tenantId,
     name: replaceBrand(source.name),
-    slug: source.slug,
-    sku: source.sku,
+    slug: replaceBrand(source.slug),
+    sku: replaceBrand(source.sku),
     sport: source.sport,
     productType: source.productType || 'simple',
     publicationStatus: lowestPrice ? 'publish' : 'draft',
@@ -106,17 +107,17 @@ function productData(source: Doc, tenantId: number | string, categoryIds: Array<
     isOnBackorder: source.isOnBackorder,
     shortDescription: replaceBrand(source.shortDescription),
     description: replaceBrand(cloneValue(source.description)),
-    attributes: cloneValue(source.attributes),
+    attributes: replaceBrand(cloneValue(source.attributes)),
     badges: replaceBrand(cloneValue(source.badges)),
-    searchTags: cloneValue(source.searchTags),
+    searchTags: replaceBrand(cloneValue(source.searchTags)),
     gallery: [],
     legacyImages: legacyImagesFromProduct(source),
     seoTitle: replaceBrand(source.seoTitle || source.name),
     metaDescription: replaceBrand(source.metaDescription || source.shortDescription),
     canonicalOverride: undefined,
-    legacyPath: `/san-pham/${source.slug}/`,
+    legacyPath: `/san-pham/${replaceBrand(source.slug)}/`,
     contentHtml: replaceBrand(source.contentHtml),
-    sourceTags: cloneValue(source.sourceTags),
+    sourceTags: replaceBrand(cloneValue(source.sourceTags)),
     sourceSystem: SOURCE_SYSTEM,
     sourceId: `product:${source.id}`,
     sourceModifiedAt: source.sourceModifiedAt,
@@ -279,9 +280,9 @@ async function run() {
     await upsertBySourceId(payload, 'web-content', targetTenant.id, sourceId, {
       tenant: targetTenant.id,
       title: replaceBrand(source.title),
-      slug: source.slug,
+      slug: replaceBrand(source.slug),
       kind: source.kind,
-      legacyPath: source.legacyPath,
+      legacyPath: replaceBrand(source.legacyPath),
       contentHtml: replaceBrand(source.contentHtml),
       excerpt: replaceBrand(source.excerpt),
       publicationStatus: 'publish',
