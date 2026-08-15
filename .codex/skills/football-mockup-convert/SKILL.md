@@ -37,6 +37,8 @@ When the mockup includes collar options, use only these three choices:
 
 `Cổ Trụ` means a folded polo collar with a short placket and 2 buttons. Do not invent other labels such as cổ bẻ, cổ phối, cổ polo separately, cổ viền, cổ lật, cổ trái tim, or random collar names.
 
+Validate `Cổ Trụ` visually as: a real folded polo collar, two collar leaves spreading left/right, a vertical center placket, and exactly 2 visible buttons. It must not look like a V-neck, round neck, zipper, single-button collar, or generic raised band collar.
+
 ## Title Rules
 
 Do not always use generic text like `Mẫu áo bóng đá thiết kế riêng`.
@@ -64,9 +66,11 @@ Use the public mayaobongda.vn product grid as the taste target: energetic footba
 Preferred composition:
 
 - 1:1 square ecommerce image.
-- Do not use a visible human model. Present the kit on an invisible mannequin / ghost mannequin / soft-filled garment form so it looks like someone is wearing it, but no body, head, arms, legs, or skin is visible.
-- Make the shirt and shorts slightly inflated and dimensional, with natural body volume, shoulder width, chest curve, waist drape, sleeve opening, and fabric weight.
-- Show separate front and back shirt views on the right, plus shorts below or beside them.
+- Do not use a visible human model.
+- Keep the left/source design preview as a clean flat product view when the layout includes a left preview. Do not inflate or reshape this source/design preview.
+- Make only the commercial mockup/rendered kit side slightly inflated and dimensional, with natural body volume, shoulder width, chest curve, waist drape, sleeve opening, and fabric weight, as if worn on an invisible mannequin.
+- Present the commercial mockup/rendered kit on an invisible mannequin / ghost mannequin / soft-filled garment form so it looks like someone is wearing it, but no body, head, arms, legs, or skin is visible.
+- Show separate front and back shirt views plus shorts on the commercial mockup side.
 - Include socks only when useful; do not let socks dominate the layout.
 - Add a bottom options strip with collar variants, size buttons, website, and hotline when text space allows.
 - Small fabric/detail swatches or icons for breathability, print quality, stitching, and sizing.
@@ -92,7 +96,8 @@ Keep the apparel design faithful:
 - Convert rough/flat artwork into realistic polyester mesh with folds, seams, ribbed collar/cuffs, and commercial lighting.
 - Avoid inventing major graphic elements that conflict with the source design.
 - Make fabric look matte and worn naturally: visible mesh pores, soft wrinkles, hem thickness, sleeve fold, shoulder tension, seam puckering, waistband ribbing, and natural drape.
-- Make the ghost-mannequin kit fit like real sportswear: slight cloth pull around chest/waist/shorts, realistic puffed volume, not a flat floating shirt and not a smooth plastic shell.
+- Make the commercial ghost-mannequin kit fit like real sportswear: slight cloth pull around chest/waist/shorts, realistic puffed volume, not a flat floating shirt and not a smooth plastic shell.
+- Preserve any source/design preview as a flat reference view while still removing source logos/sponsors from apparel.
 
 ## Avoid
 
@@ -115,8 +120,8 @@ Input images: Image 1 is the raw jersey design to preserve; Image 2 is the mayao
 Scene/backdrop: <dynamic background chosen from shirt colors and context>
 Subject: realistic football kit presentation on invisible mannequin / ghost mannequin / soft-filled apparel forms, no visible person, plus separate front/back shirt views, shorts, optional socks, and small fabric/detail callouts.
 Style/medium: photorealistic football catalog poster, matte polyester mesh fabric, natural wrinkles, visible pores, stitched seams, soft fabric drape.
-Composition/framing: 1:1 square; main ghost-mannequin kit on the left, slightly puffed as if worn; flat/ghost front-back shirt views and shorts on the right; bottom strip for collar options using only "Cổ Tròn", "Cổ Tim", "Cổ Trụ"; size/hotline/website; brand logo badge visible; clean text hierarchy.
+Composition/framing: 1:1 square; left/source design preview remains a clean flat shirt/kit view; right/commercial mockup kit is ghost-mannequin and slightly puffed as if worn; show front/back shirt views and shorts; bottom strip for collar options using only "Cổ Tròn", "Cổ Tim", "Cổ Trụ"; render Cổ Trụ as folded polo collar with vertical 2-button placket; size/hotline/website; brand logo badge visible; clean text hierarchy.
 Text (verbatim): "<inferred title>"; "Giá từ 119.000đ"; "Hotline 0989 353 247"; "x24sport.vn"; "Đặt tên + số miễn phí"; "Vải mè thể thao • In chuyển nhiệt • Size S-5XL".
 Constraints: preserve source shirt design identity but remove all source logos/club crests/sponsors/manufacturer marks from apparel; place mayaobongda.vn logo as seller badge only; no copied competitor layout; no watermark; no visible human model.
-Avoid: dark hanger template, diagonal rods, script Jersey typography, glossy plastic 3D, sterile sci-fi room, visible human model/body parts, source logos/sponsors/crests/manufacturer marks, extra collar labels beyond "Cổ Tròn", "Cổ Tim", "Cổ Trụ", cluttered text.
+Avoid: dark hanger template, diagonal rods, script Jersey typography, glossy plastic 3D, sterile sci-fi room, visible human model/body parts, source logos/sponsors/crests/manufacturer marks, inflating the left/source design preview, incorrect Cổ Trụ without folded collar and 2-button placket, extra collar labels beyond "Cổ Tròn", "Cổ Tim", "Cổ Trụ", cluttered text.
 ```
