@@ -83,7 +83,7 @@ body .numbered-pagination > .numbered-pagination-ellipsis {
     padding-top: 16px;
   }
 
-  body .numbered-pagination > a.is-edge-secondary:not(.is-current) {
+  body .numbered-pagination > a.is-edge-secondary:not(.is-near-current) {
     display: none;
   }
 

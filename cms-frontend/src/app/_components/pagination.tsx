@@ -62,7 +62,7 @@ export function Pagination({
         <Link
           aria-current={item === page ? 'page' : undefined}
           aria-label={`Trang ${item}`}
-          className={`${item === page ? 'is-current' : ''}${item === 2 || item === totalPages - 1 ? ' is-edge-secondary' : ''}`}
+          className={`${item === page ? 'is-current' : ''}${Math.abs(item - page) <= 1 ? ' is-near-current' : ''}${item === 2 || item === totalPages - 1 ? ' is-edge-secondary' : ''}`}
           href={(hrefForPage || defaultHrefForPage)(item)}
           key={item}
         >
