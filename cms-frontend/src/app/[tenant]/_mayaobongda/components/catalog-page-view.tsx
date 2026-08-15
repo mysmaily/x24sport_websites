@@ -1,53 +1,130 @@
-import { ChevronDown, ChevronRight, Search } from 'lucide-react'
+import { ChevronDown, ChevronRight, Search, SlidersHorizontal } from 'lucide-react'
 import Link from 'next/link'
 
 import { Pagination } from '../../../_components/pagination'
-import { getCategories, getProducts } from '../lib/cms'
 import { footballCategoryPath } from '../lib/category-paths'
+import { getCategories, getProducts } from '../lib/cms'
 import { excerpt, SITE_URL } from '../lib/site'
 
 import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
 
-export async function CatalogPageView({ page, search = '', heading = 'Toàn bộ mẫu áo bóng đá.', description = 'Chọn một mẫu làm điểm xuất phát rồi điều chỉnh màu sắc, logo, tên số và nội dung theo nhu cầu thực tế.', canonicalPath = '/san-pham/', breadcrumbLabel = 'Sản phẩm', categorySlug, searchAction = '/san-pham/', sort = 'latest' }: { page: number; search?: string; heading?: string; description?: string; canonicalPath?: string; breadcrumbLabel?: string; categorySlug?: string; searchAction?: string; sort?: 'latest' | 'popular' }) {
-  const [result, categoryResult] = await Promise.all([getProducts({ page, limit: 24, search, categorySlug, sort }), getCategories()])
+type CatalogPageViewProps = {
+  breadcrumbLabel?: string
+  canonicalPath?: string
+  categorySlug?: string
+  description?: string
+  heading?: string
+  page: number
+  search?: string
+  searchAction?: string
+  sort?: 'latest' | 'popular'
+}
+
+export async function CatalogPageView({
+  page,
+  search = '',
+  heading = 'Toàn bộ mẫu áo bóng đá.',
+  description = 'Chọn một mẫu làm điểm xuất phát rồi điều chỉnh màu sắc, logo, tên số và nội dung theo nhu cầu thực tế.',
+  canonicalPath = '/san-pham/',
+  breadcrumbLabel = 'Sản phẩm',
+  categorySlug,
+  searchAction = '/san-pham/',
+  sort = 'latest',
+}: CatalogPageViewProps) {
+  const [result, categoryResult] = await Promise.all([
+    getProducts({ page, limit: 24, search, categorySlug, sort }),
+    getCategories(),
+  ])
   const primaryCategories = categoryResult.docs.filter((item) => item.group === 'type' && (item.productCount || 0) > 0)
   const secondaryCategories = categoryResult.docs.filter((item) => item.group === 'tag' && (item.productCount || 0) > 0)
   const activeSecondary = secondaryCategories.find((item) => item.slug === categorySlug)
   const cleanDescription = description.replace(/\s+/g, ' ').trim()
-  const shortDescription = excerpt(cleanDescription, 210)
-  const hasLongDescription = cleanDescription.length > 210
+  const shortDescription = excerpt(cleanDescription, 180)
+  const hasLongDescription = cleanDescription.length > 180
   const pageHref = (nextPage: number) => {
     const params = new URLSearchParams(search ? { q: search } : {})
     if (nextPage > 1) params.set('page', String(nextPage))
     return `${canonicalPath}${params.size ? `?${params}` : ''}`
   }
 
-  return <div className="section-shell py-3 sm:py-8">
-    <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Trang chủ', item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: breadcrumbLabel, item: `${SITE_URL}${canonicalPath}` }] }} />
-    <nav className="mb-3 flex items-center gap-2 text-xs font-semibold text-slate-500"><Link href="/">Trang chủ</Link><ChevronRight size={13} /><span className="truncate text-slate-800">{breadcrumbLabel}</span></nav>
-    <header className="border-b border-slate-200 pb-3 sm:pb-5"><div className="max-w-4xl"><p className="section-kicker hidden sm:block">Bộ sưu tập theo yêu cầu</p><h1 className="font-display text-[24px] font-bold leading-[1.05] text-slate-950 sm:text-[34px] lg:text-[42px]">{heading}</h1>{cleanDescription ? <p className="mt-2 max-w-3xl text-xs leading-5 text-slate-600 sm:mt-3 sm:text-sm">{shortDescription}</p> : null}</div></header>
-    <form action={searchAction} className="mt-3 grid max-w-3xl grid-cols-[auto_1fr_auto] overflow-hidden rounded-lg border border-slate-300 bg-white sm:mt-4" role="search"><Search className="ml-3 self-center text-slate-500" size={17} /><label className="sr-only" htmlFor="catalog-q">Tìm mẫu áo</label><input className="min-h-10 min-w-0 px-3 text-sm outline-none sm:min-h-11" defaultValue={search} id="catalog-q" name="q" placeholder="Tên mẫu, mã hoặc màu sắc…" type="search" /><button className="bg-[#0b1220] px-4 text-sm font-black text-white hover:bg-brand">Tìm</button></form>
-    <nav className="relative mt-2 flex items-center gap-2 rounded-xl border border-slate-200 bg-[#f8f6f2] p-1.5 sm:mt-3 sm:p-2" aria-label="Lọc mẫu áo theo nhóm và từ khóa">
-      <span className="hidden shrink-0 pl-1 text-[10px] font-black uppercase tracking-[.14em] text-slate-500 sm:block">Nhóm sản phẩm</span>
-      <div className="flex min-w-0 flex-1 snap-x gap-1.5 overflow-x-auto overscroll-x-contain scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-catalog-type-strip>
-        <Link aria-current={!categorySlug ? 'page' : undefined} className={`inline-flex min-h-10 shrink-0 snap-start items-center rounded-full border px-3 text-xs font-black transition ${!categorySlug ? 'border-[#0b1220] bg-[#0b1220] text-white' : 'border-slate-200 bg-white hover:border-brand hover:text-brand'}`} href="/san-pham/">Tất cả mẫu</Link>
-        {primaryCategories.map((item) => <Link aria-current={categorySlug === item.slug ? 'page' : undefined} className={`inline-flex min-h-10 shrink-0 snap-start items-center gap-1.5 rounded-full border px-3 text-xs font-black transition ${categorySlug === item.slug ? 'border-brand bg-brand text-white' : 'border-slate-200 bg-white hover:border-brand hover:text-brand'}`} href={footballCategoryPath(item)} key={item.slug}>{item.name}{typeof item.productCount === 'number' ? <span className="text-[10px] opacity-60">{item.productCount}</span> : null}</Link>)}
-      </div>
-        <details className="group relative shrink-0" data-catalog-color-filter>
-          <summary className="flex min-h-10 cursor-pointer list-none items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 text-xs font-black text-slate-800 transition hover:border-brand hover:text-brand [&::-webkit-details-marker]:hidden">
-          <span>{activeSecondary ? activeSecondary.name : 'Từ khóa'}</span>
-          <ChevronDown className="transition group-open:rotate-180" size={14} />
-        </summary>
-        <div className="absolute right-0 top-full z-30 mt-2 grid w-[min(320px,calc(100vw-32px))] grid-cols-2 gap-1.5 rounded-xl border border-slate-200 bg-white p-2 shadow-[0_18px_50px_rgba(15,23,42,.18)]">
-          <Link className="col-span-2 flex min-h-10 items-center rounded-lg px-3 text-xs font-black text-slate-700 hover:bg-slate-100" href="/san-pham/">Tất cả từ khóa</Link>
-          {secondaryCategories.map((item) => <Link aria-current={categorySlug === item.slug ? 'page' : undefined} className={`flex min-h-10 items-center gap-2 rounded-lg px-3 text-xs font-black transition ${categorySlug === item.slug ? 'bg-orange-50 text-brand' : 'text-slate-700 hover:bg-slate-100'}`} href={footballCategoryPath(item)} key={item.slug}><span className="truncate">{item.name}</span>{typeof item.productCount === 'number' ? <span className="ml-auto text-[10px] opacity-50">{item.productCount}</span> : null}</Link>)}
+  return (
+    <div className="mabd-catalog">
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Trang chủ', item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: breadcrumbLabel, item: `${SITE_URL}${canonicalPath}` }] }} />
+
+      <section className="mabd-catalog-intro">
+        <div className="section-shell">
+          <nav aria-label="Đường dẫn" className="mabd-catalog-breadcrumb">
+            <Link href="/">Trang chủ</Link>
+            <ChevronRight aria-hidden="true" size={13} />
+            <span>{breadcrumbLabel}</span>
+          </nav>
+
+          <div className="mabd-catalog-intro-grid">
+            <header>
+              <p className="mabd-catalog-kicker"><span aria-hidden="true">26</span> Bộ sưu tập áo đấu</p>
+              <h1>{heading}</h1>
+              {cleanDescription ? <p className="mabd-catalog-description">{shortDescription}</p> : null}
+            </header>
+
+            <form action={searchAction} className="mabd-catalog-search" role="search">
+              <label htmlFor="catalog-q">Tìm nhanh trong bộ sưu tập</label>
+              <div>
+                <Search aria-hidden="true" size={18} />
+                <input defaultValue={search} id="catalog-q" name="q" placeholder="Tên mẫu, mã áo, màu sắc…" type="search" />
+                <button type="submit">Tìm mẫu</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </details>
-    </nav>
-    <div className="mb-2 mt-3 flex justify-between border-t border-slate-200 pt-2 text-xs text-slate-600 sm:mb-3 sm:mt-4 sm:pt-3"><span><b className="text-brand">{result.totalDocs.toLocaleString('vi-VN')}</b> mẫu phù hợp</span><span>Trang {result.page}/{Math.max(result.totalPages, 1)}</span></div>
-    <ProductGrid products={result.docs} />
-    {hasLongDescription ? <details className="mt-8 rounded-xl border border-slate-200 bg-white p-4 text-sm leading-7 text-slate-600 sm:p-5"><summary className="cursor-pointer list-none font-black text-slate-900 transition hover:text-brand [&::-webkit-details-marker]:hidden">Thông tin chi tiết về {heading.toLocaleLowerCase('vi-VN')}</summary><p className="mt-3 max-w-4xl">{cleanDescription}</p></details> : null}
-    <Pagination ariaLabel="Phân trang sản phẩm" hrefForPage={pageHref} page={page} totalPages={result.totalPages} />
-  </div>
+      </section>
+
+      <div className="section-shell mabd-catalog-body">
+        <nav aria-label="Lọc mẫu áo theo nhóm và từ khóa" className="mabd-catalog-filter">
+          <span className="mabd-catalog-filter-label"><SlidersHorizontal aria-hidden="true" size={15} /> Bộ lọc</span>
+          <div className="mabd-catalog-filter-strip" data-catalog-type-strip>
+            <Link aria-current={!categorySlug ? 'page' : undefined} href="/san-pham/">Tất cả mẫu</Link>
+            {primaryCategories.map((item) => (
+              <Link aria-current={categorySlug === item.slug ? 'page' : undefined} href={footballCategoryPath(item)} key={item.slug}>
+                {item.name}
+                {typeof item.productCount === 'number' ? <span>{item.productCount}</span> : null}
+              </Link>
+            ))}
+          </div>
+
+          <details className="mabd-catalog-more" data-catalog-color-filter>
+            <summary>
+              <span>{activeSecondary ? activeSecondary.name : 'Chủ đề'}</span>
+              <ChevronDown aria-hidden="true" size={15} />
+            </summary>
+            <div>
+              <Link className="mabd-catalog-more-all" href="/san-pham/">Tất cả chủ đề</Link>
+              {secondaryCategories.map((item) => (
+                <Link aria-current={categorySlug === item.slug ? 'page' : undefined} href={footballCategoryPath(item)} key={item.slug}>
+                  <span>{item.name}</span>
+                  {typeof item.productCount === 'number' ? <small>{item.productCount}</small> : null}
+                </Link>
+              ))}
+            </div>
+          </details>
+        </nav>
+
+        <div className="mabd-catalog-results" role="status">
+          <p><strong>{result.totalDocs.toLocaleString('vi-VN')}</strong> mẫu áo</p>
+          <span aria-hidden="true" />
+          <p>Trang {result.page} / {Math.max(result.totalPages, 1)}</p>
+        </div>
+
+        <ProductGrid products={result.docs} />
+
+        {hasLongDescription ? (
+          <details className="mabd-catalog-note">
+            <summary>Thông tin về {heading.toLocaleLowerCase('vi-VN')}</summary>
+            <p>{cleanDescription}</p>
+          </details>
+        ) : null}
+        <Pagination ariaLabel="Phân trang sản phẩm" hrefForPage={pageHref} page={page} totalPages={result.totalPages} />
+      </div>
+    </div>
+  )
 }
