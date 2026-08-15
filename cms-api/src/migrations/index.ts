@@ -14,6 +14,7 @@ import * as migration_20260722_180000_store_settings_meta_pixel from './20260722
 import * as migration_20260727_090000_store_settings_telegram_chat_id from './20260727_090000_store_settings_telegram_chat_id';
 import * as migration_20260813_020000_store_settings_custom_scripts from './20260813_020000_store_settings_custom_scripts';
 import * as migration_20260814_023700_store_settings_contact_bar from './20260814_023700_store_settings_contact_bar';
+import * as migration_20260816_010000_product_category_taxonomy_groups from './20260816_010000_product_category_taxonomy_groups';
 
 export const migrations = [
   {
@@ -95,5 +96,10 @@ export const migrations = [
     up: migration_20260814_023700_store_settings_contact_bar.up,
     down: migration_20260814_023700_store_settings_contact_bar.down,
     name: '20260814_023700_store_settings_contact_bar'
+  },
+  {
+    up: migration_20260816_010000_product_category_taxonomy_groups.up,
+    down: migration_20260816_010000_product_category_taxonomy_groups.down,
+    name: '20260816_010000_product_category_taxonomy_groups'
   },
 ];

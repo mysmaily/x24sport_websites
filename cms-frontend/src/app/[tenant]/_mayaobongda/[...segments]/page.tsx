@@ -84,7 +84,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
       title: `${category.name}${page > 1 ? ` - Trang ${page}` : ''}`,
       description,
       alternates: { canonical },
-      robots: search ? { index: false, follow: true } : undefined,
+      robots: search || preview.totalDocs === 0 ? { index: false, follow: true } : undefined,
       openGraph: { title: category.name, description, url: canonical, images: image?.url ? [{ url: image.url, alt: category.name }] : [] },
     }
   }

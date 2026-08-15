@@ -14,6 +14,7 @@ import MayaoChayBoPathPage, { generateMetadata as generateMayaoChayBoPathMetadat
 import { MayaoChayBoShell } from '../_mayaochaybo/shell'
 import MayaoBongDaPathPage, { generateMetadata as generateMayaoBongDaPathMetadata } from '../_mayaobongda/[...segments]/page'
 import { MayaoBongDaShell } from '../_mayaobongda/shell'
+import { footballPermanentRedirect } from '../_mayaobongda/lib/permanent-redirects'
 
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ tenant: string; path: string[] }>; searchParams: Promise<Record<string, string | string[] | undefined>> }): Promise<Metadata> {
   const [{ tenant, path }, query] = await Promise.all([params, searchParams])
@@ -36,6 +37,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     return generateMayaoChayBoPathMetadata({ params: Promise.resolve({ segments: path }), searchParams: Promise.resolve(query) })
   }
   if (tenant === 'mayaobongda') {
+    if (footballPermanentRedirect(`/${path.join('/')}/`)) return {}
     return generateMayaoBongDaPathMetadata({ params: Promise.resolve({ segments: path }), searchParams: Promise.resolve(query) })
   }
   if (tenant !== 'rynosport' || path.length !== 1) return {}
@@ -88,6 +90,8 @@ export default async function TenantPathPage(props: Parameters<typeof X24PathPag
     return <MayaoChayBoShell><MayaoChayBoPathPage params={Promise.resolve({ segments: path })} searchParams={props.searchParams as Promise<Record<string, string | string[] | undefined>>} /></MayaoChayBoShell>
   }
   if (tenant === 'mayaobongda') {
+    const redirectTarget = footballPermanentRedirect(`/${path.join('/')}/`)
+    if (redirectTarget) permanentRedirect(redirectTarget)
     return <MayaoBongDaShell><MayaoBongDaPathPage params={Promise.resolve({ segments: path })} searchParams={props.searchParams as Promise<Record<string, string | string[] | undefined>>} /></MayaoBongDaShell>
   }
   if (tenant === 'rynosport' && path.length === 1) return <RynoProductPage slug={path[0]} />
