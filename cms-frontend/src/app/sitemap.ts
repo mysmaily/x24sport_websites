@@ -29,6 +29,7 @@ import {
 import {
   staticPages as mayaoPickleballStaticPages,
 } from './[tenant]/_mayaopickleball/lib/seo'
+import { pndLandings } from './[tenant]/_pndsport/lib'
 
 const mayaoCauLongStaticPages = [
   { path: '/', priority: 1 },
@@ -188,6 +189,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${base}/bang-gia-may-ao-chay-bo/`, priority: .82 },
       { url: `${base}/mau-logo/`, priority: .8 },
     ] : []),
+    ...(tenant.slug === 'pndsport' ? pndLandings.map((landing) => ({
+      url: `${base}/${landing.slug}/`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: .78,
+    })) : []),
     { url: `${base}/blog/`, lastModified: now, priority: .7 },
     ...categories.map((category) => {
       const legacyPath = 'legacyPath' in category && typeof category.legacyPath === 'string' ? category.legacyPath : undefined
@@ -198,7 +205,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     }),
     ...products.map((product) => ({
-      url: tenant.slug.startsWith('mayao') ? `${base}/san-pham/${product.slug}/` : `${base}${product.legacyPath || `/${product.slug}/`}`,
+      url: tenant.slug.startsWith('mayao') || tenant.slug === 'pndsport' ? `${base}/san-pham/${product.slug}/` : `${base}${product.legacyPath || `/${product.slug}/`}`,
       lastModified: product.sourceModifiedAt ? new Date(product.sourceModifiedAt) : undefined,
       priority: .7,
     })),

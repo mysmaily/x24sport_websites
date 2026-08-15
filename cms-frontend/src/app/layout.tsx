@@ -49,6 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const basketball = tenant.slug === 'mayaobongro'
   const running = tenant.slug === 'mayaochaybo'
   const football = tenant.slug === 'mayaobongda'
+  const pndsport = tenant.slug === 'pndsport'
   const description = ryno
     ? 'Khám phá trang phục thể thao và dịch vụ đặt áo đội tại RynoSport.'
     : badminton || pickleball || volleyball || basketball || running || football
@@ -81,7 +82,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   } as const
   const mayaoOgImage = tenant.slug in tenantOgImage ? tenantOgImage[tenant.slug as keyof typeof tenantOgImage] : null
-  const ogImage = ryno
+  const ogImage = pndsport
+    ? '/images/pndsport/logo.webp'
+    : ryno
     ? '/images/rynosport/hero.png'
     : mayaoOgImage?.url || SITE_LOGO_PATH
   const title = badminton
@@ -104,7 +107,7 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: { canonical: '/' },
     icons: {
       icon: [
-        { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+        { url: pndsport ? '/images/pndsport/logo.webp' : '/icon.png', sizes: pndsport ? undefined : '512x512', type: pndsport ? 'image/webp' : 'image/png' },
       ],
       apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
     },
@@ -112,7 +115,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website', locale: 'vi_VN', siteName: tenant.name,
       title,
       description,
-      images: [{ url: ogImage, width: ryno ? 864 : mayaoOgImage ? 1200 : 1200, height: ryno ? 1821 : mayaoOgImage ? 630 : 158, alt: mayaoOgImage?.alt || (ryno ? 'Trang phục thể thao RynoSport' : `Logo ${tenant.name}`) }],
+      images: [{ url: ogImage, width: ryno ? 864 : mayaoOgImage ? 1200 : 1200, height: ryno ? 1821 : mayaoOgImage ? 630 : pndsport ? 315 : 158, alt: mayaoOgImage?.alt || (ryno ? 'Trang phục thể thao RynoSport' : `Logo ${tenant.name}`) }],
     },
     twitter: { card: 'summary_large_image' },
     robots: process.env.SITE_ENV === 'preview' ? { index: false, follow: false } : undefined,
@@ -204,7 +207,7 @@ function getTenantFontVariables(tenantSlug: string) {
   if (tenantSlug === 'mayaocaulong' || tenantSlug === 'mayaopickleball') {
     return `${pickleballBodyFont.variable} ${pickleballDisplayFont.variable}`
   }
-  if (tenantSlug === 'mayaobongda' || tenantSlug === 'mayaobongro' || tenantSlug === 'mayaochaybo') {
+  if (tenantSlug === 'mayaobongda' || tenantSlug === 'mayaobongro' || tenantSlug === 'mayaochaybo' || tenantSlug === 'pndsport') {
     return `${tenantHeadingFont.variable} ${tenantBodyFont.variable}`
   }
   return ''

@@ -18,6 +18,15 @@ import { footballPermanentRedirect } from '../_mayaobongda/lib/permanent-redirec
 
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ tenant: string; path: string[] }>; searchParams: Promise<Record<string, string | string[] | undefined>> }): Promise<Metadata> {
   const [{ tenant, path }, query] = await Promise.all([params, searchParams])
+  if (tenant === 'pndsport') {
+    const { getPndLanding } = await import('../_pndsport/lib')
+    if (path.length === 1 && getPndLanding(path[0])) {
+      const { getPndLandingMetadata } = await import('../_pndsport/category-landing-page')
+      return getPndLandingMetadata(path[0])
+    }
+    const { getPndContentMetadata } = await import('../_pndsport/content-page')
+    return getPndContentMetadata(path)
+  }
   if (tenant === 'mayaocaulong' && path.length === 1 && getCatalogFilterBySlug(path[0])) {
     return generateMayaoCauLongCatalogMetadata({ params: Promise.resolve({ catalogSlug: path[0] }) })
   }
@@ -63,6 +72,15 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
 
 export default async function TenantPathPage(props: Parameters<typeof X24PathPage>[0] & { params: Promise<{ tenant: string; path: string[] }> }) {
   const { tenant, path } = await props.params
+  if (tenant === 'pndsport') {
+    const { getPndLanding } = await import('../_pndsport/lib')
+    if (path.length === 1 && getPndLanding(path[0])) {
+      const { PndCategoryLandingPage } = await import('../_pndsport/category-landing-page')
+      return <PndCategoryLandingPage slug={path[0]} />
+    }
+    const { PndContentPage } = await import('../_pndsport/content-page')
+    return <PndContentPage segments={path} />
+  }
   if (tenant === 'mayaocaulong' && path.length === 1 && getCatalogFilterBySlug(path[0])) {
     return <MayaoCauLongCatalogFilterPage params={Promise.resolve({ catalogSlug: path[0] })} />
   }

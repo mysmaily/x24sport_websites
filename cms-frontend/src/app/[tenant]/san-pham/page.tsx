@@ -15,6 +15,10 @@ export async function generateMetadata({ params, searchParams }: {
   searchParams: Promise<{ page?: string; q?: string; sort?: string }>
 }): Promise<Metadata> {
   const { tenant } = await params
+  if (tenant === 'pndsport') {
+    const { getPndCatalogMetadata } = await import('../_pndsport/catalog-page')
+    return getPndCatalogMetadata(undefined, await searchParams)
+  }
   if (tenant === 'mayaocaulong') return getMayaoCauLongProductsMetadata({ searchParams })
   if (tenant === 'mayaopickleball') return mayaoPickleballProductsMetadata
   if (tenant === 'mayaobongro') return getMayaoBongRoProductsMetadata({ searchParams })
@@ -37,6 +41,10 @@ export async function generateMetadata({ params, searchParams }: {
 
 export default async function TenantProductsPage(props: Parameters<typeof X24ProductsPage>[0] & { params: Promise<{ tenant: string }> }) {
   const { tenant } = await props.params
+  if (tenant === 'pndsport') {
+    const { PndCatalogPage } = await import('../_pndsport/catalog-page')
+    return <PndCatalogPage search={await props.searchParams} />
+  }
   if (tenant === 'mayaocaulong') return <MayaoCauLongProductsPage searchParams={props.searchParams} />
   if (tenant === 'mayaopickleball') return <MayaoPickleballProductsPage searchParams={props.searchParams as Promise<{ page?: string }>} />
   if (tenant === 'mayaobongro') return <MayaoBongRoShell><MayaoBongRoProductsPage searchParams={props.searchParams} /></MayaoBongRoShell>

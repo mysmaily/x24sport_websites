@@ -168,7 +168,7 @@ function mapProduct(product: CmsProduct, categories: SportCategory[]): ProductPr
   const primarySlug = sportToSlug[product.sport] || related[0]?.slug || 'san-pham'
   const category = categories.find((item) => item.slug === primarySlug)
   return {
-    id: product.id, slug: product.slug, name: product.name,
+    id: product.id, sku: product.sku, slug: product.slug, name: product.name,
     category: category?.name || related[0]?.name || 'X24Sport', categorySlug: primarySlug,
     categorySlugs: related.map((item) => item.slug),
     type: product.shortDescription || 'Trang phục thể thao',
@@ -315,6 +315,18 @@ export async function getWebContentByLegacyPath(path: string): Promise<CmsWebCon
   const params = new URLSearchParams({
     'where[tenant.slug][equals]': tenantSlug, 'where[legacyPath][equals]': path,
     'where[publicationStatus][equals]': 'publish', limit: '1', depth: '0',
+  })
+  return (await fetchList<CmsWebContent>('web-content', params)).docs[0]
+}
+
+export async function getWebContentBySlug(slug: string): Promise<CmsWebContent | undefined> {
+  const tenantSlug = await getTenantSlug()
+  const params = new URLSearchParams({
+    'where[tenant.slug][equals]': tenantSlug,
+    'where[slug][equals]': slug,
+    'where[publicationStatus][equals]': 'publish',
+    limit: '1',
+    depth: '0',
   })
   return (await fetchList<CmsWebContent>('web-content', params)).docs[0]
 }

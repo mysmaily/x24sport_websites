@@ -12,6 +12,10 @@ type Props = Parameters<typeof X24BlogPage>[0] & { params: Promise<{ tenant: str
 
 export async function generateMetadata(props: Props) {
   const tenant = (await props.params).tenant
+  if (tenant === 'pndsport') {
+    const { getPndBlogMetadata } = await import('../_pndsport/blog-page')
+    return getPndBlogMetadata(Math.max(1, Number((await props.searchParams).page) || 1))
+  }
   if (tenant === 'mayaocaulong') return generateMayaoCauLongBlogMetadata({ searchParams: props.searchParams })
   if (tenant === 'mayaopickleball') return generateMayaoPickleballBlogMetadata({ searchParams: props.searchParams })
   if (tenant === 'mayaobongchuyen') return generateMayaoBongChuyenContentMetadata({ params: Promise.resolve({ slug: 'blog' }) })
@@ -22,6 +26,10 @@ export async function generateMetadata(props: Props) {
 
 export default async function TenantBlogPage(props: Props) {
   const tenant = (await props.params).tenant
+  if (tenant === 'pndsport') {
+    const { PndBlogPage } = await import('../_pndsport/blog-page')
+    return <PndBlogPage page={Math.max(1, Number((await props.searchParams).page) || 1)} />
+  }
   if (tenant === 'mayaocaulong') return <MayaoCauLongBlogPage searchParams={props.searchParams} />
   if (tenant === 'mayaopickleball') return <MayaoPickleballBlogPage searchParams={props.searchParams} />
   if (tenant === 'mayaobongchuyen') return <MayaoBongChuyenContentPage params={Promise.resolve({ slug: 'blog' })} />

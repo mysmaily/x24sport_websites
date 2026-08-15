@@ -11,6 +11,10 @@ export async function generateMetadata({
   searchParams: Promise<{ page?: string; sort?: string }>
 }): Promise<Metadata> {
   const { tenant, slug } = await params
+  if (tenant === 'pndsport') {
+    const { getPndCatalogMetadata } = await import('../../_pndsport/catalog-page')
+    return getPndCatalogMetadata(slug, await searchParams)
+  }
   if (tenant !== 'rynosport') {
     return generateX24CategoryMetadata({
       params: Promise.resolve({ slug }),
@@ -35,6 +39,10 @@ export async function generateMetadata({
 
 export default async function TenantCategoryPage(props: Parameters<typeof X24CategoryPage>[0] & { params: Promise<{ tenant: string; slug: string }> }) {
   const { tenant, slug } = await props.params
+  if (tenant === 'pndsport') {
+    const { PndCatalogPage } = await import('../../_pndsport/catalog-page')
+    return <PndCatalogPage categorySlug={slug} search={await props.searchParams} />
+  }
   if (tenant === 'rynosport') return <RynoCategoryPage slug={slug} />
   return <X24CategoryPage params={Promise.resolve({ slug })} searchParams={props.searchParams} />
 }
