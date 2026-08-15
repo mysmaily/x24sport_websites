@@ -1,6 +1,26 @@
 'use client'
 
-import { ChevronDown, Flame, Menu, MessageCircle, Phone, Search, X } from 'lucide-react'
+import {
+  Building2,
+  CalendarDays,
+  ChevronDown,
+  Flag,
+  Flame,
+  GraduationCap,
+  Grid2X2,
+  Landmark,
+  Menu,
+  MessageCircle,
+  Palette,
+  Phone,
+  Search,
+  Shield,
+  Sparkles,
+  Trophy,
+  Users,
+  X,
+  type LucideIcon,
+} from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
@@ -21,15 +41,15 @@ const categoryPaths: Record<string, string> = {
 }
 
 const audienceSpecs = [
-  { slug: 'ao-bong-da-doi-bong-cau-lac-bo', href: '/ao-bong-da-doi-bong-cau-lac-bo/', label: 'Đội bóng & CLB phong trào' },
-  { slug: 'ao-bong-da-truong-hoc-sinh-vien', href: '/ao-bong-da-truong-hoc-sinh-vien/', label: 'Trường học & sinh viên' },
-  { slug: 'ao-bong-da-cong-ty', href: '/thiet-ke-ao-bong-da-cong-ty/', label: 'Công ty & doanh nghiệp' },
-  { slug: 'ao-bong-da-cong-ty-ngan-hang', href: '/thiet-ke-ao-bong-da-ngan-hang/', label: 'Ngân hàng' },
-  { slug: 'ao-bong-da-giai-phong-trao', href: '/ao-bong-da-giai-phong-trao/', label: 'Giải đấu & hội thao' },
+  { slug: 'ao-bong-da-doi-bong-cau-lac-bo', href: '/ao-bong-da-doi-bong-cau-lac-bo/', label: 'Đội bóng & CLB phong trào', description: 'Đội phủi, FC, nhóm bạn và CLB địa phương', icon: Users },
+  { slug: 'ao-bong-da-truong-hoc-sinh-vien', href: '/ao-bong-da-truong-hoc-sinh-vien/', label: 'Trường học & sinh viên', description: 'Đội lớp, khoa, trường và CLB sinh viên', icon: GraduationCap },
+  { slug: 'ao-bong-da-cong-ty', href: '/thiet-ke-ao-bong-da-cong-ty/', label: 'Công ty & doanh nghiệp', description: 'Đội nội bộ, team building và hội thao', icon: Building2 },
+  { slug: 'ao-bong-da-cong-ty-ngan-hang', href: '/thiet-ke-ao-bong-da-ngan-hang/', label: 'Ngân hàng', description: 'Đội chi nhánh và giải bóng đá ngành', icon: Landmark },
+  { slug: 'ao-bong-da-giai-phong-trao', href: '/ao-bong-da-giai-phong-trao/', label: 'Giải đấu & hội thao', description: 'Đồng phục thi đấu và áo ban tổ chức', icon: Trophy },
 ]
 
 type MobileSection = 'types' | 'collections' | 'audiences' | null
-type MenuItem = { href: string; label: string }
+type MenuItem = { description: string; featured?: boolean; href: string; icon: LucideIcon; label: string }
 
 function categoryHref(category: ProductCategory) {
   return categoryPaths[category.slug] || category.legacyPath || `/${category.slug}/`
@@ -53,24 +73,31 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
     .sort((left, right) => collectionYear(right) - collectionYear(left))
   const featuredCollection = collections[0]
   const dynamicTypeItems = [
-    { category: categoryBySlug.get('ao-thiet-ke'), label: 'Mẫu thiết kế' },
-    { category: categoryBySlug.get('cau-lac-bo'), label: 'Áo CLB nổi tiếng' },
-    { category: categoryBySlug.get('doi-tuyen'), label: 'Áo đội tuyển quốc gia' },
+    { category: categoryBySlug.get('ao-thiet-ke'), label: 'Mẫu thiết kế', description: 'Mẫu riêng, dễ chỉnh màu, logo và tên số', icon: Palette },
+    { category: categoryBySlug.get('cau-lac-bo'), label: 'Áo CLB nổi tiếng', description: 'Mẫu lấy cảm hứng từ các CLB hàng đầu', icon: Shield },
+    { category: categoryBySlug.get('doi-tuyen'), label: 'Áo đội tuyển quốc gia', description: 'Mẫu áo các đội tuyển bóng đá quốc gia', icon: Flag },
   ].flatMap<MenuItem>((item) => {
     if (!item.category) return []
-    return [{ href: categoryHref(item.category), label: item.label }]
+    return [{ href: categoryHref(item.category), label: item.label, description: item.description, icon: item.icon }]
   })
-  const typeItems: MenuItem[] = [{ href: '/san-pham/', label: 'Tất cả mẫu áo' }, ...dynamicTypeItems]
-  const collectionItems = [
-    ...(featuredCollection ? [{ href: categoryHref(featuredCollection), label: `Mẫu thiết kế mới ${collectionYear(featuredCollection)}`, featured: true }] : []),
-    { href: '/ao-thiet-ke/', label: 'Tất cả mẫu thiết kế', featured: false },
+  const typeItems: MenuItem[] = [
+    { href: '/san-pham/', label: 'Tất cả mẫu áo', description: 'Xem toàn bộ mẫu áo đang có tại xưởng', icon: Grid2X2 },
+    ...dynamicTypeItems,
+  ]
+  const collectionItems: MenuItem[] = [
+    ...(featuredCollection ? [{ href: categoryHref(featuredCollection), label: `Mẫu thiết kế mới ${collectionYear(featuredCollection)}`, description: 'Bộ sưu tập mới nhất đang được ưu tiên', icon: Flame, featured: true }] : []),
+    { href: '/ao-thiet-ke/', label: 'Tất cả mẫu thiết kế', description: 'Duyệt toàn bộ mẫu thiết kế qua các năm', icon: Sparkles, featured: false },
     ...collections.filter((category) => category.id !== featuredCollection?.id).map((category) => ({
       href: categoryHref(category),
       label: `Mẫu thiết kế ${collectionYear(category)}`,
+      description: `Bộ sưu tập thiết kế năm ${collectionYear(category)}`,
+      icon: CalendarDays,
       featured: false,
     })),
   ]
-  const audienceItems = audienceSpecs.filter((item) => (categoryBySlug.get(item.slug)?.productCount || 0) > 0)
+  const audienceItems: MenuItem[] = audienceSpecs
+    .filter((item) => (categoryBySlug.get(item.slug)?.productCount || 0) > 0)
+    .map(({ href, label, description, icon }) => ({ href, label, description, icon }))
   const menuPaths = [...typeItems, ...collectionItems, ...audienceItems]
   const productActive = menuPaths.some((item) => pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)))
   const showProducts = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setProductsOpen(true) }
@@ -117,25 +144,19 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
 
       {searchOpen ? <div className="absolute right-4 top-full z-[70] mt-2 w-[min(520px,calc(100vw-32px))] rounded-xl bg-white p-1.5 text-slate-950 shadow-[0_14px_40px_rgba(2,6,23,.24)]"><form action="/tim-kiem/" className="grid grid-cols-[1fr_auto_auto] gap-1.5" role="search"><label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label><input autoComplete="off" className="min-h-11 min-w-0 rounded-lg bg-slate-50 px-3 text-sm outline-none" id="header-search-q" name="q" placeholder="Tên mẫu, mã áo hoặc màu sắc..." type="search" /><button className="rounded-lg bg-brand px-4 text-sm font-black text-white" type="submit">Tìm</button><button aria-label="Đóng tìm kiếm" className="grid size-11 place-items-center rounded-lg text-slate-700 hover:bg-slate-100" onClick={() => setSearchOpen(false)} type="button"><X size={17} /></button></form></div> : null}
 
-      <div aria-hidden={!productsOpen} className={`mabd-desktop-mega absolute inset-x-0 top-full hidden border-t border-slate-200 bg-[#f8f6f2] text-slate-950 shadow-[0_28px_70px_rgba(2,6,23,.32)] transition duration-200 ${productsOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`} id="product-mega-menu" onBlur={hideProductsSoon} onFocus={showProducts} onMouseEnter={showProducts} onMouseLeave={hideProductsSoon}>
-        <div className="mabd-mega-grid mx-auto grid max-w-[1240px] gap-7 px-8 py-8">
+      <div aria-hidden={!productsOpen} className={`mabd-desktop-mega absolute inset-x-0 top-full hidden text-slate-950 transition duration-200 ${productsOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`} id="product-mega-menu" onBlur={hideProductsSoon} onFocus={showProducts} onMouseEnter={showProducts} onMouseLeave={hideProductsSoon}>
+        <div className="mabd-mega-grid mx-auto grid max-w-[1240px]">
           <section aria-labelledby="menu-types-title">
-            <p className="mb-4 text-xs font-black uppercase tracking-[.18em] text-brand" id="menu-types-title">Theo mẫu áo</p>
-            <div className="grid gap-2">
-              {typeItems.map((item, index) => <Link className="group flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 text-sm font-black shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={productsOpen ? 0 : -1}><span className="text-[10px] tracking-[.16em] text-slate-400">0{index + 1}</span><span>{item.label}</span></Link>)}
-            </div>
+            <p className="mabd-mega-heading" id="menu-types-title">Theo mẫu áo</p>
+            <div>{typeItems.map((item) => <MegaMenuLink item={item} key={item.href} pathname={pathname} productsOpen={productsOpen} />)}</div>
           </section>
           <section aria-labelledby="menu-collections-title">
-            <p className="mb-4 text-xs font-black uppercase tracking-[.18em] text-slate-600" id="menu-collections-title">Bộ sưu tập thiết kế</p>
-            <div className="grid gap-2">
-              {collectionItems.map((item) => <Link className={`flex min-h-12 items-center gap-2 rounded-xl border px-4 text-sm font-black transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${item.featured ? 'border-orange-200 bg-orange-50 text-brand hover:border-brand' : 'border-slate-200 bg-white text-slate-900 hover:border-brand hover:text-brand'}`} href={item.href} key={`${item.href}-${item.label}`} tabIndex={productsOpen ? 0 : -1}>{item.featured ? <Flame aria-hidden="true" size={17} /> : null}{item.label}</Link>)}
-            </div>
+            <p className="mabd-mega-heading" id="menu-collections-title">Bộ sưu tập thiết kế</p>
+            <div>{collectionItems.map((item) => <MegaMenuLink item={item} key={`${item.href}-${item.label}`} pathname={pathname} productsOpen={productsOpen} />)}</div>
           </section>
           <section aria-labelledby="menu-audiences-title">
-            <p className="mb-4 text-xs font-black uppercase tracking-[.18em] text-slate-600" id="menu-audiences-title">Đặt may theo đối tượng</p>
-            <div className="grid gap-2">
-              {audienceItems.map((item) => <Link className="flex min-h-12 items-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-extrabold shadow-sm transition hover:border-brand hover:text-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={productsOpen ? 0 : -1}>{item.label}</Link>)}
-            </div>
+            <p className="mabd-mega-heading" id="menu-audiences-title">Đặt may theo đối tượng</p>
+            <div>{audienceItems.map((item) => <MegaMenuLink item={item} key={item.href} pathname={pathname} productsOpen={productsOpen} />)}</div>
           </section>
         </div>
       </div>
@@ -149,15 +170,30 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
             { id: 'audiences' as const, label: 'Đặt may theo đối tượng', items: audienceItems },
           ].map((section) => {
             const expanded = mobileSection === section.id
-            return <section className="overflow-hidden rounded-xl border border-white/10 bg-white/[.04]" key={section.id}><button aria-controls={`mobile-${section.id}`} aria-expanded={expanded} className="flex min-h-12 w-full cursor-pointer items-center justify-between px-4 text-left text-sm font-black" onClick={() => toggleMobileSection(section.id)} type="button">{section.label}<ChevronDown aria-hidden="true" className={`transition ${expanded ? 'rotate-180' : ''}`} size={17} /></button><div className={`grid gap-1 border-t border-white/10 p-2 ${expanded ? '' : 'hidden'}`} id={`mobile-${section.id}`}>{section.items.map((item) => <Link className="flex min-h-11 items-center rounded-lg px-3 text-sm font-extrabold hover:bg-white/[.06] hover:text-brand" href={item.href} key={`${item.href}-${item.label}`} tabIndex={open && expanded ? 0 : -1}>{item.label}</Link>)}</div></section>
+            return <section className="mabd-mobile-section" key={section.id}><button aria-controls={`mobile-${section.id}`} aria-expanded={expanded} className="mabd-mobile-section-button" onClick={() => toggleMobileSection(section.id)} type="button">{section.label}<ChevronDown aria-hidden="true" className={`transition ${expanded ? 'rotate-180' : ''}`} size={17} /></button><div className={`mabd-mobile-section-links ${expanded ? '' : 'hidden'}`} id={`mobile-${section.id}`}>{section.items.map((item) => { const ItemIcon = item.icon; return <Link aria-current={pathname === item.href ? 'page' : undefined} className="mabd-mobile-menu-link" href={item.href} key={`${item.href}-${item.label}`} tabIndex={open && expanded ? 0 : -1}><ItemIcon aria-hidden="true" size={16} /><span>{item.label}</span></Link> })}</div></section>
           })}
-          {featuredCollection ? <Link className="flex min-h-12 items-center gap-2 rounded-xl border border-brand/40 bg-brand/10 px-4 text-sm font-black text-orange-100" href={categoryHref(featuredCollection)} tabIndex={open ? 0 : -1}><Flame aria-hidden="true" size={17} /> Mẫu thiết kế {collectionYear(featuredCollection)}</Link> : null}
-          <div className="grid grid-cols-2 gap-2">
-            {links.map((link) => <Link className="flex min-h-12 items-center rounded-xl border border-white/10 px-3 text-sm font-extrabold hover:border-brand/50" href={link.href} key={link.href} tabIndex={open ? 0 : -1}>{link.label}</Link>)}
+          <div className="mabd-mobile-utility-links">
+            {links.map((link) => <Link className="mabd-mobile-utility-link" href={link.href} key={link.href} tabIndex={open ? 0 : -1}>{link.label}</Link>)}
           </div>
         </nav>
         <div className="mx-auto mt-3 grid max-w-2xl grid-cols-2 gap-2"><a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white text-sm font-black text-slate-950" href={`tel:${PHONE_VALUE}`} tabIndex={open ? 0 : -1}><Phone size={17} /> Gọi ngay</a><a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-brand text-sm font-black" href={ZALO_URL} rel="noreferrer" tabIndex={open ? 0 : -1} target="_blank"><MessageCircle size={17} /> Zalo</a></div>
       </div>
     </header>
+  )
+}
+
+function MegaMenuLink({ item, pathname, productsOpen }: { item: MenuItem; pathname: string; productsOpen: boolean }) {
+  const Icon = item.icon
+  const active = pathname === item.href
+  return (
+    <Link
+      aria-current={active ? 'page' : undefined}
+      className={`mabd-mega-item ${item.featured ? 'is-featured' : ''} ${active ? 'is-active' : ''}`}
+      href={item.href}
+      tabIndex={productsOpen ? 0 : -1}
+    >
+      <span className="mabd-mega-item-icon"><Icon aria-hidden="true" size={23} strokeWidth={1.8} /></span>
+      <span className="mabd-mega-item-copy"><strong>{item.label}</strong><small>{item.description}</small></span>
+    </Link>
   )
 }
