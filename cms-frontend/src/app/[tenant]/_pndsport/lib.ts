@@ -3,11 +3,23 @@ import type { CmsProduct, CmsWebContent } from '../../../lib/content'
 import type { PreviewProduct } from '../../pndsport-preview/data'
 
 export const pndPostImages = [
-  '/images/categories/football-teamwear-promo.webp',
-  '/images/categories/badminton-teamwear-promo.webp',
-  '/images/categories/volleyball-teamwear-promo.webp',
-  '/images/categories/dong-phuc.webp',
+  '/images/pndsport/categories/bong-da.webp',
+  '/images/pndsport/categories/cau-long.webp',
+  '/images/pndsport/categories/bong-chuyen.webp',
+  '/images/pndsport/categories/pickleball.webp',
 ] as const
+
+const pndCategoryImages: Record<string, string> = {
+  'bong-da': '/images/pndsport/categories/bong-da.webp',
+  'cau-long': '/images/pndsport/categories/cau-long.webp',
+  'bong-chuyen': '/images/pndsport/categories/bong-chuyen.webp',
+  pickleball: '/images/pndsport/categories/pickleball.webp',
+  'chay-bo': '/images/pndsport/categories/chay-bo.webp',
+  'bong-ro': '/images/pndsport/categories/bong-ro.webp',
+  'ao-gaming': '/images/pndsport/categories/ao-gaming.webp',
+  'ao-bi-a': '/images/pndsport/categories/ao-bi-a.webp',
+  'dong-phuc': '/images/pndsport/categories/dong-phuc.webp',
+}
 
 export type PndLanding = {
   categorySlug: string
@@ -50,7 +62,7 @@ export function cmsProductCategory(product: CmsProduct) {
 }
 
 export function categoryImage(category: SportCategory, index: number) {
-  return category.image || pndPostImages[index % pndPostImages.length]
+  return pndCategoryImages[category.slug] || category.image || pndPostImages[index % pndPostImages.length]
 }
 
 export function postImage(_post: CmsWebContent, index: number) {

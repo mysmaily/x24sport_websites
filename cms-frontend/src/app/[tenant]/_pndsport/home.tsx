@@ -35,7 +35,7 @@ export async function PndHomePage() {
     <section className={styles.hero}>
       <div className={styles.heroInner}>
         <div className={styles.heroCopy}><span className={styles.eyebrow}>Thiết kế cho đội hình của bạn</span><h1>Trang phục thể thao <em>mang bản sắc riêng.</em></h1><p>Khám phá mẫu theo từng môn, chọn một điểm bắt đầu và gửi yêu cầu để điều chỉnh màu sắc, logo, tên số theo đội.</p><div className={styles.heroActions}><Link href="/san-pham/">Khám phá sản phẩm <ArrowRight size={17} /></Link><a href="https://zalo.me/0989353247" target="_blank" rel="noreferrer">Gửi yêu cầu thiết kế</a></div></div>
-        <div className={styles.heroVisual}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/brand/hero-teamwear-arena-20260803.webp" alt="Đội hình thể thao đa môn trong trang phục đồng bộ" fetchPriority="high" /><div className={styles.heroStat}><div><strong>{String(categories.length).padStart(2, '0')}</strong><span>Nhóm danh mục chính</span></div><div><strong>Giá từ</strong><span>Hiển thị rõ trên từng mẫu</span></div></div></div>
+        <div className={styles.heroVisual}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/pndsport/hero-teamwear-v1.webp" alt="Đội hình vận động viên Việt Nam trong trang phục thể thao PND" fetchPriority="high" /><div className={styles.heroStat}><div><strong>{String(categories.length).padStart(2, '0')}</strong><span>Nhóm danh mục chính</span></div><div><strong>Giá từ</strong><span>Hiển thị rõ trên từng mẫu</span></div></div></div>
       </div>
     </section>
     <TrustStrip />
