@@ -1,9 +1,14 @@
 import { ArrowRight, ClipboardCheck, Layers3, Palette, Ruler } from 'lucide-react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { ProductGrid, QuoteBand, SectionHeading, TrustStrip } from './components'
 import { categories, posts, previewBase, products } from './data'
 import styles from './pnd.module.css'
+
+export const metadata: Metadata = {
+  title: { absolute: 'PND Sport Việt Nam — Bản thiết kế' },
+}
 
 const process = [
   { icon: ClipboardCheck, step: '01', title: 'Gửi nhu cầu', text: 'Môn thể thao, số lượng, màu đội, logo và mốc thời gian dự kiến.' },
