@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowUpRight, Phone, ShieldCheck } from 'lucide-react'
 import { notFound, permanentRedirect } from 'next/navigation'
 import { HeaderSearch } from '../_components/header-search'
-import { formatPrice, getPageData, getProductBySlug } from '../lib/content'
+import { formatPrice, getPageData, getProductBySlug, type Product } from '../lib/content'
 
 type RouteProps = {
   params: Promise<{ slug: string }>
@@ -10,10 +10,18 @@ type RouteProps = {
 type PageData = Awaited<ReturnType<typeof getPageData>>
 
 const defaultOgImage = {
-  url: '/images/mayaobongchuyen/volleyball-team-hero.png',
+  url: '/images/mayaobongchuyen/images/volleyball-team-hero.png',
   width: 1672,
   height: 941,
   alt: 'Đội bóng chuyền mặc đồng phục đặt may MayaoBongChuyen',
+}
+
+function productImage(product: Product) {
+  return product.gallery?.find((image) => image.url)?.url || defaultOgImage.url
+}
+
+function productAlt(product: Product) {
+  return product.gallery?.find((image) => image.url)?.alt || `${product.name} đặt may cho đội bóng chuyền`
 }
 
 const buildMenu = ({ settings, categories }: PageData) => {
@@ -152,22 +160,14 @@ export default async function CmsPage({ params }: RouteProps) {
         </div>
         <div className="grid gap-[18px] md:grid-cols-2 xl:grid-cols-3">
           {products.slice(0, 3).map((product, index) => (
-            <article className="border border-[var(--line)] bg-white/6" key={product.id}>
-              <div
-                className={`relative flex h-[280px] items-center justify-center ${
-                  index === 0
-                    ? 'bg-[linear-gradient(135deg,#f97316,#7c2d12)]'
-                    : index === 1
-                      ? 'bg-[linear-gradient(135deg,#2563eb,#111827)]'
-                      : 'bg-[linear-gradient(135deg,#f6c445,#111827)] text-[#111]'
-                }`}
-              >
-                <ShieldCheck size={44} />
-                <span className="absolute right-7 bottom-[26px] text-[42px] font-black">{String(index + 7).padStart(2, '0')}</span>
-              </div>
+            <article className="mbc-product-card border border-[var(--line)] bg-white/6" key={product.id}>
+              <a className="mbc-product-card-media" href={product.slug ? `/san-pham/${product.slug}/` : '/lien-he'}>
+                <img alt={productAlt(product)} className="mbc-product-card-image" loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} />
+                <span className="mbc-product-card-badge"><ShieldCheck size={18} /> {String(index + 7).padStart(2, '0')}</span>
+              </a>
               <div className="p-[22px]">
                 <p className="mb-2 text-xs font-black text-[var(--accent)]">{product.sku}</p>
-                <h3 className="mb-2.5 text-[23px]">{product.name}</h3>
+                <h3 className="mb-2.5 text-[23px]"><a href={product.slug ? `/san-pham/${product.slug}/` : '/lien-he'}>{product.name}</a></h3>
                 <span className="leading-[1.55] text-[var(--muted)]">{product.shortDescription}</span>
                 <strong className="mt-4 block text-2xl">{formatPrice(product.price)}</strong>
               </div>

@@ -1,9 +1,19 @@
 import type { Metadata } from 'next'
 import { Search } from 'lucide-react'
 import { HeaderSearch } from '../_components/header-search'
-import { formatPrice, searchProducts } from '../lib/content'
+import { formatPrice, searchProducts, type Product } from '../lib/content'
 
 type SearchParams = { q?: string }
+
+const FALLBACK_IMAGE = '/images/mayaobongchuyen/images/volleyball-team-hero.png'
+
+function productImage(product: Product) {
+  return product.gallery?.find((image) => image.url)?.url || FALLBACK_IMAGE
+}
+
+function productAlt(product: Product) {
+  return product.gallery?.find((image) => image.url)?.alt || `${product.name} đặt may cho đội bóng chuyền`
+}
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<SearchParams> }): Promise<Metadata> {
   const params = await searchParams
@@ -42,9 +52,12 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
       </section>
       <section className="grid gap-5 px-[clamp(20px,5vw,76px)] pb-[72px] md:grid-cols-2 xl:grid-cols-3">
         {products.map((product, index) => (
-          <article className="border border-[var(--line)] bg-white/6" key={product.id}>
-            <div className="relative flex h-[230px] items-center justify-center bg-[linear-gradient(135deg,#f97316,#111827)]"><span className="absolute right-7 bottom-[26px] text-[42px] font-black">{String(index + 1).padStart(2, '0')}</span></div>
-            <div className="p-[22px]"><p className="mb-2 text-xs font-black text-[var(--accent)]">{product.sku}</p><h2 className="mb-2.5 text-[23px]">{product.name}</h2><span className="leading-[1.55] text-[var(--muted)]">{product.shortDescription}</span><strong className="mt-4 block text-2xl">{formatPrice(product.price)}</strong></div>
+          <article className="mbc-product-card border border-[var(--line)] bg-white/6" key={product.id}>
+            <a className="mbc-product-card-media mbc-product-card-media-compact" href={product.slug ? `/san-pham/${product.slug}/` : '/lien-he'}>
+              <img alt={productAlt(product)} className="mbc-product-card-image" loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} />
+              <span className="mbc-product-card-badge">{String(index + 1).padStart(2, '0')}</span>
+            </a>
+            <div className="p-[22px]"><p className="mb-2 text-xs font-black text-[var(--accent)]">{product.sku}</p><h2 className="mb-2.5 text-[23px]"><a href={product.slug ? `/san-pham/${product.slug}/` : '/lien-he'}>{product.name}</a></h2><span className="leading-[1.55] text-[var(--muted)]">{product.shortDescription}</span><strong className="mt-4 block text-2xl">{formatPrice(product.price)}</strong></div>
           </article>
         ))}
         {!products.length ? <p className="border border-dashed border-[var(--line)] p-8 text-[var(--muted)]">Chưa tìm thấy mẫu phù hợp. Hãy thử tên mẫu, màu áo hoặc tag ảnh ngắn hơn.</p> : null}

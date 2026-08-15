@@ -1,8 +1,32 @@
 import { ArrowUpRight, BadgeCheck, Droplets, Flame, Palette, PencilRuler, Phone, ShieldCheck } from 'lucide-react'
+import type { Metadata } from 'next'
 import { FooterStoreDetails } from '../../_components/footer-store-details'
 import { getPublicStoreSettings } from '../../../lib/store-settings'
 import { HeaderSearch } from './_components/header-search'
-import { formatPrice, getHomeData } from './lib/content'
+import { formatPrice, getHomeData, type Product } from './lib/content'
+
+const HERO_IMAGE = '/images/mayaobongchuyen/images/volleyball-team-hero.png'
+
+export const metadata: Metadata = {
+  title: 'May áo bóng chuyền thiết kế riêng | MayaoBongChuyen',
+  description: 'May áo bóng chuyền đặt đội, in tên số, logo, màu CLB và tư vấn chất liệu, form size cho đội thi đấu.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'May áo bóng chuyền thiết kế riêng | MayaoBongChuyen',
+    description: 'May áo bóng chuyền đặt đội, in tên số, logo, màu CLB và tư vấn chất liệu, form size cho đội thi đấu.',
+    images: [{ url: '/images/mayaobongchuyen/og-share.webp', width: 1200, height: 630, alt: 'Đội bóng chuyền mặc đồng phục đặt may MayaoBongChuyen' }],
+    type: 'website',
+    url: '/',
+  },
+}
+
+function productImage(product: Product) {
+  return product.gallery?.find((image) => image.url)?.url || HERO_IMAGE
+}
+
+function productAlt(product: Product) {
+  return product.gallery?.find((image) => image.url)?.alt || `${product.name} đặt may cho đội bóng chuyền`
+}
 
 export default async function Home() {
   const [{ products, posts, settings, categories }, publicSettings] = await Promise.all([
@@ -93,7 +117,7 @@ export default async function Home() {
       <section className="relative min-h-[min(660px,calc(100dvh-72px))] overflow-hidden bg-[#f5f6f4] md:min-h-[min(660px,calc(100dvh-82px))]" aria-label="Banner may áo bóng chuyền">
         <div
           className="absolute inset-0 bg-cover bg-left bg-no-repeat after:absolute after:inset-0 after:bg-[linear-gradient(90deg,transparent_0%,transparent_43%,rgba(255,255,255,.78)_58%,#fff_74%),linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.22))] after:content-['']"
-          style={{ backgroundImage: "url('/images/mayaobongchuyen/volleyball-team-hero.png')" }}
+          style={{ backgroundImage: `url('${HERO_IMAGE}')` }}
         />
         <div className="relative z-10 ml-auto flex min-h-[min(660px,calc(100dvh-72px))] max-w-[650px] flex-col justify-center px-6 py-[34px] text-[#0d1422] md:min-h-[min(660px,calc(100dvh-82px))] md:px-[clamp(24px,5vw,82px)] md:py-[50px]">
           <p className="mb-[18px] text-[clamp(24px,2.3vw,40px)] font-black uppercase leading-[0.95] text-[var(--sport-green)]">May áo bóng chuyền</p>
@@ -115,7 +139,7 @@ export default async function Home() {
           </div>
           <a
             className="inline-flex min-h-12 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black uppercase text-white"
-            href="/dat-may-theo-yeu-cau"
+            href="/lien-he"
           >
             Đặt may <ArrowUpRight size={18} />
           </a>
@@ -190,22 +214,14 @@ export default async function Home() {
         </div>
         <div className="grid gap-[18px] md:grid-cols-2 xl:grid-cols-3">
           {products.map((product, index) => (
-            <article className="border border-[var(--line)] bg-white/6" key={product.id}>
-              <div
-                className={`relative flex h-[280px] items-center justify-center ${
-                  index === 0
-                    ? 'bg-[linear-gradient(135deg,#f97316,#7c2d12)]'
-                    : index === 1
-                      ? 'bg-[linear-gradient(135deg,#2563eb,#111827)]'
-                      : 'bg-[linear-gradient(135deg,#f6c445,#111827)] text-[#111]'
-                }`}
-              >
-                <Flame size={48} />
-                <span className="absolute right-7 bottom-[26px] text-[42px] font-black">{String(index + 7).padStart(2, '0')}</span>
-              </div>
+            <article className="mbc-product-card border border-[var(--line)] bg-white/6" key={product.id}>
+              <a className="mbc-product-card-media" href={product.slug ? `/san-pham/${product.slug}/` : '/lien-he'}>
+                <img alt={productAlt(product)} className="mbc-product-card-image" loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} />
+                <span className="mbc-product-card-badge"><Flame size={18} /> {String(index + 7).padStart(2, '0')}</span>
+              </a>
               <div className="p-[22px]">
                 <p className="mb-2 text-xs font-black text-[var(--accent)]">{product.sku}</p>
-                <h3 className="mb-2.5 text-[23px]">{product.name}</h3>
+                <h3 className="mb-2.5 text-[23px]"><a href={product.slug ? `/san-pham/${product.slug}/` : '/lien-he'}>{product.name}</a></h3>
                 <span className="leading-[1.55] text-[var(--muted)]">{product.shortDescription}</span>
                 <strong className="mt-4 block text-2xl">{formatPrice(product.price)}</strong>
               </div>
@@ -250,10 +266,10 @@ export default async function Home() {
             <FooterStoreDetails settings={publicSettings} />
           </div>
           <div>
-            <p className="font-black uppercase text-[var(--accent)]">Custom volleyball teamwear</p>
-            <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">San sang len mau cho doi cua ban.</h2>
+            <p className="font-black uppercase text-[var(--accent)]">Đồng phục bóng chuyền đặt đội</p>
+            <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">Sẵn sàng lên mẫu cho đội của bạn.</h2>
             <a className="mt-6 inline-flex min-h-11 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black text-white" href="/lien-he">
-              Goi tu van
+              Gọi tư vấn
             </a>
           </div>
         </div>

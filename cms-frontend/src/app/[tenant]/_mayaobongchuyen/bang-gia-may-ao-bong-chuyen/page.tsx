@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bảng giá may áo bóng chuyền | MayaoBongChuyen',
     description: 'Bảng giá tham khảo khi đặt may áo bóng chuyền theo số lượng, chất liệu, tên số, logo và nhu cầu thiết kế riêng.',
-    images: [{ url: '/images/mayaobongchuyen/volleyball-team-hero.png', width: 1672, height: 941, alt: 'Đội bóng chuyền mặc đồng phục đặt may MayaoBongChuyen' }],
+    images: [{ url: '/images/mayaobongchuyen/images/volleyball-team-hero.png', width: 1672, height: 941, alt: 'Đội bóng chuyền mặc đồng phục đặt may MayaoBongChuyen' }],
     type: 'website',
     url: '/bang-gia-may-ao-bong-chuyen/',
   },
@@ -133,7 +133,7 @@ export default async function VolleyballPricingPage() {
             <FooterStoreDetails settings={settings} />
           </div>
           <div>
-            <p className="font-black uppercase text-[var(--accent)]">Custom volleyball teamwear</p>
+            <p className="font-black uppercase text-[var(--accent)]">Đồng phục bóng chuyền đặt đội</p>
             <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">Gửi mẫu và số lượng để nhận báo giá sát hơn.</h2>
             <a className="mt-6 inline-flex min-h-11 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black text-white" href="/lien-he">
               Gọi tư vấn

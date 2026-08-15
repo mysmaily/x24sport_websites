@@ -73,21 +73,48 @@ const fallbackTenant: Tenant = {
   name: 'May Ao Bong Chuyen',
   slug: 'mayaobongchuyen',
   brand: {
-    headline: 'Dong phuc bong chuyen cho doi hinh bung suc',
-    subheadline: 'Ao thi dau dat may, mau manh, chat vai nhanh kho va tuy bien logo CLB.',
-    accentColor: '#f6c445',
+    headline: 'Đồng phục bóng chuyền cho đội hình bùng sức',
+    subheadline: 'Áo thi đấu đặt may, màu mạnh, chất vải nhanh khô và tùy biến logo CLB.',
+    accentColor: '#63b234',
   },
 }
 
 const fallbackProducts: Product[] = [
-  { id: '1', name: 'Spike Grid Jersey', sku: 'MBC-SPIKE-01', price: 199000, compareAtPrice: 249000, shortDescription: 'Ao bong chuyen co tim, pattern luoi san dau.' },
-  { id: '2', name: 'Libero Contrast Tee', sku: 'MBC-LIBERO-02', price: 215000, compareAtPrice: 265000, shortDescription: 'Mau libero tuong phan cao, de nhan dien.' },
-  { id: '3', name: 'Power Serve Kit', sku: 'MBC-POWER-03', price: 269000, compareAtPrice: 319000, shortDescription: 'Bo ao quan co so, ten doi va nha tai tro.' },
+  {
+    id: '1',
+    name: 'Áo bóng chuyền Spike Grid',
+    slug: 'ao-bong-chuyen-spike-grid',
+    sku: 'MBC-SPIKE-01',
+    price: 199000,
+    compareAtPrice: 249000,
+    shortDescription: 'Áo bóng chuyền cổ tim, phối mảng mạnh và có thể in tên số cho đội.',
+    gallery: [{ url: '/images/mayaobongchuyen/images/volleyball-team-hero.png', alt: 'Đội bóng chuyền mặc áo thi đấu phối màu xanh đỏ', width: 1672, height: 941 }],
+  },
+  {
+    id: '2',
+    name: 'Áo libero phối tương phản',
+    slug: 'ao-libero-phoi-tuong-phan',
+    sku: 'MBC-LIBERO-02',
+    price: 215000,
+    compareAtPrice: 265000,
+    shortDescription: 'Mẫu libero nổi bật, dễ nhận diện vị trí trên sân và đồng bộ với áo đội.',
+    gallery: [{ url: '/images/mayaobongchuyen/images/volleyball-team-hero.png', alt: 'Mẫu áo bóng chuyền libero phối màu tương phản', width: 1672, height: 941 }],
+  },
+  {
+    id: '3',
+    name: 'Bộ bóng chuyền Power Serve',
+    slug: 'bo-bong-chuyen-power-serve',
+    sku: 'MBC-POWER-03',
+    price: 269000,
+    compareAtPrice: 319000,
+    shortDescription: 'Bộ áo quần có số, tên đội, logo và vị trí nhà tài trợ theo yêu cầu.',
+    gallery: [{ url: '/images/mayaobongchuyen/images/volleyball-team-hero.png', alt: 'Bộ đồng phục bóng chuyền đặt may cho đội thi đấu', width: 1672, height: 941 }],
+  },
 ]
 
 const fallbackPosts: Post[] = [
-  { id: '1', title: 'Cach len mau ao bong chuyen', slug: 'len-mau-ao-bong-chuyen', excerpt: 'Chon block mau va pattern giup doi hinh noi bat tren san.' },
-  { id: '2', title: 'Size chart cho doi thi dau', slug: 'size-chart-doi-thi-dau', excerpt: 'Cach gom size nhanh cho doi nam, nu va libero.' },
+  { id: '1', title: 'Cách lên màu áo bóng chuyền', slug: 'len-mau-ao-bong-chuyen', excerpt: 'Chọn block màu và họa tiết giúp đội hình nổi bật trên sân.' },
+  { id: '2', title: 'Size chart cho đội thi đấu', slug: 'size-chart-doi-thi-dau', excerpt: 'Cách gom size nhanh cho đội nam, nữ và libero.' },
 ]
 
 const fallbackPages: Record<string, PageContent> = {
