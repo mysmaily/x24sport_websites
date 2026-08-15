@@ -14,6 +14,10 @@
     display: block;
   }
 
+  body.tenant-mayaobongda .mabd-mega-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   body.tenant-mayaobongda .mabd-mobile-actions,
   body.tenant-mayaobongda .mabd-mobile-menu {
     display: none;
