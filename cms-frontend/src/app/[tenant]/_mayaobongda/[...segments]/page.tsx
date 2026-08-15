@@ -6,7 +6,8 @@ import { notFound, permanentRedirect } from 'next/navigation'
 import { CatalogPageView } from '../components/catalog-page-view'
 import { FabricGuidePage } from '../components/fabric-guide-page'
 import { PostArchivePage } from '../components/post-archive-page'
-import { getProducts, productImages, productPath, resolveCategoryPath, resolveContentPath, resolveProductPath } from '../lib/cms'
+import { getProductCategory, getProducts, productImages, productPath, resolveCategoryPath, resolveContentPath, resolveProductPath } from '../lib/cms'
+import { footballColorSlugFromPath } from '../lib/category-paths'
 import { HOT_FOOTBALL_DESCRIPTION, HOT_FOOTBALL_PATH, HOT_FOOTBALL_TITLE, HOT_FOOTBALL_YEAR, isCurrentHotFootballPath } from '../lib/hot-football'
 import { rewriteLegacyHtml } from '../lib/legacy-content'
 import { getPostCategoryArchive, isIndexableContent } from '../lib/legacy-routes'
@@ -19,6 +20,11 @@ type SearchParams = Record<string, string | string[] | undefined>
 function pathFrom(segments: string[]) {
   const encoded = segments.map((segment) => encodeURIComponent(decodeURIComponent(segment)).replace(/%[0-9A-F]{2}/g, (token) => token.toLowerCase()))
   return `/${encoded.join('/')}/`
+}
+
+function resolveFootballCategoryPath(path: string) {
+  const colorSlug = footballColorSlugFromPath(path)
+  return colorSlug ? getProductCategory(colorSlug) : resolveCategoryPath(path)
 }
 
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ segments: string[] }>; searchParams: Promise<SearchParams> }): Promise<Metadata> {
@@ -63,7 +69,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
       alternates: { canonical: page > 1 ? `${path}?page=${page}` : path },
     }
   }
-  const [product, category, content] = await Promise.all([resolveProductPath(path), resolveCategoryPath(path), resolveContentPath(path)])
+  const [product, category, content] = await Promise.all([resolveProductPath(path), resolveFootballCategoryPath(path), resolveContentPath(path)])
   if (product) {
     const image = productImages(product)[0]
     return {
@@ -121,7 +127,7 @@ export default async function LegacyRoutePage({ params, searchParams }: { params
     const baseSegments = segments.slice(0, -2)
     const base = `/${baseSegments.join('/')}/`
     if (base === '/san-pham/') permanentRedirect(`${base}?page=${page}`)
-    if (base === '/blog/' || getPostCategoryArchive(base) || await resolveCategoryPath(base)) permanentRedirect(`${base}?page=${page}`)
+    if (base === '/blog/' || getPostCategoryArchive(base) || await resolveFootballCategoryPath(base)) permanentRedirect(`${base}?page=${page}`)
   }
 
   const postCategory = getPostCategoryArchive(path)
@@ -135,7 +141,7 @@ export default async function LegacyRoutePage({ params, searchParams }: { params
     permanentRedirect(productPath(product))
   }
 
-  const category = await resolveCategoryPath(path)
+  const category = await resolveFootballCategoryPath(path)
   if (category) {
     const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
     const q = String(Array.isArray(query.q) ? query.q[0] : query.q || '')

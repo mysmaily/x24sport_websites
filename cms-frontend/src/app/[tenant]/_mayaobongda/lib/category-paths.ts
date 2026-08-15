@@ -5,7 +5,7 @@ const CATEGORY_PATH_OVERRIDES: Record<string, string> = {
   'ao-bong-da-cong-ty-ngan-hang': '/thiet-ke-ao-bong-da-ngan-hang/',
 }
 
-const INDEXABLE_COLOR_SLUGS = new Set([
+export const INDEXABLE_COLOR_SLUGS = new Set([
   'mau-cam',
   'mau-den',
   'mau-do',
@@ -24,15 +24,21 @@ const INDEXABLE_COLOR_SLUGS = new Set([
 ])
 
 export function footballCategoryPath(category: Pick<ProductCategory, 'slug' | 'legacyPath'>) {
+  if (INDEXABLE_COLOR_SLUGS.has(category.slug)) return `/ao-bong-da-${category.slug}/`
   return CATEGORY_PATH_OVERRIDES[category.slug] || category.legacyPath || `/${category.slug}/`
 }
 
-export function footballColorPath(category: Pick<ProductCategory, 'name' | 'slug' | 'legacyPath'>) {
-  const isColor = /^màu\b/i.test(category.name.trim())
-  const hasCuratedColorLanding = isColor && INDEXABLE_COLOR_SLUGS.has(category.slug)
+export function footballColorSlugFromPath(path: string) {
+  const match = path.match(/^\/ao-bong-da-(mau-[a-z0-9-]+)\/$/)
+  return match && INDEXABLE_COLOR_SLUGS.has(match[1]) ? match[1] : null
+}
 
-  if (!isColor && category.legacyPath) return footballCategoryPath(category)
-  if (hasCuratedColorLanding && category.legacyPath) return footballCategoryPath(category)
+export function isIndexableFootballColor(category: Pick<ProductCategory, 'name' | 'slug'>) {
+  return /^màu\b/i.test(category.name.trim()) && INDEXABLE_COLOR_SLUGS.has(category.slug)
+}
+
+export function footballColorPath(category: Pick<ProductCategory, 'name' | 'slug' | 'legacyPath'>) {
+  if (isIndexableFootballColor(category)) return footballCategoryPath(category)
 
   const params = new URLSearchParams({ q: category.name.trim() })
   return `/san-pham/?${params}`

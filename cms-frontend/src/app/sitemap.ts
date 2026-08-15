@@ -15,6 +15,10 @@ import {
   getAllCanonicalRoutes as getMayaoBongDaCanonicalRoutes,
 } from './[tenant]/_mayaobongda/lib/cms'
 import {
+  footballColorPath,
+  isIndexableFootballColor,
+} from './[tenant]/_mayaobongda/lib/category-paths'
+import {
   HOT_FOOTBALL_PATH,
 } from './[tenant]/_mayaobongda/lib/hot-football'
 import { FOOTBALL_PERMANENT_REDIRECTS } from './[tenant]/_mayaobongda/lib/permanent-redirects'
@@ -61,9 +65,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${base}/thiet-ke-ao-bong-da-ngan-hang/`, priority: 0.82 },
       { url: `${base}/blog/`, lastModified: now, priority: 0.7 },
       ...categories
-        .filter((category) => category.legacyPath && !FOOTBALL_PERMANENT_REDIRECTS[category.legacyPath] && (category.productCount || 0) > 0)
+        .filter((category) => {
+          if ((category.productCount || 0) <= 0) return false
+          if (category.group === 'tag' && /^màu\b/i.test(category.name.trim())) return isIndexableFootballColor(category)
+          return Boolean(category.legacyPath && !FOOTBALL_PERMANENT_REDIRECTS[category.legacyPath])
+        })
         .map((category) => ({
-          url: `${base}${category.legacyPath}`,
+          url: `${base}${isIndexableFootballColor(category) ? footballColorPath(category) : category.legacyPath}`,
           lastModified: now,
           changeFrequency: 'weekly' as const,
           priority: category.group === 'type' ? 0.8 : 0.65,
