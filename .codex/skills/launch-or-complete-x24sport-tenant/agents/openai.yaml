@@ -1,0 +1,4 @@
+interface:
+  display_name: "X24Sport Tenant Completion"
+  short_description: "Thiết kế và hoàn thiện tenant đến production"
+  default_prompt: "Use $launch-or-complete-x24sport-tenant to plan, design, build, populate, validate, and launch this X24Sport tenant completely."
