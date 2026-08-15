@@ -48,6 +48,8 @@ const replaceBrand = (value: unknown): unknown => {
   return value
 }
 
+const replaceBrandSlug = (value: unknown) => String(replaceBrand(value) || '').toLowerCase()
+
 async function allDocs(payload: any, collection: string, where: Doc, depth = 0) {
   const docs: Doc[] = []
   let page = 1
@@ -96,7 +98,7 @@ function productData(source: Doc, tenantId: number | string, categoryIds: Array<
   return {
     tenant: tenantId,
     name: replaceBrand(source.name),
-    slug: replaceBrand(source.slug),
+    slug: replaceBrandSlug(source.slug),
     sku: replaceBrand(source.sku),
     sport: source.sport,
     productType: source.productType || 'simple',
@@ -121,7 +123,7 @@ function productData(source: Doc, tenantId: number | string, categoryIds: Array<
     seoTitle: replaceBrand(source.seoTitle || source.name),
     metaDescription: replaceBrand(source.metaDescription || source.shortDescription),
     canonicalOverride: undefined,
-    legacyPath: `/san-pham/${replaceBrand(source.slug)}/`,
+    legacyPath: `/san-pham/${replaceBrandSlug(source.slug)}/`,
     contentHtml: replaceBrand(source.contentHtml),
     sourceTags: replaceBrand(cloneValue(source.sourceTags)),
     sourceSystem: SOURCE_SYSTEM,
@@ -286,9 +288,9 @@ async function run() {
     await upsertBySourceId(payload, 'web-content', targetTenant.id, sourceId, {
       tenant: targetTenant.id,
       title: replaceBrand(source.title),
-      slug: replaceBrand(source.slug),
+      slug: replaceBrandSlug(source.slug),
       kind: source.kind,
-      legacyPath: replaceBrand(source.legacyPath),
+      legacyPath: replaceBrandSlug(source.legacyPath),
       contentHtml: replaceBrand(source.contentHtml),
       excerpt: replaceBrand(source.excerpt),
       publicationStatus: 'publish',
