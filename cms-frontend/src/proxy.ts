@@ -1,10 +1,19 @@
 import { NextResponse, type NextRequest } from 'next/server'
+import { FOOTBALL_PERMANENT_REDIRECTS } from './app/[tenant]/_mayaobongda/lib/permanent-redirects'
 import { encodeTenantHeader, resolveTenantByHost } from './lib/tenant-registry'
 
 export async function proxy(request: NextRequest) {
   const hostname = request.headers.get('host')?.split(':')[0].toLowerCase() || ''
   const tenant = await resolveTenantByHost(hostname)
   if (!tenant) return NextResponse.next()
+  const footballRedirect = tenant.slug === 'mayaobongda'
+    ? FOOTBALL_PERMANENT_REDIRECTS[request.nextUrl.pathname as keyof typeof FOOTBALL_PERMANENT_REDIRECTS]
+    : undefined
+  if (footballRedirect) {
+    const redirectUrl = request.nextUrl.clone()
+    redirectUrl.pathname = footballRedirect
+    return NextResponse.redirect(redirectUrl, 301)
+  }
   const url = request.nextUrl.clone()
   url.pathname = `/${tenant.slug}${request.nextUrl.pathname}`
   const requestHeaders = new Headers(request.headers)
