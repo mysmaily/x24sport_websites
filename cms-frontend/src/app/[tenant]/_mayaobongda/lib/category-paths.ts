@@ -27,7 +27,7 @@ export function footballCategoryPath(category: Pick<ProductCategory, 'slug' | 'l
   return CATEGORY_PATH_OVERRIDES[category.slug] || category.legacyPath || `/${category.slug}/`
 }
 
-export function footballTopicPath(category: Pick<ProductCategory, 'name' | 'slug' | 'legacyPath'>) {
+export function footballColorPath(category: Pick<ProductCategory, 'name' | 'slug' | 'legacyPath'>) {
   const isColor = /^màu\b/i.test(category.name.trim())
   const hasCuratedColorLanding = isColor && INDEXABLE_COLOR_SLUGS.has(category.slug)
 

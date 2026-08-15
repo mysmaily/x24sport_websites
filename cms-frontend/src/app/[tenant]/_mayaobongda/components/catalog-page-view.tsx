@@ -2,7 +2,7 @@ import { ChevronDown, ChevronRight, Search, SlidersHorizontal } from 'lucide-rea
 import Link from 'next/link'
 
 import { Pagination } from '../../../_components/pagination'
-import { footballCategoryPath, footballTopicPath } from '../lib/category-paths'
+import { footballCategoryPath, footballColorPath } from '../lib/category-paths'
 import { getCategories, getProducts } from '../lib/cms'
 import { excerpt, SITE_URL } from '../lib/site'
 
@@ -37,7 +37,11 @@ export async function CatalogPageView({
     getCategories(),
   ])
   const primaryCategories = categoryResult.docs.filter((item) => item.group === 'type' && (item.productCount || 0) > 0)
-  const secondaryCategories = categoryResult.docs.filter((item) => item.group === 'tag' && (item.productCount || 0) > 0)
+  const secondaryCategories = categoryResult.docs.filter((item) => (
+    item.group === 'tag'
+    && (item.productCount || 0) > 0
+    && /^màu\b/i.test(item.name.trim())
+  ))
   const activeSecondary = secondaryCategories.find((item) => item.slug === categorySlug)
   const cleanDescription = description.replace(/\s+/g, ' ').trim()
   const shortDescription = excerpt(cleanDescription, 180)
@@ -80,7 +84,7 @@ export async function CatalogPageView({
       </section>
 
       <div className="section-shell mabd-catalog-body">
-        <nav aria-label="Lọc mẫu áo theo nhóm và từ khóa" className="mabd-catalog-filter">
+        <nav aria-label="Lọc mẫu áo theo nhóm và màu sắc" className="mabd-catalog-filter">
           <span className="mabd-catalog-filter-label"><SlidersHorizontal aria-hidden="true" size={15} /> Bộ lọc</span>
           <div className="mabd-catalog-filter-strip" data-catalog-type-strip>
             <Link aria-current={!categorySlug ? 'page' : undefined} href="/san-pham/">Tất cả mẫu</Link>
@@ -94,13 +98,13 @@ export async function CatalogPageView({
 
           <details className="mabd-catalog-more" data-catalog-color-filter>
             <summary>
-              <span>{activeSecondary ? activeSecondary.name : 'Chủ đề'}</span>
+              <span>{activeSecondary ? activeSecondary.name : 'Lọc theo màu'}</span>
               <ChevronDown aria-hidden="true" size={15} />
             </summary>
             <div>
-              <Link className="mabd-catalog-more-all" href="/san-pham/">Tất cả chủ đề</Link>
+              <Link className="mabd-catalog-more-all" href="/san-pham/">Tất cả màu</Link>
               {secondaryCategories.map((item) => (
-                <Link aria-current={categorySlug === item.slug ? 'page' : undefined} href={footballTopicPath(item)} key={item.slug}>
+                <Link aria-current={categorySlug === item.slug ? 'page' : undefined} href={footballColorPath(item)} key={item.slug}>
                   <span>{item.name}</span>
                   {typeof item.productCount === 'number' ? <small>{item.productCount}</small> : null}
                 </Link>
