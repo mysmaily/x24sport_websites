@@ -4,6 +4,7 @@ import { Menu, Phone, X } from 'lucide-react'
 import { categoryMenu } from '../../lib/catalog'
 import { getCategoryNavigation } from '../../lib/content'
 import { SearchDialog } from './search-dialog'
+import { StickyNavigation } from './sticky-navigation'
 
 const HEADER_LOGO_SRC = 'https://cdn.x24sport.vn/wp-content/uploads/2025/03/Asset-1-1200x158.png'
 const pricingLinks: Record<string, string> = {
@@ -72,25 +73,23 @@ export async function SiteHeader() {
           </div>
           <div className="mobile-search"><SearchDialog action="/tim-kiem" iconSize={23} triggerClassName="h-[42px] w-[35px] border-0 bg-transparent text-current" /></div>
         </div>
-        <nav className="nav-bar" aria-label="Điều hướng chính">
-          <div className="site-container">
-            <Link href="/">Trang chủ</Link>
-            {navigationMenu.map((group) => (
-              group.children.length > 0
-                ? <div className="nav-dropdown nav-category-dropdown" key={group.slug}>
-                  <Link className="nav-trigger" href={`/danh-muc/${group.slug}`}>{group.name}</Link>
-                  <div className="nav-submenu" role="menu">
-                    {group.children.map((child) => <Link href={`/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}
-                    {pricingLinks[group.slug] ? <a href={pricingLinks[group.slug]}>Bảng giá</a> : null}
-                  </div>
-                </div>
-                : <Link href={`/danh-muc/${group.slug}`} key={group.slug}>{group.name}</Link>
-            ))}
-            <Link href="/blog/">Blog</Link>
-            <Link href="/lien-he/">Liên hệ</Link>
-          </div>
-        </nav>
       </header>
+      <StickyNavigation>
+        <Link href="/">Trang chủ</Link>
+        {navigationMenu.map((group) => (
+          group.children.length > 0
+            ? <div className="nav-dropdown nav-category-dropdown" key={group.slug}>
+              <Link className="nav-trigger" href={`/danh-muc/${group.slug}`}>{group.name}</Link>
+              <div className="nav-submenu" role="menu">
+                {group.children.map((child) => <Link href={`/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}
+                {pricingLinks[group.slug] ? <a href={pricingLinks[group.slug]}>Bảng giá</a> : null}
+              </div>
+            </div>
+            : <Link href={`/danh-muc/${group.slug}`} key={group.slug}>{group.name}</Link>
+        ))}
+        <Link href="/blog/">Blog</Link>
+        <Link href="/lien-he/">Liên hệ</Link>
+      </StickyNavigation>
     </>
   )
 }
