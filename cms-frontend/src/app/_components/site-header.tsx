@@ -75,7 +75,7 @@ export async function SiteHeader() {
         </div>
       </header>
       <StickyNavigation>
-        <Link href="/">Trang chủ</Link>
+        <Link className="nav-home-link" href="/">Trang chủ</Link>
         {navigationMenu.map((group) => (
           group.children.length > 0
             ? <div className="nav-dropdown nav-category-dropdown" key={group.slug}>
