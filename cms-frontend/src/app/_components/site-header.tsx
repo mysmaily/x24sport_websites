@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Menu, Phone, X } from 'lucide-react'
 import { categoryMenu } from '../../lib/catalog'
+import { getCategoryNavigation } from '../../lib/content'
 import { SearchDialog } from './search-dialog'
 
 const HEADER_LOGO_SRC = 'https://cdn.x24sport.vn/wp-content/uploads/2025/03/Asset-1-1200x158.png'
@@ -28,7 +29,10 @@ export function Logo() {
   )
 }
 
-export function SiteHeader() {
+export async function SiteHeader() {
+  const cmsMenu = await getCategoryNavigation()
+  const navigationMenu = cmsMenu.some((group) => group.children.length > 0) ? cmsMenu : categoryMenu
+
   return (
     <>
       <a className="skip-link" href="#noi-dung">Bỏ qua điều hướng</a>
@@ -41,7 +45,7 @@ export function SiteHeader() {
               <Link href="/">Trang chủ</Link>
               <Link href="/san-pham/">Tất cả sản phẩm</Link>
               <Link href="/mau-logo/">Mẫu logo</Link>
-              {categoryMenu.map((group) => (
+              {navigationMenu.map((group) => (
                 group.children.length > 0
                   ? <details className="mobile-category-group" key={group.slug}>
                     <summary>{group.name}</summary>
@@ -71,7 +75,7 @@ export function SiteHeader() {
         <nav className="nav-bar" aria-label="Điều hướng chính">
           <div className="site-container">
             <Link href="/">Trang chủ</Link>
-            {categoryMenu.map((group) => (
+            {navigationMenu.map((group) => (
               group.children.length > 0
                 ? <div className="nav-dropdown nav-category-dropdown" key={group.slug}>
                   <Link className="nav-trigger" href={`/danh-muc/${group.slug}`}>{group.name}</Link>
