@@ -6,7 +6,7 @@ import { ProductMediaGallery } from '../../../_components/product-media-gallery'
 import { products } from '../../../mayaodongphuc-preview/data'
 import { Breadcrumbs, ProductCard, v2Base } from '../../components'
 import { V2QuoteForm } from '../../quote-form'
-import styles from '../../v2.module.css'
+import styles from '../../../[tenant]/_mayaodongphuc/mayaodongphuc.module.css'
 
 export default async function V2Product({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -14,7 +14,7 @@ export default async function V2Product({ params }: { params: Promise<{ slug: st
   if (!product) notFound()
   const media = [
     { id: `${product.slug}-1`, url: product.image, alt: product.name },
-    { id: `${product.slug}-2`, url: '/images/mayaodongphuc-preview/hero-atelier.webp', alt: `${product.name} trong bối cảnh studio` },
+    { id: `${product.slug}-2`, url: '/images/mayaodongphuc/hero-atelier.webp', alt: `${product.name} trong bối cảnh studio` },
   ]
 
   return <>

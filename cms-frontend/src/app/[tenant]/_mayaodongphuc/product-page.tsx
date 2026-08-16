@@ -1,0 +1,50 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { ArrowRight, Check, PackageCheck, Palette, Ruler, Shirt } from 'lucide-react'
+import Link from 'next/link'
+
+import { hasProductInterestForm } from '../../../lib/content'
+import { JsonLd } from '../../_components/json-ld'
+import { ProductInterestForm } from '../../_components/product-interest-form'
+import { ProductMediaGallery } from '../../_components/product-media-gallery'
+import styles from './mayaodongphuc.module.css'
+import { Breadcrumbs, UniformProductCard } from './components'
+import { cleanContentHtml, getRelatedUniformProducts, getUniformProduct, productCategory, productColors, productImages, productMaterial } from './lib'
+import { MayAoDongPhucShell } from './shell'
+
+export async function getMayAoDongPhucProductMetadata(slug: string): Promise<Metadata> {
+  const product = await getUniformProduct(slug)
+  if (!product) return { title: 'Không tìm thấy sản phẩm' }
+  const description = product.metaDescription || product.shortDescription || `${product.name} — mẫu đồng phục cấu hình theo yêu cầu.`
+  const images = productImages(product).map((image) => ({ url: image.url || '', alt: image.alt || product.name }))
+  const canonical = `/san-pham/${product.slug}/`
+  return { title: { absolute: product.seoTitle || `${product.name} | May Áo Đồng Phục` }, description, alternates: { canonical }, openGraph: { title: product.name, description, url: canonical, images } }
+}
+
+export async function MayAoDongPhucProductPage({ slug }: { slug: string }) {
+  const product = await getUniformProduct(slug)
+  if (!product) notFound()
+  const [related, consultationEnabled] = await Promise.all([getRelatedUniformProducts(product), hasProductInterestForm()])
+  const category = productCategory(product)
+  const images = productImages(product)
+  const canonical = `https://mayaodongphuc.com.vn/san-pham/${product.slug}/`
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    sku: product.sku || undefined,
+    image: images.map((image) => image.url),
+    description: product.shortDescription,
+    brand: { '@type': 'Brand', name: 'May Áo Đồng Phục' },
+    url: canonical,
+  }
+
+  return <MayAoDongPhucShell>
+    <JsonLd data={structuredData} />
+    <section className={styles.productPage}><Breadcrumbs items={[...(category ? [{ label: category.name, href: `/danh-muc/${category.slug}/` }] : []), { label: product.name }]} /><h1 className={styles.mobileProductTitle}>{product.name}</h1><div className={styles.productLayout}><div className={styles.galleryWrap}><ProductMediaGallery images={images} productName={product.name} variant="utility" /></div><div className={styles.productContent}><span className={styles.productCode}>{product.sku || product.id} · MADE TO ORDER</span><p className={styles.productIntro}>{product.shortDescription || 'Mẫu đồng phục để phát triển theo bối cảnh, vai trò và nhận diện của tổ chức.'}</p><div className={styles.priceBlock}><span>ĐƠN GIÁ</span><strong>Báo giá theo cấu hình</strong><p>Phụ thuộc vật liệu, kỹ thuật logo và số lượng được xác nhận.</p></div><div className={styles.configBlock}><h2>Màu khởi đầu</h2><div className={styles.colorOptions}>{productColors(product).map((color, index) => <span aria-label={`Màu gợi ý ${index + 1}`} className={index === 0 ? styles.selectedColor : ''} key={color} style={{ '--swatch': color } as React.CSSProperties} />)}</div></div><div className={styles.specList}><div><Shirt /><span><b>Form</b>Điều chỉnh theo đội ngũ</span></div><div><Palette /><span><b>Vật liệu gợi ý</b>{productMaterial(product)}</span></div><div><Ruler /><span><b>Size</b>Tư vấn từ bảng size thực tế</span></div><div><PackageCheck /><span><b>Sản xuất</b>Sau khi duyệt thiết kế & thông số</span></div></div>{consultationEnabled ? <Link className={styles.primaryCta} href="#nhan-bao-gia">Cấu hình mẫu này <ArrowRight /></Link> : <Link className={styles.primaryCta} href="/san-pham/">Xem thêm mẫu <ArrowRight /></Link>}<p className={styles.productNote}><Check /> Chỉ sản xuất sau khi thông tin được xác nhận.</p></div></div></section>
+    <section className={styles.detailBand}><div><span>01 / DESIGN INTENT</span><h2>Ít chi tiết hơn.<br />Đúng chi tiết hơn.</h2></div><p>Vị trí logo, đường phối và độ tương phản được điều chỉnh để nhận diện rõ nhưng không tạo cảm giác như áo quảng cáo.</p><ul><li>Logo theo tỉ lệ trang phục</li><li>Màu phối có vai trò cụ thể</li><li>Form theo hoạt động thực tế</li></ul></section>
+    {product.contentHtml ? <section className={styles.productEditorial}><div dangerouslySetInnerHTML={{ __html: cleanContentHtml(product.contentHtml) }} /></section> : null}
+    {consultationEnabled ? <section className={styles.productQuote} id="nhan-bao-gia"><div><span>02 / REQUEST SPEC</span><h2>Nhận cấu hình riêng cho<br />{product.name}.</h2><p>Gửi số lượng và số điện thoại để đội ngũ tư vấn chuẩn bị phương án phù hợp.</p></div><ProductInterestForm productName={product.name} productUrl={canonical} variant="utility" /></section> : null}
+    {related.length ? <section className={styles.related}><div className={styles.sectionHead}><div><span>03 / CÙNG HỆ THIẾT KẾ</span><h2>Có thể bạn cũng cần</h2></div></div><div className={styles.productGrid}>{related.map((item) => <UniformProductCard key={item.id} product={item} />)}</div></section> : null}
+  </MayAoDongPhucShell>
+}

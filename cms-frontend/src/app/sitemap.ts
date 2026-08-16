@@ -30,6 +30,7 @@ import {
   staticPages as mayaoPickleballStaticPages,
 } from './[tenant]/_mayaopickleball/lib/seo'
 import { pndLandings } from './[tenant]/_pndsport/lib'
+import { getUniformCategories, getUniformProducts } from './[tenant]/_mayaodongphuc/lib'
 
 const mayaoCauLongStaticPages = [
   { path: '/', priority: 1 },
@@ -44,6 +45,30 @@ const mayaoCauLongStaticPages = [
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const tenant = await getTenantContext()
   const base = `https://${tenant.domain}`
+  if (tenant.slug === 'mayaodongphuc') {
+    const now = new Date()
+    const [categories, productResult] = await Promise.all([
+      getUniformCategories(),
+      getUniformProducts({ limit: 100 }),
+    ])
+
+    return [
+      { url: `${base}/`, lastModified: now, changeFrequency: 'weekly' as const, priority: 1 },
+      { url: `${base}/san-pham/`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.9 },
+      ...categories.filter((category) => (category.productCount || 0) > 0).map((category) => ({
+        url: `${base}/danh-muc/${category.slug}/`,
+        lastModified: now,
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      })),
+      ...productResult.docs.map((product) => ({
+        url: `${base}/san-pham/${product.slug}/`,
+        lastModified: product.sourceModifiedAt ? new Date(product.sourceModifiedAt) : now,
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      })),
+    ]
+  }
   if (tenant.slug === 'mayaobongda') {
     const now = new Date()
     const { categories, products, content } = await getMayaoBongDaCanonicalRoutes()

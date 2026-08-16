@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { industries, products, productTypes } from '../../../mayaodongphuc-preview/data'
 import { Breadcrumbs, ProductCard, v2Base } from '../../components'
-import styles from '../../v2.module.css'
+import styles from '../../../[tenant]/_mayaodongphuc/mayaodongphuc.module.css'
 
 export default async function V2Category({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params

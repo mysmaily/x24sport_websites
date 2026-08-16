@@ -18,7 +18,7 @@ export default function MayAoDongPhucPreviewHome() {
         <div className={styles.heroFoot}><span>01 — 06</span><p>Giải pháp cho doanh nghiệp, F&B, trường học, bảo hộ, y tế và đội nhóm.</p></div>
       </div>
       <div className={styles.heroVisual}>
-        <Image alt="Nhóm nhân sự mặc đồng phục doanh nghiệp, F&B, bảo hộ và công sở trong xưởng thiết kế" fetchPriority="high" fill loading="eager" sizes="(max-width: 820px) 100vw, 58vw" src="/images/mayaodongphuc-preview/hero-atelier.webp" />
+        <Image alt="Nhóm nhân sự mặc đồng phục doanh nghiệp, F&B, bảo hộ và công sở trong xưởng thiết kế" fetchPriority="high" fill loading="eager" sizes="(max-width: 820px) 100vw, 58vw" src="/images/mayaodongphuc/hero-atelier.webp" />
         <div className={styles.heroCaption}><span>ATELIER / 01</span><p>Thiết kế để mỗi vai trò đều thuộc về cùng một thương hiệu.</p></div>
         <span className={styles.measureY}>0&nbsp;&nbsp;10&nbsp;&nbsp;20&nbsp;&nbsp;30&nbsp;&nbsp;40&nbsp;&nbsp;50&nbsp;&nbsp;60</span>
       </div>
@@ -57,7 +57,7 @@ export default function MayAoDongPhucPreviewHome() {
     </section>
 
     <section className={styles.projectSection} id="du-an">
-      <div className={styles.projectImage}><Image alt="Chi tiết người thợ chuẩn bị rập giấy và vật liệu trong xưởng may" fill sizes="(max-width: 820px) 100vw, 48vw" src="/images/mayaodongphuc-preview/hero-atelier.webp" /></div>
+      <div className={styles.projectImage}><Image alt="Chi tiết người thợ chuẩn bị rập giấy và vật liệu trong xưởng may" fill sizes="(max-width: 820px) 100vw, 48vw" src="/images/mayaodongphuc/hero-atelier.webp" /></div>
       <div className={styles.projectContent}><span>05 / CÁCH CHÚNG TÔI NHÌN MỘT DỰ ÁN</span><blockquote>“Không bắt đầu bằng việc chọn một chiếc áo. Bắt đầu bằng việc hiểu người mặc cần làm gì trong chiếc áo đó.”</blockquote><ul><li><Check /> Nhìn toàn bộ đội ngũ, không chỉ một vị trí</li><li><Check /> Cân bằng nhận diện và sự thoải mái</li><li><Check /> Chốt thông tin rõ ràng trước sản xuất</li></ul><p>Dự án thực tế sẽ được bổ sung khi có hình ảnh và thông tin được phép công bố.</p></div>
     </section>
 

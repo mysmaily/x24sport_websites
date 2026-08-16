@@ -16,6 +16,10 @@ type Props = {
 
 export async function generateMetadata({ params, searchParams }: Props) {
   const { tenant, slug } = await params
+  if (tenant === 'mayaodongphuc') {
+    const { getMayAoDongPhucProductMetadata } = await import('../../_mayaodongphuc/product-page')
+    return getMayAoDongPhucProductMetadata(slug)
+  }
   if (tenant === 'pndsport') {
     const { getPndProductMetadata } = await import('../../_pndsport/product-page')
     return getPndProductMetadata(slug)
@@ -31,6 +35,10 @@ export async function generateMetadata({ params, searchParams }: Props) {
 
 export default async function TenantProductPage({ params, searchParams }: Props) {
   const { tenant, slug } = await params
+  if (tenant === 'mayaodongphuc') {
+    const { MayAoDongPhucProductPage } = await import('../../_mayaodongphuc/product-page')
+    return <MayAoDongPhucProductPage slug={slug} />
+  }
   if (tenant === 'pndsport') {
     const { PndProductPage } = await import('../../_pndsport/product-page')
     return <PndProductPage slug={slug} />

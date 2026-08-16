@@ -5,13 +5,13 @@ import Link from 'next/link'
 import { industries, products } from '../mayaodongphuc-preview/data'
 import { ProductCard, TrustPill, v2Base } from './components'
 import { V2QuoteForm } from './quote-form'
-import styles from './v2.module.css'
+import styles from '../[tenant]/_mayaodongphuc/mayaodongphuc.module.css'
 
 export default function V2Home() {
   return <>
     <section className={styles.hero}>
       <div className={styles.heroMain}><TrustPill /><h1>Đồng phục,<br /><span>được cấu hình đúng.</span></h1><p>Chọn theo môi trường, vai trò và tần suất sử dụng. Chúng tôi biến những yêu cầu rời rạc thành một bộ quy chuẩn dễ duyệt.</p><Link className={styles.primaryCta} href="#bao-gia">Tạo brief trong 2 phút <ArrowRight /></Link><div className={styles.heroProof}><span><b>06</b> nhóm ngành</span><span><b>04</b> bước rõ ràng</span><span><b>01</b> đầu mối tư vấn</span></div></div>
-      <div className={styles.heroImage}><Image alt="Nhóm nhân sự trong nhiều mẫu đồng phục tại studio" fill fetchPriority="high" loading="eager" sizes="(max-width: 850px) 100vw, 45vw" src="/images/mayaodongphuc-preview/hero-atelier.webp" /><div><span>HỆ ĐỒNG PHỤC / 2026</span><p>Mỗi vai trò một yêu cầu. Cùng chung một hình ảnh.</p></div></div>
+      <div className={styles.heroImage}><Image alt="Nhóm nhân sự trong nhiều mẫu đồng phục tại studio" fill fetchPriority="high" loading="eager" sizes="(max-width: 850px) 100vw, 45vw" src="/images/mayaodongphuc/hero-atelier.webp" /><div><span>HỆ ĐỒNG PHỤC / 2026</span><p>Mỗi vai trò một yêu cầu. Cùng chung một hình ảnh.</p></div></div>
       <aside className={styles.finder}><span>01 / BẮT ĐẦU NHANH</span><h2>Bạn đang cần may cho?</h2><div className={styles.finderLinks}>{industries.slice(0, 4).map((item) => <Link href={`${v2Base}/danh-muc/${item.slug}`} key={item.slug}><b>{item.name}</b><small>{item.note}</small><ArrowRight /></Link>)}</div><Link href={`${v2Base}/danh-muc/dong-phuc-doanh-nghiep`}>Xem đủ 6 nhóm ngành <ArrowRight /></Link></aside>
       <div className={styles.materialBento}><span>02 / VẬT LIỆU</span><Layers3 /><h2>Chọn theo nhịp làm việc</h2><p>Độ thoáng, giữ form và độ bền được cân bằng cho từng bối cảnh.</p><Link href="#vat-lieu">Mở thư viện vật liệu <ArrowRight /></Link></div>
     </section>

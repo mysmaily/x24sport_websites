@@ -4,7 +4,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 import { industries, productTypes, type PreviewProduct } from '../mayaodongphuc-preview/data'
-import styles from './v2.module.css'
+import styles from '../[tenant]/_mayaodongphuc/mayaodongphuc.module.css'
 
 export const v2Base = '/mayaodongphuc-preview-v2'
 

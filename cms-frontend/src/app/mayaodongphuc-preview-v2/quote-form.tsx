@@ -2,7 +2,7 @@
 
 import { ArrowRight, Check, Upload } from 'lucide-react'
 import { FormEvent, useState } from 'react'
-import styles from './v2.module.css'
+import styles from '../[tenant]/_mayaodongphuc/mayaodongphuc.module.css'
 
 export function V2QuoteForm({ compact = false }: { compact?: boolean }) {
   const [submitted, setSubmitted] = useState(false)

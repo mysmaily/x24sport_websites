@@ -14,7 +14,7 @@ export default async function V3Product({ params }: { params: Promise<{ slug: st
   if (!product) notFound()
   const media = [
     { id: `${product.slug}-a`, url: product.image, alt: product.name },
-    { id: `${product.slug}-b`, url: '/images/mayaodongphuc-preview/hero-atelier.webp', alt: `${product.name} trong không gian studio` },
+    { id: `${product.slug}-b`, url: '/images/mayaodongphuc/hero-atelier.webp', alt: `${product.name} trong không gian studio` },
   ]
 
   return <>

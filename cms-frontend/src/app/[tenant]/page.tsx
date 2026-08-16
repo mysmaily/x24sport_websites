@@ -40,6 +40,17 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
       images: [{ url: '/images/mayaobongda/og-share.webp', width: 1200, height: 630, alt: 'Mẫu áo bóng đá thiết kế riêng MayaoBongDa' }],
     },
   }
+  if (tenant === 'mayaodongphuc') return {
+    title: { absolute: 'May Áo Đồng Phục — Đồng phục theo nhận diện tổ chức' },
+    description: 'Thiết kế và may đồng phục theo nhận diện cho doanh nghiệp, nhà hàng, trường học, sự kiện, câu lạc bộ và đội ngũ vận hành.',
+    alternates: { canonical: 'https://mayaodongphuc.com.vn/' },
+    openGraph: {
+      title: 'May Áo Đồng Phục — Đồng phục theo nhận diện tổ chức',
+      description: 'Khám phá các mẫu đồng phục được thiết kế theo môi trường sử dụng, màu sắc thương hiệu và nhu cầu vận hành thực tế.',
+      url: 'https://mayaodongphuc.com.vn/',
+      images: [{ url: '/images/mayaodongphuc/hero-atelier.webp', width: 1600, height: 1000, alt: 'Đồng phục thiết kế theo nhận diện tổ chức' }],
+    },
+  }
   if (tenant === 'pndsport') return {
     title: { absolute: 'PND Sport Việt Nam - Trang phục thể thao thiết kế theo đội' },
     description: 'Khám phá mẫu trang phục thể thao, xem giá thấp nhất và gửi yêu cầu thiết kế màu sắc, logo, tên số cho đội nhóm.',
@@ -106,6 +117,10 @@ const trustItems = [
 
 export default async function TenantHomePage({ params }: { params: Promise<{ tenant: string }> }) {
   const { tenant } = await params
+  if (tenant === 'mayaodongphuc') {
+    const { MayAoDongPhucHome } = await import('./_mayaodongphuc/home')
+    return <MayAoDongPhucHome />
+  }
   if (tenant === 'pndsport') {
     const { PndHomePage } = await import('./_pndsport/home')
     return <PndHomePage />
