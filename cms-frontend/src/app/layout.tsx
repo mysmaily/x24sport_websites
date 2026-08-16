@@ -187,7 +187,7 @@ function buildHeadMarkup({
     mayaochaybo: ['/styles/mayaochaybo.css', '/styles/mayaochaybo-fixes.css'],
     mayaobongda: ['/styles/mayaobongda.css?v=20260816b', '/styles/mayaobongda-audience.css', '/styles/mayaobongda-header.css?v=20260816e'],
   }
-  const stylesheets = tenantStyles[tenantSlug] || ['/styles/shared.css?v=20260817d']
+  const stylesheets = tenantStyles[tenantSlug] || ['/styles/shared.css?v=20260817e']
 
   return [
     '<link rel="preconnect" href="https://static.x24sport.vn" crossorigin="anonymous">',

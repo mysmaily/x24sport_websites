@@ -29,7 +29,7 @@ export function StickyNavigation({ children }: StickyNavigationProps) {
         <div className="nav-menu-links">
           <Link aria-label="X24Sport - Trang chủ" className="nav-mini-logo" href="/">
             <span>
-              <Image alt="" aria-hidden="true" height={158} src="/images/brand/x24-logo.png" width={1200} />
+              <Image alt="" aria-hidden="true" height={242} src="/images/brand/x24-logo-white.svg" unoptimized width={783} />
             </span>
           </Link>
           {children}
