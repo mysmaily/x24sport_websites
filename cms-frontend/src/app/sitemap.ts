@@ -15,8 +15,13 @@ import {
   getAllCanonicalRoutes as getMayaoBongDaCanonicalRoutes,
 } from './[tenant]/_mayaobongda/lib/cms'
 import {
+  footballColorPath,
+  isIndexableFootballColor,
+} from './[tenant]/_mayaobongda/lib/category-paths'
+import {
   HOT_FOOTBALL_PATH,
 } from './[tenant]/_mayaobongda/lib/hot-football'
+import { FOOTBALL_PERMANENT_REDIRECTS } from './[tenant]/_mayaobongda/lib/permanent-redirects'
 import {
   getAllPostPaths as getMayaoPickleballPostPaths,
   getSitemapProducts as getMayaoPickleballProductPaths,
@@ -24,6 +29,7 @@ import {
 import {
   staticPages as mayaoPickleballStaticPages,
 } from './[tenant]/_mayaopickleball/lib/seo'
+import { pndLandings } from './[tenant]/_pndsport/lib'
 
 const mayaoCauLongStaticPages = [
   { path: '/', priority: 1 },
@@ -54,14 +60,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${base}${HOT_FOOTBALL_PATH}`, lastModified: now, priority: 0.84 },
       { url: `${base}/bang-gia-may-ao-bong-da/`, priority: 0.82 },
       { url: `${base}/ao-bong-da-doi-bong-cau-lac-bo/`, priority: 0.82 },
+      { url: `${base}/ao-bong-da-truong-hoc-sinh-vien/`, priority: 0.82 },
       { url: `${base}/ao-bong-da-giai-phong-trao/`, priority: 0.82 },
       { url: `${base}/thiet-ke-ao-bong-da-cong-ty/`, priority: 0.82 },
       { url: `${base}/thiet-ke-ao-bong-da-ngan-hang/`, priority: 0.82 },
       { url: `${base}/blog/`, lastModified: now, priority: 0.7 },
       ...categories
-        .filter((category) => category.legacyPath && category.legacyPath !== '/ao-bong-da-cong-ty-ngan-hang/' && (category.productCount || 0) > 0)
+        .filter((category) => {
+          if ((category.productCount || 0) <= 0) return false
+          if (category.group === 'tag' && /^màu\b/i.test(category.name.trim())) return isIndexableFootballColor(category)
+          return Boolean(category.legacyPath && !FOOTBALL_PERMANENT_REDIRECTS[category.legacyPath])
+        })
         .map((category) => ({
-          url: `${base}${category.legacyPath}`,
+          url: `${base}${isIndexableFootballColor(category) ? footballColorPath(category) : category.legacyPath}`,
           lastModified: now,
           changeFrequency: 'weekly' as const,
           priority: category.group === 'type' ? 0.8 : 0.65,
@@ -72,7 +83,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: 'weekly' as const,
         priority: 0.7,
       })),
-      ...content.map((item) => ({
+      ...content.filter((item) => !FOOTBALL_PERMANENT_REDIRECTS[item.legacyPath]).map((item) => ({
         url: `${base}${item.legacyPath}`,
         lastModified: item.sourceModifiedAt ? new Date(item.sourceModifiedAt) : undefined,
         changeFrequency: item.kind === 'post' ? 'monthly' as const : 'weekly' as const,
@@ -178,6 +189,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { url: `${base}/bang-gia-may-ao-chay-bo/`, priority: .82 },
       { url: `${base}/mau-logo/`, priority: .8 },
     ] : []),
+    ...(tenant.slug === 'pndsport' ? pndLandings.map((landing) => ({
+      url: `${base}/${landing.slug}/`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: .78,
+    })) : []),
     { url: `${base}/blog/`, lastModified: now, priority: .7 },
     ...categories.map((category) => {
       const legacyPath = 'legacyPath' in category && typeof category.legacyPath === 'string' ? category.legacyPath : undefined
@@ -188,7 +205,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     }),
     ...products.map((product) => ({
-      url: tenant.slug.startsWith('mayao') ? `${base}/san-pham/${product.slug}/` : `${base}${product.legacyPath || `/${product.slug}/`}`,
+      url: tenant.slug.startsWith('mayao') || tenant.slug === 'pndsport' ? `${base}/san-pham/${product.slug}/` : `${base}${product.legacyPath || `/${product.slug}/`}`,
       lastModified: product.sourceModifiedAt ? new Date(product.sourceModifiedAt) : undefined,
       priority: .7,
     })),

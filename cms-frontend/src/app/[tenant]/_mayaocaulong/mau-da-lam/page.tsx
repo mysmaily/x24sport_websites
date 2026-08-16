@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, BadgeCheck, Images, Palette, Ruler, Shirt } from 'lucide-react'
 
+import { Pagination } from '../../../_components/pagination'
 import { SiteFooter, SiteHeader, zaloHref } from '../_components/info-pages'
 import { getFinishedSamplePostsPage, getPostHref } from '../lib/content'
 import { pageMetadata } from '../lib/seo'
@@ -144,7 +145,7 @@ export default async function FinishedSamplesPage({ searchParams }: { searchPara
           </div>
         )}
 
-        <BlogPagination basePath="/mau-da-lam/" page={posts.page} totalPages={posts.totalPages} />
+        <Pagination ariaLabel="Phân trang mẫu đã làm" basePath="/mau-da-lam/" page={posts.page} totalPages={posts.totalPages} />
       </section>
 
       <section className="samples-bottom-cta">
@@ -159,17 +160,5 @@ export default async function FinishedSamplesPage({ searchParams }: { searchPara
 
       <SiteFooter />
     </main>
-  )
-}
-
-function BlogPagination({ basePath, page, totalPages }: { basePath: string; page: number; totalPages: number }) {
-  if (totalPages <= 1) return null
-
-  return (
-    <nav className="blog-pagination" aria-label="Phân trang mẫu đã làm">
-      {page > 1 ? <Link href={page === 2 ? basePath : `${basePath}?page=${page - 1}`}>← Trang trước</Link> : <span>← Trang trước</span>}
-      <p>Trang {page} / {totalPages}</p>
-      {page < totalPages ? <Link href={`${basePath}?page=${page + 1}`}>Trang sau →</Link> : <span>Trang sau →</span>}
-    </nav>
   )
 }

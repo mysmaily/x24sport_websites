@@ -28,7 +28,9 @@ export type FootballAudienceLanding = {
 export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
   {
     slug: 'ao-bong-da-doi-bong-cau-lac-bo',
-    navLabel: 'Đội bóng & câu lạc bộ',
+    categorySlug: 'ao-bong-da-doi-bong-cau-lac-bo',
+    categoryLabel: 'Đội bóng & CLB phong trào',
+    navLabel: 'Đội bóng & CLB phong trào',
     eyebrow: 'Áo bóng đá cho đội bóng & CLB',
     title: 'Thiết kế áo bóng đá đội bóng, câu lạc bộ',
     tagline: 'Mặc cùng một màu. Chơi đúng một tinh thần.',
@@ -62,8 +64,47 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
     metaDescription: 'Thiết kế và may áo bóng đá cho đội bóng, câu lạc bộ: phối màu riêng, thêm logo, in tên số, tư vấn size và duyệt maket trước sản xuất.',
   },
   {
+    slug: 'ao-bong-da-truong-hoc-sinh-vien',
+    categorySlug: 'ao-bong-da-truong-hoc-sinh-vien',
+    categoryLabel: 'Trường học & sinh viên',
+    navLabel: 'Trường học & sinh viên',
+    eyebrow: 'Áo bóng đá cho trường học & sinh viên',
+    title: 'Thiết kế áo bóng đá trường học, sinh viên',
+    tagline: 'Một màu áo chung cho lớp, khoa và những mùa giải đáng nhớ.',
+    description: 'Thiết kế áo bóng đá theo màu lớp, khoa, trường hoặc câu lạc bộ sinh viên, đồng thời hỗ trợ sắp xếp logo, tên số và bảng size cho đội hình nhiều thành viên.',
+    heroImage: '/images/mayaobongda/audience-landings/doi-bong-cau-lac-bo.webp',
+    heroAlt: 'Nhóm cầu thủ trẻ mặc đồng phục bóng đá xanh navy và cam trên sân',
+    contexts: ['Đội bóng lớp và khoa', 'CLB học sinh, sinh viên', 'Giải bóng đá trường học'],
+    problemTitle: 'Mẫu áo cần thể hiện tinh thần tập thể nhưng vẫn dễ thống nhất giữa nhiều thành viên.',
+    problemText: 'Đội học sinh, sinh viên thường phải cân đối ý tưởng, ngân sách, lịch thi đấu và danh sách size trong thời gian ngắn. Một brief rõ ràng giúp lớp hoặc câu lạc bộ duyệt mẫu thuận lợi hơn.',
+    challenges: [
+      { title: 'Nhiều thành viên cùng góp ý', text: 'Màu sắc, họa tiết và tên đội dễ thay đổi nếu không có một người đại diện tổng hợp phương án.' },
+      { title: 'Size và tên số dễ sai', text: 'Danh sách đông người cần được chuẩn hóa theo từng thành viên trước khi xác nhận sản xuất.' },
+      { title: 'Mốc thi đấu cố định', text: 'Ngày khai mạc hoặc lịch giao lưu khiến việc chốt mẫu, số lượng và thời gian nhận áo cần được thống nhất sớm.' },
+    ],
+    benefits: [
+      { title: 'Giữ đúng tinh thần tập thể', text: 'Tên lớp, khoa, trường, màu nhận diện và biểu tượng chung được đặt trong một hướng thiết kế thống nhất.' },
+      { title: 'Dễ trình bày để cả đội duyệt', text: 'Maket trực quan giúp các thành viên xem cùng một phương án trước khi người đại diện chốt.' },
+      { title: 'Danh sách được kiểm tra rõ ràng', text: 'Size, tên và số áo được tổng hợp theo cấu trúc thuận tiện cho việc rà soát.' },
+    ],
+    briefTitle: 'Sáu thông tin nên chuẩn bị khi đặt áo cho lớp, khoa hoặc trường.',
+    briefItems: ['Tên lớp, khoa, trường hoặc CLB', 'Logo và màu muốn sử dụng', 'Mẫu áo cả đội đang tham khảo', 'Số lượng thành viên', 'Danh sách size dự kiến', 'Tên, số và ngày cần nhận áo'],
+    processNote: 'Nếu đội chưa có logo, bạn có thể bắt đầu bằng tên lớp, tên khoa, niên khóa, màu chủ đạo và hình ảnh biểu tượng muốn sử dụng.',
+    faq: [
+      { question: 'Đội lớp chưa có logo thì có thể bắt đầu thiết kế không?', answer: 'Có. Bạn có thể gửi tên lớp, khoa, niên khóa, màu sắc và biểu tượng gợi ý để trao đổi hướng thể hiện trên áo.' },
+      { question: 'Có thể in tên và số riêng cho từng học sinh, sinh viên không?', answer: 'Có thể trao đổi danh sách cá nhân hóa cho từng áo. Người đại diện nên tổng hợp tên, số và size trong một bảng thống nhất để kiểm tra trước khi chốt.' },
+      { question: 'Đội đông thành viên nên tổng hợp size thế nào?', answer: 'Nên dùng một danh sách chung gồm họ tên, tên in áo, số áo và size dự kiến. Nếu cần, có thể đối chiếu thêm chiều cao và cân nặng trước khi xác nhận.' },
+    ],
+    ctaTitle: 'Đang chuẩn bị áo cho lớp, khoa hay giải bóng đá trường?',
+    ctaText: 'Gửi tên đội, màu sắc, logo, số lượng và lịch cần áo để bắt đầu trao đổi phương án phù hợp.',
+    metaTitle: 'May Áo Bóng Đá Trường Học, Sinh Viên Thiết Kế Riêng',
+    metaDescription: 'Thiết kế và may áo bóng đá cho lớp, khoa, trường và CLB sinh viên: phối màu riêng, thêm logo, in tên số, tư vấn size và duyệt maket.',
+  },
+  {
     slug: 'ao-bong-da-giai-phong-trao',
-    navLabel: 'Giải phong trào',
+    categorySlug: 'ao-bong-da-giai-phong-trao',
+    categoryLabel: 'Giải đấu & hội thao',
+    navLabel: 'Giải đấu & hội thao',
     eyebrow: 'Áo bóng đá cho giải phong trào',
     title: 'Thiết kế áo bóng đá giải phong trào',
     tagline: 'Để mỗi đội ra sân khác màu, nhưng cùng thuộc về một giải đấu.',
@@ -100,7 +141,7 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
     slug: 'thiet-ke-ao-bong-da-cong-ty',
     categorySlug: 'ao-bong-da-cong-ty',
     categoryLabel: 'Áo bóng đá công ty',
-    navLabel: 'Công ty',
+    navLabel: 'Công ty & doanh nghiệp',
     eyebrow: 'Thiết kế áo bóng đá công ty',
     title: 'Thiết kế áo bóng đá công ty',
     tagline: 'Một bộ áo riêng cho tinh thần doanh nghiệp trên sân bóng.',
@@ -184,13 +225,8 @@ export const FOOTBALL_AUDIENCE_LANDINGS: FootballAudienceLanding[] = [
   },
 ]
 
-const FOOTBALL_AUDIENCE_LANDING_ALIASES: Record<string, string> = {
-  'ao-bong-da-cong-ty-ngan-hang': 'thiet-ke-ao-bong-da-ngan-hang',
-}
-
 export function getFootballAudienceLanding(slug: string) {
-  const resolvedSlug = FOOTBALL_AUDIENCE_LANDING_ALIASES[slug] || slug
-  const landing = FOOTBALL_AUDIENCE_LANDINGS.find((item) => item.slug === resolvedSlug)
+  const landing = FOOTBALL_AUDIENCE_LANDINGS.find((item) => item.slug === slug)
   if (!landing) throw new Error(`Unknown football audience landing: ${slug}`)
   return landing
 }

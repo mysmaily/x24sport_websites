@@ -1,0 +1,100 @@
+/* Shared numbered pagination. Loaded after every tenant stylesheet. */
+body .numbered-pagination {
+  --pagination-accent: var(--accent, var(--color-brand, var(--brand, var(--orange, #d91a32))));
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+  width: 100%;
+  margin: 36px 0 0;
+  padding: 20px 0 0;
+  border: 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.14);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+body .numbered-pagination > a {
+  box-sizing: border-box;
+  display: grid;
+  flex: 0 0 44px;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  border: 1px solid #d6dae1;
+  border-radius: 10px;
+  background: #fff;
+  color: #172033;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 160ms ease, box-shadow 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+body .numbered-pagination > a:hover {
+  border-color: var(--pagination-accent);
+  color: var(--pagination-accent);
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.1);
+  transform: translateY(-1px);
+}
+
+body .numbered-pagination > a.is-current,
+body .numbered-pagination > a[aria-current='page'] {
+  border-color: var(--pagination-accent);
+  background: var(--pagination-accent);
+  color: #fff;
+  box-shadow: 0 7px 18px rgba(15, 23, 42, 0.16);
+}
+
+body .numbered-pagination > a:focus-visible {
+  outline: 3px solid var(--pagination-accent);
+  outline-offset: 3px;
+}
+
+body .numbered-pagination > .numbered-pagination-ellipsis {
+  box-sizing: border-box;
+  display: grid;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  color: #697386;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+@media (max-width: 480px) {
+  body .numbered-pagination {
+    gap: 3px;
+    margin-top: 28px;
+    padding-top: 16px;
+  }
+
+  body .numbered-pagination > a.is-edge-secondary:not(.is-near-current) {
+    display: none;
+  }
+
+  body .numbered-pagination > .numbered-pagination-ellipsis {
+    flex-basis: 18px;
+    width: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .numbered-pagination > a {
+    transition: none;
+  }
+}

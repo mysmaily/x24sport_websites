@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, Phone, Search, Sparkles } from 'lucide-react'
+import { Menu, Phone, Sparkles } from 'lucide-react'
 
 import { getPublicStoreSettings } from '../../lib/store-settings'
 import { FooterStoreDetails } from '../_components/footer-store-details'
+import { SearchDialog } from '../_components/search-dialog'
 
 export const RYNO_PHONE = '0989371161'
 export const RYNO_PHONE_LABEL = '098 937 11 61'
@@ -36,9 +37,7 @@ export function RynoSiteHeader() {
           {links.map((link) => <Link href={link.href} key={link.href}>{link.label}</Link>)}
         </nav>
         <div className="ryno-header-actions">
-          <Link className="ryno-icon-link" href="/san-pham/" aria-label="Tìm sản phẩm">
-            <Search size={19} />
-          </Link>
+          <SearchDialog iconSize={19} triggerClassName="ryno-icon-link" />
           <a className="ryno-call" href={`tel:${RYNO_PHONE}`}>
             <Phone size={16} />
             Tư vấn nhanh

@@ -40,6 +40,17 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
       images: [{ url: '/images/mayaobongda/og-share.webp', width: 1200, height: 630, alt: 'Mẫu áo bóng đá thiết kế riêng MayaoBongDa' }],
     },
   }
+  if (tenant === 'pndsport') return {
+    title: { absolute: 'PND Sport Việt Nam - Trang phục thể thao thiết kế theo đội' },
+    description: 'Khám phá mẫu trang phục thể thao, xem giá thấp nhất và gửi yêu cầu thiết kế màu sắc, logo, tên số cho đội nhóm.',
+    alternates: { canonical: 'https://pndsport.vn/' },
+    openGraph: {
+      title: 'PND Sport Việt Nam - Trang phục thể thao thiết kế theo đội',
+      description: 'Chọn mẫu theo bộ môn và gửi yêu cầu thiết kế, báo giá cho đội nhóm.',
+      url: 'https://pndsport.vn/',
+      images: [{ url: '/images/pndsport/logo.webp', width: 1200, height: 315, alt: 'PND Sport Việt Nam' }],
+    },
+  }
   if (tenant !== 'rynosport') return {}
 
   return {
@@ -95,6 +106,10 @@ const trustItems = [
 
 export default async function TenantHomePage({ params }: { params: Promise<{ tenant: string }> }) {
   const { tenant } = await params
+  if (tenant === 'pndsport') {
+    const { PndHomePage } = await import('./_pndsport/home')
+    return <PndHomePage />
+  }
   if (tenant === 'x24sport') {
     const { default: X24HomePage } = await import('../page')
     return <X24HomePage />

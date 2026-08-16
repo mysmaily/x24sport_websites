@@ -1,0 +1,203 @@
+/* Header breakpoint rules live here because the tenant's precompiled utility sheet is scoped and static. */
+body.tenant-mayaobongda .mabd-mobile-section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.tenant-mayaobongda .mabd-mobile-section-button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.875rem;
+  font-weight: 800;
+  justify-content: space-between;
+  min-height: 44px;
+  padding-inline: 0.25rem;
+  text-align: left;
+  width: 100%;
+}
+
+body.tenant-mayaobongda .mabd-mobile-section-links {
+  display: grid;
+  gap: 1px;
+  padding-bottom: 0.5rem;
+}
+
+body.tenant-mayaobongda .mabd-mobile-section-links.hidden {
+  display: none;
+}
+
+body.tenant-mayaobongda .mabd-mobile-menu-link {
+  align-items: center;
+  border-radius: 7px;
+  color: #e2e8f0;
+  display: flex;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  gap: 0.625rem;
+  min-height: 40px;
+  padding-inline: 0.5rem;
+}
+
+body.tenant-mayaobongda .mabd-mobile-menu-link svg {
+  color: #94a3b8;
+  flex: 0 0 auto;
+}
+
+body.tenant-mayaobongda .mabd-mobile-menu-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body.tenant-mayaobongda .mabd-mobile-menu-link[aria-current='page'] {
+  background: rgba(241, 90, 36, 0.16);
+  color: #fb923c;
+}
+
+body.tenant-mayaobongda .mabd-mobile-menu-link[aria-current='page'] svg {
+  color: #fb923c;
+}
+
+body.tenant-mayaobongda .mabd-mobile-utility-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1rem;
+  padding-top: 0.25rem;
+}
+
+body.tenant-mayaobongda .mabd-mobile-utility-link {
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  min-height: 42px;
+}
+
+@media (min-width: 80rem) {
+  body.tenant-mayaobongda .mabd-header-shell {
+    grid-template-columns: minmax(210px, 1fr) auto minmax(200px, 1fr);
+    padding-inline: 2rem;
+  }
+
+  body.tenant-mayaobongda .mabd-desktop-nav,
+  body.tenant-mayaobongda .mabd-desktop-actions {
+    display: flex;
+  }
+
+  body.tenant-mayaobongda .mabd-desktop-mega {
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    display: block;
+    box-shadow: 0 24px 55px rgba(15, 23, 42, 0.2);
+  }
+
+  body.tenant-mayaobongda .mabd-mega-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 1.5rem 2rem 1.65rem;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-grid > section {
+    min-width: 0;
+    padding-inline: 1.25rem;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-grid > section + section {
+    border-left: 1px solid #e2e8f0;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-heading {
+    color: #475569;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    margin: 0 0 0.65rem;
+    padding-inline: 0.65rem;
+    text-transform: uppercase;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item {
+    align-items: center;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: 32px minmax(0, 1fr);
+    min-height: 55px;
+    padding: 0.45rem 0.65rem;
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item:hover {
+    background: #f1f5f9;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item.is-active {
+    background: #fff1eb;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item:focus-visible {
+    outline: 2px solid #f15a24;
+    outline-offset: 2px;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item.is-featured {
+    background: #f8fafc;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item.is-featured:hover {
+    background: #f1f5f9;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item.is-featured.is-active {
+    background: #fff1eb;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item-icon {
+    align-items: center;
+    color: #64748b;
+    display: flex;
+    justify-content: center;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item:hover .mabd-mega-item-icon,
+  body.tenant-mayaobongda .mabd-mega-item.is-active .mabd-mega-item-icon {
+    color: #d9480f;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item-copy {
+    display: block;
+    min-width: 0;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item-copy strong,
+  body.tenant-mayaobongda .mabd-mega-item-copy small {
+    display: block;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item-copy strong {
+    color: #172033;
+    font-size: 0.875rem;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item.is-active .mabd-mega-item-copy strong {
+    color: #c2410c;
+  }
+
+  body.tenant-mayaobongda .mabd-mega-item-copy small {
+    color: #64748b;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    margin-top: 0.18rem;
+  }
+
+  body.tenant-mayaobongda .mabd-mobile-actions,
+  body.tenant-mayaobongda .mabd-mobile-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 96rem) {
+  body.tenant-mayaobongda .mabd-desktop-nav {
+    gap: 1.5rem;
+  }
+}

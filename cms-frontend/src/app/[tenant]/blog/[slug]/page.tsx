@@ -9,6 +9,10 @@ type Props = {
 
 export async function generateMetadata({ params }: Props) {
   const { tenant, slug } = await params
+  if (tenant === 'pndsport') {
+    const { getPndBlogPostMetadata } = await import('../../_pndsport/blog-post-page')
+    return getPndBlogPostMetadata(slug)
+  }
   if (tenant === 'mayaopickleball') return generateMayaoPickleballBlogPostMetadata({ params: Promise.resolve({ slug }) })
   if (tenant !== 'mayaocaulong') return {}
   return generateMayaoCauLongBlogPostMetadata({ params: Promise.resolve({ slug }) })
@@ -16,6 +20,10 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function TenantBlogPostPage({ params }: Props) {
   const { tenant, slug } = await params
+  if (tenant === 'pndsport') {
+    const { PndBlogPostPage } = await import('../../_pndsport/blog-post-page')
+    return <PndBlogPostPage slug={slug} />
+  }
   if (tenant === 'mayaopickleball') return <MayaoPickleballBlogPostPage params={Promise.resolve({ slug })} />
   if (tenant !== 'mayaocaulong') notFound()
   return <MayaoCauLongBlogPostPage params={Promise.resolve({ slug })} />

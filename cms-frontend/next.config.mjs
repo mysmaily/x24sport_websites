@@ -6,7 +6,12 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/shop', destination: '/san-pham/', permanent: true },
-      { source: '/tu-khoa/:path*', destination: '/san-pham/', permanent: true },
+      {
+        source: '/tu-khoa/:path*',
+        destination: '/san-pham/',
+        permanent: true,
+        missing: [{ type: 'host', value: 'mayaobongda.vn' }],
+      },
       { source: '/category/:path*', destination: '/blog/', permanent: true },
       { source: '/author/:path*', destination: '/blog/', permanent: true },
     ]

@@ -1,4 +1,4 @@
-import { ArrowRight, Shirt } from 'lucide-react'
+import { ArrowUpRight, Shirt } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -10,38 +10,32 @@ function formatPrice(value: number) {
   return `${priceFormatter.format(value)}đ`
 }
 
-export function ProductCard({ product, index = 99 }: { product: Product; index?: number }) {
+export function ProductCard({ product, index = 0, priority = false }: { product: Product; index?: number; priority?: boolean }) {
   const image = productImages(product)[0]
   const href = productPath(product)
 
   return (
-    <article className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-200 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_55px_rgba(15,23,42,.10)]">
-      <Link className="relative block aspect-square overflow-hidden bg-slate-100" href={href} aria-label={`Xem ${product.name}`}>
+    <article className="mabd-product-card">
+      <Link aria-label={`Xem ${product.name}`} className="mabd-product-card-media" href={href}>
+        <span className="mabd-product-card-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
         {image?.url ? (
-          <Image
-            alt={image.alt || product.name}
-            className="object-contain transition duration-500 group-hover:scale-[1.025]"
-            fill
-            priority={index < 4}
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            src={image.url}
-          />
+          <Image alt={image.alt || product.name} fill priority={priority} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" src={image.url} />
         ) : (
-          <span className="grid h-full place-items-center text-slate-300" aria-hidden="true"><Shirt size={64} strokeWidth={1.2} /></span>
+          <span className="mabd-product-card-empty" aria-hidden="true"><Shirt size={64} strokeWidth={1.2} /></span>
         )}
+        <span className="mabd-product-card-view" aria-hidden="true">Xem chi tiết <ArrowUpRight size={15} /></span>
       </Link>
-      <div className="flex flex-1 flex-col p-2.5 sm:p-5">
-        <h3 className="line-clamp-2 min-h-[42px] font-display text-[18px] font-bold leading-[1.15] tracking-tight text-slate-950">
-          <Link href={href}>{product.name}</Link>
-        </h3>
-        <div className="mt-2 flex items-center justify-between gap-2 border-t border-slate-100 pt-2 sm:mt-5 sm:gap-3 sm:pt-4">
+
+      <div className="mabd-product-card-copy">
+        <h3><Link href={href}>{product.name}</Link></h3>
+        <div className="mabd-product-card-footer">
           {typeof product.price === 'number' ? (
-            <span className="flex max-w-full min-w-0 flex-nowrap items-baseline gap-0.5 whitespace-nowrap tabular-nums">
-              {typeof product.compareAtPrice === 'number' && product.compareAtPrice > product.price ? <del className="text-[12px] font-semibold text-slate-400 sm:text-sm">{formatPrice(product.compareAtPrice)}</del> : null}
-              <strong className="text-[14px] font-black text-brand sm:text-base">{formatPrice(product.price)}</strong>
+            <span className="mabd-product-card-price">
+              {typeof product.compareAtPrice === 'number' && product.compareAtPrice > product.price ? <del>{formatPrice(product.compareAtPrice)}</del> : null}
+              <strong>{formatPrice(product.price)}</strong>
             </span>
-          ) : <span className="text-xs font-bold text-slate-500">Giá đang cập nhật</span>}
-          <Link className="inline-flex min-h-9 shrink-0 items-center gap-1 self-start rounded-lg text-xs font-black text-brand transition hover:text-brand-dark sm:min-h-11 sm:px-2 sm:text-sm" href={href}><span className="sr-only sm:not-sr-only">Xem mẫu</span><ArrowRight aria-hidden="true" size={16} /></Link>
+          ) : <span className="mabd-product-card-pending">Liên hệ báo giá</span>}
+          <Link aria-label={`Xem chi tiết ${product.name}`} href={href}><ArrowUpRight aria-hidden="true" size={18} /></Link>
         </div>
       </div>
     </article>

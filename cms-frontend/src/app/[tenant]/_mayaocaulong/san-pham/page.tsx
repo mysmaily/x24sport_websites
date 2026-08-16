@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { ArrowLeft, ArrowRight, ChevronDown, Filter, Palette, Shirt, Sparkles } from 'lucide-react'
+import { ArrowRight, ChevronDown, Filter, Palette, Shirt, Sparkles } from 'lucide-react'
 import { notFound } from 'next/navigation'
+import { Pagination } from '../../../_components/pagination'
 import { SiteFooter, SiteHeader, phoneHref, zaloHref } from '../_components/info-pages'
 import {
   catalogColorFilters,
@@ -38,21 +39,6 @@ function getSearchPageHref(page: number, query: string) {
   const params = new URLSearchParams({ q: query })
   if (page > 1) params.set('page', String(page))
   return `/tim-kiem?${params.toString()}`
-}
-
-function getPaginationItems(currentPage: number, totalPages: number) {
-  const visiblePages = new Set([1, totalPages])
-  for (let page = Math.max(1, currentPage - 2); page <= Math.min(totalPages, currentPage + 2); page += 1) {
-    visiblePages.add(page)
-  }
-
-  const pages = [...visiblePages].sort((a, b) => a - b)
-  const items: Array<number | string> = []
-  pages.forEach((page, index) => {
-    if (index > 0 && page - pages[index - 1] > 1) items.push(`ellipsis-${page}`)
-    items.push(page)
-  })
-  return items
 }
 
 export async function generateMetadata({ searchParams }: ProductsPageProps): Promise<Metadata> {
@@ -214,51 +200,13 @@ export function CatalogPageContent({
           ) : null}
         </div>
 
-        {pagination && pagination.totalPages > 1 ? (
-          <nav className="catalog-pagination" aria-label="Phân trang sản phẩm">
-            {pagination.currentPage > 1 ? (
-              <Link className="pagination-direction" href={searchQuery ? getSearchPageHref(pagination.currentPage - 1, searchQuery) : getProductsPageHref(pagination.currentPage - 1)} rel="prev">
-                <ArrowLeft aria-hidden="true" size={16} />
-                Trang trước
-              </Link>
-            ) : (
-              <span aria-disabled="true" className="pagination-direction is-disabled">
-                <ArrowLeft aria-hidden="true" size={16} />
-                Trang trước
-              </span>
-            )}
-
-            <div className="pagination-pages">
-              {getPaginationItems(pagination.currentPage, pagination.totalPages).map((item) =>
-                typeof item === 'number' ? (
-                  <Link
-                    aria-current={item === pagination.currentPage ? 'page' : undefined}
-                    className={item === pagination.currentPage ? 'is-current' : ''}
-                    href={searchQuery ? getSearchPageHref(item, searchQuery) : getProductsPageHref(item)}
-                    key={item}
-                  >
-                    <span className="sr-only">Trang </span>
-                    {item}
-                  </Link>
-                ) : (
-                  <span aria-hidden="true" className="pagination-ellipsis" key={item}>…</span>
-                ),
-              )}
-            </div>
-
-            {pagination.currentPage < pagination.totalPages ? (
-              <Link className="pagination-direction" href={searchQuery ? getSearchPageHref(pagination.currentPage + 1, searchQuery) : getProductsPageHref(pagination.currentPage + 1)} rel="next">
-                Trang sau
-                <ArrowRight aria-hidden="true" size={16} />
-              </Link>
-            ) : (
-              <span aria-disabled="true" className="pagination-direction is-disabled">
-                Trang sau
-                <ArrowRight aria-hidden="true" size={16} />
-              </span>
-            )}
-            <p>{pagination.totalProducts} mẫu · Trang {pagination.currentPage}/{pagination.totalPages}</p>
-          </nav>
+        {pagination ? (
+          <Pagination
+            ariaLabel="Phân trang sản phẩm"
+            hrefForPage={(item) => searchQuery ? getSearchPageHref(item, searchQuery) : getProductsPageHref(item)}
+            page={pagination.currentPage}
+            totalPages={pagination.totalPages}
+          />
         ) : null}
       </section>
 

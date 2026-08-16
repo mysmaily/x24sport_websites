@@ -37,6 +37,7 @@ export type LogoCollection = {
 
 export type ProductPreview = {
   id?: number | string
+  sku?: string
   slug: string
   name: string
   category: string

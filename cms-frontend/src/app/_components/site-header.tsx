@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Menu, Phone, Search, X } from 'lucide-react'
+import { Menu, Phone, X } from 'lucide-react'
 import { categoryMenu } from '../../lib/catalog'
+import { SearchDialog } from './search-dialog'
 
 const HEADER_LOGO_SRC = 'https://cdn.x24sport.vn/wp-content/uploads/2025/03/Asset-1-1200x158.png'
 const pricingLinks: Record<string, string> = {
@@ -57,15 +58,15 @@ export function SiteHeader() {
             </div>
           </details>
           <Logo />
-          <form className="header-search" action="/tim-kiem" role="search">
-            <input name="q" type="search" placeholder="Bạn đang tìm kiếm sản phẩm gì?" aria-label="Tìm sản phẩm" autoComplete="off" />
-            <button type="submit" aria-label="Tìm kiếm"><Search size={20} /></button>
-          </form>
+          <div className="header-search">
+            <span className="min-w-0 flex-1 self-center overflow-hidden pl-5 text-[13px] text-[#666] text-ellipsis whitespace-nowrap">Tìm mẫu áo, mã áo hoặc màu sắc</span>
+            <SearchDialog action="/tim-kiem" iconSize={20} triggerClassName="header-search-trigger" />
+          </div>
           <div className="header-contact">
             <span>Thứ 2 - Chủ nhật<small>08:00 - 22:00</small></span>
             <a href="tel:0989353247"><Phone size={20} /><span>Hotline<small>0989 353 247</small></span></a>
           </div>
-          <Link className="mobile-search" href="/tim-kiem" aria-label="Tìm kiếm"><Search size={23} /></Link>
+          <div className="mobile-search"><SearchDialog action="/tim-kiem" iconSize={23} triggerClassName="h-[42px] w-[35px] border-0 bg-transparent text-current" /></div>
         </div>
         <nav className="nav-bar" aria-label="Điều hướng chính">
           <div className="site-container">

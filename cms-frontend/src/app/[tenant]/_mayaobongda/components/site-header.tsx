@@ -1,43 +1,119 @@
 'use client'
 
-import { ChevronDown, Menu, MessageCircle, Phone, Search, X } from 'lucide-react'
+import {
+  Building2,
+  CalendarDays,
+  ChevronDown,
+  Flag,
+  Flame,
+  GraduationCap,
+  Grid2X2,
+  Landmark,
+  Menu,
+  MessageCircle,
+  Palette,
+  Phone,
+  Shield,
+  Trophy,
+  Users,
+  X,
+  type LucideIcon,
+} from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
+import type { ProductCategory } from '../lib/cms'
 import { LOGO_URL, PHONE_DISPLAY, PHONE_VALUE, SITE_NAME, ZALO_URL } from '../lib/site'
+import { SearchDialog } from '../../../_components/search-dialog'
 
 const links = [
   { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá' },
+  { href: '/chat-lieu-vai/', label: 'Chất liệu vải' },
   { href: '/cong-tac-vien/', label: 'Cộng tác viên' },
   { href: '/blog/', label: 'Tin tức' },
-  { href: '/chat-lieu-vai/', label: 'Chất liệu vải' },
 ]
 
-const designLinks = [
-  { href: '/ao-bong-da-thiet-ke-2026/', label: 'Áo thiết kế 2026' },
-  { href: '/ao-bong-da-thiet-ke-2025/', label: 'Áo thiết kế 2025' },
-  { href: '/ao-bong-da-thiet-ke-2024/', label: 'Áo thiết kế 2024' },
-  { href: '/ao-thiet-ke/', label: 'Tất cả' },
+const categoryPaths: Record<string, string> = {
+  'ao-bong-da-cong-ty': '/thiet-ke-ao-bong-da-cong-ty/',
+  'ao-bong-da-cong-ty-ngan-hang': '/thiet-ke-ao-bong-da-ngan-hang/',
+}
+
+const audienceSpecs = [
+  { slug: 'ao-bong-da-doi-bong-cau-lac-bo', href: '/ao-bong-da-doi-bong-cau-lac-bo/', label: 'Đội bóng & CLB phong trào', description: 'Đội phủi, FC, nhóm bạn và CLB địa phương', icon: Users },
+  { slug: 'ao-bong-da-truong-hoc-sinh-vien', href: '/ao-bong-da-truong-hoc-sinh-vien/', label: 'Trường học & sinh viên', description: 'Đội lớp, khoa, trường và CLB sinh viên', icon: GraduationCap },
+  { slug: 'ao-bong-da-cong-ty', href: '/thiet-ke-ao-bong-da-cong-ty/', label: 'Công ty & doanh nghiệp', description: 'Đội nội bộ, team building và hội thao', icon: Building2 },
+  { slug: 'ao-bong-da-cong-ty-ngan-hang', href: '/thiet-ke-ao-bong-da-ngan-hang/', label: 'Ngân hàng', description: 'Đội chi nhánh và giải bóng đá ngành', icon: Landmark },
+  { slug: 'ao-bong-da-giai-phong-trao', href: '/ao-bong-da-giai-phong-trao/', label: 'Giải đấu & hội thao', description: 'Đồng phục thi đấu và áo ban tổ chức', icon: Trophy },
 ]
 
-export function SiteHeader() {
-  const pathname = usePathname()
+type MobileSection = 'types' | 'collections' | 'audiences' | null
+type MenuItem = { description: string; featured?: boolean; href: string; icon: LucideIcon; label: string }
+
+function categoryHref(category: ProductCategory) {
+  return categoryPaths[category.slug] || category.legacyPath || `/${category.slug}/`
+}
+
+function collectionYear(category: ProductCategory) {
+  const match = category.slug.match(/(?:thiet-ke-)(20\d{2})$/)
+  return match ? Number(match[1]) : 0
+}
+
+function uniqueMenuItems(items: MenuItem[], seenHrefs: Set<string>) {
+  return items.filter((item) => {
+    if (seenHrefs.has(item.href)) return false
+    seenHrefs.add(item.href)
+    return true
+  })
+}
+
+export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
+  const pathname = usePathname() || '/'
   const [open, setOpen] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
-  const [designOpen, setDesignOpen] = useState(false)
-  const [searchOpen, setSearchOpen] = useState(false)
+  const [mobileSection, setMobileSection] = useState<MobileSection>('types')
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const productActive = pathname === '/san-pham/' || pathname.startsWith('/ao-') || pathname.startsWith('/quan-') || pathname.startsWith('/bo-')
-  const designActive = designLinks.some((item) => pathname === item.href || pathname.startsWith(item.href))
+  const categoryBySlug = new Map(categories.map((category) => [category.slug, category]))
+  const collections = categories
+    .filter((category) => collectionYear(category) > 0 && (category.productCount || 0) > 0)
+    .sort((left, right) => collectionYear(right) - collectionYear(left))
+  const featuredCollection = collections[0]
+  const menuHrefs = new Set<string>()
+  const dynamicTypeItems = [
+    { category: categoryBySlug.get('ao-thiet-ke'), label: 'Mẫu thiết kế', description: 'Mẫu riêng, dễ chỉnh màu, logo và tên số', icon: Palette },
+    { category: categoryBySlug.get('cau-lac-bo'), label: 'Áo CLB nổi tiếng', description: 'Mẫu lấy cảm hứng từ các CLB hàng đầu', icon: Shield },
+    { category: categoryBySlug.get('doi-tuyen'), label: 'Áo đội tuyển quốc gia', description: 'Mẫu áo các đội tuyển bóng đá quốc gia', icon: Flag },
+  ].flatMap<MenuItem>((item) => {
+    if (!item.category) return []
+    return [{ href: categoryHref(item.category), label: item.label, description: item.description, icon: item.icon }]
+  })
+  const typeItems = uniqueMenuItems([
+    { href: '/san-pham/', label: 'Tất cả mẫu áo', description: 'Xem toàn bộ mẫu áo đang có tại xưởng', icon: Grid2X2 },
+    ...dynamicTypeItems,
+  ], menuHrefs)
+  const collectionItems = uniqueMenuItems([
+    ...(featuredCollection ? [{ href: categoryHref(featuredCollection), label: `Mẫu thiết kế mới ${collectionYear(featuredCollection)}`, description: 'Bộ sưu tập mới nhất đang được ưu tiên', icon: Flame, featured: true }] : []),
+    ...collections.filter((category) => category.id !== featuredCollection?.id).map((category) => ({
+      href: categoryHref(category),
+      label: `Mẫu thiết kế ${collectionYear(category)}`,
+      description: `Bộ sưu tập thiết kế năm ${collectionYear(category)}`,
+      icon: CalendarDays,
+      featured: false,
+    })),
+  ], menuHrefs)
+  const audienceItems = uniqueMenuItems(audienceSpecs
+    .filter((item) => (categoryBySlug.get(item.slug)?.productCount || 0) > 0)
+    .map(({ href, label, description, icon }) => ({ href, label, description, icon })), menuHrefs)
+  const menuPaths = [...typeItems, ...collectionItems, ...audienceItems]
+  const productActive = menuPaths.some((item) => pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)))
   const showProducts = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setProductsOpen(true) }
   const hideProductsSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setProductsOpen(false), 120) }
-  const showDesign = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setDesignOpen(true) }
-  const hideDesignSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setDesignOpen(false), 120) }
-  useEffect(() => { setOpen(false); setProductsOpen(false); setDesignOpen(false); setSearchOpen(false) }, [pathname])
+  const toggleMobileSection = (section: Exclude<MobileSection, null>) => setMobileSection((current) => current === section ? null : section)
+
+  useEffect(() => { setOpen(false); setProductsOpen(false) }, [pathname])
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') { setOpen(false); setProductsOpen(false); setDesignOpen(false); setSearchOpen(false) }
+      if (event.key === 'Escape') { setOpen(false); setProductsOpen(false) }
     }
     document.addEventListener('keydown', closeOnEscape)
     return () => document.removeEventListener('keydown', closeOnEscape)
@@ -45,146 +121,83 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1220]/95 text-white backdrop-blur-xl">
-      <div className="mx-auto grid min-h-18 w-full max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-6 lg:grid-cols-[minmax(220px,1fr)_auto_minmax(220px,1fr)] lg:px-8">
-        <Link className="inline-flex w-fit items-center" href="/" aria-label={`${SITE_NAME} - Trang chủ`}>
+      <div className="mabd-header-shell mx-auto grid min-h-18 w-full max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-6">
+        <Link aria-label={`${SITE_NAME} - Trang chủ`} className="inline-flex w-fit items-center" href="/">
           <img alt={SITE_NAME} className="h-auto w-[228px] max-w-[calc(100vw-96px)]" height="58" src={LOGO_URL} width="372" />
         </Link>
-        <nav className="hidden items-center justify-center gap-5 text-sm font-extrabold text-slate-300 lg:flex xl:gap-7" aria-label="Điều hướng chính">
-          <div
-            className="relative"
-            onBlur={hideProductsSoon}
-            onFocus={showProducts}
-            onMouseEnter={showProducts}
-            onMouseLeave={hideProductsSoon}
-          >
-            <button
-              aria-controls="product-mega-menu"
-              aria-expanded={productsOpen}
-              className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`}
-              onClick={() => setProductsOpen((value) => !value)}
-              type="button"
-            >
-              Sản phẩm <ChevronDown className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} size={16} />
+        <nav aria-label="Điều hướng chính" className="mabd-desktop-nav hidden items-center justify-center gap-4 text-sm font-extrabold text-slate-300">
+          <div className="relative" onBlur={hideProductsSoon} onFocus={showProducts} onMouseEnter={showProducts} onMouseLeave={hideProductsSoon}>
+            <button aria-controls="product-mega-menu" aria-expanded={productsOpen} className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`} onClick={showProducts} type="button">
+              Sản phẩm <ChevronDown aria-hidden="true" className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} size={16} />
               {productActive ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}
             </button>
           </div>
-          <div
-            className="relative"
-            onBlur={hideDesignSoon}
-            onFocus={showDesign}
-            onMouseEnter={showDesign}
-            onMouseLeave={hideDesignSoon}
-          >
-            <button
-              aria-controls="design-year-menu"
-              aria-expanded={designOpen}
-              className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${designActive ? 'text-brand' : ''}`}
-              onClick={() => setDesignOpen((value) => !value)}
-              type="button"
-            >
-              Áo thiết kế <ChevronDown className={`transition-transform duration-200 ${designOpen ? 'rotate-180' : ''}`} size={16} />
-              {designActive ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}
-            </button>
-            <div
-              className={`absolute left-1/2 top-full z-[75] w-[260px] -translate-x-1/2 rounded-xl border border-slate-200 bg-white p-2 text-slate-950 shadow-[0_18px_50px_rgba(2,6,23,.24)] transition duration-150 ${designOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-1 opacity-0'}`}
-              id="design-year-menu"
-            >
-              {designLinks.map((item) => <Link className="flex min-h-10 items-center whitespace-nowrap rounded-lg px-3 text-sm font-black leading-none transition hover:bg-orange-50 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={designOpen ? 0 : -1}>{item.label}</Link>)}
-            </div>
-          </div>
+          {featuredCollection ? <Link className={`relative whitespace-nowrap py-6 transition hover:text-white ${pathname === categoryHref(featuredCollection) ? 'text-brand' : ''}`} href={categoryHref(featuredCollection)}>Mẫu thiết kế {collectionYear(featuredCollection)}{pathname === categoryHref(featuredCollection) ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}</Link> : null}
           {links.map((link) => {
             const active = pathname === link.href || pathname.startsWith(link.href)
-            return <Link aria-current={active ? 'page' : undefined} className={`relative py-6 transition hover:text-white ${active ? 'text-brand' : ''}`} href={link.href} key={link.href}>{link.label}{active ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}</Link>
+            return <Link aria-current={active ? 'page' : undefined} className={`relative whitespace-nowrap py-6 transition hover:text-white ${active ? 'text-brand' : ''}`} href={link.href} key={link.href}>{link.label}{active ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}</Link>
           })}
         </nav>
-        <div className="hidden items-center justify-end gap-2 lg:flex">
-          <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20 hover:border-brand/50" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
-          <a className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 px-3.5 text-sm font-black hover:border-brand/50" href={`tel:${PHONE_VALUE}`}><Phone size={17} /> {PHONE_DISPLAY}</a>
+        <div className="mabd-desktop-actions hidden items-center justify-end gap-2">
+          <SearchDialog iconSize={18} triggerClassName="size-11 rounded-lg border border-white/20 hover:border-brand/50" />
+          <a className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 px-3 text-sm font-black hover:border-brand/50" href={`tel:${PHONE_VALUE}`}><Phone size={17} /> {PHONE_DISPLAY}</a>
         </div>
-        <div className="flex items-center justify-end gap-2 lg:hidden">
-          <button aria-expanded={searchOpen} aria-label="Mở tìm kiếm" className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setSearchOpen((value) => !value)} type="button"><Search size={18} /></button>
+        <div className="mabd-mobile-actions flex items-center justify-end gap-2">
+          <SearchDialog iconSize={18} triggerClassName="size-11 rounded-lg border border-white/20" />
           <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setOpen(!open)} type="button">{open ? <X /> : <Menu />}</button>
         </div>
       </div>
-      {searchOpen ? <div className="absolute right-4 top-full z-[70] mt-2 w-[min(520px,calc(100vw-32px))] rounded-xl bg-white p-1.5 text-slate-950 shadow-[0_14px_40px_rgba(2,6,23,.24)]"><form action="/tim-kiem/" className="grid grid-cols-[1fr_auto_auto] gap-1.5" role="search"><label className="sr-only" htmlFor="header-search-q">Tìm mẫu áo</label><input autoComplete="off" className="min-h-11 min-w-0 rounded-lg bg-slate-50 px-3 text-sm outline-none" id="header-search-q" name="q" placeholder="Tên mẫu, mã áo hoặc màu sắc..." type="search" /><button className="rounded-lg bg-brand px-4 text-sm font-black text-white" type="submit">Tìm</button><button aria-label="Đóng tìm kiếm" className="grid size-11 place-items-center rounded-lg text-slate-700 hover:bg-slate-100" onClick={() => setSearchOpen(false)} type="button"><X size={17} /></button></form></div> : null}
-      <div
-        aria-hidden={!productsOpen}
-        className={`absolute inset-x-0 top-full hidden border-t border-slate-200 bg-[#f8f6f2] text-slate-950 shadow-[0_28px_70px_rgba(2,6,23,.32)] transition duration-200 lg:block ${productsOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`}
-        id="product-mega-menu"
-        onBlur={hideProductsSoon}
-        onFocus={showProducts}
-        onMouseEnter={showProducts}
-        onMouseLeave={hideProductsSoon}
-      >
-        <div className="mx-auto grid max-w-[1240px] grid-cols-[.9fr_1.35fr] gap-12 px-8 py-9">
+
+      <div aria-hidden={!productsOpen} className={`mabd-desktop-mega absolute inset-x-0 top-full hidden text-slate-950 transition duration-200 ${productsOpen ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-2 opacity-0'}`} id="product-mega-menu" onBlur={hideProductsSoon} onFocus={showProducts} onMouseEnter={showProducts} onMouseLeave={hideProductsSoon}>
+        <div className="mabd-mega-grid mx-auto grid max-w-[1240px]">
           <section aria-labelledby="menu-types-title">
-            <p className="mb-5 flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-brand" id="menu-types-title"><span className="size-2 rounded-full bg-brand" /> Theo nhóm sản phẩm</p>
-            <div className="grid grid-cols-2 gap-2.5">
-              {[
-                { href: '/san-pham/', label: 'Tất cả sản phẩm' },
-                { href: '/ao-bong-da-thiet-ke-2026/', label: 'Áo thiết kế 2026' },
-                { href: '/ao-bong-da-thiet-ke-2025/', label: 'Áo thiết kế 2025' },
-                { href: '/ao-bong-da-thiet-ke-2024/', label: 'Áo thiết kế 2024' },
-                { href: '/ao-thiet-ke/', label: 'Tất cả áo thiết kế' },
-                { href: '/cau-lac-bo/', label: 'Câu lạc bộ' },
-                { href: '/doi-tuyen/', label: 'Đội tuyển' },
-                { href: '/cong-ty/', label: 'Công ty' },
-              ].map((item, index) => <Link className="group flex min-h-16 items-center justify-between rounded-xl border border-slate-200 bg-white px-4 text-sm font-black shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={productsOpen ? 0 : -1}><span><span className="mb-1 block text-[10px] font-black tracking-[.16em] text-slate-400">0{index + 1}</span>{item.label}</span></Link>)}
-            </div>
-            <Link className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-black text-brand hover:text-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/san-pham/" tabIndex={productsOpen ? 0 : -1}>Xem toàn bộ sản phẩm</Link>
+            <p className="mabd-mega-heading" id="menu-types-title">Theo mẫu áo</p>
+            <div>{typeItems.map((item) => <MegaMenuLink item={item} key={item.href} pathname={pathname} productsOpen={productsOpen} />)}</div>
           </section>
-          <section aria-labelledby="menu-colors-title">
-            <p className="mb-5 flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-slate-600" id="menu-colors-title"><span className="size-2 rounded-full bg-brand" /> Theo nhu cầu</p>
-            <div className="grid grid-cols-2 gap-2.5">
-              {[
-                { href: '/ao-bong-da-doi-bong-cau-lac-bo/', label: 'Đội bóng & câu lạc bộ' },
-                { href: '/ao-bong-da-giai-phong-trao/', label: 'Giải phong trào' },
-                { href: '/thiet-ke-ao-bong-da-cong-ty/', label: 'Công ty' },
-                { href: '/thiet-ke-ao-bong-da-ngan-hang/', label: 'Ngân hàng' },
-              { href: '/chat-lieu-vai/', label: 'Chất liệu & bảng size' },
-              { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá may áo' },
-            ].map((item) => <Link className="group flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 text-sm font-extrabold shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.href} key={item.href} tabIndex={productsOpen ? 0 : -1}><span>{item.label}</span></Link>)}
-            </div>
+          <section aria-labelledby="menu-collections-title">
+            <p className="mabd-mega-heading" id="menu-collections-title">Bộ sưu tập thiết kế</p>
+            <div>{collectionItems.map((item) => <MegaMenuLink item={item} key={`${item.href}-${item.label}`} pathname={pathname} productsOpen={productsOpen} />)}</div>
+          </section>
+          <section aria-labelledby="menu-audiences-title">
+            <p className="mabd-mega-heading" id="menu-audiences-title">Đặt may theo đối tượng</p>
+            <div>{audienceItems.map((item) => <MegaMenuLink item={item} key={item.href} pathname={pathname} productsOpen={productsOpen} />)}</div>
           </section>
         </div>
       </div>
-      <div aria-hidden={!open} className={`absolute inset-x-0 top-full max-h-[calc(100vh-72px)] overflow-y-auto border-b border-white/10 bg-[#0b1220] p-4 shadow-2xl transition duration-200 lg:hidden ${open ? 'visible opacity-100' : 'pointer-events-none invisible opacity-0'}`} id="mobile-navigation">
-        <nav className="mx-auto grid max-w-2xl gap-3" aria-label="Điều hướng di động">
-          <section className="rounded-xl border border-white/10 bg-white/[.04] p-3">
-            <div className="mb-3 flex items-center justify-between px-1"><p className="text-xs font-black uppercase tracking-[.16em] text-brand">Nhóm sản phẩm</p><Link className="text-xs font-bold text-white underline decoration-white/30 underline-offset-4" href="/san-pham/" tabIndex={open ? 0 : -1}>Xem tất cả</Link></div>
-            <div className="grid gap-2 sm:grid-cols-2">{[
-              { href: '/ao-bong-da-thiet-ke-2026/', label: 'Áo thiết kế 2026' },
-              { href: '/ao-bong-da-thiet-ke-2025/', label: 'Áo thiết kế 2025' },
-              { href: '/ao-bong-da-thiet-ke-2024/', label: 'Áo thiết kế 2024' },
-              { href: '/ao-thiet-ke/', label: 'Tất cả áo thiết kế' },
-              { href: '/cau-lac-bo/', label: 'Câu lạc bộ' },
-              { href: '/doi-tuyen/', label: 'Đội tuyển' },
-            ].map((item) => <Link className="flex min-h-12 items-center rounded-lg border border-white/10 px-3 text-sm font-extrabold hover:border-brand/60" href={item.href} key={item.href} tabIndex={open ? 0 : -1}>{item.label}</Link>)}</div>
-          </section>
-          <section className="rounded-xl border border-white/10 bg-white/[.04] p-3">
-            <p className="mb-3 px-1 text-xs font-black uppercase tracking-[.16em] text-brand">Theo nhu cầu</p>
-            <div className="grid gap-2 sm:grid-cols-3">{[
-              { href: '/ao-bong-da-doi-bong-cau-lac-bo/', label: 'Đội bóng & CLB' },
-              { href: '/ao-bong-da-giai-phong-trao/', label: 'Giải phong trào' },
-              { href: '/thiet-ke-ao-bong-da-cong-ty/', label: 'Công ty' },
-              { href: '/thiet-ke-ao-bong-da-ngan-hang/', label: 'Ngân hàng' },
-            ].map((item) => <Link className="flex min-h-12 items-center rounded-lg border border-white/10 px-3 text-xs font-extrabold hover:border-brand/60" href={item.href} key={item.href} tabIndex={open ? 0 : -1}>{item.label}</Link>)}</div>
-          </section>
-          <section className="rounded-xl border border-white/10 bg-white/[.04] p-3">
-            <p className="mb-3 px-1 text-xs font-black uppercase tracking-[.16em] text-brand">Nội dung nổi bật</p>
-            <div className="grid grid-cols-2 gap-2">{[
-              { href: '/chat-lieu-vai/', label: 'Chất liệu vải' },
-              { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá' },
-              { href: '/cong-tac-vien/', label: 'Cộng tác viên' },
-              { href: '/blog/', label: 'Tin tức' },
-              { href: '/lien-he/', label: 'Liên hệ' },
-              { href: '/san-pham/', label: 'Tất cả mẫu áo' },
-            ].map((item) => <Link className="flex min-h-12 items-center gap-2 rounded-lg border border-white/10 px-3 text-xs font-extrabold hover:border-brand/60" href={item.href} key={item.href} tabIndex={open ? 0 : -1}>{item.label}</Link>)}</div>
-          </section>
-          {links.map((link) => <Link className="flex min-h-12 items-center rounded-lg border border-white/10 px-4 font-extrabold hover:border-brand/50" href={link.href} key={link.href} tabIndex={open ? 0 : -1}>{link.label}</Link>)}
+
+      <div aria-hidden={!open} className={`mabd-mobile-menu absolute inset-x-0 top-full max-h-[calc(100vh-72px)] overflow-y-auto border-b border-white/10 bg-[#0b1220] p-4 shadow-2xl transition duration-200 ${open ? 'visible opacity-100' : 'pointer-events-none invisible opacity-0'}`} id="mobile-navigation">
+        <nav aria-label="Điều hướng di động" className="mx-auto grid max-w-2xl gap-3">
+          <p className="px-1 text-xs font-black uppercase tracking-[.16em] text-brand">Sản phẩm</p>
+          {[
+            { id: 'types' as const, label: 'Theo mẫu áo', items: typeItems },
+            { id: 'collections' as const, label: 'Bộ sưu tập thiết kế', items: collectionItems },
+            { id: 'audiences' as const, label: 'Đặt may theo đối tượng', items: audienceItems },
+          ].map((section) => {
+            const expanded = mobileSection === section.id
+            return <section className="mabd-mobile-section" key={section.id}><button aria-controls={`mobile-${section.id}`} aria-expanded={expanded} className="mabd-mobile-section-button" onClick={() => toggleMobileSection(section.id)} type="button">{section.label}<ChevronDown aria-hidden="true" className={`transition ${expanded ? 'rotate-180' : ''}`} size={17} /></button><div className={`mabd-mobile-section-links ${expanded ? '' : 'hidden'}`} id={`mobile-${section.id}`}>{section.items.map((item) => { const ItemIcon = item.icon; return <Link aria-current={pathname === item.href ? 'page' : undefined} className="mabd-mobile-menu-link" href={item.href} key={`${item.href}-${item.label}`} tabIndex={open && expanded ? 0 : -1}><ItemIcon aria-hidden="true" size={16} /><span>{item.label}</span></Link> })}</div></section>
+          })}
+          <div className="mabd-mobile-utility-links">
+            {links.map((link) => <Link className="mabd-mobile-utility-link" href={link.href} key={link.href} tabIndex={open ? 0 : -1}>{link.label}</Link>)}
+          </div>
         </nav>
         <div className="mx-auto mt-3 grid max-w-2xl grid-cols-2 gap-2"><a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white text-sm font-black text-slate-950" href={`tel:${PHONE_VALUE}`} tabIndex={open ? 0 : -1}><Phone size={17} /> Gọi ngay</a><a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-brand text-sm font-black" href={ZALO_URL} rel="noreferrer" tabIndex={open ? 0 : -1} target="_blank"><MessageCircle size={17} /> Zalo</a></div>
       </div>
     </header>
+  )
+}
+
+function MegaMenuLink({ item, pathname, productsOpen }: { item: MenuItem; pathname: string; productsOpen: boolean }) {
+  const Icon = item.icon
+  const active = pathname === item.href
+  return (
+    <Link
+      aria-current={active ? 'page' : undefined}
+      className={`mabd-mega-item ${item.featured ? 'is-featured' : ''} ${active ? 'is-active' : ''}`}
+      href={item.href}
+      tabIndex={productsOpen ? 0 : -1}
+    >
+      <span className="mabd-mega-item-icon"><Icon aria-hidden="true" size={23} strokeWidth={1.8} /></span>
+      <span className="mabd-mega-item-copy"><strong>{item.label}</strong><small>{item.description}</small></span>
+    </Link>
   )
 }

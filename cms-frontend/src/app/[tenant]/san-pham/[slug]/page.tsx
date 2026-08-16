@@ -16,6 +16,10 @@ type Props = {
 
 export async function generateMetadata({ params, searchParams }: Props) {
   const { tenant, slug } = await params
+  if (tenant === 'pndsport') {
+    const { getPndProductMetadata } = await import('../../_pndsport/product-page')
+    return getPndProductMetadata(slug)
+  }
   if (tenant === 'mayaocaulong') return generateMayaoCauLongProductMetadata({ params: Promise.resolve({ slug }) })
   if (tenant === 'mayaopickleball') return generateMayaoPickleballProductMetadata({ params: Promise.resolve({ slug }) })
   if (tenant === 'mayaobongro') return generateMayaoBongRoProductMetadata({ params: Promise.resolve({ slug }), searchParams })
@@ -27,6 +31,10 @@ export async function generateMetadata({ params, searchParams }: Props) {
 
 export default async function TenantProductPage({ params, searchParams }: Props) {
   const { tenant, slug } = await params
+  if (tenant === 'pndsport') {
+    const { PndProductPage } = await import('../../_pndsport/product-page')
+    return <PndProductPage slug={slug} />
+  }
   if (tenant === 'mayaocaulong') return <MayaoCauLongProductPage params={Promise.resolve({ slug })} />
   if (tenant === 'mayaopickleball') return <MayaoPickleballProductPage params={Promise.resolve({ slug })} />
   if (tenant === 'mayaobongro') return <MayaoBongRoShell><MayaoBongRoProductPage params={Promise.resolve({ slug })} searchParams={searchParams} /></MayaoBongRoShell>

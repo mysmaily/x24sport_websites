@@ -102,7 +102,7 @@ function mapSettings(settings: PublicStoreSettings | undefined, tenantSlug: stri
     contactPhone: phone,
     facebookUrl: cleanUrl(settings?.facebookUrl) || cleanUrl(defaultFacebookByTenant[tenantSlug]),
     instagramUrl: cleanUrl(settings?.instagramUrl),
-    mapLocations: locations.length ? locations : defaultMapLocations,
+    mapLocations: locations.length ? locations : tenantSlug === 'pndsport' ? [] : defaultMapLocations,
     pinterestUrl: cleanUrl(settings?.pinterestUrl),
     siteName: cleanText(settings?.siteName, 120),
     telegramChatId: cleanText(settings?.telegramChatId, 120),

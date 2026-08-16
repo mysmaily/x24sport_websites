@@ -3,7 +3,6 @@ import {
   BadgeCheck,
   Building2,
   Check,
-  ChevronLeft,
   ChevronRight,
   ClipboardCheck,
   MessageCircle,
@@ -13,9 +12,11 @@ import {
   Trophy,
   Truck,
   UsersRound,
+  GraduationCap,
 } from 'lucide-react'
 import Link from 'next/link'
 
+import { Pagination } from '../../../_components/pagination'
 import { TenantPromoHero, type TenantPromoHeroSlide } from '../../../_components/tenant-promo-hero'
 import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
@@ -26,6 +27,7 @@ import { canonical, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '../lib/site'
 
 const audienceIcons = {
   'ao-bong-da-doi-bong-cau-lac-bo': UsersRound,
+  'ao-bong-da-truong-hoc-sinh-vien': GraduationCap,
   'ao-bong-da-giai-phong-trao': Trophy,
   'thiet-ke-ao-bong-da-cong-ty': Building2,
   'thiet-ke-ao-bong-da-ngan-hang': Building2,
@@ -117,14 +119,14 @@ export async function FootballAudienceLandingPage({ landing, page = 1 }: { landi
             <h2 className="section-title">{productHeading}</h2>
             <p className="section-lead">Chọn một mẫu gần đúng để làm điểm xuất phát. Màu sắc, logo, tên số và nội dung in có thể tiếp tục điều chỉnh theo đội.</p>
           </div>
-          <Link className="inline-flex min-h-12 items-center gap-2 self-start rounded-lg border border-slate-300 px-5 text-sm font-black transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={categoryPath}>{isBusinessLanding && category ? 'Xem danh mục' : 'Xem landing từ đầu'} <ArrowRight aria-hidden="true" size={18} /></Link>
+          <Link className="inline-flex min-h-12 items-center gap-2 self-start rounded-lg border border-slate-300 px-5 text-sm font-black transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="/san-pham/">Xem tất cả mẫu áo <ArrowRight aria-hidden="true" size={18} /></Link>
         </div>
         <div className="mb-2 mt-6 flex justify-between border-t border-slate-200 pt-3 text-xs text-slate-600">
           <span><b className="text-brand">{catalog.totalDocs.toLocaleString('vi-VN')}</b> mẫu phù hợp</span>
           <span>Trang {catalog.page}/{Math.max(catalog.totalPages, 1)}</span>
         </div>
         <div className="mt-8"><ProductGrid products={catalog.docs} /></div>
-        {catalog.totalPages > 1 ? <nav className="mt-9 grid grid-cols-[1fr_auto_1fr] items-center border-t border-slate-200 pt-5 text-sm font-black" aria-label="Phân trang mẫu áo landing">{currentPage > 1 ? <Link className="inline-flex min-h-11 items-center gap-2" href={pageHref(currentPage - 1)}><ChevronLeft size={18} /> Trang trước</Link> : <span />}<span>{currentPage} / {catalog.totalPages}</span>{currentPage < catalog.totalPages ? <Link className="inline-flex min-h-11 items-center gap-2 justify-self-end" href={pageHref(currentPage + 1)}>Trang sau <ChevronRight size={18} /></Link> : <span />}</nav> : null}
+        <Pagination ariaLabel="Phân trang mẫu áo" hrefForPage={pageHref} page={currentPage} totalPages={catalog.totalPages} />
       </div>
     </section>
   )

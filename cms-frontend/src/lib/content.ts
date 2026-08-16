@@ -39,6 +39,7 @@ export type StoreSettings = {
 }
 export type CatalogPage = { products: ProductPreview[]; totalDocs: number; totalPages: number; page: number }
 export type ContentPage = { docs: CmsWebContent[]; totalDocs: number; totalPages: number; page: number }
+export type CategoryNavigationItem = SportCategory & { children: SportCategory[] }
 
 const apiUrl = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
 const usePreviewFallback = process.env.SITE_ENV === 'preview'
@@ -168,7 +169,7 @@ function mapProduct(product: CmsProduct, categories: SportCategory[]): ProductPr
   const primarySlug = sportToSlug[product.sport] || related[0]?.slug || 'san-pham'
   const category = categories.find((item) => item.slug === primarySlug)
   return {
-    id: product.id, slug: product.slug, name: product.name,
+    id: product.id, sku: product.sku, slug: product.slug, name: product.name,
     category: category?.name || related[0]?.name || 'X24Sport', categorySlug: primarySlug,
     categorySlugs: related.map((item) => item.slug),
     type: product.shortDescription || 'Trang phục thể thao',
@@ -194,6 +195,38 @@ export async function getCategories(): Promise<SportCategory[]> {
     if (topLevel.length) return topLevel.map(mapCategory)
   } catch (error) { console.error('Unable to load X24Sport categories.', error) }
   return usePreviewFallback && tenantSlug === 'x24sport' ? previewCategories : []
+}
+
+function categoryParentId(category: CmsCategory) {
+  if (!category.parent) return undefined
+  return typeof category.parent === 'object' ? category.parent.id : category.parent
+}
+
+export async function getCategoryNavigation(): Promise<CategoryNavigationItem[]> {
+  const tenantSlug = await getTenantSlug()
+  try {
+    const params = new URLSearchParams({
+      'where[tenant.slug][equals]': tenantSlug,
+      depth: '1', limit: '300', sort: 'order',
+    })
+    const docs = await fetchAllDocs<CmsCategory>('product-categories', params)
+    const topLevel = docs.filter((item) => item.group === 'sport' && !item.parent)
+    const childrenByParent = new Map<number | string, CmsCategory[]>()
+
+    docs.forEach((item) => {
+      const parentId = categoryParentId(item)
+      if (!parentId) return
+      const items = childrenByParent.get(parentId) || []
+      items.push(item)
+      childrenByParent.set(parentId, items)
+    })
+
+    return topLevel.map((category, index) => ({
+      ...mapCategory(category, index),
+      children: (childrenByParent.get(category.id) || []).map((child, childIndex) => mapCategory(child, childIndex)),
+    }))
+  } catch (error) { console.error('Unable to load X24Sport category navigation.', error) }
+  return (await getCategories()).map((category) => ({ ...category, children: [] }))
 }
 
 export async function getSitemapCategories(): Promise<SportCategory[]> {
@@ -315,6 +348,18 @@ export async function getWebContentByLegacyPath(path: string): Promise<CmsWebCon
   const params = new URLSearchParams({
     'where[tenant.slug][equals]': tenantSlug, 'where[legacyPath][equals]': path,
     'where[publicationStatus][equals]': 'publish', limit: '1', depth: '0',
+  })
+  return (await fetchList<CmsWebContent>('web-content', params)).docs[0]
+}
+
+export async function getWebContentBySlug(slug: string): Promise<CmsWebContent | undefined> {
+  const tenantSlug = await getTenantSlug()
+  const params = new URLSearchParams({
+    'where[tenant.slug][equals]': tenantSlug,
+    'where[slug][equals]': slug,
+    'where[publicationStatus][equals]': 'publish',
+    limit: '1',
+    depth: '0',
   })
   return (await fetchList<CmsWebContent>('web-content', params)).docs[0]
 }

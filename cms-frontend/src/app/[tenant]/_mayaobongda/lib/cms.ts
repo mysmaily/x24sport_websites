@@ -18,7 +18,7 @@ export type ProductCategory = {
   slug: string
   legacyPath?: string | null
   description?: string | null
-  group?: 'sport' | 'type' | 'color' | 'tag' | null
+  group?: 'sport' | 'type' | 'collection' | 'audience' | 'color' | 'tag' | null
   productCount?: number | null
 }
 

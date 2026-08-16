@@ -42,6 +42,8 @@ export const ProductCategories: CollectionConfig = {
       options: [
         { label: 'Theo bộ môn', value: 'sport' },
         { label: 'Theo loai ao', value: 'type' },
+        { label: 'Theo bo suu tap', value: 'collection' },
+        { label: 'Theo doi tuong', value: 'audience' },
         { label: 'Theo mau sac', value: 'color' },
         { label: 'Theo tu khoa', value: 'tag' },
       ],

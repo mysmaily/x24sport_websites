@@ -336,7 +336,7 @@ export interface ProductCategory {
    * Danh mục cha trong cây phân loại của website.
    */
   parent?: (number | null) | ProductCategory;
-  group: 'sport' | 'type' | 'color' | 'tag';
+  group: 'sport' | 'type' | 'collection' | 'audience' | 'color' | 'tag';
   description?: string | null;
   legacyPath?: string | null;
   tenantLegacyPathKey?: string | null;
