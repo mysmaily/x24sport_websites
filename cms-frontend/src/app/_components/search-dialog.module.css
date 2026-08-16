@@ -72,15 +72,15 @@
   min-height: 58px;
   margin: 0 24px;
   overflow: hidden;
-  border: 2px solid #cbd5e1;
+  border: 1px solid #dbe3ec;
   border-radius: 14px;
   background: #fff;
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
 .form:focus-within {
-  border-color: var(--brand, var(--accent, #e24a20));
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand, var(--accent, #e24a20)) 16%, transparent);
+  border-color: color-mix(in srgb, var(--brand, var(--accent, #e24a20)) 64%, #dbe3ec);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand, var(--accent, #e24a20)) 10%, transparent);
 }
 
 .searchIcon {
