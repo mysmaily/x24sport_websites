@@ -24,13 +24,16 @@ Always use the default built-in image generation path for this skill. It must wo
 
 Read `references/backgrounds.md` before choosing a background. Use images from `assets/backgrounds/` as reference images, not as disposable examples.
 
-Default background:
+Default background selection:
 
-- Use `telephoto-narrow-model-zone-square.png` for normal work. It is the only approved bundled shop background unless `references/backgrounds.md` lists another approved `1:1` file.
-- All bundled backgrounds must be square `1:1`. Do not use or add wide, portrait, or mixed-ratio shop backgrounds.
-- Keep the same shop identity and product arrangement across outputs. Do not invent a different store layout, different shelving system, or visibly different product display between generations.
+- Use `telephoto-narrow-model-zone-square.png` for normal square catalog work.
+- Use `telephoto-narrow-model-zone.png` or `telephoto-horizontal-entrance-soft.png` when the user wants the shop to be secondary and the model to be the focus.
+- Use `reception-reverse-wide.png` when the user wants the approved counter-to-entrance shop angle.
+- Use `entrance-inward-fuller-irregular.png` when the user wants the fuller shop background with slightly irregular lower shelves.
+- Use `telephoto-casual-left-racks.png` when the user wants a busier, lived-in shop feel.
+- Keep the same shop identity and product arrangement across outputs in a set. Do not invent a different store layout, different shelving system, or visibly different product display between generations.
 
-If the user names or attaches another background, use it only when it is square `1:1` and does not contain obvious low-shelf zip-bag stacks. Otherwise explain that it needs to be replaced or regenerated as a clean square background first.
+If the user names or attaches another background, use it when it is suitable for the requested crop and model placement. If it contains obvious low-shelf zip-bag stacks or distracting clutter, explain that it should be replaced or regenerated as a cleaner background first.
 
 ## Bundled Face References
 
@@ -58,10 +61,10 @@ Identify these from the user's request:
 - Sport: football, running, badminton, basketball, volleyball, pickleball, esports, or the user's stated sport.
 - Model type: male, female, couple, team/group, child only if explicitly requested and appropriate. For female, choose a bundled face reference unless the user provides one.
 - Pose and crop: full-body, half-body, front/back/side, walking, standing, action-lite, team lineup.
-- Output count and orientation: default to one image unless the user asks for several; infer vertical for social/model shots and horizontal for web banners.
-- Background: use requested bundled background or choose one from the priority list.
+- Output count and orientation: default to one image unless the user asks for several; infer square for catalog, vertical for social/model shots, and horizontal for web banners.
+- Background: use requested bundled background or choose from `references/backgrounds.md`.
 
-When details are missing, make reasonable choices: Vietnamese adult model, full-body, natural standing pose, front view of the shirt, clean square shop background, catalog/social quality. For female football requests, use the locked female football shop style unless contradicted by the user.
+When details are missing, make reasonable choices: Vietnamese adult model, full-body, natural standing pose, front view of the shirt, clean shop background, catalog/social quality. For female football requests, use the locked female football shop style unless contradicted by the user.
 
 ## Generation Workflow
 
@@ -75,7 +78,7 @@ When details are missing, make reasonable choices: Vietnamese adult model, full-
    - proportions of stripes, trims, numbering, badges, and design motifs.
 5. Use the bundled shop background as a background plate reference. Preserve its perspective, lighting direction, cream walls, glossy beige floor, black racks, sports goods, and X24 shop mood.
 6. Generate Vietnamese model(s) wearing the design in the chosen shop background.
-7. Keep the output square `1:1` unless the user explicitly asks for a non-square crop after acknowledging the bundled background rule.
+7. Use the crop implied by the request and selected background: square for catalog, vertical for social/model shots, horizontal for banner or storefront work.
 8. For requested vertical `9:16` outputs, keep a full-body or near full-body crop with shoes visible, floor below the feet, waist/chest-height camera, and naturally long balanced legs.
 9. Keep the model naturally grounded on the tile floor with correct scale, contact shadows, reflections, and matching warm indoor light.
 10. Validate the output before responding. If defects are obvious, run one targeted iteration.
@@ -92,7 +95,7 @@ Include these constraints in the generation prompt:
 - Print sits on fabric with mild distortion from body curvature, not pasted flat.
 - Lighting matches the shop: warm recessed lights, soft reflections from glossy beige tile, believable contact shadow.
 - Camera should feel like a real shop/catalog photo, often 50-70mm or mild telephoto unless the user asks for wide.
-- Square `1:1` composition with the shop background kept consistent with the reference plate.
+- Keep the shop background consistent with the selected reference plate and requested crop.
 - Avoid AI tells: plastic skin, waxy eyes, extra fingers, distorted hands, duplicated logos, garbled large text, impossible seams, warped hangers, floating shoes, fake showroom perfection.
 
 For group/team images, preserve design consistency across every person while allowing natural size differences and slight pose variation.
@@ -120,7 +123,7 @@ Before final response, inspect the generated image and check:
 - Hands, fingers, legs, shoes, face, eyes, and body proportions are normal.
 - Light direction, shadows, floor contact, and reflections match the shop.
 - Background is believable, not too perfect, not too wide, and not distracting.
-- Final image is square `1:1`.
+- Final image uses the requested or inferred crop, and the model is not cramped or cut off.
 - Product display matches the approved background plate and does not look like a newly invented store.
 - No zip-bagged or plastic-wrapped products are stacked under cabinets, on the floor, or on low shelves.
 - No hats/caps appear unless requested.
