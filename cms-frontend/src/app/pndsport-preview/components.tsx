@@ -1,20 +1,18 @@
 import {
   ArrowRight,
-  ChevronDown,
   Menu,
   MessageCircle,
   Phone,
-  Search,
   ShieldCheck,
   Sparkles,
 } from 'lucide-react'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 
+import { SearchDialog } from '../_components/search-dialog'
+import { CompactHeader, type NavigationCategory } from './compact-header'
 import styles from './pnd.module.css'
 import { categories, formatPrice, previewBase, type PreviewProduct } from './data'
-
-type NavigationCategory = { name: string; slug: string; children?: readonly NavigationCategory[] }
 
 export type PreviewVariant = 'v1' | 'v2' | 'v3'
 
@@ -36,8 +34,9 @@ export function SiteShell({ children, base = previewBase, variant = 'v1', naviga
     <header className={styles.header}>
       <div className={styles.headerMain}>
         <Brand base={base} variant={variant} imageLogo={imageLogo} inverse={variant === 'v2'} />
-        <form action={`${base}/san-pham`} className={styles.search} method="get" role="search"><Search size={18} /><input aria-label="Tìm sản phẩm" name="q" placeholder="Tìm theo môn thể thao, mã mẫu..." /><button type="submit">Tìm</button></form>
-        <a className={styles.headerCta} href="https://zalo.me/0989353247" target="_blank" rel="noreferrer"><MessageCircle size={18} /><span>Gửi yêu cầu thiết kế</span></a>
+        <SearchDialog action={`${base}/san-pham`} iconSize={18} overlayClassName={styles.searchDialogTheme} placeholder="Tên mẫu, mã áo hoặc môn thể thao…" triggerClassName={styles.searchTrigger} triggerText="Tìm theo môn thể thao, mã mẫu..." />
+        <div className={styles.mobileSearch}><SearchDialog action={`${base}/san-pham`} iconSize={20} overlayClassName={styles.searchDialogTheme} placeholder="Tên mẫu, mã áo hoặc môn thể thao…" triggerClassName={styles.mobileSearchTrigger} /></div>
+        <a className={styles.headerCta} href="tel:0989353247"><Phone size={18} /><span>Hotline 0989 353 247</span></a>
         <details className={styles.mobileMenu}><summary aria-label="Mở menu"><Menu /></summary><nav>{navigationCategories.map((item) => item.children?.length ? <details className={styles.mobileCategoryGroup} key={item.slug}><summary>{item.name}</summary><div><Link href={`${base}/danh-muc/${item.slug}`}>Tất cả {item.name}</Link>{item.children.map((child) => <Link href={`${base}/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}</div></details> : <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}<Link href={`${base}/blog`}>Góc tư vấn</Link></nav></details>
       </div>
       <nav className={styles.nav} aria-label="Danh mục chính">
@@ -45,6 +44,7 @@ export function SiteShell({ children, base = previewBase, variant = 'v1', naviga
         <Link href={`${base}/blog`}>Góc tư vấn</Link>
       </nav>
     </header>
+    <CompactHeader base={base} navigationCategories={navigationCategories} />
     <main id="pnd-main">{children}</main>
     <footer className={styles.footer}>
       <div className={styles.footerTop}>

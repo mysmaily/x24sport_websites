@@ -22,15 +22,19 @@ type SuggestionResponse = {
 type SearchDialogProps = {
   action?: string
   iconSize?: number
+  overlayClassName?: string
   placeholder?: string
   triggerClassName?: string
+  triggerText?: string
 }
 
 export function SearchDialog({
   action = '/tim-kiem/',
   iconSize = 19,
+  overlayClassName = '',
   placeholder = 'Tên mẫu, mã áo hoặc màu sắc…',
   triggerClassName = '',
+  triggerText,
 }: SearchDialogProps) {
   const pathname = usePathname()
   const dialogId = useId()
@@ -101,7 +105,7 @@ export function SearchDialog({
   const suggestionsPending = open && (!suggestions || loading)
 
   const dialog = open ? (
-    <div className={styles.overlay} onMouseDown={(event) => { if (event.target === event.currentTarget) close() }}>
+    <div className={`${styles.overlay} ${overlayClassName}`} onMouseDown={(event) => { if (event.target === event.currentTarget) close() }}>
       <div aria-labelledby={titleId} aria-modal="true" className={styles.dialog} id={dialogId} ref={panelRef} role="dialog">
         <div className={styles.header}>
           <div>
@@ -144,7 +148,7 @@ export function SearchDialog({
 
   return (
     <>
-      <button aria-controls={dialogId} aria-expanded={open} aria-haspopup="dialog" aria-label="Mở tìm kiếm" className={`${styles.trigger} ${triggerClassName}`} onClick={() => setOpen(true)} ref={triggerRef} type="button"><Search aria-hidden="true" size={iconSize} /></button>
+      <button aria-controls={dialogId} aria-expanded={open} aria-haspopup="dialog" aria-label="Mở tìm kiếm" className={`${styles.trigger} ${triggerClassName}`} onClick={() => setOpen(true)} ref={triggerRef} type="button"><Search aria-hidden="true" size={iconSize} />{triggerText ? <span>{triggerText}</span> : null}</button>
       {mounted && dialog ? createPortal(dialog, document.body) : null}
     </>
   )
