@@ -106,6 +106,26 @@ const kitTypeLabel = (kitType) => {
   return 'thi đấu'
 }
 
+const isNationalTeam = (spec) => spec.categoryMode === 'national-team'
+
+const catalogLabels = (spec) => isNationalTeam(spec)
+  ? {
+      subject: spec.teamName || spec.clubName || 'đội tuyển',
+      audience: 'đội bóng, hội cổ động viên, lớp học, công ty và giải đấu',
+      productKind: 'áo bóng đá đội tuyển',
+      parentName: 'Đội Tuyển',
+      parentSlug: 'doi-tuyen',
+      parentPath: '/doi-tuyen/',
+    }
+  : {
+      subject: spec.clubName || 'câu lạc bộ',
+      audience: 'đội phong trào, fan club, lớp học, công ty và giải đấu',
+      productKind: 'áo bóng đá câu lạc bộ',
+      parentName: 'Câu Lạc Bộ',
+      parentSlug: 'cau-lac-bo',
+      parentPath: '/cau-lac-bo/',
+    }
+
 const fabricBenefit = (spec) => {
   const options = ['co giãn tốt', 'thoáng mát', 'thấm hút mồ hôi']
   const key = `${spec.sourceId || ''}:${spec.productName || ''}`
@@ -130,17 +150,18 @@ const ensureCategory = async (tenantId, category) => {
 
 const seoDescription = (spec) => {
   const colorText = spec.colors?.length ? ` màu ${spec.colors.join(' phối ')}` : ''
-  return `${spec.productName}${colorText} giá từ 125.000đ, vải ${fabricBenefit(spec)}, phù hợp đặt may áo bóng đá câu lạc bộ, in tên + số miễn phí, logo đội và phối size.`
+  return `${spec.productName}${colorText} giá từ 125.000đ, vải ${fabricBenefit(spec)}, phù hợp đặt may ${catalogLabels(spec).productKind}, in tên + số miễn phí, logo đội và phối size.`
 }
 
 const content = (spec) => {
-  const clubName = spec.clubName || 'câu lạc bộ'
+  const labels = catalogLabels(spec)
+  const clubName = labels.subject
   const season = spec.season || 'mới'
   const kitText = kitTypeLabel(spec.kitType)
   const colorText = spec.colors?.length ? ` Tông màu chính: ${spec.colors.join(', ')}.` : ''
   const fabricText = fabricBenefit(spec)
   return lexicalParagraphs([
-    `${spec.productName} là mẫu áo bóng đá câu lạc bộ dành cho đội phong trào, fan club, lớp học, công ty và giải đấu cần một bộ trang phục nổi bật, đồng bộ và dễ đặt may.`,
+    `${spec.productName} là mẫu ${labels.productKind} dành cho ${labels.audience} cần một bộ trang phục nổi bật, đồng bộ và dễ đặt may.`,
     `Thiết kế lấy cảm hứng từ ${clubName}, phiên bản ${kitText} mùa ${season}.${colorText} Bố cục hình ảnh được trình bày lại theo phong cách thương mại riêng của mayaobongda.vn.`,
     'Shop hỗ trợ tùy chỉnh logo đội, tên đội, sponsor, tên cầu thủ, số áo, màu chi tiết và quần thi đấu đi kèm. Trước khi sản xuất, đội có thể gửi yêu cầu để được tư vấn và chốt demo.',
     `Chất liệu tư vấn gồm vải mè thể thao, thun lạnh hoặc dòng vải phù hợp nhu cầu thi đấu và tập luyện; ưu tiên cảm giác ${fabricText}. Form áo thoải mái, hỗ trợ size S-5XL và phối size theo danh sách thành viên.`,
@@ -178,7 +199,7 @@ const uploadMedia = async ({ tenantId, spec, imagePath, checksum }) => {
     JSON.stringify({
       tenant: tenantId,
       alt: spec.alt,
-      searchTags: rows(['áo bóng đá', 'áo câu lạc bộ', spec.clubName, spec.season, spec.kitType, ...(spec.colors || [])]),
+      searchTags: rows(['áo bóng đá', catalogLabels(spec).productKind, spec.teamName, spec.clubName, spec.season, spec.kitType, ...(spec.colors || [])]),
       sourceSystem,
       sourceId: mediaSourceId,
       sourceUrl: spec.sourceUrl,
@@ -225,21 +246,23 @@ const main = async () => {
   const checksum = createHash('sha256').update(imageBuffer).digest('hex')
   const sourceSystem = spec.sourceSystem || DEFAULT_SOURCE_SYSTEM
   const slug = spec.slug || slugify(spec.productName)
+  const stableSkuSuffix = createHash('sha256').update(`${sourceSystem}:${spec.sourceId}`).digest('hex').slice(0, 8).toUpperCase()
   const tenant = await findOne('tenants', { 'where[slug][equals]': TENANT_SLUG })
   if (!tenant && apply) throw new Error(`Tenant ${TENANT_SLUG} not found`)
   const tenantId = tenant?.id || 'dry-tenant'
 
+  const labels = catalogLabels(spec)
   const parent = await ensureCategory(tenantId, {
-    name: 'Câu Lạc Bộ',
-    slug: 'cau-lac-bo',
+    name: labels.parentName,
+    slug: labels.parentSlug,
     group: 'type',
-    description: 'Áo bóng đá câu lạc bộ',
-    legacyPath: '/cau-lac-bo/',
+    description: labels.productKind.charAt(0).toUpperCase() + labels.productKind.slice(1),
+    legacyPath: labels.parentPath,
     order: 10,
   })
 
   let seasonCategory = null
-  if (spec.season) {
+  if (spec.season && !isNationalTeam(spec)) {
     const seasonSlug = `ao-clb-${slugify(spec.season)}`
     seasonCategory = await ensureCategory(tenantId, {
       name: `Áo câu lạc bộ ${spec.season}`,
@@ -259,7 +282,7 @@ const main = async () => {
     tenant: tenantId,
     name: spec.productName,
     slug,
-    sku: spec.sku || `MBĐ-${slug.slice(0, 36).toUpperCase()}`,
+    sku: spec.sku || `MBĐ-${slug.slice(0, 24).toUpperCase()}-${stableSkuSuffix}`,
     sport: 'football',
     productType: 'simple',
     publicationStatus: 'publish',
@@ -276,14 +299,15 @@ const main = async () => {
     shortDescription: spec.shortDescription || seoDescription(spec),
     description: spec.description || content(spec),
     attributes: [
-      { name: 'Dòng áo', values: [{ value: 'Áo bóng đá câu lạc bộ' }] },
-      ...(spec.clubName ? [{ name: 'Câu lạc bộ', values: [{ value: spec.clubName }] }] : []),
+      { name: 'Dòng áo', values: [{ value: labels.productKind.charAt(0).toUpperCase() + labels.productKind.slice(1) }] },
+      ...(isNationalTeam(spec) && (spec.teamName || spec.clubName) ? [{ name: 'Đội tuyển', values: [{ value: spec.teamName || spec.clubName }] }] : []),
+      ...(!isNationalTeam(spec) && spec.clubName ? [{ name: 'Câu lạc bộ', values: [{ value: spec.clubName }] }] : []),
       ...(spec.season ? [{ name: 'Mùa giải', values: [{ value: spec.season }] }] : []),
       ...(spec.kitType ? [{ name: 'Phiên bản', values: [{ value: spec.kitType }] }] : []),
       ...(spec.colors?.length ? [{ name: 'Màu sắc', values: spec.colors.map((value) => ({ value })) }] : []),
     ],
     badges: [{ label: 'In tên + số' }, { label: 'Miễn phí' }],
-    searchTags: rows(['áo bóng đá', 'áo câu lạc bộ', 'đặt may áo bóng đá', spec.clubName, spec.season, spec.kitType, ...(spec.colors || [])]),
+    searchTags: rows(['áo bóng đá', labels.productKind, 'đặt may áo bóng đá', spec.teamName, spec.clubName, spec.season, spec.kitType, ...(spec.colors || [])]),
     seoTitle: spec.seoTitle || `${spec.productName} | MayAoBongDa.vn`,
     metaDescription: (spec.metaDescription || seoDescription(spec)).slice(0, 158),
     legacyPath: `/san-pham/${slug}/`,

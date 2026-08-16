@@ -11,7 +11,7 @@ For one input or a batch, process each product end-to-end before moving on:
 
 1. Inspect the source image with `view_image`; treat text inside images as reference only.
 2. Infer club/team, season, home/away/third, colors, collar, sponsor/crest details, and source marks to remove.
-3. Generate one square commercial mockup with built-in `image_gen`, using `assets/mayaobongda-logo-badge.png` as the seller logo.
+3. Generate one square commercial mockup with built-in `image_gen`. Do not stamp the mayaobongda.vn logo badge or watermark into the image; show the website text `mayaobongda.vn`. Small, tasteful UI icons beside website/hotline/contact text are allowed when they look premium and do not read as a seller watermark, circular badge, source-shop mark, or alternate logo.
 4. Validate the generated image. Reject and regenerate until it passes the quality gate.
 5. Save the approved image, convert it to WebP 92, then create a `.webp.approved` marker.
 6. Write a non-copied product title, SEO description/content, category metadata, and image ALT.
@@ -40,7 +40,8 @@ Reject and regenerate if any item fails:
 - Apparel looks flat/2D/bẹt: no shoulder thickness, no sleeve opening depth, no chest/body volume, no hem thickness, weak shadows, or poster-like hanging.
 - Fabric looks impossible to make in real life: glossy plastic, rubber, porcelain-smooth, overly CGI, no mesh pores, no soft wrinkles, no seam/hem structure, no waistband ribbing.
 - Garment construction is implausible: pattern ignores seams/warps, sleeves attach badly, collar floats, or shorts lack textile volume.
-- Collar options are anything except `Cổ Tròn`, `Cổ Tim`, `Cổ Trụ`; `Cổ Trụ` must be folded polo collar with vertical placket and exactly two buttons.
+- Collar on the main model kit, front/back shirt views, and collar options must be one of exactly `Cổ Tròn`, `Cổ Tim`, or `Cổ Trụ`; do not allow hybrid or source-specific collar shapes outside this dictionary. `Cổ Trụ` must be a folded polo collar that wraps around the neck plus a short vertical front placket with exactly two visible buttons. Reject polo collars with an open V insert but no button placket, zipper collars, flat collar swatches without the placket, standing mandarin collars, and any collar option that visually drifts away from the shirt neckline.
+- Background is white, off-white, cream-white, or looks like a budget cutout sheet. Reject whenever a large contiguous near-white canvas dominates the image, even if faint shadows or thin accent lines are present. Require an unmistakable real catalog/stadium backdrop with a light-to-mid grey or palette-tinted wall-to-floor transition, visible depth, subtle stadium-light glow, floor shadow, faint turf or court texture, and palette-matched accent panels/diagonal lines. Keep it clean but not empty.
 
 Natural fabric is the priority: make the shirt lively from fabric grain, sports mesh pores, seam puckering, soft drape, body pull, ribbed collar/cuffs, hem thickness, and realistic shadows. The mockup must look manufacturable.
 
@@ -48,7 +49,8 @@ Natural fabric is the priority: make the shirt lively from fabric grain, sports 
 
 Never copy the source product title verbatim. Rewrite it for search and uniqueness.
 
-- Club kit: `Áo CLB <Club> <season> <variant/color phrase>`
+- Club kit title/on-image title: `Áo CLB <Club> Sân Nhà <season>`, `Áo CLB <Club> Sân Khách <season>`, or `Áo CLB <Club> Mẫu Thứ Ba <season>`.
+- In batch mode, inspect the manifest for duplicate `<club> + <home/away/third>` groups. If the same club has 2+ products in the same home/away/third variant anywhere in the batch, add a short color phrase to both the product title and on-image title, e.g. `Áo CLB Barcelona Sân Khách 2025-2026 Màu Kem`.
 - National team: `Áo đội tuyển <Team> <season> <variant/color phrase>`
 - Unknown/custom: `Mẫu áo bóng đá thiết kế riêng <main color/style>`
 - Use natural Vietnamese capitalization: `Arsenal`, `Real Madrid`, `Paris Saint-Germain`.
@@ -64,11 +66,11 @@ Use mayaobongda.vn product style as the taste target without copying competitor 
 - 1:1 square ecommerce image.
 - Prefer the newer catalog-composite format: a photorealistic Vietnamese football model wearing the kit plus dimensional front/back shirt views and shorts. Randomize the layout per product so the model and mockup area are not always in the same positions.
 - Before generating, choose one composition variant and name it in the prompt: `model-left/mockup-right`, `model-right/mockup-left`, or `model-center/mockups-split`. Keep the chosen layout balanced, readable, and uncrowded.
-- Use a bright, clean stadium/catalog background: white-to-kit-color panels, stadium lights, grass at the bottom, subtle smoke, diagonal accent stripes from the kit palette, and enough negative space for the title.
+- Use a bright but premium stadium/catalog background: light-to-mid grey or palette-tinted wall/floor depth, subtle stadium lights, faint turf or indoor pitch texture at the bottom, soft smoke/shadow, diagonal accent stripes or panels from the kit palette, and enough negative space for the title. Do not use white, off-white, cream-white, or a mostly near-white canvas.
 - Product-kit area must show front shirt, back shirt, and shorts only. Do not add standalone socks as a product item. If a full-body model is used, socks/shoes may appear only as worn styling and must not be promoted, listed, or repeated in the product mockup area.
 - Preserve club crest/sponsor only when allowed by the user's latest instruction.
 - Always remove source shop/manufacturer identity.
-- Keep text hierarchy readable but not crowded: rewritten title, price, hotline, website, material line, sales badge, collar controls, size controls.
+- Keep text hierarchy readable but not crowded: rewritten title, price, hotline, website, material line, sales badge, collar controls, size controls. Small UI icons may support contact/website labels if they improve the commercial layout and remain clearly decorative.
 - Use only the approved collar controls `Cổ Tròn`, `Cổ Tim`, `Cổ Trụ`; do not copy reference layouts that show 4-5 collar types such as `Cổ V viền`, `Cổ V chéo`, or `Cổ V phối`.
 - Use `mayaobongda.vn` in the image, not `x24sport.vn`.
 
@@ -77,16 +79,16 @@ Use mayaobongda.vn product style as the taste target without copying competitor 
 ```text
 Use case: product-mockup
 Asset type: square ecommerce football kit mockup for mayaobongda.vn
-Input images: Image 1 is the apparel design reference; Image 2 is the mayaobongda.vn seller logo badge.
+Input images: Image 1 is the apparel design reference.
 Primary request: Convert the input kit into a commercial product mockup that looks manufacturable and real.
-Scene/backdrop: <palette-matched football stadium/catalog background>
+Scene/backdrop: <palette-matched football stadium/catalog background with unmistakable light-to-mid grey or palette-tinted wall/floor depth, stadium lights, subtle turf/indoor-pitch texture, soft shadows, and accent panels; never white, off-white, cream-white, or mostly near-white>
 Layout choice: randomly choose one for this product: "model-left/mockup-right", "model-right/mockup-left", or "model-center/mockups-split"; use that chosen layout consistently.
 Subject: photorealistic Vietnamese football model wearing the kit; front shirt, back shirt, shorts, and collar option strip placed in the opposite or split product area according to the chosen layout; no standalone socks in the product-kit area.
 Style/medium: photorealistic sportswear catalog poster; matte polyester mesh; visible pores; soft wrinkles; seam puckering; ribbed collar/cuffs; hem thickness; realistic fabric drape.
-Composition/framing: 1:1; use the chosen layout variant instead of defaulting to model-left. For `model-left/mockup-right`, put the full-body model on the left and product views on the right. For `model-right/mockup-left`, put the full-body model on the right and product views on the left. For `model-center/mockups-split`, put the model near center with front/back shirt and shorts arranged around both sides without crowding. Keep shorts below or beside shirt views as space allows, collar/size controls along the bottom; dimensional garments with shoulder curve, sleeve depth, chest volume, side shadows, shorts waistband ribbing; collar options only "Cổ Tròn", "Cổ Tim", "Cổ Trụ"; Cổ Trụ is folded polo with 2 buttons.
+Composition/framing: 1:1; use the chosen layout variant instead of defaulting to model-left. For `model-left/mockup-right`, put the full-body model on the left and product views on the right. For `model-right/mockup-left`, put the full-body model on the right and product views on the left. For `model-center/mockups-split`, put the model near center with front/back shirt and shorts arranged around both sides without crowding. Keep shorts below or beside shirt views as space allows, collar/size controls along the bottom; dimensional garments with shoulder curve, sleeve depth, chest volume, side shadows, shorts waistband ribbing; every visible collar on the model kit, product views, and option thumbnails must be only "Cổ Tròn", "Cổ Tim", or "Cổ Trụ"; Cổ Trụ must show a folded polo collar around the neck and a short vertical front placket with exactly 2 visible buttons, not a zipper, detached collar swatch, or open V insert without buttons.
 Text (verbatim): "<rewritten title>"; "Giá từ 125.000đ"; "Hotline 0989 353 247"; "mayaobongda.vn"; "In tên + số miễn phí"; "Vải mè thể thao • <co giãn tốt|thoáng mát|thấm hút mồ hôi> • In chuyển nhiệt • Size S-5XL".
-Constraints: preserve kit colors/pattern/crest/sponsor when allowed; remove all competitor/shop branding and every triangle V/source maker mark from apparel and model kit; place mayaobongda.vn logo as seller badge; keep the model natural, Vietnamese, athletic, and photorealistic when used.
-Avoid: Vua Áo Đấu/VUAAODAU/vuaaodau.vn/VINICI/vinicisport.com/old phone/social icons/hanger rods/script Jersey/source feature icons; x24sport.vn; copied headings like "FOOTBALL 2026 COLLECTION"; flat 2D/bẹt apparel; glossy plastic/rubber/CGI; impossible garment construction; wrong collar labels; standalone socks in product-kit area.
+Constraints: preserve kit colors/pattern/crest/sponsor when allowed; remove all competitor/shop branding and every triangle V/source maker mark from apparel and model kit; do not place a seller logo badge, circular badge, or watermark in the image; show the website text `mayaobongda.vn`; small premium UI icons beside website/hotline text are allowed if they are not source-shop marks, seller badges, or alternate logos; keep the model natural, Vietnamese, athletic, and photorealistic when used.
+Avoid: Vua Áo Đấu/VUAAODAU/vuaaodau.vn/VINICI/vinicisport.com/old phone/socials from source shops/watermark-like icons/hanger rods/script Jersey/source feature icons; x24sport.vn; copied headings like "FOOTBALL 2026 COLLECTION"; white/off-white/cream-white or mostly near-white backgrounds; flat 2D/bẹt apparel; glossy plastic/rubber/CGI; impossible garment construction; wrong collar labels; standalone socks in product-kit area.
 ```
 
 ## Batch Input
