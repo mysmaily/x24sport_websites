@@ -113,7 +113,7 @@ export function SearchDialog({
 
         <form action={action} className={styles.form} onSubmit={submit} role="search">
           <Search aria-hidden="true" className={styles.searchIcon} size={20} />
-          <label className="sr-only" htmlFor={`${titleId}-query`}>Từ khóa tìm kiếm</label>
+          <label className={styles.srOnly} htmlFor={`${titleId}-query`}>Từ khóa tìm kiếm</label>
           <input aria-describedby={error ? `${titleId}-error` : undefined} aria-invalid={Boolean(error)} autoComplete="off" className={styles.input} id={`${titleId}-query`} name="q" onChange={() => setError('')} placeholder={placeholder} ref={inputRef} type="search" />
           <button className={styles.submit} type="submit">Tìm kiếm</button>
         </form>
