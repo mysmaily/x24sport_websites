@@ -77,7 +77,7 @@ export function SearchDialog({
   }, [open])
 
   useEffect(() => {
-    if (!open || suggestions || loading) return
+    if (!open || suggestions) return
     const controller = new AbortController()
     setLoading(true)
     fetch('/api/search-suggestions/', { signal: controller.signal })
@@ -88,7 +88,7 @@ export function SearchDialog({
       })
       .finally(() => setLoading(false))
     return () => controller.abort()
-  }, [loading, open, suggestions])
+  }, [open, suggestions])
 
   const close = () => setOpen(false)
   const submit = (event: FormEvent<HTMLFormElement>) => {
