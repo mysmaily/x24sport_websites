@@ -13,7 +13,6 @@
   padding: 20px;
   background: rgb(2 6 23 / 72%);
   backdrop-filter: blur(8px);
-  animation: fade-in 160ms ease-out;
 }
 
 .dialog {
@@ -25,7 +24,6 @@
   background: #fff;
   color: #0f172a;
   box-shadow: 0 28px 80px rgb(2 6 23 / 35%);
-  animation: rise-in 180ms ease-out;
 }
 
 .header {
@@ -156,7 +154,8 @@
 
 .keywords { display: flex; flex-wrap: wrap; gap: 8px; }
 
-.keyword {
+.keyword,
+.keywordSkeleton {
   display: inline-flex;
   align-items: center;
   min-height: 38px;
@@ -168,6 +167,11 @@
   font-size: 13px;
   font-weight: 750;
   text-decoration: none;
+}
+
+.keywordSkeleton {
+  width: clamp(92px, 21%, 142px);
+  background: #f1f5f9;
 }
 
 .products { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
@@ -233,9 +237,7 @@
 .skeleton {
   min-height: 74px;
   border-radius: 12px;
-  background: linear-gradient(100deg, #f1f5f9 20%, #fff 38%, #f1f5f9 56%);
-  background-size: 200% 100%;
-  animation: shimmer 1.2s infinite linear;
+  background: #f1f5f9;
 }
 
 .close:focus-visible,
@@ -259,10 +261,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .overlay, .dialog, .skeleton { animation: none; }
   .product { transition: none; }
 }
-
-@keyframes fade-in { from { opacity: 0; } }
-@keyframes rise-in { from { opacity: 0; transform: translateY(10px) scale(.985); } }
-@keyframes shimmer { to { background-position-x: -200%; } }

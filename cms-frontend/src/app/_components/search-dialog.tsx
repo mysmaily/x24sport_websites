@@ -98,6 +98,7 @@ export function SearchDialog({
     setError('Nhập tên mẫu, mã áo hoặc màu bạn muốn tìm.')
     inputRef.current?.focus()
   }
+  const suggestionsPending = open && (!suggestions || loading)
 
   const dialog = open ? (
     <div className={styles.overlay} onMouseDown={(event) => { if (event.target === event.currentTarget) close() }}>
@@ -119,20 +120,22 @@ export function SearchDialog({
         {error ? <p className={styles.error} id={`${titleId}-error`} role="alert">{error}</p> : null}
 
         <div className={styles.content}>
-          {suggestions?.keywords?.length ? <section className={styles.section} aria-labelledby={`${titleId}-keywords`}>
+          <section className={styles.section} aria-labelledby={`${titleId}-keywords`}>
             <h3 className={styles.sectionHeading} id={`${titleId}-keywords`}>Tìm kiếm phổ biến <span>Chạm để tìm ngay</span></h3>
-            <div className={styles.keywords}>{suggestions.keywords.map((keyword) => <a className={styles.keyword} href={`${action}?q=${encodeURIComponent(keyword)}`} key={keyword}>{keyword}</a>)}</div>
-          </section> : null}
+            {suggestionsPending ? <div className={styles.keywords} aria-label="Đang tải từ khóa gợi ý"><span className={styles.keywordSkeleton} /><span className={styles.keywordSkeleton} /><span className={styles.keywordSkeleton} /><span className={styles.keywordSkeleton} /><span className={styles.keywordSkeleton} /></div> : null}
+            {!suggestionsPending && suggestions?.keywords?.length ? <div className={styles.keywords}>{suggestions.keywords.map((keyword) => <a className={styles.keyword} href={`${action}?q=${encodeURIComponent(keyword)}`} key={keyword}>{keyword}</a>)}</div> : null}
+            {!suggestionsPending && suggestions && !suggestions.keywords?.length ? <p className={styles.status}>Chưa có từ khóa nổi bật để gợi ý.</p> : null}
+          </section>
 
           <section className={styles.section} aria-labelledby={`${titleId}-products`}>
             <h3 className={styles.sectionHeading} id={`${titleId}-products`}>Sản phẩm được xem nhiều <span>Trên website này</span></h3>
-            {loading ? <div className={styles.products} aria-label="Đang tải sản phẩm"><span className={styles.skeleton} /><span className={styles.skeleton} /><span className={styles.skeleton} /><span className={styles.skeleton} /></div> : null}
-            {!loading && suggestions?.products?.length ? <div className={styles.products}>{suggestions.products.map((product) => <a className={styles.product} href={product.href} key={product.href}>
+            {suggestionsPending ? <div className={styles.products} aria-label="Đang tải sản phẩm"><span className={styles.skeleton} /><span className={styles.skeleton} /><span className={styles.skeleton} /><span className={styles.skeleton} /></div> : null}
+            {!suggestionsPending && suggestions?.products?.length ? <div className={styles.products}>{suggestions.products.map((product) => <a className={styles.product} href={product.href} key={product.href}>
               {product.image ? <img alt="" className={styles.thumb} height="58" loading="lazy" src={product.image} width="58" /> : <span aria-hidden="true" className={styles.thumb} />}
               <span><strong className={styles.productName}>{product.name}</strong><small className={styles.productMeta}>Xem chi tiết sản phẩm</small></span>
               <ArrowUpRight aria-hidden="true" className={styles.arrow} size={17} />
             </a>)}</div> : null}
-            {!loading && suggestions && !suggestions.products?.length ? <p className={styles.status}>Chưa có sản phẩm nổi bật để gợi ý.</p> : null}
+            {!suggestionsPending && suggestions && !suggestions.products?.length ? <p className={styles.status}>Chưa có sản phẩm nổi bật để gợi ý.</p> : null}
           </section>
         </div>
       </div>
