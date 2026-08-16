@@ -1,7 +1,6 @@
 import {
   ArrowRight,
   ChevronDown,
-  Grid2X2,
   Menu,
   MessageCircle,
   Phone,
@@ -42,7 +41,6 @@ export function SiteShell({ children, base = previewBase, variant = 'v1', naviga
         <details className={styles.mobileMenu}><summary aria-label="Mở menu"><Menu /></summary><nav>{navigationCategories.map((item) => item.children?.length ? <details className={styles.mobileCategoryGroup} key={item.slug}><summary>{item.name}</summary><div><Link href={`${base}/danh-muc/${item.slug}`}>Tất cả {item.name}</Link>{item.children.map((child) => <Link href={`${base}/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}</div></details> : <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}<Link href={`${base}/blog`}>Góc tư vấn</Link></nav></details>
       </div>
       <nav className={styles.nav} aria-label="Danh mục chính">
-        <Link className={styles.allCategories} href={`${base}/danh-muc/bong-da`}><Grid2X2 size={17} /> Danh mục <ChevronDown size={15} /></Link>
         {navItems.map((item) => item.children?.length ? <div className={styles.navDropdown} key={item.slug}><Link className={styles.navItem} href={`${base}/danh-muc/${item.slug}`}>{item.name}</Link><div className={styles.navSubmenu}>{item.children.map((child) => <Link href={`${base}/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}</div></div> : <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}
         <Link href={`${base}/blog`}>Góc tư vấn</Link>
       </nav>
