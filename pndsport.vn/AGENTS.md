@@ -22,7 +22,9 @@ depend on the confirmed configuration and quantity.
 ## Brand and customer experience
 
 - Approved visual direction: PND V1, compact clean sports commerce.
-- Brand accent: orange; logo asset: `../cms-frontend/public/images/pndsport/logo.webp`.
+- Brand accent: `#5a2f92`; logo assets:
+  `../cms-frontend/public/images/pndsport/pnd-main-logo.svg` on white backgrounds
+  and `../cms-frontend/public/images/pndsport/pnd-white-logo.svg` on the brand background.
 - Avoid oversized display type, excessive whitespace, `p-6`-scale padding and
   clone-like reproduction of the X24Sport visual system.
 - Public copy must say `PND Sport` or `PND Sport Việt Nam`, never describe the

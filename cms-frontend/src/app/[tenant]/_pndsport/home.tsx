@@ -25,7 +25,7 @@ export async function PndHomePage() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'Organization', '@id': 'https://pndsport.vn/#organization', name: 'PND Sport Việt Nam', url: 'https://pndsport.vn/', logo: 'https://pndsport.vn/images/pndsport/logo.webp', contactPoint: { '@type': 'ContactPoint', telephone: '+84-989-353-247', contactType: 'customer service', availableLanguage: 'Vietnamese' } },
+      { '@type': 'Organization', '@id': 'https://pndsport.vn/#organization', name: 'PND Sport Việt Nam', url: 'https://pndsport.vn/', logo: 'https://pndsport.vn/images/pndsport/pnd-main-logo.svg', contactPoint: { '@type': 'ContactPoint', telephone: '+84-989-353-247', contactType: 'customer service', availableLanguage: 'Vietnamese' } },
       { '@type': 'WebSite', '@id': 'https://pndsport.vn/#website', name: 'PND Sport Việt Nam', url: 'https://pndsport.vn/', publisher: { '@id': 'https://pndsport.vn/#organization' }, inLanguage: 'vi-VN' },
     ],
   }

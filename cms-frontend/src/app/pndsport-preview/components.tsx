@@ -19,12 +19,12 @@ type NavigationCategory = { name: string; slug: string; children?: readonly Navi
 
 export type PreviewVariant = 'v1' | 'v2' | 'v3'
 
-export function Brand({ base = previewBase, variant = 'v1', imageLogo = false }: { base?: string; variant?: PreviewVariant; imageLogo?: boolean }) {
+export function Brand({ base = previewBase, variant = 'v1', imageLogo = false, inverse = false }: { base?: string; variant?: PreviewVariant; imageLogo?: boolean; inverse?: boolean }) {
   return <Link className={styles.brand} href={base || '/'} aria-label="PND Sport Việt Nam - Trang chủ">
     {variant === 'v1' && !imageLogo
       ? <><strong>PND SPORT</strong><span>VIỆT NAM</span></>
       // eslint-disable-next-line @next/next/no-img-element
-      : <img src="/images/pndsport/logo.webp" alt="PND Sport Việt Nam" />}
+      : <img src={inverse ? '/images/pndsport/pnd-white-logo.svg' : '/images/pndsport/pnd-main-logo.svg'} alt="PND Sport Việt Nam" />}
   </Link>
 }
 
@@ -36,7 +36,7 @@ export function SiteShell({ children, base = previewBase, variant = 'v1', naviga
     <div className={styles.notice}><span>PND SPORT VIỆT NAM</span><p>Tư vấn mẫu, màu sắc và báo giá theo nhu cầu thực tế</p><a href="tel:0989353247"><Phone size={14} /> 0989 353 247</a></div>
     <header className={styles.header}>
       <div className={styles.headerMain}>
-        <Brand base={base} variant={variant} imageLogo={imageLogo} />
+        <Brand base={base} variant={variant} imageLogo={imageLogo} inverse={variant === 'v2'} />
         <form action={`${base}/san-pham`} className={styles.search} method="get" role="search"><Search size={18} /><input aria-label="Tìm sản phẩm" name="q" placeholder="Tìm theo môn thể thao, mã mẫu..." /><button type="submit">Tìm</button></form>
         <a className={styles.headerCta} href="https://zalo.me/0989353247" target="_blank" rel="noreferrer"><MessageCircle size={18} /><span>Gửi yêu cầu thiết kế</span></a>
         <details className={styles.mobileMenu}><summary aria-label="Mở menu"><Menu /></summary><nav>{navigationCategories.map((item) => item.children?.length ? <details className={styles.mobileCategoryGroup} key={item.slug}><summary>{item.name}</summary><div><Link href={`${base}/danh-muc/${item.slug}`}>Tất cả {item.name}</Link>{item.children.map((child) => <Link href={`${base}/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}</div></details> : <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}<Link href={`${base}/blog`}>Góc tư vấn</Link></nav></details>
@@ -50,7 +50,7 @@ export function SiteShell({ children, base = previewBase, variant = 'v1', naviga
     <main id="pnd-main">{children}</main>
     <footer className={styles.footer}>
       <div className={styles.footerTop}>
-        <div><Brand base={base} variant={variant} imageLogo={imageLogo} /><p>Kho mẫu trang phục thể thao và dịch vụ tư vấn thiết kế, báo giá theo đội nhóm.</p></div>
+        <div><Brand base={base} variant={variant} imageLogo={imageLogo} inverse={variant !== 'v3'} /><p>Kho mẫu trang phục thể thao và dịch vụ tư vấn thiết kế, báo giá theo đội nhóm.</p></div>
         <div><h2>Môn thể thao</h2>{navigationCategories.slice(0, 5).map((item) => <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}</div>
         <div><h2>Hỗ trợ lựa chọn</h2><Link href={`${base}/blog`}>Góc tư vấn</Link><Link href={`${base}/thiet-ke-ao-bong-da-doi-nhom`}>Thiết kế theo yêu cầu</Link><a href="tel:0989353247">Hotline 0989 353 247</a></div>
         <div className={styles.footerContact}><h2>Bắt đầu yêu cầu</h2><p>Gửi mẫu tham khảo, số lượng, màu đội và thời gian dự kiến để nhận tư vấn.</p><a href="https://zalo.me/0989353247" target="_blank" rel="noreferrer">Nhắn Zalo <ArrowRight size={16} /></a></div>
