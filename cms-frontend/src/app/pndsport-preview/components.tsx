@@ -15,7 +15,7 @@ import type { ReactNode } from 'react'
 import styles from './pnd.module.css'
 import { categories, formatPrice, previewBase, type PreviewProduct } from './data'
 
-type NavigationCategory = { name: string; slug: string }
+type NavigationCategory = { name: string; slug: string; children?: readonly NavigationCategory[] }
 
 export type PreviewVariant = 'v1' | 'v2' | 'v3'
 
@@ -29,6 +29,7 @@ export function Brand({ base = previewBase, variant = 'v1', imageLogo = false }:
 }
 
 export function SiteShell({ children, base = previewBase, variant = 'v1', navigationCategories = categories, imageLogo = false, showDraftNotice = true, showMobileBar = true }: { children: ReactNode; base?: string; variant?: PreviewVariant; navigationCategories?: readonly NavigationCategory[]; imageLogo?: boolean; showDraftNotice?: boolean; showMobileBar?: boolean }) {
+  const navItems = navigationCategories.slice(0, 8)
   const variantClass = variant === 'v2' ? styles.v2 : variant === 'v3' ? styles.v3 : ''
   return <div className={`${styles.site} ${variantClass}`} data-preview-variant={variant}>
     <a className={styles.skipLink} href="#pnd-main">Bỏ qua đến nội dung</a>
@@ -38,11 +39,11 @@ export function SiteShell({ children, base = previewBase, variant = 'v1', naviga
         <Brand base={base} variant={variant} imageLogo={imageLogo} />
         <form action={`${base}/san-pham`} className={styles.search} method="get" role="search"><Search size={18} /><input aria-label="Tìm sản phẩm" name="q" placeholder="Tìm theo môn thể thao, mã mẫu..." /><button type="submit">Tìm</button></form>
         <a className={styles.headerCta} href="https://zalo.me/0989353247" target="_blank" rel="noreferrer"><MessageCircle size={18} /><span>Gửi yêu cầu thiết kế</span></a>
-        <details className={styles.mobileMenu}><summary aria-label="Mở menu"><Menu /></summary><nav>{navigationCategories.map((item) => <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}<Link href={`${base}/blog`}>Góc tư vấn</Link></nav></details>
+        <details className={styles.mobileMenu}><summary aria-label="Mở menu"><Menu /></summary><nav>{navigationCategories.map((item) => item.children?.length ? <details className={styles.mobileCategoryGroup} key={item.slug}><summary>{item.name}</summary><div><Link href={`${base}/danh-muc/${item.slug}`}>Tất cả {item.name}</Link>{item.children.map((child) => <Link href={`${base}/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}</div></details> : <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}<Link href={`${base}/blog`}>Góc tư vấn</Link></nav></details>
       </div>
       <nav className={styles.nav} aria-label="Danh mục chính">
         <Link className={styles.allCategories} href={`${base}/danh-muc/bong-da`}><Grid2X2 size={17} /> Danh mục <ChevronDown size={15} /></Link>
-        {navigationCategories.slice(0, 8).map((item) => <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}
+        {navItems.map((item) => item.children?.length ? <div className={styles.navDropdown} key={item.slug}><Link className={styles.navItem} href={`${base}/danh-muc/${item.slug}`}>{item.name}</Link><div className={styles.navSubmenu}>{item.children.map((child) => <Link href={`${base}/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}</div></div> : <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}
         <Link href={`${base}/blog`}>Góc tư vấn</Link>
       </nav>
     </header>

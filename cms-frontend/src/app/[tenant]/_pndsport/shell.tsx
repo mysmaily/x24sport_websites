@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react'
 
-import { getCategories } from '../../../lib/content'
+import { getCategoryNavigation } from '../../../lib/content'
 import { SiteShell } from '../../pndsport-preview/components'
 
 export async function PndShell({ children }: { children: ReactNode }) {
-  const categories = await getCategories()
+  const categories = await getCategoryNavigation()
   return <SiteShell
     base=""
     imageLogo
