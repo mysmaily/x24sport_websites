@@ -16,14 +16,37 @@ export function UniformHeader({ categories, consultationEnabled }: { categories:
   const [mobileOpen, setMobileOpen] = useState(false)
   const desktopMenuRef = useRef<HTMLDivElement>(null)
   const desktopButtonRef = useRef<HTMLButtonElement>(null)
+  const desktopCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
   const mobileButtonRef = useRef<HTMLButtonElement>(null)
   const actionHref = consultationEnabled ? '/#bao-gia' : '/san-pham/'
 
+  function cancelDesktopClose() {
+    if (!desktopCloseTimerRef.current) return
+    clearTimeout(desktopCloseTimerRef.current)
+    desktopCloseTimerRef.current = null
+  }
+
+  function openDesktopMenu() {
+    cancelDesktopClose()
+    setDesktopOpen(true)
+  }
+
+  function scheduleDesktopClose() {
+    cancelDesktopClose()
+    desktopCloseTimerRef.current = setTimeout(() => {
+      setDesktopOpen(false)
+      desktopCloseTimerRef.current = null
+    }, 240)
+  }
+
   function closeMenus() {
+    cancelDesktopClose()
     setDesktopOpen(false)
     setMobileOpen(false)
   }
+
+  useEffect(() => () => cancelDesktopClose(), [])
 
   useEffect(() => {
     if (!desktopOpen && !mobileOpen) return
@@ -59,9 +82,9 @@ export function UniformHeader({ categories, consultationEnabled }: { categories:
   return <header className={styles.header}><div className={styles.headerInner}>
     <HeaderLogo />
     <nav className={styles.nav} aria-label="Điều hướng chính">
-      <div className={styles.navMenu} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setDesktopOpen(false) }} onPointerLeave={() => setDesktopOpen(false)} ref={desktopMenuRef}>
-        <button aria-controls="uniform-solutions-menu" aria-expanded={desktopOpen} className={styles.navMenuButton} onClick={() => setDesktopOpen((open) => !open)} ref={desktopButtonRef} type="button">Giải pháp <ChevronDown aria-hidden="true" /></button>
-        {desktopOpen ? <div className={styles.mega} id="uniform-solutions-menu"><div className={styles.megaLead}><span>CHỌN THEO BỐI CẢNH</span><h2>Mỗi đội ngũ cần một hệ đồng phục khác nhau.</h2><p>Từ môi trường làm việc đến vai trò và tần suất sử dụng.</p></div><div>{categories.map((item, index) => <Link href={`/danh-muc/${item.slug}/`} key={item.slug} onClick={closeMenus}><span>{String(index + 1).padStart(2, '0')}</span><b>{item.name}</b><small>{item.description}</small></Link>)}</div><aside><h3>Đi nhanh</h3><Link href="/san-pham/" onClick={closeMenus}>Tất cả mẫu <ArrowRight aria-hidden="true" /></Link><Link href="/#quy-trinh" onClick={closeMenus}>Quy trình đặt may <ArrowRight aria-hidden="true" /></Link><Link href="/#vat-lieu" onClick={closeMenus}>Vật liệu <ArrowRight aria-hidden="true" /></Link></aside></div> : null}
+      <div className={styles.navMenu} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) closeMenus() }} onFocus={openDesktopMenu} onPointerEnter={openDesktopMenu} onPointerLeave={scheduleDesktopClose} ref={desktopMenuRef}>
+        <button aria-controls="uniform-solutions-menu" aria-expanded={desktopOpen} className={styles.navMenuButton} onClick={openDesktopMenu} ref={desktopButtonRef} type="button">Giải pháp <ChevronDown aria-hidden="true" /></button>
+        {desktopOpen ? <div className={styles.mega} id="uniform-solutions-menu" onPointerEnter={openDesktopMenu}><div className={styles.megaLead}><span>CHỌN THEO BỐI CẢNH</span><h2>Mỗi đội ngũ cần một hệ đồng phục khác nhau.</h2><p>Từ môi trường làm việc đến vai trò và tần suất sử dụng.</p></div><div>{categories.map((item, index) => <Link href={`/danh-muc/${item.slug}/`} key={item.slug} onClick={closeMenus}><span>{String(index + 1).padStart(2, '0')}</span><b>{item.name}</b><small>{item.description}</small></Link>)}</div><aside><h3>Đi nhanh</h3><Link href="/san-pham/" onClick={closeMenus}>Tất cả mẫu <ArrowRight aria-hidden="true" /></Link><Link href="/#quy-trinh" onClick={closeMenus}>Quy trình đặt may <ArrowRight aria-hidden="true" /></Link><Link href="/#vat-lieu" onClick={closeMenus}>Vật liệu <ArrowRight aria-hidden="true" /></Link></aside></div> : null}
       </div>
       <Link href="/#quy-trinh">Quy trình</Link><Link href="/#vat-lieu">Vật liệu</Link><Link href="/#tieu-chuan">Tiêu chuẩn</Link>
     </nav>
