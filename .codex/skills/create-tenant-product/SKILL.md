@@ -1,6 +1,6 @@
 ---
 name: create-tenant-product
-description: Create or update X24Sport Payload CMS products for a specified tenant from one or more product images. Use when the user asks to đăng sản phẩm, tạo sản phẩm, upload product, import product, create product listing, or publish sportswear/catalog products to tenants such as mayaobongda.vn, mayaocaulong.vn, mayaopickleball.vn, mayaobongchuyen.vn, mayaobongro.vn, mayaochaybo.vn, x24sport.vn, or rynosport.vn using REST API, image analysis, SEO copy, media search tags, categories, and tenant-scoped verification.
+description: Create or update X24Sport Payload CMS products for a specified tenant from one or more product images, optionally consuming a validated upstream product-handoff manifest and falling back to full image analysis when no usable manifest exists. Use when the user asks to đăng sản phẩm, tạo sản phẩm, upload product, import product, create product listing, or publish sportswear/catalog products to tenants such as mayaobongda.vn, mayaocaulong.vn, mayaopickleball.vn, mayaobongchuyen.vn, mayaobongro.vn, mayaochaybo.vn, x24sport.vn, or rynosport.vn using REST API, image analysis, SEO copy, media search tags, categories, and tenant-scoped verification.
 ---
 
 # Create Tenant Product
@@ -19,6 +19,7 @@ Read these before acting:
 - For copy quality, use `$copywriting` at `/Users/hoang/.agents/skills/copywriting/SKILL.md`. If the product copy is mostly polishing an existing listing, use `copy-editing` after drafting; if the product needs a stronger offer angle, use `offers` before final copy.
 - Read `references/seo-copy-tags.md` when drafting title, descriptions, content, attributes, and tags.
 - Read `references/rest-product-publishing.md` before running a REST mutation.
+- When an upstream `product-handoff.json` is supplied or discoverable beside the input images, read `/Users/hoang/hacado/x24sport_websites/.codex/skills/create-outdoor-uniform-images/references/product-handoff.md` and validate the manifest before using it.
 
 ## Workflow
 
@@ -26,18 +27,24 @@ Read these before acting:
    - Tenant/domain and tenant slug.
    - Category slug/name; resolve it inside the same tenant.
    - Input images: local paths or URLs; support one or many.
+   - Optional handoff: an explicitly supplied manifest, or `product-handoff.json` beside the local input images.
    - Extra requirements: gender/audience, product type, price, SKU/source identity, publish vs draft, badges, attributes, brand restrictions, reuse/update behavior.
 
-2. Analyze every image:
-   - Identify sport, garment type, collar/sleeve/form, gender/audience, dominant colors, accent colors, pattern/graphic style, logos/text visible, pose/mockup/model context, and likely use case.
-   - Do not invent claims about fabric, technology, discounts, stock, sponsorship, or licensed teams unless provided or visually obvious.
-   - If image quality or rights are uncertain, create as `draft` and report the factual gap.
+2. Resolve the handoff or analyze from scratch:
+   - Prefer a manifest only when its schema is supported, every publishing image is listed, paths resolve, and checksums match. Run `create-outdoor-uniform-images/scripts/validate_product_handoff.py` with every input image.
+   - Always inspect every final image with `view_image`, even when the manifest validates. Treat the manifest as a factual head start, not permission to skip visual verification.
+   - Compare the manifest to the final pixels. Final accepted images win for visible facts; the original user brief wins for supplied non-visual facts. Discard conflicting manifest fields and analyze those fields again.
+   - If no manifest exists, it is unreadable, validation fails, its schema is unsupported, it omits an input image, or a checksum differs, do not block solely because of the manifest. Perform the complete image analysis below and record that fallback was used.
+   - Full analysis must identify sport/use case, garment type, collar/sleeve/form, gender/audience, dominant and accent colors, pattern/graphic style, approved logos/text, pose/view/context, and likely buyer use case for every image.
+   - Never infer fabric composition, named printing technology, durability metrics, discounts, stock, sponsorship, or licensing from either pixels or a `restrained-default` overlay claim.
+   - If image quality, design fidelity, approved branding, or rights remain uncertain after analysis, create as `draft` and report the factual gap.
 
 3. Draft the product package:
    - Create SEO title/product name, slug, short description, full product content, meta description, attributes, badges, product search tags, media alt text, and per-image media search tags.
    - Product search tags should cover commercial discovery: sport, garment type, audience, use case, color family, style, and category.
    - Media search tags should be more visual: exact color, gradient/pattern, pose, front/back/detail, collar/sleeve, model/team/context, and sport.
    - Use Vietnamese shopping language, compact and factual. Prioritize phrases buyers search for.
+   - This skill owns the final product name, slug, SKU/source identity, descriptions, SEO metadata, attributes, badges, product/media tags, commercial state, and REST payload. Upstream copy seeds are suggestions only.
 
 4. Prepare REST payload:
    - Use tenant-scoped category and media IDs only.
@@ -59,6 +66,7 @@ Read these before acting:
    - Public product URL returns 200 after the tenant revalidation window.
    - Rendered H1/title, meta description, canonical, price/contact state, gallery alt text, category page inclusion, sitemap inclusion for published products, and search/tag behavior are correct.
    - Run a sibling-tenant isolation query when doing batch or cross-tenant work.
+   - Report whether a validated handoff or full-analysis fallback supplied the visual facts.
 
 ## Helper Script
 

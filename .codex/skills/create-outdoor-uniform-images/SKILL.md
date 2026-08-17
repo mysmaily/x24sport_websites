@@ -1,6 +1,6 @@
 ---
 name: create-outdoor-uniform-images
-description: Create and iterate branded photorealistic group model images for the “Đồng phục dã ngoại” catalog of mayaodongphuc.com.vn from one or more supplied garment/design references. Use when the user asks to turn T-shirt or uniform artwork, mockups, flat lays, or product photos into Vietnamese adult or explicitly requested child model photos for picnic, company outing, team-building, park, resort, studio, catalog, banner, or social use, with 3–7 varied models, sleeves on every shirt, one vertical Mayaodongphuc logo, professional icon-led garment feature callouts, hotline 0989 353 247, strict design fidelity, and rejection of plastic-looking people, anatomy defects, wrong prints, watermarks, and competitor branding.
+description: Create and iterate branded photorealistic group model images for the “Đồng phục dã ngoại” catalog of mayaodongphuc.com.vn from one or more supplied garment/design references. Use when the user asks to turn T-shirt or uniform artwork, mockups, flat lays, or product photos into Vietnamese adult or explicitly requested child model photos for picnic, company outing, team-building, park, resort, studio, catalog, banner, or social use, with 3–7 varied models, sleeves on every shirt, one vertical Mayaodongphuc logo, professional icon-led garment feature callouts, hotline 0989 353 247, strict design fidelity, optional product-handoff manifests for downstream publishing, and rejection of plastic-looking people, anatomy defects, wrong prints, watermarks, and competitor branding.
 ---
 
 # Create Outdoor Uniform Images
@@ -145,6 +145,30 @@ python3 /Users/hoang/.codex/skills/create-outdoor-uniform-images/scripts/validat
 
 Treat this script as file-level validation only; it never replaces visual inspection.
 
+## Create the downstream product handoff
+
+When the same request also asks to publish a product, invokes `create-tenant-product`, or explicitly requests reusable publishing metadata, write `product-handoff.json` beside the accepted images after every visual gate passes. For standalone image generation, the handoff is optional unless the user asks for it.
+
+Read [references/product-handoff.md](references/product-handoff.md) before writing the file. The handoff is a factual visual contract, not finished product copy. Include:
+
+- source-reference classifications and the accepted design lock;
+- absolute accepted-image paths, roles, aspect ratios, model counts, overlay choices, SHA-256 checksums, factual alt seeds, and visual tags;
+- visible garment facts, approved garment artwork, intended audiences/use cases, feature-lock evidence levels, unsupported claims, and fidelity caveats;
+- an optional category suggestion and compact copy seeds.
+
+Do not finalize the product name, slug, SKU, descriptions, SEO metadata, badges, price, stock, or commercial claims here. `create-tenant-product` owns those tenant-aware fields. Never promote a `restrained-default` overlay claim into a verified product fact.
+
+Validate the handoff before delivery:
+
+```bash
+python3 scripts/validate_product_handoff.py \
+  --manifest /absolute/path/product-handoff.json \
+  --image /absolute/path/accepted-hero.png \
+  --image /absolute/path/accepted-support.png
+```
+
+If validation fails, correct the manifest or image list before invoking the publishing skill.
+
 ## Deliver
 
 Return the accepted images with absolute paths so the app can render them. Summarize:
@@ -154,5 +178,6 @@ Return the accepted images with absolute paths so the app can render them. Summa
 - chosen model count, overlay corner/theme, and feature copy;
 - output roles and aspect ratios;
 - validation result and any honest remaining fidelity caveat.
+- the validated `product-handoff.json` path when a handoff was required.
 
 Do not publish to the CMS or mutate mayaodongphuc.com.vn unless the user separately requests publishing.
