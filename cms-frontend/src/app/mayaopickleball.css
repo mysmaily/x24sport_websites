@@ -1695,6 +1695,275 @@ body.tenant-mayaopickleball .catalog-order-strip svg {
   color: var(--accent);
 }
 
+body.tenant-mayaopickleball .finished-samples-page {
+  background:
+    linear-gradient(180deg, #f7faf4 0%, #f8faf6 42%, #ffffff 100%);
+}
+
+body.tenant-mayaopickleball .finished-samples-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
+  gap: 24px;
+  align-items: stretch;
+  padding: clamp(28px, 4.5vw, 64px) clamp(20px, 5vw, 72px) 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+body.tenant-mayaopickleball .finished-samples-copy h1 {
+  max-width: 920px;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(40px, 5.7vw, 78px);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaopickleball .finished-samples-copy > p:last-of-type {
+  max-width: 720px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.58;
+}
+
+body.tenant-mayaopickleball .finished-samples-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+body.tenant-mayaopickleball .finished-samples-panel {
+  display: grid;
+  gap: 10px;
+}
+
+body.tenant-mayaopickleball .finished-samples-panel div {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-sm);
+  background: white;
+  padding: 16px;
+  box-shadow: 0 14px 38px rgba(22, 42, 32, 0.08);
+}
+
+body.tenant-mayaopickleball .finished-samples-panel span {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--court-soft);
+  color: var(--court);
+  font-family: var(--font-display), sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+body.tenant-mayaopickleball .finished-samples-panel strong {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+body.tenant-mayaopickleball .finished-samples-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin: 18px clamp(20px, 5vw, 72px) 0;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-md);
+  background: var(--line);
+}
+
+body.tenant-mayaopickleball .finished-samples-strip div {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: white;
+  padding: 12px 14px;
+  color: var(--ink-soft);
+  font-weight: 850;
+  text-align: center;
+}
+
+body.tenant-mayaopickleball .finished-samples-strip svg {
+  flex: 0 0 auto;
+  color: var(--accent);
+}
+
+body.tenant-mayaopickleball .finished-samples-section {
+  padding: clamp(22px, 3.8vw, 52px) clamp(20px, 5vw, 72px);
+}
+
+body.tenant-mayaopickleball .finished-post-section {
+  padding-top: 8px;
+}
+
+body.tenant-mayaopickleball .finished-samples-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+body.tenant-mayaopickleball .finished-samples-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(28px, 3.2vw, 46px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaopickleball .finished-samples-heading > a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(16, 19, 26, 0.1);
+  background: white;
+  padding: 0 14px;
+  color: var(--court);
+  font-weight: 900;
+}
+
+body.tenant-mayaopickleball .finished-product-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+body.tenant-mayaopickleball .finished-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-md);
+  background: #0f151d;
+  padding: clamp(20px, 3.4vw, 36px);
+  color: white;
+}
+
+body.tenant-mayaopickleball .finished-empty-state h2 {
+  max-width: 780px;
+  margin: 0;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaopickleball .finished-empty-state .section-eyebrow {
+  color: #b9f38b;
+}
+
+@media (max-width: 980px) {
+  body.tenant-mayaopickleball .finished-samples-hero {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-panel {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body.tenant-mayaopickleball .finished-samples-panel div {
+    grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .finished-product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  body.tenant-mayaopickleball .finished-samples-hero {
+    gap: 14px;
+    padding: 20px 16px 14px;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-copy h1 {
+    font-size: 34px;
+    line-height: 1.04;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-copy > p:last-of-type {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.48;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-actions {
+    margin-top: 14px;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-panel {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-panel div {
+    grid-template-columns: 38px minmax(0, 1fr);
+    padding: 11px;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-panel span {
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-panel strong {
+    font-size: 14px;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-strip {
+    grid-template-columns: 1fr;
+    margin: 12px 16px 0;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-strip div {
+    min-height: 48px;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 13px;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-section {
+    padding: 18px 16px;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-heading {
+    display: grid;
+    gap: 10px;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-heading h2 {
+    font-size: 26px;
+  }
+
+  body.tenant-mayaopickleball .finished-samples-heading > a {
+    justify-content: center;
+  }
+
+  body.tenant-mayaopickleball .finished-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.tenant-mayaopickleball .finished-empty-state {
+    display: grid;
+    padding: 18px;
+  }
+}
+
 body.tenant-mayaopickleball .pagination-nav {
   display: flex;
   align-items: center;
