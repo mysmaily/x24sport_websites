@@ -65,6 +65,7 @@ unrecognized runtime file.
 | `mayaobongro.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
 | `mayaochaybo.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
 | `mayaobongda.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
+| `mayaodongphuc.com.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
 | `pndsport.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
 | Shared `cms-api` | `root@10.10.0.28` | `/opt/sports-cms/cms-api` | `sports-cms-cms-api-1` | `10.10.0.28:3001` |
 
@@ -82,6 +83,7 @@ This shared frontend currently serves:
 - `mayaobongro.vn`
 - `mayaochaybo.vn`
 - `mayaobongda.vn`
+- `mayaodongphuc.com.vn`
 - `pndsport.vn`
 
 Synchronize `cms-frontend/` to `/root/websites/cms-frontend/`, then run only:
@@ -105,6 +107,7 @@ curl -fsSI https://mayaobongchuyen.vn/
 curl -fsSI https://mayaobongro.vn/
 curl -fsSI https://mayaochaybo.vn/
 curl -fsSI https://mayaobongda.vn/
+curl -fsSI https://mayaodongphuc.com.vn/
 curl -fsSI https://pndsport.vn/
 ```
 

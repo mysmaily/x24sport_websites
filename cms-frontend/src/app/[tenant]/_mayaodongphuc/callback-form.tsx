@@ -49,7 +49,7 @@ export function UniformCallbackForm() {
     <div><label htmlFor="mdp-phone">Số điện thoại <b>*</b></label><input autoComplete="tel" id="mdp-phone" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" placeholder="09xx xxx xxx" required type="tel" /></div>
     <div><label htmlFor="mdp-quantity">Số lượng dự kiến <b>*</b></label><select defaultValue="15-30 bộ" id="mdp-quantity" name="quantity" required><option>5-15 bộ</option><option>15-30 bộ</option><option>Trên 30 bộ</option></select></div>
     <label aria-hidden="true" hidden><span>Website</span><input autoComplete="off" name="website" tabIndex={-1} /></label>
-    <button disabled={state === 'submitting'} type="submit">{state === 'submitting' ? 'Đang gửi...' : 'Yêu cầu gọi lại'} <ArrowRight /></button>
+    <button disabled={state === 'submitting'} type="submit">{state === 'submitting' ? 'Đang gửi…' : 'Yêu cầu gọi lại'} <ArrowRight aria-hidden="true" /></button>
     <p aria-live="polite" className={styles.formNote} role="status">{state === 'error' ? message : 'Thông tin chỉ được dùng để tư vấn yêu cầu đồng phục.'}</p>
   </form>
 }
