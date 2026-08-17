@@ -8,7 +8,7 @@ import type { UniformCategory } from './lib'
 import styles from './mayaodongphuc.module.css'
 
 function HeaderLogo() {
-  return <Link className={styles.logo} href="/" aria-label="May Áo Đồng Phục — Trang chủ"><span>M</span><div><strong>MAY ÁO</strong><small>ĐỒNG PHỤC</small></div></Link>
+  return <Link className={styles.logo} href="/" aria-label="May Áo Đồng Phục — Trang chủ"><img alt="" className={styles.logoImage} src="/images/mayaodongphuc/logo-horizontal.svg" /></Link>
 }
 
 export function UniformHeader({ categories, consultationEnabled }: { categories: UniformCategory[]; consultationEnabled: boolean }) {
