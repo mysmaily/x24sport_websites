@@ -10,3 +10,4 @@
 @media(max-width:1050px){.header{z-index:100}.mobile{display:block}.mobilePanel{z-index:2}}
 @media(max-width:760px){.heroImage{order:initial}.filterRow{height:40px}.filterRow .sortLabel{margin-left:10px}.breadcrumbs{font-size:11px;line-height:1.45;overflow:hidden}.breadcrumbs span:last-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.productMeta>p{font-size:10px}}
 .navMenu{align-items:center;align-self:stretch}
+.site :global(.sr-only){border:0;clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}
