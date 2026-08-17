@@ -100,7 +100,14 @@ async function loadSharp() {
 
 let sharpModule
 
-async function webpUploadAsset(filePath) {
+function uploadFilenameBase(item, index) {
+  const explicit = item.filenameBase || item.uploadFilenameBase
+  const fallback = index === 0 ? `${input.product.slug}-anh-chinh` : `${input.product.slug}-anh-${index + 1}`
+  return slugify(explicit || fallback) || 'media'
+}
+
+async function webpUploadAsset(item, index) {
+  const filePath = item.path
   const sourceBuffer = await readFile(filePath)
   sharpModule ||= await loadSharp()
   const buffer = await sharpModule(sourceBuffer)
@@ -108,9 +115,7 @@ async function webpUploadAsset(filePath) {
     .webp({ quality: 92 })
     .toBuffer()
   const checksum = createHash('sha256').update(buffer).digest('hex')
-  const basename = path.basename(filePath, path.extname(filePath))
-    .replace(/[^a-zA-Z0-9._-]+/g, '-')
-    .replace(/^-+|-+$/g, '') || 'media'
+  const basename = uploadFilenameBase(item, index)
   return {
     buffer,
     checksum,
@@ -212,22 +217,25 @@ async function findExistingProduct(product) {
 
 async function uploadMedia(tenantId, item, index) {
   if (!item.path || !existsSync(item.path)) throw new Error(`Media file not found: ${item.path}`)
-  const upload = await webpUploadAsset(item.path)
+  const upload = await webpUploadAsset(item, index)
   const checksum = upload.checksum
   const sourceId = item.sourceId || `${input.sourceId || input.product.slug}-image-${index + 1}-${checksum.slice(0, 12)}`
+  const forceUploadForFilename = Boolean(item.forceUploadForFilename)
 
-  const existingBySource = await findOne('media', {
-    'where[tenant.slug][equals]': TENANT_SLUG,
-    'where[sourceSystem][equals]': SOURCE_SYSTEM,
-    'where[sourceId][equals]': sourceId,
-  })
-  if (existingBySource) return existingBySource
+  if (!forceUploadForFilename) {
+    const existingBySource = await findOne('media', {
+      'where[tenant.slug][equals]': TENANT_SLUG,
+      'where[sourceSystem][equals]': SOURCE_SYSTEM,
+      'where[sourceId][equals]': sourceId,
+    })
+    if (existingBySource) return existingBySource
 
-  const existingByChecksum = await findOne('media', {
-    'where[tenant.slug][equals]': TENANT_SLUG,
-    'where[sourceChecksum][equals]': checksum,
-  })
-  if (existingByChecksum) return existingByChecksum
+    const existingByChecksum = await findOne('media', {
+      'where[tenant.slug][equals]': TENANT_SLUG,
+      'where[sourceChecksum][equals]': checksum,
+    })
+    if (existingByChecksum) return existingByChecksum
+  }
 
   if (dryRun) {
     return { id: `dry-media-${index + 1}`, alt: item.alt, sourceId, sourceChecksum: checksum, url: item.path, uploadFilename: upload.filename, uploadMimeType: upload.mimeType }

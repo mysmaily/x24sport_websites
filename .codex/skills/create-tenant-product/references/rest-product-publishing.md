@@ -43,13 +43,14 @@
       "alt": "Áo bóng đá đỏ đen mặt trước",
       "searchTags": ["áo bóng đá", "đỏ đen", "mặt trước", "mockup áo"],
       "sourceId": "stable-image-front",
+      "filenameBase": "ao-bong-da-do-den-dat-may-anh-chinh",
       "sourceUrl": "https://optional-source.example/front.webp"
     }
   ]
 }
 ```
 
-`descriptionParagraphs` is converted to Payload Lexical rich text. `attributes[].values`, `badges`, `searchTags`, and media `searchTags` are converted to Payload array-row objects. Local media files may be PNG, JPEG, or WebP in the input JSON, but the helper converts every upload to WebP quality 92 before `POST /api/media`; uploaded filenames, MIME type, and `sourceChecksum` refer to the converted WebP bytes.
+`descriptionParagraphs` is converted to Payload Lexical rich text. `attributes[].values`, `badges`, `searchTags`, and media `searchTags` are converted to Payload array-row objects. Local media files may be PNG, JPEG, or WebP in the input JSON, but the helper converts every upload to WebP quality 92 before `POST /api/media`; uploaded filenames, MIME type, and `sourceChecksum` refer to the converted WebP bytes. By default, upload filenames use the product slug plus `anh-chinh`, `anh-2`, etc. Set media `filenameBase` for a clearer Vietnamese ASCII basename. Use `forceUploadForFilename: true` only for a deliberate one-time media rename migration; normal retries should leave it unset to preserve idempotency.
 
 ## Environment
 
