@@ -473,8 +473,9 @@ async function getProductsByPrimaryColor(
   const tenantSlug = await getTenantSlug()
   const params = new URLSearchParams({
     'where[tenant.slug][equals]': tenantSlug,
-    depth: '2',
-    limit: '500',
+    'where[name][contains]': filter.tag,
+    depth: '1',
+    limit: '200',
     sort: '-createdAt',
   })
   const data = await fetchDocsPaginated<ProductDetail>(`/api/products?${params.toString()}`)
