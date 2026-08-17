@@ -1,11 +1,12 @@
-import { ChevronDown, ChevronRight, Search, SlidersHorizontal } from 'lucide-react'
+import { ChevronRight, Search, SlidersHorizontal } from 'lucide-react'
 import Link from 'next/link'
 
 import { Pagination } from '../../../_components/pagination'
-import { footballCategoryPath, footballColorPath } from '../lib/category-paths'
+import { footballCategoryPath, footballColorPath, isIndexableFootballColor } from '../lib/category-paths'
 import { getCategories, getProducts } from '../lib/cms'
 import { excerpt, SITE_URL } from '../lib/site'
 
+import { ColorFilterDropdown } from './color-filter-dropdown'
 import { JsonLd } from './json-ld'
 import { ProductGrid } from './product-grid'
 
@@ -37,11 +38,17 @@ export async function CatalogPageView({
     getCategories(),
   ])
   const primaryCategories = categoryResult.docs.filter((item) => item.group === 'type' && (item.productCount || 0) > 0)
-  const secondaryCategories = categoryResult.docs.filter((item) => (
-    item.group === 'tag'
-    && (item.productCount || 0) > 0
-    && /^màu\b/i.test(item.name.trim())
-  ))
+  const secondaryCategories = categoryResult.docs
+    .filter((item) => (
+      item.group === 'tag'
+      && (item.productCount || 0) > 0
+      && /^màu\b/i.test(item.name.trim())
+    ))
+    .sort((a, b) => (
+      Number(isIndexableFootballColor(b)) - Number(isIndexableFootballColor(a))
+      || (b.productCount || 0) - (a.productCount || 0)
+      || a.name.localeCompare(b.name, 'vi')
+    ))
   const activeSecondary = secondaryCategories.find((item) => item.slug === categorySlug)
   const cleanDescription = description.replace(/\s+/g, ' ').trim()
   const shortDescription = excerpt(cleanDescription, 180)
@@ -96,21 +103,15 @@ export async function CatalogPageView({
             ))}
           </div>
 
-          <details className="mabd-catalog-more" data-catalog-color-filter>
-            <summary>
-              <span>{activeSecondary ? activeSecondary.name : 'Lọc theo màu'}</span>
-              <ChevronDown aria-hidden="true" size={15} />
-            </summary>
-            <div>
-              <Link className="mabd-catalog-more-all" href="/san-pham/">Tất cả màu</Link>
-              {secondaryCategories.map((item) => (
-                <Link aria-current={categorySlug === item.slug ? 'page' : undefined} href={footballColorPath(item)} key={item.slug}>
-                  <span>{item.name}</span>
-                  {typeof item.productCount === 'number' ? <small>{item.productCount}</small> : null}
-                </Link>
-              ))}
-            </div>
-          </details>
+          <ColorFilterDropdown
+            activeSlug={activeSecondary?.slug}
+            options={secondaryCategories.map((item) => ({
+              href: footballColorPath(item),
+              name: item.name,
+              productCount: item.productCount,
+              slug: item.slug,
+            }))}
+          />
         </nav>
 
         <div className="mabd-catalog-results" role="status">
