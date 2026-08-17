@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Tenant Product"
+  short_description: "Publish SEO products from images"
+  default_prompt: "Use $create-tenant-product to create a product for tenant <domain> in category <category> from these image(s), with notes: <requirements>."
