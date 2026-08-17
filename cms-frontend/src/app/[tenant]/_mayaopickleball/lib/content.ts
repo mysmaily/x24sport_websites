@@ -437,6 +437,53 @@ async function getProductsBySearchTag(
   return fetchDocsPaginated<ProductDetail>(`/api/products?${params.toString()}`)
 }
 
+function paginateProducts(products: ProductDetail[], page: number, perPage: number): PaginatedProducts {
+  const totalDocs = products.length
+  const totalPages = Math.max(1, Math.ceil(totalDocs / perPage))
+  const safePage = Math.min(Math.max(1, page), totalPages)
+  const start = (safePage - 1) * perPage
+
+  return {
+    products: products.slice(start, start + perPage).map(withProductPromotion),
+    totalDocs,
+    totalPages,
+    page: safePage,
+    hasNextPage: safePage < totalPages,
+    hasPrevPage: safePage > 1,
+  }
+}
+
+function productTitleAfterSku(product: ProductDetail) {
+  const sku = product.sku?.trim()
+  if (!sku) return product.name
+
+  const escapedSku = sku.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  return product.name.replace(new RegExp(`^.*?${escapedSku}\\s+`, 'i'), '').trim()
+}
+
+function startsWithPrimaryColor(product: ProductDetail, color: string) {
+  return productTitleAfterSku(product).toLocaleLowerCase('vi-VN').startsWith(color.toLocaleLowerCase('vi-VN'))
+}
+
+async function getProductsByPrimaryColor(
+  filter: CatalogFilter,
+  page = 1,
+  perPage = PRODUCTS_PER_PAGE,
+): Promise<PaginatedProducts | null> {
+  const tenantSlug = await getTenantSlug()
+  const params = new URLSearchParams({
+    'where[tenant.slug][equals]': tenantSlug,
+    depth: '2',
+    limit: '500',
+    sort: '-createdAt',
+  })
+  const data = await fetchDocsPaginated<ProductDetail>(`/api/products?${params.toString()}`)
+  if (!data) return null
+
+  const products = data.docs.filter((product) => startsWithPrimaryColor(product, filter.tag))
+  return paginateProducts(products, page, perPage)
+}
+
 export async function getProductsByCatalogFilter(
   filter: CatalogFilter,
   page = 1,
@@ -452,6 +499,11 @@ export async function getProductsByCatalogFilter(
   }
 
   try {
+    if (filter.group === 'color' && filter.tag !== 'gradient') {
+      const primaryColorData = await getProductsByPrimaryColor(filter, page, perPage)
+      if (primaryColorData) return primaryColorData
+    }
+
     const mediaData = await getProductsBySearchTag(filter.tag, 'gallery.searchTags.value', page, perPage)
     if (mediaData && mediaData.docs.length) {
       return {
