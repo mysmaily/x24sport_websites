@@ -755,13 +755,13 @@ body.tenant-mayaopickleball .product-card h3 {
 
 body.tenant-mayaopickleball .catalog-card h2 {
   display: -webkit-box;
-  min-height: calc(14px * 1.35 * 2);
+  min-height: calc(18px * 1.25 * 2);
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.25;
 }
 
 body.tenant-mayaopickleball .catalog-card h2 a {
@@ -4089,8 +4089,8 @@ body.tenant-mayaopickleball .home-reviews-track::-webkit-scrollbar {
   }
 
   body.tenant-mayaopickleball .catalog-card h2 {
-    font-size: 14px;
-    line-height: 1.35;
+    font-size: 18px;
+    line-height: 1.25;
   }
 
   body.tenant-mayaopickleball .catalog-price {
