@@ -16,12 +16,14 @@ export type UniformCategory = {
 type UniformMedia = ProductMediaGalleryImage & { url?: string }
 type UniformAttribute = { name?: string; values?: Array<{ value?: string }> }
 type UniformBadge = { label?: string }
+type RichTextNode = { text?: string; children?: RichTextNode[] }
 export type UniformProduct = {
   id: number | string
   name: string
   slug: string
   sku?: string
   shortDescription?: string
+  description?: { root?: { children?: RichTextNode[] } }
   contentHtml?: string
   seoTitle?: string
   metaDescription?: string
@@ -117,4 +119,16 @@ export function productColors(product: UniformProduct) {
 
 export function cleanContentHtml(value?: string) {
   return value?.replace(/<script[\s\S]*?<\/script>/gi, '') || ''
+}
+
+function flattenRichText(node?: RichTextNode): string[] {
+  if (!node) return []
+  if (node.text?.trim()) return [node.text.trim()]
+  return (node.children || []).flatMap(flattenRichText)
+}
+
+export function productDescriptionParagraphs(product: UniformProduct) {
+  return (product.description?.root?.children || [])
+    .map((child) => flattenRichText(child).join(' ').trim())
+    .filter(Boolean)
 }
