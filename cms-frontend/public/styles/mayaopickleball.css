@@ -1146,12 +1146,30 @@ body.tenant-mayaopickleball .blog-archive-page, body.tenant-mayaopickleball .blo
 }
 
 body.tenant-mayaopickleball .blog-hero-section {
-  padding: clamp(42px, 7vw, 96px) clamp(20px, 5vw, 72px);
-  border-bottom: 1px solid var(--line);
-  background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(255, 255, 255, 0.86));
+  display: flex;
+  width: min(1180px, calc(100% - 40px));
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin: clamp(16px, 2.4vw, 30px) auto 0;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: clamp(18px, 3vw, 30px);
+  box-shadow: 0 12px 36px rgba(22, 42, 32, 0.06);
 }
 
-body.tenant-mayaopickleball .blog-hero-section h1, body.tenant-mayaopickleball .blog-detail-page h1 {
+body.tenant-mayaopickleball .blog-hero-section h1 {
+  max-width: 720px;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(32px, 4.2vw, 48px);
+  line-height: 1.03;
+  letter-spacing: 0;
+}
+
+body.tenant-mayaopickleball .blog-detail-page h1 {
   max-width: 980px;
   margin: 0;
   color: var(--ink);
@@ -1160,7 +1178,15 @@ body.tenant-mayaopickleball .blog-hero-section h1, body.tenant-mayaopickleball .
   letter-spacing: -0.055em;
 }
 
-body.tenant-mayaopickleball .blog-hero-section > p:last-child, body.tenant-mayaopickleball .blog-detail-excerpt {
+body.tenant-mayaopickleball .blog-hero-section p:last-child {
+  max-width: 680px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.58;
+}
+
+body.tenant-mayaopickleball .blog-detail-excerpt {
   max-width: 760px;
   margin-top: 22px;
   color: var(--muted);
@@ -1168,32 +1194,48 @@ body.tenant-mayaopickleball .blog-hero-section > p:last-child, body.tenant-mayao
   line-height: 1.7;
 }
 
+body.tenant-mayaopickleball .blog-hero-section > span {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  white-space: nowrap;
+  border: 1px solid rgba(16, 19, 26, 0.1);
+  border-radius: var(--radius-sm);
+  background: #f7faf4;
+  padding: 0 13px;
+  color: var(--court);
+  font-size: 13px;
+  font-weight: 900;
+}
+
 body.tenant-mayaopickleball .blog-list-section {
-  padding: clamp(34px, 5vw, 72px) clamp(20px, 5vw, 72px);
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(18px, 3vw, 34px) 0 clamp(34px, 5vw, 72px);
 }
 
 body.tenant-mayaopickleball .blog-card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 14px;
 }
 
 body.tenant-mayaopickleball .blog-card, body.tenant-mayaopickleball .blog-empty-state {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
+  border: 1px solid rgba(16, 19, 26, 0.08);
+  border-radius: var(--radius-md);
   background: white;
-  padding: 26px;
-  box-shadow: var(--shadow);
+  padding: 20px;
+  box-shadow: 0 10px 28px rgba(22, 42, 32, 0.06);
 }
 
 body.tenant-mayaopickleball .blog-card {
   display: flex;
-  min-height: 280px;
+  min-height: 220px;
   flex-direction: column;
 }
 
 body.tenant-mayaopickleball .blog-card > p {
-  margin: 0 0 14px;
+  margin: 0 0 11px;
   color: var(--accent);
   font-size: 12px;
   font-weight: 900;
@@ -1204,20 +1246,21 @@ body.tenant-mayaopickleball .blog-card > p {
 body.tenant-mayaopickleball .blog-card h2 {
   margin: 0;
   color: var(--ink);
-  font-size: clamp(24px, 3vw, 34px);
-  line-height: 1.05;
+  font-size: clamp(21px, 2.1vw, 28px);
+  line-height: 1.12;
 }
 
 body.tenant-mayaopickleball .blog-card span, body.tenant-mayaopickleball .blog-empty-state p {
-  margin-top: 16px;
+  margin-top: 12px;
   color: var(--muted);
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.58;
 }
 
 body.tenant-mayaopickleball .blog-card > a, body.tenant-mayaopickleball .blog-empty-state a {
   display: inline-flex;
   margin-top: auto;
-  padding-top: 24px;
+  padding-top: 18px;
   color: var(--accent);
   font-weight: 900;
 }
@@ -6000,7 +6043,38 @@ body.tenant-mayaopickleball .fabric-lightbox-tools button:nth-child(2) {
     grid-template-columns: 1fr;
   }
 
-  body.tenant-mayaopickleball .blog-hero-section h1, body.tenant-mayaopickleball .blog-detail-page h1 {
+  body.tenant-mayaopickleball .blog-hero-section {
+    display: grid;
+    width: calc(100% - 32px);
+    gap: 12px;
+    margin-top: 14px;
+    border-radius: 14px;
+    padding: 18px;
+  }
+
+  body.tenant-mayaopickleball .blog-hero-section h1 {
+    font-size: 32px;
+  }
+
+  body.tenant-mayaopickleball .blog-hero-section p:last-child {
+    font-size: 14px;
+  }
+
+  body.tenant-mayaopickleball .blog-hero-section > span {
+    width: max-content;
+  }
+
+  body.tenant-mayaopickleball .blog-list-section {
+    width: calc(100% - 32px);
+    padding-top: 14px;
+  }
+
+  body.tenant-mayaopickleball .blog-card {
+    min-height: 190px;
+    padding: 18px;
+  }
+
+  body.tenant-mayaopickleball .blog-detail-page h1 {
     font-size: clamp(36px, 12vw, 54px);
   }
 

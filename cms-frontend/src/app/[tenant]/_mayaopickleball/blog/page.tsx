@@ -28,9 +28,12 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
     <main className="blog-archive-page">
       <SiteHeader />
       <section className="blog-hero-section">
-        <p className="section-eyebrow">Blog áo pickleball</p>
-        <h1>Kinh nghiệm chọn mẫu, vải và đặt may áo pickleball</h1>
-        <p>Gợi ý thực tế giúp đội nhóm chọn form áo, phối màu, gom size, chuẩn bị logo và đặt may đúng tiến độ.</p>
+        <div>
+          <p className="section-eyebrow">Góc tư vấn</p>
+          <h1>Blog áo pickleball</h1>
+          <p>Gợi ý chọn form áo, phối màu, gom size, chuẩn bị logo và đặt may đúng tiến độ.</p>
+        </div>
+        <span>{posts.totalDocs} bài viết</span>
       </section>
 
       <section className="blog-list-section">
