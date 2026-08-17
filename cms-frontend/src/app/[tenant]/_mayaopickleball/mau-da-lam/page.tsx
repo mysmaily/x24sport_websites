@@ -1,17 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Palette, Shirt, Sparkles } from 'lucide-react'
+import { ArrowRight, BookOpenText, Camera, Newspaper, Palette } from 'lucide-react'
 
 import { Pagination } from '../../../_components/pagination'
 import { SiteFooter, SiteHeader, phoneHref, zaloHref } from '../_components/info-pages'
-import {
-  formatPrice,
-  getAllProducts,
-  getFinishedSamplePostsPage,
-  getPostHref,
-  getProductImageForFilter,
-  getValidCompareAtPrice,
-} from '../lib/content'
+import { getFinishedSamplePostsPage, getPostHref } from '../lib/content'
 import { breadcrumbJsonLd, pageMetadata } from '../lib/seo'
 import { JsonLd } from '../_components/json-ld'
 
@@ -22,8 +15,8 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
   const page = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
 
   return pageMetadata({
-    title: `Mẫu áo pickleball đã làm${page > 1 ? ` – Trang ${page}` : ''} | MayaoPickleball`,
-    description: 'Tham khảo các mẫu áo pickleball đã làm cho đội nhóm, câu lạc bộ, trường học và doanh nghiệp.',
+    title: `Mẫu áo pickleball đã làm${page > 1 ? ` - Trang ${page}` : ''} | MayaoPickleball`,
+    description: 'Danh mục bài viết tổng hợp các mẫu áo pickleball đã làm, hình ảnh thực tế và gợi ý phối màu cho đội nhóm.',
     path: page > 1 ? `/mau-da-lam/?page=${page}` : '/mau-da-lam/',
   })
 }
@@ -31,20 +24,34 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
 export default async function FinishedSamplesPage({ searchParams }: { searchParams: SearchParams }) {
   const query = await searchParams
   const requestedPage = Math.max(1, Number(Array.isArray(query.page) ? query.page[0] : query.page) || 1)
-  const [posts, featuredProducts] = await Promise.all([
-    getFinishedSamplePostsPage(requestedPage),
-    getAllProducts(1, 10),
-  ])
+  const posts = await getFinishedSamplePostsPage(requestedPage)
 
-  const productSamples = featuredProducts.products.slice(0, 10)
-  const sampleSteps = [
-    'Chọn form áo và màu đội thích',
-    'Gửi logo, tên số và số lượng',
-    'Duyệt phối màu trước khi may',
+  const archiveStats = [
+    { label: 'Danh mục', value: 'Mẫu đã làm' },
+    { label: 'Bài viết', value: String(posts.totalDocs) },
+    { label: 'Nội dung', value: 'Ảnh mẫu, màu áo, logo' },
+  ] as const
+
+  const editorialNotes = [
+    {
+      icon: Camera,
+      title: 'Hình ảnh thực tế',
+      copy: 'Theo dõi các mẫu áo đã hoàn thiện để đội dễ hình dung form áo, màu sắc và chi tiết in.',
+    },
+    {
+      icon: Palette,
+      title: 'Gợi ý phối màu',
+      copy: 'Mỗi bài viết giúp tham khảo cách phối màu theo logo, nhận diện đội hoặc bối cảnh thi đấu.',
+    },
+    {
+      icon: BookOpenText,
+      title: 'Kinh nghiệm chốt mẫu',
+      copy: 'Nội dung tập trung vào cách chuẩn bị logo, tên số, size và ghi chú trước khi đặt may.',
+    },
   ] as const
 
   return (
-    <main className="site-page finished-samples-page">
+    <main className="blog-archive-page finished-blog-page">
       <JsonLd
         data={breadcrumbJsonLd([
           { name: 'Trang chủ', path: '/' },
@@ -53,128 +60,86 @@ export default async function FinishedSamplesPage({ searchParams }: { searchPara
       />
       <SiteHeader />
 
-      <section className="finished-samples-hero">
-        <div className="finished-samples-copy">
-          <p className="hero-kicker">Hình ảnh thực tế</p>
-          <h1>Mẫu áo pickleball đã làm cho đội nhóm</h1>
+      <section className="finished-blog-hero" aria-labelledby="finished-blog-title">
+        <div className="finished-blog-hero-copy">
+          <p className="section-eyebrow">Danh mục bài viết</p>
+          <h1 id="finished-blog-title">Mẫu áo pickleball đã làm</h1>
           <p>
-            Xem nhanh các hướng phối màu, form cổ áo, vị trí logo và tên số để đội dễ chốt mẫu trước khi đặt may.
+            Tổng hợp các bài viết về mẫu áo đã may, phối màu thực tế, vị trí logo và kinh nghiệm chuẩn bị tên số
+            cho đội nhóm trước khi đặt may.
           </p>
-          <div className="finished-samples-actions">
-            <a className="primary-button" href={zaloHref}>
-              Gửi mẫu cần may <ArrowRight size={18} />
-            </a>
-            <Link className="secondary-button" href="/san-pham">
-              Xem catalog áo
+          <div className="finished-blog-actions">
+            <Link className="primary-button" href="/blog/">
+              Xem toàn bộ blog <ArrowRight size={18} />
             </Link>
+            <a className="secondary-button" href={zaloHref}>
+              Gửi ảnh đội cần tư vấn
+            </a>
           </div>
         </div>
-        <aside className="finished-samples-panel" aria-label="Tóm tắt tư vấn mẫu áo">
-          {sampleSteps.map((step, index) => (
-            <div key={step}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <strong>{step}</strong>
+        <aside className="finished-blog-brief" aria-label="Tóm tắt danh mục mẫu đã làm">
+          {archiveStats.map((item) => (
+            <div key={item.label}>
+              <span>{item.label}</span>
+              <strong>{item.value}</strong>
             </div>
           ))}
         </aside>
       </section>
 
-      <section className="finished-samples-strip" aria-label="Lợi ích khi tham khảo mẫu đã làm">
-        <div>
-          <CheckCircle2 size={18} />
-          <span>Dễ chọn màu hợp sân và logo</span>
-        </div>
-        <div>
-          <Palette size={18} />
-          <span>Có thể phối lại theo nhận diện đội</span>
-        </div>
-        <div>
-          <Sparkles size={18} />
-          <span>Hỗ trợ thiết kế trước khi sản xuất</span>
-        </div>
+      <section className="finished-blog-notes" aria-label="Nội dung trong danh mục mẫu đã làm">
+        {editorialNotes.map(({ icon: Icon, title, copy }) => (
+          <article key={title}>
+            <Icon size={20} />
+            <h2>{title}</h2>
+            <p>{copy}</p>
+          </article>
+        ))}
       </section>
 
-      <section className="finished-samples-section">
-        <div className="finished-samples-heading">
+      <section className="blog-list-section finished-blog-list-section" aria-labelledby="finished-blog-list-title">
+        <div className="finished-blog-heading">
           <div>
-            <p className="section-eyebrow">Mẫu tham khảo</p>
-            <h2>Các mẫu đang có thể đặt may</h2>
+            <p className="section-eyebrow">Bài viết danh mục</p>
+            <h2 id="finished-blog-list-title">Các mẫu đã được ghi lại</h2>
           </div>
-          <Link href="/san-pham">Xem tất cả mẫu</Link>
+          <span>{posts.totalDocs} bài viết</span>
         </div>
-        <div className="catalog-grid finished-product-grid">
-          {productSamples.map((product) => {
-            const image = getProductImageForFilter(product)
-            const compareAtPrice = getValidCompareAtPrice(product)
 
-            return (
-              <article className="catalog-card" key={product.id}>
-                <Link className="catalog-card-media" href={`/san-pham/${product.slug}`}>
-                  {image?.url ? (
-                    <img
-                      alt={image.alt || product.name}
-                      height={image.height || 1000}
-                      src={image.url}
-                      width={image.width || 1000}
-                    />
-                  ) : (
-                    <span>
-                      <Shirt size={64} strokeWidth={1.5} />
-                    </span>
-                  )}
-                </Link>
-                <div className="catalog-card-body">
-                  <div className="catalog-card-topline">
-                    <span>{product.sku}</span>
-                    <span>
-                      <Sparkles size={14} />
-                      Đặt may
-                    </span>
-                  </div>
-                  <h2>
-                    <Link href={`/san-pham/${product.slug}`}>{product.name}</Link>
-                  </h2>
-                  <div className="catalog-price">
-                    <strong>{formatPrice(product.price)}</strong>
-                    {compareAtPrice ? <span>{formatPrice(compareAtPrice)}</span> : null}
-                  </div>
-                </div>
-              </article>
-            )
-          })}
-        </div>
-      </section>
-
-      <section className="finished-samples-section finished-post-section">
         {posts.docs.length ? (
           <>
-            <div className="finished-samples-heading">
-              <div>
-                <p className="section-eyebrow">Dự án thực tế</p>
-                <h2>Hình ảnh đội đã đặt may</h2>
-              </div>
-            </div>
-            <div className="blog-card-grid">
+            <div className="finished-blog-card-grid">
               {posts.docs.map((post) => (
-                <article className="blog-card" key={post.id}>
-                  <p>Mẫu đã làm</p>
+                <article className="finished-blog-card" key={post.id}>
+                  <p><Newspaper size={15} /> Mẫu đã làm</p>
                   <h2><Link href={getPostHref(post)}>{post.title}</Link></h2>
                   <span>{post.excerpt}</span>
-                  <Link href={getPostHref(post)}>Xem chi tiết →</Link>
+                  <Link href={getPostHref(post)}>
+                    Đọc bài viết <ArrowRight size={16} />
+                  </Link>
                 </article>
               ))}
             </div>
             <Pagination ariaLabel="Phân trang mẫu đã làm" basePath="/mau-da-lam/" page={posts.page} totalPages={posts.totalPages} />
           </>
         ) : (
-          <div className="finished-empty-state">
+          <div className="finished-blog-empty" role="status">
+            <BookOpenText size={34} />
             <div>
-              <p className="section-eyebrow">Cần mẫu riêng?</p>
-              <h2>Gửi ảnh tham khảo, đội sẽ được phối lại theo logo và màu nhận diện.</h2>
+              <h2>Chưa có bài viết mẫu đã làm để hiển thị.</h2>
+              <p>
+                Bạn có thể xem các bài tư vấn hiện có hoặc gửi ảnh đội để được gợi ý phối màu, logo và tên số
+                trước khi đặt may.
+              </p>
             </div>
-            <a className="primary-button" href={zaloHref}>
-              Nhắn Zalo tư vấn <ArrowRight size={18} />
-            </a>
+            <div>
+              <Link className="primary-button" href="/blog/">
+                Xem blog áo pickleball <ArrowRight size={18} />
+              </Link>
+              <a className="secondary-button" href={zaloHref}>
+                Gửi ảnh mẫu
+              </a>
+            </div>
           </div>
         )}
       </section>
