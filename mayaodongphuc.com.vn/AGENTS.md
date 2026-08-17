@@ -23,7 +23,7 @@ Read `../AGENTS.md` first.
 ## Source and operations
 
 - Tenant UI: `../cms-frontend/src/app/[tenant]/_mayaodongphuc/`.
-- Approved previews retained at `../cms-frontend/src/app/mayaodongphuc-preview-v2/` and `../cms-frontend/src/app/mayaodongphuc-preview-v3/`.
+- The approved V2 design now lives only in the production tenant override; V1/V2/V3 preview routes and trial design-system documents are intentionally removed after selection.
 - Assets: `../cms-frontend/public/images/mayaodongphuc/`.
 - CMS/API: `https://cms.x24sport.vn/api`; tenant filter `mayaodongphuc`; revalidation: 180 seconds.
 - Frontend runtime: `root@10.10.0.58:/root/websites/cms-frontend`, container `cms-frontend:3010`.

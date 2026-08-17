@@ -1,7 +1,0 @@
-body:has(.mdp-preview-root) .x24-bottom-contact-bar {
-  display: none !important;
-}
-
-body:has(.mdp-preview-root) {
-  background: #f1eadc;
-}
