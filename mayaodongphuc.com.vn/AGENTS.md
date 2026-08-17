@@ -28,6 +28,7 @@ Read `../AGENTS.md` first.
 - CMS/API: `https://cms.x24sport.vn/api`; tenant filter `mayaodongphuc`; revalidation: 180 seconds.
 - Frontend runtime: `root@10.10.0.58:/root/websites/cms-frontend`, container `cms-frontend:3010`.
 - Proxy target: `root@10.10.0.56:/etc/nginx/conf.d/mayaodongphuc.com.vn.conf` → `10.10.0.58:3010`.
+- TLS: Let's Encrypt certificate at `/etc/letsencrypt/live/mayaodongphuc.com.vn/`, covering apex and `www`; HTTP and `www` redirect to the canonical HTTPS apex domain. Renewal is managed by Certbot.
 
 REST service account contract:
 
