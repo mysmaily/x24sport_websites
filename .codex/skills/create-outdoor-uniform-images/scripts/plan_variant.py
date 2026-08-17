@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create randomized group/logo/corner preferences for image variants."""
+"""Create randomized group and catalog-overlay preferences for image variants."""
 
 from __future__ import annotations
 
@@ -9,8 +9,9 @@ import random
 
 
 GROUP_COUNTS = [3, 4, 5, 6, 7]
-LOGOS = ["mayaodongphuc-horizontal.png", "mayaodongphuc-vertical.png"]
-CORNERS = ["top-left", "top-right", "bottom-left", "bottom-right"]
+OVERLAY_CORNERS = ["top-left", "top-right", "bottom-left", "bottom-right"]
+THEMES = ["dark", "light"]
+LAYOUTS = ["row", "grid"]
 
 
 def refill(values: list, rng: random.Random, previous: object | None) -> list:
@@ -24,30 +25,42 @@ def refill(values: list, rng: random.Random, previous: object | None) -> list:
 def plan(count: int, rng: random.Random) -> list[dict[str, object]]:
     result: list[dict[str, object]] = []
     count_pool: list[int] = []
-    logo_pool: list[str] = []
+    corner_pool: list[str] = []
+    theme_pool: list[str] = []
+    layout_pool: list[str] = []
     previous_count: int | None = None
-    previous_logo: str | None = None
+    previous_corner: str | None = None
+    previous_theme: str | None = None
+    previous_layout: str | None = None
 
     for index in range(count):
         if not count_pool:
             count_pool = refill(GROUP_COUNTS, rng, previous_count)
-        if not logo_pool:
-            logo_pool = refill(LOGOS, rng, previous_logo)
+        if not corner_pool:
+            corner_pool = refill(OVERLAY_CORNERS, rng, previous_corner)
+        if not theme_pool:
+            theme_pool = refill(THEMES, rng, previous_theme)
+        if not layout_pool:
+            layout_pool = refill(LAYOUTS, rng, previous_layout)
         group_count = count_pool.pop(0)
-        logo = logo_pool.pop(0)
-        corner_priority = list(CORNERS)
-        rng.shuffle(corner_priority)
+        overlay_corner = corner_pool.pop(0)
+        theme = theme_pool.pop(0)
+        layout = layout_pool.pop(0)
         result.append(
             {
                 "variant": index + 1,
                 "group_count": group_count,
-                "logo": logo,
-                "corner_priority": corner_priority,
-                "note": "Use the first corner that does not overlap faces, hair, hands, garments, or key action.",
+                "logo": "mayaodongphuc-vertical.png",
+                "overlay_corner": overlay_corner,
+                "theme": theme,
+                "layout": layout,
+                "note": "Use a quiet corner and switch theme for contrast; never move the whole group aside for the overlay.",
             }
         )
         previous_count = group_count
-        previous_logo = logo
+        previous_corner = overlay_corner
+        previous_theme = theme
+        previous_layout = layout
     return result
 
 

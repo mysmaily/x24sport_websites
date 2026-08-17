@@ -1,6 +1,6 @@
 ---
 name: create-outdoor-uniform-images
-description: Create and iterate branded photorealistic group model images for the “Đồng phục dã ngoại” catalog of mayaodongphuc.com.vn from one or more supplied garment/design references. Use when the user asks to turn T-shirt or uniform artwork, mockups, flat lays, or product photos into Vietnamese adult or explicitly requested child model photos for picnic, company outing, team-building, park, resort, studio, catalog, banner, or social use, with 3–7 varied models, sleeves on every shirt, exactly one Mayaodongphuc corner logo, strict design fidelity, and rejection of plastic-looking people, anatomy defects, wrong prints, watermarks, and competitor branding.
+description: Create and iterate branded photorealistic group model images for the “Đồng phục dã ngoại” catalog of mayaodongphuc.com.vn from one or more supplied garment/design references. Use when the user asks to turn T-shirt or uniform artwork, mockups, flat lays, or product photos into Vietnamese adult or explicitly requested child model photos for picnic, company outing, team-building, park, resort, studio, catalog, banner, or social use, with 3–7 varied models, sleeves on every shirt, one vertical Mayaodongphuc logo, professional icon-led garment feature callouts, hotline 0989 353 247, strict design fidelity, and rejection of plastic-looking people, anatomy defects, wrong prints, watermarks, and competitor branding.
 ---
 
 # Create Outdoor Uniform Images
@@ -28,16 +28,19 @@ Resolve model age, group mix, setting, output count, and aspect ratio from the r
 - outdoor picnic, green park, resort lawn, or company outing;
 - one square hero plus portrait and landscape supporting images;
 - tasteful casual bottoms and clean footwear; keep the shirts dominant.
+- shirt-first framing for catalog heroes: favor head-to-mid-thigh or head-to-knee crops so collars, sleeves, chest artwork, fabric, and fit occupy most of the frame; reserve full-body framing for supporting shots.
 
 Use children only when the user explicitly requests children or a clearly child-focused product. Keep child styling, poses, activities, and framing age-appropriate; never sexualize or make children look like small adults.
 
 ## Apply non-negotiable catalog rules
 
 - Always render shirts with sleeves. Preserve a supplied short-sleeve or long-sleeve construction. If the input is sleeveless or has deeply cut armholes, convert it to a practical short-sleeve uniform while extending the shoulder/side artwork naturally onto the new sleeves. Never output tank tops, singlets, sleeveless jerseys, cap sleeves that expose the armpit, or oversized armholes.
+- Treat the shirt as the primary product. For hero and core catalog images, crop naturally around mid-thigh or the knee and minimize lower legs, shoes, and empty ground. Show footwear or full bodies only when the shot's activity, comparison role, or user request requires them. Never crop exactly through a knee or other joint.
 - Randomly choose 3–7 models for each image. For a set, vary counts, formation, camera distance, pose, and activity; do not reuse one five-person triangular template. Never repeat the same group count in consecutive images when alternatives exist.
-- Create a variant plan with `scripts/plan_variant.py` when producing one or more outputs. Treat its corner as a preference only; actual face/body occupancy decides the safe corner.
-- Add exactly one Mayaodongphuc logo from `assets/branding/` to every accepted image. Randomly select either the horizontal or vertical asset; never combine both.
-- Stop the branding pass after placing the logo. Do not add a hotline, feature callouts, badges, specification rails, promotional copy, or other text overlays unless the user explicitly requests them in a future task.
+- Create a variant plan with `scripts/plan_variant.py` when producing one or more outputs. Treat its overlay corner and light/dark card theme as preferences only; actual face/body occupancy and background contrast decide placement.
+- Add exactly one `assets/branding/mayaodongphuc-vertical.png` logo to every accepted image. Never redraw it with AI, rotate it, stretch it, or substitute another logo treatment.
+- Add four concise icon-led feature callouts covering fabric, design, durability, and printing, plus a phone-call icon and the exact hotline `0989 353 247`. Place them on separate small translucent white or black cards; never use a full-height rail or large panel. Keep the combined overlay footprint at or below roughly 20% of the image area so the people and shirts remain dominant.
+- Derive claims from the supplied garment/material brief. When evidence is incomplete, use restrained, non-technical wording such as “Vải mềm nhẹ”, “Thiết kế đồng bộ”, “Bền màu, giữ form”, and “Hình in sắc nét”; never invent fabric composition, GSM, certifications, wash-cycle counts, or a named printing process.
 
 ## Build the design lock
 
@@ -49,6 +52,15 @@ Before generation, write a compact internal design lock for each shirt:
 4. fabric type, weave, sheen, seams, stitching, and intended fit;
 5. details not visible in the references and therefore not safe to invent.
 
+Also create a compact feature lock with one supported claim for each category:
+
+1. `Vải áo`: material, hand feel, ventilation, or moisture behavior;
+2. `Thiết kế`: cut, fit, collar/sleeve construction, or team consistency;
+3. `Độ bền`: color retention, shape retention, seam strength, or everyday durability;
+4. `Công nghệ in`: the named process only when supplied; otherwise describe the visible result without naming a process.
+
+Keep each title and supporting line short enough for an ecommerce graphic. Use Vietnamese sentence case and avoid hype, absolutes, or unverifiable superlatives.
+
 When several design images describe one garment, combine them into one lock. When they are different garments, label them A/B/C and explicitly assign each model. Do not merge motifs between garments.
 
 If a critical side or detail is missing, avoid exposing it prominently or state the minimum assumption. Do not fabricate a detailed back print from a front-only reference.
@@ -57,11 +69,11 @@ Sleeves override exact silhouette fidelity: when a source garment is sleeveless,
 
 ## Generate proof first
 
-Generate one clean, unbranded proof image before producing the complete set. Attach every required design/material reference through `referenced_image_paths`; use `num_last_images_to_include` only when a needed conversational image has no local path. Never use both mechanisms. Reserve one safe logo corner, but do not ask image generation to draw the Mayaodongphuc logo.
+Generate one clean, unbranded proof image before producing the complete set. Attach every required design/material reference through `referenced_image_paths`; use `num_last_images_to_include` only when a needed conversational image has no local path. Never use both mechanisms. Compose the group naturally for the photograph; do not push or compress the models to one side to manufacture a large text zone. Keep modest background breathing room near one or two corners for small overlays, but do not ask image generation to draw the Mayaodongphuc logo, icons, feature text, or hotline.
 
 Write the prompt in this order:
 
-1. commercial photo objective, requested crop, and randomized model count from 3–7;
+1. commercial photo objective, shirt-first crop, and randomized model count from 3–7;
 2. exact group demographics, age, expressions, varied formation, and activity;
 3. exact garment design lock and per-person assignment;
 4. fabric physics, fit, wrinkles, print deformation, lighting, lens, and environment;
@@ -79,26 +91,33 @@ Every shirt must have practical sleeves. No tank tops, sleeveless jerseys, expos
 
 Do not ask image generation to reproduce any competitor logo or watermark visible only in a mood reference. Use only the approved bundled Mayaodongphuc logo assets for image-corner branding; do not invent or restyle the brand.
 
-## Add the logo
+## Add the catalog overlay
 
-Reserve intentional negative space during base generation, then composite one approved logo PNG deterministically with `scripts/apply_logo_overlay.py`:
+Composite the approved vertical logo, four feature callouts, icons, and hotline deterministically with `scripts/apply_catalog_overlay.py`:
 
-1. Inspect all four corners and reject any placement that covers or visually touches a face, hair, hand, garment artwork, or important activity.
-2. Use the selected horizontal or vertical PNG with its transparent background, original colors, aspect ratio, and exact lettering. Place it fully inside one safe corner with 3–5% edge margin; switch corners or use the other logo asset if necessary.
-3. Keep the logo subordinate to the models: approximately 14–24% of image width for the horizontal logo or 10–17% for the vertical logo.
-4. Run the overlay script only after the unbranded photo passes garment/anatomy validation. Choose the safe corner by visual inspection; the script does not detect faces.
-5. Inspect the composite again. Reject any overlap, low contrast, excessive scale, or clipping; change the corner or scale and rerun without regenerating the photo.
+1. Inspect all four corners and choose the calmest one. Keep the original model formation natural and centered; never regenerate the photo solely to force everyone to the opposite side. Reject any placement that covers or visually touches a face, hair, hand, garment artwork, or important activity.
+2. Use only `assets/branding/mayaodongphuc-vertical.png`, preserving its transparent background, original colors, aspect ratio, and exact lettering.
+   Size the logo at roughly 12–14% of the image's shorter edge so the brand name is immediately readable at normal viewing size. It may extend beyond the feature-card row, but it must stay clear of faces and shirts and remain subordinate to the models.
+3. Put each feature on its own small rounded card using either translucent black with white text or translucent white with dark text. Use one restrained outline-icon family and minimal orange accents. Do not place all content inside a continuous banner, rail, sidebar, or opaque block.
+4. Arrange the four feature cards in a short single row near a quiet top/bottom edge when the models fill the frame naturally; use a compact 2×2 corner cluster only when that corner is genuinely free. Keep card padding tight but readable. The total logo, features, and hotline should remain a secondary layer and normally occupy no more than about 20% of the canvas.
+5. Pass the feature lock into the script. Prefer a short title plus a 2–4 word detail. Use a small phone-call icon and regular-size hotline `0989 353 247`; do not treat the number as a headline, CTA button, or promotional badge.
+6. Run the overlay only after the unbranded photo passes garment/anatomy validation. The script does not detect faces, so choose the safe corner and light/dark theme by visual inspection.
+7. Inspect the composite again at full size. Reject overlap, clipping, mojibake, weak contrast, crowded typography, mismatched icon style, an oversized hotline, or overlays that compete with the shirts; switch corner/theme or shorten copy and rerun without distorting the model composition.
 
 Example:
 
 ```bash
-python3 /Users/hoang/.codex/skills/create-outdoor-uniform-images/scripts/apply_logo_overlay.py \
+python3 /Users/hoang/.codex/skills/create-outdoor-uniform-images/scripts/apply_catalog_overlay.py \
   /absolute/path/base.png /absolute/path/branded.png \
   --logo-asset /Users/hoang/.codex/skills/create-outdoor-uniform-images/assets/branding/mayaodongphuc-vertical.png \
-  --logo-corner bottom-right --logo-width 0.12
+  --layout row --overlay-corner top-left --theme dark --logo-width 0.128 \
+  --fabric-title "Vải mềm nhẹ" --fabric-detail "Thoáng, dễ vận động" \
+  --design-title "Thiết kế đồng bộ" --design-detail "Gọn và tôn dáng" \
+  --durability-title "Bền màu" --durability-detail "Giữ form tốt" \
+  --printing-title "Hình in sắc nét" --printing-detail "Màu in đồng đều"
 ```
 
-Treat branding as an output requirement, not part of the garment design. Do not print the website logo onto the models' shirts. Do not use image generation to recreate the bundled logo asset.
+Treat the catalog overlay as an output requirement, not part of the garment design. Do not print the website logo, feature copy, icons, or hotline onto the models' shirts. Do not use image generation to recreate the bundled logo asset or typeset exact overlay copy.
 
 ## Validate and iterate
 
@@ -110,7 +129,7 @@ Apply hard gates in this order:
 2. face, hands, anatomy, and age correctness;
 3. fabric and print realism;
 4. group consistency and scene physics;
-5. sleeves, randomized group variation, exactly one correct corner logo, commercial cleanliness, composition, and requested crop.
+5. sleeves, randomized group variation, exactly one correct vertical logo, compact feature cards and understated hotline, commercial cleanliness, composition, and requested crop.
 
 Reject an image if any hard gate fails. Use one targeted correction per iteration, preserve everything that already works, and inspect again. Regenerate rather than claiming a wrong logo, unreadable important text, or impossible anatomy is acceptable.
 
@@ -132,7 +151,7 @@ Return the accepted images with absolute paths so the app can render them. Summa
 
 - which input image defined each garment;
 - model age choice and setting;
-- chosen model count, logo variant, and logo corner;
+- chosen model count, overlay corner/theme, and feature copy;
 - output roles and aspect ratios;
 - validation result and any honest remaining fidelity caveat.
 

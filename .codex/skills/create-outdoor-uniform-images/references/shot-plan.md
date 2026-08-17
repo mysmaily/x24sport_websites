@@ -4,9 +4,9 @@ Use this plan when the user asks for a set but does not define each shot. Adapt 
 
 | Slot | Role | Default ratio | Direction |
 |---|---|---:|---|
-| 1 | Catalog hero | 1:1 | Randomly use 3–7 adults in a park/picnic setting; clear fronts; choose a loose arc, diagonal, staggered cluster, or layered formation. |
-| 2 | Landscape banner | 16:9 or 3:2 | Randomly use a different count from 3–7, walking or interacting at a company outing; leave a quiet logo/text-safe corner. |
-| 3 | Portrait social/catalog | 4:5 | Randomly use a different count from 3–7 in a lively stacked or editorial composition; full or three-quarter bodies. |
+| 1 | Catalog hero | 1:1 | Randomly use 3–7 adults in a park/picnic setting; use a head-to-mid-thigh or head-to-knee crop with clear shirt fronts; choose a naturally balanced loose arc, diagonal, staggered cluster, or layered formation. |
+| 2 | Landscape banner | 16:9 or 3:2 | Randomly use a different count from 3–7, walking or interacting naturally at a company outing; retain modest background breathing room for small cards. |
+| 3 | Portrait social/catalog | 4:5 | Randomly use a different count from 3–7 in a lively stacked or editorial composition; favor three-quarter bodies and shirt visibility over shoes. |
 | 4 | Clean comparison | 4:5 or 3:2 | Randomly use a different count from 3–7 against a simple outdoor wall or soft studio-like daylight; low visual noise. |
 | 5 | Candid/detail | 1:1 | Randomly use a different count from 3–7 preparing a picnic or team activity; closer view of fabric, collar, print, and expressions. |
 
@@ -27,7 +27,8 @@ Use this plan when the user asks for a set but does not define each shot. Adapt 
 - Favor 35–70 mm photographic perspective. Use believable depth of field without cutting sharp halos around hair.
 - Make body language friendly and spontaneous: walking, laughing, arranging picnic items, leaning naturally, or light team activity.
 - Avoid rows of rigid catalog poses unless the user requests a lineup.
-- Reserve one uncluttered corner for one randomly selected bundled logo; never reserve space over a face or shirt.
+- Keep hero framing shirt-first. Reduce lower-leg, shoe, and empty-lawn area; use full-body framing only as deliberate supporting variety.
+- Keep the group composition natural and visually balanced; do not push models to one side for graphics. Prefer small quiet background pockets near a corner for the vertical logo, feature cards, and understated hotline; never place them over a face or shirt.
 
 ## Children variant
 

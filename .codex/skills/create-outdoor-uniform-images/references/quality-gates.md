@@ -42,15 +42,20 @@ Use this rubric for every proof and final image. A single hard failure rejects t
 ## 5. Commerce and composition — hard gate
 
 - Show the design clearly on enough people to sell the uniform.
+- For hero and primary catalog images, make collars, sleeves, chest artwork, fabric texture, and torso fit visually dominant. Prefer head-to-mid-thigh or head-to-knee framing; reject compositions where lower legs, shoes, or empty ground consume more attention than the shirts.
+- Keep full-body views as supporting variants unless specifically requested. Reject awkward crops directly through knees, ankles, elbows, or other joints.
 - Keep faces and garments away from unsafe crop edges and website text-safe zones when requested.
 - Avoid wardrobe or props that compete with shirt colors and artwork.
 - Reject unintended captions, random typography, watermarks, signatures, logos, or borders.
 - Match the requested aspect ratio and visual role.
 - Require 3–7 models and verify the set varies count and formation instead of repeating a fixed template.
-- Require exactly one bundled Mayaodongphuc logo, undistorted and fully visible in a safe corner without covering a face, hair, hand, garment, or important action.
+- Require exactly one bundled vertical Mayaodongphuc logo, undistorted and fully visible in the catalog overlay without covering a face, hair, hand, garment, or important action.
+- Require the Mayaodongphuc name and mark to be immediately recognizable at normal viewing size. Target roughly 12–14% of the shorter image edge; reject a tiny unreadable logo or an oversized mark that competes with the garments.
 - Reject any Mayaodongphuc corner logo printed onto the garment itself.
-- Require deliberate graphic design: clear hierarchy, aligned grid, consistent icon family, balanced margins, branded navy/orange palette, and a compact footprint that leaves the photography dominant.
-- Reject any hotline, feature list, badge rail, promotional copy, floating label, or text box added after the logo.
+- Require deliberate graphic design: clear hierarchy, aligned grid, consistent icon family, balanced margins, and restrained brand accents. Use separate small translucent white or black cards; reject a full-height rail, wide banner, large opaque panel, or any overlay that forces the models to one side.
+- Require exactly four supported feature categories—fabric, design, durability, and printing—with concise Vietnamese copy and one consistent outline icon per category.
+- Require one small phone-call icon beside the exact hotline `0989 353 247`. Keep it typographically subordinate to the garment features; reject missing digits, added digits, malformed spacing, any second phone number, or CTA-like treatment.
+- Keep the combined logo, feature cards, and hotline at or below roughly 20% of the image area. Reject unsupported technical claims, crowded badges, scattered labels without alignment, oversized overlays, inconsistent icons, weak contrast, or feature text printed onto a shirt.
 - Require bundled logo pixels to remain crisp, undistorted, correctly spelled, and identical across a set. Reject AI-redrawn versions or generated approximations of the logo assets.
 
 ## Acceptance score
