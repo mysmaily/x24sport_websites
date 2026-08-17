@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ảnh đồng phục dã ngoại"
+  short_description: "Tạo ảnh dã ngoại và đóng logo thương hiệu"
+  default_prompt: "Use $create-outdoor-uniform-images to turn my uniform design references into a varied, branded outdoor catalog set for mayaodongphuc.com.vn."
