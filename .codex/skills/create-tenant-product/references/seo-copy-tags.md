@@ -65,6 +65,15 @@ Media-level tags:
 - Add viewpoint/context: `mặt trước`, `mặt sau`, `chi tiết cổ áo`, `mockup áo`, `người mẫu nam`, `nhóm mặc áo`, `trên sân`.
 - Add exact colors and pattern: `xanh ngọc`, `đen đỏ`, `trắng xanh`, `gradient`, `họa tiết tia sét`.
 
+## Contextual Images Below Product Copy
+
+- Keep gallery order intentional: image 1 is the hero; images 2 onward are contextual views.
+- Reuse images 2 onward below the long description instead of uploading duplicate media.
+- Render each contextual image as `<figure>` containing a normal indexable `<img>` and a visible `<figcaption>`.
+- Write the caption from the reviewed media alt text, shortened only for readability. Describe the visible subject and use context; do not repeat the product title mechanically.
+- Lazy-load contextual images, preserve intrinsic dimensions/aspect ratio, and keep them full-width within the copy column on mobile.
+- Do not repeat image 1 below the description. If only one image exists, render no contextual figure.
+
 Mayaobongda and several tenant UIs search `name`, `gallery.searchTags.value`, then `searchTags.value`; keep high-value visual tags on the media record so filtered catalog pages can show the matching image.
 
 ## Default Commercial Values

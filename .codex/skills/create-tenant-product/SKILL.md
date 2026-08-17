@@ -41,6 +41,7 @@ Read these before acting:
 
 3. Draft the product package:
    - Create SEO title/product name, slug, short description, full product content, meta description, attributes, badges, product search tags, media alt text, and per-image media search tags.
+   - Treat the first gallery image as the primary hero. When a product has more than one image, prepare every image after the first for contextual reuse below the long description with a factual caption derived from its reviewed alt text.
    - Product search tags should cover commercial discovery: sport, garment type, audience, use case, color family, style, and category.
    - Media search tags should be more visual: exact color, gradient/pattern, pose, front/back/detail, collar/sleeve, model/team/context, and sport.
    - Use Vietnamese shopping language, compact and factual. Prioritize phrases buyers search for.
@@ -56,6 +57,9 @@ Read these before acting:
    - Load only the requested tenant's REST secret from its profile.
    - Upload each image with `POST /api/media`, `_payload.tenant`, factual `alt`, `searchTags`, `sourceSystem`, `sourceId`, `sourceChecksum`.
    - Create or patch `/api/products` with `gallery` as all uploaded media IDs in desired order.
+   - Do not upload duplicate files for editorial placement. Reuse gallery media IDs/URLs. On a supporting storefront, render `gallery[1..n]` after the long description as semantic `<figure><img><figcaption>` blocks; keep the primary image only in the gallery/hero area.
+   - Give contextual images explicit dimensions or an aspect ratio, `loading="lazy"`, and `decoding="async"`. Use the reviewed media alt as both the factual basis for `alt` and a concise visible caption; do not keyword-stuff either field.
+   - If the target storefront cannot render contextual gallery media, do not inject unsafe raw HTML or silently upload copies. Route the bounded UI change through `develop-x24sport-websites`, then typecheck, build, deploy, and verify it before claiming the product page is complete.
    - Recalculate affected category `productCount` from tenant-scoped published products when a category membership changes.
 
 6. Verify:
@@ -65,6 +69,7 @@ Read these before acting:
    - Media URLs return 200.
    - Public product URL returns 200 after the tenant revalidation window.
    - Rendered H1/title, meta description, canonical, price/contact state, gallery alt text, category page inclusion, sitemap inclusion for published products, and search/tag behavior are correct.
+   - For products with multiple images, the rendered page contains one contextual `<figure>` for each non-primary gallery image, a visible factual `<figcaption>`, no duplicate media record, no eager loading of below-description images, and no mobile horizontal overflow.
    - Run a sibling-tenant isolation query when doing batch or cross-tenant work.
    - Report whether a validated handoff or full-analysis fallback supplied the visual facts.
 
@@ -96,6 +101,7 @@ Report:
 - Product action: created, updated, or draft only.
 - Product ID, slug, SKU/source identity, media IDs, and public URL.
 - Verification evidence, including API ownership and public URL status.
+- Contextual image result for multi-image products: rendered count, caption source, and whether existing media was reused.
 - Any remaining factual gaps or manual review items.
 
 Never print API keys or secret values.

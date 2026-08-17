@@ -39,6 +39,7 @@ export async function MayAoDongPhucProductPage({ slug }: { slug: string }) {
     url: canonical,
   }
   const descriptionParagraphs = productDescriptionParagraphs(product)
+  const contextualImages = images.slice(1)
   const attributes = (product.attributes || [])
     .map((attribute) => ({
       name: attribute.name?.trim(),
@@ -61,6 +62,26 @@ export async function MayAoDongPhucProductPage({ slug }: { slug: string }) {
             </div>
           ) : product.contentHtml ? (
             <div className={styles.productCopyFlow} dangerouslySetInnerHTML={{ __html: cleanContentHtml(product.contentHtml) }} />
+          ) : null}
+          {contextualImages.length ? (
+            <div className={styles.contextualMedia}>
+              {contextualImages.map((image, index) => {
+                const caption = image.alt || `${product.name} — hình ảnh ${index + 2}`
+                return (
+                  <figure key={image.id || image.url}>
+                    <img
+                      src={image.url}
+                      alt={caption}
+                      width={image.width || 1254}
+                      height={image.height || 1254}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <figcaption>{caption}</figcaption>
+                  </figure>
+                )
+              })}
+            </div>
           ) : null}
         </article>
         {attributes.length ? (
