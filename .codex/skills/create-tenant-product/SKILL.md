@@ -40,8 +40,9 @@ Read these before acting:
    - If image quality, design fidelity, approved branding, or rights remain uncertain after analysis, create as `draft` and report the factual gap.
 
 3. Draft the product package:
-   - Create SEO title/product name, slug, short description, full product content, meta description, attributes, badges, product search tags, media alt text, and per-image media search tags.
-   - Treat the first gallery image as the primary hero. When a product has more than one image, prepare every image after the first for contextual reuse below the long description with a factual caption derived from its reviewed alt text.
+   - Create SEO title/product name, slug, short description, full product content, meta description, attributes, badges, product search tags, media alt text, optional per-image visible captions, and per-image media search tags.
+   - Treat the first gallery image as the primary hero. When a product has more than one image, prepare every image after the first for contextual reuse below the long description with a factual, buyer-natural caption. Captions must read like storefront merchandising copy, not like raw alt text or image-analysis notes.
+   - Keep `alt` and visible `figcaption` distinct when the CMS/storefront supports it. Alt text should be concise accessibility text describing the image; captions should be shorter, more natural, and commerce-aware, e.g. “Mẫu áo trắng xanh dễ nổi bật khi chụp ảnh nhóm ngoài trời.” Avoid caption phrasing like “Ba người mẫu Việt Nam...” or “Nhóm năm người mẫu...” unless the count is the actual selling point.
    - Product search tags should cover commercial discovery: sport, garment type, audience, use case, color family, style, and category.
    - Media search tags should be more visual: exact color, gradient/pattern, pose, front/back/detail, collar/sleeve, model/team/context, and sport.
    - Use Vietnamese shopping language, compact and factual. Prioritize phrases buyers search for.
@@ -55,10 +56,10 @@ Read these before acting:
 
 5. Upload media and create/update product:
    - Load only the requested tenant's REST secret from its profile.
-   - Upload each image with `POST /api/media`, `_payload.tenant`, factual `alt`, `searchTags`, `sourceSystem`, `sourceId`, `sourceChecksum`.
+   - Convert every local input image to WebP quality 92 before upload. Upload only the converted `.webp` bytes with `POST /api/media`, `_payload.tenant`, factual `alt`, `searchTags`, `sourceSystem`, `sourceId`, `sourceChecksum`. The checksum and filename should describe the converted WebP bytes, not the original PNG/JPEG source.
    - Create or patch `/api/products` with `gallery` as all uploaded media IDs in desired order.
    - Do not upload duplicate files for editorial placement. Reuse gallery media IDs/URLs. On a supporting storefront, render `gallery[1..n]` after the long description as semantic `<figure><img><figcaption>` blocks; keep the primary image only in the gallery/hero area.
-   - Give contextual images explicit dimensions or an aspect ratio, `loading="lazy"`, and `decoding="async"`. Use the reviewed media alt as both the factual basis for `alt` and a concise visible caption; do not keyword-stuff either field.
+   - Give contextual images explicit dimensions or an aspect ratio, `loading="lazy"`, and `decoding="async"`. Use reviewed media facts as the basis for `alt` and caption, but do not blindly reuse alt text as visible caption. If the current storefront only renders `media.alt` as the caption, write the alt in a hybrid style that remains accessible while still sounding natural to shoppers.
    - If the target storefront cannot render contextual gallery media, do not inject unsafe raw HTML or silently upload copies. Route the bounded UI change through `develop-x24sport-websites`, then typecheck, build, deploy, and verify it before claiming the product page is complete.
    - Recalculate affected category `productCount` from tenant-scoped published products when a category membership changes.
 
@@ -75,7 +76,7 @@ Read these before acting:
 
 ## Helper Script
 
-Use `scripts/upsert-product.mjs` for routine REST publishing after the copy and tags are ready.
+Use `scripts/upsert-product.mjs` for routine REST publishing after the copy and tags are ready. The helper converts local media to WebP quality 92 before upload.
 
 Example:
 
@@ -83,10 +84,10 @@ Example:
 set +x
 source <(ssh root@10.10.0.28 'cat /root/sports-cms/<tenant>-rest-api.env')
 node /Users/hoang/hacado/x24sport_websites/.codex/skills/create-tenant-product/scripts/upsert-product.mjs \
-  --input /absolute/path/product-input.json \
+  --input=/absolute/path/product-input.json \
   --dry-run
 node /Users/hoang/hacado/x24sport_websites/.codex/skills/create-tenant-product/scripts/upsert-product.mjs \
-  --input /absolute/path/product-input.json \
+  --input=/absolute/path/product-input.json \
   --apply
 unset PAYLOAD_API_KEY PAYLOAD_API_USER PAYLOAD_AUTH_COLLECTION
 ```

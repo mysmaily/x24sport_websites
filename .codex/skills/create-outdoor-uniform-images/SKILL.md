@@ -1,6 +1,6 @@
 ---
 name: create-outdoor-uniform-images
-description: Create and iterate branded photorealistic group model images for the “Đồng phục dã ngoại” catalog of mayaodongphuc.com.vn from one or more supplied garment/design references. Use when the user asks to turn T-shirt or uniform artwork, mockups, flat lays, or product photos into Vietnamese adult or explicitly requested child model photos for picnic, company outing, team-building, park, resort, studio, catalog, banner, or social use, with 3–7 varied models, sleeves on every shirt, one vertical Mayaodongphuc logo, professional icon-led garment feature callouts, hotline 0989 353 247, strict design fidelity, optional product-handoff manifests for downstream publishing, and rejection of plastic-looking people, anatomy defects, wrong prints, watermarks, and competitor branding.
+description: Create and iterate up to two square branded photorealistic group model images for the “Đồng phục dã ngoại” catalog of mayaodongphuc.com.vn from one or more supplied garment/design references. Use when the user asks to turn T-shirt or uniform artwork, mockups, flat lays, or product photos into Vietnamese adult or explicitly requested child model photos for picnic, company outing, team-building, park, resort, studio, catalog, banner, or social use, with 3–7 varied models, 1:1 outputs, sleeves on every shirt, one vertical Mayaodongphuc logo, professional icon-led garment feature callouts, hotline 0989 353 247, strict design fidelity, optional product-handoff manifests for downstream publishing, and rejection of plastic-looking people, anatomy defects, wrong prints, watermarks, and competitor branding.
 ---
 
 # Create Outdoor Uniform Images
@@ -22,11 +22,11 @@ Distinguish approved garment artwork from source-vendor branding. Preserve a cus
 
 Resolve model age, group mix, setting, output count, and aspect ratio from the request. Use these defaults when absent:
 
-- five-image website set;
+- maximum two-image website set;
 - Vietnamese/Southeast Asian adults aged approximately 20–35;
 - randomly choose 3–7 models per image, with mixed gender, distinct faces, and natural height/body variation;
 - outdoor picnic, green park, resort lawn, or company outing;
-- one square hero plus portrait and landscape supporting images;
+- square 1:1 output for every accepted image; never produce portrait, landscape, banner, or non-square final assets for this skill;
 - tasteful casual bottoms and clean footwear; keep the shirts dominant.
 - shirt-first framing for catalog heroes: favor head-to-mid-thigh or head-to-knee crops so collars, sleeves, chest artwork, fabric, and fit occupy most of the frame; reserve full-body framing for supporting shots.
 
@@ -35,6 +35,7 @@ Use children only when the user explicitly requests children or a clearly child-
 ## Apply non-negotiable catalog rules
 
 - Always render shirts with sleeves. Preserve a supplied short-sleeve or long-sleeve construction. If the input is sleeveless or has deeply cut armholes, convert it to a practical short-sleeve uniform while extending the shoulder/side artwork naturally onto the new sleeves. Never output tank tops, singlets, sleeveless jerseys, cap sleeves that expose the armpit, or oversized armholes.
+- Cap the accepted set at two images, even when the user asks for more. Both accepted images must be square 1:1. If the user requests a banner or social portrait, reinterpret it as a square crop with the same commercial role.
 - Treat the shirt as the primary product. For hero and core catalog images, crop naturally around mid-thigh or the knee and minimize lower legs, shoes, and empty ground. Show footwear or full bodies only when the shot's activity, comparison role, or user request requires them. Never crop exactly through a knee or other joint.
 - Randomly choose 3–7 models for each image. For a set, vary counts, formation, camera distance, pose, and activity; do not reuse one five-person triangular template. Never repeat the same group count in consecutive images when alternatives exist.
 - Create a variant plan with `scripts/plan_variant.py` when producing one or more outputs. Treat its overlay corner and light/dark card theme as preferences only; actual face/body occupancy and background contrast decide placement.
@@ -135,12 +136,12 @@ Reject an image if any hard gate fails. Use one targeted correction per iteratio
 
 If the proof cannot preserve dense typography or a tiny logo after two focused iterations, disclose the limitation and propose a safer composition with a larger, more front-facing print area or a later production retouch. Never claim exact fidelity when it is visibly wrong.
 
-After the proof passes, generate the remaining set using [references/shot-plan.md](references/shot-plan.md). Keep garment identity, casting direction, skin treatment, color grade, season, and location family coherent while varying pose and crop. Do not make every image a near-duplicate.
+After the proof passes, generate at most one additional square image using [references/shot-plan.md](references/shot-plan.md). Keep garment identity, casting direction, skin treatment, color grade, season, and location family coherent while varying pose and crop. Do not make the second image a near-duplicate.
 
 Run the optional file preflight after saving a set:
 
 ```bash
-python3 /Users/hoang/.codex/skills/create-outdoor-uniform-images/scripts/validate_output_files.py --expected 5 /absolute/path/to/output-*.png
+python3 /Users/hoang/.codex/skills/create-outdoor-uniform-images/scripts/validate_output_files.py --expected 2 /absolute/path/to/output-*.png
 ```
 
 Treat this script as file-level validation only; it never replaces visual inspection.
@@ -152,9 +153,11 @@ When the same request also asks to publish a product, invokes `create-tenant-pro
 Read [references/product-handoff.md](references/product-handoff.md) before writing the file. The handoff is a factual visual contract, not finished product copy. Include:
 
 - source-reference classifications and the accepted design lock;
-- absolute accepted-image paths, roles, aspect ratios, model counts, overlay choices, SHA-256 checksums, factual alt seeds, and visual tags;
+- absolute accepted-image paths, roles, aspect ratios, model counts, overlay choices, SHA-256 checksums, factual alt seeds, natural buyer-facing caption seeds for non-primary/contextual images, and visual tags;
 - visible garment facts, approved garment artwork, intended audiences/use cases, feature-lock evidence levels, unsupported claims, and fidelity caveats;
 - an optional category suggestion and compact copy seeds.
+
+Keep `altSeed` factual and accessibility-oriented, but keep `captionSeed` natural and shopper-facing. Do not make captions sound like raw vision labels; avoid visible lines such as “Ba người mẫu Việt Nam...” unless the model count matters commercially. Prefer concise Vietnamese storefront phrasing such as “Mẫu áo trắng xanh dễ nổi bật khi chụp ảnh nhóm ngoài trời.” or “Set áo cổ tròn tay ngắn phù hợp picnic và team building công ty.”
 
 Do not finalize the product name, slug, SKU, descriptions, SEO metadata, badges, price, stock, or commercial claims here. `create-tenant-product` owns those tenant-aware fields. Never promote a `restrained-default` overlay claim into a verified product fact.
 

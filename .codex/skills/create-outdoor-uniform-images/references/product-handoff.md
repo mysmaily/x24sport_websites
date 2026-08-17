@@ -37,6 +37,7 @@ The publishing skill must still inspect every final image. A valid handoff accel
       "aspectRatio": "1:1",
       "modelCount": 4,
       "altSeed": "Factual visual description without sales claims",
+      "captionSeed": "Natural buyer-facing caption for contextual use when this image appears below product copy",
       "visualTags": ["polo", "trắng vàng", "mặt trước", "nhóm bốn người"],
       "overlay": {
         "logo": "mayaodongphuc-vertical.png",
@@ -99,6 +100,12 @@ The publishing skill must still inspect every final image. A valid handoff accel
 - `provided`: explicitly supplied by the user or material brief; usable as a product fact.
 - `visible`: directly supported by accepted pixels; usable only for what is visibly shown.
 - `restrained-default`: safe overlay wording used because evidence is incomplete; never promote it into a technical or durability claim in product copy.
+
+## Alt and caption seeds
+
+- `altSeed` describes the image for accessibility and media indexing. Keep it accurate, concise, and factual.
+- `captionSeed` is optional for hero images but recommended for supporting/contextual images. It should read like natural Vietnamese storefront copy that helps shoppers picture the use case or styling benefit.
+- Avoid caption seeds that merely count models or classify people, such as “Ba người mẫu Việt Nam...” or “Nhóm năm người mẫu...”. Prefer human-facing lines like “Mẫu áo trắng xanh dễ nổi bật khi chụp ảnh nhóm ngoài trời.” or “Set áo cổ tròn tay ngắn phù hợp picnic và team building công ty.”
 
 ## Consumer fallback
 

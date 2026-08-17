@@ -49,7 +49,7 @@
 }
 ```
 
-`descriptionParagraphs` is converted to Payload Lexical rich text. `attributes[].values`, `badges`, `searchTags`, and media `searchTags` are converted to Payload array-row objects.
+`descriptionParagraphs` is converted to Payload Lexical rich text. `attributes[].values`, `badges`, `searchTags`, and media `searchTags` are converted to Payload array-row objects. Local media files may be PNG, JPEG, or WebP in the input JSON, but the helper converts every upload to WebP quality 92 before `POST /api/media`; uploaded filenames, MIME type, and `sourceChecksum` refer to the converted WebP bytes.
 
 ## Environment
 
@@ -66,13 +66,13 @@ Always source the env file from the target tenant profile. Do not source sibling
 Dry run:
 
 ```bash
-node /Users/hoang/hacado/x24sport_websites/.codex/skills/create-tenant-product/scripts/upsert-product.mjs --input /absolute/path/product-input.json --dry-run
+node /Users/hoang/hacado/x24sport_websites/.codex/skills/create-tenant-product/scripts/upsert-product.mjs --input=/absolute/path/product-input.json --dry-run
 ```
 
 Apply:
 
 ```bash
-node /Users/hoang/hacado/x24sport_websites/.codex/skills/create-tenant-product/scripts/upsert-product.mjs --input /absolute/path/product-input.json --apply
+node /Users/hoang/hacado/x24sport_websites/.codex/skills/create-tenant-product/scripts/upsert-product.mjs --input=/absolute/path/product-input.json --apply
 ```
 
 ## Idempotency Rules

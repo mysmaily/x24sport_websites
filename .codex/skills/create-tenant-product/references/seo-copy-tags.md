@@ -70,7 +70,10 @@ Media-level tags:
 - Keep gallery order intentional: image 1 is the hero; images 2 onward are contextual views.
 - Reuse images 2 onward below the long description instead of uploading duplicate media.
 - Render each contextual image as `<figure>` containing a normal indexable `<img>` and a visible `<figcaption>`.
-- Write the caption from the reviewed media alt text, shortened only for readability. Describe the visible subject and use context; do not repeat the product title mechanically.
+- Write `alt` and visible `figcaption` for different jobs:
+  - `alt`: concise accessibility text that describes the image accurately; include count, model type, pose, or setting only when useful for understanding the image.
+  - `figcaption`: natural storefront copy that helps shoppers understand the use case, styling, or ordering angle. It should sound like something a brand would publish below an image, not like an image-analysis sentence.
+- Avoid visible captions that start with inventory phrasing such as “Ba người mẫu Việt Nam...”, “Nhóm năm người mẫu...”, or “Ảnh chụp...”. Prefer lines such as “Mẫu áo trắng xanh dễ nổi bật khi chụp ảnh nhóm ngoài trời.” or “Set áo cổ tròn tay ngắn phù hợp picnic và team building công ty.”
 - Lazy-load contextual images, preserve intrinsic dimensions/aspect ratio, and keep them full-width within the copy column on mobile.
 - Do not repeat image 1 below the description. If only one image exists, render no contextual figure.
 

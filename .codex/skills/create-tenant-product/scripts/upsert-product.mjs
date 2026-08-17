@@ -1,8 +1,13 @@
 #!/usr/bin/env node
 import { createHash } from 'node:crypto'
+import { createRequire } from 'node:module'
 import { existsSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const require = createRequire(import.meta.url)
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const args = new Map()
 for (const arg of process.argv.slice(2)) {
@@ -78,6 +83,40 @@ function mimeType(filePath) {
   if (/\.jpe?g$/i.test(filePath)) return 'image/jpeg'
   if (/\.png$/i.test(filePath)) return 'image/png'
   return 'application/octet-stream'
+}
+
+async function loadSharp() {
+  try {
+    return (await import('sharp')).default
+  } catch (error) {
+    const repoRoot = path.resolve(__dirname, '../../../..')
+    try {
+      return require(path.join(repoRoot, 'cms-api/node_modules/sharp'))
+    } catch {
+      throw new Error(`sharp is required to convert uploads to WebP quality 92 before media upload: ${error.message}`)
+    }
+  }
+}
+
+let sharpModule
+
+async function webpUploadAsset(filePath) {
+  const sourceBuffer = await readFile(filePath)
+  sharpModule ||= await loadSharp()
+  const buffer = await sharpModule(sourceBuffer)
+    .rotate()
+    .webp({ quality: 92 })
+    .toBuffer()
+  const checksum = createHash('sha256').update(buffer).digest('hex')
+  const basename = path.basename(filePath, path.extname(filePath))
+    .replace(/[^a-zA-Z0-9._-]+/g, '-')
+    .replace(/^-+|-+$/g, '') || 'media'
+  return {
+    buffer,
+    checksum,
+    filename: `${basename}-${checksum.slice(0, 12)}.webp`,
+    mimeType: 'image/webp',
+  }
 }
 
 async function fetchJson(pathAndQuery, options = {}) {
@@ -173,8 +212,8 @@ async function findExistingProduct(product) {
 
 async function uploadMedia(tenantId, item, index) {
   if (!item.path || !existsSync(item.path)) throw new Error(`Media file not found: ${item.path}`)
-  const buffer = await readFile(item.path)
-  const checksum = createHash('sha256').update(buffer).digest('hex')
+  const upload = await webpUploadAsset(item.path)
+  const checksum = upload.checksum
   const sourceId = item.sourceId || `${input.sourceId || input.product.slug}-image-${index + 1}-${checksum.slice(0, 12)}`
 
   const existingBySource = await findOne('media', {
@@ -191,12 +230,11 @@ async function uploadMedia(tenantId, item, index) {
   if (existingByChecksum) return existingByChecksum
 
   if (dryRun) {
-    return { id: `dry-media-${index + 1}`, alt: item.alt, sourceId, sourceChecksum: checksum, url: item.path }
+    return { id: `dry-media-${index + 1}`, alt: item.alt, sourceId, sourceChecksum: checksum, url: item.path, uploadFilename: upload.filename, uploadMimeType: upload.mimeType }
   }
 
-  const extension = path.extname(item.path)
   const form = new FormData()
-  form.append('file', new Blob([buffer], { type: mimeType(item.path) }), `${path.basename(item.path, extension)}-${checksum.slice(0, 12)}${extension}`)
+  form.append('file', new Blob([upload.buffer], { type: upload.mimeType }), upload.filename)
   form.append('_payload', JSON.stringify({
     tenant: tenantId,
     alt: item.alt || input.product.name,
@@ -267,6 +305,13 @@ console.log(JSON.stringify({
   tenant: { id: tenant.id, slug: TENANT_SLUG },
   product: { id: product.id, name: product.name, slug: product.slug, sku: product.sku, publicationStatus: product.publicationStatus },
   categories: categories.map((category) => ({ id: category.id, slug: category.slug })),
-  media: mediaRecords.map((media) => ({ id: media.id, alt: media.alt, url: media.url })),
+  media: mediaRecords.map((media) => ({
+    id: media.id,
+    alt: media.alt,
+    url: media.url,
+    sourceChecksum: media.sourceChecksum,
+    uploadFilename: media.uploadFilename,
+    uploadMimeType: media.uploadMimeType,
+  })),
   categoryCounts,
 }, null, 2))
