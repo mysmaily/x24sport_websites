@@ -67,14 +67,21 @@ body.tenant-mayaopickleball .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  display: grid;
-  grid-template-columns: minmax(180px, 0.9fr) minmax(0, 1.2fr) minmax(180px, 0.9fr);
-  align-items: center;
-  min-height: 68px;
-  padding: 0 clamp(18px, 4vw, 64px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(9, 12, 17, 0.94);
+  background: rgba(9, 12, 17, 0.95);
+  color: white;
   backdrop-filter: blur(18px);
+}
+
+body.tenant-mayaopickleball .site-header-shell {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+  align-items: center;
+  gap: 16px;
+  width: min(1440px, 100%);
+  min-height: 72px;
+  margin-inline: auto;
+  padding: 0 clamp(16px, 3vw, 32px);
 }
 
 body.tenant-mayaopickleball .brand-mark {
@@ -109,71 +116,99 @@ body.tenant-mayaopickleball .site-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(14px, 1.7vw, 28px);
-  font-size: 13px;
-  font-weight: 800;
+  gap: clamp(16px, 1.8vw, 30px);
+  font-size: 15px;
+  font-weight: 900;
   color: rgba(255, 255, 255, 0.78);
 }
 
 body.tenant-mayaopickleball .site-nav a, body.tenant-mayaopickleball .nav-dropdown-trigger {
+  position: relative;
+  display: inline-flex;
+  min-height: 72px;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  padding: 0;
   white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  color: inherit;
   transition: color 180ms ease, transform 180ms ease;
 }
 
-body.tenant-mayaopickleball .site-nav a:hover, body.tenant-mayaopickleball .nav-dropdown:hover .nav-dropdown-trigger, body.tenant-mayaopickleball .nav-dropdown:focus-within .nav-dropdown-trigger {
+body.tenant-mayaopickleball .site-nav a:hover, body.tenant-mayaopickleball .site-nav a.is-active, body.tenant-mayaopickleball .nav-dropdown-trigger:hover, body.tenant-mayaopickleball .nav-dropdown-trigger.is-active, body.tenant-mayaopickleball .nav-dropdown:focus-within .nav-dropdown-trigger {
   color: white;
   transform: translateY(-1px);
 }
 
-body.tenant-mayaopickleball .nav-dropdown {
-  position: relative;
-  display: inline-flex;
-  min-height: 68px;
-  align-items: center;
+body.tenant-mayaopickleball .site-nav a.is-active::after, body.tenant-mayaopickleball .nav-dropdown-trigger.is-active::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  content: "";
 }
 
-body.tenant-mayaopickleball .nav-dropdown-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+body.tenant-mayaopickleball .nav-dropdown-trigger svg {
+  transition: transform 180ms ease;
+}
+
+body.tenant-mayaopickleball .nav-dropdown-trigger svg.is-open {
+  transform: rotate(180deg);
 }
 
 body.tenant-mayaopickleball .nav-dropdown-panel {
   position: absolute;
-  top: calc(100% - 10px);
-  left: 50%;
-  display: grid;
-  width: min(680px, calc(100vw - 32px));
-  grid-template-columns: minmax(220px, 0.85fr) minmax(320px, 1.15fr);
-  gap: 12px;
-  padding: 16px;
-  border: 1px solid rgba(16, 19, 26, 0.1);
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 24px 70px rgba(16, 19, 26, 0.16);
+  inset-inline: 0;
+  top: 100%;
+  display: block;
+  padding: 0 16px 18px;
+  color: var(--ink);
   opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, 8px);
+  transform: translateY(-8px);
   transition: opacity 160ms ease, transform 160ms ease;
 }
 
-body.tenant-mayaopickleball .nav-dropdown:hover .nav-dropdown-panel, body.tenant-mayaopickleball .nav-dropdown:focus-within .nav-dropdown-panel {
+body.tenant-mayaopickleball .nav-dropdown-panel.is-open {
   opacity: 1;
   pointer-events: auto;
-  transform: translate(-50%, 0);
+  transform: translateY(0);
 }
 
-body.tenant-mayaopickleball .nav-dropdown-panel > div {
+body.tenant-mayaopickleball .catalog-mega-grid {
   display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(520px, 1.28fr);
+  gap: 26px;
+  width: min(1120px, 100%);
+  margin-inline: auto;
+  border: 1px solid rgba(16, 19, 26, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 24px;
+  box-shadow: 0 26px 80px rgba(16, 19, 26, 0.2);
+}
+
+body.tenant-mayaopickleball .catalog-mega-grid section > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-content: start;
-  gap: 6px;
+  gap: 8px;
   min-width: 0;
 }
 
+body.tenant-mayaopickleball .catalog-mega-grid section:first-child > div {
+  grid-template-columns: 1fr;
+}
+
 body.tenant-mayaopickleball .nav-dropdown-title {
-  margin: 2px 0 6px;
+  display: block;
+  margin: 0 0 12px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -181,32 +216,34 @@ body.tenant-mayaopickleball .nav-dropdown-title {
 
 body.tenant-mayaopickleball .catalog-menu-link {
   display: flex;
-  min-height: 50px;
+  min-height: 66px;
   align-items: center;
-  gap: 10px;
-  border-radius: var(--radius-sm);
-  padding: 7px 9px;
+  gap: 13px;
+  border-radius: 10px;
+  padding: 10px 12px;
   color: var(--ink-soft);
+  transition: background 160ms ease, color 160ms ease;
 }
 
 body.tenant-mayaopickleball .catalog-menu-link:hover {
-  background: var(--court-soft);
+  background: rgba(46, 125, 50, 0.1);
   color: var(--court);
   transform: none;
 }
 
 body.tenant-mayaopickleball .catalog-menu-icon {
   --menu-tone: var(--court);
+  --menu-ink: #fff;
   display: inline-flex;
-  width: 34px;
-  height: 34px;
-  flex: 0 0 34px;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(16, 19, 26, 0.08);
-  border-radius: var(--radius-sm);
+  border-radius: 10px;
   background: var(--menu-tone);
-  color: white;
+  color: var(--menu-ink);
   box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.04);
 }
 
@@ -217,14 +254,15 @@ body.tenant-mayaopickleball .catalog-menu-link strong, body.tenant-mayaopickleba
 
 body.tenant-mayaopickleball .catalog-menu-link strong {
   color: var(--ink);
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: 900;
 }
 
 body.tenant-mayaopickleball .catalog-menu-link small {
-  margin-top: 3px;
+  margin-top: 4px;
   color: var(--muted);
-  font-size: 11px;
-  font-weight: 750;
+  font-size: 13px;
+  font-weight: 800;
 }
 
 body.tenant-mayaopickleball .header-actions {
@@ -268,27 +306,70 @@ body.tenant-mayaopickleball .menu-button {
 }
 
 body.tenant-mayaopickleball .mobile-menu {
-  position: fixed;
-  top: 68px;
-  right: 0;
-  left: 0;
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
   z-index: 45;
-  display: none;
-  max-height: calc(100dvh - 68px);
+  visibility: hidden;
+  max-height: calc(100dvh - 72px);
   overflow-y: auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(9, 12, 17, 0.98);
+  background: #090c11;
   padding: 14px 16px 18px;
   box-shadow: 0 26px 70px rgba(16, 19, 26, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
 }
 
 body.tenant-mayaopickleball .mobile-menu.is-open {
-  display: block;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 body.tenant-mayaopickleball .mobile-menu nav {
   display: grid;
+  width: min(720px, 100%);
+  margin-inline: auto;
   gap: 8px;
+}
+
+body.tenant-mayaopickleball .mobile-menu-section {
+  display: grid;
+  gap: 8px;
+}
+
+body.tenant-mayaopickleball .mobile-section-button {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0 12px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+body.tenant-mayaopickleball .mobile-section-button svg {
+  transition: transform 180ms ease;
+}
+
+body.tenant-mayaopickleball .mobile-section-button svg.is-open {
+  transform: rotate(180deg);
+}
+
+body.tenant-mayaopickleball .mobile-section-links, body.tenant-mayaopickleball .mobile-utility-links {
+  display: grid;
+  gap: 8px;
+}
+
+body.tenant-mayaopickleball .mobile-section-links.is-collapsed {
+  display: none;
 }
 
 body.tenant-mayaopickleball .mobile-menu nav a {
@@ -305,27 +386,19 @@ body.tenant-mayaopickleball .mobile-menu nav a {
   font-weight: 850;
 }
 
-body.tenant-mayaopickleball .mobile-catalog-menu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 14px;
+body.tenant-mayaopickleball .mobile-utility-links {
+  margin-top: 6px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 14px;
-}
-
-body.tenant-mayaopickleball .mobile-catalog-menu > div {
-  display: grid;
-  align-content: start;
-  gap: 7px;
-  min-width: 0;
+  padding-top: 12px;
 }
 
 body.tenant-mayaopickleball .mobile-menu-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  width: min(720px, 100%);
   margin-top: 14px;
+  margin-inline: auto;
 }
 
 body.tenant-mayaopickleball .mobile-menu-actions a {
@@ -333,6 +406,7 @@ body.tenant-mayaopickleball .mobile-menu-actions a {
   min-height: 44px;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   border-radius: var(--radius-sm);
   background: var(--night);
   color: white;
@@ -3529,7 +3603,7 @@ body.tenant-mayaopickleball .home-reviews-track::-webkit-scrollbar {
 }
 
 @media (max-width: 1180px) {
-  body.tenant-mayaopickleball .site-header {
+  body.tenant-mayaopickleball .site-header-shell {
     grid-template-columns: minmax(160px, 1fr) auto;
   }
 
@@ -3583,7 +3657,7 @@ body.tenant-mayaopickleball .home-reviews-track::-webkit-scrollbar {
     padding-bottom: calc(72px + env(safe-area-inset-bottom));
   }
 
-  body.tenant-mayaopickleball .site-header {
+  body.tenant-mayaopickleball .site-header-shell {
     min-height: 60px;
     padding: 0 14px;
   }
@@ -3941,7 +4015,6 @@ body.tenant-mayaopickleball .home-reviews-track::-webkit-scrollbar {
   }
 
   body.tenant-mayaopickleball .mobile-menu {
-    top: 60px;
     max-height: calc(100dvh - 60px);
   }
 
