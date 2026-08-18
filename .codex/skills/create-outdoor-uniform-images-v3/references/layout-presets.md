@@ -13,6 +13,8 @@ Preferred premium editorial poster option. One canvas contains three views from 
 
 The three scenes must feel like frames from one professional photoshoot: same location family, daylight, color grade, wardrobe, garment design, and casting direction. Do not create three unrelated stock-photo tiles. Rounded or clean separators are acceptable; avoid thick borders and scrapbook collage effects.
 
+When the board will receive a bottom feature band, reserve the lower 10–12% of the canvas as a footer-safe lane during generation. The two supporting scenes should sit fully above that lane, or have enough internal bottom padding that the band covers only noncritical empty ground/table texture. Reject composites where the footer band covers the supporting scenes' faces, collars, chest crests, sleeve cuffs, important torso design, or the main action. If needed, move the two supporting frames upward and slightly reduce their height so they read as complete photos above the footer.
+
 When the back is commercially useful, include one natural back-facing wearer in the hero so the designed shirt slogan can be seen. Do not force every wearer to display readable text.
 
 ## C. front-back-showcase — weight 20
@@ -45,8 +47,20 @@ Use `scripts/apply_catalog_overlay.py --layout bottom-band` only when the compos
 - surface: one full-width translucent color layer, no individual cards;
 - default color: burgundy `#740e26`, or another dominant/accent garment color supplied by the design lock;
 - text: white title/detail copy, orange outline icons, subtle vertical separators;
-- placement: lower 10% only, never across faces, collars, chest graphics, or back slogan artwork;
+- placement: lower 10% only, on a reserved footer-safe lane, never across faces, collars, chest graphics, sleeve/cuff artwork, back slogan artwork, hands, or the important part of a supporting scene;
 - hotline: exact `0989 353 247`, with one phone icon and no second number.
+
+For catalog boards with multiple subframes, the bottom band is a designed label/footer area below the photo story, not a tinted overlay that submerges the lower frames. If the lower frames look hidden, generate a revised board composition with those frames moved upward before applying the deterministic band.
+
+## Default deliverable set
+
+For website/product work, keep the image roles separate by default:
+
+- `clean-gallery-1`: standalone lifestyle or hero product image, no feature/hotline footer;
+- `clean-gallery-2`: standalone variation/detail/context/front-back image, no feature/hotline footer;
+- `catalog-board`: composite or campaign image with one bundled logo, four supported features, and hotline.
+
+Only the `catalog-board` should receive the full information system unless the user explicitly asks for every image to be branded. This keeps the product gallery visually useful while still producing one sales-ready catalog image.
 
 ## Production editorial feature panel
 

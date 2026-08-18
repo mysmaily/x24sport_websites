@@ -15,11 +15,13 @@ Classify inputs as `exact design`, `front/back design`, `material reference`, or
 
 Resolve age, group mix, setting, output count, aspect ratio, and whether shirt slogan artwork is requested. Defaults:
 
-- website set: 2 square 1:1 images;
+- website product set: 2 square 1:1 clean lifestyle/product images **plus 1 square 1:1 catalog board**;
 - Vietnamese/Southeast Asian adults around 20–35;
 - 3–5 people preferred for hero fidelity; 6–7 allowed for wider lifestyle scenes;
 - park, picnic, resort lawn, company outing, or team-building setting;
 - shirt-first head-to-mid-thigh/head-to-knee framing for hero images.
+
+Keep the deliverables separate by default. The clean lifestyle/product images are standalone gallery assets that should show the garment without heavy feature overlays. The catalog board is the only default output that combines multiple scenes with Mayaodongphuc branding, four feature callouts, and hotline. If the user explicitly asks for only branded images or only clean images, follow that request.
 
 These are workflow defaults, not universal restrictions. Follow an explicit user-requested count/aspect ratio unless the invoking catalog workflow requires otherwise.
 
@@ -45,15 +47,25 @@ When the brief includes a campaign slogan reference, back-print reference, or as
 
 Read `references/layout-presets.md`, then run `scripts/plan_variant.py` when producing outputs. Randomize composition with anti-repeat using the default mix: about 45% `single-hero`, 35% `campaign-composite-3`, and 20% `front-back-showcase`. These weights are defaults, not quotas. It biases toward 3–5 models because garment design, text fidelity, faces, and hands are more reliable there.
 
+For the default website product set, plan the clean gallery images and the catalog board as different deliverables:
+
+- clean image 1: standalone `single-hero` or natural lifestyle scene, no feature/footer overlay;
+- clean image 2: standalone detail/context/front-back variant, no feature/footer overlay;
+- catalog board: `campaign-composite-3` or `front-back-showcase` with deterministic logo, feature callouts, and hotline.
+
 For production-ready campaign boards, run `scripts/plan_variant.py --production-campaign`. Pass `--slogan` whenever the user supplied exact words, for example `--slogan 'ONE TEAM ONE DREAM / TOGETHER WE WIN'`. This mode deliberately favors `campaign-composite-3` or `front-back-showcase`, 4–5 models, at least one back view, slogan artwork, and a continuous bottom-band overlay. Use the normal randomized planner only for exploratory website sets where no slogan/back-print campaign is requested.
 
-`campaign-composite-3` is an intentional premium layout, not an accidental collage: one dominant hero scene plus two supporting lifestyle views from the same campaign. Plan negative space for the information system before generation. Treat planner choices as art-direction suggestions, not permission to violate the design lock.
+`campaign-composite-3` is an intentional premium layout, not an accidental collage: one dominant hero scene plus two supporting lifestyle views from the same campaign. Plan negative space for the information system before generation. When using a bottom band, the generated composite must reserve a footer-safe zone: all supporting frames and important garment/face content sit above the future band, so the final overlay does not make the two smaller scenes look submerged or cropped. Treat planner choices as art-direction suggestions, not permission to violate the design lock.
 
 Use relative paths from the skill root in examples and scripts. Never rely on machine-specific paths such as `/Users/...`.
 
 ## 4. Generate a clean proof
 
-Generate one clean proof before the full set. For a campaign preset, generate the photography/composite with intentional negative space for the later information system; do not fill that space with fake UI or random text. Do not ask image generation to draw the Mayaodongphuc corner logo, feature-callout icons, hotline, or catalog UI overlay; those belong to the deterministic overlay stage. The generated proof may include the campaign scene, subframes, blank editorial field, and garment slogan printed on the shirt, but the Mayaodongphuc logo/features/hotline must remain deterministic overlays.
+Generate one clean proof before the full set. For the default website product set, generate and inspect the clean standalone gallery proofs first, then generate the catalog-board proof separately.
+
+For a campaign preset, generate the photography/composite with intentional negative space for the later information system; do not fill that space with fake UI or random text. Do not ask image generation to draw the Mayaodongphuc corner logo, feature-callout icons, hotline, or catalog UI overlay; those belong to the deterministic overlay stage. The generated proof may include the campaign scene, subframes, blank editorial field, and garment slogan printed on the shirt, but the Mayaodongphuc logo/features/hotline must remain deterministic overlays.
+
+When the catalog board will use a bottom feature band, reserve the bottom 10–12% as a calm overlay lane and place every subframe above that lane. In `campaign-composite-3`, do not let the lower supporting frames extend behind the future band; move those two frames upward or shorten them before generation so the final footer reads as a label band below the scenes, not as a veil covering them.
 
 The shirt slogan is different: when requested, it is **part of the garment design** and must be rendered into the fabric so it follows torso perspective, folds, lighting, texture, and occlusion.
 
@@ -82,6 +94,8 @@ After the clean proof passes, add exactly one bundled `assets/branding/mayaodong
 
 Add four concise supported feature callouts—fabric, design, construction/durability, printing—plus a phone icon and exact hotline `0989 353 247`. For v3, prefer a **single coherent information surface** instead of four separate cards: either a generous side editorial panel or one continuous bottom band. The surface should be translucent/gradient and derived from the garment's dominant/accent color, with generous whitespace, subtle separators, and one consistent outline-icon family.
 
+Apply the full catalog overlay only to the catalog-board deliverable by default. For clean gallery images, use no overlay unless requested; if branding is needed for gallery images, add only the corner logo and keep feature text/hotline off the photo.
+
 For production catalog output, choose the information surface from the actual composition:
 
 - If the image has a large quiet editorial field, fill that field with the slogan, four feature callouts, and hotline. Do not leave a decorative blank void and do not repeat the same features in a footer.
@@ -101,7 +115,7 @@ python scripts/apply_catalog_overlay.py input.png output.png \
   --surface none
 ```
 
-This creates one full-width transparent band at the bottom, roughly 10% of the shorter image edge, with white text and subtle separators. Do not place feature text directly onto grass, shorts, shoes, or other busy photo texture. Do not use disconnected mini-cards for production unless the user explicitly asks for cards.
+This creates one full-width transparent band at the bottom, roughly 10% of the shorter image edge, with white text and subtle separators. The underlying catalog-board proof must already contain a clear footer-safe lane; do not simply cover the bottom of important subframes, faces, collars, chest artwork, hands, or key product detail. Do not place feature text directly onto grass, shorts, shoes, or other busy photo texture. Do not use disconnected mini-cards for production unless the user explicitly asks for cards.
 
 When using an editorial feature panel instead of the footer, run composition validation:
 

@@ -39,6 +39,11 @@ def plan(count: int, rng: random.Random, production_campaign: bool = False, slog
         slogan=slogan_override or pick_not_previous(PRODUCTION_SLOGANS if production_campaign else SLOGANS,rng,prev_slogan)
         result.append({
             "variant": index+1,
+            "default_deliverables": [
+                {"role": "clean-gallery-1", "overlay": "none"},
+                {"role": "clean-gallery-2", "overlay": "none"},
+                {"role": "catalog-board", "overlay": "logo + feature callouts + hotline"},
+            ],
             "group_count": group_count,
             "shirt_slogan": slogan,
             "shirt_slogan_required": production_campaign,
@@ -53,8 +58,10 @@ def plan(count: int, rng: random.Random, production_campaign: bool = False, slog
                 "height_fraction": 0.10,
                 "default_color": "#740e26",
                 "default_alpha": 188,
+                "footer_safe_zone_required": True,
+                "footer_safe_zone_fraction": "0.10-0.12",
             },
-            "note": "Production mode requires designer-quality shirt slogan artwork and at least one natural back-facing wearer when the brief includes slogan/back-print references. Treat shirt slogan as garment artwork: exact spelling, hierarchy, ink colors from the garment palette, perspective/folds, and no gibberish. For catalog overlay, prefer one continuous 10% translucent bottom band derived from the garment color; avoid disconnected cards and loose text on busy photo areas."
+            "note": "Default website output is two clean standalone gallery images plus one catalog board. Apply the full logo/features/hotline overlay only to the catalog board unless requested otherwise. Production mode requires designer-quality shirt slogan artwork and at least one natural back-facing wearer when the brief includes slogan/back-print references. Treat shirt slogan as garment artwork: exact spelling, hierarchy, ink colors from the garment palette, perspective/folds, and no gibberish. For catalog bottom-band overlay, reserve the lower 10-12% as a footer-safe lane during generation; move supporting frames upward so the band does not submerge them. Avoid disconnected cards and loose text on busy photo areas."
         })
         prev_count,prev_corner,prev_theme,prev_layout,prev_slogan=group_count,overlay_corner,theme,layout,slogan
     return result
