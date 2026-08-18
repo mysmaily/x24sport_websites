@@ -84,6 +84,22 @@ def draw_readable_text(
     draw.text(xy, text, font=font, fill=fill, stroke_width=stroke_width, stroke_fill=stroke_fill)
 
 
+def draw_aligned_text(
+    draw: ImageDraw.ImageDraw,
+    x: int,
+    y: int,
+    text: str,
+    font: ImageFont.FreeTypeFont,
+    fill: tuple[int, int, int, int],
+    stroke_fill: tuple[int, int, int, int],
+    stroke_width: int,
+    align: str,
+) -> None:
+    if align == "right":
+        x -= round(draw.textlength(text, font=font))
+    draw_readable_text(draw, (x, y), text, font, fill, stroke_fill, stroke_width)
+
+
 def draw_gradient_backdrop(
     overlay: Image.Image,
     corner: str,
@@ -330,7 +346,7 @@ def main() -> int:
     logo = Image.open(args.logo_asset).convert("RGBA")
     canvas_w, canvas_h = base.size
     unit = min(canvas_w, canvas_h)
-    margin = round(unit * 0.014)
+    margin = max(10, round(unit * 0.010))
     gap = max(6, round(unit * 0.008))
     show_logo = not args.skip_logo
     show_hotline = not args.skip_hotline
@@ -443,6 +459,7 @@ def main() -> int:
     icon_size = round(card_h * 0.38)
     card_pad = round(card_h * 0.16)
     text_gap = round(card_h * 0.12)
+    edge_text_pad = max(12, round(unit * 0.014))
     title_size = round(unit * 0.0195)
     detail_size = round(unit * 0.0145)
 
@@ -463,9 +480,24 @@ def main() -> int:
         elif args.surface == "card":
             draw.rounded_rectangle((x, y, x + card_w, y + card_h), radius=radius, fill=card_fill)
         icon_y = y + (card_h - icon_size) // 2
-        draw_icon(draw, kind, (x + card_pad, icon_y, x + card_pad + icon_size, icon_y + icon_size), max(2, round(unit * 0.002)))
-        text_x = x + card_pad + icon_size + text_gap
-        text_w = x + card_w - card_pad - text_x
+        rail_right_aligned = args.layout == "rail" and x + card_w / 2 >= canvas_w / 2
+        rail_left_aligned = args.layout == "rail" and not rail_right_aligned
+        if rail_right_aligned:
+            icon_x = x + card_pad
+            text_anchor_x = x + card_w - edge_text_pad
+            text_w = max(32, text_anchor_x - (icon_x + icon_size + text_gap))
+            text_align = "right"
+        elif rail_left_aligned:
+            text_anchor_x = x + edge_text_pad
+            icon_x = x + card_w - edge_text_pad - icon_size
+            text_w = max(32, icon_x - text_gap - text_anchor_x)
+            text_align = "left"
+        else:
+            icon_x = x + card_pad
+            text_anchor_x = x + card_pad + icon_size + text_gap
+            text_w = x + card_w - card_pad - text_anchor_x
+            text_align = "left"
+        draw_icon(draw, kind, (icon_x, icon_y, icon_x + icon_size, icon_y + icon_size), max(2, round(unit * 0.002)))
         title_font = fit_font(draw, title, text_w, title_size, True, args.font_bold)
         detail_font = fit_font(draw, detail, text_w, detail_size, False, args.font)
         title_box = draw.textbbox((0, 0), title, font=title_font)
@@ -473,9 +505,9 @@ def main() -> int:
         block_h = (title_box[3] - title_box[1]) + round(unit * 0.004) + (detail_box[3] - detail_box[1])
         text_y = y + (card_h - block_h) // 2 - title_box[1]
         local_primary, local_secondary, local_stroke = contrast_palette(base, (x, y, x + card_w, y + card_h), args.theme)
-        draw_readable_text(draw, (text_x, text_y), title, title_font, local_primary, local_stroke, 0)
+        draw_aligned_text(draw, text_anchor_x, text_y, title, title_font, local_primary, local_stroke, 0, text_align)
         detail_y = text_y + (title_box[3] - title_box[1]) + round(unit * 0.004) - detail_box[1]
-        draw_readable_text(draw, (text_x, detail_y), detail, detail_font, local_secondary, local_stroke, 0)
+        draw_aligned_text(draw, text_anchor_x, detail_y, detail, detail_font, local_secondary, local_stroke, 0, text_align)
 
     result = Image.alpha_composite(base, overlay)
     args.output.parent.mkdir(parents=True, exist_ok=True)
