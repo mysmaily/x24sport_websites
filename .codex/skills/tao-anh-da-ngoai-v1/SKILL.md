@@ -58,10 +58,12 @@ Run the preferred designer-style overlay after the clean image is accepted:
 ```bash
 python scripts/apply_designer_info_overlay.py input.png output.png \
   --logo-asset assets/mayaodongphuc-vertical.png \
+  --output-size 1800 \
+  --render-scale 4 \
   --skip-hotline
 ```
 
-This renderer creates a single frosted information panel with grouped icon/text rows, a subtle garment-palette accent, and the real Mayaodongphuc logo in a top corner. Use it by default for v1.
+This renderer creates a single frosted information panel with grouped icon/text rows, a subtle garment-palette accent, and the real Mayaodongphuc logo in a top corner. It renders the overlay at high internal scale and downsamples with LANCZOS so type, icons, rounded panels, and logo edges do not look like low-resolution text pasted onto the photo. Use it by default for v1.
 
 Use the legacy flexible overlay only when the composition needs a different rail/grid/row placement:
 

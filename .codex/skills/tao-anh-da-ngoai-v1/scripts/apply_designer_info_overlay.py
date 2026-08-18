@@ -17,10 +17,17 @@ PANEL_STROKE = (255, 255, 255, 58)
 
 
 def font_candidates(bold: bool) -> list[Path]:
+    if bold:
+        return [
+            Path("/System/Library/Fonts/Supplemental/Arial Bold.ttf"),
+            Path("/System/Library/Fonts/Supplemental/Arial Narrow Bold.ttf"),
+            Path("/System/Library/Fonts/Supplemental/Arial Black.ttf"),
+            Path("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"),
+        ]
     return [
-        Path("/System/Library/Fonts/Supplemental/Arial Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Arial.ttf"),
-        Path("/System/Library/Fonts/Supplemental/Helvetica Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Helvetica.ttf"),
-        Path("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
+        Path("/System/Library/Fonts/Supplemental/Arial.ttf"),
+        Path("/System/Library/Fonts/Supplemental/Helvetica.ttf"),
+        Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
     ]
 
 
@@ -111,14 +118,30 @@ def main() -> int:
     parser.add_argument("--logo-asset", required=True, type=Path)
     parser.add_argument("--font", type=Path)
     parser.add_argument("--font-bold", type=Path)
+    parser.add_argument("--output-size", type=int, default=1800, help="Resize the shorter side to at least this many pixels before overlay")
+    parser.add_argument("--render-scale", type=int, default=4, help="Internal supersampling scale for smoother type and vector shapes")
     parser.add_argument("--skip-hotline", action="store_true")
     parser.add_argument("--hotline", default="0989 353 247")
     args = parser.parse_args()
 
     if args.hotline != "0989 353 247":
         parser.error("--hotline must be exactly '0989 353 247'")
+    if args.output_size < 1024:
+        parser.error("--output-size must be at least 1024")
+    if not 1 <= args.render_scale <= 6:
+        parser.error("--render-scale must be between 1 and 6")
 
     base = Image.open(args.input).convert("RGBA")
+    source_w, source_h = base.size
+    target_short = max(args.output_size, min(source_w, source_h))
+    if target_short != min(source_w, source_h):
+        resize_factor = target_short / min(source_w, source_h)
+        target_w = round(source_w * resize_factor)
+        target_h = round(source_h * resize_factor)
+        base = base.resize((target_w, target_h), Image.Resampling.LANCZOS)
+    final_w, final_h = base.size
+    if args.render_scale > 1:
+        base = base.resize((final_w * args.render_scale, final_h * args.render_scale), Image.Resampling.LANCZOS)
     canvas_w, canvas_h = base.size
     unit = min(canvas_w, canvas_h)
     overlay = Image.new("RGBA", base.size, (0, 0, 0, 0))
@@ -182,9 +205,14 @@ def main() -> int:
     overlay.alpha_composite(logo_scaled, (logo_x, logo_y))
 
     result = Image.alpha_composite(base, overlay).convert("RGB")
+    if args.render_scale > 1:
+        result = result.resize((final_w, final_h), Image.Resampling.LANCZOS)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     result.save(args.output, quality=95)
-    print(f"WROTE {args.output} {canvas_w}x{canvas_h} designer-panel skip_hotline={args.skip_hotline}")
+    print(
+        f"WROTE {args.output} {final_w}x{final_h} designer-panel "
+        f"render_scale={args.render_scale} skip_hotline={args.skip_hotline}"
+    )
     return 0
 
 
