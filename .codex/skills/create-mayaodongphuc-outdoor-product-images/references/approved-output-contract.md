@@ -22,7 +22,11 @@ Show no copy except:
 
 Use one consistent outline icon per feature and one phone icon. Do not show the website on the main image.
 
-## Content-inline exact copy
+## Image 2 exact copy
+
+Show only the exact bundled logo once. Do not show a title, hotline, website, feature labels or other text.
+
+## Catalog exact copy
 
 Adapt the main title to the product category. For outdoor sportswear, default to:
 
@@ -69,7 +73,15 @@ Contact:
 - Preserve the garment torso above the rail.
 - Favor five people; larger groups weaken product clarity and text reliability.
 
-### Content inline
+### Image 2
+
+- Use landscape 3:2.
+- Keep the photograph clean and editorial.
+- Use a different action and formation from main.
+- Keep all hands separated unless the activity naturally requires holding a prop.
+- Show only the exact logo once.
+
+### Catalog
 
 - Let photography remain at least 60% of the perceived visual weight.
 - Keep the information field softly blended, not a hard opaque sidebar.
@@ -78,7 +90,7 @@ Contact:
 
 ## Approved visual references
 
-- `../assets/approved-main.png`: approved balance for a product-gallery main image.
-- `../assets/approved-content-inline.png`: approved balance for an article-embedded catalog image.
+- `../assets/approved-image-2.png`: approved clean lifestyle hierarchy and non-high-five action.
+- `../assets/approved-catalog.png`: approved catalog hierarchy, information density and campaign coherence.
 
-Use these for hierarchy, energy and information density. Do not copy the yellow/teal palette when the supplied garment uses different colors.
+Use these for hierarchy, energy and information density, never as fixed pose templates. Do not copy their blue/pink palette when the supplied garment uses different colors.

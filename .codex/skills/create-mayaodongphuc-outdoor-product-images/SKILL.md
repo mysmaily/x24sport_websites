@@ -1,19 +1,21 @@
 ---
 name: create-mayaodongphuc-outdoor-product-images
-description: Create approved Mayaodongphuc outdoor/team-building product visuals from a supplied garment photo, including a clean square ecommerce main image or a richer article-embedded catalog image. Use when the user asks for ảnh main, ảnh đại diện sản phẩm, ảnh nhóm dã ngoại/teambuilding, ảnh thứ 2 nhúng bài viết, poster giới thiệu áo dã ngoại, or wants the established Mayaodongphuc logo/hotline/product-feature treatment.
+description: "Create a complete approved Mayaodongphuc outdoor/team-building product image set from a supplied garment photo: square ecommerce main, distinct landscape image 2, and article-embedded catalog. Use when the user supplies a uniform and invokes the skill without naming a role, or asks for ảnh main, ảnh thứ 2, ảnh nhúng bài viết, catalog, poster giới thiệu áo dã ngoại, or the established Mayaodongphuc logo/hotline/product-feature treatment."
 ---
 
 # Create Mayaodongphuc Outdoor Product Images
 
-Produce one requested final image with the approved Mayaodongphuc visual language. Treat the supplied garment as the exact product identity and the factory's stated product properties as authoritative marketing facts.
+Produce the complete three-image publishing set unless the user explicitly requests only one named role. Treat the supplied garment as the exact product identity and the factory's stated product properties as authoritative marketing facts.
 
 Read `references/approved-output-contract.md` before generating. Inspect the supplied garment and the relevant approved benchmark in `assets/` with `view_image`.
 
-## Select the image role
+## Select the deliverable
 
-- `main`: Default when the user asks for an image without specifying placement. Produce one square ecommerce hero that sells the garment immediately.
-- `content-inline`: Use when the user says ảnh thứ 2, ảnh nhúng bài viết, poster, catalog, or asks for a fuller product story. Produce one landscape 5:4 integrated catalog visual.
-- Produce only the requested role. Do not silently create a multi-image set.
+- Default invocation with a garment only: produce exactly `main`, `image-2`, and `catalog`.
+- Explicit `main`: produce only the square ecommerce hero.
+- Explicit `image-2`: produce only the clean landscape lifestyle/context image.
+- Explicit `catalog`, `poster`, or `ảnh nhúng bài viết`: produce only the landscape integrated catalog visual.
+- Never treat `image-2` and `catalog` as the same deliverable.
 
 ## Lock the product
 
@@ -43,14 +45,25 @@ State prompt requirements in this order:
 
 Use one strong generation prompt per requested final. A targeted correction pass is allowed only for a specific typo, malformed hand, logo defect or garment detail. Tell the editor to preserve everything else.
 
-## Main image contract
+## Vary human action
 
-Use `assets/approved-main.png` as the visual benchmark.
+Do not make palm-to-palm high-five the default Mayaodongphuc pose. Within one set, every scene must use a different formation and action. Choose actions appropriate to the product, such as:
+
+- walking and talking along a lakeside path;
+- light relay movement with hands separated;
+- examining a route or pointing toward the landscape;
+- casual warm-up or stretching in staggered formation;
+- carrying picnic gear while moving as a group;
+- candid seated/standing conversation after an activity.
+
+Ban repeated high-fives, prayer poses, clapping, fist circles, synchronized raised hands and generic celebration poses unless the user explicitly requests one. If one requested image uses a high-five, neither remaining image may repeat it.
+
+## Main image contract
 
 - Square 1:1.
 - Five attractive Vietnamese adults, mixed gender, approximately 22–32.
 - Scenic outdoor lake/resort/mountain setting with a clean background.
-- Controlled high-five/team interaction; candid smiles and distinct faces.
+- Use one clear team action selected from the variation rules; candid smiles and distinct faces.
 - Frame head to upper knee. Keep at least four shirt fronts clear.
 - Models and garments carry at least 85% of the visual emphasis.
 - Place the exact logo once at top-left.
@@ -58,13 +71,26 @@ Use `assets/approved-main.png` as the visual benchmark.
 - Rail copy only: `THOÁNG MÁT`, `CO GIÃN`, `CHỐNG NẮNG`, `BỀN MÀU`, and `0989 353 247` with a phone icon.
 - Do not add a title, slogan, website, paragraphs, product-detail insets or factory service claims.
 
-## Content-inline contract
+## Image 2 contract
 
-Use `assets/approved-content-inline.png` as the visual benchmark.
+Use `assets/approved-image-2.png` as the visual benchmark for photographic hierarchy, not as a fixed pose template.
+
+- Landscape 3:2.
+- Five or six Vietnamese adults in a different formation and action from `main`.
+- Favor natural walking, conversation, route-finding or relaxed movement.
+- Show at least four shirt fronts and optionally one three-quarter/back view.
+- Place the exact logo once at top-left.
+- Show no hotline, feature rail, title, slogan, website, paragraphs or product-detail insets.
+- Keep this image clean enough for direct embedding in product content.
+
+## Catalog contract
+
+Use `assets/approved-catalog.png` as the visual benchmark for hierarchy and density.
 
 - Landscape 5:4.
-- Seven Vietnamese adults in a lively lakeside campsite/team-building scene.
-- Use a high-five as the central action; vary standing, kneeling and seated poses.
+- Five to seven Vietnamese adults in a lively lakeside/campsite scene.
+- Prefer the accepted `image-2` scene as the hero reference so the campaign stays coherent without generating a third unrelated action.
+- Never repeat a high-five or palm-touching pose from `main`.
 - Blend a warm light information field into the left of the photograph.
 - Use a large product/category title, short emotional slogan, four product properties, four close-up product windows, factory capability footer, hotline and website.
 - Keep the group and garments dominant despite the additional information.
@@ -95,7 +121,9 @@ Reject or correct the output when any of these occur:
 - hotline differs from `0989 353 247`;
 - Vietnamese text is misspelled or has malformed diacritics;
 - main image contains forbidden extra copy;
+- image 2 contains any copy beyond the single logo;
 - overlays obscure important shirt artwork;
+- two images in one set repeat the same pose or formation;
 - the result reads as a generic photo with pasted text rather than one campaign image.
 
 Inspect the final at full size. If exact text remains unreliable, deterministically correct only the affected text region using a Vietnamese-capable font while preserving the integrated design.
@@ -105,6 +133,7 @@ Inspect the final at full size. If exact text remains unreliable, deterministica
 Save accepted files in the active workspace, not only the generated-image cache.
 
 - Main: `mayaodongphuc-<product>-main.png`
-- Content inline: `mayaodongphuc-<product>-content-inline.png`
+- Image 2: `mayaodongphuc-<product>-image-2.png`
+- Catalog: `mayaodongphuc-<product>-catalog.png`
 
 Return the rendered image and its absolute clickable path.
