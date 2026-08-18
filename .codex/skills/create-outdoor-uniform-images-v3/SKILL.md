@@ -82,7 +82,13 @@ After the clean proof passes, add exactly one bundled `assets/branding/mayaodong
 
 Add four concise supported feature callouts—fabric, design, construction/durability, printing—plus a phone icon and exact hotline `0989 353 247`. For v3, prefer a **single coherent information surface** instead of four separate cards: either a generous side editorial panel or one continuous bottom band. The surface should be translucent/gradient and derived from the garment's dominant/accent color, with generous whitespace, subtle separators, and one consistent outline-icon family.
 
-For production catalog output, prefer the deterministic bottom band:
+For production catalog output, choose the information surface from the actual composition:
+
+- If the image has a large quiet editorial field, fill that field with the slogan, four feature callouts, and hotline. Do not leave a decorative blank void and do not repeat the same features in a footer.
+- If the photo edge is busy or the campaign has no usable editorial field, use the deterministic bottom band.
+- Do not use the same overlay layout mechanically across a batch. The overlay must answer the image: left field, right field, bottom band, or minimal logo-only plus separate product card when that is the cleanest composition.
+
+For deterministic bottom-band output:
 
 ```bash
 python scripts/apply_catalog_overlay.py input.png output.png \
@@ -96,6 +102,17 @@ python scripts/apply_catalog_overlay.py input.png output.png \
 ```
 
 This creates one full-width transparent band at the bottom, roughly 10% of the shorter image edge, with white text and subtle separators. Do not place feature text directly onto grass, shorts, shoes, or other busy photo texture. Do not use disconnected mini-cards for production unless the user explicitly asks for cards.
+
+When using an editorial feature panel instead of the footer, run composition validation:
+
+```bash
+python scripts/validate_catalog_composition.py output.png \
+  --aspect 3:2 \
+  --require-left-panel-features \
+  --forbid-footer-band
+```
+
+This validation is not a replacement for visual review, but it catches the most common production failures: dead blank panels, accidental footer bands, wrong aspect ratio, and undersized files.
 
 For `campaign-composite-3`, the editorial field may also carry the campaign slogan in large designer typography. This display slogan is separate from shirt artwork: the display version can be deterministic overlay text, while any slogan printed on a shirt must still obey the garment typography lock and fabric physics. Avoid generic dashboard UI, disconnected dark cards, badge strips, and default orange accents when orange is not part of the garment palette. Read `references/layout-presets.md`.
 

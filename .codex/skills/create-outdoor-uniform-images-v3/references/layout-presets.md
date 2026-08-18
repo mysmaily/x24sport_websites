@@ -39,7 +39,7 @@ For `campaign-composite-3`, prefer the information architecture used by a profes
 
 ## Production bottom band
 
-Use `scripts/apply_catalog_overlay.py --layout bottom-band` for production unless a different overlay is explicitly requested. The bottom band is deterministic and intentionally simple:
+Use `scripts/apply_catalog_overlay.py --layout bottom-band` only when the composition does not already provide a usable editorial field. The bottom band is deterministic and intentionally simple:
 
 - height: default `0.10` of the shorter image edge;
 - surface: one full-width translucent color layer, no individual cards;
@@ -47,6 +47,16 @@ Use `scripts/apply_catalog_overlay.py --layout bottom-band` for production unles
 - text: white title/detail copy, orange outline icons, subtle vertical separators;
 - placement: lower 10% only, never across faces, collars, chest graphics, or back slogan artwork;
 - hotline: exact `0989 353 247`, with one phone icon and no second number.
+
+## Production editorial feature panel
+
+When the generated campaign board leaves a large white or quiet editorial field, that field must earn its space. Put the slogan, four product features, and hotline there, then omit the bottom feature band. This is the preferred fix for a large blank left/right panel.
+
+- Keep the panel unframed or use only a barely visible wash; avoid a card pasted onto a card.
+- Use a real type hierarchy: logo, large slogan, support line, feature stack, hotline.
+- Keep features compact and useful; do not repeat the same information in a footer.
+- Validate with `scripts/validate_catalog_composition.py --require-left-panel-features --forbid-footer-band`.
+- Reject layouts where more than half of the editorial field below the slogan remains visually empty.
 
 ## Composition-first rule
 Never generate a normal centered group photo and then discover there is nowhere to place a large campaign panel. When a campaign preset is selected, plan the photo for the layout before generation: leave intentional negative space and place the group so the information field looks designed into the campaign rather than pasted over people afterward.
