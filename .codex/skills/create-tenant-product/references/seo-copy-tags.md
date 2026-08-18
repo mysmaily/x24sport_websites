@@ -74,6 +74,8 @@ Media-level tags:
   - `alt`: concise accessibility text that describes the image accurately; include count, model type, pose, or setting only when useful for understanding the image.
   - `figcaption`: natural storefront copy that helps shoppers understand the use case, styling, or ordering angle. It should sound like something a brand would publish below an image, not like an image-analysis sentence.
 - Avoid visible captions that start with inventory phrasing such as “Ba người mẫu Việt Nam...”, “Nhóm năm người mẫu...”, or “Ảnh chụp...”. Prefer lines such as “Mẫu áo trắng xanh dễ nổi bật khi chụp ảnh nhóm ngoài trời.” or “Set áo cổ tròn tay ngắn phù hợp picnic và team building công ty.”
+- Also reject artifact labels such as “Bảng catalog...”, “Poster...”, “Ảnh chính...”, or “Hình ảnh số 2...”. Shoppers should read why the garment suits the use case, not how the asset was produced.
+- Mayaodongphuc currently displays `media.alt` as the contextual figcaption. Until a separate caption field exists, use a single hybrid sentence that names the garment/visual context and reads naturally as merchandising copy. When a validated handoff exists, derive that sentence from `captionSeed`, not by copying `altSeed`.
 - Lazy-load contextual images, preserve intrinsic dimensions/aspect ratio, and keep them full-width within the copy column on mobile.
 - Do not repeat image 1 below the description. If only one image exists, render no contextual figure.
 

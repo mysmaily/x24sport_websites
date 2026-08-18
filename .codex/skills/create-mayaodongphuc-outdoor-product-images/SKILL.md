@@ -1,21 +1,22 @@
 ---
 name: create-mayaodongphuc-outdoor-product-images
-description: "Create the approved two-file Mayaodongphuc outdoor/team-building product set from a supplied garment photo: one square ecommerce main and one article catalog, built from at least two distinct model-scene versions. Use when the user supplies a uniform and invokes the skill, or asks for ảnh main, ảnh catalog, ảnh nhúng bài viết, poster giới thiệu áo dã ngoại, or the established Mayaodongphuc logo/hotline/product-feature treatment."
+description: "Create the approved Mayaodongphuc outdoor/team-building product set from a supplied garment photo: one square ecommerce main, one article catalog, and a validated product-handoff.json for create-tenant-product. Use when the user supplies a uniform and invokes the skill, or asks for ảnh main, ảnh catalog, ảnh nhúng bài viết, poster giới thiệu áo dã ngoại, or the established Mayaodongphuc logo/hotline/product-feature treatment."
 ---
 
 # Create Mayaodongphuc Outdoor Product Images
 
-Produce two final publishing files by default: `main` and `catalog`. Generate at least two distinct model-scene versions internally so the catalog is not merely the main photo with more text. Treat the supplied garment construction, colors and decorative design as the product identity, but replace its garment branding under the rules below. Treat the factory's stated product properties as authoritative marketing facts.
+Produce two final publishing images by default—`main` and `catalog`—plus a validated `product-handoff.json` for `create-tenant-product`. Generate at least two distinct model-scene versions internally so the catalog is not merely the main photo with more text. Treat the supplied garment construction, colors and decorative design as the product identity, but replace its garment branding under the rules below. Treat the factory's stated product properties as authoritative marketing facts.
 
-Read `references/approved-output-contract.md` before generating. Inspect the supplied garment and the relevant approved benchmark in `assets/` with `view_image`.
+Read `references/approved-output-contract.md` before generating. Read `references/product-handoff.md` before writing the manifest. Inspect the supplied garment and the relevant approved benchmark in `assets/` with `view_image`.
 
 ## Deliverable contract
 
-- Default invocation with a garment only: deliver exactly `main` and `catalog`.
+- Default invocation with a garment only: deliver exactly two publishing images, `main` and `catalog`, plus `product-handoff.json` as the machine-readable transfer artifact.
 - Explicit `main`: produce only the square ecommerce hero.
 - Explicit `catalog`, `poster`, or `ảnh nhúng bài viết`: produce only the landscape integrated catalog visual.
 - Even when only `catalog` is requested, create or obtain a model-scene version that is distinct from any existing main image.
 - A clean second scene is an internal source asset, not a mandatory third publishing file. Deliver it separately only when the user explicitly asks for `ảnh 2` or a clean lifestyle image.
+- Every successful invocation that returns an accepted publishing image must also write a manifest listing exactly the returned publishing images. Never list intermediate scene assets.
 
 ## Lock the product
 
@@ -169,16 +170,31 @@ Reject or correct the output when any of these occur:
 - no distinct Version B was created before the catalog;
 - the catalog is only the main image with a larger text overlay;
 - the result reads as a generic photo with pasted text rather than one campaign image.
+- `product-handoff.json` is missing, omits a delivered publishing image, has a checksum mismatch, or fails `scripts/validate_product_handoff.py`;
+- an `altSeed` or `captionSeed` uses inventory-style phrasing such as `Nhóm năm người`, `Ba người mẫu`, `Bảng catalog`, `Ảnh chụp`, or merely describes the artifact instead of helping a shopper understand the garment and use case;
+- a supporting image has no distinct buyer-natural `captionSeed`, or its `captionSeed` is copied verbatim from `altSeed` without a clear reason.
 
 Inspect the final at full size. If exact text remains unreliable, deterministically correct only the affected text region using a Vietnamese-capable font while preserving the integrated design.
 
-## Output
+## Output and handoff
 
-Save accepted files in the active workspace, not only the generated-image cache.
+For a default full set, create one product-specific directory in the active workspace so the exact-name manifest is discoverable without overwriting another product:
 
-- Main: `mayaodongphuc-<product>-main.png`
-- Catalog: `mayaodongphuc-<product>-catalog.png`
+- Directory: `mayaodongphuc-<product>/`
+- Main: `mayaodongphuc-<product>/mayaodongphuc-<product>-main.png`
+- Catalog: `mayaodongphuc-<product>/mayaodongphuc-<product>-catalog.png`
+- Handoff: `mayaodongphuc-<product>/product-handoff.json`
 
-If explicitly requested, save the clean Version B separately as `mayaodongphuc-<product>-image-2.png`.
+If explicitly requested, save the clean Version B in the same directory as `mayaodongphuc-<product>-image-2.png` and list it only when it is a delivered publishing image.
 
-Return the rendered image and its absolute clickable path.
+Compute SHA-256 after the final accepted pixels are saved, write the manifest from those exact files, then run:
+
+```bash
+python3 scripts/validate_product_handoff.py \
+  --manifest=/absolute/path/product-handoff.json \
+  --image=/absolute/path/mayaodongphuc-<product>-main.png \
+  --image=/absolute/path/mayaodongphuc-<product>-catalog.png \
+  --require-default-set
+```
+
+Do not claim the set is ready for product publishing unless validation passes. Return both rendered images, their absolute clickable paths, the manifest path, and the validation result. When the user next invokes `create-tenant-product`, explicitly pass the manifest path with the images rather than making the consumer rediscover or re-analyze the set.

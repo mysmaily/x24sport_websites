@@ -1,4 +1,4 @@
 interface:
   display_name: "Mayaodongphuc Outdoor Product Images"
-  short_description: "Create main and catalog from two distinct scenes"
-  default_prompt: "Use $create-mayaodongphuc-outdoor-product-images to turn this garment reference into a Mayaodongphuc main and catalog built from two distinct model-scene versions."
+  short_description: "Create main, catalog, and product handoff"
+  default_prompt: "Use $create-mayaodongphuc-outdoor-product-images to turn this garment reference into a Mayaodongphuc main and catalog built from two distinct model-scene versions, then write and validate product-handoff.json for $create-tenant-product."
