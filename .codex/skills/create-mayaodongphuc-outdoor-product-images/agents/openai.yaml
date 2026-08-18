@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mayaodongphuc Outdoor Product Images"
+  short_description: "Create approved main and article product visuals"
+  default_prompt: "Use $create-mayaodongphuc-outdoor-product-images to turn this garment reference into an approved Mayaodongphuc outdoor product image."
