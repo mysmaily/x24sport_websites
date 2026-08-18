@@ -22,6 +22,7 @@ The producer performs the full-size visual inspection and rejects defects before
   "consumerPolicy": {
     "visualInspection": "not-required-after-validation"
   },
+  "sourceTransformations": [],
   "sourceReferences": [
     {
       "path": "/absolute/path/reference.png",
@@ -100,6 +101,21 @@ The producer performs the full-size visual inspection and rejects defects before
   "copySeeds": ["đồng phục dã ngoại", "áo team building", "ombre xanh tím hồng", "đặt may theo yêu cầu"]
 }
 ```
+
+For a sleeveless input, replace the empty `sourceTransformations` array with a factual normalization record:
+
+```json
+"sourceTransformations": [
+  {
+    "field": "sleeves",
+    "from": "áo ba lỗ hoặc khoét nách sâu",
+    "to": "tay ngắn set-in",
+    "reason": "chuẩn hóa đồng phục dã ngoại"
+  }
+]
+```
+
+In that case, `garmentFacts.sleeves` must be `tay ngắn` and all visual tags, alt/caption seeds and downstream attributes must describe the accepted short-sleeve output. The transformation is provenance, not storefront copy. For an input that already has suitable sleeves, use an empty array.
 
 ## Alt and caption boundary
 

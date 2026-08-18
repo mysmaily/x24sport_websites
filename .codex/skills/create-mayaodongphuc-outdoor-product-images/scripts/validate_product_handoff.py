@@ -12,7 +12,7 @@ from pathlib import Path
 
 PRODUCER = "create-mayaodongphuc-outdoor-product-images"
 REQUIRED_TOP_LEVEL = {
-    "schemaVersion", "producerSkill", "createdAt", "consumerPolicy", "sourceReferences",
+    "schemaVersion", "producerSkill", "createdAt", "consumerPolicy", "sourceTransformations", "sourceReferences",
     "acceptedImages", "garmentFacts", "audiences", "useCases", "featureLock",
     "unsupportedClaims", "fidelityCaveats", "suggestedCategory", "copySeeds",
 }
@@ -78,12 +78,28 @@ def main() -> int:
     if consumer_policy.get("visualInspection") != "not-required-after-validation":
         fail("consumerPolicy.visualInspection must be 'not-required-after-validation'")
 
+    transformations = data["sourceTransformations"]
+    if not isinstance(transformations, list):
+        fail("sourceTransformations must be an array")
+
     garment = data["garmentFacts"]
     if not isinstance(garment, dict):
         fail("garmentFacts must be an object")
     missing_facts = REQUIRED_GARMENT_FACTS - garment.keys()
     if missing_facts:
         fail(f"missing garmentFacts fields: {sorted(missing_facts)}")
+    for index, transformation in enumerate(transformations):
+        location = f"sourceTransformations[{index}]"
+        if not isinstance(transformation, dict):
+            fail(f"{location} must be an object")
+        for key in ("field", "from", "to", "reason"):
+            if not str(transformation.get(key, "")).strip():
+                fail(f"{location}.{key} is required")
+        if transformation["field"] == "sleeves":
+            if "tay ngắn" not in str(transformation["to"]).casefold():
+                fail(f"{location}.to must normalize sleeveless inputs to tay ngắn")
+            if "tay ngắn" not in str(garment.get("sleeves", "")).casefold():
+                fail("garmentFacts.sleeves must describe the normalized tay ngắn output")
 
     feature_lock = data["featureLock"]
     if not isinstance(feature_lock, dict) or FEATURE_KEYS - feature_lock.keys():

@@ -11,6 +11,8 @@
 
 The supplied garment controls the campaign palette. Use Mayaodongphuc navy and orange as secondary identity accents, not as a reason to recolor the product. Remove all supplied logos, brands, organization or event marks and original text from the garment while retaining its non-brand decorative design. Put one horizontally centered `Đồng Phục X24` wordmark across the chest of each shirt, approximately 20–30% of the visible shirt-front width. Use a low-contrast ink one or two shades from the shirt color so it is readable but subdued. Keep its placement, scale and tonal treatment consistent, and never repeat it elsewhere on the garment.
 
+The shirt is the only product being sold. Bottoms are neutral styling and may be shorts, skorts/skirts or long trousers according to the model and activity; they do not need to match the source and must never be described as included. When the supplied top is sleeveless, tank-style or deeply cut at the armholes, normalize it to consistent set-in short sleeves while preserving the original collar, torso colors, gradient and decorative artwork.
+
 ## Main image exact copy
 
 Apart from the centered tonal garment wordmark `Đồng Phục X24`, show no overlay copy except:

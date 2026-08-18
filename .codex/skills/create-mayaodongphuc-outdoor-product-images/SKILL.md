@@ -27,10 +27,24 @@ Before generation, record:
 - side panels, shoulder details, stripe geometry and hem;
 - decorative artwork, print and panel placement and relative scale;
 - every supplied logo, crest, organization name, brand name, event name and other text that must be removed;
-- matching shorts/pants when visible;
+- whether the supplied top is sleeveless, tank-style or has deep/wide-cut armholes and therefore requires the outdoor sleeve normalization below;
 - front/back details that are safe to show.
 
-Apply the identical garment construction and decorative design to every model. Never simplify the design into a plain shirt, change the collar, reverse the gradient or invent unrelated marks.
+Apply the identical approved top construction and decorative design to every model. Never simplify the design into a plain shirt, change the collar, reverse the gradient or invent unrelated marks. Bottoms are styling only and are not part of product fidelity.
+
+### Normalize sleeveless inputs for outdoor uniforms
+
+- If the supplied top is a tank top, singlet, sleeveless shirt, áo ba lỗ, áo sát nách, or has deep/wide-cut armholes, convert it to a conventional short-sleeve shirt on every model and in every scene. Do not preserve a sleeveless outdoor-uniform silhouette.
+- Add normal set-in short sleeves with a practical mid-upper-arm length. Keep the supplied neckline/collar; do not invent a polo collar, raglan construction or long sleeves unless the user explicitly requests them.
+- Extend the adjacent shoulder/upper-torso color, gradient, panel or decorative artwork naturally onto the new sleeves. Preserve the original torso artwork, color boundaries and visual identity; only make the minimum construction change needed to add sleeves.
+- This normalization overrides the ordinary sleeve-fidelity rule and requires no clarification. Record it in `product-handoff.json` under `sourceTransformations`, while `garmentFacts.sleeves` must describe the actual output as `tay ngắn`.
+- Reject any final image where a normalized product remains sleeveless, exposes deep armholes, or gives different sleeve construction to different models.
+
+### Style bottoms without treating them as the product
+
+- The business sells the shirt, not a required matching set. Do not lock shorts, trousers or skirts from the source reference.
+- Dress models in neutral, activity-appropriate bottoms: shorts, skorts/skirts or long trousers are all valid. Vary them naturally by person and setting when useful.
+- Keep bottoms visually secondary, free of prominent logos and compatible with the shirt palette. Never alter the shirt to match a bottom garment, and never imply that a bottom is included in the product.
 
 ### Neutralize garment branding
 
@@ -48,7 +62,7 @@ Use the built-in image-generation tool with the garment reference and `assets/ma
 State prompt requirements in this order:
 
 1. exact output role and aspect ratio;
-2. garment lock, removal of supplied garment branding, the centered medium-size tonal `Đồng Phục X24` wordmark and the separate Mayaodongphuc campaign-logo role;
+2. garment lock, mandatory sleeveless-to-short-sleeve normalization when applicable, removal of supplied garment branding, the centered medium-size tonal `Đồng Phục X24` wordmark and the separate Mayaodongphuc campaign-logo role;
 3. Vietnamese cast, action, framing and environment;
 4. approved graphic hierarchy for that role;
 5. exact visible copy;
@@ -153,7 +167,8 @@ Do not weaken, disclaim or second-guess these claims merely because they are not
 
 Reject or correct the output when any of these occur:
 
-- the garment construction, colors or decorative design differ across models or materially depart from the reference;
+- the garment construction, colors or decorative design differ across models or materially depart from the reference, except for the required sleeveless-to-short-sleeve normalization;
+- a sleeveless, tank or deep-armhole input remains sleeveless instead of being normalized to consistent short sleeves;
 - any supplied logo, crest, brand, organization name, event name or original garment text remains visible;
 - `Đồng Phục X24` is missing from clear front views, misspelled, off-center, too small, oversized, too high-contrast, repeated on one garment or inconsistent across models/scenes;
 - the group lacks a clear team-building action;
@@ -173,6 +188,7 @@ Reject or correct the output when any of these occur:
 - `product-handoff.json` is missing, omits a delivered publishing image, has a checksum mismatch, or fails `scripts/validate_product_handoff.py`;
 - an `altSeed` or `captionSeed` uses inventory-style phrasing such as `Nhóm năm người`, `Ba người mẫu`, `Bảng catalog`, `Ảnh chụp`, or merely describes the artifact instead of helping a shopper understand the garment and use case;
 - a supporting image has no distinct buyer-natural `captionSeed`, or its `captionSeed` is copied verbatim from `altSeed` without a clear reason.
+- bottoms are treated as a locked product component, dominate the composition, carry prominent branding, or cause the listing to read as a shirt-and-bottom set.
 
 Inspect every final image at full size before calculating checksums. This is the sole pixel-based QA in the validated handoff flow because `create-tenant-product` will intentionally skip reopening the images. If exact text remains unreliable, deterministically correct only the affected text region using a Vietnamese-capable font while preserving the integrated design.
 
