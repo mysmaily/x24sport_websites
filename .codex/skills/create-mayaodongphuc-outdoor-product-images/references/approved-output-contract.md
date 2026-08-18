@@ -65,6 +65,8 @@ Contact:
 ### Main
 
 - Let photography occupy the full canvas.
+- Rotate environment families across products: city park/botanical garden, beach/coastal boardwalk, resort lawn/courtyard, forest clearing/picnic meadow, riverside or sports park, with lake/mountain as one option rather than the default.
+- When a recent accepted image is available, avoid repeating its dominant setting, horizon silhouette and main props.
 - Keep the logo around 12–15% of the shorter edge.
 - Put the campaign logo in whichever top corner has cleaner negative space. Alternate left/right across products when both work; do not force every image into the same template.
 - Keep the bottom rail at or below 14% of image height.
@@ -77,6 +79,8 @@ Contact:
 - Let photography remain at least 60% of the perceived visual weight.
 - Use a distinct Version B scene as the catalog hero; it cannot be just a crop of main.
 - Version B must differ from main in at least three dimensions: group count, formation, action, camera distance, camera angle, standing/seated balance, or environment.
+- Prefer a different environment family from Version A when practical.
+- Build Version B around a varied activity such as picnic setup, tent/canopy setup, unpacking outdoor gear, preparing beach or lawn games, carrying sports equipment, warm-up, or post-activity conversation. Do not default to a hand-held map; route planning is optional and needs a user request or a clearly stronger concept.
 - The catalog may combine Version A and Version B when this improves garment explanation.
 - Keep the information field softly blended, not a hard opaque sidebar. It may enter from the left or right according to scene negative space.
 - Place the Mayaodongphuc logo, title and slogan on the information side or an opposing clean corner as the composition requires. Preserve hierarchy and reading order while varying left/right anchoring between products.
@@ -88,4 +92,4 @@ Contact:
 - `../assets/approved-main.png`: approved main-image garment visibility and compact feature/hotline rail.
 - `../assets/approved-catalog.png`: approved catalog hierarchy using a different group-scene version from main.
 
-Together these two references define the required relationship: two final files, backed by at least two different photographic versions. Use them for hierarchy, energy and information density, never as fixed pose or fixed left-side layout templates. Do not copy their yellow/teal palette or any garment logos shown in the benchmarks when the supplied garment uses different colors.
+Together these two references define the required relationship: two final files, backed by at least two different photographic versions. Use them for hierarchy, energy and information density, never as fixed pose, map-reading story, lake-and-mountain setting or fixed left-side layout template. Do not copy their yellow/teal palette or any garment logos shown in the benchmarks when the supplied garment uses different colors.

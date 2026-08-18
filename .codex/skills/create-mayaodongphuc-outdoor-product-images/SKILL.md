@@ -70,14 +70,38 @@ Compose the catalog from Version B alone or combine Version A and Version B. The
 
 Do not make palm-to-palm high-five the default Mayaodongphuc pose. Version A and Version B must use different formations and actions. Choose actions appropriate to the product, such as:
 
-- walking and talking along a lakeside path;
+- walking and talking along a park, resort or beach path;
 - light relay movement with hands separated;
-- examining a route or pointing toward the landscape;
+- preparing outdoor game stations or pointing toward the next shared activity;
 - casual warm-up or stretching in staggered formation;
 - carrying picnic gear while moving as a group;
 - candid seated/standing conversation after an activity.
 
 Ban repeated high-fives, prayer poses, clapping, fist circles, synchronized raised hands and generic celebration poses unless the user explicitly requests one. If Version A uses a high-five, Version B must use another action.
+
+## Vary environment and catalog story
+
+Do not default every product to the same lake-and-mountain scenery. Select a setting that supports the garment palette and rotate among substantially different environment families:
+
+- landscaped city park, botanical garden or shaded lawn;
+- open beach, sand dunes, coastal boardwalk or seaside promenade;
+- seaside, garden or eco-resort lawn and courtyard;
+- pine forest clearing, picnic meadow or campsite;
+- riverside park, green sports park or modern public garden;
+- lake and mountain only when it adds useful variety rather than repeating a recent accepted output.
+
+When recent accepted images are available, avoid reusing their environment family, dominant background silhouette and prop package. Version A and Version B for one product should use different environmental contexts whenever practical, not merely different crops of the same water-and-mountain view.
+
+Treat Version B as a small visual story, not a default map-reading scene. Choose a catalog activity that fits the environment and differs from Version A, for example:
+
+- setting up a picnic table, canopy or tent together;
+- unpacking a cooler and arranging food or outdoor gear;
+- preparing beach or lawn team games with cones, balls or relay markers;
+- carrying paddleboards, picnic baskets or sports equipment while moving as a group;
+- casual warm-up, stretching or post-activity conversation in mixed standing/seated formation;
+- completing a simple eco-resort or park team challenge with natural separated-hand interactions.
+
+Route planning or holding a map is only one optional story. Do not use a map by default; use it only when the user requests it or when it is the strongest genuinely distinct concept.
 
 ## Main image contract
 
@@ -85,7 +109,7 @@ Use `assets/approved-main.png` as the benchmark for garment visibility and infor
 
 - Square 1:1.
 - Five attractive Vietnamese adults, mixed gender, approximately 22–32.
-- Scenic outdoor lake/resort/mountain setting with a clean background.
+- Use one clean outdoor setting from the environment rotation—such as a park, beach, resort, garden, forest clearing, promenade or occasional lake/mountain scene—chosen to avoid repetition across products.
 - Use one clear team action selected from the variation rules; candid smiles and distinct faces. Choose or stage the action so direct camera engagement remains natural.
 - With five models, at least three must look straight into the camera; prefer four when it does not make the scene stiff. Any remaining gaze should clearly follow the shared action or another teammate. Avoid scattered eye-lines where each model looks in a different direction.
 - Frame head to upper knee. Keep at least four shirt fronts clear.
@@ -100,7 +124,7 @@ Use `assets/approved-main.png` as the benchmark for garment visibility and infor
 Use `assets/approved-catalog.png` as the visual benchmark for hierarchy and density.
 
 - Landscape 5:4.
-- Five to seven Vietnamese adults in a lively lakeside/campsite scene.
+- Five to seven Vietnamese adults in a lively park, beach, resort, garden, forest, promenade or campsite scene selected from the environment rotation.
 - Use Version B as the hero scene, optionally combining selected crops from Version A.
 - Never use the exact main scene/crop as the sole catalog hero.
 - Never repeat a high-five or palm-touching pose from Version A.
@@ -132,6 +156,8 @@ Reject or correct the output when any of these occur:
 - any supplied logo, crest, brand, organization name, event name or original garment text remains visible;
 - `Đồng Phục X24` is missing from clear front views, misspelled, off-center, too small, oversized, too high-contrast, repeated on one garment or inconsistent across models/scenes;
 - the group lacks a clear team-building action;
+- the setting unnecessarily repeats the same lake-and-mountain environment or prop package used by a recent accepted output when another suitable setting was available;
+- the catalog falls back to people holding a map without a user request or a strong scene-specific reason, or otherwise repeats a generic Version B activity instead of creating a distinct visual story;
 - fewer than three of the five main-image models look directly into the camera, or the remaining eye-lines appear scattered and unmotivated;
 - faces, hands or body overlaps look artificial;
 - the exact Mayaodongphuc campaign logo is missing, duplicated, distorted or printed on the garment;
