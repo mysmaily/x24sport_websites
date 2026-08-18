@@ -3,16 +3,17 @@
 ## Brand constants
 
 - Logo asset: `../assets/mayaodongphuc-logo.png`
+- Garment wordmark: `Đồng Phục X24`
 - Hotline: `0989 353 247`
 - Website: `mayaodongphuc.com.vn`
 - Cast: believable Vietnamese adults with distinct faces and natural anatomy
 - Brand impression: energetic, trustworthy, production-capable, commercial
 
-The supplied garment controls the campaign palette. Use Mayaodongphuc navy and orange as secondary identity accents, not as a reason to recolor the product.
+The supplied garment controls the campaign palette. Use Mayaodongphuc navy and orange as secondary identity accents, not as a reason to recolor the product. Remove all supplied logos, brands, organization or event marks and original text from the garment while retaining its non-brand decorative design. Put one small `Đồng Phục X24` wordmark on the upper chest of each shirt; keep it restrained, consistently placed and never repeat it elsewhere on the garment.
 
 ## Main image exact copy
 
-Show no copy except:
+Apart from the small garment wordmark `Đồng Phục X24`, show no overlay copy except:
 
 - `THOÁNG MÁT`
 - `CO GIÃN`
@@ -24,9 +25,9 @@ Use one consistent outline icon per feature and one phone icon. Do not show the 
 
 ## Catalog exact copy
 
-Adapt the main title to the product category. For outdoor sportswear, default to:
+Use this category title by default:
 
-`ÁO THỂ THAO`
+`ĐỒNG PHỤC`
 `DÃ NGOẠI`
 
 Slogan:
@@ -65,6 +66,7 @@ Contact:
 
 - Let photography occupy the full canvas.
 - Keep the logo around 12–15% of the shorter edge.
+- Put the campaign logo in whichever top corner has cleaner negative space. Alternate left/right across products when both work; do not force every image into the same template.
 - Keep the bottom rail at or below 14% of image height.
 - Preserve the garment torso above the rail.
 - Favor five people; larger groups weaken product clarity and text reliability.
@@ -75,7 +77,8 @@ Contact:
 - Use a distinct Version B scene as the catalog hero; it cannot be just a crop of main.
 - Version B must differ from main in at least three dimensions: group count, formation, action, camera distance, camera angle, standing/seated balance, or environment.
 - The catalog may combine Version A and Version B when this improves garment explanation.
-- Keep the information field softly blended, not a hard opaque sidebar.
+- Keep the information field softly blended, not a hard opaque sidebar. It may enter from the left or right according to scene negative space.
+- Place the Mayaodongphuc logo, title and slogan on the information side or an opposing clean corner as the composition requires. Preserve hierarchy and reading order while varying left/right anchoring between products.
 - Show four genuinely useful garment details: textile, back, signature print/panel, and collar/seam.
 - Keep the factory footer compact and the hotline immediately readable.
 
@@ -84,4 +87,4 @@ Contact:
 - `../assets/approved-main.png`: approved main-image garment visibility and compact feature/hotline rail.
 - `../assets/approved-catalog.png`: approved catalog hierarchy using a different group-scene version from main.
 
-Together these two references define the required relationship: two final files, backed by at least two different photographic versions. Use them for hierarchy, energy and information density, never as fixed pose templates. Do not copy their yellow/teal palette when the supplied garment uses different colors.
+Together these two references define the required relationship: two final files, backed by at least two different photographic versions. Use them for hierarchy, energy and information density, never as fixed pose or fixed left-side layout templates. Do not copy their yellow/teal palette or any garment logos shown in the benchmarks when the supplied garment uses different colors.

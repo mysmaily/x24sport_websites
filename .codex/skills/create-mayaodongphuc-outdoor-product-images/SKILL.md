@@ -5,7 +5,7 @@ description: "Create the approved two-file Mayaodongphuc outdoor/team-building p
 
 # Create Mayaodongphuc Outdoor Product Images
 
-Produce two final publishing files by default: `main` and `catalog`. Generate at least two distinct model-scene versions internally so the catalog is not merely the main photo with more text. Treat the supplied garment as the exact product identity and the factory's stated product properties as authoritative marketing facts.
+Produce two final publishing files by default: `main` and `catalog`. Generate at least two distinct model-scene versions internally so the catalog is not merely the main photo with more text. Treat the supplied garment construction, colors and decorative design as the product identity, but replace its garment branding under the rules below. Treat the factory's stated product properties as authoritative marketing facts.
 
 Read `references/approved-output-contract.md` before generating. Inspect the supplied garment and the relevant approved benchmark in `assets/` with `view_image`.
 
@@ -24,11 +24,20 @@ Before generation, record:
 - garment silhouette, collar, sleeve and cuff construction;
 - every major color boundary and gradient direction;
 - side panels, shoulder details, stripe geometry and hem;
-- supplied crest/artwork placement and relative scale;
+- decorative artwork, print and panel placement and relative scale;
+- every supplied logo, crest, organization name, brand name, event name and other text that must be removed;
 - matching shorts/pants when visible;
 - front/back details that are safe to show.
 
-Apply the identical garment to every model. Never simplify the design into a plain shirt, change the collar, move the crest, reverse the gradient, or invent unrelated marks.
+Apply the identical garment construction and decorative design to every model. Never simplify the design into a plain shirt, change the collar, reverse the gradient or invent unrelated marks.
+
+### Neutralize garment branding
+
+- Remove every supplied logo, crest, brand, organization name, event name and text from the garment, front and back. This rule overrides the reference when those elements are part of the photographed shirt.
+- Preserve non-brand decorative graphics, color blocking, gradients, panels and textile details.
+- Replace the removed garment branding with the exact text `Đồng Phục X24`, set as one small, refined wordmark on the upper chest. Keep it near the visual scale of a tasteful club crest, not a sponsor banner.
+- Use one consistent wordmark placement and scale across all models and both scene versions. Do not repeat it on sleeves, hem or back, and do not add an icon or invented X24 logo.
+- The Mayaodongphuc logo is campaign branding for the composed image only. Never print it on the garment.
 
 ## Generate as one art-directed image
 
@@ -37,7 +46,7 @@ Use the built-in image-generation tool with the garment reference and `assets/ma
 State prompt requirements in this order:
 
 1. exact output role and aspect ratio;
-2. garment lock and logo role;
+2. garment lock, removal of supplied garment branding, the restrained `Đồng Phục X24` wordmark and the separate Mayaodongphuc campaign-logo role;
 3. Vietnamese cast, action, framing and environment;
 4. approved graphic hierarchy for that role;
 5. exact visible copy;
@@ -79,7 +88,7 @@ Use `assets/approved-main.png` as the benchmark for garment visibility and infor
 - Use one clear team action selected from the variation rules; candid smiles and distinct faces.
 - Frame head to upper knee. Keep at least four shirt fronts clear.
 - Models and garments carry at least 85% of the visual emphasis.
-- Place the exact logo once at top-left.
+- Place the exact Mayaodongphuc logo once in the clearer top corner. Vary left/right anchoring across products when the composition supports it instead of defaulting to top-left every time.
 - Add one slim deep-teal translucent rail at the bottom, no more than 14% of image height.
 - Rail copy only: `THOÁNG MÁT`, `CO GIÃN`, `CHỐNG NẮNG`, `BỀN MÀU`, and `0989 353 247` with a phone icon.
 - Do not add a title, slogan, website, paragraphs, product-detail insets or factory service claims.
@@ -93,8 +102,9 @@ Use `assets/approved-catalog.png` as the visual benchmark for hierarchy and dens
 - Use Version B as the hero scene, optionally combining selected crops from Version A.
 - Never use the exact main scene/crop as the sole catalog hero.
 - Never repeat a high-five or palm-touching pose from Version A.
-- Blend a warm light information field into the left of the photograph.
-- Use a large product/category title, short emotional slogan, four product properties, four close-up product windows, factory capability footer, hotline and website.
+- Blend a warm light information field into whichever side has usable negative space; left and right are both valid.
+- Use the title `ĐỒNG PHỤC DÃ NGOẠI`, a short emotional slogan, four product properties, four close-up product windows, factory capability footer, hotline and website.
+- The Mayaodongphuc logo, title and slogan may anchor left or right. Counterbalance them with the group, preserve reading order, and vary placement across products so catalogs do not look mechanically duplicated.
 - Keep the group and garments dominant despite the additional information.
 - Use the exact copy and layout limits in `references/approved-output-contract.md`.
 
@@ -116,10 +126,12 @@ Do not weaken, disclaim or second-guess these claims merely because they are not
 
 Reject or correct the output when any of these occur:
 
-- the garment differs across models or materially departs from the reference;
+- the garment construction, colors or decorative design differ across models or materially depart from the reference;
+- any supplied logo, crest, brand, organization name, event name or original garment text remains visible;
+- `Đồng Phục X24` is missing from clear front views, misspelled, oversized, repeated on one garment or inconsistent across models/scenes;
 - the group lacks a clear team-building action;
 - faces, hands or body overlaps look artificial;
-- the exact logo is duplicated, distorted or printed on the garment;
+- the exact Mayaodongphuc campaign logo is missing, duplicated, distorted or printed on the garment;
 - hotline differs from `0989 353 247`;
 - Vietnamese text is misspelled or has malformed diacritics;
 - main image contains forbidden extra copy;
