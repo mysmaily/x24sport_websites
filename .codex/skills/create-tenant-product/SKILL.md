@@ -19,7 +19,7 @@ Read these before acting:
 - For copy quality, use `$copywriting` at `/Users/hoang/.agents/skills/copywriting/SKILL.md`. If the product copy is mostly polishing an existing listing, use `copy-editing` after drafting; if the product needs a stronger offer angle, use `offers` before final copy.
 - Read `references/seo-copy-tags.md` when drafting title, descriptions, content, attributes, and tags.
 - Read `references/rest-product-publishing.md` before running a REST mutation.
-- When an upstream `product-handoff.json` is supplied or discoverable beside the input images, read `/Users/hoang/hacado/x24sport_websites/.codex/skills/create-outdoor-uniform-images/references/product-handoff.md` and validate the manifest before using it.
+- When an upstream `product-handoff.json` is supplied or discoverable beside the input images, read its producer-specific contract before using it. For V4 outdoor uniform outputs, read `/Users/hoang/hacado/x24sport_websites/.codex/skills/create-outdoor-uniform-images-v4/references/product-handoff.md`; for legacy outputs, read `/Users/hoang/hacado/x24sport_websites/.codex/skills/create-outdoor-uniform-images/references/product-handoff.md`.
 
 ## Workflow
 
@@ -41,7 +41,7 @@ Read these before acting:
 
 3. Draft the product package:
    - Create SEO title/product name, slug, short description, full product content, meta description, attributes, badges, product search tags, media alt text, optional per-image visible captions, and per-image media search tags.
-   - Treat the first gallery image as the primary hero. When a product has more than one image, prepare every image after the first for contextual reuse below the long description with a factual, buyer-natural caption. Captions must read like storefront merchandising copy, not like raw alt text or image-analysis notes.
+   - Treat the first gallery image as the primary hero. When a handoff marks images with `productPlacement.contentEmbed=true`, prepare exactly those images for contextual reuse below the long description as real `<img>` content, in `contentOrder`. Without placement hints, prepare every image after the first for contextual reuse below the long description with a factual, buyer-natural caption. Captions must read like storefront merchandising copy, not like raw alt text or image-analysis notes.
    - Keep `alt` and visible `figcaption` distinct when the CMS/storefront supports it. Alt text should be concise accessibility text describing the image; captions should be shorter, more natural, and commerce-aware, e.g. “Mẫu áo trắng xanh dễ nổi bật khi chụp ảnh nhóm ngoài trời.” Avoid caption phrasing like “Ba người mẫu Việt Nam...” or “Nhóm năm người mẫu...” unless the count is the actual selling point.
    - Product search tags should cover commercial discovery: sport, garment type, audience, use case, color family, style, and category.
    - Media search tags should be more visual: exact color, gradient/pattern, pose, front/back/detail, collar/sleeve, model/team/context, and sport.

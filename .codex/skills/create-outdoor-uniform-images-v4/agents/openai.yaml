@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ảnh đồng phục catalog V4"
+  short_description: "Tạo 2 ảnh outdoor và 1 catalog 3:2 từ ảnh đồng phục"
+  default_prompt: "Use $create-outdoor-uniform-images-v4 to turn my supplied uniform product image into exactly two accepted outdoor uniform scene images plus one polished 3:2 Mayaodongphuc V4 catalog board: preserve the garment exactly, derive a pale translucent info panel and deep footer from the garment color, add a strong team slogan, four supported Vietnamese feature callouts, exact hotline 0989 353 247, and mayaodongphuc.com.vn. Generate no more than two AI scene images by default, compose the catalog UI deterministically, and when creating a product mark Image 2 and the Catalog to be embedded in product content as <img> tags."

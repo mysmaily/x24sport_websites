@@ -9,6 +9,9 @@
 .DS_Store
 /.tmp/
 /generated/
+/work/
+/output/
+/outputs/
 .playwright-mcp/
 .secrets/
 .runtime/
@@ -55,6 +58,9 @@ mayaobongda.vn/imagegen/**
 **/operations/imagegen-*/
 **/generated-assets/
 **/tmp-generated/
+.codex/skills/create-outdoor-uniform-images-v4/work/
+.codex/skills/create-outdoor-uniform-images-v4/output/
+.codex/skills/create-outdoor-uniform-images-v4/outputs/
 **/call_*.png
 **/ig_*.png
 **/*-imagegen.*
