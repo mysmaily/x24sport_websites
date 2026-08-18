@@ -2,7 +2,7 @@
 
 Use this manifest to transfer accepted Mayaodongphuc outdoor product images into `create-tenant-product`. The image skill owns visible garment facts, accepted file identity, image roles, visual tags, safe seed copy and explicit uncertainty. The publishing skill owns the final product name, SKU/source identity, category resolution, commercial state, SEO copy and CMS mutation.
 
-The consumer must still inspect the final images. Visible pixels and the user's brief override a stale or conflicting seed.
+The producer performs the full-size visual inspection and rejects defects before calculating checksums. Once this manifest validates against the exact delivered bytes, the consumer must not reopen or re-analyze the images. The user's explicit non-visual brief may still override audience, positioning or other publishing suggestions.
 
 ## Placement and discovery
 
@@ -19,6 +19,9 @@ The consumer must still inspect the final images. Visible pixels and the user's 
   "schemaVersion": "1.0",
   "producerSkill": "create-mayaodongphuc-outdoor-product-images",
   "createdAt": "2026-08-19T12:00:00+07:00",
+  "consumerPolicy": {
+    "visualInspection": "not-required-after-validation"
+  },
   "sourceReferences": [
     {
       "path": "/absolute/path/reference.png",
@@ -110,4 +113,4 @@ The current Mayaodongphuc storefront uses `media.alt` as the visible caption for
 
 ## Consumer fallback
 
-The consumer must reject the manifest and perform full analysis when parsing fails, the producer or schema is unsupported, an accepted image is absent, a checksum differs, an input image is omitted, or the manifest conflicts with the final pixels or user brief. A missing handoff alone must not block product creation.
+The consumer must reject the manifest and perform full analysis when parsing fails, the producer or schema is unsupported, `consumerPolicy` is missing or unsupported, an accepted image is absent, a checksum differs, or an input image is omitted. A missing handoff alone must not block product creation. A validated handoff must use the no-view fast path; do not spend image tokens repeating the producer's completed visual analysis.

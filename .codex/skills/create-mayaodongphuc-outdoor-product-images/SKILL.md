@@ -174,7 +174,7 @@ Reject or correct the output when any of these occur:
 - an `altSeed` or `captionSeed` uses inventory-style phrasing such as `Nhóm năm người`, `Ba người mẫu`, `Bảng catalog`, `Ảnh chụp`, or merely describes the artifact instead of helping a shopper understand the garment and use case;
 - a supporting image has no distinct buyer-natural `captionSeed`, or its `captionSeed` is copied verbatim from `altSeed` without a clear reason.
 
-Inspect the final at full size. If exact text remains unreliable, deterministically correct only the affected text region using a Vietnamese-capable font while preserving the integrated design.
+Inspect every final image at full size before calculating checksums. This is the sole pixel-based QA in the validated handoff flow because `create-tenant-product` will intentionally skip reopening the images. If exact text remains unreliable, deterministically correct only the affected text region using a Vietnamese-capable font while preserving the integrated design.
 
 ## Output and handoff
 
@@ -197,4 +197,4 @@ python3 scripts/validate_product_handoff.py \
   --require-default-set
 ```
 
-Do not claim the set is ready for product publishing unless validation passes. Return both rendered images, their absolute clickable paths, the manifest path, and the validation result. When the user next invokes `create-tenant-product`, explicitly pass the manifest path with the images rather than making the consumer rediscover or re-analyze the set.
+Set `consumerPolicy.visualInspection` to `not-required-after-validation`. Do not claim the set is ready for product publishing unless validation passes. Return both rendered images, their absolute clickable paths, the manifest path, and the validation result. When the user next invokes `create-tenant-product`, explicitly pass the manifest path with the images so the consumer can use its no-view fast path instead of rediscovering or re-analyzing the set.

@@ -33,8 +33,8 @@ Read these before acting:
 
 2. Resolve the handoff or analyze from scratch:
    - Prefer a manifest only when its schema is supported, every publishing image is listed, paths resolve, and checksums match. Select the validator from `producerSkill`: use the matching producer skill's `scripts/validate_product_handoff.py` and pass every input image. Never substitute a validator that rejects or weakens the declared producer contract.
-   - Always inspect every final image with `view_image`, even when the manifest validates. Treat the manifest as a factual head start, not permission to skip visual verification.
-   - Compare the manifest to the final pixels. Final accepted images win for visible facts; the original user brief wins for supplied non-visual facts. Discard conflicting manifest fields and analyze those fields again.
+   - Validated-handoff fast path: when the producer-specific validator passes for every publishing image and the manifest declares `consumerPolicy.visualInspection=not-required-after-validation`, do not call `view_image`, OCR, image search, or any other pixel-analysis tool. Trust the producer's accepted visual facts, roles, tags, `altSeed`, `captionSeed`, caveats and unsupported-claim boundary. The matching checksums prove that the handed-off facts refer to the exact bytes being published.
+   - On the fast path, the user's explicit non-visual brief still overrides manifest suggestions such as audience or commercial positioning. Do not invent a pixel conflict or reopen the images merely to double-check the producer.
    - If no manifest exists, it is unreadable, validation fails, its schema is unsupported, it omits an input image, or a checksum differs, do not block solely because of the manifest. Perform the complete image analysis below and record that fallback was used.
    - Full analysis must identify sport/use case, garment type, collar/sleeve/form, gender/audience, dominant and accent colors, pattern/graphic style, approved logos/text, pose/view/context, and likely buyer use case for every image.
    - Never infer fabric composition, named printing technology, durability metrics, discounts, stock, sponsorship, or licensing from either pixels or a `restrained-default` overlay claim.
@@ -44,7 +44,7 @@ Read these before acting:
    - Create SEO title/product name, slug, short description, full product content, meta description, attributes, badges, product search tags, media alt text, optional per-image visible captions, and per-image media search tags.
    - Treat the first gallery image as the primary hero. When a handoff marks images with `productPlacement.contentEmbed=true`, prepare exactly those images for contextual reuse below the long description as real `<img>` content, in `contentOrder`. Without placement hints, prepare every image after the first for contextual reuse below the long description with a factual, buyer-natural caption. Captions must read like storefront merchandising copy, not like raw alt text or image-analysis notes.
    - Keep `alt` and visible `figcaption` distinct when the CMS/storefront supports it. Alt text should be concise accessibility text describing the image; captions should be shorter, more natural, and commerce-aware, e.g. “Mẫu áo trắng xanh dễ nổi bật khi chụp ảnh nhóm ngoài trời.” Never use inventory or artifact phrasing such as “Ba người mẫu Việt Nam...”, “Nhóm năm người mẫu...”, “Bảng catalog...”, “Ảnh chụp...”, or “Hình ảnh...” as storefront copy.
-   - Never copy a handoff `altSeed` into the visible caption. Use `captionSeed` for the caption after checking it against the final pixels. For the current Mayaodongphuc storefront, which renders `media.alt` as the contextual figcaption, write one buyer-natural hybrid media alt derived primarily from `captionSeed` while retaining the essential garment/scene subject. It must not start with a model count, nationality, image role, or artifact label.
+   - Never copy a handoff `altSeed` into the visible caption. Use `captionSeed` for the caption after checking it against the validated manifest facts. For the current Mayaodongphuc storefront, which renders `media.alt` as the contextual figcaption, write one buyer-natural hybrid media alt derived primarily from `captionSeed` while retaining the essential garment/scene subject. It must not start with a model count, nationality, image role, or artifact label.
    - Product search tags should cover commercial discovery: sport, garment type, audience, use case, color family, style, and category.
    - Media search tags should be more visual: exact color, gradient/pattern, pose, front/back/detail, collar/sleeve, model/team/context, and sport.
    - Use Vietnamese shopping language, compact and factual. Prioritize phrases buyers search for.
@@ -106,6 +106,7 @@ Report:
 - Verification evidence, including API ownership and public URL status.
 - Contextual image result for multi-image products: rendered count, caption source, and whether existing media was reused.
 - Handoff result: manifest path, schema version, producer skill, validator used, and whether `captionSeed` or full-analysis fallback supplied contextual copy.
+- Visual-analysis result: explicitly report `skipped—validated checksum handoff` on the fast path; otherwise report why fallback image analysis was necessary.
 - Any remaining factual gaps or manual review items.
 
 Never print API keys or secret values.

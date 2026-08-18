@@ -12,7 +12,7 @@ from pathlib import Path
 
 PRODUCER = "create-mayaodongphuc-outdoor-product-images"
 REQUIRED_TOP_LEVEL = {
-    "schemaVersion", "producerSkill", "createdAt", "sourceReferences",
+    "schemaVersion", "producerSkill", "createdAt", "consumerPolicy", "sourceReferences",
     "acceptedImages", "garmentFacts", "audiences", "useCases", "featureLock",
     "unsupportedClaims", "fidelityCaveats", "suggestedCategory", "copySeeds",
 }
@@ -72,6 +72,11 @@ def main() -> int:
         fail(f"unsupported schemaVersion: {data['schemaVersion']!r}")
     if data["producerSkill"] != PRODUCER:
         fail(f"unexpected producerSkill: {data['producerSkill']!r}")
+    consumer_policy = data["consumerPolicy"]
+    if not isinstance(consumer_policy, dict):
+        fail("consumerPolicy must be an object")
+    if consumer_policy.get("visualInspection") != "not-required-after-validation":
+        fail("consumerPolicy.visualInspection must be 'not-required-after-validation'")
 
     garment = data["garmentFacts"]
     if not isinstance(garment, dict):
