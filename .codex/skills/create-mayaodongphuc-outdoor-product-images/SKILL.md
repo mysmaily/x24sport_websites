@@ -1,21 +1,21 @@
 ---
 name: create-mayaodongphuc-outdoor-product-images
-description: "Create a complete approved Mayaodongphuc outdoor/team-building product image set from a supplied garment photo: square ecommerce main, distinct landscape image 2, and article-embedded catalog. Use when the user supplies a uniform and invokes the skill without naming a role, or asks for ảnh main, ảnh thứ 2, ảnh nhúng bài viết, catalog, poster giới thiệu áo dã ngoại, or the established Mayaodongphuc logo/hotline/product-feature treatment."
+description: "Create the approved two-file Mayaodongphuc outdoor/team-building product set from a supplied garment photo: one square ecommerce main and one article catalog, built from at least two distinct model-scene versions. Use when the user supplies a uniform and invokes the skill, or asks for ảnh main, ảnh catalog, ảnh nhúng bài viết, poster giới thiệu áo dã ngoại, or the established Mayaodongphuc logo/hotline/product-feature treatment."
 ---
 
 # Create Mayaodongphuc Outdoor Product Images
 
-Produce the complete three-image publishing set unless the user explicitly requests only one named role. Treat the supplied garment as the exact product identity and the factory's stated product properties as authoritative marketing facts.
+Produce two final publishing files by default: `main` and `catalog`. Generate at least two distinct model-scene versions internally so the catalog is not merely the main photo with more text. Treat the supplied garment as the exact product identity and the factory's stated product properties as authoritative marketing facts.
 
 Read `references/approved-output-contract.md` before generating. Inspect the supplied garment and the relevant approved benchmark in `assets/` with `view_image`.
 
-## Select the deliverable
+## Deliverable contract
 
-- Default invocation with a garment only: produce exactly `main`, `image-2`, and `catalog`.
+- Default invocation with a garment only: deliver exactly `main` and `catalog`.
 - Explicit `main`: produce only the square ecommerce hero.
-- Explicit `image-2`: produce only the clean landscape lifestyle/context image.
 - Explicit `catalog`, `poster`, or `ảnh nhúng bài viết`: produce only the landscape integrated catalog visual.
-- Never treat `image-2` and `catalog` as the same deliverable.
+- Even when only `catalog` is requested, create or obtain a model-scene version that is distinct from any existing main image.
+- A clean second scene is an internal source asset, not a mandatory third publishing file. Deliver it separately only when the user explicitly asks for `ảnh 2` or a clean lifestyle image.
 
 ## Lock the product
 
@@ -43,11 +43,22 @@ State prompt requirements in this order:
 5. exact visible copy;
 6. exclusions and fidelity requirements.
 
-Use one strong generation prompt per requested final. A targeted correction pass is allowed only for a specific typo, malformed hand, logo defect or garment detail. Tell the editor to preserve everything else.
+Use one strong generation prompt for each required scene version. A targeted correction pass is allowed only for a specific typo, malformed hand, logo defect or garment detail. Tell the editor to preserve everything else.
+
+## Build two distinct scene versions
+
+Create at least two accepted photographic versions before completing the catalog:
+
+- `Version A`: the main-image scene, optimized for immediate garment recognition in a product listing.
+- `Version B`: a genuinely different group scene for the catalog hero or supporting panels.
+
+Version B must differ from Version A in at least three of these dimensions: group count, formation, action, camera distance, camera angle, standing/seated balance, or environmental context. A recrop or text overlay on Version A does not count as Version B.
+
+Compose the catalog from Version B alone or combine Version A and Version B. The catalog itself is the second final output; Version B remains an intermediate unless separately requested.
 
 ## Vary human action
 
-Do not make palm-to-palm high-five the default Mayaodongphuc pose. Within one set, every scene must use a different formation and action. Choose actions appropriate to the product, such as:
+Do not make palm-to-palm high-five the default Mayaodongphuc pose. Version A and Version B must use different formations and actions. Choose actions appropriate to the product, such as:
 
 - walking and talking along a lakeside path;
 - light relay movement with hands separated;
@@ -56,9 +67,11 @@ Do not make palm-to-palm high-five the default Mayaodongphuc pose. Within one se
 - carrying picnic gear while moving as a group;
 - candid seated/standing conversation after an activity.
 
-Ban repeated high-fives, prayer poses, clapping, fist circles, synchronized raised hands and generic celebration poses unless the user explicitly requests one. If one requested image uses a high-five, neither remaining image may repeat it.
+Ban repeated high-fives, prayer poses, clapping, fist circles, synchronized raised hands and generic celebration poses unless the user explicitly requests one. If Version A uses a high-five, Version B must use another action.
 
 ## Main image contract
+
+Use `assets/approved-main.png` as the benchmark for garment visibility and information density, not as a fixed pose template.
 
 - Square 1:1.
 - Five attractive Vietnamese adults, mixed gender, approximately 22–32.
@@ -71,26 +84,15 @@ Ban repeated high-fives, prayer poses, clapping, fist circles, synchronized rais
 - Rail copy only: `THOÁNG MÁT`, `CO GIÃN`, `CHỐNG NẮNG`, `BỀN MÀU`, and `0989 353 247` with a phone icon.
 - Do not add a title, slogan, website, paragraphs, product-detail insets or factory service claims.
 
-## Image 2 contract
-
-Use `assets/approved-image-2.png` as the visual benchmark for photographic hierarchy, not as a fixed pose template.
-
-- Landscape 3:2.
-- Five or six Vietnamese adults in a different formation and action from `main`.
-- Favor natural walking, conversation, route-finding or relaxed movement.
-- Show at least four shirt fronts and optionally one three-quarter/back view.
-- Place the exact logo once at top-left.
-- Show no hotline, feature rail, title, slogan, website, paragraphs or product-detail insets.
-- Keep this image clean enough for direct embedding in product content.
-
 ## Catalog contract
 
 Use `assets/approved-catalog.png` as the visual benchmark for hierarchy and density.
 
 - Landscape 5:4.
 - Five to seven Vietnamese adults in a lively lakeside/campsite scene.
-- Prefer the accepted `image-2` scene as the hero reference so the campaign stays coherent without generating a third unrelated action.
-- Never repeat a high-five or palm-touching pose from `main`.
+- Use Version B as the hero scene, optionally combining selected crops from Version A.
+- Never use the exact main scene/crop as the sole catalog hero.
+- Never repeat a high-five or palm-touching pose from Version A.
 - Blend a warm light information field into the left of the photograph.
 - Use a large product/category title, short emotional slogan, four product properties, four close-up product windows, factory capability footer, hotline and website.
 - Keep the group and garments dominant despite the additional information.
@@ -121,9 +123,10 @@ Reject or correct the output when any of these occur:
 - hotline differs from `0989 353 247`;
 - Vietnamese text is misspelled or has malformed diacritics;
 - main image contains forbidden extra copy;
-- image 2 contains any copy beyond the single logo;
 - overlays obscure important shirt artwork;
-- two images in one set repeat the same pose or formation;
+- Version A and Version B repeat the same pose or formation;
+- no distinct Version B was created before the catalog;
+- the catalog is only the main image with a larger text overlay;
 - the result reads as a generic photo with pasted text rather than one campaign image.
 
 Inspect the final at full size. If exact text remains unreliable, deterministically correct only the affected text region using a Vietnamese-capable font while preserving the integrated design.
@@ -133,7 +136,8 @@ Inspect the final at full size. If exact text remains unreliable, deterministica
 Save accepted files in the active workspace, not only the generated-image cache.
 
 - Main: `mayaodongphuc-<product>-main.png`
-- Image 2: `mayaodongphuc-<product>-image-2.png`
 - Catalog: `mayaodongphuc-<product>-catalog.png`
+
+If explicitly requested, save the clean Version B separately as `mayaodongphuc-<product>-image-2.png`.
 
 Return the rendered image and its absolute clickable path.

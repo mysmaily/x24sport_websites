@@ -1,4 +1,4 @@
 interface:
   display_name: "Mayaodongphuc Outdoor Product Images"
-  short_description: "Create the complete three-image outdoor product set"
-  default_prompt: "Use $create-mayaodongphuc-outdoor-product-images to turn this garment reference into the complete Mayaodongphuc main, image 2, and catalog set."
+  short_description: "Create main and catalog from two distinct scenes"
+  default_prompt: "Use $create-mayaodongphuc-outdoor-product-images to turn this garment reference into a Mayaodongphuc main and catalog built from two distinct model-scene versions."

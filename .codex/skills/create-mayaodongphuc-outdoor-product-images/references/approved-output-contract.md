@@ -22,10 +22,6 @@ Show no copy except:
 
 Use one consistent outline icon per feature and one phone icon. Do not show the website on the main image.
 
-## Image 2 exact copy
-
-Show only the exact bundled logo once. Do not show a title, hotline, website, feature labels or other text.
-
 ## Catalog exact copy
 
 Adapt the main title to the product category. For outdoor sportswear, default to:
@@ -73,24 +69,19 @@ Contact:
 - Preserve the garment torso above the rail.
 - Favor five people; larger groups weaken product clarity and text reliability.
 
-### Image 2
-
-- Use landscape 3:2.
-- Keep the photograph clean and editorial.
-- Use a different action and formation from main.
-- Keep all hands separated unless the activity naturally requires holding a prop.
-- Show only the exact logo once.
-
 ### Catalog
 
 - Let photography remain at least 60% of the perceived visual weight.
+- Use a distinct Version B scene as the catalog hero; it cannot be just a crop of main.
+- Version B must differ from main in at least three dimensions: group count, formation, action, camera distance, camera angle, standing/seated balance, or environment.
+- The catalog may combine Version A and Version B when this improves garment explanation.
 - Keep the information field softly blended, not a hard opaque sidebar.
 - Show four genuinely useful garment details: textile, back, signature print/panel, and collar/seam.
 - Keep the factory footer compact and the hotline immediately readable.
 
 ## Approved visual references
 
-- `../assets/approved-image-2.png`: approved clean lifestyle hierarchy and non-high-five action.
-- `../assets/approved-catalog.png`: approved catalog hierarchy, information density and campaign coherence.
+- `../assets/approved-main.png`: approved main-image garment visibility and compact feature/hotline rail.
+- `../assets/approved-catalog.png`: approved catalog hierarchy using a different group-scene version from main.
 
-Use these for hierarchy, energy and information density, never as fixed pose templates. Do not copy their blue/pink palette when the supplied garment uses different colors.
+Together these two references define the required relationship: two final files, backed by at least two different photographic versions. Use them for hierarchy, energy and information density, never as fixed pose templates. Do not copy their yellow/teal palette when the supplied garment uses different colors.
