@@ -22,6 +22,16 @@ The producer performs the full-size visual inspection and rejects defects before
   "consumerPolicy": {
     "visualInspection": "not-required-after-validation"
   },
+  "publishingIntent": {
+    "action": "publish",
+    "tenantSlug": "mayaodongphuc",
+    "domain": "mayaodongphuc.com.vn",
+    "categorySlug": "dong-phuc-da-ngoai-team-building",
+    "pricingMode": "quote-only",
+    "isPurchasable": false,
+    "stockStatus": "instock",
+    "currency": "VND"
+  },
   "sourceTransformations": [],
   "sourceReferences": [
     {
@@ -116,6 +126,14 @@ For a sleeveless input, replace the empty `sourceTransformations` array with a f
 ```
 
 In that case, `garmentFacts.sleeves` must be `tay ngắn` and all visual tags, alt/caption seeds and downstream attributes must describe the accepted short-sleeve output. The transformation is provenance, not storefront copy. For an input that already has suitable sleeves, use an empty array.
+
+## Publishing intent
+
+- Use `action: publish` for the default garment-only workflow. This instructs `create-tenant-product` to continue immediately without asking for tenant, category, price or publication state.
+- Use `action: draft` only when the user requests a draft.
+- Use `action: images-only` when the user explicitly requests local/preview/image-only output or only one image role. Do not invoke the CMS publisher for this action.
+- Keep the Mayaodongphuc tenant, domain, outdoor category and quote-only values shown in the schema fixed. Only `action` varies between the three supported workflow modes.
+- The consumer derives stable source identity from the producer plus the accepted main-image checksum. It allocates the next available tenant-scoped `MDP-DN-###` SKU only when no existing source identity, SKU or slug matches.
 
 ## Alt and caption boundary
 

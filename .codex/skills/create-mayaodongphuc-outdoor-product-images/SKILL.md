@@ -1,11 +1,11 @@
 ---
 name: create-mayaodongphuc-outdoor-product-images
-description: "Create the approved Mayaodongphuc outdoor/team-building product set from a supplied garment photo: one square ecommerce main, one article catalog, and a validated product-handoff.json for create-tenant-product. Use when the user supplies a uniform and invokes the skill, or asks for ảnh main, ảnh catalog, ảnh nhúng bài viết, poster giới thiệu áo dã ngoại, or the established Mayaodongphuc logo/hotline/product-feature treatment."
+description: "Create the approved Mayaodongphuc outdoor/team-building product set from a supplied garment photo: one square ecommerce main, one article catalog, a validated product-handoff.json, and default publication through create-tenant-product. Use when the user supplies a uniform and invokes the skill, or asks for ảnh main, ảnh catalog, ảnh nhúng bài viết, poster giới thiệu áo dã ngoại, or the established Mayaodongphuc logo/hotline/product-feature treatment."
 ---
 
 # Create Mayaodongphuc Outdoor Product Images
 
-Produce two final publishing images by default—`main` and `catalog`—plus a validated `product-handoff.json` for `create-tenant-product`. Generate at least two distinct model-scene versions internally so the catalog is not merely the main photo with more text. Treat the supplied garment construction, colors and decorative design as the product identity, but replace its garment branding under the rules below. Treat the factory's stated product properties as authoritative marketing facts.
+Produce two final publishing images by default—`main` and `catalog`—plus a validated `product-handoff.json`, then publish the product through `create-tenant-product` in the same task unless the user explicitly limits the request to image output. Generate at least two distinct model-scene versions internally so the catalog is not merely the main photo with more text. Treat the supplied garment construction, colors and decorative design as the product identity, but replace its garment branding under the rules below. Treat the factory's stated product properties as authoritative marketing facts.
 
 Read `references/approved-output-contract.md` before generating. Read `references/product-handoff.md` before writing the manifest. Inspect the supplied garment and the relevant approved benchmark in `assets/` with `view_image`.
 
@@ -17,6 +17,15 @@ Read `references/approved-output-contract.md` before generating. Read `reference
 - Even when only `catalog` is requested, create or obtain a model-scene version that is distinct from any existing main image.
 - A clean second scene is an internal source asset, not a mandatory third publishing file. Deliver it separately only when the user explicitly asks for `ảnh 2` or a clean lifestyle image.
 - Every successful invocation that returns an accepted publishing image must also write a manifest listing exactly the returned publishing images. Never list intermediate scene assets.
+
+## Default publish behavior
+
+- A normal garment-only request with no additional instruction authorizes the full pipeline: generate `main` and `catalog`, validate `product-handoff.json`, invoke `create-tenant-product`, publish to `mayaodongphuc.com.vn`, and verify the public product page.
+- Stop after image delivery only when the user explicitly says `chỉ tạo ảnh`, `không đăng`, `image only`, `preview`, `local only`, requests only `main` or only `catalog`, or otherwise limits the task to visual output. If the user asks for a draft, invoke the publisher but create a draft instead of publishing.
+- Default target: tenant `mayaodongphuc`, domain `mayaodongphuc.com.vn`, category `dong-phuc-da-ngoai-team-building`.
+- Default commercial state: `publicationStatus=publish`, no invented price, quote-only, `isPurchasable=false`, `stockStatus=instock`, currency `VND`.
+- Do not ask again for tenant, category, price or publish state. The user may override the publication action with `draft` or `images-only`; this Mayaodongphuc-specific skill keeps its documented tenant, category and quote-only commerce scope fixed.
+- Image generation is not complete on the default path until the downstream product is created or updated idempotently and its public URL is verified. If REST credentials or CMS availability block publishing, preserve the validated files and handoff, report the exact blocker, and do not claim the product was posted.
 
 ## Lock the product
 
@@ -213,4 +222,4 @@ python3 scripts/validate_product_handoff.py \
   --require-default-set
 ```
 
-Set `consumerPolicy.visualInspection` to `not-required-after-validation`. Do not claim the set is ready for product publishing unless validation passes. Return both rendered images, their absolute clickable paths, the manifest path, and the validation result. When the user next invokes `create-tenant-product`, explicitly pass the manifest path with the images so the consumer can use its no-view fast path instead of rediscovering or re-analyzing the set.
+Set `consumerPolicy.visualInspection` to `not-required-after-validation`. Set `publishingIntent.action` to `publish` on the default path, `draft` when requested, or `images-only` when the user explicitly disables CMS mutation. Do not claim the set is ready for product publishing unless validation passes. On the default path, immediately pass the manifest and images into `create-tenant-product` so the consumer can use its no-view fast path; do not end the task after merely returning local files. Return the rendered images, absolute paths, manifest validation result, CMS action, product identity and verified public URL.

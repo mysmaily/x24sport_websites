@@ -12,7 +12,7 @@ from pathlib import Path
 
 PRODUCER = "create-mayaodongphuc-outdoor-product-images"
 REQUIRED_TOP_LEVEL = {
-    "schemaVersion", "producerSkill", "createdAt", "consumerPolicy", "sourceTransformations", "sourceReferences",
+    "schemaVersion", "producerSkill", "createdAt", "consumerPolicy", "publishingIntent", "sourceTransformations", "sourceReferences",
     "acceptedImages", "garmentFacts", "audiences", "useCases", "featureLock",
     "unsupportedClaims", "fidelityCaveats", "suggestedCategory", "copySeeds",
 }
@@ -77,6 +77,25 @@ def main() -> int:
         fail("consumerPolicy must be an object")
     if consumer_policy.get("visualInspection") != "not-required-after-validation":
         fail("consumerPolicy.visualInspection must be 'not-required-after-validation'")
+
+    publishing_intent = data["publishingIntent"]
+    if not isinstance(publishing_intent, dict):
+        fail("publishingIntent must be an object")
+    action = publishing_intent.get("action")
+    if action not in {"publish", "draft", "images-only"}:
+        fail("publishingIntent.action must be publish, draft, or images-only")
+    expected_defaults = {
+        "tenantSlug": "mayaodongphuc",
+        "domain": "mayaodongphuc.com.vn",
+        "categorySlug": "dong-phuc-da-ngoai-team-building",
+        "pricingMode": "quote-only",
+        "isPurchasable": False,
+        "stockStatus": "instock",
+        "currency": "VND",
+    }
+    for key, expected in expected_defaults.items():
+        if publishing_intent.get(key) != expected:
+            fail(f"publishingIntent.{key} must be {expected!r}")
 
     transformations = data["sourceTransformations"]
     if not isinstance(transformations, list):

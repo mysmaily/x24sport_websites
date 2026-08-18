@@ -7,7 +7,7 @@ description: Create or update X24Sport Payload CMS products for a specified tena
 
 ## Purpose
 
-Create a reusable, tenant-safe product publishing workflow for the X24Sport multi-tenant Payload CMS. The user must specify the target tenant/domain, product category, and any extra requirements; if one of those is missing, ask only for the missing item before mutating CMS data.
+Create a reusable, tenant-safe product publishing workflow for the X24Sport multi-tenant Payload CMS. The user normally specifies the target tenant/domain and category. A validated handoff may supply those values and publication intent; when it does, use them without asking again.
 
 ## Required Context
 
@@ -30,12 +30,14 @@ Read these before acting:
    - Input images: local paths or URLs; support one or many.
    - Optional handoff: an explicitly supplied manifest, or `product-handoff.json` beside the local input images.
    - Extra requirements: gender/audience, product type, price, SKU/source identity, publish vs draft, badges, attributes, brand restrictions, reuse/update behavior.
+   - Validated Mayaodongphuc handoff exception: when `publishingIntent` supplies the tenant, domain, category and action, treat those as confirmed scope. `action=publish` authorizes immediate CMS publication, `draft` authorizes draft creation, and `images-only` forbids CMS mutation. Do not ask for missing optional requirements when the documented defaults cover them.
 
 2. Resolve the handoff or analyze from scratch:
    - Prefer a manifest only when its schema is supported, every publishing image is listed, paths resolve, and checksums match. Select the validator from `producerSkill`: use the matching producer skill's `scripts/validate_product_handoff.py` and pass every input image. Never substitute a validator that rejects or weakens the declared producer contract.
    - Validated-handoff fast path: when the producer-specific validator passes for every publishing image and the manifest declares `consumerPolicy.visualInspection=not-required-after-validation`, do not call `view_image`, OCR, image search, or any other pixel-analysis tool. Trust the producer's accepted visual facts, roles, tags, `altSeed`, `captionSeed`, caveats and unsupported-claim boundary. The matching checksums prove that the handed-off facts refer to the exact bytes being published.
    - On the fast path, the user's explicit non-visual brief still overrides manifest suggestions such as audience or commercial positioning. Do not invent a pixel conflict or reopen the images merely to double-check the producer.
    - Treat handoff `sourceTransformations` as private production provenance. Use `garmentFacts` for the final listing and do not tell shoppers that a sleeveless source was converted. For this Mayaodongphuc producer, a sleeve normalization means the published garment is an ordinary short-sleeve shirt.
+   - For a validated Mayaodongphuc handoff with `publishingIntent.action=publish`, continue through REST mutation and public verification in the same task. Use quote-only commerce defaults, derive stable `sourceId` from `producerSkill + acceptedImages[0].sha256`, and query existing tenant products before allocating the next available `MDP-DN-###` SKU. A retry must update the existing product rather than consume another SKU.
    - If no manifest exists, it is unreadable, validation fails, its schema is unsupported, it omits an input image, or a checksum differs, do not block solely because of the manifest. Perform the complete image analysis below and record that fallback was used.
    - Full analysis must identify sport/use case, garment type, collar/sleeve/form, gender/audience, dominant and accent colors, pattern/graphic style, approved logos/text, pose/view/context, and likely buyer use case for every image.
    - Never infer fabric composition, named printing technology, durability metrics, discounts, stock, sponsorship, or licensing from either pixels or a `restrained-default` overlay claim.
