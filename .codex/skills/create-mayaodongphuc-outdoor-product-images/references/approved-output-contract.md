@@ -4,22 +4,22 @@
 
 - Logo asset: `../assets/mayaodongphuc-logo.png`
 - Garment wordmark: `Đồng Phục X24`
-- Hotline: `0989 353 247`
+- Hotline: `0982 254 458`
 - Website: `mayaodongphuc.com.vn`
 - Cast: believable Vietnamese adults with distinct faces and natural anatomy
 - Brand impression: energetic, trustworthy, production-capable, commercial
 
-The supplied garment controls the campaign palette. Use Mayaodongphuc navy and orange as secondary identity accents, not as a reason to recolor the product. Remove all supplied logos, brands, organization or event marks and original text from the garment while retaining its non-brand decorative design. Put one small `Đồng Phục X24` wordmark on the upper chest of each shirt; keep it restrained, consistently placed and never repeat it elsewhere on the garment.
+The supplied garment controls the campaign palette. Use Mayaodongphuc navy and orange as secondary identity accents, not as a reason to recolor the product. Remove all supplied logos, brands, organization or event marks and original text from the garment while retaining its non-brand decorative design. Put one horizontally centered `Đồng Phục X24` wordmark across the chest of each shirt, approximately 20–30% of the visible shirt-front width. Use a low-contrast ink one or two shades from the shirt color so it is readable but subdued. Keep its placement, scale and tonal treatment consistent, and never repeat it elsewhere on the garment.
 
 ## Main image exact copy
 
-Apart from the small garment wordmark `Đồng Phục X24`, show no overlay copy except:
+Apart from the centered tonal garment wordmark `Đồng Phục X24`, show no overlay copy except:
 
 - `THOÁNG MÁT`
 - `CO GIÃN`
 - `CHỐNG NẮNG`
 - `BỀN MÀU`
-- `0989 353 247`
+- `0982 254 458`
 
 Use one consistent outline icon per feature and one phone icon. Do not show the website on the main image.
 
@@ -57,7 +57,7 @@ Factory footer:
 Contact:
 
 - `HOTLINE TƯ VẤN & ĐẶT HÀNG`
-- `0989 353 247`
+- `0982 254 458`
 - `mayaodongphuc.com.vn`
 
 ## Composition limits

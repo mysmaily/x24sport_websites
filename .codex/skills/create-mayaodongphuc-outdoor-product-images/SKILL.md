@@ -35,8 +35,9 @@ Apply the identical garment construction and decorative design to every model. N
 
 - Remove every supplied logo, crest, brand, organization name, event name and text from the garment, front and back. This rule overrides the reference when those elements are part of the photographed shirt.
 - Preserve non-brand decorative graphics, color blocking, gradients, panels and textile details.
-- Replace the removed garment branding with the exact text `Đồng Phục X24`, set as one small, refined wordmark on the upper chest. Keep it near the visual scale of a tasteful club crest, not a sponsor banner.
-- Use one consistent wordmark placement and scale across all models and both scene versions. Do not repeat it on sleeves, hem or back, and do not add an icon or invented X24 logo.
+- Replace the removed garment branding with the exact text `Đồng Phục X24`, horizontally centered across the chest. Make it clearly larger than a small crest—approximately 20–30% of the visible shirt-front width—but still secondary to the garment design.
+- Use a low-contrast tonal ink close to the shirt color, usually one or two shades lighter or darker, so the wordmark remains readable without becoming a loud sponsor mark. Avoid white, black or another high-contrast color unless the shirt itself requires it for subtle tonal legibility.
+- Use one consistent wordmark placement, scale and tonal treatment across all models and both scene versions. Do not repeat it on sleeves, hem or back, and do not add an icon or invented X24 logo.
 - The Mayaodongphuc logo is campaign branding for the composed image only. Never print it on the garment.
 
 ## Generate as one art-directed image
@@ -46,7 +47,7 @@ Use the built-in image-generation tool with the garment reference and `assets/ma
 State prompt requirements in this order:
 
 1. exact output role and aspect ratio;
-2. garment lock, removal of supplied garment branding, the restrained `Đồng Phục X24` wordmark and the separate Mayaodongphuc campaign-logo role;
+2. garment lock, removal of supplied garment branding, the centered medium-size tonal `Đồng Phục X24` wordmark and the separate Mayaodongphuc campaign-logo role;
 3. Vietnamese cast, action, framing and environment;
 4. approved graphic hierarchy for that role;
 5. exact visible copy;
@@ -90,7 +91,7 @@ Use `assets/approved-main.png` as the benchmark for garment visibility and infor
 - Models and garments carry at least 85% of the visual emphasis.
 - Place the exact Mayaodongphuc logo once in the clearer top corner. Vary left/right anchoring across products when the composition supports it instead of defaulting to top-left every time.
 - Add one slim deep-teal translucent rail at the bottom, no more than 14% of image height.
-- Rail copy only: `THOÁNG MÁT`, `CO GIÃN`, `CHỐNG NẮNG`, `BỀN MÀU`, and `0989 353 247` with a phone icon.
+- Rail copy only: `THOÁNG MÁT`, `CO GIÃN`, `CHỐNG NẮNG`, `BỀN MÀU`, and `0982 254 458` with a phone icon.
 - Do not add a title, slogan, website, paragraphs, product-detail insets or factory service claims.
 
 ## Catalog contract
@@ -128,11 +129,11 @@ Reject or correct the output when any of these occur:
 
 - the garment construction, colors or decorative design differ across models or materially depart from the reference;
 - any supplied logo, crest, brand, organization name, event name or original garment text remains visible;
-- `Đồng Phục X24` is missing from clear front views, misspelled, oversized, repeated on one garment or inconsistent across models/scenes;
+- `Đồng Phục X24` is missing from clear front views, misspelled, off-center, too small, oversized, too high-contrast, repeated on one garment or inconsistent across models/scenes;
 - the group lacks a clear team-building action;
 - faces, hands or body overlaps look artificial;
 - the exact Mayaodongphuc campaign logo is missing, duplicated, distorted or printed on the garment;
-- hotline differs from `0989 353 247`;
+- hotline differs from `0982 254 458`;
 - Vietnamese text is misspelled or has malformed diacritics;
 - main image contains forbidden extra copy;
 - overlays obscure important shirt artwork;
