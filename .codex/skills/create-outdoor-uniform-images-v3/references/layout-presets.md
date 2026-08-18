@@ -1,0 +1,52 @@
+# Layout presets — v3
+
+The catalog should feel art-directed, not templated. Randomize among these presets with anti-repeat. The random choice changes composition only; garment fidelity, typography quality, brand identity, and information hierarchy never become random.
+
+## A. single-hero — weight 45
+One coherent outdoor scene. 3–5 models, shirt-first framing. Keep one quiet edge for a light translucent feature treatment. Use this when the garment itself is visually busy or fidelity is difficult.
+
+## B. campaign-composite-3 — weight 35
+Preferred premium editorial poster option. One canvas contains three views from the same campaign:
+- hero scene: about 62–68% of the visual area, 3–5 people, strongest product view;
+- bonding/detail scene: about 16–20%, same garment and visual world;
+- walking/activity scene: about 16–20%, same garment and visual world.
+
+The three scenes must feel like frames from one professional photoshoot: same location family, daylight, color grade, wardrobe, garment design, and casting direction. Do not create three unrelated stock-photo tiles. Rounded or clean separators are acceptable; avoid thick borders and scrapbook collage effects.
+
+When the back is commercially useful, include one natural back-facing wearer in the hero so the designed shirt slogan can be seen. Do not force every wearer to display readable text.
+
+## C. front-back-showcase — weight 20
+One coherent scene emphasizing product comparison. Show multiple front views plus one or two natural back/three-quarter views. Best for garments with important back artwork or a slogan. Keep the composition photographic, not a mannequin lineup.
+
+## Campaign information system
+For `campaign-composite-3`, prefer the information architecture used by a professional sportswear campaign poster:
+
+1. **Editorial slogan zone** — a generous translucent/gradient field on a quiet edge, usually left or right. It may occupy roughly 20–30% of width where the generated composition deliberately leaves breathing room. It should inherit the garment's dominant/accent color rather than default orange/navy.
+2. **Feature stack** — four features may sit vertically inside that field with generous spacing, small consistent outline icons, bold title + smaller supporting line. Do not put each feature in a separate heavy box.
+3. **Bottom feature band** — production default. Use one continuous translucent band tinted from the garment palette, normally 10% of the shorter image edge. Divide it with subtle separators; do not use four disconnected dark cards or place text directly on busy photo detail.
+4. **Slogan** — may be displayed editorially in the information field in addition to being designed onto a back shirt. Treat it as campaign typography: 2–3 lines, strong hierarchy, optical alignment, optional restrained vector sweep/stripe derived from the garment artwork.
+5. **Logo** — one crisp bundled Mayaodongphuc logo in the upper corner. Never AI-redraw it when deterministic placement is possible.
+6. **Hotline** — one phone icon + exact `0989 353 247`, subordinate to the features. Website may be included only when the workflow explicitly asks for it.
+
+### Visual treatment
+- Use a translucent wash, frosted/soft gradient, or transparent color field derived from the shirt/accent color.
+- Typical opacity: visually around 55–82% for light fields and 45–72% for dark/tinted bands; preserve enough of the photo to feel integrated.
+- Prefer one large coherent surface over many little cards.
+- Use whitespace aggressively. The overlay is allowed to occupy real canvas area when the composition was planned for it.
+- Match accent lines, icons, separators, and headline color to the garment palette.
+- Avoid generic dashboard UI, pill badges, glassmorphism clutter, equal little cards, random orange accents, thick borders, or floating labels.
+- Information should read in this order: garment/team → slogan → feature titles → feature details → hotline.
+
+## Production bottom band
+
+Use `scripts/apply_catalog_overlay.py --layout bottom-band` for production unless a different overlay is explicitly requested. The bottom band is deterministic and intentionally simple:
+
+- height: default `0.10` of the shorter image edge;
+- surface: one full-width translucent color layer, no individual cards;
+- default color: burgundy `#740e26`, or another dominant/accent garment color supplied by the design lock;
+- text: white title/detail copy, orange outline icons, subtle vertical separators;
+- placement: lower 10% only, never across faces, collars, chest graphics, or back slogan artwork;
+- hotline: exact `0989 353 247`, with one phone icon and no second number.
+
+## Composition-first rule
+Never generate a normal centered group photo and then discover there is nowhere to place a large campaign panel. When a campaign preset is selected, plan the photo for the layout before generation: leave intentional negative space and place the group so the information field looks designed into the campaign rather than pasted over people afterward.
