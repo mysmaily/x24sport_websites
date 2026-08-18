@@ -70,6 +70,7 @@ Contact:
 - Keep the bottom rail at or below 14% of image height.
 - Preserve the garment torso above the rail.
 - Favor five people; larger groups weaken product clarity and text reliability.
+- For a five-person main image, require at least three direct-to-camera gazes and prefer four. Direct gaze must outnumber off-camera gaze; any exception should follow the shared action rather than point randomly in different directions.
 
 ### Catalog
 

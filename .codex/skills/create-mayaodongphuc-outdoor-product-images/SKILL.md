@@ -86,7 +86,8 @@ Use `assets/approved-main.png` as the benchmark for garment visibility and infor
 - Square 1:1.
 - Five attractive Vietnamese adults, mixed gender, approximately 22–32.
 - Scenic outdoor lake/resort/mountain setting with a clean background.
-- Use one clear team action selected from the variation rules; candid smiles and distinct faces.
+- Use one clear team action selected from the variation rules; candid smiles and distinct faces. Choose or stage the action so direct camera engagement remains natural.
+- With five models, at least three must look straight into the camera; prefer four when it does not make the scene stiff. Any remaining gaze should clearly follow the shared action or another teammate. Avoid scattered eye-lines where each model looks in a different direction.
 - Frame head to upper knee. Keep at least four shirt fronts clear.
 - Models and garments carry at least 85% of the visual emphasis.
 - Place the exact Mayaodongphuc logo once in the clearer top corner. Vary left/right anchoring across products when the composition supports it instead of defaulting to top-left every time.
@@ -131,6 +132,7 @@ Reject or correct the output when any of these occur:
 - any supplied logo, crest, brand, organization name, event name or original garment text remains visible;
 - `Đồng Phục X24` is missing from clear front views, misspelled, off-center, too small, oversized, too high-contrast, repeated on one garment or inconsistent across models/scenes;
 - the group lacks a clear team-building action;
+- fewer than three of the five main-image models look directly into the camera, or the remaining eye-lines appear scattered and unmotivated;
 - faces, hands or body overlaps look artificial;
 - the exact Mayaodongphuc campaign logo is missing, duplicated, distorted or printed on the garment;
 - hotline differs from `0982 254 458`;
