@@ -11,7 +11,7 @@ import random
 GROUP_COUNTS = [3, 4, 5, 6, 7]
 OVERLAY_CORNERS = ["top-left", "top-right", "bottom-left", "bottom-right"]
 THEMES = ["dark", "light"]
-LAYOUTS = ["row", "grid"]
+LAYOUTS = ["row", "grid", "rail"]
 
 
 def refill(values: list, rng: random.Random, previous: object | None) -> list:
@@ -54,7 +54,7 @@ def plan(count: int, rng: random.Random) -> list[dict[str, object]]:
                 "overlay_corner": overlay_corner,
                 "theme": theme,
                 "layout": layout,
-                "note": "Use a quiet corner and switch theme for contrast; never move the whole group aside for the overlay.",
+                "note": "Use icon + text callouts on natural paint swashes or diagonal gradient accents with auto dark/light contrast; choose row, grid, or slim vertical rail based on the photo instead of forcing one template. Never use bordered text.",
             }
         )
         previous_count = group_count

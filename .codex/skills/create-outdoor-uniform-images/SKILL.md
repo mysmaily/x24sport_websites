@@ -1,6 +1,6 @@
 ---
 name: create-outdoor-uniform-images
-description: Create and iterate up to two square branded photorealistic group model images for the “Đồng phục dã ngoại” catalog of mayaodongphuc.com.vn from one or more supplied garment/design references. Use when the user asks to turn T-shirt or uniform artwork, mockups, flat lays, or product photos into Vietnamese adult or explicitly requested child model photos for picnic, company outing, team-building, park, resort, studio, catalog, banner, or social use, with 3–7 varied models, 1:1 outputs, sleeves on every shirt, one vertical Mayaodongphuc logo, professional icon-led garment feature callouts, hotline 0989 353 247, strict design fidelity, optional product-handoff manifests for downstream publishing, and rejection of plastic-looking people, anatomy defects, wrong prints, watermarks, and competitor branding.
+description: Create and iterate up to two square branded photorealistic group model images for the “Đồng phục dã ngoại” catalog of mayaodongphuc.com.vn from one or more supplied garment/design references. Use when the user asks to turn T-shirt or uniform artwork, mockups, flat lays, or product photos into Vietnamese adult or explicitly requested child model photos for picnic, company outing, team-building, park, resort, studio, catalog, banner, or social use, with 3–7 varied models, 1:1 outputs, sleeves on every shirt, one vertical Mayaodongphuc logo, readable professional icon-led garment feature callouts on natural paint-swash or diagonal-gradient treatments with auto light/dark text contrast, hotline 0989 353 247, strict design fidelity, optional product-handoff manifests for downstream publishing, and rejection of plastic-looking people, anatomy defects, wrong prints, watermarks, and competitor branding.
 ---
 
 # Create Outdoor Uniform Images
@@ -40,7 +40,7 @@ Use children only when the user explicitly requests children or a clearly child-
 - Randomly choose 3–7 models for each image. For a set, vary counts, formation, camera distance, pose, and activity; do not reuse one five-person triangular template. Never repeat the same group count in consecutive images when alternatives exist.
 - Create a variant plan with `scripts/plan_variant.py` when producing one or more outputs. Treat its overlay corner and light/dark card theme as preferences only; actual face/body occupancy and background contrast decide placement.
 - Add exactly one `assets/branding/mayaodongphuc-vertical.png` logo to every accepted image. Never redraw it with AI, rotate it, stretch it, or substitute another logo treatment.
-- Add four concise icon-led feature callouts covering fabric, design, durability, and printing, plus a phone-call icon and the exact hotline `0989 353 247`. Place them on separate small translucent white or black cards; never use a full-height rail or large panel. Keep the combined overlay footprint at or below roughly 20% of the image area so the people and shirts remain dominant.
+- Add four concise icon-led feature callouts covering fabric, design, durability, and printing, plus a phone-call icon and the exact hotline `0989 353 247`. Use a clean rounded paint swash or soft ink-like patch behind the callouts; if the swash does not look polished, fall back to a simple evenly rounded translucent shape rather than forcing a decorative blob. Default to `--surface paint --backdrop none --theme auto`. Do not use outlined/bordered text. The script samples the placement region so bright regions get dark text and dark regions get light text. Choose the layout dynamically from a horizontal row, compact 2x2 cluster, or vertical feature rail; do not force every image into one template. Rail and side layouts should align close to the image edge margin, like shop graphics, rather than floating deep inside the photo. Use `--auto-position` first, then `--position-x`/`--position-y` for designer override after inspecting the auto result. Keep feature text large enough to read at catalog thumbnail size. Use `--surface card` only as a last-resort fallback when the paint treatment fails visual validation. It is acceptable for feature callouts to overlap plain fabric on one or two secondary shirts when needed; never cover faces, hair, hands, collars, primary chest artwork, customer/team marks, or the main garment details being sold.
 - Derive claims from the supplied garment/material brief. When evidence is incomplete, use restrained, non-technical wording such as “Vải mềm nhẹ”, “Thiết kế đồng bộ”, “Bền màu, giữ form”, and “Hình in sắc nét”; never invent fabric composition, GSM, certifications, wash-cycle counts, or a named printing process.
 
 ## Build the design lock
@@ -70,7 +70,7 @@ Sleeves override exact silhouette fidelity: when a source garment is sleeveless,
 
 ## Generate proof first
 
-Generate one clean, unbranded proof image before producing the complete set. Attach every required design/material reference through `referenced_image_paths`; use `num_last_images_to_include` only when a needed conversational image has no local path. Never use both mechanisms. Compose the group naturally for the photograph; do not push or compress the models to one side to manufacture a large text zone. Keep modest background breathing room near one or two corners for small overlays, but do not ask image generation to draw the Mayaodongphuc logo, icons, feature text, or hotline.
+Generate one clean, unbranded proof image before producing the complete set. Attach every required design/material reference through `referenced_image_paths`; use `num_last_images_to_include` only when a needed conversational image has no local path. Never use both mechanisms. Compose the group naturally for the photograph; do not push or compress the models to one side to manufacture a large text zone. Leave enough visual calm near an edge, corner, or side band for designer-quality icon + text overlay, but do not over-reserve empty background. The final overlay may sit partly over noncritical plain shirt fabric if that creates a stronger catalog graphic. Do not ask image generation to draw the Mayaodongphuc logo, icons, feature text, or hotline.
 
 Write the prompt in this order:
 
@@ -96,22 +96,22 @@ Do not ask image generation to reproduce any competitor logo or watermark visibl
 
 Composite the approved vertical logo, four feature callouts, icons, and hotline deterministically with `scripts/apply_catalog_overlay.py`:
 
-1. Inspect all four corners and choose the calmest one. Keep the original model formation natural and centered; never regenerate the photo solely to force everyone to the opposite side. Reject any placement that covers or visually touches a face, hair, hand, garment artwork, or important activity.
+1. Inspect all four corners plus top, bottom, left, and right edge bands, then choose the clearest professional placement. Keep the original model formation natural and centered; never regenerate the photo solely to force everyone to the opposite side. Prefer preserving faces, hair, hands, collars, chest artwork, customer/team marks, and key product details. Allow feature cards to overlap plain fabric on one or two secondary shirts when the result is more readable and still commercially clean.
 2. Use only `assets/branding/mayaodongphuc-vertical.png`, preserving its transparent background, original colors, aspect ratio, and exact lettering.
    Size the logo at roughly 12–14% of the image's shorter edge so the brand name is immediately readable at normal viewing size. It may extend beyond the feature-card row, but it must stay clear of faces and shirts and remain subordinate to the models.
-3. Put each feature on its own small rounded card using either translucent black with white text or translucent white with dark text. Use one restrained outline-icon family and minimal orange accents. Do not place all content inside a continuous banner, rail, sidebar, or opaque block.
-4. Arrange the four feature cards in a short single row near a quiet top/bottom edge when the models fill the frame naturally; use a compact 2×2 corner cluster only when that corner is genuinely free. Keep card padding tight but readable. The total logo, features, and hotline should remain a secondary layer and normally occupy no more than about 20% of the canvas.
+3. Render each feature as a clean icon-led text lockup on top of a natural paint swash, ink-like wash, or diagonal gradient accent. Avoid generic rounded UI cards and never use text borders/strokes as the primary readability device. Let `--theme auto` sample the placement region and choose dark text on bright zones or white text on dark zones. Use one restrained outline-icon family and minimal orange accents.
+4. Arrange the four feature lockups using the layout that best fits the specific image: `row` for a clean top/bottom band, `grid` for a quiet corner, or `rail` for a vertical feature stack along a side edge. A rail may feel like premium sportswear shop art direction, but it must remain airy and secondary to the garment photo. Run `--auto-position` first so the script scans candidate edge regions for lower visual activity; after visual inspection, use `--position-x` and `--position-y` to manually place the overlay by canvas fraction if the detected region still covers a face, hand, collar, logo, SKU, hotline, or key shirt artwork. Keep spacing readable at catalog thumbnail size. Choose readability over excessive caution; covering a small area of plain sleeve or torso fabric is acceptable, but covering faces, hands, collars, artwork, or important garment details is not.
 5. Pass the feature lock into the script. Prefer a short title plus a 2–4 word detail. Use a small phone-call icon and regular-size hotline `0989 353 247`; do not treat the number as a headline, CTA button, or promotional badge.
 6. Run the overlay only after the unbranded photo passes garment/anatomy validation. The script does not detect faces, so choose the safe corner and light/dark theme by visual inspection.
-7. Inspect the composite again at full size. Reject overlap, clipping, mojibake, weak contrast, crowded typography, mismatched icon style, an oversized hotline, or overlays that compete with the shirts; switch corner/theme or shorten copy and rerun without distorting the model composition.
+7. Inspect the composite again at full size and at thumbnail size. Reject clipping, mojibake, weak contrast, crowded typography, mismatched icon style, an oversized hotline, visible text outlines/borders, or overlays that hide the product story. Do not reject merely because a callout overlaps noncritical plain fabric on one or two shirts. Switch placement/layout/theme, use a different paint/diagonal treatment, or shorten copy and rerun without distorting the model composition. Add `--surface card` only if the graphic treatment cannot pass contrast validation.
 
 Example:
 
 ```bash
-python3 /Users/hoang/.codex/skills/create-outdoor-uniform-images/scripts/apply_catalog_overlay.py \
+python3 /Users/hoang/hacado/x24sport_websites/.codex/skills/create-outdoor-uniform-images/scripts/apply_catalog_overlay.py \
   /absolute/path/base.png /absolute/path/branded.png \
-  --logo-asset /Users/hoang/.codex/skills/create-outdoor-uniform-images/assets/branding/mayaodongphuc-vertical.png \
-  --layout row --overlay-corner top-left --theme dark --logo-width 0.128 \
+  --logo-asset /Users/hoang/hacado/x24sport_websites/.codex/skills/create-outdoor-uniform-images/assets/branding/mayaodongphuc-vertical.png \
+  --layout rail --auto-position --theme auto --backdrop none --surface paint --logo-width 0.128 \
   --fabric-title "Vải mềm nhẹ" --fabric-detail "Thoáng, dễ vận động" \
   --design-title "Thiết kế đồng bộ" --design-detail "Gọn và tôn dáng" \
   --durability-title "Bền màu" --durability-detail "Giữ form tốt" \
@@ -130,7 +130,7 @@ Apply hard gates in this order:
 2. face, hands, anatomy, and age correctness;
 3. fabric and print realism;
 4. group consistency and scene physics;
-5. sleeves, randomized group variation, exactly one correct vertical logo, compact feature cards and understated hotline, commercial cleanliness, composition, and requested crop.
+5. sleeves, randomized group variation, exactly one correct vertical logo, readable professional icon-led feature callouts with auto light/dark contrast, understated hotline, commercial cleanliness, composition, and requested crop.
 
 Reject an image if any hard gate fails. Use one targeted correction per iteration, preserve everything that already works, and inspect again. Regenerate rather than claiming a wrong logo, unreadable important text, or impossible anatomy is acceptable.
 
@@ -141,7 +141,7 @@ After the proof passes, generate at most one additional square image using [refe
 Run the optional file preflight after saving a set:
 
 ```bash
-python3 /Users/hoang/.codex/skills/create-outdoor-uniform-images/scripts/validate_output_files.py --expected 2 /absolute/path/to/output-*.png
+python3 /Users/hoang/hacado/x24sport_websites/.codex/skills/create-outdoor-uniform-images/scripts/validate_output_files.py --expected 2 /absolute/path/to/output-*.png
 ```
 
 Treat this script as file-level validation only; it never replaces visual inspection.
