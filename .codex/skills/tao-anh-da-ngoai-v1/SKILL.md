@@ -17,7 +17,7 @@ This skill is **not** the catalog-board workflow. Produce individual branded/inf
 4. Choose one outdoor scene: park picnic, resort lawn, company outing, campsite picnic, garden team-building, or light walking/activity scene.
 5. Generate a clean photo first. Do not ask the image model to draw the Mayaodongphuc logo, feature labels, hotline, badges, borders, or UI.
 6. Inspect against `references/quality-gates.md`. Reject and correct hard failures before overlay.
-7. Add the bundled logo and feature overlay deterministically with `scripts/apply_info_overlay.py`.
+7. Add the bundled logo and feature overlay deterministically with `scripts/apply_designer_info_overlay.py`.
 8. Reinspect final output: logo/features must support the shirt, not cover the main design.
 9. Validate output dimensions/files with `scripts/validate_output_files.py` when producing saved image files.
 
@@ -53,7 +53,17 @@ Feature callouts are per-image info overlays, not catalog copy blocks. Use 3-4 c
 
 Do not invent unsupported claims such as exact GSM, UV rating, waterproofing, certification, wash-count durability, or named print technology unless the user provides evidence.
 
-Run the overlay after the clean image is accepted:
+Run the preferred designer-style overlay after the clean image is accepted:
+
+```bash
+python scripts/apply_designer_info_overlay.py input.png output.png \
+  --logo-asset assets/mayaodongphuc-vertical.png \
+  --skip-hotline
+```
+
+This renderer creates a single frosted information panel with grouped icon/text rows, a subtle garment-palette accent, and the real Mayaodongphuc logo in a top corner. Use it by default for v1.
+
+Use the legacy flexible overlay only when the composition needs a different rail/grid/row placement:
 
 ```bash
 python scripts/apply_info_overlay.py input.png output.png \
@@ -73,7 +83,7 @@ python scripts/apply_info_overlay.py input.png output.png \
   --printing-detail 'Màu in rõ, nổi bật'
 ```
 
-Prefer `rail`, `grid`, or `row` for v1 individual images. Use `bottom-band` only when the generated image reserved a safe footer area. Keep the logo in a top corner and features near a quiet edge. Never place overlays on faces, hands, collars, customer artwork, or the main chest/back design.
+For the legacy overlay, prefer `rail`, `grid`, or `row` for v1 individual images. Use `bottom-band` only when the generated image reserved a safe footer area. Keep the logo in a top corner and features near a quiet edge. Never place overlays on faces, hands, collars, customer artwork, or the main chest/back design.
 
 `apply_info_overlay.py` enforces the Mayaodongphuc hotline default `0989 353 247`. If the user wants no hotline, pass `--skip-hotline`. Do not add another number.
 
