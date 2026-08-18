@@ -12,6 +12,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageStat
 ORANGE = (242, 126, 36, 255)
 NAVY = (8, 35, 62, 255)
 CORNERS = ("top-left", "top-right", "bottom-left", "bottom-right")
+LOGO_CORNERS = ("auto", "top-left", "top-right")
 
 
 def font_candidates(bold: bool) -> list[Path]:
@@ -304,6 +305,12 @@ def auto_position(
     return best[1], best[2]
 
 
+def resolve_logo_corner(logo_corner: str, cluster_x: int, cluster_w: int, canvas_w: int) -> str:
+    if logo_corner != "auto":
+        return logo_corner
+    return "top-left" if cluster_x + cluster_w / 2 >= canvas_w / 2 else "top-right"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("input", type=Path)
@@ -319,6 +326,7 @@ def main() -> int:
     parser.add_argument("--layout", choices=("row", "grid", "rail"), default="row")
     parser.add_argument("--backdrop", choices=("diagonal", "gradient", "none"), default="none")
     parser.add_argument("--surface", choices=("paint", "none", "card"), default="paint")
+    parser.add_argument("--logo-corner", choices=LOGO_CORNERS, default="auto", help="Pin the brand logo to a top image corner; auto uses the side opposite the feature cluster")
     parser.add_argument("--logo-width", type=float, default=0.128, help="Logo width as a fraction of the shorter image edge")
     parser.add_argument("--font", type=Path)
     parser.add_argument("--font-bold", type=Path)
@@ -355,9 +363,9 @@ def main() -> int:
         cluster_h = round(unit * 0.078)
         cluster_x = margin
         cluster_y = margin if args.overlay_corner.startswith("top") else canvas_h - margin - cluster_h
-        logo_slot = round(cluster_w * 0.15) if show_logo else 0
+        logo_slot = 0
         phone_w = round(cluster_w * 0.155) if show_hotline else 0
-        visible_items = 4 + int(show_logo) + int(show_hotline)
+        visible_items = 4 + int(show_hotline)
         card_w = (cluster_w - logo_slot - phone_w - gap * max(0, visible_items - 1)) // 4
         card_h = cluster_h
         header_h = cluster_h
@@ -365,19 +373,19 @@ def main() -> int:
         cluster_w = round(min(canvas_w * 0.39, unit * 0.46))
         card_w = (cluster_w - gap) // 2
         card_h = round(unit * 0.078)
-        header_h = round(unit * 0.082) if show_logo or show_hotline else 0
+        header_h = round(unit * 0.05) if show_hotline else 0
         cluster_h = header_h + (gap if header_h else 0) + card_h * 2 + gap
         cluster_x, cluster_y = corner_xy(args.overlay_corner, base.size, (cluster_w, cluster_h), margin)
-        logo_slot = round(cluster_w * 0.42)
+        logo_slot = 0
         phone_w = round(cluster_w * 0.48)
     else:
         cluster_w = round(min(canvas_w * 0.305, unit * 0.335))
         card_w = cluster_w
         card_h = round(unit * 0.066)
-        header_h = round(unit * 0.076) if show_logo or show_hotline else 0
+        header_h = round(unit * 0.05) if show_hotline else 0
         cluster_h = header_h + (gap if header_h else 0) + card_h * 4 + gap * 3
         cluster_x, cluster_y = corner_xy(args.overlay_corner, base.size, (cluster_w, cluster_h), margin)
-        logo_slot = round(cluster_w * 0.42)
+        logo_slot = 0
         phone_w = round(cluster_w * 0.52)
 
     if args.auto_position and args.position_x is None and args.position_y is None:
@@ -422,20 +430,16 @@ def main() -> int:
             unit,
         )
     if show_logo:
-        logo_scaled = scaled(logo, min(round(unit * args.logo_width), round(logo_slot * 0.92)))
-        logo_x = cluster_x + (logo_slot - logo_scaled.width) // 2
-        if args.layout == "row" and args.overlay_corner.startswith("top"):
-            logo_y = max(0, round(margin * 0.25))
-        elif args.layout == "row":
-            logo_y = canvas_h - logo_scaled.height - max(0, round(margin * 0.25))
-        else:
-            logo_y = cluster_y + (header_h - logo_scaled.height) // 2
+        logo_scaled = scaled(logo, round(unit * args.logo_width))
+        logo_corner = resolve_logo_corner(args.logo_corner, cluster_x, cluster_w, canvas_w)
+        logo_x = margin if logo_corner == "top-left" else canvas_w - margin - logo_scaled.width
+        logo_y = margin
         overlay.alpha_composite(logo_scaled, (logo_x, logo_y))
 
     if show_hotline:
         phone_h = round(unit * 0.04) if args.layout == "row" else round(unit * 0.043)
         phone_x = cluster_x + cluster_w - phone_w
-        phone_y = cluster_y + (header_h - phone_h) // 2
+        phone_y = cluster_y + (header_h - phone_h) // 2 if header_h else cluster_y
         if args.surface == "card":
             draw.rounded_rectangle((phone_x, phone_y, phone_x + phone_w, phone_y + phone_h), radius=phone_h // 2, fill=phone_fill)
         phone_icon = round(phone_h * 0.48)
@@ -512,7 +516,7 @@ def main() -> int:
     result = Image.alpha_composite(base, overlay)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     result.convert("RGB").save(args.output, quality=95)
-    print(f"WROTE {args.output} {canvas_w}x{canvas_h} layout={args.layout} corner={args.overlay_corner} theme={args.theme} resolved_theme={resolved_theme} backdrop={args.backdrop} surface={args.surface} hotline={args.hotline}")
+    print(f"WROTE {args.output} {canvas_w}x{canvas_h} layout={args.layout} corner={args.overlay_corner} logo_corner={resolve_logo_corner(args.logo_corner, cluster_x, cluster_w, canvas_w)} theme={args.theme} resolved_theme={resolved_theme} backdrop={args.backdrop} surface={args.surface} hotline={args.hotline}")
     return 0
 
 
