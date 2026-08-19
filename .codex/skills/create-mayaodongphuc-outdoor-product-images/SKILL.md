@@ -204,12 +204,12 @@ Inspect every final image at full size before calculating checksums. This is the
 
 ## Output and handoff
 
-For a default full set, create one product-specific directory in the active workspace so the exact-name manifest is discoverable without overwriting another product:
+For a default full set, create one product-specific directory under `generated/mayaodongphuc-outdoor-product-images/` in the active workspace so all local skill outputs stay grouped together and out of Git while the exact-name manifest remains discoverable without overwriting another product:
 
-- Directory: `mayaodongphuc-<product>/`
-- Main: `mayaodongphuc-<product>/mayaodongphuc-<product>-main.png`
-- Catalog: `mayaodongphuc-<product>/mayaodongphuc-<product>-catalog.png`
-- Handoff: `mayaodongphuc-<product>/product-handoff.json`
+- Directory: `generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-<product>/`
+- Main: `generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-<product>/mayaodongphuc-<product>-main.png`
+- Catalog: `generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-<product>/mayaodongphuc-<product>-catalog.png`
+- Handoff: `generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-<product>/product-handoff.json`
 
 If explicitly requested, save the clean Version B in the same directory as `mayaodongphuc-<product>-image-2.png` and list it only when it is a delivered publishing image.
 

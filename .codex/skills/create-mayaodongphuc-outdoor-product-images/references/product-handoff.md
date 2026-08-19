@@ -41,7 +41,7 @@ The producer performs the full-size visual inspection and rejects defects before
   ],
   "acceptedImages": [
     {
-      "path": "/absolute/path/mayaodongphuc-product-main.png",
+      "path": "/absolute/path/generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-product/mayaodongphuc-product-main.png",
       "sha256": "64 lowercase hexadecimal characters",
       "role": "product hero",
       "aspectRatio": "1:1",
@@ -61,7 +61,7 @@ The producer performs the full-size visual inspection and rejects defects before
       }
     },
     {
-      "path": "/absolute/path/mayaodongphuc-product-catalog.png",
+      "path": "/absolute/path/generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-product/mayaodongphuc-product-catalog.png",
       "sha256": "64 lowercase hexadecimal characters",
       "role": "content-inline catalog",
       "aspectRatio": "5:4",

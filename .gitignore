@@ -51,6 +51,7 @@ mayaobongda.vn/imagegen/**
 !mayaobongda.vn/imagegen/.gitkeep
 
 # AI image-generation outputs (keep locally, never commit)
+generated/mayaodongphuc-outdoor-product-images/
 **/operations/**/generated/
 **/operations/**/final/
 **/operations/**/originals/
