@@ -1,4 +1,0 @@
-interface:
-  display_name: "Ảnh đồng phục dã ngoại"
-  short_description: "Tạo ảnh đồng phục, typography áo và catalog"
-  default_prompt: "Use $create-outdoor-uniform-images to turn my uniform references into a professional outdoor catalog image with designer-quality slogan typography integrated into the garment when appropriate, the vertical Mayaodongphuc logo, supported garment feature icons, and hotline 0989 353 247."

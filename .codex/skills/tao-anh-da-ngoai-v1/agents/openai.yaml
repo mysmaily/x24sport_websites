@@ -1,4 +1,0 @@
-interface:
-  display_name: "Tạo ảnh dã ngoại v1"
-  short_description: "Tạo ảnh nhóm dã ngoại mặc áo mẫu"
-  default_prompt: "Use $tao-anh-da-ngoai-v1 to turn this shirt design into a branded outdoor group image with feature callouts."
