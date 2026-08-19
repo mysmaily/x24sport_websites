@@ -84,6 +84,8 @@ The script searches existing products by:
 2. `tenant.slug + sku` when SKU exists.
 3. `tenant.slug + slug` as final fallback.
 
+For `mayaodongphuc.com.vn`, new product SKUs must use `X24-DP-DDHHSS`, with `DDHHSS` taken from the local production timezone at allocation time. Always query the tenant by SKU before create. If a same-second collision exists, wait or advance to the next second and query again. Retries must find the existing product by `sourceSystem + sourceId`, SKU, or slug and update it instead of allocating a fresh SKU.
+
 It searches media by:
 
 1. `tenant.slug + sourceSystem + media.sourceId`.
