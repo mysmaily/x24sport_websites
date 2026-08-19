@@ -95,13 +95,13 @@ Contact:
 - Put the campaign logo in whichever top corner has cleaner negative space. Alternate left/right across products when both work; do not force every image into the same template.
 - Keep the bottom rail at or below 14% of image height.
 - Preserve the garment torso above the rail.
-- Favor five people; larger groups weaken product clarity and text reliability.
+- Favor five people; four-person lifestyle or catalog scenes are acceptable when the garment remains clear, and larger groups weaken product clarity and text reliability.
 - For a five-person main image, require at least three direct-to-camera gazes and prefer four. Direct gaze must outnumber off-camera gaze; any exception should follow the shared action rather than point randomly in different directions.
 
 ### Image 2
 
 - Use square 1:1 so the clean Version B works as a normal product-gallery image.
-- Use five to ten Vietnamese adults and keep the shirt fronts readable.
+- Use four to ten Vietnamese adults and keep the shirt fronts readable.
 - Do not add catalog titles, product-detail windows, feature paragraphs, website text or factory footer.
 - Keep only the Mayaodongphuc campaign logo and the centered tonal `Đồng Phục X24` garment wordmark unless the user explicitly asks for a clean image with no campaign logo.
 - Use a distinct Version B scene that differs from main in at least three dimensions: group count, formation, action, camera distance, camera angle, standing/seated balance, or environment.
@@ -127,6 +127,8 @@ Contact:
 - `../assets/approved-catalog.png`: approved catalog hierarchy using a different group-scene version from main.
 
 Together these references define the required relationship: three final files by default, backed by at least two different photographic versions. Use them for hierarchy, energy and information density, never as fixed pose, map-reading story, lake-and-mountain setting or fixed left-side layout template. Do not copy their yellow/teal palette or any garment logos shown in the benchmarks when the supplied garment uses different colors.
+
+Minor visual defects are acceptable when they do not materially confuse the shopper or misrepresent the product: slight campaign-logo stylization, small tonal wordmark placement/scale variations, modest scene repetition, minor non-required text issues, and non-obstructive overlay quirks should pass. Do not accept source branding, wrong hotline, wrong website/domain, wrong tenant logo, missing garment identity, or major anatomy/artifact problems.
 
 ## Web delivery derivatives
 

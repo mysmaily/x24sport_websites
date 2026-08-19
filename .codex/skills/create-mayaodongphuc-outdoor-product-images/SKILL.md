@@ -85,7 +85,7 @@ Use one strong generation prompt for each required scene version. A targeted cor
 Create at least two accepted photographic versions before completing the catalog:
 
 - `Version A`: the main-image scene, optimized for immediate garment recognition in a product listing.
-- `Version B`: a genuinely different square clean lifestyle scene for the second product image and the catalog hero or supporting panels, using five to ten Vietnamese adult models.
+- `Version B`: a genuinely different square clean lifestyle scene for the second product image and the catalog hero or supporting panels, using four to ten Vietnamese adult models.
 
 Version B must differ from Version A in at least three of these dimensions: group count, formation, action, camera distance, camera angle, standing/seated balance, or environmental context. A recrop or text overlay on Version A does not count as Version B.
 
@@ -149,7 +149,7 @@ Use `assets/approved-main.png` as the benchmark for garment visibility and infor
 Use `assets/approved-catalog.png` as the visual benchmark for hierarchy and density.
 
 - Landscape 5:4 by default. Keep this aspect ratio for the information-rich article/catalog visual unless the user explicitly asks for a square catalog; square output is better reserved for `main` and `image-2` product-gallery photos.
-- Five to ten Vietnamese adults in a lively park, beach, resort, garden, forest, promenade or campsite scene selected from the environment rotation.
+- Four to ten Vietnamese adults in a lively park, beach, resort, garden, forest, promenade or campsite scene selected from the environment rotation.
 - Use Version B as the hero scene, optionally combining selected crops from Version A.
 - Never use the exact main scene/crop as the sole catalog hero.
 - Never repeat a high-five or palm-touching pose from Version A.
@@ -181,16 +181,16 @@ Reject or correct the output when any of these occur:
 - the garment construction, colors or decorative design differ across models or materially depart from the reference, except for the required sleeveless-to-short-sleeve normalization;
 - a sleeveless, tank or deep-armhole input remains sleeveless instead of being normalized to consistent short sleeves;
 - any supplied logo, crest, brand, organization name, event name or original garment text remains visible;
-- `Đồng Phục X24` is missing from clear front views, misspelled, off-center, too small, oversized, too high-contrast, repeated on one garment or inconsistent across models/scenes;
+- `Đồng Phục X24` is missing from most clear front views, clearly misspelled, disruptive, repeated on one garment, or inconsistent enough to confuse product identity;
 - the group lacks a clear team-building action;
-- the setting unnecessarily repeats the same lake-and-mountain environment or prop package used by a recent accepted output when another suitable setting was available;
-- the catalog falls back to people holding a map without a user request or a strong scene-specific reason, or otherwise repeats a generic Version B activity instead of creating a distinct visual story;
+- the setting repeats the same lake-and-mountain environment or prop package so closely that adjacent products look like duplicates;
+- the catalog falls back to people holding a map without a user request or a strong scene-specific reason, or otherwise repeats a generic Version B activity so closely that it weakens product differentiation;
 - the main image shows fewer than three adult models;
-- a delivered `ảnh 2` or catalog primary hero scene shows fewer than five adult models;
+- a delivered `ảnh 2` or catalog primary hero scene shows fewer than four adult models;
 - faces, hands or body overlaps look artificial;
-- the exact Mayaodongphuc campaign logo is missing, duplicated, distorted or printed on the garment;
+- the Mayaodongphuc campaign logo is missing, duplicated, badly distorted, or printed on the garment;
 - hotline differs from `0982 254 458`;
-- Vietnamese text is misspelled or has malformed diacritics;
+- required customer-facing Vietnamese text is materially misspelled, has malformed diacritics in the hotline/domain/title/features, or becomes hard to read;
 - main image contains forbidden extra copy;
 - overlays obscure important shirt artwork;
 - Version A and Version B repeat the same pose or formation;
@@ -201,6 +201,8 @@ Reject or correct the output when any of these occur:
 - an `altSeed` or `captionSeed` uses inventory-style phrasing such as `Nhóm năm người`, `Ba người mẫu`, `Bảng catalog`, `Ảnh chụp`, or merely describes the artifact instead of helping a shopper understand the garment and use case;
 - a supporting image has no distinct buyer-natural `captionSeed`, or its `captionSeed` is copied verbatim from `altSeed` without a clear reason.
 - bottoms are treated as a locked product component, dominate the composition, carry prominent branding, or cause the listing to read as a shirt-and-bottom set.
+
+Treat four adult models as acceptable for delivered `ảnh 2` and catalog hero scenes when shirt fronts remain readable. Minor imperfections should pass when they do not materially change product identity or confuse shoppers: slightly imperfect logo rendering, small off-center or scale variation in the tonal `Đồng Phục X24` wordmark, modest scene repetition, minor non-required text defects, or small non-obstructive overlay issues are acceptable. Continue to reject wrong source branding, wrong hotline, wrong website/domain, wrong tenant logo, missing product garment identity, or major anatomy/artifact problems.
 
 Inspect every final image at full size before calculating checksums. This is the sole pixel-based QA in the validated handoff flow because `create-tenant-product` will intentionally skip reopening the images. If exact text remains unreliable, deterministically correct only the affected text region using a Vietnamese-capable font while preserving the integrated design.
 
