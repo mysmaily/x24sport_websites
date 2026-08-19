@@ -62,7 +62,7 @@ Read these before acting:
 
 5. Upload media and create/update product:
    - Load only the requested tenant's REST secret from its profile.
-   - Convert every local input image to WebP quality 92 before upload. Upload only the converted `.webp` bytes with `POST /api/media`, `_payload.tenant`, factual `alt`, `searchTags`, `sourceSystem`, `sourceId`, `sourceChecksum`. The checksum and filename should describe the converted WebP bytes, not the original PNG/JPEG source. Uploaded filenames should be based on the product slug plus an image role such as `anh-chinh` or `anh-2`; use media `filenameBase` only when a clearer product-specific basename is needed.
+   - Convert local input images to the requested upload format before upload. Default to WebP quality 92, but use `uploadFormat: "png"` for text-heavy generated product/catalog images where WebP or CDN recompression creates visible edge artifacts. Upload only the converted upload bytes with `POST /api/media`, `_payload.tenant`, factual `alt`, `searchTags`, `sourceSystem`, `sourceId`, `sourceChecksum`. The checksum and filename should describe the converted upload bytes, not the original PNG/JPEG source. Uploaded filenames should be based on the product slug plus an image role such as `anh-chinh` or `anh-2`; use media `filenameBase` only when a clearer product-specific basename is needed.
    - Create or patch `/api/products` with `gallery` as all uploaded media IDs in desired order.
    - Do not upload duplicate files for editorial placement. Reuse gallery media IDs/URLs. On a supporting storefront, render `gallery[1..n]` after the long description as semantic `<figure><img><figcaption>` blocks; keep the primary image only in the gallery/hero area.
    - Give contextual images explicit dimensions or an aspect ratio, `loading="lazy"`, and `decoding="async"`. Use reviewed media facts as the basis for `alt` and caption, but do not blindly reuse alt text as visible caption. If another storefront only renders `media.alt` as the caption, apply the same reviewed hybrid rule and report the limitation. Do not silently expose raw analysis notes.
@@ -83,7 +83,7 @@ Read these before acting:
 
 ## Helper Script
 
-Use `scripts/upsert-product.mjs` for routine REST publishing after the copy and tags are ready. The helper converts local media to WebP quality 92 before upload.
+Use `scripts/upsert-product.mjs` for routine REST publishing after the copy and tags are ready. The helper converts local media to WebP quality 92 by default and supports `uploadFormat: "png"` for lossless uploads.
 
 Example:
 

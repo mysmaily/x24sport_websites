@@ -132,7 +132,9 @@ Benchmark: `assets/approved-catalog.png` cho hierarchy và density.
 
 - Landscape 5:4.
 - Bốn đến mười model trong bối cảnh lớp/trường/CLB rõ ràng.
-- Dùng Version B làm hero, có thể kết hợp crop/detail từ Version A.
+- Ưu tiên dùng Version B đã được duyệt làm hero/base catalog. Không regenerate lại toàn bộ nhóm người nếu ảnh 2 đã đẹp; chỉ mở rộng canvas, blend vùng thông tin, và thêm close-up/detail windows từ ảnh sản phẩm đã duyệt hoặc crop cùng thiết kế.
+- Khi cần generate catalog sau ảnh 2, đưa ảnh 2 vào reference và yêu cầu giữ nguyên nhóm người, mặt, áo, text áo và ánh sáng ở vùng hero; thao tác chính là thiết kế layout catalog quanh ảnh đó.
+- Chỉ dựng scene catalog mới khi ảnh 2 không đủ chỗ âm bản, thiếu số người, hoặc không thể dùng làm hero.
 - Không dùng nguyên main scene/crop làm catalog hero duy nhất.
 - Blend information field mềm vào vùng có negative space, trái/phải đều được.
 - Dùng một title pair, một slogan, bốn product properties, bốn close-up windows, factory footer, hotline và website theo `references/approved-output-contract.md`.
@@ -186,6 +188,8 @@ Tạo output dưới:
 - Handoff: `generated/tao-anh-dong-phuc-lop-truong-hoc/mayaodongphuc-<product>/product-handoff.json`
 
 PNG là master. Tính SHA-256 sau khi lưu pixel final, viết manifest từ đúng file đó, rồi chạy:
+
+Khi publish qua `create-tenant-product`, dùng `uploadFormat: "png"` cho bộ ảnh generated có text/logo để tránh răng cưa hoặc vỡ chữ do WebP/CDN recompression. Chỉ dùng WebP khi ảnh đã được kiểm tra sau upload và mép chữ/logo vẫn sạch.
 
 ```bash
 python3 scripts/validate_product_handoff.py \

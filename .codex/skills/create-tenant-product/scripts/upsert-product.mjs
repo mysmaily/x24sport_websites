@@ -109,27 +109,41 @@ function webpQuality(item = {}) {
   return Math.round(quality)
 }
 
+function uploadFormat(item = {}) {
+  const configured = item.uploadFormat ?? input.uploadFormat ?? 'webp'
+  const format = String(configured).toLowerCase()
+  if (!['webp', 'png'].includes(format)) {
+    throw new Error(`uploadFormat must be "webp" or "png", got ${configured}`)
+  }
+  return format
+}
+
 function uploadFilenameBase(item, index) {
   const explicit = item.filenameBase || item.uploadFilenameBase
   const fallback = index === 0 ? `${input.product.slug}-anh-chinh` : `${input.product.slug}-anh-${index + 1}`
   return slugify(explicit || fallback) || 'media'
 }
 
-async function webpUploadAsset(item, index) {
+async function uploadAsset(item, index) {
   const filePath = item.path
   const sourceBuffer = await readFile(filePath)
+  const format = uploadFormat(item)
   sharpModule ||= await loadSharp()
-  const buffer = await sharpModule(sourceBuffer)
-    .rotate()
-    .webp({ quality: webpQuality(item) })
-    .toBuffer()
+  const pipeline = sharpModule(sourceBuffer).rotate()
+  const buffer = format === 'png'
+    ? await pipeline.png({ compressionLevel: 9 }).toBuffer()
+    : await pipeline.webp({
+        quality: webpQuality(item),
+        lossless: Boolean(item.webpLossless ?? input.webpLossless),
+        nearLossless: Boolean(item.webpNearLossless ?? input.webpNearLossless),
+      }).toBuffer()
   const checksum = createHash('sha256').update(buffer).digest('hex')
   const basename = uploadFilenameBase(item, index)
   return {
     buffer,
     checksum,
-    filename: `${basename}-${checksum.slice(0, 12)}.webp`,
-    mimeType: 'image/webp',
+    filename: `${basename}-${checksum.slice(0, 12)}.${format}`,
+    mimeType: format === 'png' ? 'image/png' : 'image/webp',
   }
 }
 
@@ -226,7 +240,7 @@ async function findExistingProduct(product) {
 
 async function uploadMedia(tenantId, item, index) {
   if (!item.path || !existsSync(item.path)) throw new Error(`Media file not found: ${item.path}`)
-  const upload = await webpUploadAsset(item, index)
+  const upload = await uploadAsset(item, index)
   const checksum = upload.checksum
   const sourceId = item.sourceId || `${input.sourceId || input.product.slug}-image-${index + 1}-${checksum.slice(0, 12)}`
   const forceUploadForFilename = Boolean(item.forceUploadForFilename)
