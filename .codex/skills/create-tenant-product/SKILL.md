@@ -37,7 +37,7 @@ Read these before acting:
    - Validated-handoff fast path: when the producer-specific validator passes for every publishing image and the manifest declares `consumerPolicy.visualInspection=not-required-after-validation`, do not call `view_image`, OCR, image search, or any other pixel-analysis tool. Trust the producer's accepted visual facts, roles, tags, `altSeed`, `captionSeed`, caveats and unsupported-claim boundary. The matching checksums prove that the handed-off facts refer to the exact bytes being published.
    - On the fast path, the user's explicit non-visual brief still overrides manifest suggestions such as audience or commercial positioning. Do not invent a pixel conflict or reopen the images merely to double-check the producer.
    - Treat handoff `sourceTransformations` as private production provenance. Use `garmentFacts` for the final listing and do not tell shoppers that a sleeveless source was converted. For this Mayaodongphuc producer, a sleeve normalization means the published garment is an ordinary short-sleeve shirt.
-   - For a validated Mayaodongphuc handoff with `publishingIntent.action=publish`, continue through REST mutation and public verification in the same task. Use quote-only commerce defaults, derive stable `sourceId` from `producerSkill + acceptedImages[0].sha256`, and query existing tenant products before allocating the next available `MDP-DN-###` SKU. A retry must update the existing product rather than consume another SKU.
+   - For a validated Mayaodongphuc handoff with `publishingIntent.action=publish`, continue through REST mutation and fast public verification in the same task. Use quote-only commerce defaults, derive stable `sourceId` from `producerSkill + acceptedImages[0].sha256`, and query existing tenant products before allocating the next available `MDP-DN-###` SKU. A retry must update the existing product rather than consume another SKU.
    - If no manifest exists, it is unreadable, validation fails, its schema is unsupported, it omits an input image, or a checksum differs, do not block solely because of the manifest. Perform the complete image analysis below and record that fallback was used.
    - Full analysis must identify sport/use case, garment type, collar/sleeve/form, gender/audience, dominant and accent colors, pattern/graphic style, approved logos/text, pose/view/context, and likely buyer use case for every image.
    - Never infer fabric composition, named printing technology, durability metrics, discounts, stock, sponsorship, or licensing from either pixels or a `restrained-default` overlay claim.
@@ -74,9 +74,10 @@ Read these before acting:
    - Categories are from the intended tenant.
    - Gallery media belongs to the tenant or is explicitly shared with it.
    - Media URLs return 200.
-   - Public product URL returns 200 after the tenant revalidation window.
-   - Rendered H1/title, meta description, canonical, price/contact state, gallery alt text, category page inclusion, sitemap inclusion for published products, and search/tag behavior are correct.
-   - For products with multiple images, the rendered page contains one contextual `<figure>` for each non-primary gallery image, a visible factual `<figcaption>`, no duplicate media record, no eager loading of below-description images, and no mobile horizontal overflow.
+   - Public product URL returns HTTP 200. Do not wait for the tenant cache/revalidation window once the create/update response and public product URL are both 200.
+   - Fast page checks should cover rendered H1/title, canonical, and gallery/media presence when available in the first public product response.
+   - Category page inclusion, sitemap inclusion, search/tag behavior, and other cache/revalidation-dependent storefront checks are optional deeper verification. Run them only when the user explicitly requests full verification or troubleshooting.
+   - For products with multiple images, check the rendered product page for one contextual `<figure>` for each non-primary gallery image, a visible factual `<figcaption>`, and no duplicate media record when those checks are available in the first public product response. Do not wait solely to prove these refreshed after cache.
    - Run a sibling-tenant isolation query when doing batch or cross-tenant work.
    - Report whether a validated handoff or full-analysis fallback supplied the visual facts.
 
@@ -107,7 +108,7 @@ Report:
 - Tenant/domain and category.
 - Product action: created, updated, or draft only.
 - Product ID, slug, SKU/source identity, media IDs, and public URL.
-- Verification evidence, including API ownership and public URL status.
+- Verification evidence, including API ownership, media URL status, and public product URL status. Note when cache-dependent category, sitemap, or search checks were intentionally skipped.
 - Contextual image result for multi-image products: rendered count, caption source, and whether existing media was reused.
 - Handoff result: manifest path, schema version, producer skill, validator used, and whether `captionSeed` or full-analysis fallback supplied contextual copy.
 - Visual-analysis result: explicitly report `skipped—validated checksum handoff` on the fast path; otherwise report why fallback image analysis was necessary.

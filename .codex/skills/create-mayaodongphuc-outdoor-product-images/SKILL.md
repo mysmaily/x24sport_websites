@@ -25,7 +25,7 @@ Read `references/approved-output-contract.md` before generating. Read `reference
 - Default target: tenant `mayaodongphuc`, domain `mayaodongphuc.com.vn`, category `dong-phuc-da-ngoai-team-building`.
 - Default commercial state: `publicationStatus=publish`, no invented price, quote-only, `isPurchasable=false`, `stockStatus=instock`, currency `VND`.
 - Do not ask again for tenant, category, price or publish state. The user may override the publication action with `draft` or `images-only`; this Mayaodongphuc-specific skill keeps its documented tenant, category and quote-only commerce scope fixed.
-- Image generation is not complete on the default path until the downstream product is created or updated idempotently and its public URL is verified. If REST credentials or CMS availability block publishing, preserve the validated files and handoff, report the exact blocker, and do not claim the product was posted.
+- Image generation is not complete on the default path until the downstream product is created or updated idempotently and its public product URL returns HTTP 200. Do not wait for the tenant cache/revalidation window just to prove category pages, sitemap, or search have refreshed; treat those as optional deeper checks only when the user explicitly asks. If REST credentials or CMS availability block publishing, preserve the validated files and handoff, report the exact blocker, and do not claim the product was posted.
 
 ## Lock the product
 
@@ -224,4 +224,4 @@ python3 scripts/validate_product_handoff.py \
   --require-default-set
 ```
 
-Set `consumerPolicy.visualInspection` to `not-required-after-validation`. Set `publishingIntent.action` to `publish` on the default path, `draft` when requested, or `images-only` when the user explicitly disables CMS mutation. Do not claim the set is ready for product publishing unless validation passes. On the default path, immediately pass the manifest and images into `create-tenant-product` so the consumer can use its no-view fast path; do not end the task after merely returning local files. Return the rendered images, absolute paths, manifest validation result, CMS action, product identity and verified public URL.
+Set `consumerPolicy.visualInspection` to `not-required-after-validation`. Set `publishingIntent.action` to `publish` on the default path, `draft` when requested, or `images-only` when the user explicitly disables CMS mutation. Do not claim the set is ready for product publishing unless validation passes. On the default path, immediately pass the manifest and images into `create-tenant-product` so the consumer can use its no-view fast path; do not end the task after merely returning local files. Return the rendered images, absolute paths, manifest validation result, CMS action, product identity and verified public product URL. Do not wait for cache/revalidation-dependent category, sitemap, or search verification unless the user asks for those checks.

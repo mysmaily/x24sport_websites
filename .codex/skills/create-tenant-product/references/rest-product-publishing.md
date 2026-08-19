@@ -99,9 +99,9 @@ Run API checks:
 - Media URLs with `curl -I`.
 - Category counts for every affected category.
 
-Run public checks after the tenant revalidation window:
+Run fast public checks without waiting for the tenant revalidation window:
 
 - Product URL `https://<domain>/san-pham/<slug>/` or profile-specific path.
-- Category URL contains/loads the product.
-- Search URL finds the product by one media tag and one product tag.
-- Published products appear in sitemap; drafts should not be public.
+- The product URL returning HTTP 200 is sufficient for the default publish workflow after the REST create/update succeeds.
+- Category URL inclusion, search URL discovery, and sitemap inclusion are cache/revalidation-dependent deeper checks. Run them only when the user explicitly requests full verification or troubleshooting.
+- Drafts should not be public when the requested action is draft.
