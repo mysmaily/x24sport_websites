@@ -5,6 +5,7 @@ const TENANT_SLUG = 'mayaodongphuc'
 const REVALIDATE = 180
 
 type ApiList<T> = { docs: T[]; totalDocs: number; totalPages: number; page: number }
+type SearchTag = { value?: string | null }
 export type UniformCategory = {
   id: number | string
   name: string
@@ -13,7 +14,7 @@ export type UniformCategory = {
   order?: number
   productCount?: number
 }
-type UniformMedia = ProductMediaGalleryImage & { url?: string }
+type UniformMedia = ProductMediaGalleryImage & { url?: string; searchTags?: SearchTag[] | null }
 type UniformAttribute = { name?: string; values?: Array<{ value?: string }> }
 type UniformBadge = { label?: string }
 type RichTextNode = { text?: string; children?: RichTextNode[] }
@@ -30,8 +31,44 @@ export type UniformProduct = {
   sourceModifiedAt?: string
   categories?: Array<number | string | UniformCategory>
   gallery?: Array<number | string | UniformMedia>
+  searchTags?: SearchTag[] | null
   attributes?: UniformAttribute[]
   badges?: UniformBadge[]
+}
+export type UniformColorFilter = { count: number; href: string; indexable: boolean; label: string; slug: string }
+
+export const INDEXABLE_UNIFORM_COLOR_SLUGS = new Set([
+  'mau-trang',
+  'mau-den',
+  'mau-do',
+  'mau-vang',
+  'mau-cam',
+  'mau-hong',
+  'mau-tim',
+  'mau-xanh',
+  'mau-xanh-bich',
+  'mau-xanh-duong',
+  'mau-xanh-la',
+  'mau-xanh-ngoc',
+  'mau-xanh-than',
+  'mau-kem',
+])
+
+const UNIFORM_COLOR_LABELS: Record<string, string> = {
+  'mau-cam': 'màu cam',
+  'mau-den': 'màu đen',
+  'mau-do': 'màu đỏ',
+  'mau-hong': 'màu hồng',
+  'mau-kem': 'màu kem',
+  'mau-tim': 'màu tím',
+  'mau-trang': 'màu trắng',
+  'mau-vang': 'màu vàng',
+  'mau-xanh': 'màu xanh',
+  'mau-xanh-bich': 'màu xanh bích',
+  'mau-xanh-duong': 'màu xanh dương',
+  'mau-xanh-la': 'màu xanh lá',
+  'mau-xanh-ngoc': 'màu xanh ngọc',
+  'mau-xanh-than': 'màu xanh than',
 }
 
 async function fetchList<T>(collection: string, params: URLSearchParams): Promise<ApiList<T>> {
@@ -61,7 +98,8 @@ export async function getUniformCategory(slug: string) {
   return (await fetchList<UniformCategory>('product-categories', params)).docs[0]
 }
 
-export async function getUniformProducts(options: { categorySlug?: string; limit?: number; page?: number; sort?: string } = {}) {
+export async function getUniformProducts(options: { categorySlug?: string; colorSlug?: string; limit?: number; page?: number; sort?: string } = {}) {
+  if (options.colorSlug) return getUniformProductsByColor({ ...options, colorSlug: options.colorSlug })
   const params = baseParams(2)
   params.set('where[publicationStatus][equals]', 'publish')
   if (options.categorySlug) params.set('where[categories.slug][equals]', options.categorySlug)
@@ -70,6 +108,65 @@ export async function getUniformProducts(options: { categorySlug?: string; limit
   params.set('sort', options.sort || '-featured,-createdAt')
   try { return await fetchList<UniformProduct>('products', params) }
   catch (error) { console.error('Unable to load May Áo Đồng Phục products.', error); return { docs: [], totalDocs: 0, totalPages: 0, page: 1 } }
+}
+
+async function getUniformProductsByColor(options: { categorySlug?: string; colorSlug: string; limit?: number; page?: number; sort?: string }) {
+  const page = Math.max(1, options.page || 1)
+  const limit = options.limit || 24
+  const products = await getAllUniformProductsForColorCounts(options.categorySlug, options.sort)
+  const docs = products.filter((product) => productColorSlugs(product).includes(options.colorSlug))
+  const totalPages = Math.ceil(docs.length / limit)
+  const start = (page - 1) * limit
+  return { docs: docs.slice(start, start + limit), totalDocs: docs.length, totalPages, page }
+}
+
+async function getAllUniformProductsForColorCounts(categorySlug?: string, sort = '-featured,-createdAt') {
+  const params = baseParams(2)
+  params.set('where[publicationStatus][equals]', 'publish')
+  if (categorySlug) params.set('where[categories.slug][equals]', categorySlug)
+  params.set('limit', '300')
+  params.set('page', '1')
+  params.set('sort', sort)
+  try { return (await fetchList<UniformProduct>('products', params)).docs }
+  catch (error) { console.error('Unable to load May Áo Đồng Phục color products.', error); return [] }
+}
+
+export async function getUniformColorFilters({ basePath, categorySlug, sort }: { basePath: string; categorySlug?: string; sort?: string }) {
+  const products = await getAllUniformProductsForColorCounts(categorySlug, sort)
+  const counts = new Map<string, { label: string; productIds: Set<string> }>()
+  for (const product of products) {
+    for (const color of productColorsFromSearchTags(product)) {
+      const current = counts.get(color.slug) || { label: color.label, productIds: new Set<string>() }
+      current.productIds.add(String(product.id))
+      counts.set(color.slug, current)
+    }
+  }
+  return [...counts.entries()]
+    .map(([slug, value]) => ({
+      count: value.productIds.size,
+      href: uniformColorHref(basePath, slug),
+      indexable: INDEXABLE_UNIFORM_COLOR_SLUGS.has(slug),
+      label: value.label,
+      slug,
+    }))
+    .filter((item) => item.count > 0)
+    .sort((a, b) => b.count - a.count || Number(b.indexable) - Number(a.indexable) || a.label.localeCompare(b.label, 'vi'))
+}
+
+export function isIndexableUniformColorSlug(slug?: string) {
+  return Boolean(slug && INDEXABLE_UNIFORM_COLOR_SLUGS.has(slug))
+}
+
+export function uniformColorHref(basePath: string, slug: string) {
+  if (INDEXABLE_UNIFORM_COLOR_SLUGS.has(slug)) return `${basePath}${slug}/`
+  const params = new URLSearchParams({ mau: slug })
+  return `${basePath}?${params}`
+}
+
+export function uniformColorLabelFromSlug(slug?: string) {
+  if (!slug) return undefined
+  if (UNIFORM_COLOR_LABELS[slug]) return UNIFORM_COLOR_LABELS[slug]
+  return slug.replace(/^mau-/, 'màu ').replace(/-/g, ' ')
 }
 
 export async function getUniformProduct(slug: string) {
@@ -115,6 +212,46 @@ export function productColors(product: UniformProduct) {
     'MDP-SK-006': ['#f1eadb', '#1955a6', '#a9573b'],
   }
   return palettes[product.sku || ''] || ['#1c1917', '#a16207', '#f0eeeb']
+}
+
+function productColorsFromSearchTags(product: UniformProduct) {
+  const tags = [
+    ...(product.searchTags || []),
+    ...(product.gallery || [])
+      .filter((item): item is UniformMedia => typeof item === 'object')
+      .flatMap((item) => item.searchTags || []),
+  ]
+  const colors = new Map<string, { label: string; slug: string }>()
+  for (const tag of tags) {
+    const color = normalizeColorTag(tag.value)
+    if (color) colors.set(color.slug, color)
+  }
+  return [...colors.values()]
+}
+
+function productColorSlugs(product: UniformProduct) {
+  return productColorsFromSearchTags(product).map((color) => color.slug)
+}
+
+function normalizeColorTag(value?: string | null) {
+  const raw = value?.trim()
+  if (!raw) return null
+  const readable = raw.replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').toLocaleLowerCase('vi-VN')
+  const withPrefix = /^(màu|mau)\s+/.test(readable) ? readable : ''
+  if (!withPrefix) return null
+  const label = withPrefix.replace(/^mau\s+/, 'màu ')
+  const slug = slugifyVietnamese(label)
+  return slug.startsWith('mau-') ? { label, slug } : null
+}
+
+function slugifyVietnamese(value: string) {
+  return value
+    .toLocaleLowerCase('vi-VN')
+    .replace(/đ/g, 'd')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 export function cleanContentHtml(value?: string) {
