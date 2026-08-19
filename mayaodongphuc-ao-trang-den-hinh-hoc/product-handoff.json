@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "1.0",
+  "producerSkill": "create-mayaodongphuc-outdoor-product-images",
+  "createdAt": "2026-08-19T09:05:47+07:00",
+  "consumerPolicy": {
+    "visualInspection": "not-required-after-validation"
+  },
+  "publishingIntent": {
+    "action": "publish",
+    "tenantSlug": "mayaodongphuc",
+    "domain": "mayaodongphuc.com.vn",
+    "categorySlug": "dong-phuc-da-ngoai-team-building",
+    "pricingMode": "quote-only",
+    "isPurchasable": false,
+    "stockStatus": "instock",
+    "currency": "VND"
+  },
+  "sourceTransformations": [
+    {
+      "field": "sleeves",
+      "from": "áo sát nách cổ V với khoét nách sâu",
+      "to": "tay ngắn set-in",
+      "reason": "chuẩn hóa đồng phục dã ngoại"
+    }
+  ],
+  "sourceReferences": [
+    {
+      "path": "/var/folders/fv/wyb213_s6wx9l061qx0h5m400000gn/T/codex-clipboard-573525fa-27ee-4bf3-9aa2-2ca14f499006.png",
+      "classification": "exact garment design with source branding removed"
+    }
+  ],
+  "acceptedImages": [
+    {
+      "path": "/Users/hoang/hacado/x24sport_websites/mayaodongphuc-ao-trang-den-hinh-hoc/mayaodongphuc-ao-trang-den-hinh-hoc-main.png",
+      "sha256": "20934ff23a2dae352b92fd2c46b29200714f405e82b8aea3f3963d430f32eef6",
+      "role": "product hero",
+      "aspectRatio": "1:1",
+      "modelCount": 5,
+      "altSeed": "Đội nhóm mặc áo trắng đen cổ V tay ngắn trong hoạt động dã ngoại tại công viên ven sông.",
+      "captionSeed": "Mẫu áo trắng đen cổ V nổi bật nhờ họa tiết hình học tinh tế và form thể thao dễ mặc cho đội nhóm.",
+      "visualTags": [
+        "đồng phục dã ngoại",
+        "áo trắng đen",
+        "cổ V",
+        "tay ngắn",
+        "họa tiết hình học",
+        "công viên ven sông"
+      ],
+      "productPlacement": {
+        "gallery": true,
+        "contentEmbed": false,
+        "contentOrder": null
+      },
+      "overlay": {
+        "campaignLogo": "mayaodongphuc-logo.png",
+        "garmentWordmark": "Đồng Phục X24",
+        "hotline": "0982 254 458"
+      }
+    },
+    {
+      "path": "/Users/hoang/hacado/x24sport_websites/mayaodongphuc-ao-trang-den-hinh-hoc/mayaodongphuc-ao-trang-den-hinh-hoc-catalog.png",
+      "sha256": "f36778eab0ac53cae9bb5cd0c12d950dfc07980cc3f26b6fa3edead84b06108d",
+      "role": "content-inline catalog",
+      "aspectRatio": "5:4",
+      "modelCount": 6,
+      "altSeed": "Áo trắng đen cổ V tay ngắn dùng cho team building ngoài trời, kèm thông tin đặt may đồng phục.",
+      "captionSeed": "Thiết kế trắng đen sạch mắt, họa tiết chìm và mảng vai mạnh mẽ giúp đội nhóm lên hình đồng bộ trong buổi dã ngoại.",
+      "visualTags": [
+        "catalog đồng phục",
+        "áo trắng đen",
+        "team building",
+        "cổ V",
+        "tay ngắn",
+        "hotline",
+        "picnic meadow"
+      ],
+      "productPlacement": {
+        "gallery": true,
+        "contentEmbed": true,
+        "contentOrder": 1
+      },
+      "overlay": {
+        "campaignLogo": "mayaodongphuc-logo.png",
+        "garmentWordmark": "Đồng Phục X24",
+        "title": "ĐỒNG PHỤC DÃ NGOẠI",
+        "hotline": "0982 254 458",
+        "website": "mayaodongphuc.com.vn"
+      }
+    }
+  ],
+  "garmentFacts": {
+    "productType": "áo thun đồng phục dã ngoại",
+    "collar": "cổ V viền đen",
+    "sleeves": "tay ngắn",
+    "fit": "form thể thao nhìn thấy trong ảnh",
+    "colors": [
+      "trắng kem",
+      "đen",
+      "xám nhạt"
+    ],
+    "pattern": "họa tiết hình học line-art màu xám nhạt ở thân dưới, mảng đen ở vai và hai bên hông",
+    "approvedArtwork": [
+      "Đồng Phục X24 đặt giữa ngực bằng màu tonal"
+    ],
+    "removedArtwork": [
+      "logo crest màu đen nhỏ ở ngực trái trên áo tham chiếu"
+    ],
+    "visibleSides": [
+      "front"
+    ]
+  },
+  "audiences": [
+    "doanh nghiệp",
+    "đội nhóm",
+    "câu lạc bộ",
+    "lớp học"
+  ],
+  "useCases": [
+    "dã ngoại",
+    "picnic",
+    "team building",
+    "sự kiện nhóm"
+  ],
+  "featureLock": {
+    "fabric": {
+      "copy": "Thoáng mát",
+      "evidenceLevel": "provided"
+    },
+    "design": {
+      "copy": "Co giãn linh hoạt",
+      "evidenceLevel": "provided"
+    },
+    "durability": {
+      "copy": "Bền màu, dễ bảo quản",
+      "evidenceLevel": "provided"
+    },
+    "printing": {
+      "copy": "Đồng Phục X24 in tonal giữa ngực",
+      "evidenceLevel": "visible"
+    }
+  },
+  "unsupportedClaims": [
+    "fabric composition",
+    "GSM",
+    "named printing process",
+    "wash-cycle count",
+    "fixed delivery time",
+    "fixed price"
+  ],
+  "fidelityCaveats": [
+    "Mặt sau không được suy diễn vì ảnh tham chiếu không cung cấp thiết kế lưng."
+  ],
+  "suggestedCategory": {
+    "name": "Đồng phục dã ngoại - team building",
+    "slug": "dong-phuc-da-ngoai-team-building"
+  },
+  "copySeeds": [
+    "đồng phục dã ngoại",
+    "áo team building",
+    "áo trắng đen cổ V",
+    "họa tiết hình học",
+    "may nhanh số lượng lớn",
+    "đặt may theo yêu cầu"
+  ]
+}

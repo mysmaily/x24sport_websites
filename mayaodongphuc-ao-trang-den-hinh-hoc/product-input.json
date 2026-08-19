@@ -1,0 +1,130 @@
+{
+  "tenantSlug": "mayaodongphuc",
+  "domain": "mayaodongphuc.com.vn",
+  "webpQuality": 98,
+  "sourceSystem": "create-mayaodongphuc-outdoor-product-images",
+  "sourceId": "create-mayaodongphuc-outdoor-product-images:20934ff23a2dae352b92fd2c46b29200714f405e82b8aea3f3963d430f32eef6",
+  "categorySlugs": [
+    "dong-phuc-da-ngoai-team-building"
+  ],
+  "product": {
+    "name": "Áo dã ngoại trắng đen cổ V họa tiết hình học cho đội nhóm",
+    "slug": "ao-da-ngoai-trang-den-co-v-hoa-tiet-hinh-hoc",
+    "sku": "MDP-DN-045",
+    "sport": "other",
+    "productType": "simple",
+    "publicationStatus": "publish",
+    "featured": false,
+    "currency": "VND",
+    "stockStatus": "instock",
+    "isPurchasable": false,
+    "isOnBackorder": false,
+    "shortDescription": "Mẫu áo dã ngoại trắng đen cổ V, tay ngắn, họa tiết hình học chìm và mảng vai mạnh mẽ. Phù hợp đặt may đồng phục team building số lượng lớn.",
+    "descriptionParagraphs": [
+      "Mẫu áo dã ngoại trắng đen cổ V dành cho đội nhóm cần một thiết kế sạch mắt, dễ mặc và lên hình đồng bộ trong các buổi picnic, team building hoặc sự kiện ngoài trời.",
+      "Thân áo trắng kem kết hợp viền cổ đen, mảng vai sắc gọn và panel đen hai bên hông. Họa tiết hình học xám nhạt ở thân dưới tạo chiều sâu nhưng vẫn giữ tổng thể gọn gàng, chuyên nghiệp.",
+      "Form tay ngắn thể thao giúp đội nhóm vận động thoải mái hơn trong các hoạt động ngoài trời. Quần hoặc chân váy trong ảnh chỉ là phối cảnh styling; sản phẩm chính là áo đồng phục đặt may theo yêu cầu.",
+      "Mayaodongphuc hỗ trợ tinh chỉnh màu sắc, logo, tên nhóm và thông điệp nhận diện để phù hợp doanh nghiệp, lớp học, câu lạc bộ hoặc đoàn thể.",
+      "Các thông tin như chất liệu cụ thể, định lượng vải, kỹ thuật in và báo giá sẽ được tư vấn theo số lượng, thời gian cần hàng và yêu cầu hoàn thiện của từng đơn."
+    ],
+    "attributes": [
+      {
+        "name": "Dòng áo",
+        "values": [
+          "Đồng phục dã ngoại - team building"
+        ]
+      },
+      {
+        "name": "Kiểu cổ",
+        "values": [
+          "Cổ V"
+        ]
+      },
+      {
+        "name": "Tay áo",
+        "values": [
+          "Tay ngắn"
+        ]
+      },
+      {
+        "name": "Màu sắc",
+        "values": [
+          "Trắng kem",
+          "Đen",
+          "Xám nhạt"
+        ]
+      },
+      {
+        "name": "Họa tiết",
+        "values": [
+          "Hình học chìm",
+          "Mảng vai đen",
+          "Panel hông đen"
+        ]
+      },
+      {
+        "name": "Hình thức đặt may",
+        "values": [
+          "May theo yêu cầu",
+          "Số lượng lớn",
+          "Tư vấn báo giá"
+        ]
+      }
+    ],
+    "badges": [
+      "Đặt may",
+      "May nhanh - số lượng lớn",
+      "Team building"
+    ],
+    "searchTags": [
+      "đồng phục dã ngoại",
+      "áo team building",
+      "áo trắng đen",
+      "áo cổ V",
+      "áo tay ngắn",
+      "họa tiết hình học",
+      "đồng phục công ty",
+      "áo lớp dã ngoại",
+      "may áo số lượng lớn",
+      "đặt may theo yêu cầu"
+    ],
+    "seoTitle": "Áo dã ngoại trắng đen cổ V họa tiết hình học | Mayaodongphuc.com.vn",
+    "metaDescription": "Đặt may áo dã ngoại trắng đen cổ V, tay ngắn, họa tiết hình học chìm cho team building, công ty, lớp học và đội nhóm.",
+    "legacyPath": "/san-pham/ao-da-ngoai-trang-den-co-v-hoa-tiet-hinh-hoc/"
+  },
+  "media": [
+    {
+      "path": "/Users/hoang/hacado/x24sport_websites/mayaodongphuc-ao-trang-den-hinh-hoc/mayaodongphuc-ao-trang-den-hinh-hoc-main.png",
+      "alt": "Mẫu áo trắng đen cổ V nổi bật nhờ họa tiết hình học tinh tế và form thể thao dễ mặc cho đội nhóm.",
+      "searchTags": [
+        "áo trắng đen",
+        "cổ V",
+        "tay ngắn",
+        "nhóm mặc áo",
+        "công viên ven sông",
+        "họa tiết hình học",
+        "ảnh chính"
+      ],
+      "sourceId": "20934ff23a2dae352b92fd2c46b29200714f405e82b8aea3f3963d430f32eef6:main",
+      "filenameBase": "ao-da-ngoai-trang-den-co-v-anh-chinh",
+      "webpQuality": 98
+    },
+    {
+      "path": "/Users/hoang/hacado/x24sport_websites/mayaodongphuc-ao-trang-den-hinh-hoc/mayaodongphuc-ao-trang-den-hinh-hoc-catalog.png",
+      "alt": "Thiết kế trắng đen sạch mắt, họa tiết chìm và mảng vai mạnh mẽ giúp đội nhóm lên hình đồng bộ trong buổi dã ngoại.",
+      "searchTags": [
+        "catalog đồng phục",
+        "áo trắng đen",
+        "team building",
+        "picnic",
+        "cổ V",
+        "tay ngắn",
+        "hotline",
+        "họa tiết hình học"
+      ],
+      "sourceId": "20934ff23a2dae352b92fd2c46b29200714f405e82b8aea3f3963d430f32eef6:catalog",
+      "filenameBase": "ao-da-ngoai-trang-den-co-v-catalog",
+      "webpQuality": 98
+    }
+  ]
+}
