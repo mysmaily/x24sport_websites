@@ -84,7 +84,7 @@ Use one strong generation prompt for each required scene version. A targeted cor
 Create at least two accepted photographic versions before completing the catalog:
 
 - `Version A`: the main-image scene, optimized for immediate garment recognition in a product listing.
-- `Version B`: a genuinely different group scene for the catalog hero or supporting panels.
+- `Version B`: a genuinely different group scene for the catalog hero or supporting panels, using five to ten Vietnamese adult models when it is delivered as `ảnh 2` or used as the catalog's primary hero scene.
 
 Version B must differ from Version A in at least three of these dimensions: group count, formation, action, camera distance, camera angle, standing/seated balance, or environmental context. A recrop or text overlay on Version A does not count as Version B.
 
@@ -148,7 +148,7 @@ Use `assets/approved-main.png` as the benchmark for garment visibility and infor
 Use `assets/approved-catalog.png` as the visual benchmark for hierarchy and density.
 
 - Landscape 5:4.
-- Five to seven Vietnamese adults in a lively park, beach, resort, garden, forest, promenade or campsite scene selected from the environment rotation.
+- Five to ten Vietnamese adults in a lively park, beach, resort, garden, forest, promenade or campsite scene selected from the environment rotation.
 - Use Version B as the hero scene, optionally combining selected crops from Version A.
 - Never use the exact main scene/crop as the sole catalog hero.
 - Never repeat a high-five or palm-touching pose from Version A.
@@ -185,6 +185,7 @@ Reject or correct the output when any of these occur:
 - the setting unnecessarily repeats the same lake-and-mountain environment or prop package used by a recent accepted output when another suitable setting was available;
 - the catalog falls back to people holding a map without a user request or a strong scene-specific reason, or otherwise repeats a generic Version B activity instead of creating a distinct visual story;
 - the main image shows fewer than three adult models;
+- a delivered `ảnh 2` or catalog primary hero scene shows fewer than five adult models;
 - faces, hands or body overlaps look artificial;
 - the exact Mayaodongphuc campaign logo is missing, duplicated, distorted or printed on the garment;
 - hotline differs from `0982 254 458`;
