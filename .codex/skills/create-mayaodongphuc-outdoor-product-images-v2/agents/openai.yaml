@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mayaodongphuc Outdoor Product Images V2"
+  short_description: "Create faster main/catalog product images"
+  default_prompt: "Use $create-mayaodongphuc-outdoor-product-images-v2 to turn this garment reference into a Mayaodongphuc main and direct integrated catalog, validate product-handoff.json, then use $create-tenant-product to publish it to mayaodongphuc.com.vn unless I explicitly request image-only output."

@@ -52,6 +52,7 @@ mayaobongda.vn/imagegen/**
 
 # AI image-generation outputs (keep locally, never commit)
 generated/mayaodongphuc-outdoor-product-images/
+generated/mayaodongphuc-outdoor-product-images-v2/
 **/operations/**/generated/
 **/operations/**/final/
 **/operations/**/originals/
