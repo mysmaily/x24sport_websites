@@ -93,12 +93,21 @@ async function loadSharp() {
     try {
       return require(path.join(repoRoot, 'cms-api/node_modules/sharp'))
     } catch {
-      throw new Error(`sharp is required to convert uploads to WebP quality 92 before media upload: ${error.message}`)
+      throw new Error(`sharp is required to convert uploads to WebP before media upload: ${error.message}`)
     }
   }
 }
 
 let sharpModule
+
+function webpQuality(item = {}) {
+  const configured = item.webpQuality ?? input.webpQuality ?? process.env.WEBP_QUALITY ?? 92
+  const quality = Number(configured)
+  if (!Number.isFinite(quality) || quality < 1 || quality > 100) {
+    throw new Error(`webpQuality must be a number from 1 to 100, got ${configured}`)
+  }
+  return Math.round(quality)
+}
 
 function uploadFilenameBase(item, index) {
   const explicit = item.filenameBase || item.uploadFilenameBase
@@ -112,7 +121,7 @@ async function webpUploadAsset(item, index) {
   sharpModule ||= await loadSharp()
   const buffer = await sharpModule(sourceBuffer)
     .rotate()
-    .webp({ quality: 92 })
+    .webp({ quality: webpQuality(item) })
     .toBuffer()
   const checksum = createHash('sha256').update(buffer).digest('hex')
   const basename = uploadFilenameBase(item, index)

@@ -50,7 +50,7 @@
 }
 ```
 
-`descriptionParagraphs` is converted to Payload Lexical rich text. `attributes[].values`, `badges`, `searchTags`, and media `searchTags` are converted to Payload array-row objects. Local media files may be PNG, JPEG, or WebP in the input JSON, but the helper converts every upload to WebP quality 92 before `POST /api/media`; uploaded filenames, MIME type, and `sourceChecksum` refer to the converted WebP bytes. By default, upload filenames use the product slug plus `anh-chinh`, `anh-2`, etc. Set media `filenameBase` for a clearer Vietnamese ASCII basename. Use `forceUploadForFilename: true` only for a deliberate one-time media rename migration; normal retries should leave it unset to preserve idempotency.
+`descriptionParagraphs` is converted to Payload Lexical rich text. `attributes[].values`, `badges`, `searchTags`, and media `searchTags` are converted to Payload array-row objects. Local media files may be PNG, JPEG, or WebP in the input JSON, but the helper converts every upload to WebP before `POST /api/media`; uploaded filenames, MIME type, and `sourceChecksum` refer to the converted WebP bytes. The default WebP quality is 92. Set top-level `webpQuality` or per-media `webpQuality` to 96-100 for generated product images with text/logo overlays where edge quality matters. By default, upload filenames use the product slug plus `anh-chinh`, `anh-2`, etc. Set media `filenameBase` for a clearer Vietnamese ASCII basename. Use `forceUploadForFilename: true` only for a deliberate one-time media rename migration; normal retries should leave it unset to preserve idempotency.
 
 ## Environment
 
