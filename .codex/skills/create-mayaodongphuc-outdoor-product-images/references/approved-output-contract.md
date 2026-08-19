@@ -27,14 +27,36 @@ Use one consistent outline icon per feature and one phone icon. Do not show the 
 
 ## Catalog exact copy
 
-Use this category title by default:
+Choose one two-line category title pair for each catalog. Prefer a title that fits the garment, use case, and available layout space, and rotate choices across products instead of using the same wording every time:
 
-`ĐỒNG PHỤC`
-`DÃ NGOẠI`
+- `ĐỒNG PHỤC` / `DÃ NGOẠI`
+- `ÁO TEAM` / `BUILDING`
+- `ĐỒNG PHỤC` / `TEAM BUILDING`
+- `ÁO ĐỘI NHÓM` / `DÃ NGOẠI`
+- `ĐỒNG PHỤC` / `GẮN KẾT`
 
-Slogan:
+Choose one short slogan for each catalog. Match the slogan to the scene's activity and the selected title, and avoid repeating recent accepted slogans when another approved option fits:
 
-`Bứt phá cùng đội nhóm`
+- `Bứt phá cùng đội nhóm`
+- `Gắn kết để vươn xa`
+- `We Are One`
+- `Cùng nhau tạo khác biệt`
+- `Một đội – Một tinh thần`
+- `Chơi hết mình – Cháy hết sức`
+- `Together We Shine`
+- `Đi cùng nhau – Đi thật xa`
+- `Gắn kết tạo thành công`
+- `Together We Win`
+- `Chung một màu áo – Chung một tinh thần`
+- `Làm hết sức – Chơi hết mình`
+- `Kết nối từng khoảnh khắc`
+- `Khác biệt khi ở bên nhau`
+- `Together We Are Stronger`
+- `Chung màu áo - Chung nhịp tim`
+- `Kết nối sức mạnh đội nhóm`
+- `Better Together`
+- `One Team - One Spirit`
+- `Hành trình đẹp nhất là hành trình có nhau`
 
 Feature list:
 

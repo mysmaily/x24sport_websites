@@ -77,7 +77,8 @@ The producer performs the full-size visual inspection and rejects defects before
       "overlay": {
         "campaignLogo": "mayaodongphuc-logo.png",
         "garmentWordmark": "Đồng Phục X24",
-        "title": "ĐỒNG PHỤC DÃ NGOẠI",
+        "title": "ĐỒNG PHỤC / DÃ NGOẠI",
+        "slogan": "Bứt phá cùng đội nhóm",
         "hotline": "0982 254 458",
         "website": "mayaodongphuc.com.vn"
       }

@@ -153,7 +153,8 @@ Use `assets/approved-catalog.png` as the visual benchmark for hierarchy and dens
 - Never use the exact main scene/crop as the sole catalog hero.
 - Never repeat a high-five or palm-touching pose from Version A.
 - Blend a warm light information field into whichever side has usable negative space; left and right are both valid.
-- Use the title `ĐỒNG PHỤC DÃ NGOẠI`, a short emotional slogan, four product properties, four close-up product windows, factory capability footer, hotline and website.
+- Use one approved two-line catalog title pair, one approved short emotional slogan, four product properties, four close-up product windows, factory capability footer, hotline and website.
+- Rotate the catalog title and slogan across products so the output does not repeatedly lock to `ĐỒNG PHỤC / DÃ NGOẠI` with `Bứt phá cùng đội nhóm`. Select from the approved copy pool in `references/approved-output-contract.md`; if the user supplies another suitable title or slogan for the current product, use that instead.
 - The Mayaodongphuc logo, title and slogan may anchor left or right. Counterbalance them with the group, preserve reading order, and vary placement across products so catalogs do not look mechanically duplicated.
 - Keep the group and garments dominant despite the additional information.
 - Use the exact copy and layout limits in `references/approved-output-contract.md`.
