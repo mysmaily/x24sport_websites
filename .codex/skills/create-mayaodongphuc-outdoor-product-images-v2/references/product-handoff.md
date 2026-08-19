@@ -134,7 +134,7 @@ In that case, `garmentFacts.sleeves` must be `tay ngắn` and all visual tags, a
 - Use `action: draft` only when the user requests a draft.
 - Use `action: images-only` when the user explicitly requests local/preview/image-only output or only one image role. Do not invoke the CMS publisher for this action.
 - Keep the Mayaodongphuc tenant, domain, outdoor category and quote-only values shown in the schema fixed. Only `action` varies between the three supported workflow modes.
-- The consumer derives stable source identity from the producer plus the accepted main-image checksum. It allocates the next available tenant-scoped `MDP-DN-###` SKU only when no existing source identity, SKU or slug matches.
+- The consumer derives stable source identity from the producer plus the accepted main-image checksum. It allocates the next available tenant-scoped `MDP-DN-V2-###` SKU only when no existing source identity, SKU or slug matches. Do not use the legacy `MDP-DN-###` range for v2 handoffs because batch imports may concurrently claim or update that range.
 
 ## Alt and caption boundary
 
