@@ -140,7 +140,7 @@ Use `assets/approved-main.png` as the benchmark for garment visibility and infor
 - Models and garments carry at least 85% of the visual emphasis.
 - Place the exact Mayaodongphuc logo once in the clearer top corner. Vary left/right anchoring across products when the composition supports it instead of defaulting to top-left every time.
 - Add one slim deep-teal translucent rail at the bottom, no more than 14% of image height.
-- Rail copy only: `THOÁNG MÁT`, `CO GIÃN`, `CHỐNG NẮNG`, `BỀN MÀU`, and `0982 254 458` with a phone icon.
+- Rail copy only: `THOÁNG MÁT`, `CO GIÃN`, `MAY NHANH - SỐ LƯỢNG LỚN`, `BỀN MÀU`, and `0982 254 458` with a phone icon.
 - Do not add a title, slogan, website, paragraphs, product-detail insets or factory service claims.
 
 ## Catalog contract
@@ -164,7 +164,7 @@ Accept these as factory-provided product claims when requested:
 
 - breathable and sweat-wicking;
 - flexible stretch;
-- sun/UV protection;
+- fast production at large quantity;
 - color durability and easy care;
 - custom design;
 - quality-controlled production;
@@ -211,6 +211,8 @@ For a default full set, create one product-specific directory in the active work
 - Handoff: `mayaodongphuc-<product>/product-handoff.json`
 
 If explicitly requested, save the clean Version B in the same directory as `mayaodongphuc-<product>-image-2.png` and list it only when it is a delivered publishing image.
+
+Keep PNG as the master format for generated handoff images. When the user needs web-optimized derivatives, convert from the final PNG master, avoid recompressing an existing WebP, and prefer WebP quality 96–100 or lossless/near-lossless for images with logo/text overlays. If file size is still too high, reduce dimensions deliberately instead of dropping quality to 92, because low-quality WebP can visibly damage text edges, logo edges and garment detail.
 
 Compute SHA-256 after the final accepted pixels are saved, write the manifest from those exact files, then run:
 

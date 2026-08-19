@@ -19,7 +19,7 @@ Apart from the centered tonal garment wordmark `Đồng Phục X24`, show no ove
 
 - `THOÁNG MÁT`
 - `CO GIÃN`
-- `CHỐNG NẮNG`
+- `MAY NHANH - SỐ LƯỢNG LỚN`
 - `BỀN MÀU`
 - `0982 254 458`
 
@@ -40,7 +40,7 @@ Feature list:
 
 - `THOÁNG MÁT TỐI ƯU` — `Chất vải cao cấp, thoáng khí, thấm hút mồ hôi nhanh`
 - `CO GIÃN LINH HOẠT` — `Vận động thoải mái trong mọi hoạt động ngoài trời`
-- `CHỐNG NẮNG HIỆU QUẢ` — `Bảo vệ làn da dưới tác động của tia UV`
+- `MAY NHANH - SỐ LƯỢNG LỚN` — `Đáp ứng đơn gấp, sản xuất số lượng lớn ổn định`
 - `BỀN MÀU, DỄ BẢO QUẢN` — `Giữ áo luôn như mới sau nhiều lần giặt`
 
 Product-detail captions:
@@ -95,3 +95,7 @@ Contact:
 - `../assets/approved-catalog.png`: approved catalog hierarchy using a different group-scene version from main.
 
 Together these two references define the required relationship: two final files, backed by at least two different photographic versions. Use them for hierarchy, energy and information density, never as fixed pose, map-reading story, lake-and-mountain setting or fixed left-side layout template. Do not copy their yellow/teal palette or any garment logos shown in the benchmarks when the supplied garment uses different colors.
+
+## Web delivery derivatives
+
+Keep PNG as the master format for generated handoff images. When a web-optimized derivative is requested, convert from the final PNG master, avoid recompressing an existing WebP, and prefer WebP quality 96–100 or lossless/near-lossless for images with logo/text overlays. If file size is still too high, reduce dimensions deliberately instead of lowering quality to 92, because low-quality WebP can visibly damage text edges, logo edges and garment detail.

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Mayaodongphuc Outdoor Product Images V2"
-  short_description: "Fast main + catalog with deterministic overlays"
-  default_prompt: "Use $create-mayaodongphuc-outdoor-product-images-v2 to inspect this garment once, generate independent main and catalog scenes, apply exact branding/copy deterministically, QA once, then write and validate product-handoff.json."
