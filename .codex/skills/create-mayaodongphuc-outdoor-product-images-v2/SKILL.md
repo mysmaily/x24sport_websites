@@ -14,7 +14,7 @@ Read `references/approved-output-contract.md` before generating. Read `reference
 - Default invocation with a garment only: deliver exactly two publishing images, `main` and `catalog`, plus `product-handoff.json` as the machine-readable transfer artifact.
 - Explicit `main`: produce only the square ecommerce hero.
 - Explicit `catalog`, `poster`, or `ảnh nhúng bài viết`: produce only the landscape integrated catalog visual, with its photography acting as the distinct Version B scene.
-- Do not generate a separate clean second scene by default. Deliver or create a clean lifestyle image only when the user explicitly asks for `ảnh 2`, `clean Version B`, or a separate lifestyle image.
+- Do not generate a separate clean second scene by default. Deliver or create a clean lifestyle image only when the user explicitly asks for `ảnh 2`, `clean Version B`, or a separate lifestyle image; when created, that scene should use five to ten Vietnamese adult models.
 - Every successful invocation that returns an accepted publishing image must also write a manifest listing exactly the returned publishing images. Never list intermediate scene assets.
 
 ## Default publish behavior
@@ -83,7 +83,7 @@ Use one strong generation prompt for each required scene version. A targeted cor
 Create exactly two accepted publishing images by default:
 
 - `Version A`: the square main-image scene, optimized for immediate garment recognition in a product listing.
-- `Version B`: the integrated landscape catalog image itself, with genuinely different photography and catalog graphics generated together in one art-directed pass.
+- `Version B`: the integrated landscape catalog image itself, with genuinely different photography, five to ten Vietnamese adult models, and catalog graphics generated together in one art-directed pass.
 
 The catalog-as-Version-B must differ from Version A in at least three of these dimensions: group count, formation, action, camera distance, camera angle, standing/seated balance, or environmental context. A recrop or text overlay on Version A does not count.
 
@@ -131,10 +131,10 @@ Route planning or holding a map is only one optional story. Do not use a map by 
 Use `assets/approved-main.png` as the benchmark for garment visibility and information density, not as a fixed pose template.
 
 - Square 1:1.
-- Five attractive Vietnamese adults, mixed gender, approximately 22–32.
+- Randomly use three to five attractive Vietnamese adults, mixed gender, approximately 22–32, so main images do not all repeat the same group count.
 - Use one clean outdoor setting from the environment rotation—such as a park, beach, resort, garden, forest clearing, promenade or occasional lake/mountain scene—chosen to avoid repetition across products.
 - Use one clear team action selected from the variation rules; candid smiles and distinct faces. Choose or stage the action so direct camera engagement remains natural.
-- With five models, at least three must look straight into the camera; prefer four when it does not make the scene stiff. Any remaining gaze should clearly follow the shared action or another teammate. Avoid scattered eye-lines where each model looks in a different direction.
+- Prefer natural direct camera engagement from at least two models, with any remaining gaze clearly following the shared action or another teammate. Avoid scattered eye-lines where each model looks in a different direction.
 - Frame head to upper knee. Keep at least four shirt fronts clear.
 - Models and garments carry at least 85% of the visual emphasis.
 - Place the exact Mayaodongphuc logo once in the clearer top corner. Vary left/right anchoring across products when the composition supports it instead of defaulting to top-left every time.
@@ -147,7 +147,7 @@ Use `assets/approved-main.png` as the benchmark for garment visibility and infor
 Use `assets/approved-catalog.png` as the visual benchmark for hierarchy and density.
 
 - Landscape 5:4.
-- Five to seven Vietnamese adults in a lively park, beach, resort, garden, forest, promenade or campsite scene selected from the environment rotation.
+- Five to ten Vietnamese adults in a lively park, beach, resort, garden, forest, promenade or campsite scene selected from the environment rotation.
 - Use the catalog's own Version B photography as the hero scene, optionally combining selected detail crops from Version A.
 - Never use the exact main scene/crop as the sole catalog hero.
 - Never repeat a high-five or palm-touching pose from Version A.
@@ -183,7 +183,8 @@ Reject or correct the output when any of these occur:
 - the group lacks a clear team-building action;
 - the setting unnecessarily repeats the same lake-and-mountain environment or prop package used by a recent accepted output when another suitable setting was available;
 - the catalog falls back to people holding a map without a user request or a strong scene-specific reason, or otherwise repeats a generic Version B activity instead of creating a distinct visual story;
-- fewer than three of the five main-image models look directly into the camera, or the remaining eye-lines appear scattered and unmotivated;
+- the main image shows fewer than three adult models;
+- a delivered `ảnh 2` or catalog primary hero scene shows fewer than five adult models;
 - faces, hands or body overlaps look artificial;
 - the exact Mayaodongphuc campaign logo is missing, duplicated, distorted or printed on the garment;
 - hotline differs from `0982 254 458`;
