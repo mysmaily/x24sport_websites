@@ -12,17 +12,22 @@ import { UniformHeader } from './site-header'
 const heading = Be_Vietnam_Pro({ subsets: ['latin', 'vietnamese'], weight: ['500', '600', '700', '800'], variable: '--v2-heading', display: 'swap' })
 const body = Noto_Sans({ subsets: ['latin', 'vietnamese'], weight: ['400', '500', '600', '700'], variable: '--v2-body', display: 'swap' })
 
+export function uniformPublicCopy(value?: string) {
+  return value?.replace(/cấu hình/gi, 'thiết kế') || ''
+}
+
 export function UniformLogo() {
   return <Link className={styles.logo} href="/" aria-label="May Áo Đồng Phục — Trang chủ"><span>M</span><div><strong>MAY ÁO</strong><small>ĐỒNG PHỤC</small></div></Link>
 }
 
 export function UniformShell({ categories, children, consultationEnabled }: { categories: UniformCategory[]; children: ReactNode; consultationEnabled: boolean }) {
   const actionHref = consultationEnabled ? '/#bao-gia' : '/san-pham/'
+  const publicCategories = categories.map((category) => ({ ...category, description: uniformPublicCopy(category.description) }))
   return <div className={`${styles.site} ${heading.variable} ${body.variable}`}>
     <a className={styles.skip} href="#main-content">Đi đến nội dung chính</a>
-    <UniformHeader categories={categories} consultationEnabled={consultationEnabled} />
+    <UniformHeader categories={publicCategories} consultationEnabled={consultationEnabled} />
     <main id="main-content">{children}</main>
-    <footer className={styles.footer}><div className={styles.footerTop}><div><UniformLogo /><p>Hệ thống đặt may rõ ràng cho tổ chức đang xây dựng một hình ảnh đồng nhất.</p></div><div><h2>Khám phá</h2>{categories.slice(0, 4).map((item) => <Link href={`/danh-muc/${item.slug}/`} key={item.slug}>{item.name}</Link>)}</div><div><h2>Hỗ trợ lựa chọn</h2><Link href="/#quy-trinh">Quy trình đặt may</Link><Link href="/#vat-lieu">Vật liệu & size</Link><Link href={actionHref}>{consultationEnabled ? 'Yêu cầu tư vấn' : 'Xem catalog'}</Link></div><div className={styles.footerBadge}><ShieldCheck /><strong>SPEC<br />READY</strong><small>MDP / 2026</small></div></div><div className={styles.footerBottom}><span>© May Áo Đồng Phục</span><span>Thiết kế theo nhu cầu của từng tổ chức.</span></div></footer>
+    <footer className={styles.footer}><div className={styles.footerTop}><div><UniformLogo /><p>Hệ thống đặt may rõ ràng cho tổ chức đang xây dựng một hình ảnh đồng nhất.</p></div><div><h2>Khám phá</h2>{publicCategories.slice(0, 4).map((item) => <Link href={`/danh-muc/${item.slug}/`} key={item.slug}>{item.name}</Link>)}</div><div><h2>Hỗ trợ lựa chọn</h2><Link href="/#quy-trinh">Quy trình đặt may</Link><Link href="/#vat-lieu">Vật liệu & size</Link><Link href={actionHref}>{consultationEnabled ? 'Yêu cầu tư vấn' : 'Xem catalog'}</Link></div><div className={styles.footerBadge}><ShieldCheck /><strong>SPEC<br />READY</strong><small>MDP / 2026</small></div></div><div className={styles.footerBottom}><span>© May Áo Đồng Phục</span><span>Thiết kế theo nhu cầu của từng tổ chức.</span></div></footer>
   </div>
 }
 

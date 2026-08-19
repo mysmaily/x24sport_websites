@@ -6,7 +6,7 @@ import { hasProductInterestForm } from '../../../lib/content'
 import { JsonLd } from '../../_components/json-ld'
 import styles from './mayaodongphuc.module.css'
 import { UniformCallbackForm } from './callback-form'
-import { TrustPill, UniformProductCard } from './components'
+import { TrustPill, UniformProductCard, uniformPublicCopy } from './components'
 import { getUniformCategories, getUniformProducts } from './lib'
 import { MayAoDongPhucShell } from './shell'
 
@@ -37,7 +37,7 @@ export async function MayAoDongPhucHome() {
     <section className={styles.hero}>
       <div className={styles.heroMain}><TrustPill /><h1>Đồng phục,<br /><span>được thiết kế đúng.</span></h1><p>Chọn theo môi trường, vai trò và tần suất sử dụng. Những yêu cầu rời rạc được sắp xếp thành một bộ quy chuẩn dễ duyệt.</p><Link className={styles.primaryCta} href={primaryHref}>{consultationEnabled ? 'Tạo brief tư vấn' : 'Khám phá catalog'} <ArrowRight /></Link><div className={styles.heroProof}><span><b>{String(categories.length).padStart(2, '0')}</b> nhóm nhu cầu</span><span><b>04</b> điểm duyệt</span><span><b>01</b> quy chuẩn chung</span></div></div>
       <div className={styles.heroImage}><Image alt="Đội ngũ trong nhiều mẫu đồng phục tại không gian thiết kế" fill fetchPriority="high" loading="eager" sizes="(max-width: 850px) 100vw, 45vw" src="/images/mayaodongphuc/hero-atelier.webp" /><div><span>HỆ ĐỒNG PHỤC / 2026</span><p>Mỗi vai trò một yêu cầu. Cùng chung một hình ảnh.</p></div></div>
-      <aside className={styles.finder}><span>01 / BẮT ĐẦU NHANH</span><h2>Bạn đang cần may cho?</h2><div className={styles.finderLinks}>{categories.slice(0, 4).map((item) => <Link href={`/danh-muc/${item.slug}/`} key={item.slug}><b>{item.name}</b><small>{item.description}</small><ArrowRight /></Link>)}</div><Link href="/san-pham/">Xem toàn bộ catalog <ArrowRight /></Link></aside>
+      <aside className={styles.finder}><span>01 / BẮT ĐẦU NHANH</span><h2>Bạn đang cần may cho?</h2><div className={styles.finderLinks}>{categories.slice(0, 4).map((item) => <Link href={`/danh-muc/${item.slug}/`} key={item.slug}><b>{item.name}</b><small>{uniformPublicCopy(item.description)}</small><ArrowRight /></Link>)}</div><Link href="/san-pham/">Xem toàn bộ catalog <ArrowRight /></Link></aside>
       <div className={styles.materialBento}><span>02 / VẬT LIỆU</span><Layers3 /><h2>Chọn theo nhịp làm việc</h2><p>Độ thoáng, giữ form và độ bền được cân bằng cho từng bối cảnh.</p><Link href="#vat-lieu">Mở thư viện vật liệu <ArrowRight /></Link></div>
     </section>
 
