@@ -52,8 +52,18 @@ export async function proxy(request: NextRequest) {
   }
   if (tenant.slug === 'mayaodongphuc' && await shouldUseMayAoDongPhuc404(request.nextUrl.pathname)) {
     const notFoundUrl = request.nextUrl.clone()
-    notFoundUrl.pathname = '/mayaodongphuc-404'
-    return NextResponse.rewrite(notFoundUrl)
+    notFoundUrl.pathname = `/${tenant.slug}/mayaodongphuc-404`
+    const requestHeaders = new Headers(request.headers)
+    requestHeaders.set('x-x24-public-host', hostname)
+    requestHeaders.set('x-x24-tenant-slug', encodeTenantHeader(tenant.slug))
+    requestHeaders.set('x-x24-tenant-domain', encodeTenantHeader(tenant.domain))
+    requestHeaders.set('x-x24-tenant-name', encodeTenantHeader(tenant.name))
+    requestHeaders.set('x-x24-tenant-description', encodeTenantHeader(tenant.description))
+    return NextResponse.rewrite(notFoundUrl, {
+      headers: { 'x-robots-tag': 'noindex' },
+      request: { headers: requestHeaders },
+      status: 404,
+    })
   }
   const url = request.nextUrl.clone()
   url.pathname = `/${tenant.slug}${request.nextUrl.pathname}`
