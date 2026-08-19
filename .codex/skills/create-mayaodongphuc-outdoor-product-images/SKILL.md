@@ -132,10 +132,10 @@ Route planning or holding a map is only one optional story. Do not use a map by 
 Use `assets/approved-main.png` as the benchmark for garment visibility and information density, not as a fixed pose template.
 
 - Square 1:1.
-- Five attractive Vietnamese adults, mixed gender, approximately 22–32.
+- Randomly use three to five attractive Vietnamese adults, mixed gender, approximately 22–32, so main images do not all repeat the same group count.
 - Use one clean outdoor setting from the environment rotation—such as a park, beach, resort, garden, forest clearing, promenade or occasional lake/mountain scene—chosen to avoid repetition across products.
 - Use one clear team action selected from the variation rules; candid smiles and distinct faces. Choose or stage the action so direct camera engagement remains natural.
-- With five models, at least three must look straight into the camera; prefer four when it does not make the scene stiff. Any remaining gaze should clearly follow the shared action or another teammate. Avoid scattered eye-lines where each model looks in a different direction.
+- Prefer natural direct camera engagement from at least two models, with any remaining gaze clearly following the shared action or another teammate. Avoid scattered eye-lines where each model looks in a different direction.
 - Frame head to upper knee. Keep at least four shirt fronts clear.
 - Models and garments carry at least 85% of the visual emphasis.
 - Place the exact Mayaodongphuc logo once in the clearer top corner. Vary left/right anchoring across products when the composition supports it instead of defaulting to top-left every time.
@@ -184,7 +184,7 @@ Reject or correct the output when any of these occur:
 - the group lacks a clear team-building action;
 - the setting unnecessarily repeats the same lake-and-mountain environment or prop package used by a recent accepted output when another suitable setting was available;
 - the catalog falls back to people holding a map without a user request or a strong scene-specific reason, or otherwise repeats a generic Version B activity instead of creating a distinct visual story;
-- fewer than three of the five main-image models look directly into the camera, or the remaining eye-lines appear scattered and unmotivated;
+- the main image shows fewer than three adult models;
 - faces, hands or body overlaps look artificial;
 - the exact Mayaodongphuc campaign logo is missing, duplicated, distorted or printed on the garment;
 - hotline differs from `0982 254 458`;
