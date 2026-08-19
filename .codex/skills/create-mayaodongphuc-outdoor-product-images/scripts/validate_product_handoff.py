@@ -133,8 +133,8 @@ def main() -> int:
     images = data["acceptedImages"]
     if not isinstance(images, list) or not images:
         fail("acceptedImages must be a non-empty array")
-    if args.require_default_set and len(images) != 2:
-        fail("default set must contain exactly main and catalog images")
+    if args.require_default_set and len(images) != 3:
+        fail("default set must contain exactly main, image-2, and catalog images")
 
     manifest_paths: set[Path] = set()
     roles: list[str] = []
@@ -179,23 +179,31 @@ def main() -> int:
             fail(f"{location}.visualTags must be a non-empty array")
 
     if args.require_default_set:
-        if roles != ["product hero", "content-inline catalog"]:
-            fail("default set roles must be product hero followed by content-inline catalog")
+        if roles != ["product hero", "content-inline lifestyle", "content-inline catalog"]:
+            fail("default set roles must be product hero followed by content-inline lifestyle and content-inline catalog")
         if images[0].get("aspectRatio") != "1:1":
             fail("default main aspectRatio must be 1:1")
         if images[0]["productPlacement"].get("contentEmbed") is not False:
             fail("default main must not be embedded below product copy")
-        if images[1].get("aspectRatio") != "5:4":
-            fail("default catalog aspectRatio must be 5:4")
+        if images[1].get("aspectRatio") != "1:1":
+            fail("default image-2 aspectRatio must be 1:1")
         if images[1]["productPlacement"].get("contentEmbed") is not True:
+            fail("default image-2 must be embedded below product copy")
+        if images[1]["productPlacement"].get("contentOrder") != 1:
+            fail("default image-2 contentOrder must be 1")
+        if images[2].get("aspectRatio") != "5:4":
+            fail("default catalog aspectRatio must be 5:4")
+        if images[2]["productPlacement"].get("contentEmbed") is not True:
             fail("default catalog must be embedded below product copy")
+        if images[2]["productPlacement"].get("contentOrder") != 2:
+            fail("default catalog contentOrder must be 2")
 
     requested_paths = {path.resolve() for path in args.image}
     missing_from_manifest = requested_paths - manifest_paths
     if missing_from_manifest:
         fail(f"input images missing from manifest: {[str(path) for path in sorted(missing_from_manifest)]}")
     if args.require_default_set and requested_paths != manifest_paths:
-        fail("default validation must pass exactly the two delivered publishing images")
+        fail("default validation must pass exactly the three delivered publishing images")
 
     print(
         f"PASS manifest={args.manifest.resolve()} producer={PRODUCER} "

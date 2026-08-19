@@ -10,7 +10,7 @@ The producer performs the full-size visual inspection and rejects defects before
 - Put it beside the accepted publishing images in a product-specific output directory.
 - Use absolute paths and SHA-256 checksums from the final saved bytes.
 - List every delivered publishing image and no intermediate generation asset.
-- The default set contains exactly one `product hero` followed by one `content-inline catalog`.
+- The default set contains exactly one `product hero`, followed by one clean `content-inline lifestyle`, followed by one `content-inline catalog`.
 
 ## Schema
 
@@ -61,6 +61,25 @@ The producer performs the full-size visual inspection and rejects defects before
       }
     },
     {
+      "path": "/absolute/path/generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-product/mayaodongphuc-product-image-2.png",
+      "sha256": "64 lowercase hexadecimal characters",
+      "role": "content-inline lifestyle",
+      "aspectRatio": "1:1",
+      "modelCount": 6,
+      "altSeed": "Áo ombre xanh tím hồng xuất hiện rõ trong hoạt động team building ngoài trời.",
+      "captionSeed": "Bối cảnh vận động nhóm giúp mẫu áo nổi bật tự nhiên mà vẫn nhìn rõ phom dáng.",
+      "visualTags": ["đồng phục dã ngoại", "ombre xanh tím hồng", "team building", "tay ngắn", "hoạt động nhóm"],
+      "productPlacement": {
+        "gallery": true,
+        "contentEmbed": true,
+        "contentOrder": 1
+      },
+      "overlay": {
+        "campaignLogo": "mayaodongphuc-logo.png",
+        "garmentWordmark": "Đồng Phục X24"
+      }
+    },
+    {
       "path": "/absolute/path/generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-product/mayaodongphuc-product-catalog.png",
       "sha256": "64 lowercase hexadecimal characters",
       "role": "content-inline catalog",
@@ -72,7 +91,7 @@ The producer performs the full-size visual inspection and rejects defects before
       "productPlacement": {
         "gallery": true,
         "contentEmbed": true,
-        "contentOrder": 1
+        "contentOrder": 2
       },
       "overlay": {
         "campaignLogo": "mayaodongphuc-logo.png",

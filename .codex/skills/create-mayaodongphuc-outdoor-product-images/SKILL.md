@@ -1,27 +1,28 @@
 ---
 name: create-mayaodongphuc-outdoor-product-images
-description: "Create the approved Mayaodongphuc outdoor/team-building product set from a supplied garment photo: one square ecommerce main, one article catalog, a validated product-handoff.json, and default publication through create-tenant-product. Use when the user supplies a uniform and invokes the skill, or asks for ảnh main, ảnh catalog, ảnh nhúng bài viết, poster giới thiệu áo dã ngoại, or the established Mayaodongphuc logo/hotline/product-feature treatment."
+description: "Create the approved Mayaodongphuc outdoor/team-building product set from a supplied garment photo: square ecommerce main, square clean lifestyle image 2, article catalog, a validated product-handoff.json, and default publication through create-tenant-product. Use when the user supplies a uniform and invokes the skill, or asks for ảnh main, ảnh 2, ảnh catalog, ảnh nhúng bài viết, poster giới thiệu áo dã ngoại, or the established Mayaodongphuc logo/hotline/product-feature treatment."
 ---
 
 # Create Mayaodongphuc Outdoor Product Images
 
-Produce two final publishing images by default—`main` and `catalog`—plus a validated `product-handoff.json`, then publish the product through `create-tenant-product` in the same task unless the user explicitly limits the request to image output. Generate at least two distinct model-scene versions internally so the catalog is not merely the main photo with more text. Treat the supplied garment construction, colors and decorative design as the product identity, but replace its garment branding under the rules below. Treat the factory's stated product properties as authoritative marketing facts.
+Produce three final publishing images by default—`main`, clean `image-2`, and `catalog`—plus a validated `product-handoff.json`, then publish the product through `create-tenant-product` in the same task unless the user explicitly limits the request to image output. Generate at least two distinct model-scene versions so the catalog is not merely the main photo with more text, and upload the clean Version B as its own product image instead of treating it as a hidden intermediate. Treat the supplied garment construction, colors and decorative design as the product identity, but replace its garment branding under the rules below. Treat the factory's stated product properties as authoritative marketing facts.
 
 Read `references/approved-output-contract.md` before generating. Read `references/product-handoff.md` before writing the manifest. Inspect the supplied garment and the relevant approved benchmark in `assets/` with `view_image`.
 
 ## Deliverable contract
 
-- Default invocation with a garment only: deliver exactly two publishing images, `main` and `catalog`, plus `product-handoff.json` as the machine-readable transfer artifact.
+- Default invocation with a garment only: deliver exactly three publishing images, `main`, `image-2`, and `catalog`, plus `product-handoff.json` as the machine-readable transfer artifact.
 - Explicit `main`: produce only the square ecommerce hero.
+- Explicit `ảnh 2` or clean lifestyle image: produce only the square clean Version B lifestyle image unless the user also asks for the default set.
 - Explicit `catalog`, `poster`, or `ảnh nhúng bài viết`: produce only the landscape integrated catalog visual.
 - Even when only `catalog` is requested, create or obtain a model-scene version that is distinct from any existing main image.
-- A clean second scene is an internal source asset, not a mandatory third publishing file. Deliver it separately only when the user explicitly asks for `ảnh 2` or a clean lifestyle image.
+- On the default path, the clean second scene is a mandatory publishing file named `image-2`; do not hide it inside the catalog only.
 - Every successful invocation that returns an accepted publishing image must also write a manifest listing exactly the returned publishing images. Never list intermediate scene assets.
 
 ## Default publish behavior
 
-- A normal garment-only request with no additional instruction authorizes the full pipeline: generate `main` and `catalog`, validate `product-handoff.json`, invoke `create-tenant-product`, publish to `mayaodongphuc.com.vn`, and verify the public product page.
-- Stop after image delivery only when the user explicitly says `chỉ tạo ảnh`, `không đăng`, `image only`, `preview`, `local only`, requests only `main` or only `catalog`, or otherwise limits the task to visual output. If the user asks for a draft, invoke the publisher but create a draft instead of publishing.
+- A normal garment-only request with no additional instruction authorizes the full pipeline: generate `main`, `image-2`, and `catalog`, validate `product-handoff.json`, invoke `create-tenant-product`, publish to `mayaodongphuc.com.vn`, and verify the public product page.
+- Stop after image delivery only when the user explicitly says `chỉ tạo ảnh`, `không đăng`, `image only`, `preview`, `local only`, requests only `main`, only `ảnh 2`, or only `catalog`, or otherwise limits the task to visual output. If the user asks for a draft, invoke the publisher but create a draft instead of publishing.
 - Default target: tenant `mayaodongphuc`, domain `mayaodongphuc.com.vn`, category `dong-phuc-da-ngoai-team-building`.
 - Default commercial state: `publicationStatus=publish`, no invented price, quote-only, `isPurchasable=false`, `stockStatus=instock`, currency `VND`.
 - Do not ask again for tenant, category, price or publish state. The user may override the publication action with `draft` or `images-only`; this Mayaodongphuc-specific skill keeps its documented tenant, category and quote-only commerce scope fixed.
@@ -84,11 +85,11 @@ Use one strong generation prompt for each required scene version. A targeted cor
 Create at least two accepted photographic versions before completing the catalog:
 
 - `Version A`: the main-image scene, optimized for immediate garment recognition in a product listing.
-- `Version B`: a genuinely different group scene for the catalog hero or supporting panels, using five to ten Vietnamese adult models when it is delivered as `ảnh 2` or used as the catalog's primary hero scene.
+- `Version B`: a genuinely different square clean lifestyle scene for the second product image and the catalog hero or supporting panels, using five to ten Vietnamese adult models.
 
 Version B must differ from Version A in at least three of these dimensions: group count, formation, action, camera distance, camera angle, standing/seated balance, or environmental context. A recrop or text overlay on Version A does not count as Version B.
 
-Compose the catalog from Version B alone or combine Version A and Version B. The catalog itself is the second final output; Version B remains an intermediate unless separately requested.
+Compose the catalog from Version B alone or combine Version A and Version B. On the default path, save and publish both the clean Version B image and the finished catalog as separate accepted images.
 
 ## Vary human action
 
@@ -147,7 +148,7 @@ Use `assets/approved-main.png` as the benchmark for garment visibility and infor
 
 Use `assets/approved-catalog.png` as the visual benchmark for hierarchy and density.
 
-- Landscape 5:4.
+- Landscape 5:4 by default. Keep this aspect ratio for the information-rich article/catalog visual unless the user explicitly asks for a square catalog; square output is better reserved for `main` and `image-2` product-gallery photos.
 - Five to ten Vietnamese adults in a lively park, beach, resort, garden, forest, promenade or campsite scene selected from the environment rotation.
 - Use Version B as the hero scene, optionally combining selected crops from Version A.
 - Never use the exact main scene/crop as the sole catalog hero.
@@ -209,10 +210,11 @@ For a default full set, create one product-specific directory under `generated/m
 
 - Directory: `generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-<product>/`
 - Main: `generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-<product>/mayaodongphuc-<product>-main.png`
+- Image 2: `generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-<product>/mayaodongphuc-<product>-image-2.png`
 - Catalog: `generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-<product>/mayaodongphuc-<product>-catalog.png`
 - Handoff: `generated/mayaodongphuc-outdoor-product-images/mayaodongphuc-<product>/product-handoff.json`
 
-If explicitly requested, save the clean Version B in the same directory as `mayaodongphuc-<product>-image-2.png` and list it only when it is a delivered publishing image.
+For explicit single-image requests, list only the requested accepted publishing image. For the default full set, always list all three accepted images in order: `main`, `image-2`, then `catalog`.
 
 Keep PNG as the master format for generated handoff images. When the user needs web-optimized derivatives, convert from the final PNG master, avoid recompressing an existing WebP, and prefer WebP quality 96–100 or lossless/near-lossless for images with logo/text overlays. If file size is still too high, reduce dimensions deliberately instead of dropping quality to 92, because low-quality WebP can visibly damage text edges, logo edges and garment detail.
 
@@ -222,6 +224,7 @@ Compute SHA-256 after the final accepted pixels are saved, write the manifest fr
 python3 scripts/validate_product_handoff.py \
   --manifest=/absolute/path/product-handoff.json \
   --image=/absolute/path/mayaodongphuc-<product>-main.png \
+  --image=/absolute/path/mayaodongphuc-<product>-image-2.png \
   --image=/absolute/path/mayaodongphuc-<product>-catalog.png \
   --require-default-set
 ```

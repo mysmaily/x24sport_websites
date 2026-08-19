@@ -98,6 +98,15 @@ Contact:
 - Favor five people; larger groups weaken product clarity and text reliability.
 - For a five-person main image, require at least three direct-to-camera gazes and prefer four. Direct gaze must outnumber off-camera gaze; any exception should follow the shared action rather than point randomly in different directions.
 
+### Image 2
+
+- Use square 1:1 so the clean Version B works as a normal product-gallery image.
+- Use five to ten Vietnamese adults and keep the shirt fronts readable.
+- Do not add catalog titles, product-detail windows, feature paragraphs, website text or factory footer.
+- Keep only the Mayaodongphuc campaign logo and the centered tonal `Đồng Phục X24` garment wordmark unless the user explicitly asks for a clean image with no campaign logo.
+- Use a distinct Version B scene that differs from main in at least three dimensions: group count, formation, action, camera distance, camera angle, standing/seated balance, or environment.
+- This image is a delivered publishing image in the default set, not merely a source used inside the catalog.
+
 ### Catalog
 
 - Let photography remain at least 60% of the perceived visual weight.
@@ -110,13 +119,14 @@ Contact:
 - Place the Mayaodongphuc logo, title and slogan on the information side or an opposing clean corner as the composition requires. Preserve hierarchy and reading order while varying left/right anchoring between products.
 - Show four genuinely useful garment details: textile, back, signature print/panel, and collar/seam.
 - Keep the factory footer compact and the hotline immediately readable.
+- Keep the catalog 5:4 by default for article and information density. Use square catalog only when the user explicitly asks; the square gallery role is served by main and image 2.
 
 ## Approved visual references
 
 - `../assets/approved-main.png`: approved main-image garment visibility and compact feature/hotline rail.
 - `../assets/approved-catalog.png`: approved catalog hierarchy using a different group-scene version from main.
 
-Together these two references define the required relationship: two final files, backed by at least two different photographic versions. Use them for hierarchy, energy and information density, never as fixed pose, map-reading story, lake-and-mountain setting or fixed left-side layout template. Do not copy their yellow/teal palette or any garment logos shown in the benchmarks when the supplied garment uses different colors.
+Together these references define the required relationship: three final files by default, backed by at least two different photographic versions. Use them for hierarchy, energy and information density, never as fixed pose, map-reading story, lake-and-mountain setting or fixed left-side layout template. Do not copy their yellow/teal palette or any garment logos shown in the benchmarks when the supplied garment uses different colors.
 
 ## Web delivery derivatives
 
