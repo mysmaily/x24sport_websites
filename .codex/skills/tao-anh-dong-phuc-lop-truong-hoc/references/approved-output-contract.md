@@ -3,19 +3,19 @@
 ## Brand Constants
 
 - Logo asset: `../assets/mayaodongphuc-logo.png`
-- Garment wordmark: `Đồng Phục X24`
+- Garment text: user-supplied class text, a short placeholder from `short-shirt-text-dictionary.md`, or fallback `Đồng Phục X24`
 - Hotline: `0982 254 458`
 - Website: `mayaodongphuc.com.vn`
 - Cast: believable Vietnamese students, young adults, class groups, school clubs or university groups, with natural anatomy and distinct faces
 - Brand impression: youthful, trustworthy, easy to order as a class or school group, production-capable
 
-The supplied garment controls the palette. Mayaodongphuc brand colors are secondary campaign accents and must not recolor the product. Remove all supplied logos, names, class/school marks, event marks and original text from the garment while preserving non-brand decorative design. Put one centered `Đồng Phục X24` wordmark across each clear shirt front, approximately 20-30% of the visible shirt-front width, in low-contrast tonal ink.
+The supplied garment controls the palette. Mayaodongphuc brand colors are secondary campaign accents and must not recolor the product. Remove all supplied logos, names, class/school marks, event marks and original text from the garment while preserving non-brand decorative design. Put the user-supplied class text, one short placeholder phrase, or fallback `Đồng Phục X24` on the garment in a readable print area. Keep it short, normally 1-4 words or two balanced lines, and use tonal or moderate-contrast ink that fits the shirt.
 
 The shirt is the product. Bottoms are neutral styling only and must not be described as included.
 
 ## Main Image Exact Copy
 
-Apart from the garment wordmark `Đồng Phục X24`, show no overlay copy except:
+Apart from the garment text, show no overlay copy except:
 
 - `THOÁNG MÁT`
 - `DỄ MẶC`

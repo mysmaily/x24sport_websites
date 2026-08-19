@@ -7,7 +7,7 @@ description: "Tạo bộ ảnh sản phẩm May Áo Đồng Phục cho đồng p
 
 Tạo ba ảnh xuất bản mặc định: `main`, `image-2`, `catalog`, kèm `product-handoff.json` đã validate, rồi đăng sản phẩm qua `create-tenant-product` trong cùng task trừ khi người dùng nói rõ chỉ tạo ảnh/preview/không đăng. Skill này dùng cho tenant `mayaodongphuc`, domain `mayaodongphuc.com.vn`, category `dong-phuc-truong-hoc`.
 
-Đọc `references/approved-output-contract.md` trước khi tạo ảnh. Đọc `references/product-handoff.md` trước khi viết manifest. Xem ảnh áo nguồn và benchmark phù hợp trong `assets/` bằng `view_image`.
+Đọc `references/approved-output-contract.md` trước khi tạo ảnh. Đọc `references/short-shirt-text-dictionary.md` khi cần chọn text tạm để đặt lên áo. Đọc `references/product-handoff.md` trước khi viết manifest. Xem ảnh áo nguồn và benchmark phù hợp trong `assets/` bằng `view_image`.
 
 ## Deliverable Contract
 
@@ -46,12 +46,16 @@ Giữ thiết kế áo giống nhau trên mọi model. Không biến áo thành 
 - Ghi transformation này trong `product-handoff.json`; `garmentFacts.sleeves` phải mô tả output là `tay ngắn`.
 - Reject ảnh final nếu cùng một sản phẩm nhưng model có construction tay áo khác nhau.
 
-### Neutralize Garment Branding
+### Neutralize Garment Branding And Add Class Text
 
 - Xóa mọi logo, huy hiệu, tên lớp/trường thật, thương hiệu, event và chữ gốc trên áo.
 - Giữ họa tiết phi thương hiệu, color blocking, gradient, panel và texture.
-- Thay branding đã xóa bằng chữ `Đồng Phục X24`, căn giữa ngang ngực, cỡ khoảng 20-30% chiều ngang phần thân áo thấy được.
-- Dùng màu in tonal ít tương phản, đọc được nhưng không thành sponsor mark lớn. Không thêm icon X24, không lặp lại trên tay/gấu/lưng.
+- Nếu người dùng cung cấp slogan, tên lớp hoặc class code được phép dùng, đặt text đó lên áo theo bố cục ngắn, dễ đọc.
+- Nếu người dùng chưa cung cấp text áo, chọn một câu ngắn từ `references/short-shirt-text-dictionary.md` làm placeholder. Có thể ghép thêm class code generic như `12A1`, `10A3`, `9A` khi bố cục cần điểm nhận diện lớp, nhưng không dùng tên trường/lớp thật nếu người dùng chưa đưa.
+- Ưu tiên text áo ngắn 1-4 từ hoặc tách 2 dòng. Tránh câu dài vì khó đọc, dễ hỏng chữ và khó in đẹp trên nhiều size.
+- Đặt text chính ở ngực hoặc lưng theo thiết kế nguồn; nếu nguồn không rõ vị trí chữ, dùng ngực giữa hoặc lưng trên. Kích thước khoảng 20-35% chiều ngang vùng in nhìn thấy, đủ đọc nhưng không che họa tiết chính.
+- Dùng màu in tonal hoặc màu tương phản vừa phải theo palette áo; tránh biến text thành sponsor mark lớn. Không lặp text nhiều nơi trừ khi người dùng yêu cầu.
+- Fallback trung tính khi không muốn dùng slogan lớp là `Đồng Phục X24`, căn giữa ngang ngực, cỡ khoảng 20-30% chiều ngang phần thân áo thấy được.
 - Logo Mayaodongphuc chỉ là branding của ảnh campaign, không in lên áo.
 
 ## Generate As One Art-Directed Image
@@ -61,7 +65,7 @@ Dùng image generation với ảnh áo nguồn và `assets/mayaodongphuc-logo.pn
 Prompt theo thứ tự:
 
 1. role ảnh và aspect ratio;
-2. khóa thiết kế áo, xóa branding nguồn, wordmark `Đồng Phục X24`, logo campaign riêng;
+2. khóa thiết kế áo, xóa branding nguồn, text áo ngắn đã chọn hoặc fallback `Đồng Phục X24`, logo campaign riêng;
 3. cast học sinh/sinh viên Việt Nam, hành động, framing, môi trường trường học;
 4. hierarchy graphic của role;
 5. exact visible copy;
@@ -132,6 +136,7 @@ Benchmark: `assets/approved-catalog.png` cho hierarchy và density.
 - Không dùng nguyên main scene/crop làm catalog hero duy nhất.
 - Blend information field mềm vào vùng có negative space, trái/phải đều được.
 - Dùng một title pair, một slogan, bốn product properties, bốn close-up windows, factory footer, hotline và website theo `references/approved-output-contract.md`.
+- Nếu catalog cần một phrase ngắn trên áo và người dùng chưa cung cấp, dùng `references/short-shirt-text-dictionary.md`; không đưa các câu hài/lầy vào catalog title hoặc feature copy.
 - Nhóm người và áo vẫn phải chiếm phần visual dominant.
 
 ## Marketing Authority
@@ -154,7 +159,7 @@ Reject hoặc sửa nếu:
 
 - áo sai construction, màu, gradient, panel hoặc họa tiết so với nguồn;
 - branding nguồn, tên lớp/trường thật, event hoặc chữ gốc còn trên áo;
-- `Đồng Phục X24` thiếu, sai chính tả, quá nổi, quá nhỏ, lặp lại hoặc không nhất quán;
+- text áo đã chọn hoặc fallback `Đồng Phục X24` thiếu, sai chính tả, quá nổi, quá nhỏ, lặp lại quá mức hoặc không nhất quán;
 - scene đọc thành team-building doanh nghiệp/outdoor picnic thay vì lớp/trường học;
 - main ít hơn ba model, `image-2`/catalog ít hơn bốn model;
 - người quá nhỏ tuổi theo cách không phù hợp với ảnh thương mại, hoặc cảnh học đường nhạy cảm/không an toàn;

@@ -54,7 +54,7 @@ Use this manifest to transfer accepted Mayaodongphuc school/class uniform images
       },
       "overlay": {
         "campaignLogo": "mayaodongphuc-logo.png",
-        "garmentWordmark": "Đồng Phục X24",
+        "garmentText": "CHỈ CÓ THỂ LÀ 12A1",
         "hotline": "0982 254 458"
       }
     },
@@ -74,7 +74,7 @@ Use this manifest to transfer accepted Mayaodongphuc school/class uniform images
       },
       "overlay": {
         "campaignLogo": "mayaodongphuc-logo.png",
-        "garmentWordmark": "Đồng Phục X24"
+        "garmentText": "CHỈ CÓ THỂ LÀ 12A1"
       }
     },
     {
@@ -93,7 +93,7 @@ Use this manifest to transfer accepted Mayaodongphuc school/class uniform images
       },
       "overlay": {
         "campaignLogo": "mayaodongphuc-logo.png",
-        "garmentWordmark": "Đồng Phục X24",
+        "garmentText": "CHỈ CÓ THỂ LÀ 12A1",
         "title": "ĐỒNG PHỤC / LỚP HỌC",
         "slogan": "Chung màu áo - Chung kỷ niệm",
         "hotline": "0982 254 458",
@@ -108,7 +108,7 @@ Use this manifest to transfer accepted Mayaodongphuc school/class uniform images
     "fit": "form dễ mặc nhìn thấy trong ảnh",
     "colors": ["xanh", "trắng"],
     "pattern": "phối màu xanh trắng theo thiết kế nguồn",
-    "approvedArtwork": ["Đồng Phục X24 đặt giữa ngực bằng màu tonal"],
+    "approvedArtwork": ["text áo lớp ngắn đặt trong vùng in chính, ví dụ CHỈ CÓ THỂ LÀ 12A1"],
     "removedArtwork": ["mọi logo, tên lớp, tên trường, thương hiệu và chữ gốc trên áo tham chiếu"],
     "visibleSides": ["front"]
   },
@@ -118,7 +118,7 @@ Use this manifest to transfer accepted Mayaodongphuc school/class uniform images
     "fabric": {"copy": "Thoáng mát, dễ mặc", "evidenceLevel": "provided"},
     "design": {"copy": "In tên - logo lớp theo yêu cầu", "evidenceLevel": "provided"},
     "durability": {"copy": "Bền màu, dễ bảo quản", "evidenceLevel": "provided"},
-    "printing": {"copy": "Đồng Phục X24 in tonal giữa ngực", "evidenceLevel": "visible"}
+    "printing": {"copy": "Text áo lớp ngắn in trong vùng chính", "evidenceLevel": "visible"}
   },
   "unsupportedClaims": ["fabric composition", "GSM", "named printing process", "wash-cycle count", "fixed delivery time", "fixed price"],
   "fidelityCaveats": ["Mặt sau không được suy diễn nếu ảnh tham chiếu không cung cấp thiết kế lưng."],
