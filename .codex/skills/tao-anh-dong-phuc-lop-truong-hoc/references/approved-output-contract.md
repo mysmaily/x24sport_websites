@@ -9,7 +9,7 @@
 - Cast: believable Vietnamese students, young adults, class groups, school clubs or university groups, with natural anatomy and distinct faces
 - Brand impression: youthful, trustworthy, easy to order as a class or school group, production-capable
 
-The supplied garment controls the palette. Mayaodongphuc brand colors are secondary campaign accents and must not recolor the product. Remove all supplied logos, names, class/school marks, event marks and original text from the garment while preserving non-brand decorative design. Put the user-supplied class text, one short placeholder phrase, or fallback `Đồng Phục X24` on the garment in a readable print area. Keep it short, normally 1-4 words or two balanced lines, and use tonal or moderate-contrast ink that fits the shirt.
+The supplied garment controls the palette. Mayaodongphuc brand colors are secondary campaign accents and must not recolor the product. Remove all supplied logos, names, class/school marks, event marks and original text from the garment while preserving non-brand decorative design. Put the user-supplied class text, one short placeholder phrase, or fallback `Đồng Phục X24` on the garment in a readable print area. For student/class shirts, prefer playful sticker/bubble/comic typography: small front class mark plus a larger back slogan when a back view is visible. Keep front marks short; back artwork may use 2-4 bold lines when readable. Use tonal or moderate-contrast ink that fits the shirt.
 
 The shirt is the product. Bottoms are neutral styling only and must not be described as included.
 
@@ -84,12 +84,15 @@ Contact:
 - Keep logo around 12-15% of shorter edge.
 - Bottom rail stays at or below 14% of image height.
 - Prefer three to five people and at least three readable shirt fronts.
+- For class-uniform products, one three-quarter back or full back can replace one shirt front when it clearly reveals the back artwork.
 - Direct-to-camera gaze should feel like a class/product photo, not a fashion shoot.
 
 ### Image 2
 
 - Square 1:1.
 - Four to eight people in a distinct school, campus, class, club or yearbook-adjacent setting.
+- Include at least one clear shirt back for class/student designs unless the product is explicitly front-only.
+- Scenes may be more playful than company uniforms: safe running, laughing, khoác vai, turning to show the back print, school-yard games or club-day energy.
 - No catalog titles, feature paragraphs, website or factory footer.
 - Keep only Mayaodongphuc campaign logo and garment wordmark unless the user asks for a no-logo clean image.
 
@@ -99,7 +102,7 @@ Contact:
 - Photography remains at least 60% of perceived visual weight.
 - Use Version B as the hero scene and avoid using the main crop alone.
 - Information field should be softly integrated, not a hard opaque sidebar.
-- Show four useful garment details: fabric, collar/seam, front print/panel, back or sleeve when supported by the source.
+- Show four useful garment details: fabric, collar/seam, front print/panel, and back artwork or sleeve when supported by the source.
 
 ## Approved Visual References
 

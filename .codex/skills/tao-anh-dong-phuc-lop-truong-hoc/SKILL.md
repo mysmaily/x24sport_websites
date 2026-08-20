@@ -50,11 +50,13 @@ Giữ thiết kế áo giống nhau trên mọi model. Không biến áo thành 
 
 - Xóa mọi logo, huy hiệu, tên lớp/trường thật, thương hiệu, event và chữ gốc trên áo.
 - Giữ họa tiết phi thương hiệu, color blocking, gradient, panel và texture.
-- Nếu người dùng cung cấp slogan, tên lớp hoặc class code được phép dùng, đặt text đó lên áo theo bố cục ngắn, dễ đọc.
+- Đồng phục lớp/trường học cần khác đồng phục công ty: ưu tiên text vui, có cá tính lớp, typography sticker/bubble/comic, chữ bo viền, shadow, sao/tia sáng/icon nhỏ, hoặc bố cục nhiều dòng kiểu áo lớp thật.
+- Nếu người dùng cung cấp slogan, tên lớp hoặc class code được phép dùng, đặt text đó lên áo theo bố cục vui, dễ đọc, không quá corporate.
 - Nếu người dùng chưa cung cấp text áo, chọn một câu ngắn từ `references/short-shirt-text-dictionary.md` làm placeholder. Có thể ghép thêm class code generic như `12A1`, `10A3`, `9A` khi bố cục cần điểm nhận diện lớp, nhưng không dùng tên trường/lớp thật nếu người dùng chưa đưa.
-- Ưu tiên text áo ngắn 1-4 từ hoặc tách 2 dòng. Tránh câu dài vì khó đọc, dễ hỏng chữ và khó in đẹp trên nhiều size.
-- Đặt text chính ở ngực hoặc lưng theo thiết kế nguồn; nếu nguồn không rõ vị trí chữ, dùng ngực giữa hoặc lưng trên. Kích thước khoảng 20-35% chiều ngang vùng in nhìn thấy, đủ đọc nhưng không che họa tiết chính.
-- Dùng màu in tonal hoặc màu tương phản vừa phải theo palette áo; tránh biến text thành sponsor mark lớn. Không lặp text nhiều nơi trừ khi người dùng yêu cầu.
+- Ưu tiên hệ front/back: ngực trái hoặc ngực giữa dùng class code/mark nhỏ; lưng áo dùng artwork lớn 35-60% chiều ngang lưng với slogan vui. Với ảnh chỉ thấy mặt trước, vẫn dùng mark nhỏ-vừa; với ảnh thấy lưng, phải cho thấy artwork lưng rõ.
+- Text lưng có thể dài hơn mặt trước nếu tách thành 2-4 dòng lớn, ví dụ `MÃI BÊN NHAU / BẠN NHÉ`, `LỚP TÔI / HƠI BỊ CHẤT`, `NHẤT QUỶ / NHÌ MA`, hoặc `I CAN'T / YOU CAN'T / BUT WE CAN`.
+- Dùng màu in tương phản theo palette áo, có viền trắng/navy/hồng/xanh để đọc được. Tránh text nhạt, nhỏ, thẳng hàng như đồng phục doanh nghiệp.
+- Không lặp cùng một slogan lớn ở mọi vị trí; dùng front nhỏ + back lớn khi có cả hai mặt.
 - Fallback trung tính khi không muốn dùng slogan lớp là `Đồng Phục X24`, căn giữa ngang ngực, cỡ khoảng 20-30% chiều ngang phần thân áo thấy được.
 - Logo Mayaodongphuc chỉ là branding của ảnh campaign, không in lên áo.
 
@@ -84,7 +86,7 @@ Version B phải khác Version A ít nhất ba yếu tố: số người, format
 
 ## School Context
 
-Ưu tiên cast Việt Nam trẻ, phù hợp áo lớp/trường học: học sinh THPT lớn, sinh viên, CLB/khoa, hoặc nhóm lớp. Tránh biểu cảm, dáng pose hoặc trang phục phụ quá công sở, team-building doanh nghiệp, nightlife, wedding, hoặc fashion editorial xa ngữ cảnh học đường.
+Ưu tiên cast Việt Nam trẻ, phù hợp áo lớp/trường học: học sinh THPT lớn, sinh viên, CLB/khoa, hoặc nhóm lớp. Tinh thần nên vui, thân thiết, nô đùa có kiểm soát, đúng năng lượng tuổi học trò; tránh biểu cảm, dáng pose hoặc trang phục phụ quá công sở, team-building doanh nghiệp, nightlife, wedding, hoặc fashion editorial xa ngữ cảnh học đường.
 
 Bối cảnh nên xoay vòng:
 
@@ -93,18 +95,18 @@ Bối cảnh nên xoay vòng:
 - thư viện, phòng CLB, studio kỷ yếu tối giản;
 - khuôn viên đại học, hàng cây, sân cờ;
 - sân thể thao trường, nhà đa năng, ngày hội trường;
-- outing/kỷ yếu ngoài trời chỉ khi người dùng yêu cầu hoặc thiết kế áo hợp rõ ràng.
+- outing/kỷ yếu ngoài trời, sân bóng rổ, sân trường sau giờ học, ngày hội CLB khi cần thể hiện áo lớp trẻ trung.
 
 Hành động nên tự nhiên:
 
 - chụp ảnh tập thể lớp hoặc CLB;
 - cùng xem bản thiết kế, danh sách size, hoặc poster sự kiện;
 - chuẩn bị gian hàng/ngày hội trường;
-- trò chuyện ở sân trường hoặc thư viện;
+- trò chuyện, chạy nhẹ, đuổi bắt vui, khoác vai, xoay người khoe lưng áo ở sân trường;
 - sinh hoạt CLB, rehearsal, hoặc ngày hội thể thao;
 - tạo dáng kỷ yếu hiện đại nhưng không dùng áo choàng tốt nghiệp trừ khi người dùng yêu cầu.
 
-Tránh pose high-five lặp lại, clapping, tay giơ đồng loạt, dấu hiệu cổ vũ thể thao quá mạnh, hoặc cảnh picnic doanh nghiệp nếu không được yêu cầu.
+Tránh pose high-five lặp lại, clapping, tay giơ đồng loạt, dấu hiệu cổ vũ thể thao quá mạnh, hoặc cảnh picnic doanh nghiệp nếu không được yêu cầu. Nô đùa phải an toàn, không xô ngã, không hành vi nguy hiểm hoặc nhạy cảm.
 
 ## Main Image Contract
 
@@ -112,7 +114,7 @@ Benchmark: `assets/approved-main.png` cho độ rõ áo và bottom rail, không 
 
 - Square 1:1.
 - Ba đến năm model Việt Nam trẻ, mixed gender khi phù hợp, nét mặt tự nhiên.
-- Frame từ đầu tới trên gối, giữ ít nhất ba mặt trước áo rõ.
+- Frame từ đầu tới trên gối. Nếu sản phẩm cần thể hiện áo lớp, ưu tiên ít nhất hai mặt trước rõ và một đến hai mặt lưng/three-quarter back để thấy artwork lưng.
 - Áo là trọng tâm chính; bottoms trung tính như jeans, quần dài, chân váy/skort học đường hiện đại, không logo lớn.
 - Logo Mayaodongphuc xuất hiện một lần ở góc trên sạch.
 - Bottom rail không quá 14% chiều cao ảnh.
@@ -123,6 +125,8 @@ Benchmark: `assets/approved-main.png` cho độ rõ áo và bottom rail, không 
 
 - Square 1:1.
 - Bốn đến tám model trong scene học đường/lớp/CLB khác main.
+- Phải có ít nhất một mặt lưng áo rõ khi nguồn/sản phẩm không khóa chỉ mặt trước; đây là ảnh hỗ trợ chính để người mua thấy bố cục sau áo.
+- Cho phép hoạt động vui hơn main: khoác vai, chạy nhẹ qua sân, quay lưng cười với bạn, chuẩn bị ngày hội trường, chơi mini game CLB an toàn.
 - Không thêm catalog title, feature paragraphs, website hoặc factory footer.
 - Chỉ dùng logo Mayaodongphuc và wordmark áo `Đồng Phục X24`, trừ khi người dùng yêu cầu sạch hoàn toàn.
 

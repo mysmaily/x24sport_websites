@@ -4,12 +4,14 @@ Use this dictionary when the user has not supplied class text but the shirt need
 
 ## Usage Rules
 
-- Use 1-4 strong words when possible.
+- Use 1-4 strong words on the front when possible.
+- Back artwork can use 2-4 bold lines when the scene clearly shows shirt backs, for example `MÃI BÊN NHAU / BẠN NHÉ`, `LỚP TÔI / HƠI BỊ CHẤT`, or `I CAN'T / YOU CAN'T / BUT WE CAN`.
 - Split into two lines when that improves balance, for example `MỆT VÌ / GIỎI` or `CHỈ CÓ THỂ LÀ / 12A1`.
 - Add a generic class code such as `12A1`, `11A2`, `10A3`, `9A`, `K48`, or `CLB` only when it helps the design. Do not invent real school names.
 - Avoid offensive, political, adult, discriminatory, or risky phrases.
 - Do not use these playful phrases as catalog title, feature copy, SEO title, product name, or factual product claims. They are garment-placeholder text only.
 - If exact Vietnamese text reliability is critical, prefer the simplest all-caps phrase without diacritics-heavy words, or correct the final text region deterministically after generation.
+- Prefer playful sticker/bubble/comic typography for class shirts. Avoid small, plain, corporate chest-only marks unless the product is explicitly for school staff or formal uniforms.
 
 ## Vietnamese Playful
 
@@ -63,6 +65,20 @@ TUỔI TRẺ KHÔNG CHỜ
 ĐI ĐÂU CŨNG CÓ NHAU
 MÃI LÀ ANH EM
 MÃI LÀ MỘT TEAM
+MÃI BÊN NHAU BẠN NHÉ
+LỚP NÀO XINH BẰNG LỚP MÌNH
+LỚP TÔI HƠI BỊ CHẤT
+TEAM TÔI MÃI KEO
+MÃI KEO MÃI ĐỈNH
+CHẤT NHƯ NƯỚC CẤT
+BÉ NGOAN CÓ TỔ CHỨC
+QUẬY CÓ VĂN HÓA
+VUI CÓ ĐỒNG ĐỘI
+LỚP MÌNH LÀ SỐ 1
+ĐẸP ĐỀU CÓ ĐÀO TẠO
+HỌC CŨNG ĐƯỢC CHƠI CŨNG HAY
+CHỈ CẦN CÓ NHAU
+THANH XUÂN ĐỪNG NGỦ QUÊN
 KHÁC BIỆT ĐỂ NỔI BẬT
 ĐOÀN KẾT TẠO SỨC MẠNH
 TỰ TIN TỎA SÁNG
@@ -111,4 +127,12 @@ FOREVER CLASSMATES
 MEMORIES NEVER DIE
 SHINE TOGETHER
 STAY TOGETHER
+I CAN'T YOU CAN'T BUT WE CAN
+DRAW YOUR DREAM
+CLASSY SASSY
+BE COLORFUL AND BRIGHT
+LET'S START THE JOURNEY
+OUR CLASS OUR RULES
+TOO COOL FOR SCHOOL
+YOUNG WILD CLASS
 ```
