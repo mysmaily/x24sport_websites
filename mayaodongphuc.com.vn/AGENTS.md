@@ -6,8 +6,8 @@ Read `../AGENTS.md` first.
 
 - Tenant: `mayaodongphuc`; canonical domain: `mayaodongphuc.com.vn`.
 - Role: specialist website for made-to-order uniforms, led by three primary
-  commercial and search segments: class/school groups, outdoor/team-building
-  groups, and companies.
+  commercial and search segments in this order: companies/businesses first,
+  then class/school groups, followed by outdoor/team-building groups.
 - F&B, light workwear, healthcare/services and other industry uniforms are
   secondary supporting segments. They must not displace the three primary
   segments in homepage positioning, primary navigation or keyword ownership.

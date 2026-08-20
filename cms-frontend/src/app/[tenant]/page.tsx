@@ -41,22 +41,22 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
     },
   }
   if (tenant === 'mayaodongphuc') return {
-    title: { absolute: 'May Áo Đồng Phục Lớp, Team Building & Công Ty' },
-    description: 'May áo đồng phục lớp, dã ngoại, team building và công ty theo yêu cầu. Chọn mẫu, màu sắc, chất liệu, in logo và gửi thông tin để nhận tư vấn báo giá.',
+    title: { absolute: 'May Áo Đồng Phục Công Ty, Lớp & Team Building' },
+    description: 'May áo đồng phục công ty, lớp học, dã ngoại và team building theo yêu cầu. Chọn mẫu, màu sắc, chất liệu, in logo và gửi thông tin để nhận tư vấn báo giá.',
     alternates: { canonical: 'https://mayaodongphuc.com.vn/' },
     openGraph: {
       type: 'website',
       locale: 'vi_VN',
       siteName: 'May Áo Đồng Phục',
-      title: 'May Áo Đồng Phục Lớp, Team Building & Công Ty',
-      description: 'Chọn mẫu đồng phục cho lớp học, chuyến dã ngoại, team building hoặc công ty. Tùy chỉnh màu, logo, chất liệu và size theo nhu cầu.',
+      title: 'May Áo Đồng Phục Công Ty, Lớp & Team Building',
+      description: 'Chọn mẫu đồng phục cho công ty, lớp học, chuyến dã ngoại hoặc team building. Tùy chỉnh màu, logo, chất liệu và size theo nhu cầu.',
       url: 'https://mayaodongphuc.com.vn/',
-      images: [{ url: '/images/mayaodongphuc/hero-atelier.webp', width: 1672, height: 941, alt: 'Các mẫu đồng phục cho đội nhóm và doanh nghiệp' }],
+      images: [{ url: '/images/mayaodongphuc/hero-atelier.webp', width: 1672, height: 941, alt: 'Các mẫu đồng phục cho doanh nghiệp, lớp học và đội nhóm' }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'May Áo Đồng Phục Lớp, Team Building & Công Ty',
-      description: 'Chọn mẫu đồng phục cho lớp học, chuyến dã ngoại, team building hoặc công ty. Tùy chỉnh màu, logo, chất liệu và size theo nhu cầu.',
+      title: 'May Áo Đồng Phục Công Ty, Lớp & Team Building',
+      description: 'Chọn mẫu đồng phục cho công ty, lớp học, chuyến dã ngoại hoặc team building. Tùy chỉnh màu, logo, chất liệu và size theo nhu cầu.',
       images: ['/images/mayaodongphuc/hero-atelier.webp'],
     },
   }
