@@ -103,6 +103,35 @@ readiness work that does not require the whole-tenant gated workflow.
    in `PRODUCTION-DEPLOYMENT-RUNBOOK.md`.
 5. Verify the requested domain plus every sibling affected by shared code.
 
+### Frontend skill routing and visual quality gate
+
+Do not stack design skills in the hope that their advice will average out.
+For a customer-facing UI change, use the smallest applicable set in this order:
+
+1. **Build:** use `develop-x24sport-websites` as the workflow authority. Use
+   `frontend-design` only when the request needs a genuinely new visual
+   composition; preserve the tenant profile and the compact commerce rules
+   below. Do not use it to justify experimental layouts, decorative overlap,
+   oversized type, or excess whitespace in shopping UI.
+2. **Implement:** use the existing design tokens and shared components before
+   introducing colours, spacing scales, type scales, breakpoints, or another
+   component system. `vercel-react-best-practices` is relevant only to a
+   React/Next performance or refactor concern, not as a visual-design gate.
+3. **Audit:** after material customer-facing UI work, run
+   `web-design-guidelines` against the changed UI files and fix every relevant
+   finding. Its audit does not replace visual inspection.
+4. **Render and inspect:** use `browser:control-in-app-browser` (or an
+   equivalent local browser surface) to capture fresh screenshots and exercise
+   the changed flow before handoff. Test at 390x844 and 1440x900 at minimum;
+   also test every breakpoint introduced or materially changed by the task.
+
+Do not use `design-taste-frontend`, `image-to-code`, `gpt-taste`, or multiple
+overlapping frontend-design skills for routine storefront work. Their
+landing-page/experimental defaults can conflict with this platform's compact,
+scan-first commerce contract. Use one only when the user explicitly requests
+that type of campaign or redesign, and this repository's accessibility,
+responsive, and commerce rules still take priority.
+
 Do not edit production source directly over SSH. SSH is used for read-only
 inspection, canonical deployment, container checks and approved server-side
 scripts. Direct server editing creates undocumented drift.

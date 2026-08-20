@@ -43,6 +43,19 @@ gate before claiming completion.
 - Images preserve intended crop and subject; text remains legible over media.
 - Loading and font swaps do not cause disruptive movement.
 - Capture fresh desktop and mobile screenshots for material UI changes.
+- **Hard-stop defects:** do not hand off while any of the following is visible:
+  accidental large blank space; type that is too large for its shopping context;
+  overlapping, clipped, or colliding text; a control whose label blends into its
+  fill; text that blends into its surface or image; an unexpected horizontal
+  scrollbar; or a control obscured by another element.
+- Inspect the actual rendered states, not just the default source state:
+  long Vietnamese names/titles, two-line labels, sale prices, empty/error
+  messages, hover/focus/disabled controls, and every changed breakpoint. Check
+  each CTA and coloured badge for explicit foreground/background contrast.
+- When using flex or grid, test its narrowest valid width with realistic long
+  content. Resolve collisions by correcting the layout and text-sizing rules;
+  never mask the failure with `overflow: hidden`, fixed heights, or arbitrary
+  z-index values.
 
 ## 3. Accessibility
 

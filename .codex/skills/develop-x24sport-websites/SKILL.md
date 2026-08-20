@@ -53,6 +53,10 @@ pages, components, routes, shared behavior, or technical concerns.
      `references/implementation-adapters.md`.
    - Any change that will be handed off as complete: read
      `references/quality-gates.md`.
+   - Any material customer-facing UI change: follow the mandatory visual gate
+     in `references/quality-gates.md`. Use `web-design-guidelines` for the
+     changed UI files and browser screenshots for the rendered result; neither
+     source review nor a successful build is sufficient on its own.
 5. Recheck current official documentation when a rule, API, supported rich
    result, or metric may have changed. Prefer Google Search Central and web.dev
    for Google requirements, and primary framework documentation for APIs.
@@ -112,6 +116,14 @@ pages, components, routes, shared behavior, or technical concerns.
   focus states before calling a flow complete.
 - Use semantic HTML, keyboard-operable controls, visible focus, labeled forms,
   useful errors, adequate target sizes, and meaningful image alternatives.
+- Treat the existing tenant design system as the default. Reuse semantic colour,
+  type, spacing, radius, shadow, and breakpoint tokens; do not introduce
+  one-off visual values unless the task needs a documented exception.
+- Design ordinary commerce UI for compact scanning, not a campaign hero. A
+  large display treatment, intentionally generous whitespace, overlay, or
+  unusual composition requires a clear page-specific reason and a tested mobile
+  fallback. It is never the default for catalog, product, form, filter, or
+  operational UI.
 
 ### 3. Implement minimally
 
@@ -134,6 +146,15 @@ pages, components, routes, shared behavior, or technical concerns.
   `.gitignore`; only publish optimized, intentional website assets.
 - Do not create rollback copies, dumps, snapshots, archives, cloned containers,
   copied images, or renamed resources during deployment or mutation work.
+- Give every interactive control an explicit foreground, background, border,
+  hover, focus-visible, disabled, and loading treatment where applicable. Do
+  not rely on inherited text colour for buttons, badges, or controls placed on
+  coloured surfaces.
+- Constrain text deliberately: headings and body copy must wrap or truncate by
+  an intentional rule; flex/grid children that contain text must be allowed to
+  shrink (`min-width: 0` or equivalent); media and text overlays require a
+  contrast-preserving surface or scrim. Do not hide overflow merely to conceal
+  a collision.
 
 ### 4. Apply Google-aligned SEO
 
@@ -194,6 +215,10 @@ pages, components, routes, shared behavior, or technical concerns.
 4. Check HTTP status, redirects, sitemap, robots.txt, desktop/mobile UI, browser
    console, logs, forms, product/catalog navigation, and any affected conversion
    flow.
+   For material UI work, first audit changed UI files with
+   `web-design-guidelines`, then inspect fresh rendered screenshots at 390x844
+   and 1440x900 (and affected breakpoints). Treat a visual defect as unfinished
+   even when typecheck/build/audit pass.
 5. For performance work, record the tested URL and tenant, field-data scope and
    period when available, device/network/cache conditions, metric subparts,
    culprit, and equivalent before/after evidence.
