@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chọn nguồn cho đồng phục học sinh"
+  short_description: "Lọc mẫu nguồn phù hợp để chuyển thành áo lớp"
+  default_prompt: "Dùng $chon-nguon-cho-dong-phuc-hoc-sinh để rà catalog nguồn, chấm điểm và chọn các mẫu phù hợp làm đồng phục học sinh theo từng lô 5 sản phẩm."
