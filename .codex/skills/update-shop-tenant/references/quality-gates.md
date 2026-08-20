@@ -1,4 +1,4 @@
-# X24Sport website quality gates
+# Brand shop website quality gates
 
 Use only the gates relevant to the requested change, but complete every selected
 gate before claiming completion.

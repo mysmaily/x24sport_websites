@@ -27,7 +27,7 @@ pricing_rule: use_contact_price_when_no_price_is_provided
 required_clothing_rule: all_visible_models_wear_long_black_pants
 ```
 
-Also load and follow `develop-x24sport-websites` when the request includes
+Also load and follow `$update-shop-tenant` when the request includes
 public catalog, product content, SEO, or production verification.
 
 ## Workflow
@@ -115,19 +115,11 @@ python .codex/skills/convert-pickleball-to-billiards/scripts/import_billiards_ba
      expected product count after revalidation.
    - Sample product pages return 200 and show H1, title, meta description,
      gallery image, content section, and Product JSON-LD.
-   - Run the page audit. Use `--allow-noindex` for product pages on
-     `next.x24sport.vn` because preview intentionally sends `X-Robots-Tag:
-     noindex, nofollow`.
-
-Useful checks:
-
-```bash
-python .codex/skills/develop-x24sport-websites/scripts/audit_page.py \
-  --allow-noindex https://next.x24sport.vn/ao-bi-a-x24-ba-541-trang-den-xam/
-
-python .codex/skills/develop-x24sport-websites/scripts/audit_page.py \
-  --allow-noindex https://next.x24sport.vn/danh-muc/bi-a/
-```
+   - Run the relevant `$update-shop-tenant` quality gates for rendered HTML,
+     HTTP status, metadata, canonical, gallery media, structured data, category
+     inclusion, and preview noindex behavior. Product pages on
+     `next.x24sport.vn` may intentionally send `X-Robots-Tag: noindex,
+     nofollow`; record that as expected preview behavior when observed.
 
 ## Reporting
 

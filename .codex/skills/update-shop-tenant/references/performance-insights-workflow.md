@@ -1,8 +1,8 @@
-# Performance Insights workflow for X24Sport
+# Performance Insights workflow for brand shops
 
 Use this workflow for performance diagnosis, Core Web Vitals work, Lighthouse,
 CrUX, PageSpeed Insights, or Chrome DevTools Performance Insights. Treat the
-thresholds as Google guidance and the workflow as an X24Sport quality gate.
+thresholds as Google guidance and the workflow as a starter-kit quality gate.
 
 ## Contents
 
@@ -13,7 +13,7 @@ thresholds as Google guidance and the workflow as an X24Sport quality gate.
 5. INP workflow
 6. CLS workflow
 7. Supporting insights
-8. X24Sport coverage
+8. Brand shop coverage
 9. Verification and reporting
 10. Official sources
 
@@ -141,7 +141,7 @@ Use Performance Insights to confirm or reject relevant hypotheses:
 Do not fix every surfaced insight automatically. Prioritize findings connected to
 the requested outcome, dominant metric subpart, or measured user journey.
 
-## 8. X24Sport coverage
+## 8. Brand shop coverage
 
 Choose representative templates affected by the change. For storefront work,
 consider home, category/catalog, product, article, and quote/order flows. Exercise

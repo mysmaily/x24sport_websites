@@ -1,4 +1,4 @@
-# X24Sport implementation adapters
+# Brand shop implementation adapters
 
 ## Contents
 
@@ -14,7 +14,7 @@
 |---|---|---|
 | Public websites | Next.js 16 App Router | Host resolves dynamically from Payload; optional slug-specific visual overrides |
 | Content/admin | Payload CMS 3 | Tenant-scoped collections, users and media |
-| Portfolio | X24Sport, RynoSport and specialist `mayao*.vn` domains | One shared `cms-frontend` runtime |
+| Brand portfolio | Brand domains configured in Payload | One shared `cms-frontend` runtime |
 
 Treat `PRODUCTION-DEPLOYMENT-RUNBOOK.md` as the authority for deployment. Use the
 local `AGENTS.md` for tenant identity, cache behavior, access scope, and
@@ -94,14 +94,14 @@ tenant isolation using representative records from every affected tenant.
 ## 4. Ecommerce page contracts
 
 All product-detail and product-list implementations must follow the repository
-`AGENTS.md` **Shared product typography contract**. Treat its heading position,
-fixed responsive font sizes, and single-line price treatment as cross-platform
+commerce UI rules in `AGENTS.md`. Treat heading hierarchy, stable media sizing,
+readable product names, and single-line price treatment as cross-platform
 requirements, not optional visual guidance.
 
 Catalog, category, collection, and search-results implementations must also
-follow the repository **Shared catalog density and filtering contract**. Reuse
-its single-row horizontal primary filter and overlay dropdown pattern across
-platform adapters rather than rebuilding multi-row filter clouds per site.
+follow the repository catalog density and filtering rules. Reuse compact
+primary filters and a bounded secondary filter pattern across platform adapters
+rather than rebuilding unbounded filter clouds per site.
 
 ### Home
 
@@ -160,14 +160,9 @@ export function ProductGallery({ discountPercent = 0, images, productName }: Pro
 }
 ```
 
-Use the correct relative import path for the tenant component location. Current
-wrapper examples:
-
-- `cms-frontend/src/app/[tenant]/_mayaopickleball/san-pham/[slug]/product-gallery.tsx`
-- `cms-frontend/src/app/[tenant]/_mayaocaulong/san-pham/[slug]/product-gallery.tsx`
-- `cms-frontend/src/app/[tenant]/_mayaobongro/components/product-gallery.tsx`
-- `cms-frontend/src/app/[tenant]/_mayaobongda/components/product-gallery.tsx`
-- `cms-frontend/src/app/[tenant]/_mayaochaybo/components/product-gallery.tsx`
+Use the correct relative import path for the tenant component location. Add a
+tenant-local wrapper only when the cloned brand repo intentionally introduces a
+slug-specific visual override.
 
 The shared component accepts:
 

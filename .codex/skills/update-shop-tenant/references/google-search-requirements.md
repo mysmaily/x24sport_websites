@@ -1,4 +1,4 @@
-# Google Search requirements for X24Sport ecommerce
+# Google Search requirements for brand shop ecommerce
 
 Checked against official Google documentation on 2026-08-16. Recheck the linked
 page before relying on a changeable feature, supported schema field, or metric.
@@ -22,7 +22,7 @@ page before relying on a changeable feature, supported schema field, or metric.
   structured data, or safe operation.
 - **Google best practice**: recommended by Google but not a guarantee of crawling,
   indexing, rich results, or ranking.
-- **Project quality gate**: an X24Sport engineering standard for usability,
+- **Project quality gate**: a starter-kit engineering standard for usability,
   accessibility, maintainability, or conversion. Do not mislabel it as a Google
   ranking factor.
 
@@ -103,7 +103,7 @@ Structured data must describe visible page content and use Google-supported
 types and properties. It does not create content or override contradictory page
 facts.
 
-For X24Sport, evaluate:
+For a brand shop, evaluate:
 
 - `Product` with a factual `Offer`/merchant listing for a purchasable product.
 - `ProductGroup` plus `Product` variants when color, size, material, or style

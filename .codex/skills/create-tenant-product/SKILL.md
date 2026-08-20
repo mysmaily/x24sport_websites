@@ -66,7 +66,7 @@ Read these before acting:
    - Create or patch `/api/products` with `gallery` as all uploaded media IDs in desired order.
    - Do not upload duplicate files for editorial placement. Reuse gallery media IDs/URLs. On a supporting storefront, render `gallery[1..n]` after the long description as semantic `<figure><img><figcaption>` blocks; keep the primary image only in the gallery/hero area.
    - Give contextual images explicit dimensions or an aspect ratio, `loading="lazy"`, and `decoding="async"`. Use reviewed media facts as the basis for `alt` and caption, but do not blindly reuse alt text as visible caption. If another storefront only renders `media.alt` as the caption, apply the same reviewed hybrid rule and report the limitation. Do not silently expose raw analysis notes.
-   - If the target storefront cannot render contextual gallery media, do not inject unsafe raw HTML or silently upload copies. Route the bounded UI change through `develop-x24sport-websites`, then typecheck, build, deploy, and verify it before claiming the product page is complete.
+   - If the target storefront cannot render contextual gallery media, do not inject unsafe raw HTML or silently upload copies. Route the bounded UI change through `$update-shop-tenant`, then typecheck, build, deploy, and verify it before claiming the product page is complete.
    - Recalculate affected category `productCount` from tenant-scoped published products when a category membership changes.
 
 6. Verify:

@@ -81,19 +81,15 @@ For a website request, read this root file, then `<domain>/AGENTS.md`.
 
 ### Whole-tenant creation, completion or launch
 
-Use `launch-or-complete-x24sport-tenant-v2` as the exclusive orchestrating skill
-when the requested outcome is a new tenant/domain or completion of an entire
-tenant from design through content and launch validation. Do not additionally
-invoke `develop-x24sport-websites` for that same outcome. The completion skill
-loads the development skill's relevant technical references directly.
+Use `$create-shop-tenant` as the exclusive orchestrating skill when the
+requested outcome is a new tenant/domain or completion of an entire tenant from
+design through content and launch validation. Do not additionally invoke
+`$update-shop-tenant` for that same outcome. The creation skill bundles and must
+use the local specialist passes `$content-strategy`, `$site-architecture`,
+`$programmatic-seo`, and `$web-design-guidelines`.
 
-`launch-or-complete-x24sport-tenant` remains available only for legacy task
-continuity. Start new whole-tenant work with v2, which adds content-strategy,
-site-architecture, conditional programmatic SEO, visual QA, and Vietnamese
-market-fit gates.
-
-Use `develop-x24sport-websites` only for bounded page, component, route,
-architecture, SEO, accessibility, performance, conversion, or production-
+Use `$update-shop-tenant` only for bounded page, component, route, architecture,
+SEO, accessibility, performance, conversion, CMS, content-record, or production-
 readiness work that does not require the whole-tenant gated workflow.
 
 ### Frontend, layout, route, SEO or component change
@@ -113,7 +109,7 @@ readiness work that does not require the whole-tenant gated workflow.
 Do not stack design skills in the hope that their advice will average out.
 For a customer-facing UI change, use the smallest applicable set in this order:
 
-1. **Build:** use `develop-x24sport-websites` as the workflow authority. Use
+1. **Build:** use `$update-shop-tenant` as the workflow authority. Use
    `frontend-design` only when the request needs a genuinely new visual
    composition; preserve the tenant profile and the compact commerce rules
    below. Do not use it to justify experimental layouts, decorative overlap,
