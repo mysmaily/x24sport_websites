@@ -43,7 +43,7 @@ export function UniformCallbackForm() {
     }
   }
 
-  if (state === 'success') return <div className={styles.success} role="status"><Check /><div><strong>Đã ghi nhận yêu cầu</strong><p>{message}</p></div><button onClick={() => setState('idle')} type="button">Gửi yêu cầu khác</button></div>
+  if (state === 'success') return <div className={styles.success} role="status"><Check aria-hidden="true" /><div><strong>Đã ghi nhận yêu cầu</strong><p>{message}</p></div><button onClick={() => setState('idle')} type="button">Gửi yêu cầu khác</button></div>
 
   return <form className={styles.quoteForm} onSubmit={submit}>
     <div><label htmlFor="mdp-phone">Số điện thoại <b>*</b></label><input autoComplete="tel" id="mdp-phone" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" placeholder="09xx xxx xxx" required type="tel" /></div>

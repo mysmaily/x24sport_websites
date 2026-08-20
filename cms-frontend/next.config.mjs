@@ -3,6 +3,9 @@ const nextConfig = {
   output: 'standalone',
   trailingSlash: true,
   poweredByHeader: false,
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
   async redirects() {
     return [
       { source: '/shop', destination: '/san-pham/', permanent: true },

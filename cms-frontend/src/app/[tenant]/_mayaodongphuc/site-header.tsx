@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, ChevronDown, Menu, Search, X } from 'lucide-react'
+import { ArrowRight, BriefcaseBusiness, CalendarDays, ChefHat, ChevronDown, Menu, School, Search, ShieldCheck, Shirt, Stethoscope, TentTree, X, type LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
@@ -8,7 +8,21 @@ import type { UniformCategory } from './lib'
 import styles from './mayaodongphuc.module.css'
 
 function HeaderLogo() {
-  return <Link className={styles.logo} href="/" aria-label="May Áo Đồng Phục — Trang chủ"><img alt="" className={styles.logoImage} src="/images/mayaodongphuc/logo-horizontal.svg" /></Link>
+  return <Link className={styles.logo} href="/" aria-label="May Áo Đồng Phục — Trang chủ"><img alt="" className={styles.logoImage} height={469} src="/images/mayaodongphuc/logo-horizontal.svg" width={1886} /></Link>
+}
+
+const categoryIcons: Record<string, LucideIcon> = {
+  'dong-phuc-bao-ho': ShieldCheck,
+  'dong-phuc-da-ngoai-team-building': TentTree,
+  'dong-phuc-doanh-nghiep': BriefcaseBusiness,
+  'dong-phuc-fnb': ChefHat,
+  'dong-phuc-truong-hoc': School,
+  'su-kien-doi-nhom': CalendarDays,
+  'y-te-dich-vu': Stethoscope,
+}
+
+function categoryIcon(slug: string) {
+  return categoryIcons[slug] || Shirt
 }
 
 export function UniformHeader({ categories, consultationEnabled }: { categories: UniformCategory[]; consultationEnabled: boolean }) {
@@ -84,7 +98,7 @@ export function UniformHeader({ categories, consultationEnabled }: { categories:
     <nav className={styles.nav} aria-label="Điều hướng chính">
       <div className={styles.navMenu} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) closeMenus() }} onFocus={openDesktopMenu} onPointerEnter={openDesktopMenu} onPointerLeave={scheduleDesktopClose} ref={desktopMenuRef}>
         <button aria-controls="uniform-solutions-menu" aria-expanded={desktopOpen} className={styles.navMenuButton} onClick={openDesktopMenu} ref={desktopButtonRef} type="button">Giải pháp <ChevronDown aria-hidden="true" /></button>
-        {desktopOpen ? <div className={`${styles.mega} ${styles.megaCompact}`} id="uniform-solutions-menu" onPointerEnter={openDesktopMenu}><div className={styles.megaCategories}>{categories.map((item, index) => <Link href={`/danh-muc/${item.slug}/`} key={item.slug} onClick={closeMenus}><span>{String(index + 1).padStart(2, '0')}</span><b>{item.name}</b><small>{item.description}</small></Link>)}</div><aside><h3>Đi nhanh</h3><Link href="/san-pham/" onClick={closeMenus}>Tất cả mẫu <ArrowRight aria-hidden="true" /></Link><Link href="/#quy-trinh" onClick={closeMenus}>Quy trình đặt may <ArrowRight aria-hidden="true" /></Link><Link href="/#vat-lieu" onClick={closeMenus}>Vật liệu <ArrowRight aria-hidden="true" /></Link></aside></div> : null}
+        {desktopOpen ? <div className={`${styles.mega} ${styles.megaCompact}`} id="uniform-solutions-menu" onPointerEnter={openDesktopMenu}><div className={styles.megaCategories}>{categories.map((item) => { const Icon = categoryIcon(item.slug); return <Link href={`/danh-muc/${item.slug}/`} key={item.slug} onClick={closeMenus}><Icon aria-hidden="true" className={styles.megaCategoryIcon} /><b>{item.name}</b><small>{item.description}</small></Link> })}</div><aside><h3>Đi nhanh</h3><Link href="/san-pham/" onClick={closeMenus}>Tất cả mẫu <ArrowRight aria-hidden="true" /></Link><Link href="/#quy-trinh" onClick={closeMenus}>Quy trình đặt may <ArrowRight aria-hidden="true" /></Link><Link href="/#vat-lieu" onClick={closeMenus}>Vật liệu <ArrowRight aria-hidden="true" /></Link></aside></div> : null}
       </div>
       <Link href="/#quy-trinh">Quy trình</Link><Link href="/#vat-lieu">Vật liệu</Link><Link href="/#tieu-chuan">Tiêu chuẩn</Link><Link href="/blog/">Tư vấn</Link>
     </nav>
