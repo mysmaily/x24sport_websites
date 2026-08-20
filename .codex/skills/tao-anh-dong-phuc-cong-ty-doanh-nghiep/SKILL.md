@@ -5,7 +5,7 @@ description: "Tạo bộ ảnh sản phẩm May Áo Đồng Phục cho đồng p
 
 # Tạo Ảnh Đồng Phục Công Ty - Doanh Nghiệp
 
-Từ ảnh áo tham chiếu, tạo ba ảnh xuất bản mặc định: `main`, `image-2`, `catalog`, kèm `product-handoff.json` đã validate. Sau đó gọi `create-tenant-product` trong cùng task, trừ khi người dùng yêu cầu rõ chỉ tạo ảnh, preview hoặc không đăng. Skill cố định cho tenant `mayaodongphuc`, domain `mayaodongphuc.com.vn`, category `dong-phuc-cong-ty`.
+Từ ảnh áo tham chiếu, tạo ba ảnh xuất bản mặc định: `main`, `image-2`, `catalog`, kèm `product-handoff.json` đã validate. Sau đó gọi `create-tenant-product` trong cùng task, trừ khi người dùng yêu cầu rõ chỉ tạo ảnh, preview hoặc không đăng. Skill cố định cho tenant `mayaodongphuc`, domain `mayaodongphuc.com.vn`, category `dong-phuc-doanh-nghiep`.
 
 Đọc [output contract](references/approved-output-contract.md) trước khi tạo ảnh và [handoff contract](references/product-handoff.md) trước khi viết manifest. Xem áo nguồn và các benchmark trong `assets/` bằng `view_image`.
 

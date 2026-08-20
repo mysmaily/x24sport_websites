@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Mayaodongphuc school/class uniform handoff structure and checksums."""
+"""Validate Mayaodongphuc company-uniform handoff structure and checksums."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ import re
 from pathlib import Path
 
 
-PRODUCER = "tao-anh-dong-phuc-lop-truong-hoc"
+PRODUCER = "tao-anh-dong-phuc-cong-ty-doanh-nghiep"
 REQUIRED_TOP_LEVEL = {
     "schemaVersion", "producerSkill", "createdAt", "consumerPolicy", "publishingIntent", "sourceTransformations", "sourceReferences",
     "acceptedImages", "garmentFacts", "audiences", "useCases", "featureLock",
@@ -87,7 +87,7 @@ def main() -> int:
     expected_defaults = {
         "tenantSlug": "mayaodongphuc",
         "domain": "mayaodongphuc.com.vn",
-        "categorySlug": "dong-phuc-truong-hoc",
+        "categorySlug": "dong-phuc-doanh-nghiep",
         "pricingMode": "quote-only",
         "isPurchasable": False,
         "stockStatus": "instock",
