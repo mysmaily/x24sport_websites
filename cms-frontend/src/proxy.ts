@@ -4,7 +4,7 @@ import { encodeTenantHeader, resolveTenantByHost } from './lib/tenant-registry'
 
 const API_URL = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
 
-async function mayaodongphucRecordExists(collection: 'product-categories' | 'products', slug: string) {
+async function mayaodongphucRecordExists(collection: 'product-categories' | 'products' | 'web-content', slug: string) {
   const params = new URLSearchParams({
     'where[tenant.slug][equals]': 'mayaodongphuc',
     'where[slug][equals]': slug,
@@ -13,6 +13,10 @@ async function mayaodongphucRecordExists(collection: 'product-categories' | 'pro
   })
   if (collection === 'products') params.set('where[publicationStatus][equals]', 'publish')
   if (collection === 'product-categories') params.set('where[group][equals]', 'audience')
+  if (collection === 'web-content') {
+    params.set('where[kind][equals]', 'post')
+    params.set('where[publicationStatus][equals]', 'publish')
+  }
 
   try {
     const response = await fetch(`${API_URL}/api/${collection}?${params.toString()}`, {
@@ -27,12 +31,15 @@ async function mayaodongphucRecordExists(collection: 'product-categories' | 'pro
 }
 
 async function shouldUseMayAoDongPhuc404(pathname: string) {
-  if (pathname === '/' || pathname === '/san-pham/' || pathname === '/tim-kiem/') return false
+  if (pathname === '/' || pathname === '/san-pham/' || pathname === '/tim-kiem/' || pathname === '/blog/') return false
   const productMatch = pathname.match(/^\/san-pham\/([^/]+)\/$/)
   if (productMatch) return !(await mayaodongphucRecordExists('products', productMatch[1]))
 
   const categoryMatch = pathname.match(/^\/danh-muc\/([^/]+)(?:\/[^/]+)?\/$/)
   if (categoryMatch) return !(await mayaodongphucRecordExists('product-categories', categoryMatch[1]))
+
+  const blogMatch = pathname.match(/^\/blog\/([^/]+)\/$/)
+  if (blogMatch) return !(await mayaodongphucRecordExists('web-content', blogMatch[1]))
 
   return true
 }

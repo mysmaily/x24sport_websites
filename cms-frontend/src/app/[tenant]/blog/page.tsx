@@ -21,6 +21,10 @@ export async function generateMetadata(props: Props) {
   if (tenant === 'mayaobongchuyen') return generateMayaoBongChuyenContentMetadata({ params: Promise.resolve({ slug: 'blog' }) })
   if (tenant === 'mayaochaybo') return generateMayaoChayBoBlogMetadata({ searchParams: props.searchParams })
   if (tenant === 'mayaobongda') return generateMayaoBongDaBlogMetadata({ searchParams: props.searchParams })
+  if (tenant === 'mayaodongphuc') {
+    const { getMayAoDongPhucBlogMetadata } = await import('../_mayaodongphuc/blog-page')
+    return getMayAoDongPhucBlogMetadata(Math.max(1, Number((await props.searchParams).page) || 1))
+  }
   return {}
 }
 
@@ -35,6 +39,10 @@ export default async function TenantBlogPage(props: Props) {
   if (tenant === 'mayaobongchuyen') return <MayaoBongChuyenContentPage params={Promise.resolve({ slug: 'blog' })} />
   if (tenant === 'mayaochaybo') return <MayaoChayBoShell><MayaoChayBoBlogPage searchParams={props.searchParams} /></MayaoChayBoShell>
   if (tenant === 'mayaobongda') return <MayaoBongDaShell><MayaoBongDaBlogPage searchParams={props.searchParams} /></MayaoBongDaShell>
+  if (tenant === 'mayaodongphuc') {
+    const { MayAoDongPhucBlogPage } = await import('../_mayaodongphuc/blog-page')
+    return <MayAoDongPhucBlogPage page={Math.max(1, Number((await props.searchParams).page) || 1)} />
+  }
   if (tenant !== 'x24sport') notFound()
   return <X24BlogPage searchParams={props.searchParams} />
 }
