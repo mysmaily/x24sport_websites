@@ -36,6 +36,24 @@ REST service account contract:
 - Secret: `root@10.10.0.28:/root/sports-cms/mayaodongphuc-rest-api.env`, mode `0600`.
 - Allowed scope: this tenant's categories, products, media, pages/posts and Store Settings.
 
+Planning and business references:
+
+- `README.md` is the folder entry point and initialization status.
+- `research/market-keywords-operations-2026-08-20.md` defines the market,
+  buyer, competitor and keyword hypotheses. It intentionally does not invent
+  search volume or keyword difficulty.
+- `BUSINESS-OPERATIONS.md` defines the quote-ready brief, approval gates,
+  spec/version control, QC, delivery and reorder contract.
+- `SITE-ARCHITECTURE.md` defines the target URL ownership and internal-link
+  roadmap. Proposed routes are not public requirements until implemented and
+  validated.
+- `content-strategy/` contains the current editorial plan and article batches.
+
+Do not publish a fixed price, MOQ, delivery promise, warranty, material
+performance claim or compliance claim unless it has a named internal owner,
+current evidence, conditions of use and an approval/review date. Competitor
+prices and lead times are research inputs only, never Mayaodongphuc terms.
+
 The consultation form renders only after this tenant's Store Settings has a
 verified `telegramChatId`. Do not borrow a sibling tenant's phone, Zalo, address,
 analytics ID or Telegram destination. Verify canonical URLs, product gallery,
