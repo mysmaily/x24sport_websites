@@ -1,0 +1,912 @@
+{
+  "schemaVersion": "1.0",
+  "producerSkill": "chon-nguon-cho-dong-phuc-cong-ty",
+  "source": {
+    "baseUrl": "https://mayaocaulong.vn/san-pham/",
+    "scope": "pages 1-18",
+    "scannedCount": 554
+  },
+  "selectionPolicy": {
+    "minimumScore": 70,
+    "batchSize": 5
+  },
+  "batches": [
+    {
+      "batch": 1,
+      "items": [
+        {
+          "sourceId": "X24-CL-451",
+          "name": "Áo cầu lông X24-CL-451 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-451-xanh-duong-xam-da-sac-xanh-teal/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-451-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-451 ảnh có cổ sạch không lớp phủ",
+          "page": 1,
+          "score": 90,
+          "colors": [
+            "Kem",
+            "Xanh lime"
+          ],
+          "pattern": "gradient chân áo nhẹ",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-451-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-536",
+          "name": "Áo cầu lông X24-CL-536 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-536-xanh-duong-xam-xanh-teal-da-sac/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-536-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-536 ảnh có cổ sạch không lớp phủ",
+          "page": 2,
+          "score": 88,
+          "colors": [
+            "Xanh dương"
+          ],
+          "pattern": "polo tối giản",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-536-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-501",
+          "name": "Áo cầu lông X24-CL-501 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-501-xanh-duong-xam-da-sac-xanh-navy/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-501-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-501 ảnh có cổ sạch không lớp phủ",
+          "page": 3,
+          "score": 87,
+          "colors": [
+            "Xanh navy",
+            "Trắng"
+          ],
+          "pattern": "panel chéo gọn",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-501-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-472",
+          "name": "Áo cầu lông đặt may X24-CL-472 xám nhạt áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-472-xam-nhat/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-472-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-472 xám nhạt áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 4,
+          "score": 91,
+          "colors": [
+            "Xám nhạt",
+            "Trắng"
+          ],
+          "pattern": "tối giản, viền tương phản",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-472-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-214",
+          "name": "Áo cầu lông đặt may X24-CL-214 đen, xám than áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-214-den-xam-than/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-214-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-214 đen, xám than áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 5,
+          "score": 89,
+          "colors": [
+            "Đen"
+          ],
+          "pattern": "polo trơn chuyên nghiệp",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-214-badminton-1.webp"
+        }
+      ]
+    },
+    {
+      "batch": 2,
+      "items": [
+        {
+          "sourceId": "X24-CL-182",
+          "name": "Áo cầu lông đặt may X24-CL-182 vàng, xanh lá áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-182-vang-xanh-la/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-182-badminton-3.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-182 vàng, xanh lá áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 6,
+          "score": 84,
+          "colors": [
+            "Vàng",
+            "Cam"
+          ],
+          "pattern": "gradient chân áo",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-182-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-150",
+          "name": "Áo cầu lông đặt may X24-CL-150 xanh teal, xanh dương áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-150-xanh-teal-xanh-duong/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-150-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-150 xanh teal, xanh dương áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 7,
+          "score": 87,
+          "colors": [
+            "Xanh dương"
+          ],
+          "pattern": "polo trơn, bo cổ tương phản",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-150-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-241",
+          "name": "Áo cầu lông đặt may X24-CL-241 navy-indigo, lavender-white áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-241-navy-indigo-lavender-white/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-241-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-241 navy-indigo, lavender-white áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 8,
+          "score": 82,
+          "colors": [
+            "Xanh navy"
+          ],
+          "pattern": "họa tiết cục bộ nhẹ",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-241-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-450",
+          "name": "Áo cầu lông X24-CL-450 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-450-xanh-duong-da-sac-xam-xanh-navy/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-450-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-450 ảnh có cổ sạch không lớp phủ",
+          "page": 1,
+          "score": 89,
+          "colors": [
+            "Trắng",
+            "Xanh dương"
+          ],
+          "pattern": "panel xanh thấp thân",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-450-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-535",
+          "name": "Áo cầu lông X24-CL-535 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-535-xanh-duong-xam-da-sac-xanh-navy/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-535-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-535 ảnh có cổ sạch không lớp phủ",
+          "page": 2,
+          "score": 88,
+          "colors": [
+            "Trắng",
+            "Đỏ"
+          ],
+          "pattern": "dải chéo rõ",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-535-badminton-1.webp"
+        }
+      ]
+    },
+    {
+      "batch": 3,
+      "items": [
+        {
+          "sourceId": "X24-CL-499",
+          "name": "Áo cầu lông X24-CL-499 ảnh sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-499-xanh-duong-xanh-navy-da-sac-xam/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-499-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-499 ảnh sạch không lớp phủ",
+          "page": 3,
+          "score": 86,
+          "colors": [
+            "Xanh dương",
+            "Cam"
+          ],
+          "pattern": "panel chéo nhỏ",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-499-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-463",
+          "name": "Áo cầu lông đặt may X24-CL-463 xám, trắng áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-463-xam-trang/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-463-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-463 xám, trắng áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 4,
+          "score": 87,
+          "colors": [
+            "Xám",
+            "Trắng"
+          ],
+          "pattern": "gradient sọc dọc nhẹ",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-463-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-210",
+          "name": "Áo cầu lông đặt may X24-CL-210 xanh navy, xanh teal, xanh cyan áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-210-xanh-navy-xanh-teal-xanh-cyan/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-210-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-210 xanh navy, xanh teal, xanh cyan áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 5,
+          "score": 86,
+          "colors": [
+            "Xanh navy",
+            "Xanh teal"
+          ],
+          "pattern": "gradient chân áo",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-210-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-181",
+          "name": "Áo cầu lông đặt may X24-CL-181 xanh navy, trắng áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-181-xanh-navy-trang/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-181-badminton-3.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-181 xanh navy, trắng áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 6,
+          "score": 88,
+          "colors": [
+            "Xanh navy",
+            "Trắng"
+          ],
+          "pattern": "mảng màu thấp thân",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-181-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-146",
+          "name": "Áo cầu lông đặt may X24-CL-146 đỏ burgundy, cam, vàng áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-146-do-burgundy-cam-vang/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-146-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-146 đỏ burgundy, cam, vàng áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 7,
+          "score": 85,
+          "colors": [
+            "Tím",
+            "Cam"
+          ],
+          "pattern": "panel cong tối giản",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-146-badminton-1.webp"
+        }
+      ]
+    },
+    {
+      "batch": 4,
+      "items": [
+        {
+          "sourceId": "X24-CL-281",
+          "name": "Áo cầu lông đặt may X24-CL-281 xanh lime áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-281-xanh-lime/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-281-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-281 xanh lime áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 9,
+          "score": 86,
+          "colors": [
+            "Xanh da trời"
+          ],
+          "pattern": "polo trơn sáng",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-281-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-445",
+          "name": "Áo cầu lông X24-CL-445 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-445-xanh-duong-xanh-navy-da-sac-xam/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-445-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-445 ảnh có cổ sạch không lớp phủ",
+          "page": 1,
+          "score": 88,
+          "colors": [
+            "Xanh navy",
+            "Trắng"
+          ],
+          "pattern": "gradient chân áo",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-445-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-533",
+          "name": "Áo cầu lông X24-CL-533 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-533-da-sac-xanh-duong-xam-xanh-navy/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-533-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-533 ảnh có cổ sạch không lớp phủ",
+          "page": 2,
+          "score": 89,
+          "colors": [
+            "Xanh navy"
+          ],
+          "pattern": "polo trơn, cổ tương phản",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-533-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-496",
+          "name": "Áo cầu lông X24-CL-496 ảnh sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-496-xanh-duong-da-sac-xam-xanh-navy/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-496-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-496 ảnh sạch không lớp phủ",
+          "page": 3,
+          "score": 86,
+          "colors": [
+            "Trắng",
+            "Xanh navy",
+            "Cam"
+          ],
+          "pattern": "panel góc cạnh",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-496-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-461",
+          "name": "Áo cầu lông đặt may X24-CL-461 kem, trắng, xanh navy áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-461-kem-trang-xanh-navy/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-461-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-461 kem, trắng, xanh navy áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 4,
+          "score": 89,
+          "colors": [
+            "Kem",
+            "Xanh navy"
+          ],
+          "pattern": "panel chéo nền sáng",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-461-badminton-1.webp"
+        }
+      ]
+    },
+    {
+      "batch": 5,
+      "items": [
+        {
+          "sourceId": "X24-CL-203",
+          "name": "Áo cầu lông đặt may X24-CL-203 xanh cyan, xanh da trời áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-203-xanh-cyan-xanh-da-troi/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-203-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-203 xanh cyan, xanh da trời áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 5,
+          "score": 88,
+          "colors": [
+            "Xanh cyan"
+          ],
+          "pattern": "polo trơn sáng",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-203-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-180",
+          "name": "Áo cầu lông đặt may X24-CL-180 trắng, đỏ áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-180-trang-do/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-180-badminton-3.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-180 trắng, đỏ áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 6,
+          "score": 87,
+          "colors": [
+            "Trắng",
+            "Đỏ"
+          ],
+          "pattern": "gradient thấp thân",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-180-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-145",
+          "name": "Áo cầu lông đặt may X24-CL-145 hồng pastel, hồng magenta, xanh cyan áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-145-hong-pastel-hong-magenta-xanh-cyan/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-145-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-145 hồng pastel, hồng magenta, xanh cyan áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 7,
+          "score": 84,
+          "colors": [
+            "Hồng",
+            "Trắng"
+          ],
+          "pattern": "mảng chuyển sắc nhẹ",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-145-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-305",
+          "name": "Áo cầu lông đặt may X24-CL-305 vàng, xanh lime, xanh teal, cam áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-305-vang-xanh-lime-xanh-teal-cam/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-305-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-305 vàng, xanh lime, xanh teal, cam áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 10,
+          "score": 85,
+          "colors": [
+            "Xanh mint"
+          ],
+          "pattern": "polo trơn mát",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-305-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-442",
+          "name": "Áo cầu lông X24-CL-442 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-442-xanh-duong-xam-xanh-navy-da-sac/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-442-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-442 ảnh có cổ sạch không lớp phủ",
+          "page": 1,
+          "score": 88,
+          "colors": [
+            "Trắng",
+            "Xanh dương"
+          ],
+          "pattern": "panel xanh thấp thân",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-442-badminton-1.webp"
+        }
+      ]
+    },
+    {
+      "batch": 6,
+      "items": [
+        {
+          "sourceId": "X24-CL-526",
+          "name": "Áo cầu lông X24-CL-526 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-526-xanh-duong-xam-da-sac-xanh-navy/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-526-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-526 ảnh có cổ sạch không lớp phủ",
+          "page": 2,
+          "score": 86,
+          "colors": [
+            "Xanh navy",
+            "Trắng"
+          ],
+          "pattern": "dải chéo tối giản",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-526-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-493",
+          "name": "Áo cầu lông X24-CL-493 ảnh sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-493-da-sac-xam-xanh-duong-xanh-navy/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-493-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-493 ảnh sạch không lớp phủ",
+          "page": 3,
+          "score": 85,
+          "colors": [
+            "Xanh dương",
+            "Trắng"
+          ],
+          "pattern": "panel chéo gọn",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-493-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-414",
+          "name": "Áo cầu lông đặt may X24-CL-414 kem, xanh teal, trắng áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-414-kem-xanh-teal-trang/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-414-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-414 kem, xanh teal, trắng áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 4,
+          "score": 87,
+          "colors": [
+            "Kem",
+            "Xanh teal"
+          ],
+          "pattern": "mảng teal thấp thân",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-414-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-178",
+          "name": "Áo cầu lông đặt may X24-CL-178 trắng, đen áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-178-trang-den/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-178-badminton-3.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-178 trắng, đen áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 6,
+          "score": 87,
+          "colors": [
+            "Trắng"
+          ],
+          "pattern": "polo sáng tối giản",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-178-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-143",
+          "name": "Áo cầu lông đặt may X24-CL-143 vàng, xanh lá áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-143-vang-xanh-la/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-143-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-143 vàng, xanh lá áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 7,
+          "score": 84,
+          "colors": [
+            "Vàng",
+            "Trắng"
+          ],
+          "pattern": "gradient nhẹ",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-143-badminton-1.webp"
+        }
+      ]
+    },
+    {
+      "batch": 7,
+      "items": [
+        {
+          "sourceId": "X24-CL-330",
+          "name": "Áo cầu lông đặt may X24-CL-330 tím, vàng, hồng, đen áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-330-tim-vang-hong-den/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-330-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-330 tím, vàng, hồng, đen áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 11,
+          "score": 85,
+          "colors": [
+            "Xanh navy"
+          ],
+          "pattern": "polo cổ bẻ, tối giản",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-330-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-358",
+          "name": "Áo cầu lông đặt may X24-CL-358 xanh navy, hồng, xanh cyan, vàng áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-358-xanh-navy-hong-xanh-cyan-vang/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-358-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-358 xanh navy, hồng, xanh cyan, vàng áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 12,
+          "score": 82,
+          "colors": [
+            "Hồng",
+            "Trắng"
+          ],
+          "pattern": "gradient chân áo nhẹ",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-358-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-548",
+          "name": "Áo cầu lông X24-CL-548 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-548-xam-da-sac-xanh-duong-xanh-navy/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-548-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-548 ảnh có cổ sạch không lớp phủ",
+          "page": 1,
+          "score": 86,
+          "colors": [
+            "Trắng",
+            "Xanh dương"
+          ],
+          "pattern": "panel gọn, nền sáng",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-548-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-523",
+          "name": "Áo cầu lông X24-CL-523 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-523-da-sac-xam-xanh-duong-xanh-navy/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-523-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-523 ảnh có cổ sạch không lớp phủ",
+          "page": 2,
+          "score": 84,
+          "colors": [
+            "Xám",
+            "Xanh navy"
+          ],
+          "pattern": "panel trầm chuyên nghiệp",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-523-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-484",
+          "name": "Áo cầu lông X24-CL-484 ảnh có cổ sạch không lớp phủ",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-484-xanh-duong-xam-da-sac-xanh-navy/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-484-1-collared-clean-no-blur.webp",
+          "alt": "Áo cầu lông X24-CL-484 ảnh có cổ sạch không lớp phủ",
+          "page": 3,
+          "score": 84,
+          "colors": [
+            "Trắng",
+            "Xanh dương"
+          ],
+          "pattern": "mảng màu thấp thân",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-484-badminton-1.webp"
+        }
+      ]
+    },
+    {
+      "batch": 8,
+      "items": [
+        {
+          "sourceId": "X24-CL-413",
+          "name": "Áo cầu lông đặt may X24-CL-413 xanh da trời, trắng áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-413-xanh-da-troi-trang/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-413-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-413 xanh da trời, trắng áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 4,
+          "score": 88,
+          "colors": [
+            "Xanh da trời"
+          ],
+          "pattern": "polo trơn sáng",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-413-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-393",
+          "name": "Áo cầu lông đặt may X24-CL-393 xanh dương, xanh ngọc, vàng, cam, đỏ áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-393-xanh-duong-xanh-ngoc-vang-cam-do/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-393-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-393 xanh dương, xanh ngọc, vàng, cam, đỏ áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 13,
+          "score": 83,
+          "colors": [
+            "Kem",
+            "Vàng"
+          ],
+          "pattern": "gradient chân áo nhẹ",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-393-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-039",
+          "name": "Áo cầu lông đặt may X24-CL-039 xanh lá, xanh lục đậm, vàng áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-039-xanh-la-xanh-luc-dam-vang/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-039-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-039 xanh lá, xanh lục đậm, vàng áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 14,
+          "score": 86,
+          "colors": [
+            "Xanh lá"
+          ],
+          "pattern": "polo trơn doanh nghiệp",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-039-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-071",
+          "name": "Áo cầu lông đặt may X24-CL-071 xanh lá non, xanh dương sáng, vàng nhạt áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-071-xanh-la-non-xanh-duong-sang-vang-nhat/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-071-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-071 xanh lá non, xanh dương sáng, vàng nhạt áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 15,
+          "score": 85,
+          "colors": [
+            "Xanh lá non",
+            "Xanh dương"
+          ],
+          "pattern": "gradient cục bộ",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-071-badminton-1.webp"
+        },
+        {
+          "sourceId": "X24-CL-103",
+          "name": "Áo cầu lông đặt may X24-CL-103 cam vàng, cam đỏ, đỏ san hô áo có cổ, tay ngắn",
+          "productUrl": "https://mayaocaulong.vn/san-pham/ao-cau-long-dat-may-x24-cl-103-cam-vang-cam-do-do-san-ho/",
+          "imageUrl": "https://static.x24sport.vn/mayaocaulong/x24-cl-103-badminton-1.webp",
+          "alt": "Áo cầu lông đặt may X24-CL-103 cam vàng, cam đỏ, đỏ san hô áo có cổ, tay ngắn - ảnh sản phẩm 1",
+          "page": 16,
+          "score": 85,
+          "colors": [
+            "Xanh da trời",
+            "Trắng"
+          ],
+          "pattern": "polo sáng, panel tối giản",
+          "selectionReason": "Form polo có cổ, ảnh rõ, có vùng ngực/lưng phù hợp logo và tên công ty; phối màu có thể quy đổi sang nhận diện doanh nghiệp.",
+          "requiredRemovals": [
+            "logo hoặc nhãn X24/nguồn trên ngực",
+            "watermark/mã nguồn trên ảnh tham chiếu",
+            "bất kỳ chữ hoặc biểu tượng thương hiệu nguồn còn lại"
+          ],
+          "localImagePath": "/Users/hoang/hacado/x24sport_websites/.codex/skills/chon-nguon-cho-dong-phuc-cong-ty/runs/mayaocaulong-pages-1-18/selected-source-images/x24-cl-103-badminton-1.webp"
+        }
+      ]
+    }
+  ],
+  "rejectedDuplicateGroups": [
+    {
+      "kept": "X24-CL-472, X24-CL-214, X24-CL-536",
+      "rejected": "Các polo trơn hoặc cùng form chỉ đổi màu",
+      "reason": "Giữ đại diện xám trung tính, đen và xanh dương; loại các biến thể không bổ sung hướng nhận diện."
+    },
+    {
+      "kept": "X24-CL-450, X24-CL-442, X24-CL-496",
+      "rejected": "Các panel xanh/trắng bố cục gần trùng",
+      "reason": "Giữ ba cấu trúc có vùng logo rõ nhất; loại biến thể có dải quá lớn hoặc màu trùng."
+    },
+    {
+      "kept": "X24-CL-181, X24-CL-445, X24-CL-358",
+      "rejected": "Nhóm gradient chân áo tương tự",
+      "reason": "Giữ đại diện navy, trắng và hồng; loại gradient dày hoặc khó tái tạo."
+    },
+    {
+      "kept": "X24-CL-461, X24-CL-526, X24-CL-535",
+      "rejected": "Nhóm panel/dải chéo",
+      "reason": "Giữ các hướng nền sáng, nền navy và nhấn đỏ; loại mẫu quá thiên thi đấu."
+    },
+    {
+      "kept": "X24-CL-203, X24-CL-281, X24-CL-413",
+      "rejected": "Nhóm xanh dương/cyan tối giản",
+      "reason": "Giữ ba độ sáng khác nhau; loại các bản không tạo khác biệt ở thumbnail."
+    }
+  ],
+  "sourceFailures": []
+}
