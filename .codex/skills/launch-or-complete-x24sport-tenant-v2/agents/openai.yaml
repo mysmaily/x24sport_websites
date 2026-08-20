@@ -1,0 +1,4 @@
+interface:
+  display_name: "X24Sport Tenant Launch v2"
+  short_description: "Launch complete Vietnamese-market X24Sport tenants"
+  default_prompt: "Use $launch-or-complete-x24sport-tenant-v2 to plan, build, populate, and validate a complete X24Sport tenant for the Vietnamese market."

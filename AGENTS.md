@@ -81,11 +81,16 @@ For a website request, read this root file, then `<domain>/AGENTS.md`.
 
 ### Whole-tenant creation, completion or launch
 
-Use `launch-or-complete-x24sport-tenant` as the exclusive orchestrating skill
+Use `launch-or-complete-x24sport-tenant-v2` as the exclusive orchestrating skill
 when the requested outcome is a new tenant/domain or completion of an entire
 tenant from design through content and launch validation. Do not additionally
 invoke `develop-x24sport-websites` for that same outcome. The completion skill
 loads the development skill's relevant technical references directly.
+
+`launch-or-complete-x24sport-tenant` remains available only for legacy task
+continuity. Start new whole-tenant work with v2, which adds content-strategy,
+site-architecture, conditional programmatic SEO, visual QA, and Vietnamese
+market-fit gates.
 
 Use `develop-x24sport-websites` only for bounded page, component, route,
 architecture, SEO, accessibility, performance, conversion, or production-
