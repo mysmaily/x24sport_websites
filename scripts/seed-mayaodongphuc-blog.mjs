@@ -5,9 +5,11 @@ import process from 'node:process'
 
 const apply = process.argv.includes('--apply')
 const inputArg = process.argv.find((arg) => arg.startsWith('--input='))
+const statusArg = process.argv.find((arg) => arg.startsWith('--status='))
 const inputPath = inputArg
   ? inputArg.slice('--input='.length)
   : 'mayaodongphuc.com.vn/content-strategy/batch-01-web-content.json'
+const statusOverride = statusArg?.slice('--status='.length)
 
 const cmsUrl = (process.env.CMS_API_URL || 'https://cms.x24sport.vn').replace(/\/$/, '')
 const tenantSlug = process.env.TENANT_SLUG || 'mayaodongphuc'
@@ -81,7 +83,7 @@ function toPayload(doc, tenantId) {
     legacyPath: doc.legacyPath,
     contentHtml: doc.contentHtml,
     excerpt: doc.excerpt,
-    publicationStatus: doc.publicationStatus || 'draft',
+    publicationStatus: statusOverride || doc.publicationStatus || 'draft',
     sourceSystem: doc.sourceSystem,
     sourceId: doc.sourceId,
     sourceModifiedAt: doc.sourceModifiedAt,

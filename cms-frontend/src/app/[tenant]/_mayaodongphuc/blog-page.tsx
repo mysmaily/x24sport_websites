@@ -5,17 +5,9 @@ import { ArrowRight } from 'lucide-react'
 
 import { getPostsPage } from '../../../lib/content'
 import { Breadcrumbs } from './components'
+import { blogCover } from './blog-assets'
 import styles from './mayaodongphuc.module.css'
 import { MayAoDongPhucShell } from './shell'
-
-const BLOG_IMAGES = [
-  '/images/mayaodongphuc/polo-navy.webp',
-  '/images/mayaodongphuc/office-shirt.webp',
-  '/images/mayaodongphuc/fnb-apron.webp',
-  '/images/mayaodongphuc/event-tee.webp',
-  '/images/mayaodongphuc/healthcare-tunic.webp',
-  '/images/mayaodongphuc/workwear-olive.webp',
-]
 
 export function getMayAoDongPhucBlogMetadata(page: number): Metadata {
   const title = `Góc tư vấn đồng phục${page > 1 ? ` - Trang ${page}` : ''}`
@@ -48,7 +40,7 @@ export async function MayAoDongPhucBlogPage({ page = 1 }: { page?: number }) {
         {result.docs.map((post, index) => <article className={styles.blogCard} key={post.id}>
           <Link className={styles.blogCardImage} href={`/blog/${post.slug}/`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img alt="" height={630} src={BLOG_IMAGES[index % BLOG_IMAGES.length]} width={1200} />
+            <img alt="" height={630} src={blogCover(post.slug, index)} width={1200} />
           </Link>
           <div>
             <span>Tư vấn đồng phục</span>

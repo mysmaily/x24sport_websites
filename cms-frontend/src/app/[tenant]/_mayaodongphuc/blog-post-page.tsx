@@ -3,11 +3,10 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { getPostsPage, getWebContentBySlug, prepareContentHtml } from '../../../lib/content'
+import { blogCover } from './blog-assets'
 import { Breadcrumbs } from './components'
 import styles from './mayaodongphuc.module.css'
 import { MayAoDongPhucShell } from './shell'
-
-const ARTICLE_IMAGE = '/images/mayaodongphuc/polo-navy.webp'
 
 export async function getMayAoDongPhucBlogPostMetadata(slug: string): Promise<Metadata> {
   const post = await getWebContentBySlug(slug)
@@ -35,7 +34,7 @@ export async function MayAoDongPhucBlogPostPage({ slug }: { slug: string }) {
         {post.excerpt ? <p>{post.excerpt}</p> : null}
       </div>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className={styles.articleImage} src={ARTICLE_IMAGE} alt="" height={630} width={1200} />
+      <img className={styles.articleImage} src={blogCover(post.slug)} alt="" height={630} width={1200} />
       <div className={styles.articleBody}>
         <div className={styles.richContent} dangerouslySetInnerHTML={{ __html: prepareContentHtml(post.contentHtml) || '<p>Nội dung đang được biên tập.</p>' }} />
         <aside className={styles.articleAside}>
