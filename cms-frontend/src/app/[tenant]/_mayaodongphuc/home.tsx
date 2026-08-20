@@ -18,11 +18,14 @@ const process = [
 ]
 
 export async function MayAoDongPhucHome() {
-  const [categories, result, consultationEnabled] = await Promise.all([
+  const [categories, consultationEnabled] = await Promise.all([
     getUniformCategories(),
-    getUniformProducts({ limit: 4 }),
     hasProductInterestForm(),
   ])
+  const categoryShelves = (await Promise.all(categories.map(async (category) => ({
+    category,
+    result: await getUniformProducts({ categorySlug: category.slug, limit: 8 }),
+  })))).filter((shelf) => shelf.result.docs.length > 0)
   const primaryHref = consultationEnabled ? '#bao-gia' : '/san-pham/'
   const structuredData = {
     '@context': 'https://schema.org',
@@ -41,7 +44,10 @@ export async function MayAoDongPhucHome() {
       <div className={styles.materialBento}><span>02 / VẬT LIỆU</span><Layers3 /><h2>Chọn theo nhịp làm việc</h2><p>Độ thoáng, giữ form và độ bền được cân bằng cho từng bối cảnh.</p><Link href="#vat-lieu">Mở thư viện vật liệu <ArrowRight /></Link></div>
     </section>
 
-    <section className={styles.catalogSection}><div className={styles.sectionHead}><div><span>03 / CATALOG KHỞI ĐẦU</span><h2>Mẫu dễ chọn,<br />dễ chỉnh theo đội nhóm.</h2></div><p>Mỗi mẫu là một điểm xuất phát để điều chỉnh màu, vật liệu, kỹ thuật logo và hệ size.</p><Link href="/san-pham/">Xem catalog <ArrowRight /></Link></div>{result.docs.length ? <div className={styles.productGrid}>{result.docs.map((product, index) => <UniformProductCard eager={index < 2} key={product.id} product={product} />)}</div> : <p>Catalog đang được cập nhật.</p>}</section>
+    <section className={styles.catalogSection}><div className={styles.sectionHead}><div><span>03 / CATALOG KHỞI ĐẦU</span><h2>Mẫu dễ chọn,<br />dễ chỉnh theo đội nhóm.</h2></div><p>Mỗi danh mục có sản phẩm được mở thành một cụm riêng để đội ngũ chọn nhanh đúng bối cảnh sử dụng.</p></div>{categoryShelves.length ? <div className={styles.homeShelves}>{categoryShelves.map(({ category, result }) => {
+      const description = uniformPublicCopy(category.description)
+      return <section className={styles.homeShelf} key={category.slug} aria-labelledby={`home-shelf-${category.slug}`}><div className={styles.homeShelfHead}><div><span>{String(category.order || 1).padStart(2, '0')} / DANH MỤC</span><h3 id={`home-shelf-${category.slug}`}>{category.name}</h3>{description ? <p>{description}</p> : null}</div></div><div className={styles.productGrid}>{result.docs.map((product) => <UniformProductCard key={product.id} product={product} />)}</div><Link className={styles.shelfCta} href={`/danh-muc/${category.slug}/`}>Xem thêm mẫu <ArrowRight aria-hidden="true" /></Link></section>
+    })}</div> : <p>Catalog đang được cập nhật.</p>}</section>
 
     <section className={styles.process} id="quy-trinh"><div className={styles.processTitle}><span>04 / WORKFLOW</span><h2>Một đường chạy.<br />Bốn điểm duyệt.</h2><p>Người đặt hàng luôn biết đang ở đâu và cần xác nhận điều gì tiếp theo.</p></div><ol>{process.map(({ icon: Icon, step, title, text }) => <li key={step}><span>{step}</span><Icon /><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol></section>
 
