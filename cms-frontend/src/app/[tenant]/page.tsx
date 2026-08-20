@@ -41,14 +41,23 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
     },
   }
   if (tenant === 'mayaodongphuc') return {
-    title: { absolute: 'May Áo Đồng Phục — Đồng phục theo nhận diện tổ chức' },
-    description: 'Thiết kế và may đồng phục theo nhận diện cho doanh nghiệp, nhà hàng, trường học, sự kiện, câu lạc bộ và đội ngũ vận hành.',
+    title: { absolute: 'May Áo Đồng Phục Lớp, Team Building & Công Ty' },
+    description: 'May áo đồng phục lớp, dã ngoại, team building và công ty theo yêu cầu. Chọn mẫu, màu sắc, chất liệu, in logo và gửi thông tin để nhận tư vấn báo giá.',
     alternates: { canonical: 'https://mayaodongphuc.com.vn/' },
     openGraph: {
-      title: 'May Áo Đồng Phục — Đồng phục theo nhận diện tổ chức',
-      description: 'Khám phá các mẫu đồng phục được thiết kế theo môi trường sử dụng, màu sắc thương hiệu và nhu cầu vận hành thực tế.',
+      type: 'website',
+      locale: 'vi_VN',
+      siteName: 'May Áo Đồng Phục',
+      title: 'May Áo Đồng Phục Lớp, Team Building & Công Ty',
+      description: 'Chọn mẫu đồng phục cho lớp học, chuyến dã ngoại, team building hoặc công ty. Tùy chỉnh màu, logo, chất liệu và size theo nhu cầu.',
       url: 'https://mayaodongphuc.com.vn/',
-      images: [{ url: '/images/mayaodongphuc/hero-atelier.webp', width: 1600, height: 1000, alt: 'Đồng phục thiết kế theo nhận diện tổ chức' }],
+      images: [{ url: '/images/mayaodongphuc/hero-atelier.webp', width: 1672, height: 941, alt: 'Các mẫu đồng phục cho đội nhóm và doanh nghiệp' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'May Áo Đồng Phục Lớp, Team Building & Công Ty',
+      description: 'Chọn mẫu đồng phục cho lớp học, chuyến dã ngoại, team building hoặc công ty. Tùy chỉnh màu, logo, chất liệu và size theo nhu cầu.',
+      images: ['/images/mayaodongphuc/hero-atelier.webp'],
     },
   }
   if (tenant === 'pndsport') return {
