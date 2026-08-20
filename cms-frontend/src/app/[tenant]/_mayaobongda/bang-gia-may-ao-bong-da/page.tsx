@@ -11,17 +11,67 @@ export const metadata: Metadata = {
 }
 
 const priceRows = [
-  ['5 - 9 bộ', '145.000đ', '189.000đ', '219.000đ', '260.000đ'],
-  ['10 - 50 bộ', '125.000đ', '169.000đ', '199.000đ', '240.000đ'],
-  ['50 - 100 bộ', '115.000đ', '159.000đ', '189.000đ', '230.000đ'],
-  ['Trên 100 bộ', '105.000đ', '139.000đ', '169.000đ', '210.000đ'],
+  {
+    material: 'Thun lạnh',
+    notes: ['Vải giá rẻ, co giãn vừa đủ', 'Vải bền, mặt vải khá kín, thoáng khí bị hạn chế'],
+    price: '125k',
+  },
+  {
+    material: 'Mè Thái',
+    notes: ['Vải giá rẻ, co giãn vừa đủ', 'Vải mỏng, thấm hút mồ hôi và thoáng khí tốt'],
+    price: '145k',
+  },
+  {
+    material: 'Mè sọc mịn',
+    notes: ['Vải giá tầm trung, co giãn tốt', 'Chất vải mỏng - mềm, thấm hút tốt, nhanh khô'],
+    price: '160k',
+  },
+  {
+    material: 'Mè Nano',
+    notes: ['Vải cao cấp, co giãn tốt', 'Chất vải mỏng nhẹ, thoáng khí tốt, nhanh khô'],
+    price: '199k',
+  },
+  {
+    material: 'Mè Luxury',
+    notes: ['Vải cao cấp, co giãn tốt', 'Chất vải mỏng nhẹ, bền, nhanh khô, thoáng khí và thấm hút tốt'],
+    price: '245k',
+  },
 ] as const
 
 const included = [
-  ['Thiết kế', 'Hỗ trợ lên maket theo màu đội, logo, tên đội và phong cách thi đấu.'],
-  ['In tên số', 'Bao gồm tên số cơ bản theo danh sách đội gửi trước khi sản xuất.'],
-  ['Áo + quần', 'Bảng giá tính theo bộ đồng phục bóng đá. Không lấy quần giảm 20.000đ/bộ.'],
-  ['VAT & vận chuyển', 'Giá tham khảo đã bao gồm VAT và phí giao hàng toàn quốc.'],
+  ['Miễn phí in ấn', 'In ấn lên áo không giới hạn theo danh sách tên, số và chi tiết đội gửi.'],
+  ['Thiết kế mẫu', 'Thiết kế mẫu, logo theo yêu cầu trước khi sản xuất.'],
+  ['Vận chuyển', 'Miễn phí vận chuyển toàn quốc cho đơn hàng đủ điều kiện.'],
+] as const
+
+const extras = [
+  'Quần được may bằng chất liệu vải thể thao chuyên dụng.',
+  'Nếu màu quần không có trong bảng màu, chi phí phát sinh thêm là 20k/quần.',
+  'Logo quần: in Pet +5k, thêu +10k.',
+  'Áo cổ trụ +10k.',
+] as const
+
+const shortColors = [
+  '#1c7587',
+  '#8b949e',
+  '#126eb4',
+  '#08a856',
+  '#970029',
+  '#73afd5',
+  '#f6bed1',
+  '#e91b2c',
+  '#11263f',
+  '#d8a85c',
+  '#f46d39',
+  '#67267f',
+  '#050505',
+  '#ffd313',
+  '#f6f2c7',
+  '#ee4e9b',
+  '#12aeb4',
+  '#2ba9d6',
+  '#ffffff',
+  '#8ac735',
 ] as const
 
 const process = [
@@ -45,7 +95,7 @@ export default function FootballPricingPage() {
         <div>
           <p className="section-kicker text-orange-300">Bảng giá may theo đội</p>
           <h1 className="max-w-4xl font-display text-4xl font-bold leading-none text-balance sm:text-5xl lg:text-6xl">Bảng giá may áo bóng đá</h1>
-          <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">Xem nhanh giá áo bóng đá theo số lượng và chất vải. Giá thực tế có thể thay đổi theo mẫu thiết kế, tiến độ và chi tiết in riêng.</p>
+          <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">Bảng giá chi tiết theo chất liệu vải, áp dụng với đơn từ 10 bộ trở lên. Giá đã bao gồm thiết kế, in ấn, vận chuyển và VAT.</p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <a className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-black text-white transition hover:bg-brand-dark" href={ZALO_URL} rel="noreferrer" target="_blank">Nhận báo giá qua Zalo <ArrowRight size={18} /></a>
             <Link className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 text-sm font-black text-white transition hover:border-white/40 hover:bg-white/10" href="/san-pham/">Xem mẫu áo</Link>
@@ -53,43 +103,84 @@ export default function FootballPricingPage() {
         </div>
         <aside className="hidden rounded-2xl border border-white/15 bg-white/5 p-5 sm:block" aria-label="Tóm tắt bảng giá">
           <p className="flex items-center gap-2 text-sm font-bold text-orange-200"><CircleDollarSign aria-hidden="true" size={18} /> Giá tham khảo từ</p>
-          <strong className="mt-2 block font-display text-6xl font-bold leading-none text-white">105.000đ</strong>
-          <span className="mt-1 block text-sm text-slate-300">mỗi bộ · đơn trên 100 bộ</span>
+          <strong className="mt-2 block font-display text-6xl font-bold leading-none text-white">125k</strong>
+          <span className="mt-1 block text-sm text-slate-300">mỗi bộ · đơn từ 10 bộ trở lên</span>
         </aside>
       </div>
     </section>
 
     <section className="section-shell py-10 sm:py-14" id="bang-gia">
       <header className="max-w-4xl">
-        <p className="section-kicker">So sánh trực tiếp</p>
-        <h2 className="font-display text-3xl font-bold leading-none text-slate-950 sm:text-5xl">Bảng giá theo chất liệu và số lượng</h2>
-        <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">Giá đã bao gồm thiết kế, in ấn, vận chuyển và VAT. Nếu chỉ lấy áo, giá giảm 20.000đ/bộ.</p>
+        <p className="section-kicker">Bảng giá chi tiết - chất liệu vải</p>
+        <h2 className="font-display text-3xl font-bold leading-none text-slate-950 sm:text-5xl">Áp dụng với đơn từ 10 bộ trở lên</h2>
+        <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">Giá trên đã bao gồm phí VAT 8%, thiết kế mẫu, in ấn lên áo và vận chuyển toàn quốc.</p>
       </header>
-      <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm" role="region" aria-label="Bảng giá may áo bóng đá" tabIndex={0}>
-        <table className="min-w-[820px] w-full border-collapse text-left text-sm">
-          <caption className="sr-only">Giá mỗi bộ đồng phục bóng đá theo số lượng và chất liệu</caption>
-          <thead className="bg-slate-950 text-white">
-            <tr>
-              <th className="sticky left-0 z-20 w-36 bg-slate-950 px-5 py-5" scope="col">Số lượng</th>
-              <th className="px-5 py-5" scope="col">Mè Thái</th>
-              <th className="bg-brand px-5 py-5" scope="col">Mè Zennix</th>
-              <th className="px-5 py-5" scope="col">Mè Nano</th>
-              <th className="px-5 py-5" scope="col">Mè Lava</th>
-            </tr>
-          </thead>
-          <tbody>
-            {priceRows.map((row, rowIndex) => (
-              <tr className="border-t border-slate-200" key={row[0]}>
-                <th className={`sticky left-0 z-10 px-5 py-5 font-black text-slate-950 ${rowIndex % 2 ? 'bg-slate-50' : 'bg-white'}`} scope="row">{row[0]}</th>
-                {row.slice(1).map((price, index) => <td className={`px-5 py-5 ${index === 1 ? 'bg-orange-50' : rowIndex % 2 ? 'bg-slate-50' : 'bg-white'}`} key={price}><strong className="text-base text-slate-950">{price}</strong><span className="text-xs text-slate-500">/bộ</span></td>)}
+      <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <table className="w-full border-collapse text-left text-sm">
+            <caption className="sr-only">Giá mỗi bộ đồng phục bóng đá theo chất liệu vải cho đơn từ 10 bộ trở lên</caption>
+            <thead className="bg-slate-950 text-white">
+              <tr>
+                <th className="bg-brand px-5 py-4 font-display text-2xl font-bold" scope="col">Chất liệu vải</th>
+                <th className="w-32 bg-slate-950 px-5 py-4 text-center font-display text-2xl font-bold" scope="col">Đơn giá</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {priceRows.map((row, rowIndex) => (
+                <tr className={rowIndex % 2 ? 'bg-white' : 'bg-slate-100'} key={row.material}>
+                  <th className="px-5 py-5 align-top" scope="row">
+                    <strong className="block font-display text-2xl font-bold uppercase leading-none text-brand">{row.material}</strong>
+                    <span className="mt-3 grid gap-1 text-sm font-medium leading-6 text-slate-700">
+                      {row.notes.map((note) => <span key={note}>- {note}</span>)}
+                    </span>
+                  </th>
+                  <td className="border-l border-slate-300 px-5 py-5 text-center align-middle">
+                    <strong className="font-display text-4xl font-bold leading-none text-brand">{row.price}</strong>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <aside className="grid gap-4">
+          <section className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
+            <h3 className="bg-slate-950 px-5 py-4 font-display text-2xl font-bold text-white">Miễn phí</h3>
+            <ul className="grid gap-3 p-5 text-base leading-7 text-slate-900">
+              {included.map(([title, text]) => (
+                <li className="flex gap-3" key={title}>
+                  <Check aria-hidden="true" className="mt-1 shrink-0 text-brand" size={18} />
+                  <span><strong>{title}:</strong> {text}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+          <section className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
+            <h3 className="bg-slate-950 px-5 py-4 font-display text-2xl font-bold text-white">Khác</h3>
+            <ul className="grid gap-3 p-5 text-base leading-7 text-slate-900">
+              {extras.map((item) => <li key={item}>- {item}</li>)}
+            </ul>
+          </section>
+        </aside>
       </div>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {included.map(([title, text]) => <article className="rounded-2xl border border-slate-200 bg-white p-5" key={title}><Check aria-hidden="true" className="text-brand" size={21} /><h3 className="mt-5 font-display text-2xl font-bold text-slate-950">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{text}</p></article>)}
+      <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <p className="sr-only">Bảng màu quần tham khảo</p>
+        <div className="flex flex-wrap justify-center gap-2">
+          {shortColors.map((color, index) => (
+            <span
+              aria-label={`Màu quần ${index + 1}`}
+              className="grid size-12 place-items-center rounded-b-2xl rounded-t-md border border-slate-200 font-display text-lg font-bold text-white shadow-sm"
+              key={`${color}-${index}`}
+              style={{
+                backgroundColor: color,
+                color: color === '#ffffff' || color === '#ffd313' || color === '#f6f2c7' ? '#64748b' : '#ffffff',
+              }}
+            >
+              9
+            </span>
+          ))}
+        </div>
       </div>
+      <p className="mt-8 font-display text-3xl font-bold uppercase leading-none text-brand">Lưu ý: Giá trên đã bao gồm phí VAT 8%</p>
     </section>
 
     <section className="bg-slate-950 py-16 text-white sm:py-20">
