@@ -10,6 +10,7 @@ import MayaoChayBoSearchPage, { generateMetadata as generateMayaoChayBoSearchMet
 import { MayaoChayBoShell } from '../_mayaochaybo/shell'
 import MayaoBongDaSearchPage, { generateMetadata as generateMayaoBongDaSearchMetadata } from '../_mayaobongda/tim-kiem/page'
 import { MayaoBongDaShell } from '../_mayaobongda/shell'
+import { getMayAoDongPhucCatalogMetadata, MayAoDongPhucCatalogPage } from '../_mayaodongphuc/catalog-page'
 
 type Props = Parameters<typeof X24SearchPage>[0] & {
   params: Promise<{ tenant: string }>
@@ -23,6 +24,7 @@ export async function generateMetadata({ params, searchParams }: Props) {
   if (tenant === 'mayaobongro') return generateMayaoBongRoSearchMetadata({ searchParams })
   if (tenant === 'mayaochaybo') return generateMayaoChayBoSearchMetadata({ searchParams })
   if (tenant === 'mayaobongda') return generateMayaoBongDaSearchMetadata({ searchParams })
+  if (tenant === 'mayaodongphuc') return getMayAoDongPhucCatalogMetadata(undefined, await searchParams)
   if (tenant !== 'mayaocaulong') return {}
   return generateMayaoCauLongSearchMetadata({ searchParams })
 }
@@ -35,6 +37,7 @@ export default async function TenantSearchPage({ params, searchParams }: Props) 
   if (tenant === 'mayaobongro') return <MayaoBongRoShell><MayaoBongRoSearchPage searchParams={searchParams} /></MayaoBongRoShell>
   if (tenant === 'mayaochaybo') return <MayaoChayBoShell><MayaoChayBoSearchPage searchParams={searchParams} /></MayaoChayBoShell>
   if (tenant === 'mayaobongda') return <MayaoBongDaShell><MayaoBongDaSearchPage searchParams={searchParams} /></MayaoBongDaShell>
+  if (tenant === 'mayaodongphuc') return <MayAoDongPhucCatalogPage search={await searchParams} />
   if (tenant !== 'mayaocaulong') notFound()
   return <MayaoCauLongSearchPage searchParams={searchParams} />
 }

@@ -1,8 +1,18 @@
 import type { ProductMediaGalleryImage } from '../../_components/product-media-gallery'
+import { buildProductSearchTerms } from '../../../lib/content'
 
 const API_URL = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
 const TENANT_SLUG = 'mayaodongphuc'
 const REVALIDATE = 180
+const SEARCH_FIELDS = [
+  'name',
+  'sku',
+  'shortDescription',
+  'metaDescription',
+  'gallery.alt',
+  'gallery.searchTags.value',
+  'searchTags.value',
+]
 
 type ApiList<T> = { docs: T[]; totalDocs: number; totalPages: number; page: number }
 type SearchTag = { value?: string | null }
@@ -98,11 +108,12 @@ export async function getUniformCategory(slug: string) {
   return (await fetchList<UniformCategory>('product-categories', params)).docs[0]
 }
 
-export async function getUniformProducts(options: { categorySlug?: string; colorSlug?: string; limit?: number; page?: number; sort?: string } = {}) {
+export async function getUniformProducts(options: { categorySlug?: string; colorSlug?: string; limit?: number; page?: number; query?: string; sort?: string } = {}) {
   if (options.colorSlug) return getUniformProductsByColor({ ...options, colorSlug: options.colorSlug })
   const params = baseParams(2)
   params.set('where[publicationStatus][equals]', 'publish')
   if (options.categorySlug) params.set('where[categories.slug][equals]', options.categorySlug)
+  if (options.query?.trim()) applyUniformSearchParams(params, options.query)
   params.set('limit', String(options.limit || 24))
   params.set('page', String(Math.max(1, options.page || 1)))
   params.set('sort', options.sort || '-featured,-createdAt')
@@ -110,14 +121,22 @@ export async function getUniformProducts(options: { categorySlug?: string; color
   catch (error) { console.error('Unable to load May Áo Đồng Phục products.', error); return { docs: [], totalDocs: 0, totalPages: 0, page: 1 } }
 }
 
-async function getUniformProductsByColor(options: { categorySlug?: string; colorSlug: string; limit?: number; page?: number; sort?: string }) {
+async function getUniformProductsByColor(options: { categorySlug?: string; colorSlug: string; limit?: number; page?: number; query?: string; sort?: string }) {
   const page = Math.max(1, options.page || 1)
   const limit = options.limit || 24
   const products = await getAllUniformProductsForColorCounts(options.categorySlug, options.sort)
-  const docs = products.filter((product) => productColorSlugs(product).includes(options.colorSlug))
+  const docs = products.filter((product) => productColorSlugs(product).includes(options.colorSlug) && productMatchesQuery(product, options.query))
   const totalPages = Math.ceil(docs.length / limit)
   const start = (page - 1) * limit
   return { docs: docs.slice(start, start + limit), totalDocs: docs.length, totalPages, page }
+}
+
+function applyUniformSearchParams(params: URLSearchParams, query: string) {
+  buildProductSearchTerms(query).forEach((term, termIndex) => {
+    SEARCH_FIELDS.forEach((field, fieldIndex) => {
+      params.set(`where[or][${termIndex * SEARCH_FIELDS.length + fieldIndex}][${field}][contains]`, term)
+    })
+  })
 }
 
 async function getAllUniformProductsForColorCounts(categorySlug?: string, sort = '-featured,-createdAt') {
@@ -231,6 +250,22 @@ function productColorsFromSearchTags(product: UniformProduct) {
 
 function productColorSlugs(product: UniformProduct) {
   return productColorsFromSearchTags(product).map((color) => color.slug)
+}
+
+function productMatchesQuery(product: UniformProduct, query?: string) {
+  const terms = buildProductSearchTerms(query || '')
+  if (!terms.length) return true
+  const haystack = [
+    product.name,
+    product.sku,
+    product.shortDescription,
+    product.metaDescription,
+    ...(product.searchTags || []).map((tag) => tag.value),
+    ...(product.gallery || [])
+      .filter((item): item is UniformMedia => typeof item === 'object')
+      .flatMap((item) => [item.alt, ...(item.searchTags || []).map((tag) => tag.value)]),
+  ].filter(Boolean).join(' ').toLocaleLowerCase('vi')
+  return terms.some((term) => haystack.includes(term.toLocaleLowerCase('vi')))
 }
 
 function normalizeColorTag(value?: string | null) {

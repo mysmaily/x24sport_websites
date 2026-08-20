@@ -21,6 +21,7 @@ const tenantKeywords: Record<string, string[]> = {
   mayaobongchuyen: ['áo bóng chuyền nam', 'áo bóng chuyền nữ', 'áo bóng chuyền tay dài', 'áo đội tuyển', 'áo thi đấu'],
   mayaobongro: ['áo bóng rổ nam', 'áo bóng rổ nữ', 'áo bóng rổ hai mặt', 'áo đội nhóm', 'áo thi đấu'],
   mayaochaybo: ['áo chạy bộ nam', 'áo chạy bộ nữ', 'áo chạy bộ sát nách', 'áo chạy bộ sự kiện', 'áo cờ đỏ sao vàng'],
+  mayaodongphuc: ['đồng phục công ty', 'áo lớp', 'đồng phục team building', 'đồng phục fnb', 'đồng phục bảo hộ'],
   pndsport: ['áo bóng đá', 'áo cầu lông', 'áo pickleball', 'áo bóng chuyền', 'áo chạy bộ'],
   rynosport: ['áo bóng đá', 'áo bóng chuyền', 'áo cầu lông', 'áo pickleball', 'áo đội nhóm'],
   x24sport: ['áo bóng đá', 'áo cầu lông', 'áo pickleball', 'áo bóng chuyền', 'áo chạy bộ'],

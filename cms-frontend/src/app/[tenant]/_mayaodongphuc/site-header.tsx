@@ -1,9 +1,10 @@
 'use client'
 
-import { ArrowRight, BriefcaseBusiness, CalendarDays, ChefHat, ChevronDown, Menu, School, Search, ShieldCheck, Shirt, Stethoscope, TentTree, X, type LucideIcon } from 'lucide-react'
+import { ArrowRight, BriefcaseBusiness, CalendarDays, ChefHat, ChevronDown, Menu, School, ShieldCheck, Shirt, Stethoscope, TentTree, X, type LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
+import { SearchDialog } from '../../_components/search-dialog'
 import type { UniformCategory } from './lib'
 import styles from './mayaodongphuc.module.css'
 
@@ -102,6 +103,6 @@ export function UniformHeader({ categories, consultationEnabled }: { categories:
       </div>
       <Link href="/#quy-trinh">Quy trình</Link><Link href="/#vat-lieu">Vật liệu</Link><Link href="/#tieu-chuan">Tiêu chuẩn</Link><Link href="/blog/">Tư vấn</Link>
     </nav>
-    <div className={styles.actions}><Link aria-label="Tìm mẫu" className={styles.searchAction} href="/san-pham/"><Search aria-hidden="true" /></Link><Link href={actionHref}>{consultationEnabled ? 'Tạo yêu cầu' : 'Xem catalog'} <ArrowRight aria-hidden="true" /></Link><div className={styles.mobile} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setMobileOpen(false) }} ref={mobileMenuRef}><button aria-controls="uniform-mobile-menu" aria-expanded={mobileOpen} aria-label={mobileOpen ? 'Đóng menu' : 'Mở menu'} className={styles.mobileToggle} onClick={() => setMobileOpen((open) => !open)} ref={mobileButtonRef} type="button">{mobileOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>{mobileOpen ? <nav aria-label="Điều hướng mobile" className={styles.mobilePanel} id="uniform-mobile-menu"><div><HeaderLogo /><button aria-label="Đóng menu" className={styles.mobileClose} onClick={() => { setMobileOpen(false); mobileButtonRef.current?.focus() }} type="button"><X aria-hidden="true" /></button></div><p>Chọn giải pháp theo bối cảnh</p>{categories.map((item) => <Link href={`/danh-muc/${item.slug}/`} key={item.slug} onClick={closeMenus}>{item.name}<ArrowRight aria-hidden="true" /></Link>)}<Link className={styles.mobileCta} href={actionHref} onClick={closeMenus}>{consultationEnabled ? 'Tạo yêu cầu tư vấn' : 'Xem tất cả mẫu'}</Link></nav> : null}</div></div>
+    <div className={styles.actions}><SearchDialog action="/tim-kiem/" iconSize={18} placeholder="Tên mẫu, ngành nghề hoặc màu đồng phục…" triggerClassName={styles.searchAction} /><Link href={actionHref}>{consultationEnabled ? 'Tạo yêu cầu' : 'Xem catalog'} <ArrowRight aria-hidden="true" /></Link><div className={styles.mobile} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setMobileOpen(false) }} ref={mobileMenuRef}><button aria-controls="uniform-mobile-menu" aria-expanded={mobileOpen} aria-label={mobileOpen ? 'Đóng menu' : 'Mở menu'} className={styles.mobileToggle} onClick={() => setMobileOpen((open) => !open)} ref={mobileButtonRef} type="button">{mobileOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>{mobileOpen ? <nav aria-label="Điều hướng mobile" className={styles.mobilePanel} id="uniform-mobile-menu"><div><HeaderLogo /><button aria-label="Đóng menu" className={styles.mobileClose} onClick={() => { setMobileOpen(false); mobileButtonRef.current?.focus() }} type="button"><X aria-hidden="true" /></button></div><p>Chọn giải pháp theo bối cảnh</p>{categories.map((item) => <Link href={`/danh-muc/${item.slug}/`} key={item.slug} onClick={closeMenus}>{item.name}<ArrowRight aria-hidden="true" /></Link>)}<Link className={styles.mobileCta} href={actionHref} onClick={closeMenus}>{consultationEnabled ? 'Tạo yêu cầu tư vấn' : 'Xem tất cả mẫu'}</Link></nav> : null}</div></div>
   </div></header>
 }
