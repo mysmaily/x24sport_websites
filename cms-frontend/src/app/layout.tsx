@@ -50,6 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const running = tenant.slug === 'mayaochaybo'
   const football = tenant.slug === 'mayaobongda'
   const pndsport = tenant.slug === 'pndsport'
+  const uniforms = tenant.slug === 'mayaodongphuc'
   const description = ryno
     ? 'Khám phá trang phục thể thao và dịch vụ đặt áo đội tại RynoSport.'
     : badminton || pickleball || volleyball || basketball || running || football
@@ -107,9 +108,14 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: { canonical: '/' },
     icons: {
       icon: [
-        { url: pndsport ? '/images/pndsport/logo.webp' : '/icon.png', sizes: pndsport ? undefined : '512x512', type: pndsport ? 'image/webp' : 'image/png' },
+        ...(uniforms
+          ? [
+              { url: '/images/mayaodongphuc/favicon.svg', type: 'image/svg+xml' },
+              { url: '/images/mayaodongphuc/favicon-512.png', sizes: '512x512', type: 'image/png' },
+            ]
+          : [{ url: pndsport ? '/images/pndsport/logo.webp' : '/icon.png', sizes: pndsport ? undefined : '512x512', type: pndsport ? 'image/webp' : 'image/png' }]),
       ],
-      apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+      apple: [{ url: uniforms ? '/images/mayaodongphuc/apple-touch-icon.png' : '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
     },
     openGraph: {
       type: 'website', locale: 'vi_VN', siteName: tenant.name,
