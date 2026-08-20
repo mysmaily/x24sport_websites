@@ -60,6 +60,17 @@ Giữ thiết kế áo giống nhau trên mọi model. Không biến áo thành 
 - Fallback trung tính khi không muốn dùng slogan lớp là `Đồng Phục X24`, căn giữa ngang ngực, cỡ khoảng 20-30% chiều ngang phần thân áo thấy được.
 - Logo Mayaodongphuc chỉ là branding của ảnh campaign, không in lên áo.
 
+### Integrate Printed Text Into Fabric
+
+Text áo lớp phải nhìn như hình in thật trên vải, không như một layer đồ họa dán phẳng lên ảnh.
+
+- Prompt rõ rằng artwork là `screen print / sublimation ink integrated into the fabric`, không phải sticker, decal nổi, hoặc overlay hậu kỳ.
+- Chữ và viền phải uốn theo phối cảnh thân áo, cong nhẹ theo lưng/ngực, bị nén/giãn theo dáng người, nếp vải và hướng camera.
+- Cho phép texture vải, lỗ dệt, bóng đổ mềm, nếp nhăn và highlight của áo xuyên qua màu in ở mức tự nhiên. Màu in vẫn đọc rõ nhưng không sạch bóng tuyệt đối như vector paste.
+- Với áo đang xoay hoặc lưng không phẳng, artwork phải bám theo mặt phẳng vải: mép chữ không song song tuyệt đối với khung ảnh nếu áo đang nghiêng.
+- Không đặt một artwork lớn y hệt, cùng tỷ lệ và độ sắc nét trên nhiều người nếu thân áo, khoảng cách và góc nhìn khác nhau; mỗi bản in phải có biến dạng riêng theo người mặc.
+- Tránh viền sticker quá dày, drop shadow quá đều, mép quá sắc, hoặc không có occlusion/shading ở vùng gập nách, eo, vai, lưng.
+
 ## Generate As One Art-Directed Image
 
 Dùng image generation với ảnh áo nguồn và `assets/mayaodongphuc-logo.png`. Tạo photography, layout và campaign graphics trong một visual tích hợp; không tạo ảnh generic rồi dán sidebar lớn.
@@ -166,6 +177,7 @@ Reject hoặc sửa nếu:
 - áo sai construction, màu, gradient, panel hoặc họa tiết so với nguồn;
 - branding nguồn, tên lớp/trường thật, event hoặc chữ gốc còn trên áo;
 - text áo đã chọn hoặc fallback `Đồng Phục X24` thiếu, sai chính tả, quá nổi, quá nhỏ, lặp lại quá mức hoặc không nhất quán;
+- text/artwork trên áo nhìn như layer paste/decal phẳng: mép quá sắc, không bám phối cảnh, không theo nếp vải, không nhận ánh sáng/bóng của áo, hoặc lặp cùng biến dạng trên nhiều thân áo;
 - scene đọc thành team-building doanh nghiệp/outdoor picnic thay vì lớp/trường học;
 - main ít hơn ba model, `image-2`/catalog ít hơn bốn model;
 - người quá nhỏ tuổi theo cách không phù hợp với ảnh thương mại, hoặc cảnh học đường nhạy cảm/không an toàn;
