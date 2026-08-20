@@ -25,7 +25,7 @@ export function UniformShell({ categories, children, consultationEnabled }: { ca
   const publicCategories = categories.map((category) => ({ ...category, description: uniformPublicCopy(category.description) }))
   return <div className={`${styles.site} ${heading.variable} ${body.variable}`}>
     <a className={styles.skip} href="#main-content">Đi đến nội dung chính</a>
-    <UniformHeader consultationEnabled={consultationEnabled} />
+    <UniformHeader categories={publicCategories} consultationEnabled={consultationEnabled} />
     <main id="main-content">{children}</main>
     <footer className={styles.footer}><div className={styles.footerTop}><div><UniformLogo /><p>Hệ thống đặt may rõ ràng cho tổ chức đang xây dựng một hình ảnh đồng nhất.</p></div><div><h2>Khám phá</h2>{publicCategories.slice(0, 4).map((item) => <Link href={`/danh-muc/${item.slug}/`} key={item.slug}>{item.name}</Link>)}</div><div><h2>Hỗ trợ lựa chọn</h2><Link href="/#quy-trinh">Quy trình đặt may</Link><Link href="/#vat-lieu">Vật liệu & size</Link><Link href="/blog/">Góc tư vấn</Link><Link href={actionHref}>{consultationEnabled ? 'Yêu cầu tư vấn' : 'Xem catalog'}</Link></div><div className={styles.footerBadge}><ShieldCheck /><strong>SPEC<br />READY</strong><small>MDP / 2026</small></div></div><div className={styles.footerBottom}><span>© May Áo Đồng Phục</span><span>Thiết kế theo nhu cầu của từng tổ chức.</span></div></footer>
   </div>
