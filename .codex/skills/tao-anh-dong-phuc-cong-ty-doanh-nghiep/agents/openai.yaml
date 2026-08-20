@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tạo ảnh đồng phục công ty - doanh nghiệp"
+  short_description: "Tạo ảnh, handoff và đăng sản phẩm đồng phục doanh nghiệp"
+  default_prompt: "Dùng $tao-anh-dong-phuc-cong-ty-doanh-nghiep để biến ảnh áo này thành main, ảnh 2 và catalog cho đồng phục công ty/doanh nghiệp trên mayaodongphuc.com.vn, validate product-handoff.json, rồi dùng $create-tenant-product để đăng sản phẩm trừ khi tôi yêu cầu chỉ tạo ảnh."
