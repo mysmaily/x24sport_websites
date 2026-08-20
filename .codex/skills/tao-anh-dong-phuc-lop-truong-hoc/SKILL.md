@@ -198,21 +198,21 @@ Inspect ảnh final ở full size trước khi tính checksum. Nếu text lỗi 
 Tạo output dưới:
 
 - Directory: `generated/tao-anh-dong-phuc-lop-truong-hoc/mayaodongphuc-<product>/`
-- Main: `generated/tao-anh-dong-phuc-lop-truong-hoc/mayaodongphuc-<product>/mayaodongphuc-<product>-main.png`
-- Image 2: `generated/tao-anh-dong-phuc-lop-truong-hoc/mayaodongphuc-<product>/mayaodongphuc-<product>-image-2.png`
-- Catalog: `generated/tao-anh-dong-phuc-lop-truong-hoc/mayaodongphuc-<product>/mayaodongphuc-<product>-catalog.png`
+- Main: `generated/tao-anh-dong-phuc-lop-truong-hoc/mayaodongphuc-<product>/mayaodongphuc-<product>-main.webp`
+- Image 2: `generated/tao-anh-dong-phuc-lop-truong-hoc/mayaodongphuc-<product>/mayaodongphuc-<product>-image-2.webp`
+- Catalog: `generated/tao-anh-dong-phuc-lop-truong-hoc/mayaodongphuc-<product>/mayaodongphuc-<product>-catalog.webp`
 - Handoff: `generated/tao-anh-dong-phuc-lop-truong-hoc/mayaodongphuc-<product>/product-handoff.json`
 
-PNG là master. Tính SHA-256 sau khi lưu pixel final, viết manifest từ đúng file đó, rồi chạy:
+WebP Q100 là file xuất bản và master. Sau khi tạo ảnh, chuyển file final sang WebP quality 100, kiểm tra ảnh WebP ở full size, rồi tính SHA-256 và viết manifest từ đúng file WebP đó.
 
-Khi publish qua `create-tenant-product`, dùng `uploadFormat: "png"` cho bộ ảnh generated có text/logo để tránh răng cưa hoặc vỡ chữ do WebP/CDN recompression. Chỉ dùng WebP khi ảnh đã được kiểm tra sau upload và mép chữ/logo vẫn sạch.
+Khi publish qua `create-tenant-product`, luôn dùng `uploadFormat: "webp"` và `webpQuality: 100`. Không dùng PNG trong bộ ảnh xuất bản hay upload.
 
 ```bash
 python3 scripts/validate_product_handoff.py \
   --manifest=/absolute/path/product-handoff.json \
-  --image=/absolute/path/mayaodongphuc-<product>-main.png \
-  --image=/absolute/path/mayaodongphuc-<product>-image-2.png \
-  --image=/absolute/path/mayaodongphuc-<product>-catalog.png \
+  --image=/absolute/path/mayaodongphuc-<product>-main.webp \
+  --image=/absolute/path/mayaodongphuc-<product>-image-2.webp \
+  --image=/absolute/path/mayaodongphuc-<product>-catalog.webp \
   --require-default-set
 ```
 

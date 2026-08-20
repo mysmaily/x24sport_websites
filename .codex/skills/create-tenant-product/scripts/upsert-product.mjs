@@ -101,7 +101,7 @@ async function loadSharp() {
 let sharpModule
 
 function webpQuality(item = {}) {
-  const configured = item.webpQuality ?? input.webpQuality ?? process.env.WEBP_QUALITY ?? 92
+  const configured = item.webpQuality ?? input.webpQuality ?? process.env.WEBP_QUALITY ?? 100
   const quality = Number(configured)
   if (!Number.isFinite(quality) || quality < 1 || quality > 100) {
     throw new Error(`webpQuality must be a number from 1 to 100, got ${configured}`)
@@ -112,8 +112,8 @@ function webpQuality(item = {}) {
 function uploadFormat(item = {}) {
   const configured = item.uploadFormat ?? input.uploadFormat ?? 'webp'
   const format = String(configured).toLowerCase()
-  if (!['webp', 'png'].includes(format)) {
-    throw new Error(`uploadFormat must be "webp" or "png", got ${configured}`)
+  if (format !== 'webp') {
+    throw new Error(`uploadFormat must be "webp"; PNG uploads are not supported, got ${configured}`)
   }
   return format
 }
@@ -130,20 +130,18 @@ async function uploadAsset(item, index) {
   const format = uploadFormat(item)
   sharpModule ||= await loadSharp()
   const pipeline = sharpModule(sourceBuffer).rotate()
-  const buffer = format === 'png'
-    ? await pipeline.png({ compressionLevel: 9 }).toBuffer()
-    : await pipeline.webp({
-        quality: webpQuality(item),
-        lossless: Boolean(item.webpLossless ?? input.webpLossless),
-        nearLossless: Boolean(item.webpNearLossless ?? input.webpNearLossless),
-      }).toBuffer()
+  const buffer = await pipeline.webp({
+    quality: webpQuality(item),
+    lossless: Boolean(item.webpLossless ?? input.webpLossless),
+    nearLossless: Boolean(item.webpNearLossless ?? input.webpNearLossless),
+  }).toBuffer()
   const checksum = createHash('sha256').update(buffer).digest('hex')
   const basename = uploadFilenameBase(item, index)
   return {
     buffer,
     checksum,
-    filename: `${basename}-${checksum.slice(0, 12)}.${format}`,
-    mimeType: format === 'png' ? 'image/png' : 'image/webp',
+    filename: `${basename}-${checksum.slice(0, 12)}.webp`,
+    mimeType: 'image/webp',
   }
 }
 
