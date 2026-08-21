@@ -1,4 +1,4 @@
-import { ArrowUpRight, BadgeCheck, Droplets, Flame, Palette, PencilRuler, Phone, ShieldCheck } from 'lucide-react'
+import { ArrowUpRight, BadgeCheck, ClipboardList, Droplets, Flame, Palette, PencilRuler, Phone, Ruler, ShieldCheck, Shirt, Users } from 'lucide-react'
 import type { Metadata } from 'next'
 import { TenantPromoHero, type TenantPromoHeroSlide } from '../../_components/tenant-promo-hero'
 import { HeaderSearch } from './_components/header-search'
@@ -52,13 +52,19 @@ function productAlt(product: Product) {
   return product.gallery?.find((image) => image.url)?.alt || `${product.name} đặt may cho đội bóng chuyền`
 }
 
+function productSize(product: Product) {
+  const image = product.gallery?.find((item) => item.url)
+  return { height: image?.height || 900, width: image?.width || 1200 }
+}
+
 function ProductCard({ index, product }: { index: number; product: Product }) {
   const href = product.slug ? `/san-pham/${product.slug}/` : '/lien-he'
+  const size = productSize(product)
 
   return (
     <article className="mbc-product-card border border-[var(--line)] bg-white/6" key={product.id}>
       <a className="mbc-product-card-media" href={href}>
-        <img alt={productAlt(product)} className="mbc-product-card-image" loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} />
+        <img alt={productAlt(product)} className="mbc-product-card-image" height={size.height} loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} width={size.width} />
         <span className="mbc-product-card-badge"><Flame size={18} /> {String(index + 1).padStart(2, '0')}</span>
       </a>
       <div className="p-[22px]">
@@ -74,7 +80,7 @@ function ProductCard({ index, product }: { index: number; product: Product }) {
 export default async function Home() {
   const { hotProducts, newProducts, posts, settings, categories } = await getHomeData()
   const navigation = (settings.navigation || []).map((item) =>
-    item.label === 'Bảng giá' ? { ...item, href: '/bang-gia-may-ao-bong-chuyen/' } : item,
+    item.label === 'Bảng giá' || item.label === 'Báo giá' ? { ...item, href: '/bang-gia-may-ao-bong-chuyen/' } : item,
   )
   const typeCategories = categories.filter((category) => category.group === 'type')
   const colorCategories = categories.filter((category) => category.group === 'color')
@@ -99,7 +105,12 @@ export default async function Home() {
     { icon: PencilRuler, label: 'Thiết kế theo yêu cầu' },
     { icon: BadgeCheck, label: 'In logo đội nhóm' },
     { icon: Palette, label: 'Màu sắc theo mẫu' },
-    { icon: Droplets, label: 'Chất liệu cao cấp' },
+    { icon: Droplets, label: 'Tư vấn chất liệu' },
+  ]
+  const orderSteps = [
+    { icon: ClipboardList, title: 'Gửi brief đội bóng', text: 'Logo, màu chủ đạo, số lượng, danh sách tên số và mốc cần nhận nếu đã có.' },
+    { icon: Shirt, title: 'Chọn form và chất liệu', text: 'Tư vấn áo thi đấu, áo libero, bộ áo quần và cách phối màu theo đội.' },
+    { icon: Ruler, title: 'Gom size trước khi may', text: 'Chuẩn bị size từng thành viên để hạn chế chỉnh sửa sau khi nhận hàng.' },
   ]
   const colorStyles: Record<string, string> = {
     do: 'bg-gradient-to-r from-red-600/70 to-white/5',
@@ -186,14 +197,15 @@ export default async function Home() {
         id="custom-order"
         className="grid grid-cols-1 gap-px border-y border-[var(--line)] px-0 py-0 md:grid-cols-3"
       >
-        {[
-          ['01', 'Tư vấn mẫu theo màu đội'],
-          ['02', 'Chốt chất vải, form và size'],
-          ['03', 'In tên số, logo, sponsor'],
-        ].map(([number, text]) => (
-          <article className="min-h-[170px] bg-white/4 p-6" key={number}>
-            <span className="font-black text-[var(--accent)]">{number}</span>
-            <h2 className="mt-[18px] text-[28px] leading-[1.05]">{text}</h2>
+        {orderSteps.map(({ icon: Icon, title, text }) => (
+          <article className="flex min-h-[176px] gap-4 bg-white/4 p-6" key={title}>
+            <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-[16px] border border-[var(--line)] bg-white/8 text-[var(--accent)]">
+              <Icon size={24} />
+            </span>
+            <div>
+              <h2 className="text-[25px] leading-[1.08]">{title}</h2>
+              <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{text}</p>
+            </div>
           </article>
         ))}
       </section>
@@ -266,9 +278,14 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="pricing" className="flex items-center gap-6 bg-[var(--accent)] px-[clamp(20px,5vw,76px)] py-[58px] text-white">
-        <ShieldCheck size={30} />
-        <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">Bảng giá gộp theo số lượng, chất vải và mức in tên số/logo.</h2>
+      <section id="pricing" className="grid gap-5 bg-[var(--accent)] px-[clamp(20px,5vw,76px)] py-[42px] text-white md:grid-cols-[auto_1fr_auto] md:items-center">
+        <span className="inline-flex h-14 w-14 items-center justify-center rounded-[18px] border border-white/30 bg-white/12">
+          <ShieldCheck size={30} />
+        </span>
+        <h2 className="max-w-[820px] text-[clamp(28px,4vw,46px)] leading-[1.02]">Báo giá theo số lượng, chất vải, tên số, logo và mức tùy biến của đội.</h2>
+        <a className="inline-flex min-h-12 items-center justify-center gap-2 border border-white bg-white px-5 text-sm font-black text-[#080b12]" href="/bang-gia-may-ao-bong-chuyen/">
+          Xem cách tính giá <ArrowUpRight size={18} />
+        </a>
       </section>
 
       <section id="materials-size" className="px-[clamp(20px,5vw,76px)] py-[58px]">
@@ -286,6 +303,26 @@ export default async function Home() {
               <p className="leading-[1.55] text-[var(--muted)]">{post.excerpt}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="grid gap-px border-t border-[var(--line)] bg-white text-[#0d1422] md:grid-cols-[.8fr_1.2fr]">
+        <div className="min-h-[320px] bg-[url('/images/mayaobongchuyen/home/volleyball-spike-action-wide.webp')] bg-cover bg-center" aria-hidden="true" />
+        <div className="grid content-center gap-6 px-[clamp(20px,5vw,76px)] py-[46px]">
+          <p className="text-xs font-black uppercase text-[var(--accent)]">Phù hợp đội nhóm Việt Nam</p>
+          <h2 className="max-w-[760px] text-[clamp(30px,4vw,52px)] leading-[1]">Một brief rõ ràng giúp đội nhận áo đúng màu, đúng tên số và dễ gom size hơn.</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {[
+              { icon: Users, title: 'CLB, trường học, công ty', text: 'Tập trung vào nhận diện đội và nhu cầu thi đấu thực tế.' },
+              { icon: Palette, title: 'Màu áo và libero', text: 'Tách màu chủ đạo, màu phụ và áo libero ngay từ đầu.' },
+            ].map(({ icon: Icon, title, text }) => (
+              <article className="rounded-[18px] border border-[#dfe5ec] bg-[#f7fafc] p-5" key={title}>
+                <Icon className="text-[var(--accent)]" size={24} />
+                <h3 className="mt-4 text-[22px] leading-[1.12]">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f6876]">{text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

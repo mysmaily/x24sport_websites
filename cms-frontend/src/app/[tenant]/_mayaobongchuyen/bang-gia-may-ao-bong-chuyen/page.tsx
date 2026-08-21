@@ -5,12 +5,12 @@ import { HeaderSearch } from '../_components/header-search'
 import { SiteFooter } from '../_components/site-footer'
 
 export const metadata: Metadata = {
-  title: 'Bảng giá may áo bóng chuyền | MayaoBongChuyen',
-  description: 'Bảng giá tham khảo khi đặt may áo bóng chuyền theo số lượng, chất liệu, tên số, logo và nhu cầu thiết kế riêng.',
+  title: 'Báo giá may áo bóng chuyền | MayaoBongChuyen',
+  description: 'Cách tính giá tham khảo khi đặt may áo bóng chuyền theo số lượng, chất liệu, tên số, logo và mức tùy biến.',
   alternates: { canonical: '/bang-gia-may-ao-bong-chuyen/' },
   openGraph: {
-    title: 'Bảng giá may áo bóng chuyền | MayaoBongChuyen',
-    description: 'Bảng giá tham khảo khi đặt may áo bóng chuyền theo số lượng, chất liệu, tên số, logo và nhu cầu thiết kế riêng.',
+    title: 'Báo giá may áo bóng chuyền | MayaoBongChuyen',
+    description: 'Cách tính giá tham khảo khi đặt may áo bóng chuyền theo số lượng, chất liệu, tên số, logo và mức tùy biến.',
     images: [{ url: '/images/mayaobongchuyen/images/volleyball-team-hero.png', width: 1672, height: 941, alt: 'Đội bóng chuyền mặc đồng phục đặt may MayaoBongChuyen' }],
     type: 'website',
     url: '/bang-gia-may-ao-bong-chuyen/',
@@ -25,10 +25,10 @@ const priceRows = [
 ] as const
 
 const included = [
-  ['Thiết kế', 'Hỗ trợ lên mẫu theo màu đội, logo, tên số và vị trí libero nếu cần.'],
-  ['In ấn', 'Bao gồm tên số cơ bản theo danh sách đội gửi trước khi sản xuất.'],
-  ['Áo + quần', 'Bảng giá tính theo bộ. Không lấy quần giảm 20.000đ/bộ.'],
-  ['VAT & vận chuyển', 'Giá tham khảo đã bao gồm VAT và phí giao hàng toàn quốc.'],
+  ['Thiết kế', 'Có thể trao đổi mẫu theo màu đội, logo, tên số và vị trí libero nếu cần.'],
+  ['In ấn', 'Chi phí phụ thuộc số lượng chi tiết in và vị trí logo/tên số trên áo.'],
+  ['Áo hoặc bộ', 'Có thể báo giá riêng áo lẻ hoặc bộ áo quần tùy nhu cầu đội.'],
+  ['Xác nhận cuối', 'Các phần như VAT, vận chuyển và thời gian nhận hàng cần được xác nhận khi chốt đơn.'],
 ] as const
 
 export default async function VolleyballPricingPage() {
@@ -47,7 +47,7 @@ export default async function VolleyballPricingPage() {
             ['/', 'Trang chủ'],
             ['/ao-bong-chuyen', 'Áo bóng chuyền'],
             ['/dat-may-theo-yeu-cau', 'Đặt may'],
-            ['/bang-gia-may-ao-bong-chuyen/', 'Bảng giá'],
+            ['/bang-gia-may-ao-bong-chuyen/', 'Báo giá'],
             ['/chat-lieu-size', 'Chất liệu & Size'],
             ['/lien-he', 'Liên hệ'],
           ].map(([href, label]) => <a className="whitespace-nowrap hover:text-[var(--ink)]" href={href} key={href}>{label}</a>)}
@@ -62,9 +62,9 @@ export default async function VolleyballPricingPage() {
       </header>
 
       <section className="border-b border-[var(--line)] px-[clamp(20px,5vw,76px)] py-[clamp(42px,7vw,90px)]">
-        <p className="mb-[14px] text-xs font-black uppercase text-[var(--accent)]">Bảng giá may áo bóng chuyền</p>
-        <h1 className="max-w-[980px] text-[clamp(42px,6vw,88px)] font-black leading-[0.9]">Bảng giá may áo bóng chuyền.</h1>
-        <p className="mt-5 max-w-[720px] text-[19px] leading-[1.7] text-[var(--muted)]">Giá tham khảo theo chất vải và số lượng đặt may. Gửi mẫu, logo, danh sách tên số và ngày cần nhận để được tư vấn chính xác hơn.</p>
+        <p className="mb-[14px] text-xs font-black uppercase text-[var(--accent)]">Báo giá may áo bóng chuyền</p>
+        <h1 className="max-w-[980px] text-[clamp(36px,5.4vw,68px)] font-black leading-[0.96]">Cách tính giá áo bóng chuyền theo brief của đội.</h1>
+        <p className="mt-5 max-w-[760px] text-[19px] leading-[1.7] text-[var(--muted)]">Giá bên dưới là khung tham khảo để đội hình dung ngân sách. Gửi mẫu, logo, danh sách tên số, số lượng và mốc cần nhận để được xác nhận chính xác hơn.</p>
         <a className="mt-6 inline-flex min-h-11 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black text-white" href="/lien-he">
           Nhận báo giá <ArrowUpRight size={18} />
         </a>
@@ -73,8 +73,8 @@ export default async function VolleyballPricingPage() {
       <section className="px-[clamp(20px,5vw,76px)] py-[58px]" id="bang-gia">
         <div className="mb-[30px] flex flex-col justify-between gap-6 md:flex-row">
           <div>
-            <p className="mb-[14px] text-xs font-black uppercase text-[var(--accent)]">So sánh trực tiếp</p>
-            <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">Bảng giá theo chất liệu và số lượng</h2>
+            <p className="mb-[14px] text-xs font-black uppercase text-[var(--accent)]">Khung tham khảo</p>
+            <h2 className="max-w-[820px] text-[clamp(30px,4.4vw,52px)] leading-[1]">Giá thay đổi theo chất liệu, số lượng và mức in ấn</h2>
           </div>
           <aside className="border border-[var(--line)] bg-white/6 p-5">
             <p className="flex items-center gap-2 text-sm font-bold text-[var(--accent)]"><CircleDollarSign size={18} /> Giá từ</p>
@@ -104,7 +104,7 @@ export default async function VolleyballPricingPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-sm leading-7 text-[var(--muted)]"><b className="text-[var(--ink)]">Lưu ý:</b> Giá đã bao gồm thiết kế, in ấn, vận chuyển và VAT. Chi tiết phát sinh sẽ được báo trước khi chốt đơn.</p>
+        <p className="mt-4 text-sm leading-7 text-[var(--muted)]"><b className="text-[var(--ink)]">Lưu ý:</b> Đây là giá tham khảo theo nhóm chất liệu và số lượng. Chi tiết in ấn, VAT, vận chuyển và thời gian nhận hàng cần được xác nhận khi tư vấn.</p>
       </section>
 
       <section className="grid grid-cols-1 gap-px border-y border-[var(--line)] px-[clamp(20px,5vw,76px)] md:grid-cols-4">

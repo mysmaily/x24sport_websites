@@ -71,51 +71,48 @@ export type ProductCategory = {
 
 const fallbackTenant: Tenant = {
   id: 'fallback-mayaobongchuyen',
-  name: 'May Ao Bong Chuyen',
+  name: 'MayaoBongChuyen',
   slug: 'mayaobongchuyen',
   brand: {
-    headline: 'Đồng phục bóng chuyền cho đội hình bùng sức',
-    subheadline: 'Áo thi đấu đặt may, màu mạnh, chất vải nhanh khô và tùy biến logo CLB.',
-    accentColor: '#63b234',
+    headline: 'May áo bóng chuyền theo màu đội',
+    subheadline: 'Đồng phục thi đấu cho CLB, trường học, công ty và giải phong trào với logo, tên số, form size theo yêu cầu.',
+    accentColor: '#21a85b',
   },
 }
 
 const fallbackProducts: Product[] = [
   {
     id: '1',
-    name: 'Áo bóng chuyền Spike Grid',
-    slug: 'ao-bong-chuyen-spike-grid',
-    sku: 'MBC-SPIKE-01',
+    name: 'Áo bóng chuyền Team Court',
+    slug: 'ao-bong-chuyen-team-court',
+    sku: 'MBC-TEAM-COURT',
     price: 199000,
-    compareAtPrice: 249000,
-    shortDescription: 'Áo bóng chuyền cổ tim, phối mảng mạnh và có thể in tên số cho đội.',
-    gallery: [{ url: '/images/mayaobongchuyen/images/volleyball-team-hero.png', alt: 'Đội bóng chuyền mặc áo thi đấu phối màu xanh đỏ', width: 1672, height: 941 }],
+    shortDescription: 'Mẫu áo thi đấu cổ gọn, dễ đổi màu theo đội và in tên số từng vận động viên.',
+    gallery: [{ url: '/images/mayaobongchuyen/home/volleyball-team-custom-wide.webp', alt: 'Đội bóng chuyền mặc đồng phục thi đấu thiết kế riêng', width: 1774, height: 887 }],
   },
   {
     id: '2',
-    name: 'Áo libero phối tương phản',
-    slug: 'ao-libero-phoi-tuong-phan',
-    sku: 'MBC-LIBERO-02',
+    name: 'Áo libero Contrast Match',
+    slug: 'ao-libero-contrast-match',
+    sku: 'MBC-LIBERO-MATCH',
     price: 215000,
-    compareAtPrice: 265000,
-    shortDescription: 'Mẫu libero nổi bật, dễ nhận diện vị trí trên sân và đồng bộ với áo đội.',
-    gallery: [{ url: '/images/mayaobongchuyen/images/volleyball-team-hero.png', alt: 'Mẫu áo bóng chuyền libero phối màu tương phản', width: 1672, height: 941 }],
+    shortDescription: 'Phiên bản libero phối tương phản để nổi bật vị trí nhưng vẫn đồng bộ nhận diện CLB.',
+    gallery: [{ url: '/images/mayaobongchuyen/home/volleyball-spike-action-wide.webp', alt: 'Vận động viên bóng chuyền mặc áo xanh trắng bật nhảy trên sân', width: 1814, height: 867 }],
   },
   {
     id: '3',
-    name: 'Bộ bóng chuyền Power Serve',
-    slug: 'bo-bong-chuyen-power-serve',
-    sku: 'MBC-POWER-03',
+    name: 'Bộ bóng chuyền Club Set',
+    slug: 'bo-bong-chuyen-club-set',
+    sku: 'MBC-CLUB-SET',
     price: 269000,
-    compareAtPrice: 319000,
-    shortDescription: 'Bộ áo quần có số, tên đội, logo và vị trí nhà tài trợ theo yêu cầu.',
-    gallery: [{ url: '/images/mayaobongchuyen/images/volleyball-team-hero.png', alt: 'Bộ đồng phục bóng chuyền đặt may cho đội thi đấu', width: 1672, height: 941 }],
+    shortDescription: 'Bộ áo quần đồng bộ cho đội thi đấu, có vị trí logo, tên đội, tên số và nhà tài trợ.',
+    gallery: [{ url: '/images/mayaobongchuyen/home/volleyball-uniform-display-wide.webp', alt: 'Bộ sưu tập đồng phục bóng chuyền trưng bày trong shop', width: 1920, height: 819 }],
   },
 ]
 
 const fallbackPosts: Post[] = [
-  { id: '1', title: 'Cách lên màu áo bóng chuyền', slug: 'len-mau-ao-bong-chuyen', excerpt: 'Chọn block màu và họa tiết giúp đội hình nổi bật trên sân.' },
-  { id: '2', title: 'Size chart cho đội thi đấu', slug: 'size-chart-doi-thi-dau', excerpt: 'Cách gom size nhanh cho đội nam, nữ và libero.' },
+  { id: '1', title: 'Chuẩn bị danh sách tên số trước khi đặt áo', slug: 'chuan-bi-ten-so-ao-bong-chuyen', excerpt: 'Cách gom tên, số áo, size và ghi chú vị trí để đơn đặt may ít sai sót hơn.' },
+  { id: '2', title: 'Chọn màu áo bóng chuyền dễ nhận diện trên sân', slug: 'chon-mau-ao-bong-chuyen', excerpt: 'Gợi ý phối màu chủ đạo, màu libero và logo để đội nhìn đồng bộ khi thi đấu.' },
 ]
 
 const fallbackPages: Record<string, PageContent> = {
@@ -124,7 +121,7 @@ const fallbackPages: Record<string, PageContent> = {
     title: 'Áo bóng chuyền',
     slug: 'ao-bong-chuyen',
     heroTitle: 'Áo bóng chuyền thiết kế theo màu đội',
-    heroText: 'Đặt may áo bóng chuyền cho câu lạc bộ, trường lớp và đội thi đấu với logo, tên số và phối màu riêng.',
+    heroText: 'Chọn mẫu áo thi đấu, áo libero hoặc bộ áo quần bóng chuyền để tùy biến logo, tên số, màu sắc và size cho đội.',
     sections: [
       { heading: 'Thiết kế theo đội hình', body: 'Lên màu áo, logo, tên số và chi tiết nhận diện để đội có một bộ trang phục thống nhất.' },
       { heading: 'Chất liệu thi đấu', body: 'Ưu tiên vải thể thao nhẹ, nhanh khô, co giãn và thoải mái khi vận động liên tục.' },
@@ -148,7 +145,7 @@ const fallbackPages: Record<string, PageContent> = {
     title: 'Bảng giá',
     slug: 'bang-gia',
     heroTitle: 'Bảng giá may áo bóng chuyền',
-    heroText: 'Chi phí phụ thuộc chất liệu, số lượng, kiểu in và mức độ tùy biến trên từng mẫu áo.',
+    heroText: 'Chi phí phụ thuộc chất liệu, số lượng, kiểu in và mức độ tùy biến. Gửi brief để nhận báo giá chính xác cho đội.',
     sections: [
       { heading: 'Số lượng đặt may', body: 'Đơn hàng càng rõ số lượng và size càng dễ tối ưu giá cho đội.' },
       { heading: 'Chi tiết in ấn', body: 'Tên số, logo, nhà tài trợ và họa tiết toàn thân sẽ được tư vấn theo nhu cầu thực tế.' },
@@ -219,8 +216,8 @@ const fallbackNavigation: NavItem[] = [
       },
     ],
   },
-  { label: 'Đặt may theo yêu cầu', href: '/dat-may-theo-yeu-cau' },
-  { label: 'Bảng giá', href: '/bang-gia-may-ao-bong-chuyen/' },
+  { label: 'Đặt may', href: '/dat-may-theo-yeu-cau' },
+  { label: 'Báo giá', href: '/bang-gia-may-ao-bong-chuyen/' },
   { label: 'Chất liệu & Size', href: '/chat-lieu-size' },
   { label: 'Mẫu đã làm', href: '/mau-da-lam' },
   { label: 'Liên hệ', href: '/lien-he' },
@@ -230,6 +227,7 @@ const fallbackCategories: ProductCategory[] = [
   { id: 'ao-bong-chuyen-nam', name: 'Áo bóng chuyền nam', slug: 'ao-bong-chuyen-nam', group: 'type', description: 'Mẫu áo cho đội nam và CLB nam.', order: 10 },
   { id: 'ao-bong-chuyen-nu', name: 'Áo bóng chuyền nữ', slug: 'ao-bong-chuyen-nu', group: 'type', description: 'Mẫu áo cho đội nữ và CLB nữ.', order: 20 },
   { id: 'ao-doi-clb', name: 'Áo đội/CLB', slug: 'ao-doi-clb', group: 'type', description: 'Đặt may theo logo, màu đội, tên số.', order: 30 },
+  { id: 'ao-libero', name: 'Áo libero', slug: 'ao-libero', group: 'type', description: 'Mẫu libero phối màu tương phản với áo đội.', order: 40 },
   { id: 'ao-bong-chuyen-mau-do', name: 'Màu đỏ', slug: 'ao-bong-chuyen-mau-do', group: 'color', order: 110 },
   { id: 'ao-bong-chuyen-mau-xanh', name: 'Màu xanh', slug: 'ao-bong-chuyen-mau-xanh', group: 'color', order: 120 },
   { id: 'ao-bong-chuyen-mau-den', name: 'Màu đen', slug: 'ao-bong-chuyen-mau-den', group: 'color', order: 130 },
