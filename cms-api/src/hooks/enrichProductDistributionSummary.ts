@@ -20,6 +20,9 @@ const labelsFor = (labels: string[]) => [...new Set(labels.filter(Boolean))].joi
  */
 export const enrichProductDistributionSummary: CollectionAfterOperationHook = async ({ operation, req, result }) => {
   if (operation !== 'find' && operation !== 'read') return result
+  // Product REST reads are public. Distribution data is intentionally not, so
+  // never let a virtual admin-only summary change the public read contract.
+  if (!req.user) return result
 
   const docs = result && typeof result === 'object' && 'docs' in result && Array.isArray(result.docs)
     ? (result.docs as ProductRow[])
@@ -28,26 +31,34 @@ export const enrichProductDistributionSummary: CollectionAfterOperationHook = as
 
   if (!productIDs.length) return result
 
-  const distributions = await req.payload.find({
-    collection: 'catalog-distributions',
-    depth: 0,
-    limit: 0,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      sourceProduct: true,
-      sourceTenantLabel: true,
-      targetProduct: true,
-      targetTenantLabel: true,
-    },
-    user: req.user,
-    where: {
-      or: [
-        { sourceProduct: { in: productIDs } },
-        { targetProduct: { in: productIDs } },
-      ],
-    },
-  })
+  let distributions
+
+  try {
+    distributions = await req.payload.find({
+      collection: 'catalog-distributions',
+      depth: 0,
+      limit: 0,
+      overrideAccess: false,
+      pagination: false,
+      select: {
+        sourceProduct: true,
+        sourceTenantLabel: true,
+        targetProduct: true,
+        targetTenantLabel: true,
+      },
+      user: req.user,
+      where: {
+        or: [
+          { sourceProduct: { in: productIDs } },
+          { targetProduct: { in: productIDs } },
+        ],
+      },
+    })
+  } catch {
+    // A summary must never make the catalog unavailable if a restricted user
+    // has no visibility into catalog distributions.
+    return result
+  }
 
   const outbound = new Map<string, string[]>()
   const inbound = new Map<string, string[]>()
