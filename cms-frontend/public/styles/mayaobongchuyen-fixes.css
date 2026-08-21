@@ -461,6 +461,38 @@ body.tenant-mayaobongchuyen .x24-bottom-contact-item > span:last-child {
   color: #334155;
 }
 
+body.tenant-mayaobongchuyen .mbc-fit-section,
+body.tenant-mayaobongchuyen .mbc-footer-cta,
+body.tenant-mayaobongchuyen footer {
+  overflow-x: clip;
+}
+
+body.tenant-mayaobongchuyen .mbc-fit-card {
+  min-width: 0;
+}
+
+body.tenant-mayaobongchuyen .mbc-fit-card h3,
+body.tenant-mayaobongchuyen .mbc-fit-card p,
+body.tenant-mayaobongchuyen .mbc-footer-cta-title {
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 1024px) {
+  body.tenant-mayaobongchuyen .mbc-mobile-contact-bar {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  body.tenant-mayaobongchuyen .mbc-fit-section {
+    padding-inline: clamp(48px, 6vw, 112px);
+  }
+
+  body.tenant-mayaobongchuyen .mbc-fit-content {
+    padding-inline: clamp(36px, 3vw, 64px);
+  }
+}
+
 @media (max-width: 767px) {
   body.tenant-mayaobongchuyen {
     overflow-x: hidden;
@@ -502,6 +534,14 @@ body.tenant-mayaobongchuyen .x24-bottom-contact-item > span:last-child {
   body.tenant-mayaobongchuyen .mbc-home-hero-features strong {
     font-size: 12px;
     max-width: 112px;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-fit-section {
+    padding-inline: 0;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-fit-media {
+    min-height: 240px;
   }
 
   body.tenant-mayaobongchuyen [aria-label="Banner may áo bóng chuyền"] .bg-left {

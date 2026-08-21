@@ -306,22 +306,24 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="grid gap-px border-t border-[var(--line)] bg-white text-[#0d1422] md:grid-cols-[.8fr_1.2fr]">
-        <div className="min-h-[320px] bg-[url('/images/mayaobongchuyen/home/volleyball-spike-action-wide.webp')] bg-cover bg-center" aria-hidden="true" />
-        <div className="grid content-center gap-6 px-[clamp(20px,5vw,76px)] py-[46px]">
-          <p className="text-xs font-black uppercase text-[var(--accent)]">Phù hợp đội nhóm Việt Nam</p>
-          <h2 className="max-w-[760px] text-[clamp(30px,4vw,52px)] leading-[1]">Một brief rõ ràng giúp đội nhận áo đúng màu, đúng tên số và dễ gom size hơn.</h2>
-          <div className="grid gap-3 sm:grid-cols-2">
+      <section className="mbc-fit-section border-t border-[var(--line)] bg-white text-[#0d1422]">
+        <div className="mx-auto grid max-w-[1360px] gap-px md:grid-cols-[.85fr_1.15fr]">
+          <div className="mbc-fit-media min-h-[320px] bg-[url('/images/mayaobongchuyen/home/volleyball-spike-action-wide.webp')] bg-cover bg-center" aria-hidden="true" />
+          <div className="mbc-fit-content grid content-center gap-6 px-[clamp(20px,4vw,54px)] py-[46px]">
+            <p className="text-xs font-black uppercase text-[var(--accent)]">Phù hợp đội nhóm Việt Nam</p>
+            <h2 className="max-w-[720px] text-[clamp(28px,3.2vw,44px)] leading-[1.04]">Một brief rõ ràng giúp đội nhận áo đúng màu, đúng tên số và dễ gom size hơn.</h2>
+            <div className="grid gap-3 sm:grid-cols-2">
             {[
               { icon: Users, title: 'CLB, trường học, công ty', text: 'Tập trung vào nhận diện đội và nhu cầu thi đấu thực tế.' },
               { icon: Palette, title: 'Màu áo và libero', text: 'Tách màu chủ đạo, màu phụ và áo libero ngay từ đầu.' },
             ].map(({ icon: Icon, title, text }) => (
-              <article className="rounded-[18px] border border-[#dfe5ec] bg-[#f7fafc] p-5" key={title}>
+              <article className="mbc-fit-card rounded-[18px] border border-[#dfe5ec] bg-[#f7fafc] p-5" key={title}>
                 <Icon className="text-[var(--accent)]" size={24} />
-                <h3 className="mt-4 text-[22px] leading-[1.12]">{title}</h3>
+                <h3 className="mt-4 text-[20px] leading-[1.14]">{title}</h3>
                 <p className="mt-2 text-sm leading-6 text-[#5f6876]">{text}</p>
               </article>
             ))}
+            </div>
           </div>
         </div>
       </section>
