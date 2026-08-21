@@ -30,6 +30,8 @@ const currentTenantFallbacks: Record<string, TenantContext> = {
   'mayaochaybo.vn': { slug: 'mayaochaybo', domain: 'mayaochaybo.vn', name: 'MayaoChayBo', description: 'Áo chạy bộ thiết kế theo yêu cầu.' },
   'mayaobongda.vn': { slug: 'mayaobongda', domain: 'mayaobongda.vn', name: 'MayaoBongDa', description: 'Áo bóng đá và đồng phục thi đấu thiết kế theo yêu cầu.' },
   'mayaodongphuc.com.vn': { slug: 'mayaodongphuc', domain: 'mayaodongphuc.com.vn', name: 'May Áo Đồng Phục', description: 'Đồng phục thiết kế theo nhận diện và bối cảnh sử dụng của từng tổ chức.' },
+  'dongphucx24.vn': { slug: 'dongphucx24', domain: 'dongphucx24.vn', name: 'Đồng Phục X24', description: 'Đồng phục thiết kế theo bối cảnh sử dụng và nhận diện của từng tổ chức.' },
+  'dongphucx24.localhost': { slug: 'dongphucx24', domain: 'dongphucx24.vn', name: 'Đồng Phục X24', description: 'Đồng phục thiết kế theo bối cảnh sử dụng và nhận diện của từng tổ chức.' },
 }
 
 for (const [domain, tenant] of Object.entries(currentTenantFallbacks)) {

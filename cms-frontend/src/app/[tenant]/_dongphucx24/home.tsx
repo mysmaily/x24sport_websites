@@ -1,0 +1,111 @@
+import { ArrowRight, Check, ChevronRight, ClipboardCheck, Layers3, Palette, Ruler, ShieldCheck, Sparkles, SwatchBook } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+
+import { getPublicStoreSettings } from '../../../lib/store-settings'
+import { categories, products } from './data'
+import { QuoteForm } from './quote-form'
+import { DongPhucX24Shell } from './shell'
+import styles from './dongphucx24.module.css'
+
+function ProductCard({ product, priority = false }: { product: (typeof products)[number]; priority?: boolean }) {
+  return <article className={styles.productCard}>
+    <Link className={styles.productImage} href={`/san-pham/${product.slug}/`}>
+      <Image alt={product.alt} fill loading={priority ? 'eager' : 'lazy'} priority={priority} sizes="(max-width: 720px) 50vw, (max-width: 1100px) 33vw, 25vw" src={product.image} />
+      {(product.category === 'ao-lop-truong-hoc' || product.category === 'team-building-su-kien') && <b aria-hidden="true" className={styles.sourceBrandMask}>X24</b>}
+      <span>Đặt may theo yêu cầu</span>
+    </Link>
+    <div className={styles.productInfo}><small>{product.sku} · {product.useCase}</small><h3><Link href={`/san-pham/${product.slug}/`}>{product.name}</Link></h3><div><strong>Báo giá theo cấu hình</strong><i style={{ background: product.accent }} title="Màu gợi ý" /></div></div>
+  </article>
+}
+
+export async function DongPhucX24Home() {
+  const consultationEnabled = Boolean((await getPublicStoreSettings()).telegramChatId)
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'Organization', '@id': 'https://dongphucx24.vn/#organization', name: 'Đồng Phục X24', url: 'https://dongphucx24.vn/' },
+      { '@type': 'WebSite', '@id': 'https://dongphucx24.vn/#website', name: 'Đồng Phục X24', url: 'https://dongphucx24.vn/', publisher: { '@id': 'https://dongphucx24.vn/#organization' }, inLanguage: 'vi-VN' },
+    ],
+  }
+  return <DongPhucX24Shell>
+    <main id="main-content">
+      <script dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, '\\u003c') }} type="application/ld+json" />
+      <section className={styles.hero}>
+        <div className={styles.heroCopy}>
+          <p className={styles.eyebrow}><span /> Đồng phục cho tổ chức & đội nhóm</p>
+          <h1>Mặc cùng một đội.<br /><em>Đúng một hình ảnh.</em></h1>
+          <p className={styles.heroLead}>Chọn mẫu theo ngành, tinh chỉnh màu sắc, logo, chất liệu và size. Đồng Phục X24 giúp bạn gom mọi yêu cầu thành một cấu hình dễ duyệt.</p>
+          <div className={styles.heroActions}><Link className={styles.primaryButton} href="/san-pham/">Xem catalog <ArrowRight aria-hidden="true" /></Link><Link className={styles.secondaryButton} href="#nhan-tu-van">{consultationEnabled ? 'Gửi yêu cầu tư vấn' : 'Chuẩn bị yêu cầu'}</Link></div>
+          <ul className={styles.heroFacts}><li><Layers3 aria-hidden="true" /><span>Nhóm nhu cầu</span></li><li><Ruler aria-hidden="true" /><span>Bốn bước cấu hình</span></li><li><ClipboardCheck aria-hidden="true" /><span>Brief thống nhất</span></li></ul>
+        </div>
+        <div className={styles.heroVisual}>
+          <Image alt="Đội ngũ Việt Nam trong các mẫu đồng phục công ty, F&B, sự kiện và dịch vụ" fill priority sizes="(max-width: 760px) 100vw, 58vw" src="/images/dongphucx24/hero-uniform-team.webp" />
+          <div className={styles.heroBadge}><Sparkles aria-hidden="true" /><p>Nhiều vai trò.<br /><b>Một bản sắc.</b></p></div>
+        </div>
+      </section>
+
+      <section aria-label="Điểm bắt đầu" className={styles.quickBar}>
+        <p>Bắt đầu từ điều bạn đang cần</p>
+        <div><Link href="/danh-muc/dong-phuc-cong-ty/">May cho công ty <ChevronRight aria-hidden="true" /></Link><Link href="/danh-muc/dong-phuc-nha-hang-fnb/">Mở quán / nhà hàng <ChevronRight aria-hidden="true" /></Link><Link href="/danh-muc/ao-lop-truong-hoc/">Làm áo lớp <ChevronRight aria-hidden="true" /></Link><Link href="/danh-muc/team-building-su-kien/">Chuẩn bị sự kiện <ChevronRight aria-hidden="true" /></Link></div>
+      </section>
+
+      <section className={styles.section} id="giai-phap">
+        <div className={styles.sectionHeading}><div><span><Layers3 aria-hidden="true" /> CHỌN THEO BỐI CẢNH</span><h2>Đồng phục bắt đầu<br />từ nơi nó được mặc.</h2></div><p>Không cần đoán tên vải hay kỹ thuật in. Hãy chọn đúng môi trường sử dụng trước, rồi mới đi vào cấu hình.</p></div>
+        <div className={styles.categoryGrid}>{categories.map((category, index) => <Link className={`${styles.categoryCard} ${index < 2 ? styles.categoryWide : ''}`} href={`/danh-muc/${category.slug}/`} key={category.slug}>
+          <Image alt={`Khám phá ${category.name.toLowerCase()}`} fill loading="lazy" sizes="(max-width: 760px) 100vw, 50vw" src={category.image} />
+          <i aria-hidden="true" />
+          {(category.slug === 'ao-lop-truong-hoc' || category.slug === 'team-building-su-kien') && <b aria-hidden="true" className={styles.sourceBrandMask}>X24</b>}
+          <div><small>{category.eyebrow}</small><h3>{category.name}</h3><p>{category.description}</p><span>Xem giải pháp <ArrowRight aria-hidden="true" /></span></div>
+        </Link>)}</div>
+      </section>
+
+      <section className={`${styles.section} ${styles.catalogSection}`} id="cam-hung">
+        <div className={styles.catalogHeading}><div><span><Sparkles aria-hidden="true" /> CATALOG NỔI BẬT</span><h2>Mẫu đủ nhiều để chọn.<br />Đủ mở để chỉnh.</h2></div><Link href="/san-pham/">Xem toàn bộ catalog <ArrowRight aria-hidden="true" /></Link></div>
+        <div className={styles.productGrid}>{products.map((product, index) => <ProductCard key={product.slug} priority={index < 4} product={product} />)}</div>
+      </section>
+
+      <section className={styles.materialSection} id="vat-lieu">
+        <div className={styles.materialIntro}><span><SwatchBook aria-hidden="true" /> CẤU HÌNH ĐÚNG</span><h2>Không chỉ chọn một mẫu áo.</h2><p>Mỗi phương án được xem xét theo bối cảnh mặc, nhận diện, cách cấp phát và yêu cầu sử dụng thực tế.</p><Link href="#nhan-tu-van">Chuẩn bị brief cùng X24 <ArrowRight aria-hidden="true" /></Link></div>
+        <div className={styles.materialGrid}>
+          <article><SwatchBook aria-hidden="true" /><b>Vật liệu & cảm giác mặc</b><p>Chọn bề mặt, độ dày và độ thoáng theo tần suất sử dụng.</p></article>
+          <article><Palette aria-hidden="true" /><b>Màu & nhận diện</b><p>Điều chỉnh phối màu, vị trí logo và thông điệp của đội ngũ.</p></article>
+          <article><Ruler aria-hidden="true" /><b>Form & dải size</b><p>Thống nhất form, cách gom size và các trường hợp ngoại lệ.</p></article>
+          <article><Layers3 aria-hidden="true" /><b>Vai trò & cấp phát</b><p>Tách cấu hình khi các bộ phận có công việc hoặc nhận diện khác nhau.</p></article>
+        </div>
+      </section>
+
+      <section className={styles.processSection} id="quy-trinh">
+        <div className={styles.processVisual}>
+          <Image alt="Bàn làm việc với bản thiết kế áo polo, bảng màu vải và checklist cấu hình" fill loading="lazy" sizes="(max-width: 760px) 100vw, 42vw" src="/images/mayaodongphuc/blog/process-checklist-guide.webp" />
+          <div aria-hidden="true" className={styles.processVisualShade} />
+          <div className={styles.processVisualCopy}><span><ClipboardCheck aria-hidden="true" /> BRIEF THỐNG NHẤT</span><strong>Mẫu áo, bảng màu và thông số cùng nằm trong một phương án.</strong><small>Giảm trao đổi rời rạc giữa người đặt, người duyệt và đội ngũ sử dụng.</small></div>
+        </div>
+        <div className={styles.processContent}>
+          <header className={styles.processHeading}><span><Layers3 aria-hidden="true" /> QUY TRÌNH ĐẶT MAY</span><h2>Từ ý tưởng rời rạc<br />đến một brief dễ duyệt.</h2><p>Bốn điểm chốt giúp đội ngũ cùng nhìn về một cấu hình trước khi sản xuất.</p></header>
+          <ol>{[
+            { title: 'Chọn bối cảnh', text: 'Vai trò, tần suất mặc và môi trường sử dụng.', Icon: SwatchBook },
+            { title: 'Gom yêu cầu', text: 'Mẫu, màu, logo, số lượng và dải size.', Icon: Layers3 },
+            { title: 'Duyệt cấu hình', text: 'Thiết kế, vật liệu và kỹ thuật logo.', Icon: Check },
+            { title: 'Hoàn thiện đơn', text: 'Ma trận size, số lượng và đóng gói.', Icon: ClipboardCheck },
+          ].map(({ title, text, Icon }) => <li key={title}><div><Icon aria-hidden="true" /></div><h3>{title}</h3><p>{text}</p></li>)}</ol>
+          <div className={styles.processTrust}><span><ShieldCheck aria-hidden="true" /> Brief trước báo giá</span><span><Sparkles aria-hidden="true" /> Thiết kế theo nhận diện</span><span><Check aria-hidden="true" /> Duyệt trước sản xuất</span><span><Ruler aria-hidden="true" /> Thống nhất form & size</span></div>
+        </div>
+      </section>
+
+      <section className={styles.quoteSection} id="nhan-tu-van">
+        <div className={styles.quoteVisual}>
+          <Image alt="Đội ngũ Việt Nam mặc nhiều dòng đồng phục trong không gian thiết kế" fill loading="lazy" sizes="(max-width: 760px) 100vw, 45vw" src="/images/mayaodongphuc/hero-atelier.webp" />
+          <div aria-hidden="true" className={styles.quoteVisualShade} />
+          <div className={styles.quoteVisualBadge}><Palette aria-hidden="true" /><span><b>MÀU · LOGO · VẬT LIỆU</b><small>Phát triển từ mẫu gần đúng</small></span></div>
+        </div>
+        <div className={styles.quotePanel}>
+          <div className={styles.quoteCopy}><span><Sparkles aria-hidden="true" /> {consultationEnabled ? 'NHẬN TƯ VẤN' : 'CHUẨN BỊ YÊU CẦU'}</span><h2>Bạn mang bối cảnh.<br />X24 chuẩn bị phương án.</h2><p>Bắt đầu bằng một mẫu gần đúng và số lượng dự kiến; các phần còn lại được chốt theo từng bước.</p><ul><li><SwatchBook aria-hidden="true" /> Môi trường sử dụng</li><li><Palette aria-hidden="true" /> Màu hoặc nhận diện tham khảo</li><li><Ruler aria-hidden="true" /> Số lượng, size, thời điểm cần nhận</li></ul></div>
+          {consultationEnabled ? <QuoteForm /> : <div className={styles.quoteFallback}><div><b>Bắt đầu từ catalog</b><p>Lưu mẫu gần đúng trước khi trao đổi về màu, logo, vật liệu và size.</p></div><Link className={styles.primaryButton} href="/san-pham/">Chọn mẫu ngay <ArrowRight aria-hidden="true" /></Link></div>}
+        </div>
+      </section>
+    </main>
+  </DongPhucX24Shell>
+}
+
+export { ProductCard }

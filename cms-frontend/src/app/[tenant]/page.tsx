@@ -60,6 +60,18 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
       images: ['/images/mayaodongphuc/hero-atelier.webp'],
     },
   }
+  if (tenant === 'dongphucx24') return {
+    title: { absolute: 'Đồng Phục Công Ty, Lớp, F&B & Team Building | Đồng Phục X24' },
+    description: 'Chọn mẫu đồng phục công ty, nhà hàng, trường học, team building, bảo hộ và dịch vụ; tùy chỉnh màu, logo, vật liệu, form và size theo yêu cầu.',
+    alternates: { canonical: 'https://dongphucx24.vn/' },
+    openGraph: {
+      type: 'website', locale: 'vi_VN', siteName: 'Đồng Phục X24',
+      title: 'Đồng Phục Công Ty, Lớp, F&B & Team Building',
+      description: 'Từ mẫu tham khảo đến một cấu hình đồng phục rõ ràng cho tổ chức và đội nhóm.',
+      url: 'https://dongphucx24.vn/',
+      images: [{ url: '/images/dongphucx24/hero-uniform-team.webp', width: 1672, height: 941, alt: 'Đội ngũ Việt Nam trong nhiều mẫu đồng phục theo ngành nghề' }],
+    },
+  }
   if (tenant === 'pndsport') return {
     title: { absolute: 'PND Sport Việt Nam - Trang phục thể thao thiết kế theo đội' },
     description: 'Khám phá mẫu trang phục thể thao, xem giá thấp nhất và gửi yêu cầu thiết kế màu sắc, logo, tên số cho đội nhóm.',
@@ -129,6 +141,10 @@ export default async function TenantHomePage({ params }: { params: Promise<{ ten
   if (tenant === 'mayaodongphuc') {
     const { MayAoDongPhucHome } = await import('./_mayaodongphuc/home')
     return <MayAoDongPhucHome />
+  }
+  if (tenant === 'dongphucx24') {
+    const { DongPhucX24Home } = await import('./_dongphucx24/home')
+    return <DongPhucX24Home />
   }
   if (tenant === 'pndsport') {
     const { PndHomePage } = await import('./_pndsport/home')

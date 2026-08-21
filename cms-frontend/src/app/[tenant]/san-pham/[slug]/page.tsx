@@ -20,6 +20,10 @@ export async function generateMetadata({ params, searchParams }: Props) {
     const { getMayAoDongPhucProductMetadata } = await import('../../_mayaodongphuc/product-page')
     return getMayAoDongPhucProductMetadata(slug)
   }
+  if (tenant === 'dongphucx24') {
+    const { getDongPhucX24ProductMetadata } = await import('../../_dongphucx24/product-page')
+    return getDongPhucX24ProductMetadata(slug)
+  }
   if (tenant === 'pndsport') {
     const { getPndProductMetadata } = await import('../../_pndsport/product-page')
     return getPndProductMetadata(slug)
@@ -38,6 +42,10 @@ export default async function TenantProductPage({ params, searchParams }: Props)
   if (tenant === 'mayaodongphuc') {
     const { MayAoDongPhucProductPage } = await import('../../_mayaodongphuc/product-page')
     return <MayAoDongPhucProductPage slug={slug} />
+  }
+  if (tenant === 'dongphucx24') {
+    const { DongPhucX24ProductPage } = await import('../../_dongphucx24/product-page')
+    return <DongPhucX24ProductPage slug={slug} />
   }
   if (tenant === 'pndsport') {
     const { PndProductPage } = await import('../../_pndsport/product-page')

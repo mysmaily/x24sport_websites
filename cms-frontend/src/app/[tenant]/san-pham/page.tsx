@@ -19,6 +19,10 @@ export async function generateMetadata({ params, searchParams }: {
     const { getMayAoDongPhucCatalogMetadata } = await import('../_mayaodongphuc/catalog-page')
     return getMayAoDongPhucCatalogMetadata(undefined, await searchParams)
   }
+  if (tenant === 'dongphucx24') {
+    const { getDongPhucX24CatalogMetadata } = await import('../_dongphucx24/catalog-page')
+    return getDongPhucX24CatalogMetadata()
+  }
   if (tenant === 'pndsport') {
     const { getPndCatalogMetadata } = await import('../_pndsport/catalog-page')
     return getPndCatalogMetadata(undefined, await searchParams)
@@ -48,6 +52,10 @@ export default async function TenantProductsPage(props: Parameters<typeof X24Pro
   if (tenant === 'mayaodongphuc') {
     const { MayAoDongPhucCatalogPage } = await import('../_mayaodongphuc/catalog-page')
     return <MayAoDongPhucCatalogPage search={await props.searchParams} />
+  }
+  if (tenant === 'dongphucx24') {
+    const { DongPhucX24CatalogPage } = await import('../_dongphucx24/catalog-page')
+    return <DongPhucX24CatalogPage />
   }
   if (tenant === 'pndsport') {
     const { PndCatalogPage } = await import('../_pndsport/catalog-page')
