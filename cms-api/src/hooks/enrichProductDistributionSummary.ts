@@ -20,9 +20,12 @@ const labelsFor = (labels: string[]) => [...new Set(labels.filter(Boolean))].joi
  */
 export const enrichProductDistributionSummary: CollectionAfterOperationHook = async ({ operation, req, result }) => {
   if (operation !== 'find' && operation !== 'read') return result
-  // Product REST reads are public. Distribution data is intentionally not, so
-  // never let a virtual admin-only summary change the public read contract.
-  if (!req.user) return result
+  const requestURL = req.url || req.headers.get('referer') || ''
+  const isAdminRequest = requestURL.includes('/admin')
+
+  // Product REST reads are public. Distribution labels are only added to the
+  // authenticated/admin rendering path, never to storefront API responses.
+  if (!req.user && !isAdminRequest) return result
 
   const docs = result && typeof result === 'object' && 'docs' in result && Array.isArray(result.docs)
     ? (result.docs as ProductRow[])
@@ -38,7 +41,11 @@ export const enrichProductDistributionSummary: CollectionAfterOperationHook = as
       collection: 'catalog-distributions',
       depth: 0,
       limit: 0,
-      overrideAccess: false,
+      // The shared admin list can render before Payload resolves a user for its
+      // internal list operation. Its request URL is still the protected admin
+      // surface, so keep the tenant relationship out of public REST responses
+      // while allowing the admin table to render the ledger summary.
+      overrideAccess: isAdminRequest,
       pagination: false,
       select: {
         sourceProduct: true,
