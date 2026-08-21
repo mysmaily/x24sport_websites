@@ -32,7 +32,7 @@ export async function DongPhucX24Shell({ children }: { children: ReactNode }) {
             <Logo />
             <p>Chọn nhanh theo nhu cầu</p>
             {categories.map((category) => <Link href={`/danh-muc/${category.slug}/`} key={category.slug}>{category.name}<ArrowRight aria-hidden="true" /></Link>)}
-            <Link className={styles.mobileCta} href={actionHref}>{consultationEnabled ? 'Nhận tư vấn cấu hình' : 'Xem toàn bộ catalog'}</Link>
+            <Link className={styles.mobileCta} href={actionHref}>{consultationEnabled ? 'Nhận tư vấn đặt may' : 'Xem toàn bộ catalog'}</Link>
           </nav>
         </details>
       </div>
@@ -40,11 +40,11 @@ export async function DongPhucX24Shell({ children }: { children: ReactNode }) {
     {children}
     <footer className={styles.footer}>
       <div className={styles.footerCta}>
-        <div><span><Sparkles aria-hidden="true" /> BẮT ĐẦU TỪ MẪU GẦN ĐÚNG</span><h2>Chọn mẫu hôm nay.<br />Chốt brief rõ ràng ngày mai.</h2><p>Lưu một phương án phù hợp, sau đó cùng X24 tinh chỉnh màu, logo, vật liệu, form và dải size.</p></div>
+        <div><span><Sparkles aria-hidden="true" /> BẮT ĐẦU TỪ MẪU GẦN ĐÚNG</span><h2>Chọn mẫu hôm nay.<br />Duyệt thiết kế trước khi may.</h2><p>Lưu mẫu bạn thích, sau đó cùng X24 phối màu, chọn chất liệu, in thêu logo, form và dải size.</p></div>
         <div className={styles.footerActions}><Link className={styles.primaryButton} href="/san-pham/">Xem catalog <ArrowRight aria-hidden="true" /></Link><Link className={styles.footerSecondary} href="/#quy-trinh">Xem quy trình</Link></div>
       </div>
       <div className={styles.footerGrid}>
-        <div className={styles.footerBrand}><Logo /><p>Giúp tổ chức đi từ mẫu tham khảo đến một bộ đồng phục có cấu hình rõ ràng, dễ duyệt và dễ đặt lại.</p><div className={styles.footerSignals}><span><SwatchBook aria-hidden="true" /> Chọn mẫu</span><span><Ruler aria-hidden="true" /> Gom size</span><span><ClipboardCheck aria-hidden="true" /> Duyệt cấu hình</span></div></div>
+        <div className={styles.footerBrand}><Logo /><p>Giúp tổ chức chọn mẫu đồng phục, phối màu, in thêu logo, gom size và đặt may theo yêu cầu.</p><div className={styles.footerSignals}><span><SwatchBook aria-hidden="true" /> Chọn mẫu</span><span><Ruler aria-hidden="true" /> Gom size</span><span><ClipboardCheck aria-hidden="true" /> Duyệt thiết kế</span></div></div>
         <nav aria-label="Nhóm sản phẩm" className={styles.footerCard}><h2><Shirt aria-hidden="true" /> Sản phẩm</h2>{categories.slice(0, 4).map((category) => <Link href={`/danh-muc/${category.slug}/`} key={category.slug}>{category.name}<ArrowRight aria-hidden="true" /></Link>)}</nav>
         <nav aria-label="Hỗ trợ lựa chọn" className={styles.footerCard}><h2><Compass aria-hidden="true" /> Hỗ trợ lựa chọn</h2><Link href="/#quy-trinh">Quy trình đặt may<ArrowRight aria-hidden="true" /></Link><Link href="/#vat-lieu">Vật liệu & size<ArrowRight aria-hidden="true" /></Link><Link href={actionHref}>{consultationEnabled ? 'Gửi yêu cầu tư vấn' : 'Chuẩn bị yêu cầu'}<ArrowRight aria-hidden="true" /></Link><Link href="/san-pham/">Xem toàn bộ mẫu<ArrowRight aria-hidden="true" /></Link></nav>
         <div className={styles.footerStamp}><Layers3 aria-hidden="true" /><b>X24</b><span>UNIFORM<br />SYSTEM</span><small>THIẾT KẾ THEO ĐỘI NGŨ · VIỆT NAM</small></div>

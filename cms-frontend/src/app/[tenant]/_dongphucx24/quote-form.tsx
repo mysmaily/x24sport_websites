@@ -50,7 +50,7 @@ export function QuoteForm({ productName }: { productName?: string }) {
     <div className={styles.field}><label htmlFor={`dpx-phone-${productName ? 'product' : 'home'}`}>Số điện thoại <b>*</b></label><input autoComplete="tel" id={`dpx-phone-${productName ? 'product' : 'home'}`} inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" placeholder="09xx xxx xxx…" required type="tel" /></div>
     <div className={styles.field}><label htmlFor={`dpx-quantity-${productName ? 'product' : 'home'}`}>Số lượng dự kiến <b>*</b></label><select defaultValue="20-50 bộ" id={`dpx-quantity-${productName ? 'product' : 'home'}`} name="quantity" required><option>10-20 bộ</option><option>20-50 bộ</option><option>50-100 bộ</option><option>Trên 100 bộ</option></select></div>
     <label aria-hidden="true" hidden><span>Website</span><input autoComplete="off" name="website" tabIndex={-1} /></label>
-    <button disabled={state === 'submitting'} type="submit">{state === 'submitting' ? 'Đang gửi…' : 'Nhận tư vấn cấu hình'} <ArrowRight aria-hidden="true" /></button>
+    <button disabled={state === 'submitting'} type="submit">{state === 'submitting' ? 'Đang gửi…' : 'Nhận tư vấn đặt may'} <ArrowRight aria-hidden="true" /></button>
     <p aria-live="polite" className={state === 'error' ? styles.formError : styles.formNote} role="status">{state === 'error' ? message : 'Thông tin chỉ được dùng để tư vấn yêu cầu đồng phục.'}</p>
   </form>
 }

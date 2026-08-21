@@ -61,15 +61,15 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
     },
   }
   if (tenant === 'dongphucx24') return {
-    title: { absolute: 'Đồng Phục Công Ty, Lớp, F&B & Team Building | Đồng Phục X24' },
-    description: 'Chọn mẫu đồng phục công ty, nhà hàng, trường học, team building, bảo hộ và dịch vụ; tùy chỉnh màu, logo, vật liệu, form và size theo yêu cầu.',
+    title: { absolute: 'May Đồng Phục Công Ty, Team Building & Áo Lớp | X24' },
+    description: 'Nhận may áo polo đồng phục công ty, áo team building, áo lớp và đồng phục F&B theo yêu cầu. Tùy chỉnh màu, chất liệu, in thêu logo và tư vấn size.',
     alternates: { canonical: 'https://dongphucx24.vn/' },
     openGraph: {
       type: 'website', locale: 'vi_VN', siteName: 'Đồng Phục X24',
-      title: 'Đồng Phục Công Ty, Lớp, F&B & Team Building',
-      description: 'Từ mẫu tham khảo đến một cấu hình đồng phục rõ ràng cho tổ chức và đội nhóm.',
+      title: 'May Đồng Phục Công Ty, Team Building & Áo Lớp',
+      description: 'Chọn mẫu đồng phục, phối màu, in thêu logo và đặt may theo yêu cầu cho công ty, team building hoặc trường lớp.',
       url: 'https://dongphucx24.vn/',
-      images: [{ url: '/images/dongphucx24/hero-uniform-team.webp', width: 1672, height: 941, alt: 'Đội ngũ Việt Nam trong nhiều mẫu đồng phục theo ngành nghề' }],
+      images: [{ url: '/images/dongphucx24/home/uniform-corporate-team.webp', width: 1672, height: 941, alt: 'Đội ngũ Việt Nam mặc áo polo đồng phục công ty thiết kế theo yêu cầu' }],
     },
   }
   if (tenant === 'pndsport') return {

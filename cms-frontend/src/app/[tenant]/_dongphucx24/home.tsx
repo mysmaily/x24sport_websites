@@ -40,7 +40,7 @@ function ProductCard({ product, priority = false }: { product: (typeof products)
       {(product.category === 'ao-lop-truong-hoc' || product.category === 'team-building-su-kien') && <b aria-hidden="true" className={styles.sourceBrandMask}>X24</b>}
       <span>Đặt may theo yêu cầu</span>
     </Link>
-    <div className={styles.productInfo}><small>{product.sku} · {product.useCase}</small><h3><Link href={`/san-pham/${product.slug}/`}>{product.name}</Link></h3><div><strong>Báo giá theo cấu hình</strong><i style={{ background: product.accent }} title="Màu gợi ý" /></div></div>
+    <div className={styles.productInfo}><small>{product.sku} · {product.useCase}</small><h3><Link href={`/san-pham/${product.slug}/`}>{product.name}</Link></h3><div><strong>Báo giá theo yêu cầu</strong><i style={{ background: product.accent }} title="Màu gợi ý" /></div></div>
   </article>
 }
 
@@ -59,8 +59,8 @@ export async function DongPhucX24Home() {
       <TenantPromoHero ariaLabel="Ba giải pháp đồng phục nổi bật" className={styles.promoHero} slides={heroSlides}>
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}><span /> Đồng phục cho tổ chức & đội nhóm</p>
-          <h1>Đồng phục đúng bối cảnh.<br /><em>Nhận diện đúng tinh thần.</em></h1>
-          <p className={styles.heroLead}>Từ doanh nghiệp, chuyến dã ngoại đến lớp học: chọn mẫu gần đúng, tinh chỉnh màu sắc, logo, chất liệu và size để có một phương án dễ duyệt.</p>
+          <h1>May đồng phục theo yêu cầu.<br /><em>Đẹp riêng cho từng tập thể.</em></h1>
+          <p className={styles.heroLead}>Chọn mẫu áo đồng phục cho công ty, team building hoặc trường lớp; sau đó phối màu, chọn chất liệu, in thêu logo và tư vấn size trước khi báo giá.</p>
           <div className={styles.heroActions}><Link className={styles.primaryButton} href="/san-pham/">Xem catalog <ArrowRight aria-hidden="true" /></Link><Link className={styles.secondaryButton} href="#nhan-tu-van">{consultationEnabled ? 'Gửi yêu cầu tư vấn' : 'Chuẩn bị yêu cầu'}</Link></div>
           <nav aria-label="Giải pháp đồng phục theo nhóm khách hàng" className={styles.heroAudiences}>
             <Link href="/danh-muc/dong-phuc-cong-ty/"><Building2 aria-hidden="true" /><span><b>Công ty & doanh nghiệp</b><small>Chỉn chu nhận diện · phù hợp từng bộ phận</small></span></Link>
@@ -76,7 +76,7 @@ export async function DongPhucX24Home() {
       </section>
 
       <section className={styles.section} id="giai-phap">
-        <div className={styles.sectionHeading}><div><span><Layers3 aria-hidden="true" /> CHỌN THEO BỐI CẢNH</span><h2>Đồng phục bắt đầu<br />từ nơi nó được mặc.</h2></div><p>Không cần đoán tên vải hay kỹ thuật in. Hãy chọn đúng môi trường sử dụng trước, rồi mới đi vào cấu hình.</p></div>
+        <div className={styles.sectionHeading}><div><span><Layers3 aria-hidden="true" /> CHỌN THEO NHU CẦU</span><h2>Tìm mẫu đồng phục<br />đúng mục đích sử dụng.</h2></div><p>Chọn theo công ty, nhà hàng, trường học, team building hoặc ngành nghề; X24 sẽ tư vấn chất liệu và cách hoàn thiện phù hợp.</p></div>
         <div className={styles.categoryGrid}>{categories.map((category, index) => <Link className={`${styles.categoryCard} ${index < 2 ? styles.categoryWide : ''}`} href={`/danh-muc/${category.slug}/`} key={category.slug}>
           <Image alt={`Khám phá ${category.name.toLowerCase()}`} fill loading="lazy" sizes="(max-width: 760px) 100vw, 50vw" src={category.image} />
           <i aria-hidden="true" />
@@ -91,30 +91,30 @@ export async function DongPhucX24Home() {
       </section>
 
       <section className={styles.materialSection} id="vat-lieu">
-        <div className={styles.materialIntro}><span><SwatchBook aria-hidden="true" /> CẤU HÌNH ĐÚNG</span><h2>Không chỉ chọn một mẫu áo.</h2><p>Mỗi phương án được xem xét theo bối cảnh mặc, nhận diện, cách cấp phát và yêu cầu sử dụng thực tế.</p><Link href="#nhan-tu-van">Chuẩn bị brief cùng X24 <ArrowRight aria-hidden="true" /></Link></div>
+        <div className={styles.materialIntro}><span><SwatchBook aria-hidden="true" /> TÙY CHỈNH THEO YÊU CẦU</span><h2>Một mẫu áo, nhiều cách hoàn thiện.</h2><p>X24 tư vấn chất liệu, phối màu, in thêu logo, form áo và dải size theo nhu cầu sử dụng thực tế.</p><Link href="#nhan-tu-van">Gửi yêu cầu đặt may <ArrowRight aria-hidden="true" /></Link></div>
         <div className={styles.materialGrid}>
           <article><SwatchBook aria-hidden="true" /><b>Vật liệu & cảm giác mặc</b><p>Chọn bề mặt, độ dày và độ thoáng theo tần suất sử dụng.</p></article>
           <article><Palette aria-hidden="true" /><b>Màu & nhận diện</b><p>Điều chỉnh phối màu, vị trí logo và thông điệp của đội ngũ.</p></article>
           <article><Ruler aria-hidden="true" /><b>Form & dải size</b><p>Thống nhất form, cách gom size và các trường hợp ngoại lệ.</p></article>
-          <article><Layers3 aria-hidden="true" /><b>Vai trò & cấp phát</b><p>Tách cấu hình khi các bộ phận có công việc hoặc nhận diện khác nhau.</p></article>
+          <article><Layers3 aria-hidden="true" /><b>Bộ phận & số lượng</b><p>Tách mẫu khi các bộ phận cần màu sắc, công việc hoặc cách nhận diện khác nhau.</p></article>
         </div>
       </section>
 
       <section className={styles.processSection} id="quy-trinh">
         <div className={styles.processVisual}>
-          <Image alt="Bàn làm việc với bản thiết kế áo polo, bảng màu vải và checklist cấu hình" fill loading="lazy" sizes="(max-width: 760px) 100vw, 42vw" src="/images/mayaodongphuc/blog/process-checklist-guide.webp" />
+          <Image alt="Bàn làm việc với bản thiết kế áo polo, bảng màu vải và thông tin đặt may" fill loading="lazy" sizes="(max-width: 760px) 100vw, 42vw" src="/images/mayaodongphuc/blog/process-checklist-guide.webp" />
           <div aria-hidden="true" className={styles.processVisualShade} />
-          <div className={styles.processVisualCopy}><span><ClipboardCheck aria-hidden="true" /> BRIEF THỐNG NHẤT</span><strong>Mẫu áo, bảng màu và thông số cùng nằm trong một phương án.</strong><small>Giảm trao đổi rời rạc giữa người đặt, người duyệt và đội ngũ sử dụng.</small></div>
+          <div className={styles.processVisualCopy}><span><ClipboardCheck aria-hidden="true" /> THÔNG TIN ĐẶT MAY</span><strong>Mẫu áo, bảng màu, logo và size cùng nằm trong một bản duyệt.</strong><small>Người đặt hàng và người duyệt cùng kiểm tra trước khi đưa vào sản xuất.</small></div>
         </div>
         <div className={styles.processContent}>
-          <header className={styles.processHeading}><span><Layers3 aria-hidden="true" /> QUY TRÌNH ĐẶT MAY</span><h2>Từ ý tưởng rời rạc<br />đến một brief dễ duyệt.</h2><p>Bốn điểm chốt giúp đội ngũ cùng nhìn về một cấu hình trước khi sản xuất.</p></header>
+          <header className={styles.processHeading}><span><Layers3 aria-hidden="true" /> QUY TRÌNH ĐẶT MAY</span><h2>Từ mẫu tham khảo<br />đến thiết kế duyệt sản xuất.</h2><p>Bốn bước giúp thống nhất mẫu áo, màu sắc, logo, số lượng và size trước khi may.</p></header>
           <ol>{[
-            { title: 'Chọn bối cảnh', text: 'Vai trò, tần suất mặc và môi trường sử dụng.', Icon: SwatchBook },
-            { title: 'Gom yêu cầu', text: 'Mẫu, màu, logo, số lượng và dải size.', Icon: Layers3 },
-            { title: 'Duyệt cấu hình', text: 'Thiết kế, vật liệu và kỹ thuật logo.', Icon: Check },
-            { title: 'Hoàn thiện đơn', text: 'Ma trận size, số lượng và đóng gói.', Icon: ClipboardCheck },
+            { title: 'Chọn dòng sản phẩm', text: 'Công ty, team building, lớp học hoặc ngành nghề.', Icon: SwatchBook },
+            { title: 'Gửi yêu cầu', text: 'Mẫu, màu, logo, số lượng và dải size.', Icon: Layers3 },
+            { title: 'Duyệt mẫu thiết kế', text: 'Phối màu, chất liệu và kỹ thuật in thêu.', Icon: Check },
+            { title: 'Chốt đơn sản xuất', text: 'Danh sách size, số lượng và yêu cầu đóng gói.', Icon: ClipboardCheck },
           ].map(({ title, text, Icon }) => <li key={title}><div><Icon aria-hidden="true" /></div><h3>{title}</h3><p>{text}</p></li>)}</ol>
-          <div className={styles.processTrust}><span><ShieldCheck aria-hidden="true" /> Brief trước báo giá</span><span><Sparkles aria-hidden="true" /> Thiết kế theo nhận diện</span><span><Check aria-hidden="true" /> Duyệt trước sản xuất</span><span><Ruler aria-hidden="true" /> Thống nhất form & size</span></div>
+          <div className={styles.processTrust}><span><ShieldCheck aria-hidden="true" /> Xác nhận trước báo giá</span><span><Sparkles aria-hidden="true" /> Thiết kế theo nhận diện</span><span><Check aria-hidden="true" /> Duyệt mẫu trước sản xuất</span><span><Ruler aria-hidden="true" /> Thống nhất form & size</span></div>
         </div>
       </section>
 
@@ -125,7 +125,7 @@ export async function DongPhucX24Home() {
           <div className={styles.quoteVisualBadge}><Palette aria-hidden="true" /><span><b>MÀU · LOGO · VẬT LIỆU</b><small>Phát triển từ mẫu gần đúng</small></span></div>
         </div>
         <div className={styles.quotePanel}>
-          <div className={styles.quoteCopy}><span><Sparkles aria-hidden="true" /> {consultationEnabled ? 'NHẬN TƯ VẤN' : 'CHUẨN BỊ YÊU CẦU'}</span><h2>Bạn mang bối cảnh.<br />X24 chuẩn bị phương án.</h2><p>Bắt đầu bằng một mẫu gần đúng và số lượng dự kiến; các phần còn lại được chốt theo từng bước.</p><ul><li><SwatchBook aria-hidden="true" /> Môi trường sử dụng</li><li><Palette aria-hidden="true" /> Màu hoặc nhận diện tham khảo</li><li><Ruler aria-hidden="true" /> Số lượng, size, thời điểm cần nhận</li></ul></div>
+          <div className={styles.quoteCopy}><span><Sparkles aria-hidden="true" /> {consultationEnabled ? 'NHẬN TƯ VẤN' : 'CHUẨN BỊ YÊU CẦU'}</span><h2>Bạn chọn mẫu gần đúng.<br />X24 tư vấn cách hoàn thiện.</h2><p>Gửi mẫu bạn thích và số lượng dự kiến để được tư vấn chất liệu, phối màu, in thêu logo, size và báo giá.</p><ul><li><SwatchBook aria-hidden="true" /> Loại đồng phục cần may</li><li><Palette aria-hidden="true" /> Logo & màu nhận diện</li><li><Ruler aria-hidden="true" /> Số lượng, size, thời điểm cần nhận</li></ul></div>
           {consultationEnabled ? <QuoteForm /> : <div className={styles.quoteFallback}><div><b>Bắt đầu từ catalog</b><p>Lưu mẫu gần đúng trước khi trao đổi về màu, logo, vật liệu và size.</p></div><Link className={styles.primaryButton} href="/san-pham/">Chọn mẫu ngay <ArrowRight aria-hidden="true" /></Link></div>}
         </div>
       </section>
