@@ -1,4 +1,4 @@
-import { ArrowRight, Check, ChevronRight, ClipboardCheck, Layers3, Palette, Ruler, ShieldCheck, Sparkles, SwatchBook } from 'lucide-react'
+import { ArrowRight, Building2, Check, ChevronRight, ClipboardCheck, Flag, GraduationCap, Layers3, Palette, Ruler, ShieldCheck, Sparkles, SwatchBook } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -59,10 +59,14 @@ export async function DongPhucX24Home() {
       <TenantPromoHero ariaLabel="Ba giải pháp đồng phục nổi bật" className={styles.promoHero} slides={heroSlides}>
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}><span /> Đồng phục cho tổ chức & đội nhóm</p>
-          <h1>Mặc cùng một đội.<br /><em>Đúng một hình ảnh.</em></h1>
-          <p className={styles.heroLead}>Chọn mẫu theo ngành, tinh chỉnh màu sắc, logo, chất liệu và size. Đồng Phục X24 giúp bạn gom mọi yêu cầu thành một cấu hình dễ duyệt.</p>
+          <h1>Đồng phục đúng bối cảnh.<br /><em>Nhận diện đúng tinh thần.</em></h1>
+          <p className={styles.heroLead}>Từ doanh nghiệp, chuyến dã ngoại đến lớp học: chọn mẫu gần đúng, tinh chỉnh màu sắc, logo, chất liệu và size để có một phương án dễ duyệt.</p>
           <div className={styles.heroActions}><Link className={styles.primaryButton} href="/san-pham/">Xem catalog <ArrowRight aria-hidden="true" /></Link><Link className={styles.secondaryButton} href="#nhan-tu-van">{consultationEnabled ? 'Gửi yêu cầu tư vấn' : 'Chuẩn bị yêu cầu'}</Link></div>
-          <ul className={styles.heroFacts}><li><Layers3 aria-hidden="true" /><span>Nhóm nhu cầu</span></li><li><Ruler aria-hidden="true" /><span>Bốn bước cấu hình</span></li><li><ClipboardCheck aria-hidden="true" /><span>Brief thống nhất</span></li></ul>
+          <nav aria-label="Giải pháp đồng phục theo nhóm khách hàng" className={styles.heroAudiences}>
+            <Link href="/danh-muc/dong-phuc-cong-ty/"><Building2 aria-hidden="true" /><span><b>Công ty & doanh nghiệp</b><small>Chỉn chu nhận diện · phù hợp từng bộ phận</small></span></Link>
+            <Link href="/danh-muc/team-building-su-kien/"><Flag aria-hidden="true" /><span><b>Dã ngoại & team building</b><small>Thoáng nhẹ · nổi bật tinh thần tập thể</small></span></Link>
+            <Link href="/danh-muc/ao-lop-truong-hoc/"><GraduationCap aria-hidden="true" /><span><b>Lớp học & trường học</b><small>Thiết kế riêng · dễ gom size và số lượng</small></span></Link>
+          </nav>
         </div>
       </TenantPromoHero>
 
