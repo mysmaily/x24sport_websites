@@ -16,11 +16,6 @@ function productAlt(product: Product) {
   return product.gallery?.find((image) => image.url)?.alt || `${product.name} đặt may cho đội bóng chuyền`
 }
 
-function productSize(product: Product) {
-  const image = product.gallery?.find((item) => item.url)
-  return { height: image?.height || 900, width: image?.width || 1200 }
-}
-
 export async function generateMetadata({ searchParams }: { searchParams: Promise<SearchParams> }): Promise<Metadata> {
   const params = await searchParams
   const query = params.q?.trim() || ''
@@ -52,7 +47,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         <form action="/tim-kiem" className="mt-6 grid max-w-3xl grid-cols-[auto_1fr_auto] overflow-hidden border border-[var(--line)] bg-white" role="search">
           <Search className="ml-3 self-center text-[#555]" size={18} />
           <label className="sr-only" htmlFor="search-q">Từ khóa</label>
-          <input className="min-h-12 min-w-0 px-3 text-[#111] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]" id="search-q" name="q" defaultValue={query} placeholder="Tên mẫu, màu áo, tag ảnh…" type="search" />
+          <input className="min-h-12 min-w-0 px-3 text-[#111] outline-none" id="search-q" name="q" defaultValue={query} placeholder="Tên mẫu, màu áo, tag ảnh..." type="search" />
           <button className="bg-[var(--accent)] px-5 font-black text-white" type="submit">Tìm</button>
         </form>
       </section>
@@ -60,7 +55,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         {products.map((product, index) => (
           <article className="mbc-product-card border border-[var(--line)] bg-white/6" key={product.id}>
             <a className="mbc-product-card-media mbc-product-card-media-compact" href={product.slug ? `/san-pham/${product.slug}/` : '/lien-he'}>
-              <img alt={productAlt(product)} className="mbc-product-card-image" height={productSize(product).height} loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} width={productSize(product).width} />
+              <img alt={productAlt(product)} className="mbc-product-card-image" loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} />
               <span className="mbc-product-card-badge">{String(index + 1).padStart(2, '0')}</span>
             </a>
             <div className="p-[22px]"><p className="mb-2 text-xs font-black text-[var(--accent)]">{product.sku}</p><h2 className="mb-2.5 text-[23px]"><a href={product.slug ? `/san-pham/${product.slug}/` : '/lien-he'}>{product.name}</a></h2><span className="leading-[1.55] text-[var(--muted)]">{product.shortDescription}</span><strong className="mt-4 block text-2xl">{formatPrice(product.price)}</strong></div>

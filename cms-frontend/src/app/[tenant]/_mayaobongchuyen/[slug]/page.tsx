@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowUpRight, BadgeCheck, ClipboardList, Palette, Phone, Ruler, ShieldCheck, Shirt } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, Phone, ShieldCheck } from 'lucide-react'
 import { notFound, permanentRedirect } from 'next/navigation'
 import { HeaderSearch } from '../_components/header-search'
 import { SiteFooter } from '../_components/site-footer'
@@ -25,11 +25,6 @@ function productAlt(product: Product) {
   return product.gallery?.find((image) => image.url)?.alt || `${product.name} đặt may cho đội bóng chuyền`
 }
 
-function productSize(product: Product) {
-  const image = product.gallery?.find((item) => item.url)
-  return { height: image?.height || 900, width: image?.width || 1200 }
-}
-
 const buildMenu = ({ settings, categories }: PageData) => {
   const typeCategories = categories.filter((category) => category.group === 'type')
   const colorCategories = categories.filter((category) => category.group === 'color')
@@ -49,13 +44,11 @@ const buildMenu = ({ settings, categories }: PageData) => {
             },
           ],
         }
-      : item.label === 'Bảng giá' || item.label === 'Báo giá'
+      : item.label === 'Bảng giá'
         ? { ...item, href: '/bang-gia-may-ao-bong-chuyen/' }
       : item,
   )
 }
-
-const sectionIcons = [Shirt, Palette, Ruler, ClipboardList, BadgeCheck]
 
 export async function generateMetadata({ params }: RouteProps) {
   const { slug } = await params
@@ -152,14 +145,7 @@ export default async function CmsPage({ params }: RouteProps) {
       <section className="grid grid-cols-1 gap-px px-[clamp(20px,5vw,76px)] md:grid-cols-3">
         {(page.sections || []).map((section, index) => (
           <article className="min-h-[230px] bg-white/5 p-7" key={section.heading}>
-            {(() => {
-              const Icon = sectionIcons[index % sectionIcons.length]
-              return (
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-[16px] border border-[var(--line)] bg-white/8 text-[var(--accent)]">
-                  <Icon size={23} />
-                </span>
-              )
-            })()}
+            <span className="font-black text-[var(--accent)]">{String(index + 1).padStart(2, '0')}</span>
             <h2 className="my-[18px] text-[28px] leading-[1.05]">{section.heading}</h2>
             <p className="leading-[1.6] text-[var(--muted)]">{section.body}</p>
           </article>
@@ -177,7 +163,7 @@ export default async function CmsPage({ params }: RouteProps) {
           {products.slice(0, 3).map((product, index) => (
             <article className="mbc-product-card border border-[var(--line)] bg-white/6" key={product.id}>
               <a className="mbc-product-card-media" href={product.slug ? `/san-pham/${product.slug}/` : '/lien-he'}>
-                <img alt={productAlt(product)} className="mbc-product-card-image" height={productSize(product).height} loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} width={productSize(product).width} />
+                <img alt={productAlt(product)} className="mbc-product-card-image" loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} />
                 <span className="mbc-product-card-badge"><ShieldCheck size={18} /> {String(index + 7).padStart(2, '0')}</span>
               </a>
               <div className="p-[22px]">

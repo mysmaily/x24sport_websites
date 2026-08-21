@@ -445,14 +445,6 @@ body.tenant-mayaobongchuyen #new-products .mbc-product-card .text-\[var\(--muted
   color: #5f6876;
 }
 
-body.tenant-mayaobongchuyen .mbc-home-hero-features > div {
-  min-width: 0;
-}
-
-body.tenant-mayaobongchuyen .mbc-home-hero-features strong {
-  overflow-wrap: anywhere;
-}
-
 @media (max-width: 767px) {
   body.tenant-mayaobongchuyen .section-shell {
     width: min(100% - 24px, 1360px);
@@ -460,34 +452,6 @@ body.tenant-mayaobongchuyen .mbc-home-hero-features strong {
 
   body.tenant-mayaobongchuyen .mbc-home-hero [data-promo-hero-content] {
     min-height: 650px;
-  }
-
-  body.tenant-mayaobongchuyen .mbc-home-hero-copy {
-    max-width: 340px;
-    overflow: hidden;
-    width: min(100%, 340px);
-  }
-
-  body.tenant-mayaobongchuyen .mbc-home-hero-copy h1 {
-    font-size: 32px;
-    line-height: .98;
-    max-width: 330px;
-  }
-
-  body.tenant-mayaobongchuyen .mbc-home-hero-copy p {
-    max-width: 330px;
-  }
-
-  body.tenant-mayaobongchuyen .mbc-home-hero-features {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 340px;
-    padding: 12px;
-    width: min(100%, 340px);
-  }
-
-  body.tenant-mayaobongchuyen .mbc-home-hero-features strong {
-    font-size: 12px;
-    max-width: 112px;
   }
 
   body.tenant-mayaobongchuyen [aria-label="Banner may áo bóng chuyền"] .bg-left {
