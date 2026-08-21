@@ -72,3 +72,6 @@
 .productInfo h3,.productInfo h3 a{font-size:16px;font-weight:600;line-height:1.34}
 .productInfo h3{margin:5px 0 9px}
 @media(max-width:760px){.productInfo h3{font-size:16px;min-height:64px}.productInfo h3 a{font-size:16px;font-weight:600}}
+
+/* Product imagery must remain unobstructed; the X24 marker belongs in the site chrome, not on the garment. */
+.productImage::before{display:none}
