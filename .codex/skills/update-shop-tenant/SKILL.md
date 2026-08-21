@@ -41,6 +41,8 @@ shared behavior, content records, or technical concerns.
      Performance Insights: `references/performance-insights-workflow.md`
    - Next.js or Payload implementation: `references/implementation-adapters.md`
    - Any change handed off as complete: `references/quality-gates.md`
+   - Material customer-facing layout or visual composition:
+     `references/visual-composition-standard.md`
 5. Recheck current official documentation when a rule, API, supported rich
    result, metric, library, or framework behavior may have changed.
 
@@ -87,6 +89,9 @@ shared behavior, content records, or technical concerns.
   useful errors, adequate target sizes, and meaningful image alternatives.
 - Reuse existing tokens, components, templates, data functions, and CMS fields
   before adding new abstractions.
+- For material layout work, apply the shared visual composition standard:
+  compact low-copy cards, meaningful icon-led hierarchy, coherent radii,
+  purposeful media/background layers, and explicit intermediate-width review.
 
 ### 3. Implement minimally
 

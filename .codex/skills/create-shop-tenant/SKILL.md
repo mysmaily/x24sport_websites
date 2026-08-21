@@ -55,6 +55,8 @@ records, route to `$update-shop-tenant` instead.
    - `references/vietnam-market.md`
 3. For material UI, Google, ecommerce, Next/Payload, or performance work, read
    the relevant file in `../update-shop-tenant/references/`.
+   Material customer-facing UI must read and follow
+   `../update-shop-tenant/references/visual-composition-standard.md`.
 4. Keep a task-local dossier based on
    `assets/tenant-completion-dossier.md`. Record content pillars, taxonomy
    decisions, facts, source/owner of public claims, approval evidence, and
@@ -96,6 +98,29 @@ scan-first. Large type, decorative overlap, broad empty space, image-overlay
 copy, and unusual navigation need a page-specific reason plus a tested mobile
 fallback.
 
+### Hard gate: composed visual density
+
+Do not use oversized type and generous section padding as substitutes for
+design. A low-content section must either be compact or become a deliberate
+composition using relevant product/lifestyle media, a purposeful tonal or
+graphic background, meaningful icons or illustrated steps, and a clear action
+or proof element. Avoid sparse full-width text bands, four stretched columns
+with tiny icons, and large flat surfaces whose empty area dominates the actual
+content.
+
+At desktop review width, every ordinary homepage section must have visible
+information or imagery distributed across its occupied area. If a contiguous
+blank region is visually larger than the section's meaningful content group,
+reduce the section height/padding or add useful visual structure. Decoration
+must support the message; generic shapes alone do not satisfy this gate. On
+mobile, preserve the visual story by stacking or cropping intentionally rather
+than deleting the media and leaving a text-only block.
+
+Apply the shared X24 visual composition standard. In particular, keep short
+content in compact balanced cards, use meaningful icons instead of decorative
+section numbering, apply a coherent radius system, and inspect intermediate
+widths in addition to desktop and mobile.
+
 Gate 1: approved visual direction, tokens, copy/style rules, and avoid list.
 
 ### Phase 2 - Content strategy, IA, and taxonomy
@@ -126,6 +151,13 @@ homepage/header/footer, a populated category with filters, a product detail page
 and the primary quote/order/contact journey at 390x844 and 1440x900. Test long
 Vietnamese names, price/quote states, two-line CTA labels, error states, and
 mobile touch interactions.
+
+Before Gate 3, inspect the entire homepage screenshot rather than only the
+hero. Reject and redesign any section where whitespace, a flat fill, or a large
+heading is the dominant visual. For low-copy sections, verify the composition
+still combines at least two useful visual layers such as media, icons/diagram,
+cards, texture/background treatment, proof, or CTA—not merely text inside a
+larger container.
 
 Gate 3: user-approved demo, screenshots, and closed revision list.
 

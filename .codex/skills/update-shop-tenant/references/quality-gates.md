@@ -48,6 +48,19 @@ gate before claiming completion.
   overlapping, clipped, or colliding text; a control whose label blends into its
   fill; text that blends into its surface or image; an unexpected horizontal
   scrollbar; or a control obscured by another element.
+- For ordinary homepage sections with limited copy, do not stretch the section
+  with oversized headings or padding. Either keep it compact or compose it with
+  relevant media, a purposeful background treatment, meaningful icons/cards,
+  and an action or proof element. Reject sparse full-width text bands and tall
+  flat canvases where empty space dominates the useful content.
+- For repeated low-copy items, verify the cards are compact and balanced at
+  desktop, intermediate, and mobile widths. Prefer meaningful distinct icons to
+  decorative numbering, vertically center short content, and keep card/panel
+  radii consistent with the approved brand system.
+- Inspect full-page desktop and mobile screenshots for visual-density failures.
+  A section does not pass merely because its individual text and controls are
+  correct; the occupied area must communicate through a deliberate combination
+  of content, imagery, iconography, grouping, and hierarchy.
 - Inspect the actual rendered states, not just the default source state:
   long Vietnamese names/titles, two-line labels, sale prices, empty/error
   messages, hover/focus/disabled controls, and every changed breakpoint. Check
