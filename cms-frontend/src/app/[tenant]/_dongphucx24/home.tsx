@@ -37,7 +37,6 @@ function ProductCard({ product, priority = false }: { product: (typeof products)
   return <article className={styles.productCard}>
     <Link className={styles.productImage} href={`/san-pham/${product.slug}/`}>
       <Image alt={product.alt} fill loading={priority ? 'eager' : 'lazy'} priority={priority} sizes="(max-width: 720px) 50vw, (max-width: 1100px) 33vw, 25vw" src={product.image} />
-      {(product.category === 'ao-lop-truong-hoc' || product.category === 'team-building-su-kien') && <b aria-hidden="true" className={styles.sourceBrandMask}>X24</b>}
     </Link>
     <div className={styles.productInfo}><small>{product.useCase}</small><h3><Link href={`/san-pham/${product.slug}/`}>{product.name}</Link></h3><div className={styles.productMeta}><strong>Báo giá theo yêu cầu</strong><span aria-label="Màu gợi ý" className={styles.productSwatch} style={{ background: product.accent }} /></div></div>
   </article>
