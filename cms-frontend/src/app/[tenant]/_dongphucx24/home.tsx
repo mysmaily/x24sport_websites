@@ -2,11 +2,36 @@ import { ArrowRight, Check, ChevronRight, ClipboardCheck, Layers3, Palette, Rule
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { TenantPromoHero, type TenantPromoHeroSlide } from '../../_components/tenant-promo-hero'
 import { getPublicStoreSettings } from '../../../lib/store-settings'
 import { categories, products } from './data'
 import { QuoteForm } from './quote-form'
 import { DongPhucX24Shell } from './shell'
 import styles from './dongphucx24.module.css'
+
+const heroSlides: TenantPromoHeroSlide[] = [
+  {
+    alt: 'Đội ngũ nhân viên Việt Nam mặc đồng phục polo xanh navy và trắng trong văn phòng',
+    height: 941,
+    mobileSrc: '/images/dongphucx24/home/uniform-corporate-team-mobile.webp',
+    src: '/images/dongphucx24/home/uniform-corporate-team.webp',
+    width: 1672,
+  },
+  {
+    alt: 'Đội ngũ công ty Việt Nam mặc áo polo cam xanh tham gia team building ngoài trời',
+    height: 941,
+    mobileSrc: '/images/dongphucx24/home/uniform-team-building-mobile.webp',
+    src: '/images/dongphucx24/home/uniform-team-building.webp',
+    width: 1672,
+  },
+  {
+    alt: 'Nhóm học sinh sinh viên Việt Nam mặc áo polo đồng phục lớp tại sân trường',
+    height: 941,
+    mobileSrc: '/images/dongphucx24/home/uniform-school-class-mobile.webp',
+    src: '/images/dongphucx24/home/uniform-school-class.webp',
+    width: 1672,
+  },
+]
 
 function ProductCard({ product, priority = false }: { product: (typeof products)[number]; priority?: boolean }) {
   return <article className={styles.productCard}>
@@ -31,7 +56,7 @@ export async function DongPhucX24Home() {
   return <DongPhucX24Shell>
     <main id="main-content">
       <script dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, '\\u003c') }} type="application/ld+json" />
-      <section className={styles.hero}>
+      <TenantPromoHero ariaLabel="Ba giải pháp đồng phục nổi bật" className={styles.promoHero} slides={heroSlides}>
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}><span /> Đồng phục cho tổ chức & đội nhóm</p>
           <h1>Mặc cùng một đội.<br /><em>Đúng một hình ảnh.</em></h1>
@@ -39,11 +64,7 @@ export async function DongPhucX24Home() {
           <div className={styles.heroActions}><Link className={styles.primaryButton} href="/san-pham/">Xem catalog <ArrowRight aria-hidden="true" /></Link><Link className={styles.secondaryButton} href="#nhan-tu-van">{consultationEnabled ? 'Gửi yêu cầu tư vấn' : 'Chuẩn bị yêu cầu'}</Link></div>
           <ul className={styles.heroFacts}><li><Layers3 aria-hidden="true" /><span>Nhóm nhu cầu</span></li><li><Ruler aria-hidden="true" /><span>Bốn bước cấu hình</span></li><li><ClipboardCheck aria-hidden="true" /><span>Brief thống nhất</span></li></ul>
         </div>
-        <div className={styles.heroVisual}>
-          <Image alt="Đội ngũ Việt Nam trong các mẫu đồng phục công ty, F&B, sự kiện và dịch vụ" fill priority sizes="(max-width: 760px) 100vw, 58vw" src="/images/dongphucx24/hero-uniform-team.webp" />
-          <div className={styles.heroBadge}><Sparkles aria-hidden="true" /><p>Nhiều vai trò.<br /><b>Một bản sắc.</b></p></div>
-        </div>
-      </section>
+      </TenantPromoHero>
 
       <section aria-label="Điểm bắt đầu" className={styles.quickBar}>
         <p>Bắt đầu từ điều bạn đang cần</p>
