@@ -1,4 +1,4 @@
-import type { Access, FieldAccess } from 'payload'
+import type { Access, FieldAccess, Where } from 'payload'
 
 type Role = 'super_admin' | 'tenant_admin' | 'editor'
 
@@ -27,6 +27,22 @@ export const authenticated: Access = ({ req }) => Boolean(req.user)
 export const publicRead: Access = () => true
 
 export const superAdminsOnly: Access = ({ req }) => isSuperAdmin(req.user as UserWithRole)
+
+export const distributionRead: Access = ({ req }) => {
+  const user = req.user as UserWithRole | null
+  if (isSuperAdmin(user)) return true
+
+  const tenantIDs = userTenantIDs(user)
+  if (!tenantIDs.length) return false
+
+  const where: Where = {
+    or: [
+      { sourceTenant: { in: tenantIDs } },
+      { targetTenant: { in: tenantIDs } },
+    ],
+  }
+  return where
+}
 
 export const adminsOnly: Access = ({ req }) => isAdminRole(req.user as UserWithRole)
 

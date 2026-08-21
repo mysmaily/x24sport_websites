@@ -84,7 +84,12 @@ export interface Config {
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  collectionsJoins: {};
+  collectionsJoins: {
+    products: {
+      outboundDistributions: 'catalog-distributions';
+      inboundDistributions: 'catalog-distributions';
+    };
+  };
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     tenants: TenantsSelect<false> | TenantsSelect<true>;
@@ -406,6 +411,16 @@ export interface Product {
   sourceModifiedAt?: string | null;
   sourceCreatedAt?: string | null;
   sourceChecksum?: string | null;
+  outboundDistributions?: {
+    docs?: (number | CatalogDistribution)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  inboundDistributions?: {
+    docs?: (number | CatalogDistribution)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -1063,6 +1078,8 @@ export interface ProductsSelect<T extends boolean = true> {
   sourceModifiedAt?: T;
   sourceCreatedAt?: T;
   sourceChecksum?: T;
+  outboundDistributions?: T;
+  inboundDistributions?: T;
   updatedAt?: T;
   createdAt?: T;
 }

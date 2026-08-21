@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-import { superAdminsOnly } from '../access/roles'
+import { distributionRead, superAdminsOnly } from '../access/roles'
 
 type RelationValue = number | string | { id?: number | string } | null | undefined
 
@@ -17,7 +17,7 @@ export const CatalogDistributions: CollectionConfig = {
   access: {
     create: superAdminsOnly,
     delete: superAdminsOnly,
-    read: superAdminsOnly,
+    read: distributionRead,
     update: superAdminsOnly,
   },
   hooks: {

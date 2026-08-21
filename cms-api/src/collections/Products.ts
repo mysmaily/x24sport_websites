@@ -56,6 +56,8 @@ export const Products: CollectionConfig = {
       'sport',
       'price',
       'publicationStatus',
+      'outboundDistributions',
+      'inboundDistributions',
       'featured',
       'pinterestPublishAction',
     ],
@@ -432,6 +434,36 @@ export const Products: CollectionConfig = {
         components: {
           Cell: '/components/pinterest/ProductPinterestPublishCell#ProductPinterestPublishCell',
           Field: '/components/pinterest/EmptyUIField',
+        },
+      },
+    },
+    {
+      name: 'outboundDistributions',
+      type: 'join',
+      collection: 'catalog-distributions',
+      on: 'sourceProduct',
+      defaultLimit: 12,
+      defaultSort: '-syncedAt',
+      maxDepth: 2,
+      label: 'Có tại',
+      admin: {
+        components: {
+          Cell: '/components/products/ProductDistributionCell#ProductOutboundDistributionCell',
+        },
+      },
+    },
+    {
+      name: 'inboundDistributions',
+      type: 'join',
+      collection: 'catalog-distributions',
+      on: 'targetProduct',
+      defaultLimit: 12,
+      defaultSort: '-syncedAt',
+      maxDepth: 2,
+      label: 'Nhận từ',
+      admin: {
+        components: {
+          Cell: '/components/products/ProductDistributionCell#ProductInboundDistributionCell',
         },
       },
     },
