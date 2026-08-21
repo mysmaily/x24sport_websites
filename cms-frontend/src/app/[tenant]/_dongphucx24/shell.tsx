@@ -12,7 +12,8 @@ function Logo() {
 
 export async function DongPhucX24Shell({ children }: { children: ReactNode }) {
   const consultationEnabled = Boolean((await getPublicStoreSettings()).telegramChatId)
-  const actionHref = consultationEnabled ? '/#nhan-tu-van' : '/san-pham/'
+  const actionHref = '/#nhan-tu-van'
+  const actionLabel = consultationEnabled ? 'Nhận tư vấn' : 'Chuẩn bị yêu cầu'
   return <div className={styles.site}>
     <a className={styles.skipLink} href="#main-content">Đi đến nội dung chính</a>
     <header className={styles.header}>
@@ -25,14 +26,14 @@ export async function DongPhucX24Shell({ children }: { children: ReactNode }) {
         <Link href="/#cam-hung">Mẫu đã chọn</Link>
       </nav>
       <div className={styles.headerActions}>
-        <Link className={styles.headerCta} href={actionHref}>{consultationEnabled ? 'Nhận tư vấn' : 'Xem catalog'} <ArrowRight aria-hidden="true" /></Link>
+        <Link className={styles.headerCta} href={actionHref}>{actionLabel} <ArrowRight aria-hidden="true" /></Link>
         <details className={styles.mobileMenu}>
           <summary aria-label="Mở menu"><Menu aria-hidden="true" /><X aria-hidden="true" /></summary>
           <nav aria-label="Điều hướng mobile">
             <Logo />
             <p>Chọn nhanh theo nhu cầu</p>
             {categories.map((category) => <Link href={`/danh-muc/${category.slug}/`} key={category.slug}>{category.name}<ArrowRight aria-hidden="true" /></Link>)}
-            <Link className={styles.mobileCta} href={actionHref}>{consultationEnabled ? 'Nhận tư vấn đặt may' : 'Xem toàn bộ catalog'}</Link>
+            <Link className={styles.mobileCta} href={actionHref}>{consultationEnabled ? 'Nhận tư vấn đặt may' : 'Chuẩn bị yêu cầu'}</Link>
           </nav>
         </details>
       </div>
@@ -41,7 +42,7 @@ export async function DongPhucX24Shell({ children }: { children: ReactNode }) {
     <footer className={styles.footer}>
       <div className={styles.footerCta}>
         <div><span><Sparkles aria-hidden="true" /> BẮT ĐẦU TỪ MẪU GẦN ĐÚNG</span><h2>Chọn mẫu hôm nay.<br />Duyệt thiết kế trước khi may.</h2><p>Lưu mẫu bạn thích, sau đó cùng X24 phối màu, chọn chất liệu, in thêu logo, form và dải size.</p></div>
-        <div className={styles.footerActions}><Link className={styles.primaryButton} href="/san-pham/">Xem catalog <ArrowRight aria-hidden="true" /></Link><Link className={styles.footerSecondary} href="/#quy-trinh">Xem quy trình</Link></div>
+        <div className={styles.footerActions}><Link className={styles.primaryButton} href={actionHref}>{consultationEnabled ? 'Nhận tư vấn' : 'Chuẩn bị yêu cầu'} <ArrowRight aria-hidden="true" /></Link><Link className={styles.footerSecondary} href="/#quy-trinh">Xem quy trình</Link></div>
       </div>
       <div className={styles.footerGrid}>
         <div className={styles.footerBrand}><Logo /><p>Giúp tổ chức chọn mẫu đồng phục, phối màu, in thêu logo, gom size và đặt may theo yêu cầu.</p><div className={styles.footerSignals}><span><SwatchBook aria-hidden="true" /> Chọn mẫu</span><span><Ruler aria-hidden="true" /> Gom size</span><span><ClipboardCheck aria-hidden="true" /> Duyệt thiết kế</span></div></div>
