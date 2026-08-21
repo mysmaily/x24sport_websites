@@ -31,6 +31,7 @@ import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0
 import { ProductGalleryCell as ProductGalleryCell_cbe00c67ce8d562fe32c12e60c7aa3c9 } from '../../../components/products/ProductGalleryCell'
 import { ProductPinterestPublishCell as ProductPinterestPublishCell_2b9b799e1a7e2228c900c1aeda5d2738 } from '../../../components/pinterest/ProductPinterestPublishCell'
 import { default as default_8487c591b539af99052910b66f360669 } from '../../../components/pinterest/EmptyUIField'
+import { ProductDistributionSummaryCell as ProductDistributionSummaryCell_4f028b6a05feeda0a060da71f44aaba3 } from '../../../components/products/ProductDistributionCell'
 import { ProductOutboundDistributionCell as ProductOutboundDistributionCell_4f028b6a05feeda0a060da71f44aaba3 } from '../../../components/products/ProductDistributionCell'
 import { ProductInboundDistributionCell as ProductInboundDistributionCell_4f028b6a05feeda0a060da71f44aaba3 } from '../../../components/products/ProductDistributionCell'
 import { X24Icon as X24Icon_9bf5e3a739e87dab6a576c3a0fe9c057 } from '../../../components/admin/X24Brand'
@@ -80,6 +81,7 @@ export const importMap = {
   "/components/products/ProductGalleryCell#ProductGalleryCell": ProductGalleryCell_cbe00c67ce8d562fe32c12e60c7aa3c9,
   "/components/pinterest/ProductPinterestPublishCell#ProductPinterestPublishCell": ProductPinterestPublishCell_2b9b799e1a7e2228c900c1aeda5d2738,
   "/components/pinterest/EmptyUIField#default": default_8487c591b539af99052910b66f360669,
+  "/components/products/ProductDistributionCell#ProductDistributionSummaryCell": ProductDistributionSummaryCell_4f028b6a05feeda0a060da71f44aaba3,
   "/components/products/ProductDistributionCell#ProductOutboundDistributionCell": ProductOutboundDistributionCell_4f028b6a05feeda0a060da71f44aaba3,
   "/components/products/ProductDistributionCell#ProductInboundDistributionCell": ProductInboundDistributionCell_4f028b6a05feeda0a060da71f44aaba3,
   "/components/admin/X24Brand#X24Icon": X24Icon_9bf5e3a739e87dab6a576c3a0fe9c057,

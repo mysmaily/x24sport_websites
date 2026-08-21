@@ -413,6 +413,8 @@ export interface Product {
   sourceModifiedAt?: string | null;
   sourceCreatedAt?: string | null;
   sourceChecksum?: string | null;
+  outboundDistributionSummary?: string | null;
+  inboundDistributionSummary?: string | null;
   outboundDistributions?: {
     docs?: (number | CatalogDistribution)[];
     hasNextPage?: boolean;
@@ -1082,6 +1084,8 @@ export interface ProductsSelect<T extends boolean = true> {
   sourceModifiedAt?: T;
   sourceCreatedAt?: T;
   sourceChecksum?: T;
+  outboundDistributionSummary?: T;
+  inboundDistributionSummary?: T;
   outboundDistributions?: T;
   inboundDistributions?: T;
   updatedAt?: T;

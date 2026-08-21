@@ -11,6 +11,14 @@
   font-size: 12px;
 }
 
+.summary {
+  display: block;
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .item {
   align-items: center;
   background: var(--theme-elevation-50, #f3f4f6);

@@ -1,6 +1,7 @@
 import type { CollectionConfig, TextFieldValidation, Where } from 'payload'
 
 import { adminsOnly, publicRead } from '../access/roles'
+import { enrichProductDistributionSummary } from '../hooks/enrichProductDistributionSummary'
 import { buildTenantIdentity, relationID } from '../util/tenantIdentity'
 
 type ProductValidationData = {
@@ -56,8 +57,8 @@ export const Products: CollectionConfig = {
       'sport',
       'price',
       'publicationStatus',
-      'outboundDistributions',
-      'inboundDistributions',
+      'outboundDistributionSummary',
+      'inboundDistributionSummary',
       'featured',
       'pinterestPublishAction',
     ],
@@ -72,6 +73,7 @@ export const Products: CollectionConfig = {
     update: adminsOnly,
   },
   hooks: {
+    afterOperation: [enrichProductDistributionSummary],
     beforeValidate: [
       ({ data, originalDoc }) => ({
         ...data,
@@ -438,6 +440,28 @@ export const Products: CollectionConfig = {
       },
     },
     {
+      name: 'outboundDistributionSummary',
+      type: 'text',
+      virtual: true,
+      label: 'Có tại',
+      admin: {
+        components: {
+          Cell: '/components/products/ProductDistributionCell#ProductDistributionSummaryCell',
+        },
+      },
+    },
+    {
+      name: 'inboundDistributionSummary',
+      type: 'text',
+      virtual: true,
+      label: 'Nhận từ',
+      admin: {
+        components: {
+          Cell: '/components/products/ProductDistributionCell#ProductDistributionSummaryCell',
+        },
+      },
+    },
+    {
       name: 'outboundDistributions',
       type: 'join',
       collection: 'catalog-distributions',
@@ -445,7 +469,7 @@ export const Products: CollectionConfig = {
       defaultLimit: 12,
       defaultSort: '-syncedAt',
       maxDepth: 2,
-      label: 'Có tại',
+      label: 'Có tại (chi tiết)',
       admin: {
         components: {
           Cell: '/components/products/ProductDistributionCell#ProductOutboundDistributionCell',
@@ -460,7 +484,7 @@ export const Products: CollectionConfig = {
       defaultLimit: 12,
       defaultSort: '-syncedAt',
       maxDepth: 2,
-      label: 'Nhận từ',
+      label: 'Nhận từ (chi tiết)',
       admin: {
         components: {
           Cell: '/components/products/ProductDistributionCell#ProductInboundDistributionCell',

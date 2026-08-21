@@ -61,3 +61,8 @@ export function ProductOutboundDistributionCell(props: DefaultCellComponentProps
 export function ProductInboundDistributionCell(props: DefaultCellComponentProps) {
   return <DistributionCell {...props} direction="inbound" />
 }
+
+export function ProductDistributionSummaryCell({ cellData }: DefaultCellComponentProps) {
+  const summary = typeof cellData === 'string' ? cellData.trim() : ''
+  return summary ? <span className={styles.summary}>{summary}</span> : <span className={styles.empty}>—</span>
+}
