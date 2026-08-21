@@ -453,6 +453,14 @@ body.tenant-mayaobongchuyen .mbc-home-hero-features strong {
   overflow-wrap: anywhere;
 }
 
+body.tenant-mayaobongchuyen .x24-bottom-contact-item {
+  color: #334155;
+}
+
+body.tenant-mayaobongchuyen .x24-bottom-contact-item > span:last-child {
+  color: #334155;
+}
+
 @media (max-width: 767px) {
   body.tenant-mayaobongchuyen {
     overflow-x: hidden;
