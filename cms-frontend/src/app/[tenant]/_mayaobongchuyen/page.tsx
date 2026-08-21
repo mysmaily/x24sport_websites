@@ -166,21 +166,21 @@ export default async function Home() {
       </header>
 
       <TenantPromoHero ariaLabel="Banner may áo bóng chuyền thiết kế riêng" className="mbc-home-hero" slides={heroBanners}>
-        <div className="mbc-home-hero-copy max-w-[650px]">
+        <div className="mbc-home-hero-copy max-w-full md:max-w-[650px]">
           <p className="mb-[18px] text-[clamp(24px,2.3vw,40px)] font-black uppercase leading-[0.95] text-[var(--sport-green)]">May áo bóng chuyền</p>
-          <h1 className="mb-[18px] text-[clamp(36px,4.3vw,70px)] font-black uppercase leading-[0.92] text-white">
+          <h1 className="mb-[18px] max-w-[340px] break-words text-[32px] font-black uppercase leading-[0.98] text-white md:max-w-[650px] md:text-[clamp(44px,4.3vw,70px)] md:leading-[0.92]">
             Thiết kế theo yêu cầu
             <span className="block">Dấu ấn riêng</span>
             <em className="block leading-[1.05] text-[var(--sport-green)]">của đội bạn!</em>
           </h1>
-          <p className="mb-6 max-w-[520px] text-[17px] leading-[1.5] font-[650] text-[#d6dde8]">Đồng phục bóng chuyền đặt may, in tên số và logo theo màu đội.</p>
-          <div className="mb-6 grid max-w-[560px] grid-cols-2 gap-px border border-[rgba(71,133,62,.58)] p-[18px] sm:grid-cols-4">
+          <p className="mb-6 max-w-[340px] text-[16px] leading-[1.5] font-[650] text-[#d6dde8] md:max-w-[520px] md:text-[17px]">Đồng phục bóng chuyền đặt may, in tên số và logo theo màu đội.</p>
+          <div className="mb-6 grid max-w-[340px] grid-cols-2 gap-px border border-[rgba(71,133,62,.58)] p-3 sm:grid-cols-4 md:max-w-[560px] md:p-[18px]">
             {heroFeatures.map(({ icon: Icon, label }) => (
               <div className="flex min-h-24 flex-col items-center justify-center gap-2 bg-black/20 text-center text-white" key={label}>
                 <span className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-full border-2 border-[var(--accent)] text-[var(--accent)]">
                   <Icon size={25} />
                 </span>
-                <strong className="max-w-[92px] text-[13px] leading-[1.15]">{label}</strong>
+                <strong className="max-w-[112px] text-[12px] leading-[1.15] md:max-w-[92px] md:text-[13px]">{label}</strong>
               </div>
             ))}
           </div>
