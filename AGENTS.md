@@ -59,6 +59,8 @@ relationship IDs between tenants, or omit tenant filters from content queries.
 | `mayaobongchuyen.vn` | `mayaobongchuyen` | Specialist satellite for volleyball uniforms and team customization. |
 | `mayaobongro.vn` | `mayaobongro` | Specialist satellite for basketball uniforms and team customization. |
 | `mayaochaybo.vn` | `mayaochaybo` | Specialist satellite for running shirts, clubs, companies and race events. |
+| `mayaodongphuc.com.vn` | `mayaodongphuc` | Direct uniform-manufacturing workshop: turns approved briefs and specifications into made-to-order uniforms, with production, QC and delivery as the customer promise. |
+| `dongphucx24.vn` | `dongphucx24` | Market-facing uniform brand: helps organizations discover samples and solutions by use case, then prepares a quote-ready request for the workshop. |
 
 X24Sport aggregation is explicit, not automatic cross-tenant leakage. A source
 product remains owned by its specialist tenant. Sharing to X24Sport must use the

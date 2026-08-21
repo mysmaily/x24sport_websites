@@ -6,8 +6,14 @@ Read `../AGENTS.md` first.
 
 - Tenant slug: `dongphucx24`; canonical domain: `dongphucx24.vn`.
 - Brand display name: Đồng Phục X24.
-- Role: specialist tenant for made-to-order uniforms for companies, F&B, schools, events/team building, light workwear, healthcare and service teams.
-- Primary journey: browse by working context, choose a representative sample, then request configuration and quotation guidance.
+- Role: market-facing specialist for made-to-order uniforms for companies, F&B,
+  schools, events/team building, light workwear, healthcare and service teams.
+- Primary journey: browse by working context, choose a representative sample,
+  learn the trade-offs, then prepare a quote-ready request.
+- This tenant owns the broad market, buyer-intent, category, sample-discovery
+  and editorial direction previously researched for Mayaodongphuc. It does not
+  make unverified factory-capacity, MOQ, lead-time, warranty or compliance
+  claims; those are confirmed only against the responsible workshop.
 - Public prices remain quote-only until pricing rules and commercial terms have a named owner and current approval.
 
 ## Brand and customer experience
@@ -27,5 +33,13 @@ Read `../AGENTS.md` first.
 - Production tenant, Store Settings and the dedicated `tenant_admin` REST account are provisioned; the mode-`0600` credential file is `/root/sports-cms/dongphucx24-rest-api.env` on `10.10.0.28`.
 - Cloudflare DNS/proxy, the version-controlled Nginx vhost and Let's Encrypt TLS for apex plus `www` are provisioned. The apex domain is canonical and `www` redirects to it.
 - Analytics and external contact channels remain unset until verified business-owned values are supplied; do not fabricate or borrow them from another tenant.
+
+Content direction and business references:
+
+- `CONTENT-DIRECTION.md` is the current market-facing content brief: buyers,
+  category ownership, editorial clusters and claim boundaries.
+- Mayaodongphuc is the workshop counterpart. Its production process can inform
+  quote preparation, but its public wording, internal contacts and tenant data
+  must never be copied into this tenant.
 
 The storefront uses a bounded representative catalog and public reference media from the approved Mayaodongphuc product source. Before CMS-backed production population, explicitly authorize media sharing through `sharedWithTenants` and create tenant-scoped product records idempotently; never duplicate or silently reassign sibling media.

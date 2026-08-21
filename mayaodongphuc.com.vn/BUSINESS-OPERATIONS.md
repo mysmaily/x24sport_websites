@@ -1,8 +1,14 @@
-# Nghiệp vụ đặt may đồng phục
+# Nghiệp vụ xưởng may đồng phục
 
 Ngày khởi tạo: 2026-08-20  
 Phạm vi: từ lead website đến tái đặt hàng  
 Nguyên tắc: tenant-scoped, quote-only cho đến khi điều khoản thương mại được xác minh
+
+Mayaodongphuc.com.vn là mặt tiền của xưởng: nội dung công khai phải giúp khách
+hàng hiểu và đi đúng các điểm bàn giao sản xuất — brief, spec, duyệt mẫu, size,
+lệnh may, QC và nghiệm thu. Không dùng website này như một kênh tổng hợp mẫu,
+ngành hàng hoặc từ khóa rộng; phần khám phá và tư vấn theo thị trường thuộc
+Dongphucx24.vn.
 
 ## 1. Pipeline chuẩn
 
@@ -215,4 +221,3 @@ Mỗi claim công khai cần các trường:
 
 Không có register/bằng chứng thì dùng copy trung tính: “được xác nhận sau khi
 duyệt cấu hình và tiến độ”.
-
