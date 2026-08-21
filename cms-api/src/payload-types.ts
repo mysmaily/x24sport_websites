@@ -263,6 +263,8 @@ export interface CatalogDistribution {
   distributionKey: string;
   sourceTenant: number | Tenant;
   targetTenant: number | Tenant;
+  sourceTenantLabel?: string | null;
+  targetTenantLabel?: string | null;
   sourceProduct: number | Product;
   targetProduct?: (number | null) | Product;
   status: 'ready' | 'draft_created' | 'published' | 'needs_review' | 'blocked' | 'archived';
@@ -896,6 +898,8 @@ export interface CatalogDistributionsSelect<T extends boolean = true> {
   distributionKey?: T;
   sourceTenant?: T;
   targetTenant?: T;
+  sourceTenantLabel?: T;
+  targetTenantLabel?: T;
   sourceProduct?: T;
   targetProduct?: T;
   status?: T;

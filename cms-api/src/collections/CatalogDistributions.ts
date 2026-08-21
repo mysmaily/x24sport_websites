@@ -22,7 +22,7 @@ export const CatalogDistributions: CollectionConfig = {
   },
   hooks: {
     beforeValidate: [
-      ({ data, originalDoc }) => {
+      async ({ data, originalDoc, req }) => {
         const sourceTenant = relationID(data?.sourceTenant ?? originalDoc?.sourceTenant)
         const sourceProduct = relationID(data?.sourceProduct ?? originalDoc?.sourceProduct)
         const targetTenant = relationID(data?.targetTenant ?? originalDoc?.targetTenant)
@@ -31,11 +31,18 @@ export const CatalogDistributions: CollectionConfig = {
           throw new Error('Nguồn và đích phân phối phải thuộc hai website khác nhau.')
         }
 
+        const [sourceTenantDoc, targetTenantDoc] = await Promise.all([
+          sourceTenant ? req.payload.findByID({ collection: 'tenants', id: sourceTenant, depth: 0, overrideAccess: true }) : undefined,
+          targetTenant ? req.payload.findByID({ collection: 'tenants', id: targetTenant, depth: 0, overrideAccess: true }) : undefined,
+        ])
+
         return {
           ...data,
           ...(sourceTenant && sourceProduct && targetTenant
             ? { distributionKey: `${sourceTenant}:${sourceProduct}:${targetTenant}` }
             : {}),
+          ...(sourceTenantDoc ? { sourceTenantLabel: sourceTenantDoc.name || sourceTenantDoc.slug } : {}),
+          ...(targetTenantDoc ? { targetTenantLabel: targetTenantDoc.name || targetTenantDoc.slug } : {}),
         }
       },
     ],
@@ -49,6 +56,8 @@ export const CatalogDistributions: CollectionConfig = {
         { name: 'targetTenant', type: 'relationship', relationTo: 'tenants', required: true, admin: { width: '50%' } },
       ],
     },
+    { name: 'sourceTenantLabel', type: 'text', admin: { readOnly: true } },
+    { name: 'targetTenantLabel', type: 'text', admin: { readOnly: true } },
     {
       type: 'row',
       fields: [

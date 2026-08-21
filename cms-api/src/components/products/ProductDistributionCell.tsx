@@ -7,8 +7,10 @@ import styles from './ProductDistributionCell.module.scss'
 type Relation = number | string | { id?: number | string; name?: string; slug?: string }
 type Distribution = {
   sourceTenant?: Relation
+  sourceTenantLabel?: string
   status?: string
   targetTenant?: Relation
+  targetTenantLabel?: string
 }
 
 const labels: Record<string, string> = {
@@ -40,10 +42,11 @@ function DistributionCell({ cellData, direction }: DefaultCellComponentProps & {
       {distributions.map((distribution, index) => {
         const status = distribution.status || 'ready'
         const tenant = direction === 'outbound' ? distribution.targetTenant : distribution.sourceTenant
+        const label = direction === 'outbound' ? distribution.targetTenantLabel : distribution.sourceTenantLabel
         const stateClass = status === 'draft_created' ? styles.draft : status === 'needs_review' ? styles.review : status === 'blocked' ? styles.blocked : ''
         return (
-          <span className={`${styles.item} ${stateClass}`} key={`${tenantName(tenant)}-${status}-${index}`} title={labels[status] || status}>
-            <span className={styles.name}>{tenantName(tenant)} · {labels[status] || status}</span>
+          <span className={`${styles.item} ${stateClass}`} key={`${label || tenantName(tenant)}-${status}-${index}`} title={labels[status] || status}>
+            <span className={styles.name}>{label || tenantName(tenant)} · {labels[status] || status}</span>
           </span>
         )
       })}

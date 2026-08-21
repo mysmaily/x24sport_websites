@@ -16,6 +16,7 @@ import * as migration_20260813_020000_store_settings_custom_scripts from './2026
 import * as migration_20260814_023700_store_settings_contact_bar from './20260814_023700_store_settings_contact_bar';
 import * as migration_20260816_010000_product_category_taxonomy_groups from './20260816_010000_product_category_taxonomy_groups';
 import * as migration_20260822_090000_catalog_distributions from './20260822_090000_catalog_distributions';
+import * as migration_20260822_100000_catalog_distribution_tenant_labels from './20260822_100000_catalog_distribution_tenant_labels';
 
 export const migrations = [
   {
@@ -107,5 +108,10 @@ export const migrations = [
     up: migration_20260822_090000_catalog_distributions.up,
     down: migration_20260822_090000_catalog_distributions.down,
     name: '20260822_090000_catalog_distributions'
+  },
+  {
+    up: migration_20260822_100000_catalog_distribution_tenant_labels.up,
+    down: migration_20260822_100000_catalog_distribution_tenant_labels.down,
+    name: '20260822_100000_catalog_distribution_tenant_labels'
   },
 ];
