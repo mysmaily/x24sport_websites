@@ -29,7 +29,7 @@ const currentTenantFallbacks: Record<string, TenantContext> = {
   'mayaobongro.vn': { slug: 'mayaobongro', domain: 'mayaobongro.vn', name: 'MayaoBongRo', description: 'Đồng phục bóng rổ thiết kế theo yêu cầu.' },
   'mayaochaybo.vn': { slug: 'mayaochaybo', domain: 'mayaochaybo.vn', name: 'MayaoChayBo', description: 'Áo chạy bộ thiết kế theo yêu cầu.' },
   'mayaobongda.vn': { slug: 'mayaobongda', domain: 'mayaobongda.vn', name: 'MayaoBongDa', description: 'Áo bóng đá và đồng phục thi đấu thiết kế theo yêu cầu.' },
-  'mayaodongphuc.com.vn': { slug: 'mayaodongphuc', domain: 'mayaodongphuc.com.vn', name: 'May Áo Đồng Phục', description: 'Đồng phục thiết kế theo nhận diện và bối cảnh sử dụng của từng tổ chức.' },
+  'mayaodongphuc.com.vn': { slug: 'mayaodongphuc', domain: 'mayaodongphuc.com.vn', name: 'May Áo Đồng Phục', description: 'Xưởng may đồng phục theo yêu cầu, làm rõ brief, spec, size và kiểm tra trước khi bàn giao.' },
   'dongphucx24.vn': { slug: 'dongphucx24', domain: 'dongphucx24.vn', name: 'Đồng Phục X24', description: 'May đồng phục công ty, team building, trường lớp và F&B theo yêu cầu.' },
   'dongphucx24.localhost': { slug: 'dongphucx24', domain: 'dongphucx24.vn', name: 'Đồng Phục X24', description: 'May đồng phục công ty, team building, trường lớp và F&B theo yêu cầu.' },
 }

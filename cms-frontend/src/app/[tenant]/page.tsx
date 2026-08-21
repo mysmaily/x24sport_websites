@@ -41,22 +41,22 @@ export async function generateMetadata({ params }: { params: Promise<{ tenant: s
     },
   }
   if (tenant === 'mayaodongphuc') return {
-    title: { absolute: 'May Áo Đồng Phục Công Ty, Lớp & Team Building' },
-    description: 'May áo đồng phục công ty, lớp học, dã ngoại và team building theo yêu cầu. Chọn mẫu, màu sắc, chất liệu, in logo và gửi thông tin để nhận tư vấn báo giá.',
+    title: { absolute: 'Xưởng May Đồng Phục Theo Yêu Cầu | May Áo Đồng Phục' },
+    description: 'Xưởng may đồng phục theo yêu cầu: tiếp nhận brief, thống nhất spec và mẫu, chốt size số lượng, kiểm tra trước khi bàn giao. Gửi yêu cầu để được tư vấn báo giá.',
     alternates: { canonical: 'https://mayaodongphuc.com.vn/' },
     openGraph: {
       type: 'website',
       locale: 'vi_VN',
       siteName: 'May Áo Đồng Phục',
-      title: 'May Áo Đồng Phục Công Ty, Lớp & Team Building',
-      description: 'Chọn mẫu đồng phục cho công ty, lớp học, chuyến dã ngoại hoặc team building. Tùy chỉnh màu, logo, chất liệu và size theo nhu cầu.',
+      title: 'Xưởng May Đồng Phục Theo Yêu Cầu',
+      description: 'Từ brief và mẫu duyệt đến spec, chốt size, QC và bàn giao theo yêu cầu đồng phục của tổ chức.',
       url: 'https://mayaodongphuc.com.vn/',
-      images: [{ url: '/images/mayaodongphuc/hero-atelier.webp', width: 1672, height: 941, alt: 'Các mẫu đồng phục cho doanh nghiệp, lớp học và đội nhóm' }],
+      images: [{ url: '/images/mayaodongphuc/hero-atelier.webp', width: 1672, height: 941, alt: 'Đội ngũ phát triển mẫu đồng phục trong không gian xưởng' }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'May Áo Đồng Phục Công Ty, Lớp & Team Building',
-      description: 'Chọn mẫu đồng phục cho công ty, lớp học, chuyến dã ngoại hoặc team building. Tùy chỉnh màu, logo, chất liệu và size theo nhu cầu.',
+      title: 'Xưởng May Đồng Phục Theo Yêu Cầu',
+      description: 'Từ brief và mẫu duyệt đến spec, chốt size, QC và bàn giao theo yêu cầu đồng phục của tổ chức.',
       images: ['/images/mayaodongphuc/hero-atelier.webp'],
     },
   }
