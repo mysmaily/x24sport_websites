@@ -80,14 +80,43 @@ async function run() {
   const [targetTenant] = await allDocs(payload, 'tenants', { slug: { equals: targetSlug } })
   if (!targetTenant) throw new Error(`Không tìm thấy tenant đích ${targetSlug}.`)
 
-  const [allProducts, targetProducts, existingDistributions] = await Promise.all([
-    allDocs(payload, 'products', {}, 2),
+  const [tenants, targetProducts, existingDistributions] = await Promise.all([
+    allDocs(payload, 'tenants', {}, 0),
     allDocs(payload, 'products', { and: [{ tenant: { equals: targetTenant.id } }, { sourceSystem: { equals: cloneSystem } }] }, 1),
     allDocs(payload, 'catalog-distributions', { targetTenant: { equals: targetTenant.id } }, 0),
   ])
 
+  const tenantsBySlug = new Map(tenants.map((tenant) => [tenant.slug, tenant]))
+  const sourceIDsBySlug = new Map<string, number[]>()
+  for (const targetProduct of targetProducts) {
+    const identity = parseCloneIdentity(targetProduct.sourceId)
+    if (!identity) continue
+    const ids = sourceIDsBySlug.get(identity.sourceSlug) || []
+    ids.push(identity.sourceProductID)
+    sourceIDsBySlug.set(identity.sourceSlug, ids)
+  }
+
+  const sourceDocs = (await Promise.all([...sourceIDsBySlug.entries()].flatMap(([slug, ids]) => {
+    const tenant = tenantsBySlug.get(slug)
+    if (!tenant) return []
+    return Array.from({ length: Math.ceil(ids.length / 100) }, (_, index) =>
+      payload.find({
+        collection: 'products',
+        depth: 1,
+        limit: 100,
+        overrideAccess: true,
+        where: {
+          and: [
+            { tenant: { equals: tenant.id } },
+            { id: { in: ids.slice(index * 100, index * 100 + 100) } },
+          ],
+        },
+      }).then((result: { docs: Doc[] }) => result.docs),
+    )
+  }))).flat()
+
   const sourcesByKey = new Map<string, Doc>()
-  for (const product of allProducts) {
+  for (const product of sourceDocs) {
     const tenant = product.tenant as Doc | undefined
     if (tenant?.slug && product.id) sourcesByKey.set(`${tenant.slug}:${product.id}`, product)
   }
