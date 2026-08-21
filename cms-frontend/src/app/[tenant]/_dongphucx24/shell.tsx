@@ -1,4 +1,4 @@
-import { ArrowRight, Menu, X } from 'lucide-react'
+import { ArrowRight, ClipboardCheck, Compass, Layers3, Menu, Ruler, Shirt, Sparkles, SwatchBook, X } from 'lucide-react'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 
@@ -39,11 +39,17 @@ export async function DongPhucX24Shell({ children }: { children: ReactNode }) {
     </header>
     {children}
     <footer className={styles.footer}>
-      <div className={styles.footerBrand}><Logo /><p>Giúp tổ chức đi từ mẫu tham khảo đến một bộ đồng phục có cấu hình rõ ràng, dễ duyệt và dễ đặt lại.</p></div>
-      <div><h2>Sản phẩm</h2>{categories.slice(0, 4).map((category) => <Link href={`/danh-muc/${category.slug}/`} key={category.slug}>{category.name}</Link>)}</div>
-      <div><h2>Hỗ trợ lựa chọn</h2><Link href="/#quy-trinh">Quy trình đặt may</Link><Link href="/#vat-lieu">Vật liệu & size</Link><Link href="/#nhan-tu-van">Chuẩn bị yêu cầu</Link><Link href="/san-pham/">Xem toàn bộ mẫu</Link></div>
-      <div className={styles.footerStamp}><b>X24</b><span>UNIFORM<br />SYSTEM</span><small>VIỆT NAM</small></div>
-      <p className={styles.copyright}>© Đồng Phục X24 · Thiết kế theo nhu cầu của từng tổ chức.</p>
+      <div className={styles.footerCta}>
+        <div><span><Sparkles aria-hidden="true" /> BẮT ĐẦU TỪ MẪU GẦN ĐÚNG</span><h2>Chọn mẫu hôm nay.<br />Chốt brief rõ ràng ngày mai.</h2><p>Lưu một phương án phù hợp, sau đó cùng X24 tinh chỉnh màu, logo, vật liệu, form và dải size.</p></div>
+        <div className={styles.footerActions}><Link className={styles.primaryButton} href="/san-pham/">Xem catalog <ArrowRight aria-hidden="true" /></Link><Link className={styles.footerSecondary} href="/#quy-trinh">Xem quy trình</Link></div>
+      </div>
+      <div className={styles.footerGrid}>
+        <div className={styles.footerBrand}><Logo /><p>Giúp tổ chức đi từ mẫu tham khảo đến một bộ đồng phục có cấu hình rõ ràng, dễ duyệt và dễ đặt lại.</p><div className={styles.footerSignals}><span><SwatchBook aria-hidden="true" /> Chọn mẫu</span><span><Ruler aria-hidden="true" /> Gom size</span><span><ClipboardCheck aria-hidden="true" /> Duyệt cấu hình</span></div></div>
+        <nav aria-label="Nhóm sản phẩm" className={styles.footerCard}><h2><Shirt aria-hidden="true" /> Sản phẩm</h2>{categories.slice(0, 4).map((category) => <Link href={`/danh-muc/${category.slug}/`} key={category.slug}>{category.name}<ArrowRight aria-hidden="true" /></Link>)}</nav>
+        <nav aria-label="Hỗ trợ lựa chọn" className={styles.footerCard}><h2><Compass aria-hidden="true" /> Hỗ trợ lựa chọn</h2><Link href="/#quy-trinh">Quy trình đặt may<ArrowRight aria-hidden="true" /></Link><Link href="/#vat-lieu">Vật liệu & size<ArrowRight aria-hidden="true" /></Link><Link href={actionHref}>{consultationEnabled ? 'Gửi yêu cầu tư vấn' : 'Chuẩn bị yêu cầu'}<ArrowRight aria-hidden="true" /></Link><Link href="/san-pham/">Xem toàn bộ mẫu<ArrowRight aria-hidden="true" /></Link></nav>
+        <div className={styles.footerStamp}><Layers3 aria-hidden="true" /><b>X24</b><span>UNIFORM<br />SYSTEM</span><small>THIẾT KẾ THEO ĐỘI NGŨ · VIỆT NAM</small></div>
+      </div>
+      <div className={styles.footerBottom}><p className={styles.copyright}>© Đồng Phục X24 · Thiết kế theo nhu cầu của từng tổ chức.</p><span>Màu sắc · Logo · Vật liệu · Form & size</span></div>
     </footer>
   </div>
 }
