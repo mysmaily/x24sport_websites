@@ -18,6 +18,7 @@ import { Products } from './collections/Products'
 import { StoreSettings } from './collections/StoreSettings'
 import { Tenants } from './collections/Tenants'
 import { TenantPinterestConnections } from './collections/TenantPinterestConnections'
+import { CatalogDistributions } from './collections/CatalogDistributions'
 import type { Config } from './payload-types'
 import { isSuperAdmin } from './access/roles'
 import { migrations } from './migrations'
@@ -67,6 +68,7 @@ export default buildConfig({
     Users,
     Tenants,
     TenantPinterestConnections,
+    CatalogDistributions,
     Media,
     MigrationRuns,
     ProductCategories,

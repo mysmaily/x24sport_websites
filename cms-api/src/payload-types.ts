@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     tenants: Tenant;
     'tenant-pinterest-connections': TenantPinterestConnection;
+    'catalog-distributions': CatalogDistribution;
     media: Media;
     'migration-runs': MigrationRun;
     'product-categories': ProductCategory;
@@ -88,6 +89,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     tenants: TenantsSelect<false> | TenantsSelect<true>;
     'tenant-pinterest-connections': TenantPinterestConnectionsSelect<false> | TenantPinterestConnectionsSelect<true>;
+    'catalog-distributions': CatalogDistributionsSelect<false> | CatalogDistributionsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'migration-runs': MigrationRunsSelect<false> | MigrationRunsSelect<true>;
     'product-categories': ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
@@ -249,103 +251,31 @@ export interface TenantPinterestConnection {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
+ * via the `definition` "catalog-distributions".
  */
-export interface Media {
+export interface CatalogDistribution {
   id: number;
-  tenant?: (number | null) | Tenant;
-  sourceSystem?: string | null;
-  sourceId?: string | null;
-  sourceUrl?: string | null;
-  sourceChecksum?: string | null;
-  tenantSourceKey?: string | null;
-  /**
-   * Website khác được phép dùng chung media record và cùng file R2. Chỉ quản trị hệ thống được thay đổi.
-   */
-  sharedWithTenants?: (number | Tenant)[] | null;
-  alt: string;
-  /**
-   * Internal search helpers for tone, gradient, pose, and sport.
-   */
-  searchTags?:
-    | {
-        value: string;
-        id?: string | null;
-      }[]
-    | null;
-  prefix?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "migration-runs".
- */
-export interface MigrationRun {
-  id: number;
-  tenant?: (number | null) | Tenant;
-  runId: string;
-  tenantRunKey?: string | null;
-  mode: 'snapshot' | 'dry-run' | 'import' | 'delta';
-  status: 'running' | 'completed' | 'failed' | 'rolled-back';
-  sourceUrl: string;
-  snapshotChecksum?: string | null;
-  startedAt: string;
-  finishedAt?: string | null;
-  counts?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  errors?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "product-categories".
- */
-export interface ProductCategory {
-  id: number;
-  tenant?: (number | null) | Tenant;
-  name: string;
-  slug: string;
-  tenantSlugKey?: string | null;
-  /**
-   * Danh mục cha trong cây phân loại của website.
-   */
-  parent?: (number | null) | ProductCategory;
-  group: 'sport' | 'type' | 'collection' | 'audience' | 'color' | 'tag';
-  description?: string | null;
-  legacyPath?: string | null;
-  tenantLegacyPathKey?: string | null;
-  sourceSystem?: string | null;
-  sourceId?: string | null;
-  tenantSourceKey?: string | null;
-  sourceChecksum?: string | null;
-  productCount?: number | null;
-  order?: number | null;
+  distributionKey: string;
+  sourceTenant: number | Tenant;
+  targetTenant: number | Tenant;
+  sourceProduct: number | Product;
+  targetProduct?: (number | null) | Product;
+  status: 'ready' | 'draft_created' | 'published' | 'needs_review' | 'blocked' | 'archived';
+  copyMode: 'auto' | 'manual_locked';
+  sourceFactFingerprint?: string | null;
+  targetCopyFingerprint?: string | null;
+  syncedAt?: string | null;
+  lastError?: string | null;
+  reviewNote?: string | null;
+  proposedCopy?: {
+    name?: string | null;
+    shortDescription?: string | null;
+    description?: string | null;
+    seoTitle?: string | null;
+    metaDescription?: string | null;
+    model?: string | null;
+    promptVersion?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -476,6 +406,108 @@ export interface Product {
   sourceModifiedAt?: string | null;
   sourceCreatedAt?: string | null;
   sourceChecksum?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-categories".
+ */
+export interface ProductCategory {
+  id: number;
+  tenant?: (number | null) | Tenant;
+  name: string;
+  slug: string;
+  tenantSlugKey?: string | null;
+  /**
+   * Danh mục cha trong cây phân loại của website.
+   */
+  parent?: (number | null) | ProductCategory;
+  group: 'sport' | 'type' | 'collection' | 'audience' | 'color' | 'tag';
+  description?: string | null;
+  legacyPath?: string | null;
+  tenantLegacyPathKey?: string | null;
+  sourceSystem?: string | null;
+  sourceId?: string | null;
+  tenantSourceKey?: string | null;
+  sourceChecksum?: string | null;
+  productCount?: number | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  tenant?: (number | null) | Tenant;
+  sourceSystem?: string | null;
+  sourceId?: string | null;
+  sourceUrl?: string | null;
+  sourceChecksum?: string | null;
+  tenantSourceKey?: string | null;
+  /**
+   * Website khác được phép dùng chung media record và cùng file R2. Chỉ quản trị hệ thống được thay đổi.
+   */
+  sharedWithTenants?: (number | Tenant)[] | null;
+  alt: string;
+  /**
+   * Internal search helpers for tone, gradient, pose, and sport.
+   */
+  searchTags?:
+    | {
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "migration-runs".
+ */
+export interface MigrationRun {
+  id: number;
+  tenant?: (number | null) | Tenant;
+  runId: string;
+  tenantRunKey?: string | null;
+  mode: 'snapshot' | 'dry-run' | 'import' | 'delta';
+  status: 'running' | 'completed' | 'failed' | 'rolled-back';
+  sourceUrl: string;
+  snapshotChecksum?: string | null;
+  startedAt: string;
+  finishedAt?: string | null;
+  counts?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  errors?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -677,6 +709,10 @@ export interface PayloadLockedDocument {
         value: number | TenantPinterestConnection;
       } | null)
     | ({
+        relationTo: 'catalog-distributions';
+        value: number | CatalogDistribution;
+      } | null)
+    | ({
         relationTo: 'media';
         value: number | Media;
       } | null)
@@ -834,6 +870,37 @@ export interface TenantPinterestConnectionsSelect<T extends boolean = true> {
   lastPublishedPinId?: T;
   lastPublishedProductId?: T;
   lastPublishedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "catalog-distributions_select".
+ */
+export interface CatalogDistributionsSelect<T extends boolean = true> {
+  distributionKey?: T;
+  sourceTenant?: T;
+  targetTenant?: T;
+  sourceProduct?: T;
+  targetProduct?: T;
+  status?: T;
+  copyMode?: T;
+  sourceFactFingerprint?: T;
+  targetCopyFingerprint?: T;
+  syncedAt?: T;
+  lastError?: T;
+  reviewNote?: T;
+  proposedCopy?:
+    | T
+    | {
+        name?: T;
+        shortDescription?: T;
+        description?: T;
+        seoTitle?: T;
+        metaDescription?: T;
+        model?: T;
+        promptVersion?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
