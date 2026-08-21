@@ -13,12 +13,12 @@ export async function SiteFooter() {
   return (
     <>
       <section className="mbc-footer-cta border-t border-[var(--line)] bg-[var(--accent)] px-[clamp(20px,5vw,76px)] py-[48px] text-white">
-        <div className="mx-auto flex max-w-[1360px] flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-3xl">
+        <div className="mbc-footer-cta-shell mx-auto flex max-w-[1360px] flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="mbc-footer-cta-copy max-w-3xl">
             <p className="text-sm font-black uppercase text-white/80">Đội bóng đã có ý tưởng?</p>
             <h2 className="mbc-footer-cta-title mt-3 text-[clamp(30px,3.6vw,48px)] font-black leading-[1.02]">Gửi logo, màu áo và số lượng. Xưởng lên mẫu bóng chuyền cho đội bạn.</h2>
           </div>
-          <a className="inline-flex min-h-12 items-center justify-center gap-2 border border-white bg-white px-5 text-sm font-black text-[#080b12]" href={ZALO_URL} rel="noreferrer" target="_blank">
+          <a className="mbc-footer-cta-link inline-flex min-h-12 items-center justify-center gap-2 border border-white bg-white px-5 text-sm font-black text-[#080b12]" href={ZALO_URL} rel="noreferrer" target="_blank">
             Nhận tư vấn <ArrowUpRight size={18} />
           </a>
         </div>

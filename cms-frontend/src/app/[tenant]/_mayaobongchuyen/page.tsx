@@ -307,7 +307,7 @@ export default async function Home() {
       </section>
 
       <section className="mbc-fit-section border-t border-[var(--line)] bg-white text-[#0d1422]">
-        <div className="mx-auto grid max-w-[1360px] gap-px md:grid-cols-[.85fr_1.15fr]">
+        <div className="mbc-fit-shell mx-auto grid max-w-[1360px] gap-px md:grid-cols-[.85fr_1.15fr]">
           <div className="mbc-fit-media min-h-[320px] bg-[url('/images/mayaobongchuyen/home/volleyball-spike-action-wide.webp')] bg-cover bg-center" aria-hidden="true" />
           <div className="mbc-fit-content grid content-center gap-6 px-[clamp(20px,4vw,54px)] py-[46px]">
             <p className="text-xs font-black uppercase text-[var(--accent)]">Phù hợp đội nhóm Việt Nam</p>

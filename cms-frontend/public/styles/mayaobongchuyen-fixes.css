@@ -467,14 +467,141 @@ body.tenant-mayaobongchuyen footer {
   overflow-x: clip;
 }
 
+body.tenant-mayaobongchuyen .mbc-fit-section {
+  background: #fff;
+  color: #0d1422;
+}
+
+body.tenant-mayaobongchuyen .mbc-fit-shell {
+  display: grid;
+  gap: 1px;
+  margin-inline: auto;
+  max-width: 1360px;
+}
+
+body.tenant-mayaobongchuyen .mbc-fit-media {
+  background-position: center;
+  background-size: cover;
+  min-height: 320px;
+}
+
+body.tenant-mayaobongchuyen .mbc-fit-content {
+  align-content: center;
+  display: grid;
+  gap: 24px;
+  padding: 46px clamp(20px, 4vw, 54px);
+}
+
+body.tenant-mayaobongchuyen .mbc-fit-content > p {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaobongchuyen .mbc-fit-content > h2 {
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.04;
+  margin: 0;
+  max-width: 720px;
+}
+
+body.tenant-mayaobongchuyen .mbc-fit-content > div {
+  display: grid;
+  gap: 12px;
+}
+
 body.tenant-mayaobongchuyen .mbc-fit-card {
+  background: #f7fafc;
+  border: 1px solid #dfe5ec;
+  border-radius: 18px;
   min-width: 0;
+  padding: 20px;
+}
+
+body.tenant-mayaobongchuyen .mbc-fit-card svg {
+  color: var(--accent);
+}
+
+body.tenant-mayaobongchuyen .mbc-fit-card h3 {
+  font-size: 20px;
+  line-height: 1.14;
+  margin: 16px 0 0;
+}
+
+body.tenant-mayaobongchuyen .mbc-fit-card p {
+  color: #5f6876;
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 8px 0 0;
 }
 
 body.tenant-mayaobongchuyen .mbc-fit-card h3,
 body.tenant-mayaobongchuyen .mbc-fit-card p,
 body.tenant-mayaobongchuyen .mbc-footer-cta-title {
   overflow-wrap: anywhere;
+}
+
+body.tenant-mayaobongchuyen .mbc-footer-cta {
+  background: var(--accent);
+  color: #fff;
+  padding: 48px clamp(20px, 5vw, 76px);
+}
+
+body.tenant-mayaobongchuyen .mbc-footer-cta-shell {
+  align-items: center;
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+  margin-inline: auto;
+  max-width: 1360px;
+}
+
+body.tenant-mayaobongchuyen .mbc-footer-cta-copy {
+  max-width: 760px;
+}
+
+body.tenant-mayaobongchuyen .mbc-footer-cta-copy p {
+  color: rgba(255, 255, 255, .82);
+  font-size: 14px;
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaobongchuyen .mbc-footer-cta-title {
+  color: #fff;
+  font-size: clamp(30px, 3.6vw, 48px);
+  font-weight: 900;
+  line-height: 1.02;
+  margin: 12px 0 0;
+}
+
+body.tenant-mayaobongchuyen .mbc-footer-cta-link {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #fff;
+  color: #080b12;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: 900;
+  gap: 8px;
+  justify-content: center;
+  min-height: 48px;
+  padding-inline: 20px;
+}
+
+@media (min-width: 768px) {
+  body.tenant-mayaobongchuyen .mbc-fit-shell {
+    grid-template-columns: .85fr 1.15fr;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-fit-content > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 1024px) {
@@ -542,6 +669,11 @@ body.tenant-mayaobongchuyen .mbc-footer-cta-title {
 
   body.tenant-mayaobongchuyen .mbc-fit-media {
     min-height: 240px;
+  }
+
+  body.tenant-mayaobongchuyen .mbc-footer-cta-shell {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   body.tenant-mayaobongchuyen [aria-label="Banner may áo bóng chuyền"] .bg-left {
