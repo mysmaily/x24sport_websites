@@ -24,7 +24,8 @@ Read `../AGENTS.md` first.
 - Assets: `../cms-frontend/public/images/dongphucx24/`.
 - Local review host: `http://dongphucx24.localhost:3010/`.
 - Public CMS/API: `https://cms.x24sport.vn/api`; intended tenant filter: `dongphucx24`.
-- CMS tenant, Store Settings, REST service account, DNS, proxy, TLS, analytics and external contact channels are not provisioned in the local-review phase.
-- Do not publish or deploy until these prerequisites are created and verified through the shared runbooks.
+- Production tenant, Store Settings and the dedicated `tenant_admin` REST account are provisioned; the mode-`0600` credential file is `/root/sports-cms/dongphucx24-rest-api.env` on `10.10.0.28`.
+- Cloudflare DNS/proxy, the version-controlled Nginx vhost and Let's Encrypt TLS for apex plus `www` are provisioned. The apex domain is canonical and `www` redirects to it.
+- Analytics and external contact channels remain unset until verified business-owned values are supplied; do not fabricate or borrow them from another tenant.
 
-The local demo uses a bounded representative catalog and public reference media from the approved Mayaodongphuc product source. Before production population, explicitly authorize media sharing through `sharedWithTenants` and create tenant-scoped product records idempotently; never duplicate or silently reassign sibling media.
+The storefront uses a bounded representative catalog and public reference media from the approved Mayaodongphuc product source. Before CMS-backed production population, explicitly authorize media sharing through `sharedWithTenants` and create tenant-scoped product records idempotently; never duplicate or silently reassign sibling media.
