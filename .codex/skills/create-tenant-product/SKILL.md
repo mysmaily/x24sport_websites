@@ -1,6 +1,6 @@
 ---
 name: create-tenant-product
-description: Create or update X24Sport Payload CMS products for a specified tenant from one or more product images, optionally consuming a validated upstream product-handoff manifest and falling back to full image analysis when no usable manifest exists. Use when the user asks to đăng sản phẩm, tạo sản phẩm, upload product, import product, create product listing, or publish sportswear/catalog products to tenants such as mayaobongda.vn, mayaocaulong.vn, mayaopickleball.vn, mayaobongchuyen.vn, mayaobongro.vn, mayaochaybo.vn, x24sport.vn, or rynosport.vn using REST API, image analysis, SEO copy, media search tags, categories, and tenant-scoped verification.
+description: Create or update X24Sport Payload CMS products from product images, with tenant-safe publishing and required distribution of satellite listings to the X24Sport and PND Sport master catalogs. Use when the user asks to đăng sản phẩm, tạo sản phẩm, upload product, import product, create product listing, or publish sportswear/catalog products.
 ---
 
 # Create Tenant Product
@@ -19,6 +19,7 @@ Read these before acting:
 - For copy quality, use `$copywriting` at `/Users/hoang/.agents/skills/copywriting/SKILL.md`. If the product copy is mostly polishing an existing listing, use `copy-editing` after drafting; if the product needs a stronger offer angle, use `offers` before final copy.
 - Read `references/seo-copy-tags.md` when drafting title, descriptions, content, attributes, and tags.
 - Read `references/rest-product-publishing.md` before running a REST mutation.
+- When the requested tenant is not `x24sport` or `pndsport`, read `references/master-catalog-distribution.md` before creating or updating the source product. Distribution to both master catalogs is part of the same task, not a later manual step.
 - When an upstream `product-handoff.json` is supplied or discoverable beside the input images, read its producer-specific contract before using it. For V4 outdoor uniform outputs, read `/Users/hoang/hacado/x24sport_websites/.codex/skills/create-outdoor-uniform-images-v4/references/product-handoff.md`; for legacy outputs, read `/Users/hoang/hacado/x24sport_websites/.codex/skills/create-outdoor-uniform-images/references/product-handoff.md`.
 - For `create-mayaodongphuc-outdoor-product-images`, read `/Users/hoang/hacado/x24sport_websites/.codex/skills/create-mayaodongphuc-outdoor-product-images/references/product-handoff.md` and validate with that producer's `scripts/validate_product_handoff.py`. For `create-mayaodongphuc-outdoor-product-images-v2`, read `/Users/hoang/hacado/x24sport_websites/.codex/skills/create-mayaodongphuc-outdoor-product-images-v2/references/product-handoff.md` and validate with its v2 validator. For `tao-anh-dong-phuc-lop-truong-hoc` or `tao-anh-dong-phuc-cong-ty-doanh-nghiep`, read the matching producer's `references/product-handoff.md` and validate with its `scripts/validate_product_handoff.py`. Do not send Mayaodongphuc producers through a legacy validator.
 
@@ -30,6 +31,8 @@ Read these before acting:
    - Input images: local paths or URLs; support one or many.
    - Optional handoff: an explicitly supplied manifest, or `product-handoff.json` beside the local input images.
    - Extra requirements: gender/audience, product type, price, SKU/source identity, publish vs draft, badges, attributes, brand restrictions, reuse/update behavior.
+   - Distribution: a non-master tenant is a source satellite. Its product must have one distribution record and one target product for each master tenant, `x24sport` and `pndsport`. The user may explicitly defer or exclude one target, with a recorded reason; never silently omit it.
+   - A product created directly in `x24sport` or `pndsport` is a master-owned product and must not fan out again. Never use a master clone as a distribution source.
    - Validated Mayaodongphuc handoff exception: when `publishingIntent` supplies the tenant, domain, category and action, treat those as confirmed scope. `action=publish` authorizes immediate CMS publication, `draft` authorizes draft creation, and `images-only` forbids CMS mutation. Do not ask for missing optional requirements when the documented defaults cover them.
 
 2. Resolve the handoff or analyze from scratch:
@@ -69,7 +72,16 @@ Read these before acting:
    - If the target storefront cannot render contextual gallery media, do not inject unsafe raw HTML or silently upload copies. Route the bounded UI change through `$update-shop-tenant`, then typecheck, build, deploy, and verify it before claiming the product page is complete.
    - Recalculate affected category `productCount` from tenant-scoped published products when a category membership changes.
 
-6. Verify:
+6. Distribute satellite products to master catalogs:
+   - After the source product exists, invoke the centralized catalog-distribution workflow for `sourceTenant:sourceProductId -> x24sport` and `-> pndsport` in the same task.
+   - The distribution identity is exactly `<source-tenant-slug>:<source-product-id>:<target-tenant-slug>`. Query it before every write. SKU, title, image filenames, or a similar-looking product are never substitutes for this identity.
+   - Reuse the exact source SKU and existing media records. A privileged distribution worker must add the target tenant to each media record's `sharedWithTenants`; it must not change media ownership, copy R2 files, or upload duplicate binaries.
+   - Generate tenant-specific Vietnamese `name`, `shortDescription`, `description`, `seoTitle`, and `metaDescription` from a factual source package. Preserve SKU, prices, product facts, attributes, gallery order, and source identity exactly. Do not copy source storefront prose into a master listing.
+   - Create new master copies as `draft` unless the user explicitly authorizes publication. Apply exact-content and similarity checks in the target tenant before publishing. Conflicts, missing source facts, unshared media, or suspect copy go to `needs_review`; they must not create a second target product.
+   - Respect `manual_locked` target copy. When source facts change, update factual fields and record a proposed AI copy revision, but do not overwrite manually approved master copy without explicit authorization.
+   - Do not simulate this requirement with a tenant REST account: a tenant account cannot grant cross-tenant media access. If the centralized distribution worker and ledger are unavailable, stop after a source draft (unless the user expressly approves a deferred distribution) and report the blocker. Never report a satellite listing as fully published while its required master distribution is missing.
+
+7. Verify:
    - API product is unique and belongs to the intended tenant.
    - Categories are from the intended tenant.
    - Gallery media belongs to the tenant or is explicitly shared with it.
@@ -79,6 +91,7 @@ Read these before acting:
    - Category page inclusion, sitemap inclusion, search/tag behavior, and other cache/revalidation-dependent storefront checks are optional deeper verification. Run them only when the user explicitly requests full verification or troubleshooting.
    - For products with multiple images, check the rendered product page for one contextual `<figure>` for each non-primary gallery image, a visible factual `<figcaption>`, and no duplicate media record when those checks are available in the first public product response. Do not wait solely to prove these refreshed after cache.
    - Run a sibling-tenant isolation query when doing batch or cross-tenant work.
+   - For a satellite source, verify both master distribution records, their source/target identity, target tenant ownership, shared-media access, distinct target copy, and draft/public status. Report each target separately.
    - Report whether a validated handoff or full-analysis fallback supplied the visual facts.
 
 ## Helper Script

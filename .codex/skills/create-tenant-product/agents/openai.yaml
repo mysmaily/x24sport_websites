@@ -1,4 +1,4 @@
 interface:
   display_name: "Create Tenant Product"
-  short_description: "Publish SEO products from images"
-  default_prompt: "Use $create-tenant-product to create a product for tenant <domain> in category <category> from these image(s), with notes: <requirements>."
+  short_description: "Publish products and distribute to master catalogs"
+  default_prompt: "Use $create-tenant-product to create a product for satellite tenant <domain> in category <category> from these image(s), then create tracked draft copies for X24Sport and PND Sport. Notes: <requirements>."
