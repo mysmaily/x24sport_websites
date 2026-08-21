@@ -174,7 +174,7 @@ export default async function Home() {
             <em className="block leading-[1.05] text-[var(--sport-green)]">của đội bạn!</em>
           </h1>
           <p className="mb-6 max-w-[340px] text-[16px] leading-[1.5] font-[650] text-[#d6dde8] md:max-w-[520px] md:text-[17px]">Đồng phục bóng chuyền đặt may, in tên số và logo theo màu đội.</p>
-          <div className="mb-6 grid max-w-[340px] grid-cols-2 gap-px border border-[rgba(71,133,62,.58)] p-3 sm:grid-cols-4 md:max-w-[560px] md:p-[18px]">
+          <div className="mbc-home-hero-features mb-6 grid max-w-[340px] grid-cols-2 gap-px border border-[rgba(71,133,62,.58)] p-3 sm:grid-cols-4 md:max-w-[560px] md:p-[18px]">
             {heroFeatures.map(({ icon: Icon, label }) => (
               <div className="flex min-h-24 flex-col items-center justify-center gap-2 bg-black/20 text-center text-white" key={label}>
                 <span className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-full border-2 border-[var(--accent)] text-[var(--accent)]">
