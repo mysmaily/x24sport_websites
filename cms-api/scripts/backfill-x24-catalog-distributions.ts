@@ -123,10 +123,11 @@ async function run() {
   const distributionsByKey = new Map(existingDistributions.map((item) => [item.distributionKey, item]))
 
   let candidates = 0
+  let candidatesWithSharedSourceMedia = 0
+  let candidatesFromSourceIdentityOnly = 0
   let created = 0
   let updated = 0
   let skippedMissingSource = 0
-  let skippedWithoutSharedMedia = 0
   let conflicts = 0
 
   for (const targetProduct of targetProducts) {
@@ -140,12 +141,10 @@ async function run() {
       skippedMissingSource += 1
       continue
     }
-    if (!hasMediaSharedToTarget(source, targetTenant.id)) {
-      skippedWithoutSharedMedia += 1
-      continue
-    }
-
     candidates += 1
+    const hasSharedSourceMedia = hasMediaSharedToTarget(source, targetTenant.id)
+    if (hasSharedSourceMedia) candidatesWithSharedSourceMedia += 1
+    else candidatesFromSourceIdentityOnly += 1
     const sourceTenantID = relationID(source.tenant)
     if (!sourceTenantID) throw new Error(`Product nguồn ${source.id} không có tenant.`)
     const distributionKey = `${sourceTenantID}:${source.id}:${targetTenant.id}`
@@ -165,7 +164,9 @@ async function run() {
       sourceFactFingerprint: sourceFactFingerprint(source),
       targetCopyFingerprint: targetCopyFingerprint(targetProduct),
       syncedAt: targetProduct.updatedAt || new Date().toISOString(),
-      reviewNote: 'Backfill từ X24 clone có media nguồn đã được chia sẻ sang X24. Copy hiện hữu được khóa để không bị AI ghi đè.',
+      reviewNote: hasSharedSourceMedia
+        ? 'Backfill từ X24 clone có media nguồn đã được chia sẻ sang X24. Copy hiện hữu được khóa để không bị AI ghi đè.'
+        : 'Backfill từ X24 clone được xác nhận bằng source identity. Chưa có bằng chứng media shared; copy hiện hữu được khóa để không bị AI ghi đè.',
     }
 
     if (apply) {
@@ -187,11 +188,12 @@ async function run() {
     mode: apply ? 'apply' : 'dry-run',
     targetTenant: targetSlug,
     targetCloneProducts: targetProducts.length,
-    candidatesWithSharedSourceMedia: candidates,
+    candidates,
+    candidatesWithSharedSourceMedia,
+    candidatesFromSourceIdentityOnly,
     created,
     updated,
     skippedMissingSource,
-    skippedWithoutSharedMedia,
     conflicts,
   }, null, 2))
 }
