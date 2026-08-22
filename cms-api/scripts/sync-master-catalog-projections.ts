@@ -27,10 +27,10 @@ async function run() {
     targetSlugs: targetSlugs.length ? targetSlugs : undefined,
   })
   console.log(JSON.stringify(summary, null, 2))
-  if (summary.blocked > 0) process.exitCode = 1
+  return summary.blocked > 0 ? 1 : 0
 }
 
-run().catch((error) => {
+run().then((exitCode) => process.exit(exitCode)).catch((error) => {
   console.error(error instanceof Error ? error.stack || error.message : error)
-  process.exitCode = 1
+  process.exit(1)
 })
