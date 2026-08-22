@@ -679,10 +679,17 @@ body.tenant-mayaobongchuyen #new-products .mbc-product-card .text-\[var\(--muted
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1399px) {
+  body.tenant-mayaobongchuyen .mbc-desktop-navigation {
+    display: none !important;
+  }
+
   body.tenant-mayaobongchuyen .mbc-mobile-menu-trigger {
     display: inline-flex;
   }
+}
+
+@media (max-width: 1023px) {
 
   body.tenant-mayaobongchuyen .mbc-product-layout {
     grid-template-columns: 1fr;

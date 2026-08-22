@@ -66,7 +66,7 @@ export function SiteHeader({ legacyNavigation }: { legacyNavigation: NavItem[] }
         </span>
       </a>
 
-      <nav aria-label="Điều hướng chính" className="hidden items-center gap-[clamp(14px,1.55vw,26px)] text-[12.5px] font-black uppercase tracking-[0.02em] text-[#b9b9b9] lg:flex">
+      <nav aria-label="Điều hướng chính" className="mbc-desktop-navigation hidden items-center gap-[clamp(14px,1.55vw,26px)] text-[12.5px] font-black uppercase tracking-[0.02em] text-[#b9b9b9] lg:flex">
         {navigation.map((item) => (
           <div className="group relative flex min-h-[82px] items-center" key={item.key}>
             <a className="whitespace-nowrap group-hover:text-[var(--ink)]" href={item.href || '/'}>
