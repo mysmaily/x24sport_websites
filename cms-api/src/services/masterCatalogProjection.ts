@@ -69,6 +69,22 @@ const allDocs = async (
   return docs
 }
 
+const hasAnyDoc = async (
+  payload: ProjectionPayload,
+  collection: string,
+  where: Doc,
+) => {
+  const result = await payload.find({
+    collection,
+    depth: 0,
+    limit: 1,
+    overrideAccess: true,
+    pagination: false,
+    where,
+  })
+  return result.docs.length > 0
+}
+
 const resolveDocument = async (
   payload: ProjectionPayload,
   collection: string,
@@ -343,13 +359,13 @@ async function syncCatalogView({
     targetCatalogView: distribution.targetCatalogView,
     targetTenantID: targetTenant.id,
   })
-  const targetProductIDs = productPairs.map((item) => item.target.id)
+  const targetProductIDs = Array.from(new Set(productPairs.map((item) => item.target.id)))
   const viewWhere = buildCatalogViewProductWhere({
     filters: source.filters,
     matchMode: source.matchMode === 'any' ? 'any' : 'all',
   })
-  const matchingProducts = targetProductIDs.length
-    ? await allDocs(payload, 'products', {
+  const hasMatchingProducts = targetProductIDs.length
+    ? await hasAnyDoc(payload, 'products', {
         and: [
           { tenant: { equals: targetTenant.id } },
           { id: { in: targetProductIDs } },
@@ -357,9 +373,9 @@ async function syncCatalogView({
           viewWhere,
         ],
       })
-    : []
+    : false
   const proposed = distribution.proposedCopy || {}
-  const enabled = matchingProducts.length > 0
+  const enabled = hasMatchingProducts
   const viewData = {
     tenant: targetTenant.id,
     key: source.key,
