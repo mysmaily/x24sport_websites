@@ -49,6 +49,7 @@ const allDocs = async (
   where: Doc,
   depth = 0,
   select?: Doc,
+  includeDrafts = false,
 ) => {
   const docs: Doc[] = []
   let page = 1
@@ -61,6 +62,7 @@ const allDocs = async (
       overrideAccess: true,
       page,
       select,
+      ...(includeDrafts ? { draft: true } : {}),
       where,
     })
     docs.push(...result.docs)
@@ -70,16 +72,12 @@ const allDocs = async (
   return docs
 }
 
-const resolveDocument = async (
-  payload: ProjectionPayload,
-  collection: string,
-  value: unknown,
-  depth = 0,
-) => {
-  if (value && typeof value === 'object' && 'id' in value) return value as Doc
-  const id = relationID(value as Parameters<typeof relationID>[0])
-  if (id === undefined) return undefined
-  return payload.findByID({ collection, depth, draft: true, id, overrideAccess: true })
+type ProjectionLookup = {
+  categories: Doc[]
+  categoriesByID: Map<string, Doc>
+  tenantsByID: Map<string, Doc>
+  views: Doc[]
+  viewsByID: Map<string, Doc>
 }
 
 const publishedProductDistributions = async (
@@ -184,47 +182,42 @@ const eligibleCategoryProducts = async ({
 }
 
 const findTargetCategory = async ({
-  payload,
+  lookup,
   targetCategory,
   targetTenantID,
   taxonomyID,
 }: {
-  payload: ProjectionPayload
+  lookup: ProjectionLookup
   targetCategory: unknown
   targetTenantID: number | string
   taxonomyID: number | string
 }) => {
-  const related = await resolveDocument(payload, 'product-categories', targetCategory, 0)
+  const relatedID = relationID(targetCategory as Parameters<typeof relationID>[0])
+  const related = relatedID === undefined ? undefined : lookup.categoriesByID.get(String(relatedID))
   if (related) return related
-  const matches = await allDocs(payload, 'product-categories', {
-    and: [
-      { tenant: { equals: targetTenantID } },
-      { taxonomy: { equals: taxonomyID } },
-    ],
-  })
+  const matches = lookup.categories.filter((category) =>
+    String(relationID(category.tenant)) === String(targetTenantID)
+      && String(relationID(category.taxonomy)) === String(taxonomyID))
   if (matches.length > 1) throw new Error('Có nhiều category đích dùng cùng taxonomy; cần review thủ công.')
   return matches[0]
 }
 
 const findTargetCatalogView = async ({
-  payload,
+  lookup,
   sourceKey,
   targetCatalogView,
   targetTenantID,
 }: {
-  payload: ProjectionPayload
+  lookup: ProjectionLookup
   sourceKey: string
   targetCatalogView: unknown
   targetTenantID: number | string
 }) => {
-  const related = await resolveDocument(payload, 'catalog-views', targetCatalogView, 0)
+  const relatedID = relationID(targetCatalogView as Parameters<typeof relationID>[0])
+  const related = relatedID === undefined ? undefined : lookup.viewsByID.get(String(relatedID))
   if (related) return related
-  const matches = await allDocs(payload, 'catalog-views', {
-    and: [
-      { tenant: { equals: targetTenantID } },
-      { key: { equals: sourceKey } },
-    ],
-  })
+  const matches = lookup.views.filter((view) =>
+    String(relationID(view.tenant)) === String(targetTenantID) && view.key === sourceKey)
   if (matches.length > 1) throw new Error('Có nhiều catalog view đích dùng cùng stable key; cần review thủ công.')
   return matches[0]
 }
@@ -286,6 +279,7 @@ const targetViewFingerprint = (target: Doc | undefined) =>
 async function syncCategory({
   apply,
   distribution,
+  lookup,
   payload,
   productPairs,
   sourceTenant,
@@ -293,18 +287,20 @@ async function syncCategory({
 }: {
   apply: boolean
   distribution: Doc
+  lookup: ProjectionLookup
   payload: ProjectionPayload
   productPairs: ProductDistributionPair[]
   sourceTenant: Doc
   targetTenant: Doc
 }) {
-  const source = await resolveDocument(payload, 'product-categories', distribution.sourceCategory, 0)
+  const sourceID = relationID(distribution.sourceCategory)
+  const source = sourceID === undefined ? undefined : lookup.categoriesByID.get(String(sourceID))
   if (!source) throw new Error('Không tìm thấy category nguồn.')
   const taxonomyID = relationID(source.taxonomy)
   if (taxonomyID === undefined) throw new Error('Category nguồn chưa có stable taxonomy.')
 
   let target = await findTargetCategory({
-    payload,
+    lookup,
     targetCategory: distribution.targetCategory,
     targetTenantID: targetTenant.id,
     taxonomyID,
@@ -342,6 +338,10 @@ async function syncCategory({
           overrideAccess: true,
         })
       : await payload.create({ collection: 'product-categories', data: categoryData, overrideAccess: true })
+    lookup.categoriesByID.set(String(target.id), target)
+    const existingIndex = lookup.categories.findIndex((category) => String(category.id) === String(target.id))
+    if (existingIndex >= 0) lookup.categories[existingIndex] = target
+    else lookup.categories.push(target)
   }
 
   let productLinksAdded = 0
@@ -380,20 +380,23 @@ async function syncCategory({
 async function syncCatalogView({
   apply,
   distribution,
+  lookup,
   payload,
   targetProducts,
   targetTenant,
 }: {
   apply: boolean
   distribution: Doc
+  lookup: ProjectionLookup
   payload: ProjectionPayload
   targetProducts: Doc[]
   targetTenant: Doc
 }) {
-  const source = await resolveDocument(payload, 'catalog-views', distribution.sourceCatalogView, 0)
+  const sourceID = relationID(distribution.sourceCatalogView)
+  const source = sourceID === undefined ? undefined : lookup.viewsByID.get(String(sourceID))
   if (!source) throw new Error('Không tìm thấy catalog view nguồn.')
   let target = await findTargetCatalogView({
-    payload,
+    lookup,
     sourceKey: source.key,
     targetCatalogView: distribution.targetCatalogView,
     targetTenantID: targetTenant.id,
@@ -432,6 +435,10 @@ async function syncCatalogView({
           draft: !enabled,
           overrideAccess: true,
         })
+    lookup.viewsByID.set(String(target.id), target)
+    const existingIndex = lookup.views.findIndex((view) => String(view.id) === String(target.id))
+    if (existingIndex >= 0) lookup.views[existingIndex] = target
+    else lookup.views.push(target)
   }
 
   if (apply) {
@@ -475,6 +482,18 @@ export async function syncMasterCatalogProjections({
       ...(distributionIDs?.length ? [{ id: { in: distributionIDs } }] : []),
     ],
   }, 0)
+  const [tenants, categories, views] = await Promise.all([
+    allDocs(payload, 'tenants', {}, 0),
+    allDocs(payload, 'product-categories', {}, 0),
+    allDocs(payload, 'catalog-views', {}, 0, undefined, true),
+  ])
+  const lookup: ProjectionLookup = {
+    categories,
+    categoriesByID: new Map(categories.map((doc) => [String(doc.id), doc])),
+    tenantsByID: new Map(tenants.map((doc) => [String(doc.id), doc])),
+    views,
+    viewsByID: new Map(views.map((doc) => [String(doc.id), doc])),
+  }
   const summary: ProjectionSummary = {
     mode: apply ? 'apply' : 'dry-run',
     scanned: distributions.length,
@@ -488,17 +507,9 @@ export async function syncMasterCatalogProjections({
   const productDistributionCache = new Map<string, Promise<Doc[]>>()
   const productPairCache = new Map<string, Promise<ProductDistributionPair[]>>()
   const targetProductCache = new Map<string, Promise<Doc[]>>()
-  const tenantCache = new Map<string, Promise<Doc | undefined>>()
   const cachedTenant = (value: unknown) => {
     const id = relationID(value as Parameters<typeof relationID>[0])
-    if (id === undefined) return Promise.resolve(undefined)
-    const key = String(id)
-    let tenant = tenantCache.get(key)
-    if (!tenant) {
-      tenant = resolveDocument(payload, 'tenants', id, 0)
-      tenantCache.set(key, tenant)
-    }
-    return tenant
+    return id === undefined ? undefined : lookup.tenantsByID.get(String(id))
   }
 
   for (const distribution of distributions) {
@@ -532,6 +543,7 @@ export async function syncMasterCatalogProjections({
         const result = await syncCategory({
           apply,
           distribution,
+          lookup,
           payload,
           productPairs: await productPairs,
           sourceTenant,
@@ -548,6 +560,7 @@ export async function syncMasterCatalogProjections({
         const result = await syncCatalogView({
           apply,
           distribution,
+          lookup,
           payload,
           targetProducts: await targetProducts,
           targetTenant,
