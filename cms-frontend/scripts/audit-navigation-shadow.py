@@ -6,7 +6,9 @@ from __future__ import annotations
 import re
 import sys
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from html.parser import HTMLParser
+from urllib.parse import urljoin, urlsplit, urlunsplit
 
 
 TENANTS = {
@@ -71,6 +73,15 @@ def fetch(url: str, headers: dict[str, str]) -> str:
         return response.read().decode("utf-8")
 
 
+def check_url(url: str) -> tuple[str, int | str]:
+    try:
+        request = urllib.request.Request(url, headers={"User-Agent": "X24 navigation audit"}, method="HEAD")
+        with urllib.request.urlopen(request, timeout=45) as response:
+            return url, response.status
+    except Exception as error:  # The caller prints the exact failing URL.
+        return url, str(error)
+
+
 def controls(html: str) -> list[tuple[str, str, str]]:
     parser = HeaderControlParser()
     parser.feed(html)
@@ -79,6 +90,7 @@ def controls(html: str) -> list[tuple[str, str, str]]:
 
 def main() -> int:
     failures = 0
+    same_origin_urls: set[str] = set()
     for slug, domain in TENANTS.items():
         production = controls(fetch(f"https://{domain}/", {}))
         shadow = controls(
@@ -95,14 +107,32 @@ def main() -> int:
         )
         if production == shadow:
             print(f"PASS {slug}: {len(production)} header controls")
-            continue
+        else:
+            failures += 1
+            print(f"FAIL {slug}: production={len(production)} shadow={len(shadow)}")
+            for index in range(max(len(production), len(shadow))):
+                left = production[index] if index < len(production) else None
+                right = shadow[index] if index < len(shadow) else None
+                if left != right:
+                    print(f"  [{index}] production={left!r} shadow={right!r}")
+        for tag, href, _label in production:
+            if tag != "a" or not href or href.startswith(("#", "mailto:", "tel:")):
+                continue
+            resolved = urlsplit(urljoin(f"https://{domain}/", href))
+            if resolved.hostname not in {domain, f"www.{domain}"}:
+                continue
+            same_origin_urls.add(urlunsplit((resolved.scheme, resolved.netloc, resolved.path, resolved.query, "")))
+
+    with ThreadPoolExecutor(max_workers=12) as executor:
+        crawl_results = list(executor.map(check_url, sorted(same_origin_urls)))
+    broken = [(url, status) for url, status in crawl_results if not isinstance(status, int) or not 200 <= status < 300]
+    if broken:
         failures += 1
-        print(f"FAIL {slug}: production={len(production)} shadow={len(shadow)}")
-        for index in range(max(len(production), len(shadow))):
-            left = production[index] if index < len(production) else None
-            right = shadow[index] if index < len(shadow) else None
-            if left != right:
-                print(f"  [{index}] production={left!r} shadow={right!r}")
+        print(f"FAIL URL crawl: {len(broken)}/{len(crawl_results)} non-2xx")
+        for url, status in broken:
+            print(f"  {status} {url}")
+    else:
+        print(f"PASS URL crawl: {len(crawl_results)} same-origin header URLs returned final 2xx")
     return 1 if failures else 0
 
 
