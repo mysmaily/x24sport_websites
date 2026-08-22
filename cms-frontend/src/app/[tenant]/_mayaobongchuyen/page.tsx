@@ -64,7 +64,7 @@ function ProductCard({ index, product }: { index: number; product: Product }) {
       </a>
       <div className="p-[22px]">
         <p className="mb-2 text-xs font-black text-[var(--accent)]">{product.sku}</p>
-        <h3 className="mb-2.5 text-[18px]"><a href={href}>{product.name}</a></h3>
+        <h3 className="mbc-product-card-title mb-2.5"><a href={href}>{product.name}</a></h3>
         <span className="leading-[1.55] text-[var(--muted)]">{product.shortDescription}</span>
         <strong className="mt-4 block text-2xl">{formatPrice(product.price)}</strong>
       </div>

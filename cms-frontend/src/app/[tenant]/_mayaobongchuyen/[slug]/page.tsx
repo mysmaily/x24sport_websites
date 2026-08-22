@@ -64,24 +64,24 @@ export default async function CmsPage({ params }: RouteProps) {
     <main>
       <SiteHeader legacyNavigation={fallbackNavigation} />
 
-      <section className="border-b border-[var(--line)] px-[clamp(20px,5vw,76px)] py-6 md:py-[30px]">
-        <a className="mb-4 inline-flex items-center gap-2 text-sm text-[var(--muted)]" href="/">
+      <section className="mbc-content-hero border-b border-[var(--line)] px-[clamp(20px,5vw,76px)]">
+        <a className="mbc-content-back inline-flex items-center gap-2 text-sm text-[var(--muted)]" href="/">
           <ArrowLeft aria-hidden="true" size={18} />
           Trang chủ
         </a>
-        <p className="mb-2 text-xs font-black uppercase text-[var(--accent)]">May áo bóng chuyền</p>
-        <h1 className="max-w-[980px] text-[20px] font-black leading-[1.2] md:text-[22px]">{page.heroTitle}</h1>
-        <p className="mt-3 max-w-[720px] text-base leading-[1.6] text-[var(--muted)]">{page.heroText}</p>
-        <a className="mt-4 inline-flex min-h-11 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black text-white" href="/lien-he/">
+        <p className="mbc-content-kicker text-xs font-black uppercase text-[var(--accent)]">May áo bóng chuyền</p>
+        <h1 className="mbc-content-title max-w-[980px] font-black">{page.heroTitle}</h1>
+        <p className="mbc-content-description max-w-[720px] text-[var(--muted)]">{page.heroText}</p>
+        <a className="mbc-content-cta inline-flex min-h-11 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black text-white" href="/lien-he/">
           Nhận tư vấn <ArrowUpRight aria-hidden="true" size={18} />
         </a>
       </section>
 
-      <section className="px-[clamp(20px,5vw,76px)] py-8">
-        <div className="mb-5 flex flex-col justify-between gap-4 md:flex-row">
+      <section className="mbc-content-products px-[clamp(20px,5vw,76px)]">
+        <div className="mbc-content-products-header flex flex-col justify-between md:flex-row">
           <div>
-            <p className="mb-2 text-xs font-black uppercase text-[var(--accent)]">Mẫu tham khảo</p>
-            <h2 className="max-w-[820px] text-[22px] leading-[1.2]">Mẫu áo bóng chuyền nổi bật</h2>
+            <p className="mbc-content-kicker text-xs font-black uppercase text-[var(--accent)]">Mẫu tham khảo</p>
+            <h2 className="mbc-content-products-heading max-w-[820px]">Mẫu áo bóng chuyền nổi bật</h2>
           </div>
         </div>
         <div className="grid gap-[18px] md:grid-cols-2 xl:grid-cols-3">
@@ -93,7 +93,7 @@ export default async function CmsPage({ params }: RouteProps) {
               </a>
               <div className="p-[22px]">
                 <p className="mb-2 text-xs font-black text-[var(--accent)]">{product.sku}</p>
-                <h3 className="mb-2.5 text-[18px]"><a href={productHref(product)}>{product.name}</a></h3>
+                <h3 className="mbc-product-card-title mb-2.5"><a href={productHref(product)}>{product.name}</a></h3>
                 <span className="leading-[1.55] text-[var(--muted)]">{product.shortDescription}</span>
                 <strong className="mt-4 block text-2xl">{formatPrice(product.price)}</strong>
               </div>
@@ -101,11 +101,11 @@ export default async function CmsPage({ params }: RouteProps) {
           ))}
         </div>
       </section>
-      <section className="grid grid-cols-1 gap-px border-t border-[var(--line)] px-[clamp(20px,5vw,76px)] md:grid-cols-3">
+      <section className="mbc-content-info grid grid-cols-1 gap-px border-t border-[var(--line)] px-[clamp(20px,5vw,76px)] md:grid-cols-3">
         {(page.sections || []).map((section, index) => (
-          <article className="min-h-[180px] bg-white/5 p-6" key={section.heading}>
+          <article className="mbc-content-info-card bg-white/5 p-6" key={section.heading}>
             <span className="font-black text-[var(--accent)]">{String(index + 1).padStart(2, '0')}</span>
-            <h2 className="my-3 text-[22px] leading-[1.15]">{section.heading}</h2>
+            <h2 className="mbc-content-info-heading">{section.heading}</h2>
             <p className="leading-[1.6] text-[var(--muted)]">{section.body}</p>
           </article>
         ))}
