@@ -1,6 +1,5 @@
 import { createHash } from 'node:crypto'
 
-import { buildCatalogViewProductWhere } from '../util/catalogViewQuery'
 import { relationID } from '../util/tenantIdentity'
 
 type Doc = Record<string, any>
@@ -69,22 +68,6 @@ const allDocs = async (
   return docs
 }
 
-const hasAnyDoc = async (
-  payload: ProjectionPayload,
-  collection: string,
-  where: Doc,
-) => {
-  const result = await payload.find({
-    collection,
-    depth: 0,
-    limit: 1,
-    overrideAccess: true,
-    pagination: false,
-    where,
-  })
-  return result.docs.length > 0
-}
-
 const resolveDocument = async (
   payload: ProjectionPayload,
   collection: string,
@@ -131,6 +114,50 @@ const hydrateProductDistributions = async (
     const target = targetID === undefined ? undefined : targetsByID.get(String(targetID))
     return source && target ? [{ distribution, source, target }] : []
   })
+}
+
+const hydrateTargetProducts = async (
+  payload: ProjectionPayload,
+  distributions: Doc[],
+) => {
+  const targetIDs = Array.from(new Set(
+    distributions
+      .map((item) => relationID(item.targetProduct))
+      .filter((id): id is number | string => id !== undefined),
+  ))
+  return targetIDs.length ? allDocs(payload, 'products', { id: { in: targetIDs } }, 2) : []
+}
+
+const rowKeys = (rows: unknown) => new Set(
+  (Array.isArray(rows) ? rows : [])
+    .map((row) => typeof row?.key === 'string' ? row.key.trim() : '')
+    .filter(Boolean),
+)
+
+const productMatchesView = (product: Doc, source: Doc) => {
+  if (product.publicationStatus !== 'publish') return false
+  const filters = source.filters || {}
+  const tagKeys = rowKeys(product.searchTags)
+  const productTaxonomyKeys = new Set(
+    (Array.isArray(product.categories) ? product.categories : [])
+      .map((category) => category && typeof category === 'object' ? category.taxonomy : undefined)
+      .map((taxonomy) => taxonomy && typeof taxonomy === 'object' && typeof taxonomy.key === 'string' ? taxonomy.key.trim() : '')
+      .filter(Boolean),
+  )
+  const requiredCategoryKeys = [...rowKeys(filters.categoryKeys)]
+  const requiredTagKeys = [
+    ...rowKeys(filters.searchTagKeys),
+    ...rowKeys(filters.productTypeKeys),
+    ...rowKeys(filters.audienceKeys),
+    ...rowKeys(filters.colorKeys),
+    ...(typeof filters.sportKey === 'string' && filters.sportKey.trim() ? [filters.sportKey.trim()] : []),
+  ]
+  const conditions = [
+    ...requiredCategoryKeys.map((key) => productTaxonomyKeys.has(key)),
+    ...requiredTagKeys.map((key) => tagKeys.has(key)),
+  ]
+  if (!conditions.length) return true
+  return source.matchMode === 'any' ? conditions.some(Boolean) : conditions.every(Boolean)
 }
 
 const eligibleCategoryProducts = async ({
@@ -342,13 +369,13 @@ async function syncCatalogView({
   apply,
   distribution,
   payload,
-  productDistributions,
+  targetProducts,
   targetTenant,
 }: {
   apply: boolean
   distribution: Doc
   payload: ProjectionPayload
-  productDistributions: Doc[]
+  targetProducts: Doc[]
   targetTenant: Doc
 }) {
   const source = await resolveDocument(payload, 'catalog-views', distribution.sourceCatalogView, 0)
@@ -359,25 +386,7 @@ async function syncCatalogView({
     targetCatalogView: distribution.targetCatalogView,
     targetTenantID: targetTenant.id,
   })
-  const targetProductIDs = Array.from(new Set(
-    productDistributions
-      .map((item) => relationID(item.targetProduct))
-      .filter((id): id is number | string => id !== undefined),
-  ))
-  const viewWhere = buildCatalogViewProductWhere({
-    filters: source.filters,
-    matchMode: source.matchMode === 'any' ? 'any' : 'all',
-  })
-  const hasMatchingProducts = targetProductIDs.length
-    ? await hasAnyDoc(payload, 'products', {
-        and: [
-          { tenant: { equals: targetTenant.id } },
-          { id: { in: targetProductIDs } },
-          { publicationStatus: { equals: 'publish' } },
-          viewWhere,
-        ],
-      })
-    : false
+  const hasMatchingProducts = targetProducts.some((product) => productMatchesView(product, source))
   const proposed = distribution.proposedCopy || {}
   const enabled = hasMatchingProducts
   const viewData = {
@@ -466,12 +475,25 @@ export async function syncMasterCatalogProjections({
   }
   const productDistributionCache = new Map<string, Promise<Doc[]>>()
   const productPairCache = new Map<string, Promise<ProductDistributionPair[]>>()
+  const targetProductCache = new Map<string, Promise<Doc[]>>()
+  const tenantCache = new Map<string, Promise<Doc | undefined>>()
+  const cachedTenant = (value: unknown) => {
+    const id = relationID(value as Parameters<typeof relationID>[0])
+    if (id === undefined) return Promise.resolve(undefined)
+    const key = String(id)
+    let tenant = tenantCache.get(key)
+    if (!tenant) {
+      tenant = resolveDocument(payload, 'tenants', id, 0)
+      tenantCache.set(key, tenant)
+    }
+    return tenant
+  }
 
   for (const distribution of distributions) {
     try {
       const [sourceTenant, targetTenant] = await Promise.all([
-        resolveDocument(payload, 'tenants', distribution.sourceTenant, 0),
-        resolveDocument(payload, 'tenants', distribution.targetTenant, 0),
+        cachedTenant(distribution.sourceTenant),
+        cachedTenant(distribution.targetTenant),
       ])
       if (!sourceTenant || !targetTenant) throw new Error('Ledger thiếu tenant nguồn hoặc tenant đích.')
       if (!isAllowedMasterTenant(targetTenant.slug) || !requestedTargets.has(targetTenant.slug)) {
@@ -506,11 +528,16 @@ export async function syncMasterCatalogProjections({
         if (result.projected) summary.projectedCategories += 1
         summary.productLinksAdded += result.productLinksAdded
       } else if (distribution.sourceKind === 'catalog_view') {
+        let targetProducts = targetProductCache.get(pairKey)
+        if (!targetProducts) {
+          targetProducts = hydrateTargetProducts(payload, publishedDistributions)
+          targetProductCache.set(pairKey, targetProducts)
+        }
         const result = await syncCatalogView({
           apply,
           distribution,
           payload,
-          productDistributions: publishedDistributions,
+          targetProducts: await targetProducts,
           targetTenant,
         })
         if (result.projected) summary.projectedCatalogViews += 1

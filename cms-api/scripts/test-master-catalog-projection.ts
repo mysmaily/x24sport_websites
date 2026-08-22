@@ -107,6 +107,32 @@ assert.equal(secondApply.productLinksAdded, 0)
 assert.equal(payload.collections['product-categories'].length, 2)
 assert.equal(payload.collections.products[1].categories.length, 1)
 
+const viewPayload = new FakePayload({
+  tenants: [
+    { id: 1, slug: 'mayaocaulong' },
+    { id: 2, slug: 'x24sport' },
+  ],
+  products: [
+    { id: 20, tenant: 1, publicationStatus: 'publish', searchTags: [{ key: 'color.red', value: 'đỏ' }] },
+    { id: 21, tenant: 2, publicationStatus: 'publish', searchTags: [{ key: 'color.red', value: 'đỏ' }] },
+  ],
+  'catalog-distributions': [
+    { id: 30, sourceTenant: 1, sourceProduct: 20, targetTenant: 2, targetProduct: 21, status: 'published' },
+  ],
+  'catalog-views': [
+    { id: 50, tenant: 1, key: 'badminton.color.red', path: '/ao-cau-long-mau-do/', title: 'Áo màu đỏ', heading: 'Áo màu đỏ', filters: { colorKeys: [{ key: 'color.red' }] }, matchMode: 'all', indexPolicy: 'indexable', includeInSitemap: true },
+  ],
+  'category-distributions': [
+    { id: 41, sourceTenant: 1, targetTenant: 2, sourceKind: 'catalog_view', sourceCatalogView: 50, status: 'ready', copyMode: 'auto' },
+  ],
+  'product-categories': [],
+})
+const viewApply = await syncMasterCatalogProjections({ apply: true, payload: viewPayload })
+assert.equal(viewApply.projectedCatalogViews, 1)
+assert.equal(viewPayload.collections['catalog-views'].length, 2)
+assert.equal(viewPayload.collections['catalog-views'][1].enabled, true)
+assert.equal(viewPayload.collections['category-distributions'][0].status, 'published')
+
 await assert.rejects(
   () => syncMasterCatalogProjections({ payload, targetSlugs: ['rynosport'] }),
   /không phải master projection/,
