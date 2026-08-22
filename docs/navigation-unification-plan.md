@@ -10,11 +10,11 @@
 |---|---|
 | Ngày baseline | 2026-08-22, Asia/Ho_Chi_Minh |
 | Phạm vi | 11 tenant storefront đang hoạt động |
-| Phase hiện tại | **Phase 5 — hoàn tất production ngày 2026-08-22** |
-| Production mutation | 78 projection ledger đã apply; 10 header menu/199 item đã backfill; 10 tenant đủ điều kiện đã cutover `cms` |
-| CMS/frontend/cache đã tác động | CMS `sports-cms-cms-api:deploy-20260822034632`; frontend image `sha256:342cc7ed91d1d94d82f69c9bdcaf6182baf282dda403a91ade7311fb19ea5aaa`; đã chờ và kiểm tra sau cache window |
-| Commit locator | Schema `c44726d`; projection `6b026bf`; adapter `4f2c392`; production hardening `27863ae`, `2bea567`, `73ecf86`; manifest alignment `74fab46` |
-| Phase kế tiếp | Bảo trì; xử lý riêng 10 route hỏng của `mayaobongchuyen` trước khi thêm adapter/cutover tenant này |
+| Phase hiện tại | **Phase 5 — hoàn tất 11/11 tenant trên production ngày 2026-08-22** |
+| Production mutation | 78 projection ledger đã apply; 11 header menu/216 item đã backfill; 11 tenant đã cutover `cms`; riêng Mayaobongchuyen tạo 9 category, 15 page và 1 Store Settings với `destructiveOperations=0`, `productMutations=0` |
+| CMS/frontend/cache đã tác động | CMS `sports-cms-cms-api:deploy-20260822044403` (`sha256:4913034c…`); frontend `sha256:212c4b57…`; đã chờ và kiểm tra sau cache window |
+| Commit locator | Schema `c44726d`; projection `6b026bf`; adapter `4f2c392`; production hardening `27863ae`, `2bea567`, `73ecf86`; manifest alignment `74fab46`; Mayaobongchuyen `58a2338`, `d7e60ab`, `8b790eb`, `1d1eda4`, `c10ac14` |
+| Phase kế tiếp | Bảo trì và theo dõi; không còn tenant ngoại lệ trong rollout menu |
 
 ### Checkpoint theo phase
 
@@ -24,7 +24,7 @@
 | 1. Schema CMS | **Hoàn tất production** | Taxonomy, catalog view, navigation menu/item, category distribution, feature flag | `c44726d` |
 | 2. Projection lên website tổng | **Hoàn tất production** | Category/catalog-view projection idempotent tới X24Sport và PND Sport | `6b026bf`, `94ee447`–`9bf208e` |
 | 3. Frontend adapter | **Hoàn tất production** | View model chung, legacy fallback, shadow manifest | `4f2c392`, `27863ae` |
-| 4. Backfill và cutover | **Hoàn tất cho 10/10 tenant đủ gate** | 10 menu published, shadow diff sạch, chuyển từng tenant; `mayaobongchuyen` giữ legacy theo contract | `74fab46`, `2bea567`, `73ecf86` |
+| 4. Backfill và cutover | **Hoàn tất 11/11 tenant** | 11 menu published, shadow diff sạch, chuyển từng tenant; Mayaobongchuyen hoàn tất route/data gate trước cutover | `74fab46`, `2bea567`, `73ecf86`, `58a2338`–`c10ac14` |
 | 5. Tích hợp và vận hành | **Hoàn tất production** | Isolation, cache, responsive, crawl, rollback và runbook | checkpoint trong tài liệu này |
 
 Không đánh dấu một phase là hoàn tất chỉ vì đã viết code. Phase chỉ hoàn tất khi
@@ -74,6 +74,10 @@ Không đánh dấu một phase là hoàn tất chỉ vì đã viết code. Phas
 
 ## Baseline production đã kiểm chứng
 
+Phần này giữ nguyên snapshot trước rollout để làm bằng chứng so sánh. Các blocker
+Mayaobongchuyen bên dưới đã được đóng ở checkpoint Phase 4/5, không còn phản ánh
+trạng thái production hiện tại.
+
 ### Phương pháp
 
 - Đọc source của mọi header đặc thù, shared header, Store Settings, product
@@ -112,7 +116,7 @@ Không đánh dấu một phase là hoàn tất chỉ vì đã viết code. Phas
 | `mayaodongphuc` | 4 | 4 | 0 | 0 | Category trong mega menu đến từ CMS |
 | `dongphucx24` | 13 | 13 | 0 | 0 | Header/category source là code |
 
-### URL 404 bắt buộc xử lý trước cutover
+### URL 404 baseline bắt buộc xử lý trước cutover — đã đóng
 
 `mayaobongchuyen.vn`:
 
@@ -133,6 +137,14 @@ Không đánh dấu một phase là hoàn tất chỉ vì đã viết code. Phas
 
 Không sửa các URL này trong Phase 0. Phase 4 của tenant tương ứng bị chặn cho tới
 khi route hoặc redirect đích được triển khai và crawl lại đạt `2xx`.
+
+Kết quả đóng blocker ngày 2026-08-22:
+
+- 10/10 URL Mayaobongchuyen trước đây final `404` nay trả final `200`, có
+  self-canonical; toàn bộ 15 URL menu/root/utility của tenant trả `200`.
+- Sitemap Mayaobongchuyen có 18 URL, chứa đủ 15 URL đã kiểm tra; `robots.txt`
+  trỏ đúng sitemap và không còn URL menu bị thiếu.
+- Mayaobongro `/lien-he/` đã được đóng ở rollout trước.
 
 ## Inventory nguồn menu hiện tại
 
@@ -541,10 +553,10 @@ Trạng thái: **hoàn tất production**.
 - Root layout tải CMS candidate trên server và truyền qua provider; không có
   client fetch/hydration request trong header.
 - Renderer của X24Sport, RynoSport, PND Sport, Mayaodongphuc, DongphucX24,
-  Mayaocaulong, Mayaopickleball, Mayaobongro, Mayaochaybo và Mayaobongda đã có
-  adapter riêng, giữ nguyên layout/icon/interaction khi mode `legacy`.
-- Mayaobongchuyen cố ý chưa nối cutover vì baseline còn 10 URL final 404; site
-  tiếp tục dùng fallback hiện hữu cho tới khi data/route gate đạt.
+  Mayaocaulong, Mayaopickleball, Mayaobongchuyen, Mayaobongro, Mayaochaybo và
+  Mayaobongda đều có adapter riêng; fallback legacy vẫn fail-safe khi CMS lỗi.
+- Mayaobongchuyen dùng cùng server navigation state và giữ visual riêng; mobile
+  disclosure hỗ trợ ARIA/Escape/focus, desktop dropdown hỗ trợ hover và keyboard.
 - Frontend `typecheck` và production build đạt ngày 2026-08-22.
 
 Công việc:
@@ -565,11 +577,11 @@ Nghiệm thu:
 
 ### Phase 4 — Backfill và cutover từng tenant
 
-Trạng thái: **hoàn tất cho toàn bộ 10 tenant có adapter và đạt quality gate**.
+Trạng thái: **hoàn tất cho toàn bộ 11 tenant và đạt quality gate**.
 
 Kết quả production:
 
-- 10 header menu ở trạng thái `published`, tổng 199 navigation item; mọi manifest
+- 11 header menu ở trạng thái `published`, tổng 216 navigation item; mọi manifest
   hash public khớp hash được frontend kiểm tra trước khi dùng CMS.
 - `rynosport`, `x24sport`, `pndsport`, `mayaodongphuc`, `dongphucx24`,
   `mayaocaulong`, `mayaopickleball` và `mayaobongro` được cutover trước.
@@ -577,9 +589,10 @@ Kết quả production:
   shadow diff/crawl và browser audit đều đạt rồi mới xử lý tenant kế tiếp.
 - `mayaobongda` được cutover cuối cùng lúc `2026-08-22T04:11:00.038Z`; kiểm tra
   lại sau cache window đạt toàn bộ gate.
-- `mayaobongchuyen` không có adapter/menu CMS và vẫn dùng fallback legacy. Đây là
-  ngoại lệ bắt buộc, không phải rollout thiếu: 10 link header của baseline vẫn
-  kết thúc ở 404 nên tenant này chưa đủ điều kiện cutover theo rollback contract.
+- `mayaobongchuyen` tạo tenant-scoped 9 category, 15 page và 1 Store Settings;
+  dry-run xác nhận không delete và không sửa product. Menu 17 item được publish
+  revision 1 với hash `580c7207c00c6668fbecf4e3dc047bda92f609fb4437aa5b4959b3ea7ee40672`;
+  cutover `cms` lúc `2026-08-22T04:51:29.489Z` sau shadow diff/crawl sạch.
 
 Thứ tự dựa trên baseline mới, thay cho thứ tự phỏng đoán ban đầu:
 
@@ -609,16 +622,18 @@ Trạng thái: **hoàn tất production**.
 
 Bằng chứng nghiệm thu cuối ngày 2026-08-22:
 
-- `scripts/audit-navigation-shadow.py --crawl` xác nhận production CMS và forced
-  legacy khớp nhau trên cả 10 adapter: 10/45/178/9/15/42/44/13/49/44 header
-  controls theo thứ tự Ryno, X24, PND, May Áo Đồng Phục, Đồng Phục X24, cầu lông,
-  pickleball, bóng rổ, chạy bộ và bóng đá.
-- 184/184 URL header cùng origin kết thúc ở `2xx` sau redirect.
+- `scripts/audit-navigation-shadow.py` xác nhận production CMS và shadow candidate
+  khớp nhau trên 11/11 adapter: 10/45/178/9/15/42/44/34/13/49/44 header controls
+  theo thứ tự Ryno, X24, PND, May Áo Đồng Phục, Đồng Phục X24, cầu lông,
+  pickleball, bóng chuyền, bóng rổ, chạy bộ và bóng đá.
+- 200/200 URL header cùng origin kết thúc ở `2xx` sau redirect.
 - 11/11 homepage, canonical apex, `robots.txt` và `sitemap.xml` trả `200`.
-- Browser production tại `390x844` và `1440x900` xác nhận không horizontal
+- Browser production tại `390x844`, `1024x900` và `1440x900` xác nhận không horizontal
   overflow. Hai tenant trọng yếu đều mở/đóng menu đúng, `Escape` trả focus về
-  trigger; Mayaochaybo chuyển `Mẫu áo -> Màu áo` đúng trạng thái và Mayaobongda
-  giữ đúng các URL collection 2024/2025/2026, type và audience.
+  trigger; Mayaobongchuyen mobile menu mở/đóng/Escape/focus đúng, danh mục có hàng
+  sản phẩm đầu trong viewport, desktop dropdown focus hiển thị đúng. Mayaobongda
+  và Mayaochaybo đều được audit riêng ở mobile/desktop: không overflow/header
+  overflow và không có ảnh hỏng.
 - Frontend `pnpm typecheck`/`pnpm build`, CMS typecheck/test/build và projection
   contract đều đạt trước deploy. Frontend container đang `running/healthy`; CMS
   container đang `running` trên image được ghi ở bảng trạng thái.
@@ -675,9 +690,9 @@ pnpm build
 
 | Rủi ro | Bằng chứng baseline | Mitigation | Trạng thái |
 |---|---|---|---|
-| Link menu hỏng | 10 URL Mayaobongchuyen final 404; Mayaobongro `/lien-he/` đã sửa | Giữ Mayaobongchuyen ở legacy/fallback; chỉ thêm adapter sau khi 10/10 URL đạt 2xx | Open có cô lập |
+| Link menu hỏng | 10 URL Mayaobongchuyen final 404 ở baseline; Mayaobongro `/lien-he/` đã sửa | Đã tạo route/page/category tenant-scoped; 15/15 URL menu final 200 và self-canonical | Closed |
 | Store Settings cũ bị dùng nhầm | Nhiều tenant có navigation khác UI hoặc không dùng | Backfill từ rendered manifest + source, không seed mù | Controlled |
-| Tenant không có category CMS | Mayaobongchuyen vẫn chưa có data đủ gate; Mayaocaulong/DongphucX24 đã backfill manifest phù hợp | Giữ Mayaobongchuyen ngoài rollout tới khi data/route hoàn chỉnh | Open có cô lập |
+| Tenant không có category CMS | Mayaobongchuyen thiếu data ở baseline; Mayaocaulong/DongphucX24 đã backfill manifest phù hợp | Mayaobongchuyen nay có 9 category, 15 page, 1 Store Settings và menu 17 item | Closed |
 | Màu/type không nhất quán | Slug/tag khác nhau giữa football, pickleball, running, basketball | Canonical taxonomy + exact searchTag key; shadow diff hiện bằng 0 | Controlled |
 | Category rỗng trên website tổng | Master có category `dong-phuc` productCount 0 | Gate bằng product distribution ledger | Controlled |
 | Trùng worker phân phối | Product ledger đã tồn tại với 2.072 record X24 | Tách `category-distributions`, chỉ tích hợp trạng thái | Controlled |
