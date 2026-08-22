@@ -10,11 +10,11 @@
 |---|---|
 | Ngày baseline | 2026-08-22, Asia/Ho_Chi_Minh |
 | Phạm vi | 11 tenant storefront đang hoạt động |
-| Phase hiện tại | Phase 2 — hoàn tất local |
+| Phase hiện tại | Phase 3 — hoàn tất local |
 | Production mutation | Phase 1 schema đã migrate; Phase 2 chưa có ledger opt-in để mutate |
 | CMS/frontend/cache đã tác động | CMS image `sports-cms-cms-api:deploy-20260822015551`; frontend/cache chưa tác động |
 | Commit locator | `git log -1 --format=%H -- docs/navigation-unification-plan.md` |
-| Phase kế tiếp | Phase 3 — frontend navigation adapter và legacy fallback |
+| Phase kế tiếp | Phase 4 — backfill, shadow diff và cutover theo tenant |
 
 ### Checkpoint theo phase
 
@@ -22,8 +22,8 @@
 |---|---|---|---|
 | 0. Baseline và hợp đồng dữ liệu | **Hoàn tất** | Inventory source, public crawl, route defects, kiến trúc đích, rollout contract | `docs: establish navigation unification baseline` |
 | 1. Schema CMS | **Hoàn tất production** | Taxonomy, catalog view, navigation menu/item, category distribution, feature flag | `c44726d` |
-| 2. Projection lên website tổng | **Hoàn tất local** | Category/catalog-view projection idempotent tới X24Sport và PND Sport | `feat(cms): sync approved catalog projections to master tenants` |
-| 3. Frontend adapter | Chưa bắt đầu | View model chung, legacy fallback, shadow manifest | `refactor(frontend): add legacy-safe navigation adapter` |
+| 2. Projection lên website tổng | **Hoàn tất local** | Category/catalog-view projection idempotent tới X24Sport và PND Sport | `6b026bf` |
+| 3. Frontend adapter | **Hoàn tất local** | View model chung, legacy fallback, shadow manifest | `refactor(frontend): add legacy-safe navigation adapter` |
 | 4. Backfill và cutover | Chưa bắt đầu | Draft backfill, shadow validation, chuyển từng tenant | Commit riêng theo tenant |
 | 5. Tích hợp và vận hành | Chưa bắt đầu | Isolation, cache, responsive, crawl, rollback và runbook | `chore: complete tenant navigation unification` |
 
@@ -525,6 +525,23 @@ Nghiệm thu:
 - Tenant admin không đọc quan hệ ngoài các tenant liên quan.
 
 ### Phase 3 — Adapter navigation chung
+
+Trạng thái: **hoàn tất local; chưa cutover tenant**.
+
+Đã triển khai:
+
+- Server data function resolve menu publish duy nhất theo tenant/location, kiểm
+  tra tenant/target, expand category/catalog-view query và dựng view model chung.
+- Manifest serializer, SHA-256 và diff helper dùng cùng canonical representation;
+  manifest hash sai sẽ fail closed về legacy.
+- Root layout tải CMS candidate trên server và truyền qua provider; không có
+  client fetch/hydration request trong header.
+- Renderer của X24Sport, RynoSport, PND Sport, Mayaodongphuc, DongphucX24,
+  Mayaocaulong, Mayaopickleball, Mayaobongro, Mayaochaybo và Mayaobongda đã có
+  adapter riêng, giữ nguyên layout/icon/interaction khi mode `legacy`.
+- Mayaobongchuyen cố ý chưa nối cutover vì baseline còn 10 URL final 404; site
+  tiếp tục dùng fallback hiện hữu cho tới khi data/route gate đạt.
+- Frontend `typecheck` và production build đạt ngày 2026-08-22.
 
 Công việc:
 

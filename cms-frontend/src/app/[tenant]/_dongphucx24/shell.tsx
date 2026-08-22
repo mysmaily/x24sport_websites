@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ReactNode } from 'react'
 
 import { getPublicStoreSettings } from '../../../lib/store-settings'
+import { getTenantNavigationState } from '../../../lib/navigation'
 import { categories } from './data'
 import styles from './dongphucx24.module.css'
 
@@ -11,19 +12,30 @@ function Logo() {
 }
 
 export async function DongPhucX24Shell({ children }: { children: ReactNode }) {
-  const consultationEnabled = Boolean((await getPublicStoreSettings()).telegramChatId)
+  const [settings, navigationState] = await Promise.all([getPublicStoreSettings(), getTenantNavigationState()])
+  const consultationEnabled = Boolean(settings.telegramChatId)
   const actionHref = '/#nhan-tu-van'
   const actionLabel = consultationEnabled ? 'Nhận tư vấn' : 'Chuẩn bị yêu cầu'
+  const cmsRoots = navigationState.mode === 'cms' && navigationState.ready ? navigationState.cmsNodes : []
+  const categoryGroup = cmsRoots.find((item) => item.key === 'categories')
+  const activeCategories = categoryGroup
+    ? categoryGroup.children.filter((item) => item.href).map((item) => ({ href: item.href!, name: item.label, slug: item.key }))
+    : categories.map((item) => ({ href: `/danh-muc/${item.slug}/`, name: item.name, slug: item.slug }))
+  const desktopLinks = cmsRoots.length
+    ? cmsRoots.filter((item) => item.href && item.key !== 'categories').map((item) => ({ href: item.href!, label: item.label }))
+    : [
+        { href: '/san-pham/', label: 'Sản phẩm' },
+        { href: '/#giai-phap', label: 'Giải pháp' },
+        { href: '/#quy-trinh', label: 'Quy trình' },
+        { href: '/#vat-lieu', label: 'Vật liệu & size' },
+        { href: '/#cam-hung', label: 'Mẫu đã chọn' },
+      ]
   return <div className={styles.site}>
     <a className={styles.skipLink} href="#main-content">Đi đến nội dung chính</a>
     <header className={styles.header}>
       <Logo />
       <nav aria-label="Điều hướng chính" className={styles.desktopNav}>
-        <Link href="/san-pham/">Sản phẩm</Link>
-        <Link href="/#giai-phap">Giải pháp</Link>
-        <Link href="/#quy-trinh">Quy trình</Link>
-        <Link href="/#vat-lieu">Vật liệu & size</Link>
-        <Link href="/#cam-hung">Mẫu đã chọn</Link>
+        {desktopLinks.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
       </nav>
       <div className={styles.headerActions}>
         <Link className={styles.headerCta} href={actionHref}>{actionLabel} <ArrowRight aria-hidden="true" /></Link>
@@ -32,7 +44,7 @@ export async function DongPhucX24Shell({ children }: { children: ReactNode }) {
           <nav aria-label="Điều hướng mobile">
             <Logo />
             <p>Chọn nhanh theo nhu cầu</p>
-            {categories.map((category) => <Link href={`/danh-muc/${category.slug}/`} key={category.slug}>{category.name}<ArrowRight aria-hidden="true" /></Link>)}
+            {activeCategories.map((category) => <Link href={category.href} key={category.slug}>{category.name}<ArrowRight aria-hidden="true" /></Link>)}
             <Link className={styles.mobileCta} href={actionHref}>{consultationEnabled ? 'Nhận tư vấn đặt may' : 'Chuẩn bị yêu cầu'}</Link>
           </nav>
         </details>

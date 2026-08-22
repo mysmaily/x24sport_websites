@@ -5,6 +5,7 @@ import { categoryMenu } from '../../lib/catalog'
 import { getCategoryNavigation } from '../../lib/content'
 import { SearchDialog } from './search-dialog'
 import { StickyNavigation } from './sticky-navigation'
+import { getTenantNavigationState } from '../../lib/navigation'
 
 const HEADER_LOGO_SRC = 'https://cdn.x24sport.vn/wp-content/uploads/2025/03/Asset-1-1200x158.png'
 const pricingLinks: Record<string, string> = {
@@ -31,8 +32,25 @@ export function Logo() {
 }
 
 export async function SiteHeader() {
-  const cmsMenu = await getCategoryNavigation()
-  const navigationMenu = cmsMenu.some((group) => group.children.length > 0) ? cmsMenu : categoryMenu
+  const [cmsMenu, navigationState] = await Promise.all([getCategoryNavigation(), getTenantNavigationState()])
+  const legacyMenu = cmsMenu.some((group) => group.children.length > 0) ? cmsMenu : categoryMenu
+  const cmsActive = navigationState.mode === 'cms' && navigationState.ready
+  const navigationMenu = cmsActive
+    ? navigationState.cmsNodes.filter((item) => item.kind === 'category').map((item) => ({
+        children: item.children.filter((child) => child.href).map((child) => ({ href: child.href!, label: child.label })),
+        href: item.href || '',
+        label: item.label,
+        slug: item.href?.split('/').filter(Boolean).at(-1) || item.key,
+      }))
+    : legacyMenu.map((item) => ({
+        children: item.children.map((child) => ({ href: `/danh-muc/${child.slug}`, label: child.name })),
+        href: `/danh-muc/${item.slug}`,
+        label: item.name,
+        slug: item.slug,
+      }))
+  const utilityLinks = cmsActive
+    ? navigationState.cmsNodes.filter((item) => item.kind !== 'category' && item.href)
+    : []
 
   return (
     <>
@@ -49,17 +67,15 @@ export async function SiteHeader() {
               {navigationMenu.map((group) => (
                 group.children.length > 0
                   ? <details className="mobile-category-group" key={group.slug}>
-                    <summary>{group.name}</summary>
+                    <summary>{group.label}</summary>
                     <div>
-                      {group.children.map((child) => <Link href={`/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}
+                      {group.children.map((child) => <Link href={child.href} key={child.href}>{child.label}</Link>)}
                       {pricingLinks[group.slug] ? <a href={pricingLinks[group.slug]}>Bảng giá</a> : null}
                     </div>
                   </details>
-                  : <Link href={`/danh-muc/${group.slug}`} key={group.slug}>{group.name}</Link>
+                  : <Link href={group.href} key={group.slug}>{group.label}</Link>
               ))}
-              <Link href="/blog/">Blog</Link>
-              <a href="/#quy-trinh">Cách đặt hàng</a>
-              <Link href="/lien-he/">Liên hệ tư vấn</Link>
+              {utilityLinks.length ? utilityLinks.map((item) => <Link href={item.href!} key={item.key}>{item.label}</Link>) : <><Link href="/blog/">Blog</Link><a href="/#quy-trinh">Cách đặt hàng</a><Link href="/lien-he/">Liên hệ tư vấn</Link></>}
             </div>
           </details>
           <Logo />
@@ -79,16 +95,15 @@ export async function SiteHeader() {
         {navigationMenu.map((group) => (
           group.children.length > 0
             ? <div className="nav-dropdown nav-category-dropdown" key={group.slug}>
-              <Link className="nav-trigger" href={`/danh-muc/${group.slug}`}>{group.name}</Link>
+              <Link className="nav-trigger" href={group.href}>{group.label}</Link>
               <div className="nav-submenu" role="menu">
-                {group.children.map((child) => <Link href={`/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}
+                {group.children.map((child) => <Link href={child.href} key={child.href}>{child.label}</Link>)}
                 {pricingLinks[group.slug] ? <a href={pricingLinks[group.slug]}>Bảng giá</a> : null}
               </div>
             </div>
-            : <Link href={`/danh-muc/${group.slug}`} key={group.slug}>{group.name}</Link>
+            : <Link href={group.href} key={group.slug}>{group.label}</Link>
         ))}
-        <Link href="/blog/">Blog</Link>
-        <Link href="/lien-he/">Liên hệ</Link>
+        {utilityLinks.length ? utilityLinks.map((item) => <Link href={item.href!} key={item.key}>{item.label}</Link>) : <><Link href="/blog/">Blog</Link><Link href="/lien-he/">Liên hệ</Link></>}
       </StickyNavigation>
     </>
   )

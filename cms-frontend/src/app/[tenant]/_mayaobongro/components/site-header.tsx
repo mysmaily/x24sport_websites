@@ -7,8 +7,9 @@ import { useEffect, useState } from 'react'
 
 import { PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '../lib/site'
 import { SearchDialog } from '../../../_components/search-dialog'
+import { useTenantNavigation } from '../../../_components/navigation-provider'
 
-const links = [
+const legacyLinks = [
   { href: '/san-pham/', label: 'Mẫu áo' },
   { href: '/mau-da-lam/', label: 'Mẫu đã làm' },
   { href: '/logo-team/', label: 'Logo team' },
@@ -19,8 +20,12 @@ const links = [
 ]
 
 export function SiteHeader() {
+  const navigationState = useTenantNavigation()
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const links = navigationState.mode === 'cms' && navigationState.ready
+    ? navigationState.cmsNodes.filter((item) => item.href).map((item) => ({ href: item.href!, label: item.label }))
+    : legacyLinks
 
   useEffect(() => { setOpen(false) }, [pathname])
 

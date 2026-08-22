@@ -26,8 +26,9 @@ import { useEffect, useRef, useState } from 'react'
 import type { ProductCategory } from '../lib/cms'
 import { LOGO_URL, PHONE_DISPLAY, PHONE_VALUE, SITE_NAME, ZALO_URL } from '../lib/site'
 import { SearchDialog } from '../../../_components/search-dialog'
+import { useTenantNavigation } from '../../../_components/navigation-provider'
 
-const links = [
+const legacyLinks = [
   { href: '/bang-gia-may-ao-bong-da/', label: 'Bảng giá' },
   { href: '/chat-lieu-vai/', label: 'Chất liệu vải' },
   { href: '/cong-tac-vien/', label: 'Cộng tác viên' },
@@ -68,11 +69,13 @@ function uniqueMenuItems(items: MenuItem[], seenHrefs: Set<string>) {
 }
 
 export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
+  const navigationState = useTenantNavigation()
   const pathname = usePathname() || '/'
   const [open, setOpen] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
   const [mobileSection, setMobileSection] = useState<MobileSection>('types')
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const cmsRoots = navigationState.mode === 'cms' && navigationState.ready ? navigationState.cmsNodes : []
   const categoryBySlug = new Map(categories.map((category) => [category.slug, category]))
   const collections = categories
     .filter((category) => collectionYear(category) > 0 && (category.productCount || 0) > 0)
@@ -87,11 +90,11 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
     if (!item.category) return []
     return [{ href: categoryHref(item.category), label: item.label, description: item.description, icon: item.icon }]
   })
-  const typeItems = uniqueMenuItems([
+  const legacyTypeItems = uniqueMenuItems([
     { href: '/san-pham/', label: 'Tất cả mẫu áo', description: 'Xem toàn bộ mẫu áo đang có tại xưởng', icon: Grid2X2 },
     ...dynamicTypeItems,
   ], menuHrefs)
-  const collectionItems = uniqueMenuItems([
+  const legacyCollectionItems = uniqueMenuItems([
     ...(featuredCollection ? [{ href: categoryHref(featuredCollection), label: `Mẫu thiết kế mới ${collectionYear(featuredCollection)}`, description: 'Bộ sưu tập mới nhất đang được ưu tiên', icon: Flame, featured: true }] : []),
     ...collections.filter((category) => category.id !== featuredCollection?.id).map((category) => ({
       href: categoryHref(category),
@@ -101,9 +104,42 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
       featured: false,
     })),
   ], menuHrefs)
-  const audienceItems = uniqueMenuItems(audienceSpecs
+  const legacyAudienceItems = uniqueMenuItems(audienceSpecs
     .filter((item) => (categoryBySlug.get(item.slug)?.productCount || 0) > 0)
     .map(({ href, label, description, icon }) => ({ href, label, description, icon })), menuHrefs)
+  const iconByKey: Record<string, LucideIcon> = {
+    building: Building2,
+    calendar: CalendarDays,
+    flag: Flag,
+    flame: Flame,
+    graduation: GraduationCap,
+    grid: Grid2X2,
+    landmark: Landmark,
+    palette: Palette,
+    shield: Shield,
+    trophy: Trophy,
+    users: Users,
+  }
+  const fromCms = (key: string, fallback: MenuItem[]) => {
+    const group = cmsRoots.find((item) => item.key === key)
+    if (!group) return fallback
+    return group.children.filter((item) => item.href).map<MenuItem>((item) => ({
+      description: item.description || '',
+      featured: item.featured,
+      href: item.href!,
+      icon: iconByKey[item.iconKey || ''] || fallback.find((entry) => entry.href === item.href)?.icon || Grid2X2,
+      label: item.label,
+    }))
+  }
+  const typeItems = fromCms('product-types', legacyTypeItems)
+  const collectionItems = fromCms('collections', legacyCollectionItems)
+  const audienceItems = fromCms('audiences', legacyAudienceItems)
+  const featuredNode = cmsRoots.find((item) => item.key === 'featured-collection' && item.href)
+  const utilityLinks = cmsRoots.length
+    ? cmsRoots.filter((item) => item.href && !['featured-collection'].includes(item.key)).map((item) => ({ href: item.href!, label: item.label }))
+    : legacyLinks
+  const featuredHref = featuredNode?.href || (featuredCollection ? categoryHref(featuredCollection) : '')
+  const featuredLabel = featuredNode?.label || (featuredCollection ? `Mẫu thiết kế ${collectionYear(featuredCollection)}` : '')
   const menuPaths = [...typeItems, ...collectionItems, ...audienceItems]
   const productActive = menuPaths.some((item) => pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)))
   const showProducts = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setProductsOpen(true) }
@@ -132,8 +168,8 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
               {productActive ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}
             </button>
           </div>
-          {featuredCollection ? <Link className={`relative whitespace-nowrap py-6 transition hover:text-white ${pathname === categoryHref(featuredCollection) ? 'text-brand' : ''}`} href={categoryHref(featuredCollection)}>Mẫu thiết kế {collectionYear(featuredCollection)}{pathname === categoryHref(featuredCollection) ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}</Link> : null}
-          {links.map((link) => {
+          {featuredHref ? <Link className={`relative whitespace-nowrap py-6 transition hover:text-white ${pathname === featuredHref ? 'text-brand' : ''}`} href={featuredHref}>{featuredLabel}{pathname === featuredHref ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}</Link> : null}
+          {utilityLinks.map((link) => {
             const active = pathname === link.href || pathname.startsWith(link.href)
             return <Link aria-current={active ? 'page' : undefined} className={`relative whitespace-nowrap py-6 transition hover:text-white ${active ? 'text-brand' : ''}`} href={link.href} key={link.href}>{link.label}{active ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}</Link>
           })}
@@ -177,7 +213,7 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
             return <section className="mabd-mobile-section" key={section.id}><button aria-controls={`mobile-${section.id}`} aria-expanded={expanded} className="mabd-mobile-section-button" onClick={() => toggleMobileSection(section.id)} type="button">{section.label}<ChevronDown aria-hidden="true" className={`transition ${expanded ? 'rotate-180' : ''}`} size={17} /></button><div className={`mabd-mobile-section-links ${expanded ? '' : 'hidden'}`} id={`mobile-${section.id}`}>{section.items.map((item) => { const ItemIcon = item.icon; return <Link aria-current={pathname === item.href ? 'page' : undefined} className="mabd-mobile-menu-link" href={item.href} key={`${item.href}-${item.label}`} tabIndex={open && expanded ? 0 : -1}><ItemIcon aria-hidden="true" size={16} /><span>{item.label}</span></Link> })}</div></section>
           })}
           <div className="mabd-mobile-utility-links">
-            {links.map((link) => <Link className="mabd-mobile-utility-link" href={link.href} key={link.href} tabIndex={open ? 0 : -1}>{link.label}</Link>)}
+            {utilityLinks.map((link) => <Link className="mabd-mobile-utility-link" href={link.href} key={link.href} tabIndex={open ? 0 : -1}>{link.label}</Link>)}
           </div>
         </nav>
         <div className="mx-auto mt-3 grid max-w-2xl grid-cols-2 gap-2"><a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white text-sm font-black text-slate-950" href={`tel:${PHONE_VALUE}`} tabIndex={open ? 0 : -1}><Phone size={17} /> Gọi ngay</a><a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-brand text-sm font-black" href={ZALO_URL} rel="noreferrer" tabIndex={open ? 0 : -1} target="_blank"><MessageCircle size={17} /> Zalo</a></div>

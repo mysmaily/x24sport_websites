@@ -22,11 +22,12 @@ import {
 import { catalogColorFilters, catalogTypeFilters, type CatalogFilter } from '../lib/catalog-filters'
 import { phone, phoneHref, zaloHref } from './contact'
 import { SearchDialog } from '../../../_components/search-dialog'
+import { useTenantNavigation } from '../../../_components/navigation-provider'
 
 type MenuIcon = ComponentType<{ size?: number; strokeWidth?: number; className?: string }>
 type MobileSection = 'types' | 'colors' | null
 
-const navigation = [
+const legacyNavigation = [
   { label: 'Mẫu áo', href: '/san-pham', icon: Shirt },
   { label: 'Đặt may', href: '/dat-may-ao-pickleball', icon: BadgeCheck },
   { label: 'Bảng giá', href: '/bang-gia-may-ao-pickleball', icon: CircleDot },
@@ -68,13 +69,29 @@ function CatalogMenuLink({ filter }: { filter: CatalogFilter }) {
 }
 
 export function SiteHeader() {
+  const navigationState = useTenantNavigation()
   const pathname = usePathname() || '/'
   const [mobileOpen, setMobileOpen] = useState(false)
   const [catalogOpen, setCatalogOpen] = useState(false)
   const [mobileSection, setMobileSection] = useState<MobileSection>('types')
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const cmsRoots = navigationState.mode === 'cms' && navigationState.ready ? navigationState.cmsNodes : []
+  const catalogRoot = cmsRoots.find((item) => item.key === 'catalog')
+  const typeGroup = catalogRoot?.children.find((item) => item.key === 'catalog-types')
+  const colorGroup = catalogRoot?.children.find((item) => item.key === 'catalog-colors')
+  const mapFilters = (nodes: typeof navigationState.cmsNodes, fallback: CatalogFilter[]) => nodes
+    .flatMap((item) => {
+      const existing = fallback.find((filter) => filter.href === item.href)
+      return existing ? [{ ...existing, label: item.label }] : []
+    })
+  const typeFilters = typeGroup ? mapFilters(typeGroup.children, catalogTypeFilters) : catalogTypeFilters
+  const colorFilters = colorGroup ? mapFilters(colorGroup.children, catalogColorFilters) : catalogColorFilters
+  const iconByHref = new Map<string, MenuIcon>(legacyNavigation.map((item) => [item.href, item.icon]))
+  const navigation = cmsRoots.length
+    ? cmsRoots.filter((item) => item.href).map((item) => ({ href: item.href!, icon: iconByHref.get(item.href!) || Shirt, label: item.label }))
+    : legacyNavigation
   const normalizedPath = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname
-  const catalogPaths = new Set(['/san-pham', ...catalogTypeFilters.map((filter) => filter.href), ...catalogColorFilters.map((filter) => filter.href)])
+  const catalogPaths = new Set(['/san-pham', ...typeFilters.map((filter) => filter.href), ...colorFilters.map((filter) => filter.href)])
   const catalogActive = catalogPaths.has(normalizedPath)
   const showCatalog = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current)
@@ -159,7 +176,7 @@ export function SiteHeader() {
           <section aria-labelledby="catalog-types-title">
             <p className="nav-dropdown-title" id="catalog-types-title">Kiểu áo</p>
             <div>
-              {catalogTypeFilters.map((filter) => (
+              {typeFilters.map((filter) => (
                 <CatalogMenuLink filter={filter} key={filter.slug} />
               ))}
             </div>
@@ -167,7 +184,7 @@ export function SiteHeader() {
           <section aria-labelledby="catalog-colors-title">
             <p className="nav-dropdown-title" id="catalog-colors-title">Màu phổ biến</p>
             <div>
-              {catalogColorFilters.map((filter) => (
+              {colorFilters.map((filter) => (
                 <CatalogMenuLink filter={filter} key={filter.slug} />
               ))}
             </div>
@@ -187,7 +204,7 @@ export function SiteHeader() {
                 <Shirt size={18} strokeWidth={2.1} />
                 <span>Tất cả mẫu áo</span>
               </Link>
-              {catalogTypeFilters.map((filter) => {
+              {typeFilters.map((filter) => {
                 const meta = filterIconMap[filter.slug] || { icon: Shirt }
                 const Icon = meta.icon
                 return (
@@ -205,7 +222,7 @@ export function SiteHeader() {
               <ChevronDown aria-hidden="true" className={mobileSection === 'colors' ? 'is-open' : undefined} size={17} />
             </button>
             <div className={mobileSection === 'colors' ? 'mobile-section-links' : 'mobile-section-links is-collapsed'} id="mobile-catalog-colors">
-              {catalogColorFilters.map((filter) => {
+              {colorFilters.map((filter) => {
                 const meta = filterIconMap[filter.slug] || { icon: CircleDot }
                 const Icon = meta.icon
                 return (

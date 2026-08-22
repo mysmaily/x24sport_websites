@@ -8,8 +8,9 @@ import { useEffect, useRef, useState } from 'react'
 import { COLOR_LANDINGS, TYPE_LANDINGS } from '../lib/catalog-landings'
 import { LOGO_URL, PHONE_DISPLAY, PHONE_VALUE, ZALO_URL } from '../lib/site'
 import { SearchDialog } from '../../../_components/search-dialog'
+import { useTenantNavigation } from '../../../_components/navigation-provider'
 
-const sampleLinks: Array<{ href: string; icon: LucideIcon; label: string }> = [
+const legacySampleLinks: Array<{ href: string; icon: LucideIcon; label: string }> = [
   { href: '/san-pham/', icon: Sparkles, label: 'Mẫu mới' },
   { href: '/mau-ao-chay-bo-duoc-xem-nhieu/', icon: Eye, label: 'Xem nhiều' },
   { href: '/may-ao-chay-bo-thiet-ke-rieng-x24/', icon: Palette, label: 'Áo chạy bộ thiết kế' },
@@ -18,7 +19,7 @@ const sampleLinks: Array<{ href: string; icon: LucideIcon; label: string }> = [
   { href: '/ao-chay-bo-co-do-sao-vang/', icon: Flag, label: 'Áo chạy bộ cờ đỏ sao vàng' },
 ]
 
-const links = [
+const legacyLinks = [
   { href: '/bang-gia-may-ao-chay-bo/', label: 'Bảng giá' },
   { href: '/logo-doi-chay/', label: 'Logo đội chạy' },
   { href: '/blog/', label: 'Kinh nghiệm' },
@@ -27,12 +28,38 @@ const links = [
 ]
 
 export function SiteHeader() {
+  const navigationState = useTenantNavigation()
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState<'samples' | 'colors' | null>(null)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const productActive = pathname === '/san-pham/' || pathname.startsWith('/mau-ao-chay-bo-duoc-xem-nhieu/') || TYPE_LANDINGS.some((item) => pathname.startsWith(item.path))
-  const colorActive = COLOR_LANDINGS.some((item) => pathname.startsWith(item.path))
+  const cmsRoots = navigationState.mode === 'cms' && navigationState.ready ? navigationState.cmsNodes : []
+  const samplesRoot = cmsRoots.find((item) => item.key === 'samples')
+  const colorsRoot = cmsRoots.find((item) => item.key === 'colors')
+  const fallbackIconByHref = new Map(legacySampleLinks.map((item) => [item.href, item.icon]))
+  const sampleLinks = samplesRoot
+    ? samplesRoot.children.filter((item) => item.href).map((item) => ({
+        href: item.href!,
+        icon: fallbackIconByHref.get(item.href!) || Shirt,
+        label: item.label,
+      }))
+    : legacySampleLinks
+  const colorLandings = colorsRoot
+    ? colorsRoot.children.filter((item) => item.href).map((item) => {
+        const legacy = COLOR_LANDINGS.find((candidate) => candidate.path === item.href)
+        return {
+          navLabel: item.label,
+          path: item.href!,
+          slug: item.key,
+          swatch: legacy?.swatch || '#64748b',
+        }
+      })
+    : COLOR_LANDINGS
+  const links = cmsRoots.length
+    ? cmsRoots.filter((item) => item.href && item.key !== 'samples' && item.key !== 'colors').map((item) => ({ href: item.href!, label: item.label }))
+    : legacyLinks
+  const productActive = pathname === '/san-pham/' || pathname.startsWith('/mau-ao-chay-bo-duoc-xem-nhieu/') || sampleLinks.some((item) => pathname.startsWith(item.href)) || TYPE_LANDINGS.some((item) => pathname.startsWith(item.path))
+  const colorActive = colorLandings.some((item) => pathname.startsWith(item.path))
   const showMenu = (menu: 'samples' | 'colors') => { if (closeTimer.current) clearTimeout(closeTimer.current); setActiveMenu(menu) }
   const hideMenuSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setActiveMenu(null), 120) }
   useEffect(() => { setOpen(false); setActiveMenu(null) }, [pathname])
@@ -134,7 +161,7 @@ export function SiteHeader() {
         <section aria-labelledby="menu-colors-title" className="px-5 py-5">
           <p className="mb-4 flex items-center gap-2 text-xs font-black uppercase tracking-[.16em] text-brand" id="menu-colors-title"><Palette size={14} /> Màu áo</p>
           <div className="grid grid-cols-3 gap-2">
-            {COLOR_LANDINGS.map((item) => <Link className="group flex min-h-12 items-center gap-3 rounded-lg border border-slate-200 bg-white px-3.5 text-sm font-extrabold shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.path} key={item.slug} tabIndex={activeMenu === 'colors' ? 0 : -1}><span aria-hidden="true" className="size-5 shrink-0 rounded-full border border-black/15 shadow-inner" style={{ background: item.swatch }} /><span>{item.navLabel}</span></Link>)}
+            {colorLandings.map((item) => <Link className="group flex min-h-12 items-center gap-3 rounded-lg border border-slate-200 bg-white px-3.5 text-sm font-extrabold shadow-sm transition hover:border-brand hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand" href={item.path} key={item.slug} tabIndex={activeMenu === 'colors' ? 0 : -1}><span aria-hidden="true" className="size-5 shrink-0 rounded-full border border-black/15 shadow-inner" style={{ background: item.swatch }} /><span>{item.navLabel}</span></Link>)}
           </div>
         </section>
       </div>
@@ -146,7 +173,7 @@ export function SiteHeader() {
           </section>
           <section className="rounded-xl border border-white/10 bg-white/[.04] p-3">
             <p className="mb-3 px-1 text-xs font-black uppercase tracking-[.16em] text-brand">Mẫu áo theo màu</p>
-            <div className="grid grid-cols-2 gap-2">{COLOR_LANDINGS.map((item) => <Link className="flex min-h-12 items-center gap-2 rounded-lg border border-white/10 px-3 text-xs font-extrabold hover:border-brand/60" href={item.path} key={item.slug} tabIndex={open ? 0 : -1}><span className="size-4 rounded-full border border-white/30" style={{ background: item.swatch }} />{item.navLabel}</Link>)}</div>
+            <div className="grid grid-cols-2 gap-2">{colorLandings.map((item) => <Link className="flex min-h-12 items-center gap-2 rounded-lg border border-white/10 px-3 text-xs font-extrabold hover:border-brand/60" href={item.path} key={item.slug} tabIndex={open ? 0 : -1}><span className="size-4 rounded-full border border-white/30" style={{ background: item.swatch }} />{item.navLabel}</Link>)}</div>
           </section>
           {links.map((link) => <Link className="flex min-h-12 items-center rounded-lg border border-white/10 px-4 font-extrabold hover:border-brand/50" href={link.href} key={link.href} tabIndex={open ? 0 : -1}>{link.label}</Link>)}
         </nav>

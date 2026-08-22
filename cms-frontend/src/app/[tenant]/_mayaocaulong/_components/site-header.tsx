@@ -20,10 +20,11 @@ import {
 import { catalogColorFilters, catalogTypeFilters, type CatalogFilter } from '../lib/catalog-filters'
 import { phone, phoneHref, zaloHref } from './contact'
 import { SearchDialog } from '../../../_components/search-dialog'
+import { useTenantNavigation } from '../../../_components/navigation-provider'
 
 type MenuIcon = ComponentType<{ size?: number; strokeWidth?: number; className?: string }>
 
-const navigation = [
+const legacyNavigation = [
   { label: 'Mẫu áo', href: '/san-pham', icon: Shirt },
   { label: 'Đặt may', href: '/dat-may-ao-cau-long', icon: BadgeCheck },
   { label: 'Bảng giá', href: '/bang-gia-may-ao-cau-long', icon: CircleDot },
@@ -64,18 +65,18 @@ function CatalogMenuLink({ filter }: { filter: CatalogFilter }) {
   )
 }
 
-function CatalogMenuContent() {
+function CatalogMenuContent({ colorFilters, typeFilters }: { colorFilters: CatalogFilter[]; typeFilters: CatalogFilter[] }) {
   return (
     <>
       <div>
         <span className="nav-dropdown-title">Kiểu áo</span>
-        {catalogTypeFilters.map((filter) => (
+        {typeFilters.map((filter) => (
           <CatalogMenuLink filter={filter} key={filter.slug} />
         ))}
       </div>
       <div>
         <span className="nav-dropdown-title">Màu phổ biến</span>
-        {catalogColorFilters.map((filter) => (
+        {colorFilters.map((filter) => (
           <CatalogMenuLink filter={filter} key={filter.slug} />
         ))}
       </div>
@@ -84,7 +85,23 @@ function CatalogMenuContent() {
 }
 
 export function SiteHeader() {
+  const navigationState = useTenantNavigation()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const cmsRoots = navigationState.mode === 'cms' && navigationState.ready ? navigationState.cmsNodes : []
+  const catalogRoot = cmsRoots.find((item) => item.key === 'catalog')
+  const typeGroup = catalogRoot?.children.find((item) => item.key === 'catalog-types')
+  const colorGroup = catalogRoot?.children.find((item) => item.key === 'catalog-colors')
+  const mapFilters = (nodes: typeof navigationState.cmsNodes, fallback: CatalogFilter[]) => nodes
+    .flatMap((item) => {
+      const existing = fallback.find((filter) => filter.href === item.href)
+      return existing ? [{ ...existing, label: item.label }] : []
+    })
+  const typeFilters = typeGroup ? mapFilters(typeGroup.children, catalogTypeFilters) : catalogTypeFilters
+  const colorFilters = colorGroup ? mapFilters(colorGroup.children, catalogColorFilters) : catalogColorFilters
+  const iconByHref = new Map<string, MenuIcon>(legacyNavigation.map((item) => [item.href, item.icon]))
+  const navigation = cmsRoots.length
+    ? cmsRoots.filter((item) => item.href).map((item) => ({ href: item.href!, icon: iconByHref.get(item.href!) || Shirt, label: item.label }))
+    : legacyNavigation
 
   return (
     <header className="site-header">
@@ -102,7 +119,7 @@ export function SiteHeader() {
                 <ChevronDown size={14} strokeWidth={2.4} />
               </Link>
               <div className="nav-dropdown-panel" aria-label="Danh mục mẫu áo">
-                <CatalogMenuContent />
+                <CatalogMenuContent colorFilters={colorFilters} typeFilters={typeFilters} />
               </div>
             </div>
           ) : (
@@ -141,7 +158,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="mobile-catalog-menu" aria-label="Danh mục mẫu áo di động">
-          <CatalogMenuContent />
+          <CatalogMenuContent colorFilters={colorFilters} typeFilters={typeFilters} />
         </div>
         <div className="mobile-menu-actions">
           <a href={phoneHref} onClick={() => setMobileOpen(false)}>

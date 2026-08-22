@@ -5,11 +5,12 @@ import { Menu, Phone, Sparkles } from 'lucide-react'
 import { getPublicStoreSettings } from '../../lib/store-settings'
 import { FooterStoreDetails } from '../_components/footer-store-details'
 import { SearchDialog } from '../_components/search-dialog'
+import { getTenantNavigationState } from '../../lib/navigation'
 
 export const RYNO_PHONE = '0989371161'
 export const RYNO_PHONE_LABEL = '098 937 11 61'
 
-const links = [
+const legacyLinks = [
   { href: '/', label: 'Trang chủ' },
   { href: '/san-pham/', label: 'Sản phẩm' },
   { href: '/lien-he/', label: 'Đặt áo đội' },
@@ -27,7 +28,11 @@ export function RynoBrand() {
   </Link>
 }
 
-export function RynoSiteHeader() {
+export async function RynoSiteHeader() {
+  const navigationState = await getTenantNavigationState()
+  const links = navigationState.mode === 'cms' && navigationState.ready
+    ? navigationState.cmsNodes.filter((item) => item.href).map((item) => ({ href: item.href!, label: item.label }))
+    : legacyLinks
   return <>
     <a className="ryno-skip" href="#noi-dung">Đi tới nội dung</a>
     <header className="ryno-site-header">
