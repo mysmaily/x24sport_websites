@@ -70,9 +70,32 @@ const allDocs = async (
   return docs
 }
 
+const docsByIDs = async (
+  payload: ProjectionPayload,
+  collection: string,
+  ids: Array<number | string>,
+  select?: Doc,
+) => {
+  const uniqueIDs = Array.from(new Set(ids.map(String)))
+  const docs: Doc[] = []
+  const chunkSize = 100
+  for (let index = 0; index < uniqueIDs.length; index += chunkSize) {
+    docs.push(...await allDocs(
+      payload,
+      collection,
+      { id: { in: uniqueIDs.slice(index, index + chunkSize) } },
+      0,
+      select,
+    ))
+  }
+  return docs
+}
+
 type ProjectionLookup = {
   categories: Doc[]
   categoriesByID: Map<string, Doc>
+  taxonomyKeysByID: Map<string, string>
+  taxonomyKeysByCategoryID: Map<string, string>
   tenantsByID: Map<string, Doc>
   views: Doc[]
   viewsByID: Map<string, Doc>
@@ -101,10 +124,10 @@ const hydrateProductDistributions = async (
   const targetIDs = Array.from(new Set(distributions.map((item) => relationID(item.targetProduct)).filter((id): id is number | string => id !== undefined)))
   const [sources, targets] = await Promise.all([
     sourceIDs.length
-      ? allDocs(payload, 'products', { id: { in: sourceIDs } }, 0, { categories: true, publicationStatus: true })
+      ? docsByIDs(payload, 'products', sourceIDs, { categories: true, publicationStatus: true })
       : [],
     targetIDs.length
-      ? allDocs(payload, 'products', { id: { in: targetIDs } }, 0, { categories: true, publicationStatus: true })
+      ? docsByIDs(payload, 'products', targetIDs, { categories: true, publicationStatus: true })
       : [],
   ])
   const sourcesByID = new Map(sources.map((doc) => [String(doc.id), doc]))
@@ -121,21 +144,19 @@ const hydrateProductDistributions = async (
 const hydrateTargetProducts = async (
   payload: ProjectionPayload,
   distributions: Doc[],
-  targetTenantID: number | string,
 ) => {
-  const targetIDs = new Set(
+  const targetIDs = Array.from(new Set(
     distributions
       .map((item) => relationID(item.targetProduct))
       .filter((id): id is number | string => id !== undefined)
       .map(String),
-  )
-  if (!targetIDs.size) return []
-  const products = await allDocs(payload, 'products', { tenant: { equals: targetTenantID } }, 2, {
-        categories: true,
-        publicationStatus: true,
-        searchTags: true,
-      })
-  return products.filter((product) => targetIDs.has(String(product.id)))
+  ))
+  if (!targetIDs.length) return []
+  return docsByIDs(payload, 'products', targetIDs, {
+    categories: true,
+    publicationStatus: true,
+    searchTags: true,
+  })
 }
 
 const rowKeys = (rows: unknown) => new Set(
@@ -144,14 +165,18 @@ const rowKeys = (rows: unknown) => new Set(
     .filter(Boolean),
 )
 
-const productMatchesView = (product: Doc, source: Doc) => {
+const productMatchesView = (
+  product: Doc,
+  source: Doc,
+  taxonomyKeysByCategoryID: Map<string, string>,
+) => {
   if (product.publicationStatus !== 'publish') return false
   const filters = source.filters || {}
   const tagKeys = rowKeys(product.searchTags)
   const productTaxonomyKeys = new Set(
     (Array.isArray(product.categories) ? product.categories : [])
-      .map((category) => category && typeof category === 'object' ? category.taxonomy : undefined)
-      .map((taxonomy) => taxonomy && typeof taxonomy === 'object' && typeof taxonomy.key === 'string' ? taxonomy.key.trim() : '')
+      .map((category) => relationID(category))
+      .map((categoryID) => categoryID === undefined ? '' : taxonomyKeysByCategoryID.get(String(categoryID)) || '')
       .filter(Boolean),
   )
   const requiredCategoryKeys = [...rowKeys(filters.categoryKeys)]
@@ -339,6 +364,10 @@ async function syncCategory({
         })
       : await payload.create({ collection: 'product-categories', data: categoryData, overrideAccess: true })
     lookup.categoriesByID.set(String(target.id), target)
+    lookup.taxonomyKeysByCategoryID.set(
+      String(target.id),
+      lookup.taxonomyKeysByID.get(String(taxonomyID)) || '',
+    )
     const existingIndex = lookup.categories.findIndex((category) => String(category.id) === String(target.id))
     if (existingIndex >= 0) lookup.categories[existingIndex] = target
     else lookup.categories.push(target)
@@ -401,7 +430,11 @@ async function syncCatalogView({
     targetCatalogView: distribution.targetCatalogView,
     targetTenantID: targetTenant.id,
   })
-  const hasMatchingProducts = targetProducts.some((product) => productMatchesView(product, source))
+  const hasMatchingProducts = targetProducts.some((product) => productMatchesView(
+    product,
+    source,
+    lookup.taxonomyKeysByCategoryID,
+  ))
   const proposed = distribution.proposedCopy || {}
   const enabled = hasMatchingProducts
   const viewData = {
@@ -482,14 +515,21 @@ export async function syncMasterCatalogProjections({
       ...(distributionIDs?.length ? [{ id: { in: distributionIDs } }] : []),
     ],
   }, 0)
-  const [tenants, categories, views] = await Promise.all([
+  const [tenants, categories, taxonomies, views] = await Promise.all([
     allDocs(payload, 'tenants', {}, 0),
     allDocs(payload, 'product-categories', {}, 0),
+    allDocs(payload, 'catalog-taxonomies', {}, 0, { key: true }),
     allDocs(payload, 'catalog-views', {}, 0),
   ])
+  const taxonomyKeysByID = new Map(taxonomies.map((doc) => [String(doc.id), String(doc.key || '')]))
   const lookup: ProjectionLookup = {
     categories,
     categoriesByID: new Map(categories.map((doc) => [String(doc.id), doc])),
+    taxonomyKeysByID,
+    taxonomyKeysByCategoryID: new Map(categories.map((doc) => [
+      String(doc.id),
+      taxonomyKeysByID.get(String(relationID(doc.taxonomy))) || '',
+    ])),
     tenantsByID: new Map(tenants.map((doc) => [String(doc.id), doc])),
     views,
     viewsByID: new Map(views.map((doc) => [String(doc.id), doc])),
@@ -554,7 +594,7 @@ export async function syncMasterCatalogProjections({
       } else if (distribution.sourceKind === 'catalog_view') {
         let targetProducts = targetProductCache.get(pairKey)
         if (!targetProducts) {
-          targetProducts = hydrateTargetProducts(payload, publishedDistributions, targetTenant.id)
+          targetProducts = hydrateTargetProducts(payload, publishedDistributions)
           targetProductCache.set(pairKey, targetProducts)
         }
         const result = await syncCatalogView({
