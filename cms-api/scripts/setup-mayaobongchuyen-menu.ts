@@ -3,6 +3,7 @@ import config from '@payload-config'
 import { getPayload } from 'payload'
 
 const tenantSlug = 'mayaobongchuyen'
+const apply = process.argv.slice(2).includes('--apply')
 
 const categories = [
   {
@@ -11,6 +12,7 @@ const categories = [
     group: 'type',
     order: 10,
     description: 'Mẫu áo bóng chuyền cho đội nam, CLB nam và giải phong trào.',
+    legacyPath: '/ao-bong-chuyen-nam/',
   },
   {
     name: 'Áo bóng chuyền nữ',
@@ -18,6 +20,7 @@ const categories = [
     group: 'type',
     order: 20,
     description: 'Mẫu áo bóng chuyền cho đội nữ, CLB nữ và đồng phục tập thể.',
+    legacyPath: '/ao-bong-chuyen-nu/',
   },
   {
     name: 'Áo đội/CLB',
@@ -25,22 +28,23 @@ const categories = [
     group: 'type',
     order: 30,
     description: 'Đặt may áo bóng chuyền theo màu đội, logo, tên số và nhà tài trợ.',
+    legacyPath: '/ao-doi-clb/',
   },
-  { name: 'Áo bóng chuyền màu đỏ', slug: 'ao-bong-chuyen-mau-do', group: 'color', order: 110 },
-  { name: 'Áo bóng chuyền màu xanh', slug: 'ao-bong-chuyen-mau-xanh', group: 'color', order: 120 },
-  { name: 'Áo bóng chuyền màu đen', slug: 'ao-bong-chuyen-mau-den', group: 'color', order: 130 },
-  { name: 'Áo bóng chuyền màu trắng', slug: 'ao-bong-chuyen-mau-trang', group: 'color', order: 140 },
-  { name: 'Áo bóng chuyền màu vàng', slug: 'ao-bong-chuyen-mau-vang', group: 'color', order: 150 },
-  { name: 'Áo bóng chuyền màu hồng', slug: 'ao-bong-chuyen-mau-hong', group: 'color', order: 160 },
+  { name: 'Áo bóng chuyền màu đỏ', slug: 'ao-bong-chuyen-mau-do', group: 'color', order: 110, legacyPath: '/ao-bong-chuyen-mau-do/' },
+  { name: 'Áo bóng chuyền màu xanh', slug: 'ao-bong-chuyen-mau-xanh', group: 'color', order: 120, legacyPath: '/ao-bong-chuyen-mau-xanh/' },
+  { name: 'Áo bóng chuyền màu đen', slug: 'ao-bong-chuyen-mau-den', group: 'color', order: 130, legacyPath: '/ao-bong-chuyen-mau-den/' },
+  { name: 'Áo bóng chuyền màu trắng', slug: 'ao-bong-chuyen-mau-trang', group: 'color', order: 140, legacyPath: '/ao-bong-chuyen-mau-trang/' },
+  { name: 'Áo bóng chuyền màu vàng', slug: 'ao-bong-chuyen-mau-vang', group: 'color', order: 150, legacyPath: '/ao-bong-chuyen-mau-vang/' },
+  { name: 'Áo bóng chuyền màu hồng', slug: 'ao-bong-chuyen-mau-hong', group: 'color', order: 160, legacyPath: '/ao-bong-chuyen-mau-hong/' },
 ] as const
 
 const navigation = [
-  { label: 'Áo bóng chuyền', href: '/ao-bong-chuyen' },
-  { label: 'Đặt may theo yêu cầu', href: '/dat-may-theo-yeu-cau' },
-  { label: 'Bảng giá', href: '/bang-gia' },
-  { label: 'Chất liệu & Size', href: '/chat-lieu-size' },
-  { label: 'Mẫu đã làm', href: '/mau-da-lam' },
-  { label: 'Liên hệ', href: '/lien-he' },
+  { label: 'Áo bóng chuyền', href: '/ao-bong-chuyen/' },
+  { label: 'Đặt may theo yêu cầu', href: '/dat-may-theo-yeu-cau/' },
+  { label: 'Bảng giá', href: '/bang-gia-may-ao-bong-chuyen/' },
+  { label: 'Chất liệu & Size', href: '/chat-lieu-size/' },
+  { label: 'Mẫu đã làm', href: '/mau-da-lam/' },
+  { label: 'Liên hệ', href: '/lien-he/' },
 ]
 
 const pages = [
@@ -68,7 +72,7 @@ const pages = [
   },
   {
     title: 'Bảng giá',
-    slug: 'bang-gia',
+    slug: 'bang-gia-may-ao-bong-chuyen',
     heroTitle: 'Bảng giá may áo bóng chuyền',
     heroText: 'Giá được gộp theo chất vải, số lượng, mức in tên số/logo và yêu cầu thiết kế riêng.',
     sections: [
@@ -129,58 +133,76 @@ const run = async () => {
   const tenantResult = await payload.find({
     collection: 'tenants',
     limit: 1,
+    overrideAccess: true,
     where: { slug: { equals: tenantSlug } },
   })
 
   const tenant = tenantResult.docs[0]
   if (!tenant) throw new Error(`Tenant not found: ${tenantSlug}`)
 
-  const categoryIds = []
+  const report: Array<{ action: 'create' | 'update'; collection: string; key: string }> = []
 
   for (const category of categories) {
     const existing = await payload.find({
       collection: 'product-categories',
       limit: 1,
+      overrideAccess: true,
       where: { and: [{ slug: { equals: category.slug } }, { tenant: { equals: tenant.id } }] },
     })
 
-    const data = { ...category, tenant: tenant.id }
-    const doc = existing.docs[0]
-      ? await payload.update({
-          collection: 'product-categories',
-          id: existing.docs[0].id,
-          data,
-        })
-      : await payload.create({
-          collection: 'product-categories',
-          data,
-        })
-
-    categoryIds.push(doc.id)
+    const current = existing.docs[0]
+    report.push({ action: current ? 'update' : 'create', collection: 'product-categories', key: category.slug })
+    if (!apply) continue
+    const data = {
+      ...category,
+      navigationLabel: category.name,
+      navigationOrder: category.order,
+      showInNavigation: true,
+      status: 'active' as const,
+      tenant: tenant.id,
+    }
+    if (current) {
+      await payload.update({ collection: 'product-categories', id: current.id, data, overrideAccess: true })
+    } else {
+      await payload.create({ collection: 'product-categories', data, overrideAccess: true })
+    }
   }
 
   const settingsResult = await payload.find({
     collection: 'store-settings',
     limit: 1,
+    overrideAccess: true,
     where: { tenant: { equals: tenant.id } },
   })
 
-  if (settingsResult.docs[0]) {
+  const currentSettings = settingsResult.docs[0]
+  report.push({ action: currentSettings ? 'update' : 'create', collection: 'store-settings', key: tenantSlug })
+  if (apply && currentSettings) {
     await payload.update({
       collection: 'store-settings',
-      id: settingsResult.docs[0].id,
-      data: { navigation, tenant: tenant.id },
+      id: currentSettings.id,
+      data: {
+        contactPhone: '0989353247',
+        navigation,
+        navigationMode: currentSettings.navigationMode || 'legacy',
+        siteName: currentSettings.siteName || tenant.name,
+        tenant: tenant.id,
+        zaloUrl: 'https://zalo.me/0989353247',
+      },
+      overrideAccess: true,
     })
-  } else {
+  } else if (apply) {
     await payload.create({
       collection: 'store-settings',
       data: {
         siteName: tenant.name,
-        contactPhone: '0900 000 000',
-        zaloUrl: 'https://zalo.me/0900000000',
+        contactPhone: '0989353247',
+        zaloUrl: 'https://zalo.me/0989353247',
+        navigationMode: 'legacy',
         navigation,
         tenant: tenant.id,
       },
+      overrideAccess: true,
     })
   }
 
@@ -188,40 +210,41 @@ const run = async () => {
     const existingPage = await payload.find({
       collection: 'pages',
       limit: 1,
+      overrideAccess: true,
       where: { and: [{ slug: { equals: page.slug } }, { tenant: { equals: tenant.id } }] },
     })
 
     const data = { ...page, tenant: tenant.id }
+    const current = existingPage.docs[0]
+    report.push({ action: current ? 'update' : 'create', collection: 'pages', key: page.slug })
 
-    if (existingPage.docs[0]) {
+    if (!apply) continue
+    if (current) {
       await payload.update({
         collection: 'pages',
-        id: existingPage.docs[0].id,
+        id: current.id,
         data,
+        overrideAccess: true,
       })
     } else {
       await payload.create({
         collection: 'pages',
         data,
+        overrideAccess: true,
       })
     }
   }
 
-  const productResult = await payload.find({
-    collection: 'products',
-    limit: 100,
-    where: { tenant: { equals: tenant.id } },
-  })
-
-  for (const product of productResult.docs) {
-    await payload.update({
-      collection: 'products',
-      id: product.id,
-      data: { categories: categoryIds.slice(0, 3) },
-    })
-  }
-
-  console.log(`Configured ${categories.length} categories, ${navigation.length} menu items, and ${pages.length} pages for ${tenantSlug}.`)
+  console.log(JSON.stringify({
+    mode: apply ? 'apply' : 'dry-run',
+    tenantSlug,
+    categories: categories.length,
+    navigationItems: navigation.length,
+    pages: pages.length,
+    changes: report,
+    destructiveOperations: 0,
+    productMutations: 0,
+  }, null, 2))
 }
 
 run()

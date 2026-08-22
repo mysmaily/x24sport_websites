@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { ArrowLeft, CheckCircle2, MessageCircle, Palette, Phone, Ruler, Shirt, Users } from 'lucide-react'
+import { ArrowLeft, CheckCircle2, MessageCircle, Palette, Ruler, Shirt, Users } from 'lucide-react'
 import { notFound } from 'next/navigation'
 
 import { ProductInterestForm } from '../../../../_components/product-interest-form'
 import { ProductViewTracker } from '../../../../_components/product-view-tracker'
 import { SiteFooter } from '../../_components/site-footer'
-import { formatPrice, getProductBreadcrumbCategory, getProductBySlug, hasProductInterestForm } from '../../lib/content'
+import { SiteHeader } from '../../_components/site-header'
+import { fallbackNavigation, formatPrice, getProductBreadcrumbCategory, getProductBySlug, hasProductInterestForm } from '../../lib/content'
 import { ProductGallery } from './product-gallery'
 
 type ProductPageProps = {
@@ -20,13 +21,13 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   return {
     title: `${product.name} | MayaoBongChuyen`,
     description: product.shortDescription,
-    alternates: { canonical: `/san-pham/${slug}` },
+    alternates: { canonical: `/san-pham/${slug}/` },
     openGraph: {
       title: `${product.name} | MayaoBongChuyen`,
       description: product.shortDescription,
       images: product.gallery?.[0]?.url ? [{ url: product.gallery[0].url }] : undefined,
       type: 'website',
-      url: `/san-pham/${slug}`,
+      url: `/san-pham/${slug}/`,
     },
   }
 }
@@ -37,13 +38,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   if (!product) notFound()
 
   const images = product.gallery || []
-  const productPath = `/san-pham/${product.slug || slug}`
+  const productPath = `/san-pham/${product.slug || slug}/`
   const canonicalUrl = `https://mayaobongchuyen.vn${productPath}`
   const breadcrumbCategory = getProductBreadcrumbCategory(product)
   const breadcrumbItems = [
     { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: 'https://mayaobongchuyen.vn/' },
-    { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: 'https://mayaobongchuyen.vn/tim-kiem' },
-    ...(breadcrumbCategory ? [{ '@type': 'ListItem', position: 3, name: breadcrumbCategory.name, item: `https://mayaobongchuyen.vn/${breadcrumbCategory.slug}` }] : []),
+    { '@type': 'ListItem', position: 2, name: 'Sản Phẩm', item: 'https://mayaobongchuyen.vn/tim-kiem/' },
+    ...(breadcrumbCategory ? [{ '@type': 'ListItem', position: 3, name: breadcrumbCategory.name, item: `https://mayaobongchuyen.vn/${breadcrumbCategory.slug}/` }] : []),
     { '@type': 'ListItem', position: breadcrumbCategory ? 4 : 3, name: product.name, item: canonicalUrl },
   ]
   const breadcrumbJsonLd = {
@@ -90,26 +91,18 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
-      <header className="mbc-product-header">
-        <a className="mbc-product-brand" href="/">
-          <span className="mbc-product-brand-mark">VB</span>
-          <span className="mbc-product-brand-name">MayaoBongChuyen</span>
-        </a>
-        <a className="mbc-product-header-call" href="/lien-he" aria-label="Liên hệ">
-          <Phone size={18} />
-        </a>
-      </header>
+      <SiteHeader legacyNavigation={fallbackNavigation} />
 
       <article className="mbc-product-shell">
         <nav className="mbc-product-breadcrumb" aria-label="Đường dẫn">
           <a className="mbc-product-breadcrumb-home" href="/">
-            <ArrowLeft size={16} />
+            <ArrowLeft aria-hidden="true" size={16} />
             Trang chủ
           </a>
           <span>/</span>
-          <a href="/tim-kiem">Sản phẩm</a>
+          <a href="/tim-kiem/">Sản phẩm</a>
           <span>/</span>
-          {breadcrumbCategory ? <><a href={`/${breadcrumbCategory.slug}`}>{breadcrumbCategory.name}</a><span>/</span></> : null}
+          {breadcrumbCategory ? <><a href={`/${breadcrumbCategory.slug}/`}>{breadcrumbCategory.name}</a><span>/</span></> : null}
           <span>{product.name}</span>
         </nav>
 
@@ -137,13 +130,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             </div>
             <div className="mbc-product-cta-row">
               <a className="mbc-product-primary-cta" href="#nhan-tu-van">
-                <MessageCircle size={18} />
+                <MessageCircle aria-hidden="true" size={18} />
                 Nhận tư vấn mẫu này
               </a>
               <a className="mbc-product-secondary-cta" href="/bang-gia-may-ao-bong-chuyen/">Xem bảng giá</a>
             </div>
             <div className="mbc-product-custom-note">
-              <CheckCircle2 size={20} />
+              <CheckCircle2 aria-hidden="true" size={20} />
               <div>
                 <b>Có thể chỉnh theo yêu cầu đội bóng</b>
                 <p>Trao đổi màu sắc, logo, tên số và số lượng trước khi chốt sản xuất.</p>
@@ -172,7 +165,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 ))}
               </ol>
             </section>
-            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={`https://mayaobongchuyen.vn/san-pham/${product.slug || slug}`} variant="accent" /> : null}
+            {showInterestForm ? <ProductInterestForm productName={product.name} productUrl={`https://mayaobongchuyen.vn/san-pham/${product.slug || slug}/`} variant="accent" /> : null}
           </section>
         </div>
       </article>

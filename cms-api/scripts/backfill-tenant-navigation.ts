@@ -42,6 +42,7 @@ const TENANT_ORDER = [
   'dongphucx24',
   'mayaocaulong',
   'mayaopickleball',
+  'mayaobongchuyen',
   'mayaobongro',
   'mayaochaybo',
   'mayaobongda',
@@ -283,6 +284,46 @@ function basketballManifest(): Manifest {
   }
 }
 
+function volleyballManifest(): Manifest {
+  const types = [
+    ['men', 'Áo bóng chuyền nam', 'ao-bong-chuyen-nam'],
+    ['women', 'Áo bóng chuyền nữ', 'ao-bong-chuyen-nu'],
+    ['club', 'Áo đội/CLB', 'ao-doi-clb'],
+  ] as const
+  const volleyballColors = [
+    ['red', 'Màu đỏ', 'ao-bong-chuyen-mau-do'],
+    ['blue', 'Màu xanh', 'ao-bong-chuyen-mau-xanh'],
+    ['black', 'Màu đen', 'ao-bong-chuyen-mau-den'],
+    ['white', 'Màu trắng', 'ao-bong-chuyen-mau-trang'],
+    ['yellow', 'Màu vàng', 'ao-bong-chuyen-mau-vang'],
+    ['pink', 'Màu hồng', 'ao-bong-chuyen-mau-hong'],
+  ] as const
+  const category = (key: string, label: string, slug: string): ItemSpec => ({
+    key,
+    label,
+    targetCategorySlug: slug,
+  })
+  return {
+    tenantSlug: 'mayaobongchuyen',
+    items: [
+      {
+        ...custom('catalog', 'Áo bóng chuyền', '/ao-bong-chuyen/'),
+        children: [
+          group('catalog-types', 'Theo loại áo', types.map(([key, label, slug]) =>
+            category(`volleyball.type.${key}`, label, slug))),
+          group('catalog-colors', 'Theo màu sắc', volleyballColors.map(([key, label, slug]) =>
+            category(`volleyball.color.${key}`, label, slug))),
+        ],
+      },
+      custom('order', 'Đặt may theo yêu cầu', '/dat-may-theo-yeu-cau/'),
+      custom('pricing', 'Bảng giá', '/bang-gia-may-ao-bong-chuyen/'),
+      custom('fabric-size', 'Chất liệu & Size', '/chat-lieu-size/'),
+      custom('made-samples', 'Mẫu đã làm', '/mau-da-lam/'),
+      custom('contact', 'Liên hệ', '/lien-he/'),
+    ],
+  }
+}
+
 function rynoManifest(): Manifest {
   return {
     tenantSlug: 'rynosport',
@@ -417,6 +458,7 @@ async function buildManifest(payload: any, tenant: Doc): Promise<Manifest> {
   if (tenant.slug === 'mayaodongphuc') return uniformWorkshopManifest(categories)
   if (tenant.slug === 'dongphucx24') return dongPhucX24Manifest()
   if (tenant.slug === 'mayaocaulong' || tenant.slug === 'mayaopickleball') return racketManifest(tenant.slug)
+  if (tenant.slug === 'mayaobongchuyen') return volleyballManifest()
   if (tenant.slug === 'mayaobongro') return basketballManifest()
   if (tenant.slug === 'mayaochaybo') return runningManifest()
   if (tenant.slug === 'mayaobongda') return footballManifest(payload, tenant, categories)

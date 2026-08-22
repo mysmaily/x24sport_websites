@@ -10,12 +10,14 @@ import { MayaoChayBoShell } from '../_mayaochaybo/shell'
 import MayaoCauLongContactPage, { metadata as mayaoCauLongContactMetadata } from '../_mayaocaulong/lien-he/page'
 import MayaoBongRoContactPage, { metadata as mayaoBongRoContactMetadata } from '../_mayaobongro/lien-he/page'
 import { MayaoBongRoShell } from '../_mayaobongro/shell'
+import MayaoBongChuyenContentPage, { generateMetadata as generateMayaoBongChuyenContentMetadata } from '../_mayaobongchuyen/[slug]/page'
 
 export async function generateMetadata({ params }: { params: Promise<{ tenant: string }> }): Promise<Metadata> {
   const { tenant } = await params
   if (tenant === 'mayaochaybo') return mayaoChayBoContactMetadata
   if (tenant === 'mayaocaulong') return mayaoCauLongContactMetadata
   if (tenant === 'mayaobongro') return mayaoBongRoContactMetadata
+  if (tenant === 'mayaobongchuyen') return generateMayaoBongChuyenContentMetadata({ params: Promise.resolve({ slug: 'lien-he' }) })
   if (tenant !== 'rynosport') return {}
 
   return {
@@ -35,6 +37,7 @@ export default async function TenantContactPage({ params }: { params: Promise<{ 
   if (tenant === 'mayaochaybo') return <MayaoChayBoShell><MayaoChayBoContactPage /></MayaoChayBoShell>
   if (tenant === 'mayaocaulong') return <MayaoCauLongContactPage />
   if (tenant === 'mayaobongro') return <MayaoBongRoShell><MayaoBongRoContactPage /></MayaoBongRoShell>
+  if (tenant === 'mayaobongchuyen') return <MayaoBongChuyenContentPage params={Promise.resolve({ slug: 'lien-he' })} />
 
   if (tenant === 'rynosport') {
     return <div className="ryno-store">

@@ -3,6 +3,94 @@ body.tenant-mayaobongchuyen .mbc-product-card {
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
+body.tenant-mayaobongchuyen .mbc-site-header {
+  position: sticky;
+}
+
+body.tenant-mayaobongchuyen .mbc-site-header a:focus-visible,
+body.tenant-mayaobongchuyen .mbc-site-header button:focus-visible,
+body.tenant-mayaobongchuyen #search-q:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+body.tenant-mayaobongchuyen .mbc-mobile-menu-trigger {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, .16);
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  height: 48px;
+  justify-content: center;
+  touch-action: manipulation;
+  width: 48px;
+}
+
+body.tenant-mayaobongchuyen .mbc-mobile-menu-trigger:hover {
+  border-color: rgba(238, 43, 36, .8);
+}
+
+body.tenant-mayaobongchuyen .mbc-mobile-navigation {
+  background: rgba(9, 10, 10, .99);
+  border-bottom: 2px solid var(--accent);
+  display: grid;
+  gap: 8px;
+  left: 0;
+  max-height: calc(100dvh - 72px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 14px 16px 20px;
+  position: absolute;
+  right: 0;
+  top: 72px;
+  z-index: 60;
+}
+
+body.tenant-mayaobongchuyen .mbc-mobile-navigation[hidden] {
+  display: none;
+}
+
+body.tenant-mayaobongchuyen .mbc-mobile-navigation-group {
+  border: 1px solid rgba(255, 255, 255, .12);
+  display: grid;
+}
+
+body.tenant-mayaobongchuyen .mbc-mobile-navigation-group > a,
+body.tenant-mayaobongchuyen .mbc-mobile-navigation-group > strong {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  font-weight: 900;
+  min-height: 48px;
+  padding: 10px 14px;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaobongchuyen .mbc-mobile-navigation-column {
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  display: grid;
+  gap: 2px;
+  padding: 10px 14px 12px;
+}
+
+body.tenant-mayaobongchuyen .mbc-mobile-navigation-column span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  padding-block: 5px;
+  text-transform: uppercase;
+}
+
+body.tenant-mayaobongchuyen .mbc-mobile-navigation-column a {
+  align-items: center;
+  color: var(--ink);
+  display: flex;
+  font-size: 14px;
+  min-height: 44px;
+  padding-block: 8px;
+}
+
 body.tenant-mayaobongchuyen .section-shell {
   margin-inline: auto;
   width: min(1360px, calc(100% - 32px));
@@ -519,6 +607,10 @@ body.tenant-mayaobongchuyen #new-products .mbc-product-card .text-\[var\(--muted
 }
 
 @media (max-width: 1023px) {
+  body.tenant-mayaobongchuyen .mbc-mobile-menu-trigger {
+    display: inline-flex;
+  }
+
   body.tenant-mayaobongchuyen .mbc-product-layout {
     grid-template-columns: 1fr;
   }

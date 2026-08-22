@@ -1,9 +1,9 @@
-import { ArrowUpRight, BadgeCheck, Droplets, Flame, Palette, PencilRuler, Phone, ShieldCheck } from 'lucide-react'
+import { ArrowUpRight, BadgeCheck, Droplets, Flame, Palette, PencilRuler, ShieldCheck } from 'lucide-react'
 import type { Metadata } from 'next'
 import { TenantPromoHero, type TenantPromoHeroSlide } from '../../_components/tenant-promo-hero'
-import { HeaderSearch } from './_components/header-search'
 import { SiteFooter } from './_components/site-footer'
-import { formatPrice, getHomeData, type Product } from './lib/content'
+import { SiteHeader } from './_components/site-header'
+import { fallbackNavigation, formatPrice, getHomeData, productHref, type Product } from './lib/content'
 
 const HERO_IMAGE = '/images/mayaobongchuyen/home/volleyball-team-custom-wide.webp'
 
@@ -53,17 +53,18 @@ function productAlt(product: Product) {
 }
 
 function ProductCard({ index, product }: { index: number; product: Product }) {
-  const href = product.slug ? `/san-pham/${product.slug}/` : '/lien-he'
+  const href = productHref(product)
+  const image = product.gallery?.find((item) => item.url)
 
   return (
     <article className="mbc-product-card border border-[var(--line)] bg-white/6" key={product.id}>
       <a className="mbc-product-card-media" href={href}>
-        <img alt={productAlt(product)} className="mbc-product-card-image" loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} />
-        <span className="mbc-product-card-badge"><Flame size={18} /> {String(index + 1).padStart(2, '0')}</span>
+        <img alt={productAlt(product)} className="mbc-product-card-image" height={image?.height || 941} loading={index < 2 ? 'eager' : 'lazy'} src={productImage(product)} width={image?.width || 1672} />
+        <span className="mbc-product-card-badge"><Flame aria-hidden="true" size={18} /> {String(index + 1).padStart(2, '0')}</span>
       </a>
       <div className="p-[22px]">
         <p className="mb-2 text-xs font-black text-[var(--accent)]">{product.sku}</p>
-        <h3 className="mb-2.5 text-[23px]"><a href={href}>{product.name}</a></h3>
+        <h3 className="mb-2.5 text-[18px]"><a href={href}>{product.name}</a></h3>
         <span className="leading-[1.55] text-[var(--muted)]">{product.shortDescription}</span>
         <strong className="mt-4 block text-2xl">{formatPrice(product.price)}</strong>
       </div>
@@ -72,29 +73,9 @@ function ProductCard({ index, product }: { index: number; product: Product }) {
 }
 
 export default async function Home() {
-  const { hotProducts, newProducts, posts, settings, categories } = await getHomeData()
-  const navigation = (settings.navigation || []).map((item) =>
-    item.label === 'Bảng giá' ? { ...item, href: '/bang-gia-may-ao-bong-chuyen/' } : item,
-  )
+  const { hotProducts, newProducts, posts, categories } = await getHomeData()
   const typeCategories = categories.filter((category) => category.group === 'type')
   const colorCategories = categories.filter((category) => category.group === 'color')
-  const menu = navigation.map((item) =>
-    item.label.toLowerCase().includes('áo bóng chuyền') && !item.columns?.length
-      ? {
-          ...item,
-          columns: [
-            {
-              label: 'Theo loại áo',
-              items: typeCategories.map((category) => ({ label: category.name, href: `/${category.slug}` })),
-            },
-            {
-              label: 'Theo màu sắc',
-              items: colorCategories.map((category) => ({ label: category.name.replace('Áo bóng chuyền ', ''), href: `/${category.slug}` })),
-            },
-          ],
-        }
-      : item,
-  )
   const heroFeatures = [
     { icon: PencilRuler, label: 'Thiết kế theo yêu cầu' },
     { icon: BadgeCheck, label: 'In logo đội nhóm' },
@@ -112,47 +93,7 @@ export default async function Home() {
 
   return (
     <main>
-      <header className="sticky top-0 z-40 flex h-[72px] items-center justify-between border-b-[3px] border-[var(--accent)] bg-[#080909] px-4 shadow-[0_10px_28px_rgba(0,0,0,.22)] md:h-[82px] md:px-[clamp(20px,5vw,92px)]">
-        <a className="flex min-w-0 items-center gap-3 uppercase md:min-w-[330px]" href="/">
-          <span className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-full border-2 border-white/90 bg-[linear-gradient(135deg,var(--accent),#911410)] text-[13px] font-black text-white shadow-[14px_0_0_-7px_rgba(238,43,36,.32)] md:h-11 md:w-11">
-            VB
-          </span>
-          <span className="inline-flex flex-col justify-center leading-[0.92]">
-            <strong className="text-base font-black italic text-white md:text-[clamp(16px,1.25vw,22px)]">MAYAOBONGCHUYEN</strong>
-            <small className="hidden text-[13px] font-black tracking-[0.08em] text-[var(--accent)] md:block">.VN</small>
-          </span>
-        </a>
-        <nav className="hidden items-center gap-[clamp(14px,1.55vw,26px)] text-[12.5px] font-black uppercase tracking-[0.02em] text-[#b9b9b9] lg:flex">
-          {menu.map((item) => (
-            <div className="group relative flex min-h-[82px] items-center" key={item.label}>
-              <a className="whitespace-nowrap group-hover:text-[var(--ink)]" href={item.href}>
-                {item.label}
-              </a>
-              {!!item.columns?.length && (
-                <div className="pointer-events-none absolute left-1/2 top-[82px] grid min-w-[480px] -translate-x-1/2 translate-y-2 grid-cols-2 gap-7 border border-white/12 border-t-2 border-t-[var(--accent)] bg-[rgba(9,10,10,.97)] p-[22px] opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                  {item.columns.map((column) => (
-                    <div key={column.label}>
-                      <strong className="mb-3 block text-xs uppercase text-[var(--accent)]">{column.label}</strong>
-                      {column.items?.map((child) => (
-                        <a className="block py-2 text-[var(--ink)] hover:text-[var(--accent)]" href={child.href} key={child.label}>
-                          {child.label}
-                        </a>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
-        <div className="flex min-w-0 items-center justify-end gap-2.5 md:min-w-[210px] md:gap-4">
-          <a className="inline-flex items-center gap-2.5 whitespace-nowrap text-sm font-extrabold text-[#c7c7c7]" href="tel:0989353247">
-            <Phone size={17} />
-            <span className="hidden md:inline">0989.353.247</span>
-          </a>
-          <HeaderSearch />
-        </div>
-      </header>
+      <SiteHeader legacyNavigation={fallbackNavigation} />
 
       <TenantPromoHero ariaLabel="Banner may áo bóng chuyền thiết kế riêng" className="mbc-home-hero" slides={heroBanners}>
         <div className="mbc-home-hero-copy max-w-[650px]">
@@ -167,7 +108,7 @@ export default async function Home() {
             {heroFeatures.map(({ icon: Icon, label }) => (
               <div className="flex min-h-24 flex-col items-center justify-center gap-2 bg-black/20 text-center text-white" key={label}>
                 <span className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-full border-2 border-[var(--accent)] text-[var(--accent)]">
-                  <Icon size={25} />
+                  <Icon aria-hidden="true" size={25} />
                 </span>
                 <strong className="max-w-[92px] text-[13px] leading-[1.15]">{label}</strong>
               </div>
@@ -175,9 +116,9 @@ export default async function Home() {
           </div>
           <a
             className="inline-flex min-h-12 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black uppercase text-white"
-            href="/lien-he"
+            href="/lien-he/"
           >
-            Đặt may <ArrowUpRight size={18} />
+            Đặt may <ArrowUpRight aria-hidden="true" size={18} />
           </a>
         </div>
       </TenantPromoHero>
@@ -212,7 +153,7 @@ export default async function Home() {
             <h3 className="mb-4 text-[13px] uppercase text-[var(--accent)]">Theo loại áo</h3>
             <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
               {typeCategories.map((category) => (
-                <a className="block min-h-[142px] border border-[var(--line)] p-[18px]" href={`/${category.slug}`} id={category.slug} key={category.id}>
+                <a className="block min-h-[142px] border border-[var(--line)] p-[18px]" href={`/${category.slug}/`} id={category.slug} key={category.id}>
                   <span className="mb-3 block text-[22px] font-black leading-[1.12]">{category.name}</span>
                   {category.description && <small className="leading-[1.45] text-[var(--muted)]">{category.description}</small>}
                 </a>
@@ -225,7 +166,7 @@ export default async function Home() {
               {colorCategories.map((category) => (
                 <a
                   className={`flex min-h-[54px] items-center border border-[var(--line)] px-4 font-extrabold ${colorStyles[category.slug.replace('ao-bong-chuyen-mau-', '')] || 'bg-white/5'}`}
-                  href={`/${category.slug}`}
+                  href={`/${category.slug}/`}
                   id={category.slug}
                   key={category.id}
                 >
@@ -258,7 +199,7 @@ export default async function Home() {
             <p className="mt-4 max-w-[720px] leading-[1.65] text-[#5f6876]">Các mẫu vừa cập nhật để đội dễ chọn kiểu áo, phối màu, chất liệu và ý tưởng in ấn cho đơn tiếp theo.</p>
           </div>
           <a className="inline-flex min-h-11 items-center justify-center gap-2 border border-[#d7dce4] px-[18px] font-black text-[#0d1422] hover:border-[var(--accent)] hover:text-[var(--accent)]" href="/tim-kiem/">
-            Xem thêm mẫu <ArrowUpRight size={18} />
+            Xem thêm mẫu <ArrowUpRight aria-hidden="true" size={18} />
           </a>
         </div>
         <div className="grid gap-[18px] md:grid-cols-2 xl:grid-cols-3">
@@ -267,7 +208,7 @@ export default async function Home() {
       </section>
 
       <section id="pricing" className="flex items-center gap-6 bg-[var(--accent)] px-[clamp(20px,5vw,76px)] py-[58px] text-white">
-        <ShieldCheck size={30} />
+        <ShieldCheck aria-hidden="true" size={30} />
         <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">Bảng giá gộp theo số lượng, chất vải và mức in tên số/logo.</h2>
       </section>
 

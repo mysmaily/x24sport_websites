@@ -19,7 +19,7 @@ export async function SiteFooter() {
             <h2 className="mt-3 text-[clamp(32px,4.5vw,60px)] font-black leading-[.95]">Gửi logo, màu áo và số lượng. Xưởng lên mẫu bóng chuyền cho đội bạn.</h2>
           </div>
           <a className="inline-flex min-h-12 items-center justify-center gap-2 border border-white bg-white px-5 text-sm font-black text-[#080b12]" href={ZALO_URL} rel="noreferrer" target="_blank">
-            Nhận tư vấn <ArrowUpRight size={18} />
+            Nhận tư vấn <ArrowUpRight aria-hidden="true" size={18} />
           </a>
         </div>
       </section>
@@ -39,9 +39,9 @@ export async function SiteFooter() {
           <div>
             <h3 className="mb-4 text-sm font-black uppercase tracking-[0.08em] text-white">Theo nhu cầu</h3>
             <nav className="grid gap-3 text-sm text-[var(--muted)]">
-              <a href="/ao-bong-chuyen-nam">Áo bóng chuyền nam</a>
-              <a href="/ao-bong-chuyen-nu">Áo bóng chuyền nữ</a>
-              <a href="/ao-doi-clb">Áo đội/CLB</a>
+              <a href="/ao-bong-chuyen-nam/">Áo bóng chuyền nam</a>
+              <a href="/ao-bong-chuyen-nu/">Áo bóng chuyền nữ</a>
+              <a href="/ao-doi-clb/">Áo đội/CLB</a>
             </nav>
           </div>
           <div>
@@ -49,23 +49,23 @@ export async function SiteFooter() {
             <nav className="grid gap-3 text-sm text-[var(--muted)]">
               <a href="/tim-kiem/">Tìm mẫu áo</a>
               <a href="/bang-gia-may-ao-bong-chuyen/">Bảng giá</a>
-              <a href="/chat-lieu-size">Chất liệu & Size</a>
-              <a href="/mau-da-lam">Mẫu đã làm</a>
+              <a href="/chat-lieu-size/">Chất liệu & Size</a>
+              <a href="/mau-da-lam/">Mẫu đã làm</a>
             </nav>
           </div>
           <div>
             <h3 className="mb-4 text-sm font-black uppercase tracking-[0.08em] text-white">Liên hệ</h3>
             <div className="grid gap-3 text-sm text-[var(--muted)]">
-              <a className="inline-flex items-center gap-2" href={`tel:${PHONE_VALUE}`}><Phone size={16} /> {PHONE_DISPLAY}</a>
-              <a className="inline-flex items-center gap-2" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={16} /> Zalo tư vấn</a>
+              <a className="inline-flex items-center gap-2" href={`tel:${PHONE_VALUE}`}><Phone aria-hidden="true" size={16} /> {PHONE_DISPLAY}</a>
+              <a className="inline-flex items-center gap-2" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle aria-hidden="true" size={16} /> Zalo tư vấn</a>
             </div>
           </div>
         </div>
         <div className="mx-auto mt-10 max-w-[1360px] border-t border-white/10 pt-5 text-center text-xs text-[var(--muted)]">© {new Date().getFullYear()} MayaoBongChuyen.vn</div>
       </footer>
       <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-white/10 bg-[#05070c] p-2 lg:hidden">
-        <a className="inline-flex min-h-12 items-center justify-center gap-2 bg-white text-sm font-black text-[#080b12]" href={`tel:${PHONE_VALUE}`}><Phone size={17} /> Gọi ngay</a>
-        <a className="inline-flex min-h-12 items-center justify-center gap-2 bg-[var(--accent)] text-sm font-black text-white" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle size={17} /> Zalo</a>
+        <a className="inline-flex min-h-12 items-center justify-center gap-2 bg-white text-sm font-black text-[#080b12]" href={`tel:${PHONE_VALUE}`}><Phone aria-hidden="true" size={17} /> Gọi ngay</a>
+        <a className="inline-flex min-h-12 items-center justify-center gap-2 bg-[var(--accent)] text-sm font-black text-white" href={ZALO_URL} rel="noreferrer" target="_blank"><MessageCircle aria-hidden="true" size={17} /> Zalo</a>
       </div>
     </>
   )

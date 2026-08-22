@@ -21,6 +21,7 @@ export type Product = {
   gallery?: Array<{ url?: string; alt?: string; width?: number; height?: number; searchTags?: Array<{ value?: string }> }>
   searchTags?: Array<{ value?: string }>
   categories?: Array<ProductCategory | string>
+  isFallback?: boolean
 }
 
 export type Post = { id: string; title: string; slug: string; excerpt: string }
@@ -83,6 +84,7 @@ const fallbackTenant: Tenant = {
 const fallbackProducts: Product[] = [
   {
     id: '1',
+    isFallback: true,
     name: 'Áo bóng chuyền Spike Grid',
     slug: 'ao-bong-chuyen-spike-grid',
     sku: 'MBC-SPIKE-01',
@@ -93,6 +95,7 @@ const fallbackProducts: Product[] = [
   },
   {
     id: '2',
+    isFallback: true,
     name: 'Áo libero phối tương phản',
     slug: 'ao-libero-phoi-tuong-phan',
     sku: 'MBC-LIBERO-02',
@@ -103,6 +106,7 @@ const fallbackProducts: Product[] = [
   },
   {
     id: '3',
+    isFallback: true,
     name: 'Bộ bóng chuyền Power Serve',
     slug: 'bo-bong-chuyen-power-serve',
     sku: 'MBC-POWER-03',
@@ -191,42 +195,54 @@ const fallbackPages: Record<string, PageContent> = {
       { heading: 'Bảo quản sau khi nhận', body: 'Giặt phơi đúng cách giúp áo giữ form và màu sắc tốt hơn.' },
     ],
   },
+  'lien-he': {
+    id: 'fallback-lien-he',
+    title: 'Liên hệ',
+    slug: 'lien-he',
+    heroTitle: 'Liên hệ đặt may áo bóng chuyền',
+    heroText: 'Gửi yêu cầu thiết kế, số lượng, ngày cần nhận và thông tin đội để được tư vấn nhanh.',
+    sections: [
+      { heading: 'Tư vấn mẫu', body: 'Nhận tư vấn phối màu, chất vải và kiểu in theo ngân sách của đội.' },
+      { heading: 'Báo giá theo nhu cầu', body: 'Chi phí được tính theo số lượng, thời gian cần nhận và mức độ tùy biến.' },
+      { heading: 'Theo dõi đơn', body: 'Trao đổi rõ tiến độ thiết kế, sản xuất và giao hàng trước khi chốt.' },
+    ],
+  },
 }
 
-const fallbackNavigation: NavItem[] = [
+export const fallbackNavigation: NavItem[] = [
   {
     label: 'Áo bóng chuyền',
-    href: '/ao-bong-chuyen',
+    href: '/ao-bong-chuyen/',
     columns: [
       {
         label: 'Theo loại áo',
         items: [
-          { label: 'Áo bóng chuyền nam', href: '/ao-bong-chuyen-nam' },
-          { label: 'Áo bóng chuyền nữ', href: '/ao-bong-chuyen-nu' },
-          { label: 'Áo đội/CLB', href: '/ao-doi-clb' },
+          { label: 'Áo bóng chuyền nam', href: '/ao-bong-chuyen-nam/' },
+          { label: 'Áo bóng chuyền nữ', href: '/ao-bong-chuyen-nu/' },
+          { label: 'Áo đội/CLB', href: '/ao-doi-clb/' },
         ],
       },
       {
         label: 'Theo màu sắc',
         items: [
-          { label: 'Màu đỏ', href: '/ao-bong-chuyen-mau-do' },
-          { label: 'Màu xanh', href: '/ao-bong-chuyen-mau-xanh' },
-          { label: 'Màu đen', href: '/ao-bong-chuyen-mau-den' },
-          { label: 'Màu trắng', href: '/ao-bong-chuyen-mau-trang' },
-          { label: 'Màu vàng', href: '/ao-bong-chuyen-mau-vang' },
-          { label: 'Màu hồng', href: '/ao-bong-chuyen-mau-hong' },
+          { label: 'Màu đỏ', href: '/ao-bong-chuyen-mau-do/' },
+          { label: 'Màu xanh', href: '/ao-bong-chuyen-mau-xanh/' },
+          { label: 'Màu đen', href: '/ao-bong-chuyen-mau-den/' },
+          { label: 'Màu trắng', href: '/ao-bong-chuyen-mau-trang/' },
+          { label: 'Màu vàng', href: '/ao-bong-chuyen-mau-vang/' },
+          { label: 'Màu hồng', href: '/ao-bong-chuyen-mau-hong/' },
         ],
       },
     ],
   },
-  { label: 'Đặt may theo yêu cầu', href: '/dat-may-theo-yeu-cau' },
+  { label: 'Đặt may theo yêu cầu', href: '/dat-may-theo-yeu-cau/' },
   { label: 'Bảng giá', href: '/bang-gia-may-ao-bong-chuyen/' },
-  { label: 'Chất liệu & Size', href: '/chat-lieu-size' },
-  { label: 'Mẫu đã làm', href: '/mau-da-lam' },
-  { label: 'Liên hệ', href: '/lien-he' },
+  { label: 'Chất liệu & Size', href: '/chat-lieu-size/' },
+  { label: 'Mẫu đã làm', href: '/mau-da-lam/' },
+  { label: 'Liên hệ', href: '/lien-he/' },
 ]
 
-const fallbackCategories: ProductCategory[] = [
+export const fallbackCategories: ProductCategory[] = [
   { id: 'ao-bong-chuyen-nam', name: 'Áo bóng chuyền nam', slug: 'ao-bong-chuyen-nam', group: 'type', description: 'Mẫu áo cho đội nam và CLB nam.', order: 10 },
   { id: 'ao-bong-chuyen-nu', name: 'Áo bóng chuyền nữ', slug: 'ao-bong-chuyen-nu', group: 'type', description: 'Mẫu áo cho đội nữ và CLB nữ.', order: 20 },
   { id: 'ao-doi-clb', name: 'Áo đội/CLB', slug: 'ao-doi-clb', group: 'type', description: 'Đặt may theo logo, màu đội, tên số.', order: 30 },
@@ -237,6 +253,23 @@ const fallbackCategories: ProductCategory[] = [
   { id: 'ao-bong-chuyen-mau-vang', name: 'Màu vàng', slug: 'ao-bong-chuyen-mau-vang', group: 'color', order: 150 },
   { id: 'ao-bong-chuyen-mau-hong', name: 'Màu hồng', slug: 'ao-bong-chuyen-mau-hong', group: 'color', order: 160 },
 ]
+
+export const volleyballCategorySlugs = fallbackCategories.map((category) => category.slug)
+
+function categoryPage(category: ProductCategory): PageContent {
+  return {
+    id: `category-${category.id}`,
+    title: category.name,
+    slug: category.slug,
+    heroTitle: category.name,
+    heroText: category.description || `Tham khảo ${category.name.toLocaleLowerCase('vi-VN')} để chọn phối màu, form áo và hướng đặt may phù hợp cho đội.`,
+    sections: [
+      { heading: 'Chọn mẫu phù hợp', body: 'Xem hướng phối màu, form áo và cách bố trí logo hoặc tên số cho nhóm mẫu này.' },
+      { heading: 'Tùy biến theo đội', body: 'Có thể thay màu, logo, tên vận động viên, số áo và vị trí nhà tài trợ theo yêu cầu.' },
+      { heading: 'Chuẩn bị báo giá', body: 'Gửi số lượng, bảng size và ngày cần nhận để được tư vấn phương án phù hợp.' },
+    ],
+  }
+}
 
 const apiUrl = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
 
@@ -316,7 +349,8 @@ export async function getHomeData() {
 
 export async function getPageData(pageSlug: string) {
   const slug = await getTenantSlug()
-  const fallbackPage = fallbackPages[pageSlug]
+  const fallbackCategory = fallbackCategories.find((category) => category.slug === pageSlug)
+  const fallbackPage = fallbackPages[pageSlug] || (fallbackCategory ? categoryPage(fallbackCategory) : undefined)
 
   try {
     const tenantFilter = `where[tenant.slug][equals]=${slug}`
@@ -330,7 +364,9 @@ export async function getPageData(pageSlug: string) {
 
     return {
       tenant: tenant || fallbackTenant,
-      page: page || fallbackPage,
+      page: page || fallbackPage || (categories.find((category) => category.slug === pageSlug)
+        ? categoryPage(categories.find((category) => category.slug === pageSlug)!)
+        : undefined),
       settings: settings[0] || { id: 'fallback-settings', siteName: fallbackTenant.name, navigation: fallbackNavigation },
       categories: categories.length ? categories : fallbackCategories,
       products: products.length ? products : fallbackProducts,
@@ -405,3 +441,7 @@ export function getProductBreadcrumbCategory(product: Product) {
 
 export const formatPrice = (value: number) =>
   new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value)
+
+export function productHref(product: Product) {
+  return product.slug && !product.isFallback ? `/san-pham/${product.slug}/` : '/lien-he/'
+}

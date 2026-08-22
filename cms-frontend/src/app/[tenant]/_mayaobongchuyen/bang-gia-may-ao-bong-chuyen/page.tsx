@@ -1,8 +1,9 @@
-import { ArrowUpRight, Check, CircleDollarSign, Phone } from 'lucide-react'
+import { ArrowUpRight, Check, CircleDollarSign } from 'lucide-react'
 import type { Metadata } from 'next'
 
-import { HeaderSearch } from '../_components/header-search'
+import { SiteHeader } from '../_components/site-header'
 import { SiteFooter } from '../_components/site-footer'
+import { fallbackNavigation } from '../lib/content'
 
 export const metadata: Metadata = {
   title: 'Bảng giá may áo bóng chuyền | MayaoBongChuyen',
@@ -34,39 +35,14 @@ const included = [
 export default async function VolleyballPricingPage() {
   return (
     <main>
-      <header className="sticky top-0 z-40 flex h-[72px] items-center justify-between border-b-[3px] border-[var(--accent)] bg-[#080909] px-4 shadow-[0_10px_28px_rgba(0,0,0,.22)] md:h-[82px] md:px-[clamp(20px,5vw,92px)]">
-        <a className="flex min-w-0 items-center gap-3 uppercase md:min-w-[330px]" href="/">
-          <span className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-full border-2 border-white/90 bg-[linear-gradient(135deg,var(--accent),#911410)] text-[13px] font-black text-white shadow-[14px_0_0_-7px_rgba(238,43,36,.32)] md:h-11 md:w-11">VB</span>
-          <span className="inline-flex flex-col justify-center leading-[0.92]">
-            <strong className="text-base font-black italic text-white md:text-[clamp(16px,1.25vw,22px)]">MAYAOBONGCHUYEN</strong>
-            <small className="hidden text-[13px] font-black tracking-[0.08em] text-[var(--accent)] md:block">.VN</small>
-          </span>
-        </a>
-        <nav className="hidden items-center gap-[clamp(14px,1.55vw,26px)] text-[12.5px] font-black uppercase tracking-[0.02em] text-[#b9b9b9] lg:flex">
-          {[
-            ['/', 'Trang chủ'],
-            ['/ao-bong-chuyen', 'Áo bóng chuyền'],
-            ['/dat-may-theo-yeu-cau', 'Đặt may'],
-            ['/bang-gia-may-ao-bong-chuyen/', 'Bảng giá'],
-            ['/chat-lieu-size', 'Chất liệu & Size'],
-            ['/lien-he', 'Liên hệ'],
-          ].map(([href, label]) => <a className="whitespace-nowrap hover:text-[var(--ink)]" href={href} key={href}>{label}</a>)}
-        </nav>
-        <div className="flex min-w-0 items-center justify-end gap-2.5 md:min-w-[210px] md:gap-4">
-          <a className="inline-flex items-center gap-2.5 whitespace-nowrap text-sm font-extrabold text-[#c7c7c7]" href="tel:0989353247">
-            <Phone size={17} />
-            <span className="hidden md:inline">0989.353.247</span>
-          </a>
-          <HeaderSearch />
-        </div>
-      </header>
+      <SiteHeader legacyNavigation={fallbackNavigation} />
 
       <section className="border-b border-[var(--line)] px-[clamp(20px,5vw,76px)] py-[clamp(42px,7vw,90px)]">
         <p className="mb-[14px] text-xs font-black uppercase text-[var(--accent)]">Bảng giá may áo bóng chuyền</p>
         <h1 className="max-w-[980px] text-[clamp(42px,6vw,88px)] font-black leading-[0.9]">Bảng giá may áo bóng chuyền.</h1>
         <p className="mt-5 max-w-[720px] text-[19px] leading-[1.7] text-[var(--muted)]">Giá tham khảo theo chất vải và số lượng đặt may. Gửi mẫu, logo, danh sách tên số và ngày cần nhận để được tư vấn chính xác hơn.</p>
-        <a className="mt-6 inline-flex min-h-11 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black text-white" href="/lien-he">
-          Nhận báo giá <ArrowUpRight size={18} />
+        <a className="mt-6 inline-flex min-h-11 items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-[18px] font-black text-white" href="/lien-he/">
+          Nhận báo giá <ArrowUpRight aria-hidden="true" size={18} />
         </a>
       </section>
 
@@ -77,7 +53,7 @@ export default async function VolleyballPricingPage() {
             <h2 className="max-w-[820px] text-[clamp(34px,5vw,66px)] leading-[0.95]">Bảng giá theo chất liệu và số lượng</h2>
           </div>
           <aside className="border border-[var(--line)] bg-white/6 p-5">
-            <p className="flex items-center gap-2 text-sm font-bold text-[var(--accent)]"><CircleDollarSign size={18} /> Giá từ</p>
+            <p className="flex items-center gap-2 text-sm font-bold text-[var(--accent)]"><CircleDollarSign aria-hidden="true" size={18} /> Giá từ</p>
             <strong className="mt-2 block text-[42px] leading-none">105.000đ</strong>
             <span className="text-sm text-[var(--muted)]">mỗi bộ · đơn trên 100 bộ</span>
           </aside>
@@ -110,7 +86,7 @@ export default async function VolleyballPricingPage() {
       <section className="grid grid-cols-1 gap-px border-y border-[var(--line)] px-[clamp(20px,5vw,76px)] md:grid-cols-4">
         {included.map(([title, text]) => (
           <article className="min-h-[210px] bg-white/5 p-7" key={title}>
-            <Check className="text-[var(--accent)]" size={24} />
+            <Check aria-hidden="true" className="text-[var(--accent)]" size={24} />
             <h2 className="my-[18px] text-[28px] leading-[1.05]">{title}</h2>
             <p className="leading-[1.6] text-[var(--muted)]">{text}</p>
           </article>

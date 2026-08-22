@@ -31,6 +31,7 @@ import {
 } from './[tenant]/_mayaopickleball/lib/seo'
 import { pndLandings } from './[tenant]/_pndsport/lib'
 import { getUniformCategories, getUniformProducts } from './[tenant]/_mayaodongphuc/lib'
+import { volleyballCategorySlugs } from './[tenant]/_mayaobongchuyen/lib/content'
 
 const mayaoCauLongStaticPages = [
   { path: '/', priority: 1 },
@@ -42,9 +43,31 @@ const mayaoCauLongStaticPages = [
   { path: '/blog/', priority: 0.7 },
 ] as const
 
+const mayaoBongChuyenStaticPaths = [
+  '/',
+  '/san-pham/',
+  '/ao-bong-chuyen/',
+  ...volleyballCategorySlugs.map((slug) => `/${slug}/`),
+  '/dat-may-theo-yeu-cau/',
+  '/bang-gia-may-ao-bong-chuyen/',
+  '/chat-lieu-size/',
+  '/mau-da-lam/',
+  '/lien-he/',
+  '/blog/',
+] as const
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const tenant = await getTenantContext()
   const base = `https://${tenant.domain}`
+  if (tenant.slug === 'mayaobongchuyen') {
+    const now = new Date()
+    return mayaoBongChuyenStaticPaths.map((path, index) => ({
+      url: `${base}${path}`,
+      lastModified: now,
+      changeFrequency: path === '/' ? 'weekly' as const : 'monthly' as const,
+      priority: index === 0 ? 1 : path === '/san-pham/' || path === '/ao-bong-chuyen/' ? 0.9 : 0.75,
+    }))
+  }
   if (tenant.slug === 'mayaodongphuc') {
     const now = new Date()
     const [categories, productResult] = await Promise.all([

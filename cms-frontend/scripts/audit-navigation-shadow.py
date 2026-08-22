@@ -19,6 +19,7 @@ TENANTS = {
     "dongphucx24": "dongphucx24.vn",
     "mayaocaulong": "mayaocaulong.vn",
     "mayaopickleball": "mayaopickleball.vn",
+    "mayaobongchuyen": "mayaobongchuyen.vn",
     "mayaobongro": "mayaobongro.vn",
     "mayaochaybo": "mayaochaybo.vn",
     "mayaobongda": "mayaobongda.vn",
