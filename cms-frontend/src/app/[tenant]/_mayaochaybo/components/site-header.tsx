@@ -108,7 +108,7 @@ export function SiteHeader() {
               aria-controls="product-mega-menu"
               aria-expanded={activeMenu === 'samples'}
               className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`}
-              onClick={() => setActiveMenu((value) => value === 'samples' ? null : 'samples')}
+              onClick={() => showMenu('samples')}
               ref={sampleButton}
               type="button"
             >
@@ -127,7 +127,7 @@ export function SiteHeader() {
               aria-controls="color-mega-menu"
               aria-expanded={activeMenu === 'colors'}
               className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${colorActive ? 'text-brand' : ''}`}
-              onClick={() => setActiveMenu((value) => value === 'colors' ? null : 'colors')}
+              onClick={() => showMenu('colors')}
               ref={colorButton}
               type="button"
             >
