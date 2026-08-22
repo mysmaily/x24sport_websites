@@ -165,6 +165,20 @@ const rowKeys = (rows: unknown) => new Set(
     .filter(Boolean),
 )
 
+const normalizedViewFilters = (filters: unknown) => {
+  const value = filters && typeof filters === 'object' ? filters as Doc : {}
+  const keyRows = (rows: unknown) => [...rowKeys(rows)].map((key) => ({ key }))
+  const sportKey = typeof value.sportKey === 'string' ? value.sportKey.trim() : ''
+  return {
+    ...(sportKey ? { sportKey } : {}),
+    categoryKeys: keyRows(value.categoryKeys),
+    searchTagKeys: keyRows(value.searchTagKeys),
+    productTypeKeys: keyRows(value.productTypeKeys),
+    audienceKeys: keyRows(value.audienceKeys),
+    colorKeys: keyRows(value.colorKeys),
+  }
+}
+
 const productMatchesView = (
   product: Doc,
   source: Doc,
@@ -274,7 +288,7 @@ const sourceViewFingerprint = (source: Doc) =>
   stableHash({
     canonicalPath: source.canonicalPath || '',
     description: source.description || '',
-    filters: source.filters || {},
+    filters: normalizedViewFilters(source.filters),
     heading: source.heading || '',
     includeInSitemap: Boolean(source.includeInSitemap),
     indexPolicy: source.indexPolicy || 'noindex',
@@ -290,7 +304,7 @@ const targetViewFingerprint = (target: Doc | undefined) =>
     canonicalPath: target?.canonicalPath || '',
     description: target?.description || '',
     enabled: Boolean(target?.enabled),
-    filters: target?.filters || {},
+    filters: normalizedViewFilters(target?.filters),
     heading: target?.heading || '',
     includeInSitemap: Boolean(target?.includeInSitemap),
     indexPolicy: target?.indexPolicy || 'noindex',
@@ -445,7 +459,7 @@ async function syncCatalogView({
     heading: proposed.name || source.heading,
     description: proposed.description || source.description || '',
     taxonomy: relationIDs(source.taxonomy),
-    filters: source.filters || {},
+    filters: normalizedViewFilters(source.filters),
     matchMode: source.matchMode || 'all',
     indexPolicy: source.indexPolicy || 'noindex',
     canonicalPath: proposed.path || source.canonicalPath || source.path,
@@ -497,11 +511,13 @@ export async function syncMasterCatalogProjections({
   apply = false,
   distributionIDs,
   payload,
+  retryBlocked = false,
   targetSlugs,
 }: {
   apply?: boolean
   distributionIDs?: Array<number | string>
   payload: ProjectionPayload
+  retryBlocked?: boolean
   targetSlugs?: string[]
 }): Promise<ProjectionSummary> {
   const requestedTargets = new Set(targetSlugs || [...allowedMasterSlugs])
@@ -511,7 +527,7 @@ export async function syncMasterCatalogProjections({
 
   const distributions = await allDocs(payload, 'category-distributions', {
     and: [
-      { status: { not_in: ['archived', 'blocked'] } },
+      { status: { not_in: retryBlocked ? ['archived'] : ['archived', 'blocked'] } },
       ...(distributionIDs?.length ? [{ id: { in: distributionIDs } }] : []),
     ],
   }, 0)

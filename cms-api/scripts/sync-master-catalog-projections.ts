@@ -9,6 +9,7 @@ import {
 
 const args = process.argv.slice(2)
 const apply = args.includes('--apply')
+const retryBlocked = args.includes('--retry-blocked')
 const targetSlugs = args
   .filter((arg) => arg.startsWith('--target='))
   .map((arg) => arg.slice('--target='.length))
@@ -24,6 +25,7 @@ async function run() {
     apply,
     distributionIDs: distributionIDs.length ? distributionIDs : undefined,
     payload: payload as unknown as ProjectionPayload,
+    retryBlocked,
     targetSlugs: targetSlugs.length ? targetSlugs : undefined,
   })
   console.log(JSON.stringify(summary, null, 2))

@@ -120,7 +120,7 @@ const viewPayload = new FakePayload({
     { id: 30, sourceTenant: 1, sourceProduct: 20, targetTenant: 2, targetProduct: 21, status: 'published' },
   ],
   'catalog-views': [
-    { id: 50, tenant: 1, key: 'badminton.color.red', path: '/ao-cau-long-mau-do/', title: 'Áo màu đỏ', heading: 'Áo màu đỏ', filters: { colorKeys: [{ key: 'color.red' }] }, matchMode: 'all', indexPolicy: 'indexable', includeInSitemap: true },
+    { id: 50, tenant: 1, key: 'badminton.color.red', path: '/ao-cau-long-mau-do/', title: 'Áo màu đỏ', heading: 'Áo màu đỏ', filters: { colorKeys: [{ id: 'payload-array-row-id', key: 'color.red' }] }, matchMode: 'all', indexPolicy: 'indexable', includeInSitemap: true },
   ],
   'category-distributions': [
     { id: 41, sourceTenant: 1, targetTenant: 2, sourceKind: 'catalog_view', sourceCatalogView: 50, status: 'ready', copyMode: 'auto' },
@@ -131,6 +131,14 @@ const viewApply = await syncMasterCatalogProjections({ apply: true, payload: vie
 assert.equal(viewApply.projectedCatalogViews, 1)
 assert.equal(viewPayload.collections['catalog-views'].length, 2)
 assert.equal(viewPayload.collections['catalog-views'][1].enabled, true)
+assert.deepEqual(viewPayload.collections['catalog-views'][1].filters.colorKeys, [{ key: 'color.red' }])
+assert.equal(viewPayload.collections['category-distributions'][0].status, 'published')
+
+viewPayload.collections['category-distributions'][0].status = 'blocked'
+const blockedDefault = await syncMasterCatalogProjections({ payload: viewPayload })
+assert.equal(blockedDefault.scanned, 0)
+const retried = await syncMasterCatalogProjections({ apply: true, payload: viewPayload, retryBlocked: true })
+assert.equal(retried.projectedCatalogViews, 1)
 assert.equal(viewPayload.collections['category-distributions'][0].status, 'published')
 
 await assert.rejects(
