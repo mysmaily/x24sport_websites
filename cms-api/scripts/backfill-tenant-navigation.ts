@@ -231,7 +231,12 @@ function racketManifest(tenantSlug: 'mayaocaulong' | 'mayaopickleball'): Manifes
           group('catalog-types', 'Kiểu áo', types.map(([key, label, path, filterKey]) =>
             view(`${prefix}.type.${key}`, label, path, filterKey))),
           group('catalog-colors', 'Màu phổ biến', colors.map(([key, label, slug]) =>
-            view(`${prefix}.color.${key}`, `Áo màu ${label}`, `/ao-${prefix}-mau-${slug}/`, `color.${key}`))),
+            view(
+              `${prefix}.color.${key}`,
+              key === 'gradient' ? 'Áo gradient' : `Áo màu ${label}`,
+              key === 'gradient' ? `/ao-${prefix}-gradient/` : `/ao-${prefix}-mau-${slug}/`,
+              `color.${key}`,
+            ))),
         ],
       },
       ...utility,
@@ -396,7 +401,11 @@ async function uniformWorkshopManifest(categories: Doc[]): Promise<Manifest> {
 async function masterManifest(tenantSlug: 'x24sport' | 'pndsport', categories: Doc[]): Promise<Manifest> {
   const items = categoryTreeItems(categories)
   if (tenantSlug === 'x24sport') {
-    items.push(custom('blog', 'Blog', '/blog/'), custom('contact', 'Liên hệ', '/lien-he/'))
+    items.push(
+      custom('blog', 'Blog', '/blog/'),
+      custom('process', 'Cách đặt hàng', '/#quy-trinh'),
+      custom('contact', 'Liên hệ tư vấn', '/lien-he/'),
+    )
   }
   return { tenantSlug, items }
 }
