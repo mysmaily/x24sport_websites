@@ -98,12 +98,20 @@ const view = (
 
 const relation = (value: unknown) => relationID(value as Parameters<typeof relationID>[0])
 
-async function allDocs(payload: any, collection: string, where: Doc, depth = 0) {
+async function allDocs(payload: any, collection: string, where: Doc, depth = 0, includeDrafts = true) {
   const docs: Doc[] = []
   let page = 1
   let totalPages = 1
   do {
-    const result = await payload.find({ collection, where, depth, limit: 100, page, draft: true, overrideAccess: true })
+    const result = await payload.find({
+      collection,
+      where,
+      depth,
+      limit: 100,
+      page,
+      ...(includeDrafts ? { draft: true } : {}),
+      overrideAccess: true,
+    })
     docs.push(...result.docs)
     totalPages = result.totalPages || 1
     page += 1
@@ -489,6 +497,7 @@ async function upsertView(payload: any, tenant: Doc, viewSpec: ViewSpec, taxonom
         ? { productTypeKeys: [{ key: viewSpec.filterKey }] }
         : { searchTagKeys: [{ key: viewSpec.filterKey }] }
   const data = {
+    _status: 'published',
     tenant: tenant.id,
     key: viewSpec.key,
     path: viewSpec.path,
@@ -516,6 +525,7 @@ async function upsertMenu(payload: any, tenant: Doc) {
     ],
   })
   const data = {
+    _status: 'published',
     tenant: tenant.id,
     key: 'primary',
     location: 'header',
@@ -559,7 +569,7 @@ function itemHref(item: Doc) {
 async function menuManifest(payload: any, menu: Doc) {
   const items = (await allDocs(payload, 'navigation-items', {
     and: [{ menu: { equals: menu.id } }, { enabled: { equals: true } }],
-  }, 2)).filter((item) => item._status === 'published')
+  }, 2, false))
   const nodes = new Map<string, ManifestNode>()
   const children = new Map<string, Doc[]>()
   for (const item of items) {
@@ -603,6 +613,7 @@ async function finalizeMenu(payload: any, menu: Doc) {
     collection: 'navigation-menus',
     id: menu.id,
     data: {
+      _status: 'published',
       manifestHash: current.hash,
       revision: changed && menu.manifestHash ? Number(menu.revision || 1) + 1 : Number(menu.revision || 1),
       lastValidatedAt: new Date().toISOString(),
@@ -627,7 +638,7 @@ async function changeMenuLifecycle(payload: any, tenantSlug: string, status: 're
     throw new Error(`${tenantSlug}: manifest hash chưa được xác nhận hoặc đã thay đổi.`)
   }
   if (apply) {
-    await payload.update({ collection: 'navigation-menus', id: menu.id, data: { status }, draft: false, overrideAccess: true })
+    await payload.update({ collection: 'navigation-menus', id: menu.id, data: { _status: 'published', status }, draft: false, overrideAccess: true })
   }
   return { tenantSlug, status, revision: menu.revision, manifestHash: menu.manifestHash, itemCount: current.manifest.length }
 }
@@ -660,6 +671,7 @@ async function upsertItems({
       const catalogView = spec.view ? await upsertView(payload, tenant, spec.view, taxonomy) : undefined
       const targetType = category ? 'category' : catalogView ? 'catalogView' : spec.href ? 'customUrl' : 'group'
       const data = {
+        _status: 'published',
         tenant: tenant.id,
         menu: menu.id,
         parent: parent?.id,
@@ -685,7 +697,7 @@ async function upsertItems({
   }
   await visit(items, undefined)
   for (const stale of existingItems.filter((item) => !desiredKeys.has(item.key))) {
-    await payload.update({ collection: 'navigation-items', id: stale.id, data: { enabled: false }, draft: false, overrideAccess: true })
+    await payload.update({ collection: 'navigation-items', id: stale.id, data: { _status: 'published', enabled: false }, draft: false, overrideAccess: true })
   }
 }
 
