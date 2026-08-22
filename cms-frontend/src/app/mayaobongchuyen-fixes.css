@@ -78,6 +78,13 @@ body.tenant-mayaobongchuyen #search-q:focus-visible {
   outline-offset: 3px;
 }
 
+body.tenant-mayaobongchuyen .mbc-desktop-navigation > .group:hover > div,
+body.tenant-mayaobongchuyen .mbc-desktop-navigation > .group:focus-within > div {
+  opacity: 1;
+  pointer-events: auto;
+  translate: -50% 0;
+}
+
 body.tenant-mayaobongchuyen .mbc-mobile-menu-trigger {
   align-items: center;
   border: 1px solid rgba(255, 255, 255, .16);
