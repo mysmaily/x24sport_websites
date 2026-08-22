@@ -58,6 +58,22 @@ const SPORT_BY_TENANT: Record<string, { key: string; name: string; masterSlug: s
   dongphucx24: { key: 'business.uniform', name: 'Đồng phục', masterSlug: 'dong-phuc' },
 }
 
+const RUNNING_CATEGORY_BY_FILTER_KEY: Record<string, string> = {
+  'type.custom': 'may-ao-chay-bo-thiet-ke-rieng-x24',
+  'type.sleeved': 'ao-chay-bo-co-tay',
+  'type.sleeveless': 'ao-chay-bo-sat-nach',
+  'collection.vn-flag': 'ao-chay-bo-co-do-sao-vang',
+  'color.black': 'den',
+  'color.white': 'trang',
+  'color.blue': 'xanh',
+  'color.red': 'do',
+  'color.yellow': 'vang',
+  'color.orange': 'cam',
+  'color.pink': 'hong',
+  'color.purple': 'tim',
+  'color.gradient': 'gradient',
+}
+
 const custom = (key: string, label: string, href: string, extras: Partial<ItemSpec> = {}): ItemSpec => ({
   href,
   key,
@@ -430,6 +446,9 @@ async function ensureDongPhucCategories(payload: any, tenant: Doc) {
 
 async function upsertTaxonomies(payload: any) {
   const unique = new Map(Object.values(SPORT_BY_TENANT).map((item) => [item.key, item]))
+  for (const [key, slug] of Object.entries(RUNNING_CATEGORY_BY_FILTER_KEY)) {
+    unique.set(key, { key, name: slug.replaceAll('-', ' '), masterSlug: slug })
+  }
   const result = new Map<string, Doc>()
   for (const taxonomy of unique.values()) {
     const existing = await uniqueDoc(payload, 'catalog-taxonomies', { key: { equals: taxonomy.key } })
@@ -442,15 +461,33 @@ async function upsertTaxonomies(payload: any) {
   return result
 }
 
+async function assignRunningCategoryTaxonomies(payload: any, tenant: Doc, taxonomies: Map<string, Doc>) {
+  const categories = await categoriesForTenant(payload, tenant.id)
+  const categoriesBySlug = new Map(categories.map((category) => [category.slug, category]))
+  for (const [key, slug] of Object.entries(RUNNING_CATEGORY_BY_FILTER_KEY)) {
+    const category = categoriesBySlug.get(slug)
+    const taxonomy = taxonomies.get(key)
+    if (!category || !taxonomy) throw new Error(`mayaochaybo: thiếu category/taxonomy ${slug} -> ${key}.`)
+    await payload.update({
+      collection: 'product-categories',
+      id: category.id,
+      data: { key, taxonomy: taxonomy.id },
+      overrideAccess: true,
+    })
+  }
+}
+
 async function upsertView(payload: any, tenant: Doc, viewSpec: ViewSpec, taxonomy: Doc | undefined) {
   const existing = await uniqueDoc(payload, 'catalog-views', {
     and: [{ tenant: { equals: tenant.id } }, { key: { equals: viewSpec.key } }],
   })
-  const filterGroup = viewSpec.filterKey.startsWith('color.')
-    ? { colorKeys: [{ key: viewSpec.filterKey }] }
-    : viewSpec.filterKey.startsWith('type.')
-      ? { productTypeKeys: [{ key: viewSpec.filterKey }] }
-      : { searchTagKeys: [{ key: viewSpec.filterKey }] }
+  const filterGroup = tenant.slug === 'mayaochaybo'
+    ? { categoryKeys: [{ key: viewSpec.filterKey }] }
+    : viewSpec.filterKey.startsWith('color.')
+      ? { colorKeys: [{ key: viewSpec.filterKey }] }
+      : viewSpec.filterKey.startsWith('type.')
+        ? { productTypeKeys: [{ key: viewSpec.filterKey }] }
+        : { searchTagKeys: [{ key: viewSpec.filterKey }] }
   const data = {
     tenant: tenant.id,
     key: viewSpec.key,
@@ -778,6 +815,9 @@ async function run() {
   }
 
   const taxonomies = await upsertTaxonomies(payload)
+  if (tenantSlugs.includes('mayaochaybo')) {
+    await assignRunningCategoryTaxonomies(payload, tenants.get('mayaochaybo')!, taxonomies)
+  }
   const appliedMenus: Array<{ tenantSlug: string; menu: Doc }> = []
   for (const manifest of manifests) {
     const tenant = tenants.get(manifest.tenantSlug)!
