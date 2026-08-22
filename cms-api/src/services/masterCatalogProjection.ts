@@ -121,19 +121,21 @@ const hydrateProductDistributions = async (
 const hydrateTargetProducts = async (
   payload: ProjectionPayload,
   distributions: Doc[],
+  targetTenantID: number | string,
 ) => {
-  const targetIDs = Array.from(new Set(
+  const targetIDs = new Set(
     distributions
       .map((item) => relationID(item.targetProduct))
-      .filter((id): id is number | string => id !== undefined),
-  ))
-  return targetIDs.length
-    ? allDocs(payload, 'products', { id: { in: targetIDs } }, 2, {
+      .filter((id): id is number | string => id !== undefined)
+      .map(String),
+  )
+  if (!targetIDs.size) return []
+  const products = await allDocs(payload, 'products', { tenant: { equals: targetTenantID } }, 2, {
         categories: true,
         publicationStatus: true,
         searchTags: true,
       })
-    : []
+  return products.filter((product) => targetIDs.has(String(product.id)))
 }
 
 const rowKeys = (rows: unknown) => new Set(
@@ -552,7 +554,7 @@ export async function syncMasterCatalogProjections({
       } else if (distribution.sourceKind === 'catalog_view') {
         let targetProducts = targetProductCache.get(pairKey)
         if (!targetProducts) {
-          targetProducts = hydrateTargetProducts(payload, publishedDistributions)
+          targetProducts = hydrateTargetProducts(payload, publishedDistributions, targetTenant.id)
           targetProductCache.set(pairKey, targetProducts)
         }
         const result = await syncCatalogView({
