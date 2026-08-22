@@ -49,7 +49,6 @@ const allDocs = async (
   where: Doc,
   depth = 0,
   select?: Doc,
-  includeDrafts = false,
 ) => {
   const docs: Doc[] = []
   let page = 1
@@ -62,7 +61,6 @@ const allDocs = async (
       overrideAccess: true,
       page,
       select,
-      ...(includeDrafts ? { draft: true } : {}),
       where,
     })
     docs.push(...result.docs)
@@ -485,7 +483,7 @@ export async function syncMasterCatalogProjections({
   const [tenants, categories, views] = await Promise.all([
     allDocs(payload, 'tenants', {}, 0),
     allDocs(payload, 'product-categories', {}, 0),
-    allDocs(payload, 'catalog-views', {}, 0, undefined, true),
+    allDocs(payload, 'catalog-views', {}, 0),
   ])
   const lookup: ProjectionLookup = {
     categories,
