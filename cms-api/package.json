@@ -19,6 +19,8 @@
     "test:tenant-identity": "tsx scripts/test-tenant-identity.ts",
     "test:navigation-schema": "tsx scripts/test-navigation-schema.ts",
     "test:navigation-migration": "tsx scripts/test-navigation-migration.ts",
+    "test:master-catalog-projection": "tsx scripts/test-master-catalog-projection.ts",
+    "sync:master-catalog-projections": "tsx scripts/sync-master-catalog-projections.ts",
     "test:media-sharing-access": "tsx scripts/test-media-sharing-access.ts"
   },
   "dependencies": {

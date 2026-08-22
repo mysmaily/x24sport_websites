@@ -10,19 +10,19 @@
 |---|---|
 | Ngày baseline | 2026-08-22, Asia/Ho_Chi_Minh |
 | Phạm vi | 11 tenant storefront đang hoạt động |
-| Phase hiện tại | Phase 1 — hoàn tất |
-| Production mutation trong Phase 1 | Chưa; schema đang chờ deploy theo runbook |
-| CMS/frontend/cache đã tác động | Chưa trong Phase 1 local |
+| Phase hiện tại | Phase 2 — hoàn tất local |
+| Production mutation | Phase 1 schema đã migrate; Phase 2 chưa có ledger opt-in để mutate |
+| CMS/frontend/cache đã tác động | CMS image `sports-cms-cms-api:deploy-20260822015551`; frontend/cache chưa tác động |
 | Commit locator | `git log -1 --format=%H -- docs/navigation-unification-plan.md` |
-| Phase kế tiếp | Phase 2 — projection category/catalog view lên website tổng |
+| Phase kế tiếp | Phase 3 — frontend navigation adapter và legacy fallback |
 
 ### Checkpoint theo phase
 
 | Phase | Trạng thái | Kết quả bắt buộc | Commit dự kiến |
 |---|---|---|---|
 | 0. Baseline và hợp đồng dữ liệu | **Hoàn tất** | Inventory source, public crawl, route defects, kiến trúc đích, rollout contract | `docs: establish navigation unification baseline` |
-| 1. Schema CMS | **Hoàn tất local** | Taxonomy, catalog view, navigation menu/item, category distribution, feature flag | `feat(cms): add tenant navigation and catalog view schema` |
-| 2. Projection lên website tổng | Chưa bắt đầu | Category/catalog-view projection idempotent tới X24Sport và PND Sport | `feat(cms): sync approved catalog projections to master tenants` |
+| 1. Schema CMS | **Hoàn tất production** | Taxonomy, catalog view, navigation menu/item, category distribution, feature flag | `c44726d` |
+| 2. Projection lên website tổng | **Hoàn tất local** | Category/catalog-view projection idempotent tới X24Sport và PND Sport | `feat(cms): sync approved catalog projections to master tenants` |
 | 3. Frontend adapter | Chưa bắt đầu | View model chung, legacy fallback, shadow manifest | `refactor(frontend): add legacy-safe navigation adapter` |
 | 4. Backfill và cutover | Chưa bắt đầu | Draft backfill, shadow validation, chuyển từng tenant | Commit riêng theo tenant |
 | 5. Tích hợp và vận hành | Chưa bắt đầu | Isolation, cache, responsive, crawl, rollback và runbook | `chore: complete tenant navigation unification` |
@@ -489,6 +489,22 @@ Nghiệm thu:
 Không đổi frontend source hoặc `navigationMode` trong Phase 1.
 
 ### Phase 2 — Projection category/catalog view tới website tổng
+
+Trạng thái: **hoàn tất local; production dry-run chờ worker image mới**.
+
+Đã triển khai:
+
+- Worker `syncMasterCatalogProjections` chỉ cho phép `x24sport` và `pndsport`;
+  mọi yêu cầu tới `rynosport` bị từ chối trước mutation.
+- Worker resolve category bằng taxonomy và catalog view bằng stable key, tôn
+  trọng `manual_locked`, giữ ledger product và category riêng biệt.
+- Category chỉ được bật menu khi có product distribution `published`, source
+  product thực sự thuộc category và target product đã publish. Quan hệ category
+  trên target product được thêm theo kiểu set/idempotent.
+- Catalog view chỉ được enable khi tập target product đã phân phối thỏa exact
+  query của view; nếu chưa đủ dữ liệu, projection vẫn ở draft.
+- Dry-run là mặc định. Contract test xác nhận dry-run không ghi, apply hai lần
+  không tạo category hoặc product relation trùng, và Ryno bị chặn.
 
 Công việc:
 
