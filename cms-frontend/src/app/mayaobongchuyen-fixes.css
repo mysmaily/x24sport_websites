@@ -82,6 +82,7 @@ body.tenant-mayaobongchuyen .mbc-desktop-navigation > .group:hover > div,
 body.tenant-mayaobongchuyen .mbc-desktop-navigation > .group:focus-within > div {
   opacity: 1;
   pointer-events: auto;
+  transition: none;
   translate: -50% 0;
 }
 
