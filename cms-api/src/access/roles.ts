@@ -26,6 +26,15 @@ export const authenticated: Access = ({ req }) => Boolean(req.user)
 
 export const publicRead: Access = () => true
 
+export const publishedOrAuthenticatedRead: Access = ({ req }) =>
+  req.user
+    ? true
+    : {
+        _status: {
+          equals: 'published',
+        },
+      }
+
 export const superAdminsOnly: Access = ({ req }) => isSuperAdmin(req.user as UserWithRole)
 
 export const distributionRead: Access = ({ req }) => {

@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { adminsOnly, publicRead } from '../access/roles'
 import { buildTenantIdentity } from '../util/tenantIdentity'
+import { validateCategoryHierarchy } from '../util/navigationValidation'
 
 export const ProductCategories: CollectionConfig = {
   slug: 'product-categories',
@@ -18,16 +19,26 @@ export const ProductCategories: CollectionConfig = {
   },
   hooks: {
     beforeValidate: [
-      ({ data, originalDoc }) => ({
-        ...data,
-        ...buildTenantIdentity({ data, originalDoc }),
-      }),
+      async ({ data, originalDoc, req }) => {
+        const nextData = {
+          ...data,
+          ...buildTenantIdentity({ data, originalDoc }),
+        }
+        await validateCategoryHierarchy({ data: nextData, originalDoc, req })
+        return nextData
+      },
     ],
   },
   fields: [
     { name: 'name', type: 'text', required: true },
     { name: 'slug', type: 'text', required: true, index: true },
     { name: 'tenantSlugKey', type: 'text', unique: true, admin: { hidden: true } },
+    {
+      name: 'taxonomy',
+      type: 'relationship',
+      relationTo: 'catalog-taxonomies',
+      admin: { description: 'Taxonomy chuẩn dùng để đồng bộ danh mục giữa các website.' },
+    },
     {
       name: 'parent',
       type: 'relationship',
@@ -49,6 +60,19 @@ export const ProductCategories: CollectionConfig = {
       ],
     },
     { name: 'description', type: 'textarea' },
+    { name: 'navigationLabel', type: 'text' },
+    { name: 'showInNavigation', type: 'checkbox', defaultValue: false },
+    { name: 'navigationOrder', type: 'number', defaultValue: 0 },
+    {
+      name: 'status',
+      type: 'select',
+      defaultValue: 'active',
+      options: [
+        { label: 'Đang dùng', value: 'active' },
+        { label: 'Ẩn', value: 'hidden' },
+        { label: 'Ngừng dùng', value: 'retired' },
+      ],
+    },
     { name: 'legacyPath', type: 'text', index: true },
     { name: 'tenantLegacyPathKey', type: 'text', unique: true, admin: { hidden: true } },
     { name: 'sourceSystem', type: 'text', admin: { hidden: true } },

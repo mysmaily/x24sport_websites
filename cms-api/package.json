@@ -17,6 +17,8 @@
     "setup:rynosport-tenant": "tsx scripts/setup-rynosport-tenant.ts",
     "backfill:x24-catalog-distributions": "tsx scripts/backfill-x24-catalog-distributions.ts",
     "test:tenant-identity": "tsx scripts/test-tenant-identity.ts",
+    "test:navigation-schema": "tsx scripts/test-navigation-schema.ts",
+    "test:navigation-migration": "tsx scripts/test-navigation-migration.ts",
     "test:media-sharing-access": "tsx scripts/test-media-sharing-access.ts"
   },
   "dependencies": {

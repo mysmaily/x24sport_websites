@@ -19,6 +19,11 @@ import { StoreSettings } from './collections/StoreSettings'
 import { Tenants } from './collections/Tenants'
 import { TenantPinterestConnections } from './collections/TenantPinterestConnections'
 import { CatalogDistributions } from './collections/CatalogDistributions'
+import { CatalogTaxonomies } from './collections/CatalogTaxonomies'
+import { CatalogViews } from './collections/CatalogViews'
+import { CategoryDistributions } from './collections/CategoryDistributions'
+import { NavigationItems } from './collections/NavigationItems'
+import { NavigationMenus } from './collections/NavigationMenus'
 import type { Config } from './payload-types'
 import { isSuperAdmin } from './access/roles'
 import { migrations } from './migrations'
@@ -69,6 +74,11 @@ export default buildConfig({
     Tenants,
     TenantPinterestConnections,
     CatalogDistributions,
+    CategoryDistributions,
+    CatalogTaxonomies,
+    CatalogViews,
+    NavigationMenus,
+    NavigationItems,
     Media,
     MigrationRuns,
     ProductCategories,
@@ -102,7 +112,10 @@ export default buildConfig({
           useBaseFilter: false,
           useTenantAccess: false,
         },
+        'catalog-views': {},
         'migration-runs': {},
+        'navigation-items': {},
+        'navigation-menus': {},
         pages: {},
         posts: {},
         'tenant-pinterest-connections': {},

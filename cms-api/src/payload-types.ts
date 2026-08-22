@@ -71,6 +71,11 @@ export interface Config {
     tenants: Tenant;
     'tenant-pinterest-connections': TenantPinterestConnection;
     'catalog-distributions': CatalogDistribution;
+    'category-distributions': CategoryDistribution;
+    'catalog-taxonomies': CatalogTaxonomy;
+    'catalog-views': CatalogView;
+    'navigation-menus': NavigationMenu;
+    'navigation-items': NavigationItem;
     media: Media;
     'migration-runs': MigrationRun;
     'product-categories': ProductCategory;
@@ -95,6 +100,11 @@ export interface Config {
     tenants: TenantsSelect<false> | TenantsSelect<true>;
     'tenant-pinterest-connections': TenantPinterestConnectionsSelect<false> | TenantPinterestConnectionsSelect<true>;
     'catalog-distributions': CatalogDistributionsSelect<false> | CatalogDistributionsSelect<true>;
+    'category-distributions': CategoryDistributionsSelect<false> | CategoryDistributionsSelect<true>;
+    'catalog-taxonomies': CatalogTaxonomiesSelect<false> | CatalogTaxonomiesSelect<true>;
+    'catalog-views': CatalogViewsSelect<false> | CatalogViewsSelect<true>;
+    'navigation-menus': NavigationMenusSelect<false> | NavigationMenusSelect<true>;
+    'navigation-items': NavigationItemsSelect<false> | NavigationItemsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'migration-runs': MigrationRunsSelect<false> | MigrationRunsSelect<true>;
     'product-categories': ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
@@ -365,6 +375,10 @@ export interface Product {
    */
   searchTags?:
     | {
+        /**
+         * Khóa exact-match chuẩn, ví dụ color.red.
+         */
+        key?: string | null;
         value: string;
         id?: string | null;
       }[]
@@ -439,11 +453,19 @@ export interface ProductCategory {
   slug: string;
   tenantSlugKey?: string | null;
   /**
+   * Taxonomy chuẩn dùng để đồng bộ danh mục giữa các website.
+   */
+  taxonomy?: (number | null) | CatalogTaxonomy;
+  /**
    * Danh mục cha trong cây phân loại của website.
    */
   parent?: (number | null) | ProductCategory;
   group: 'sport' | 'type' | 'collection' | 'audience' | 'color' | 'tag';
   description?: string | null;
+  navigationLabel?: string | null;
+  showInNavigation?: boolean | null;
+  navigationOrder?: number | null;
+  status?: ('active' | 'hidden' | 'retired') | null;
   legacyPath?: string | null;
   tenantLegacyPathKey?: string | null;
   sourceSystem?: string | null;
@@ -452,6 +474,32 @@ export interface ProductCategory {
   sourceChecksum?: string | null;
   productCount?: number | null;
   order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "catalog-taxonomies".
+ */
+export interface CatalogTaxonomy {
+  id: number;
+  /**
+   * Khóa ổn định toàn hệ thống, ví dụ sport.football hoặc color.red.
+   */
+  key: string;
+  name: string;
+  kind: 'sport' | 'category' | 'product_type' | 'audience' | 'color' | 'collection' | 'material' | 'fit' | 'tag';
+  /**
+   * Taxonomy cha, nếu đây là một nhánh con.
+   */
+  parent?: (number | null) | CatalogTaxonomy;
+  aliases?:
+    | {
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  status: 'active' | 'retired';
   updatedAt: string;
   createdAt: string;
 }
@@ -477,6 +525,10 @@ export interface Media {
    */
   searchTags?:
     | {
+        /**
+         * Khóa exact-match chuẩn, ví dụ color.red.
+         */
+        key?: string | null;
         value: string;
         id?: string | null;
       }[]
@@ -493,6 +545,198 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "category-distributions".
+ */
+export interface CategoryDistribution {
+  id: number;
+  distributionKey: string;
+  sourceTenant: number | Tenant;
+  targetTenant: number | Tenant;
+  sourceTenantLabel?: string | null;
+  targetTenantLabel?: string | null;
+  sourceKind: 'category' | 'catalog_view';
+  sourceCategory?: (number | null) | ProductCategory;
+  sourceCatalogView?: (number | null) | CatalogView;
+  targetCategory?: (number | null) | ProductCategory;
+  targetCatalogView?: (number | null) | CatalogView;
+  status: 'ready' | 'draft_created' | 'published' | 'needs_review' | 'blocked' | 'archived';
+  copyMode: 'auto' | 'manual_locked';
+  sourceFactFingerprint?: string | null;
+  targetCopyFingerprint?: string | null;
+  syncedAt?: string | null;
+  lastError?: string | null;
+  reviewNote?: string | null;
+  proposedCopy?: {
+    name?: string | null;
+    navigationLabel?: string | null;
+    path?: string | null;
+    navigationOrder?: number | null;
+    description?: string | null;
+    seoTitle?: string | null;
+    metaDescription?: string | null;
+    model?: string | null;
+    promptVersion?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "catalog-views".
+ */
+export interface CatalogView {
+  id: number;
+  tenant?: (number | null) | Tenant;
+  key: string;
+  tenantViewKey?: string | null;
+  path: string;
+  title: string;
+  heading: string;
+  description?: string | null;
+  /**
+   * Các taxonomy chuẩn mô tả landing này.
+   */
+  taxonomy?: (number | CatalogTaxonomy)[] | null;
+  /**
+   * Bộ lọc exact-match. Chỉ dùng stable key, không dùng contains trên nhãn tiếng Việt.
+   */
+  filters?: {
+    sportKey?: string | null;
+    categoryKeys?:
+      | {
+          key: string;
+          id?: string | null;
+        }[]
+      | null;
+    searchTagKeys?:
+      | {
+          key: string;
+          id?: string | null;
+        }[]
+      | null;
+    productTypeKeys?:
+      | {
+          key: string;
+          id?: string | null;
+        }[]
+      | null;
+    audienceKeys?:
+      | {
+          key: string;
+          id?: string | null;
+        }[]
+      | null;
+    colorKeys?:
+      | {
+          key: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  matchMode: 'all' | 'any';
+  indexPolicy: 'indexable' | 'noindex';
+  canonicalPath?: string | null;
+  includeInSitemap?: boolean | null;
+  enabled?: boolean | null;
+  /**
+   * Ý định phân phối; category-distributions là ledger thực thi.
+   */
+  distribution?: {
+    targetMasters?: (number | Tenant)[] | null;
+    navigationLabelOverride?: string | null;
+    navigationOrderOverride?: number | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation-menus".
+ */
+export interface NavigationMenu {
+  id: number;
+  tenant?: (number | null) | Tenant;
+  key: string;
+  location: 'header' | 'mobile' | 'footer' | 'contextual';
+  tenantMenuKey?: string | null;
+  status: 'draft' | 'ready' | 'published' | 'archived';
+  revision?: number | null;
+  manifestHash?: string | null;
+  lastValidatedAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation-items".
+ */
+export interface NavigationItem {
+  id: number;
+  tenant?: (number | null) | Tenant;
+  menu: number | NavigationMenu;
+  key: string;
+  tenantMenuItemKey?: string | null;
+  /**
+   * Tối đa ba cấp; parent phải cùng menu và cùng website.
+   */
+  parent?: (number | null) | NavigationItem;
+  order?: number | null;
+  enabled?: boolean | null;
+  label: string;
+  description?: string | null;
+  iconKey?: string | null;
+  featured?: boolean | null;
+  targetType: 'group' | 'category' | 'catalogView' | 'page' | 'customUrl';
+  targetCategory?: (number | null) | ProductCategory;
+  targetCatalogView?: (number | null) | CatalogView;
+  targetPage?: (number | null) | Page;
+  /**
+   * Chỉ path nội bộ, http, https, mailto, tel hoặc anchor.
+   */
+  customUrl?: string | null;
+  childrenSource: 'static' | 'category_query' | 'catalog_view_query';
+  categoryQuery?: {
+    group?: ('sport' | 'type' | 'collection' | 'audience' | 'color' | 'tag') | null;
+    taxonomyRoot?: (number | null) | CatalogTaxonomy;
+    minimumProductCount?: number | null;
+    sort?: ('navigation_order' | 'name_asc' | 'year_desc' | 'product_count_desc') | null;
+    limit?: number | null;
+  };
+  catalogViewQuery?: {
+    taxonomyRoot?: (number | null) | CatalogTaxonomy;
+    indexPolicy?: ('indexable' | 'noindex') | null;
+    sort?: ('title_asc' | 'updated_desc') | null;
+    limit?: number | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  tenant?: (number | null) | Tenant;
+  title: string;
+  slug: string;
+  heroTitle: string;
+  heroText: string;
+  sections?:
+    | {
+        heading: string;
+        body: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -526,27 +770,6 @@ export interface MigrationRun {
     | string
     | number
     | boolean
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: number;
-  tenant?: (number | null) | Tenant;
-  title: string;
-  slug: string;
-  heroTitle: string;
-  heroText: string;
-  sections?:
-    | {
-        heading: string;
-        body: string;
-        id?: string | null;
-      }[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -681,6 +904,10 @@ export interface StoreSetting {
         }[]
       | null;
   };
+  /**
+   * Giữ legacy cho tới khi menu CMS đã qua shadow diff và được duyệt cutover.
+   */
+  navigationMode?: ('legacy' | 'cms') | null;
   navigation?:
     | {
         label: string;
@@ -730,6 +957,26 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'catalog-distributions';
         value: number | CatalogDistribution;
+      } | null)
+    | ({
+        relationTo: 'category-distributions';
+        value: number | CategoryDistribution;
+      } | null)
+    | ({
+        relationTo: 'catalog-taxonomies';
+        value: number | CatalogTaxonomy;
+      } | null)
+    | ({
+        relationTo: 'catalog-views';
+        value: number | CatalogView;
+      } | null)
+    | ({
+        relationTo: 'navigation-menus';
+        value: number | NavigationMenu;
+      } | null)
+    | ({
+        relationTo: 'navigation-items';
+        value: number | NavigationItem;
       } | null)
     | ({
         relationTo: 'media';
@@ -927,6 +1174,187 @@ export interface CatalogDistributionsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "category-distributions_select".
+ */
+export interface CategoryDistributionsSelect<T extends boolean = true> {
+  distributionKey?: T;
+  sourceTenant?: T;
+  targetTenant?: T;
+  sourceTenantLabel?: T;
+  targetTenantLabel?: T;
+  sourceKind?: T;
+  sourceCategory?: T;
+  sourceCatalogView?: T;
+  targetCategory?: T;
+  targetCatalogView?: T;
+  status?: T;
+  copyMode?: T;
+  sourceFactFingerprint?: T;
+  targetCopyFingerprint?: T;
+  syncedAt?: T;
+  lastError?: T;
+  reviewNote?: T;
+  proposedCopy?:
+    | T
+    | {
+        name?: T;
+        navigationLabel?: T;
+        path?: T;
+        navigationOrder?: T;
+        description?: T;
+        seoTitle?: T;
+        metaDescription?: T;
+        model?: T;
+        promptVersion?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "catalog-taxonomies_select".
+ */
+export interface CatalogTaxonomiesSelect<T extends boolean = true> {
+  key?: T;
+  name?: T;
+  kind?: T;
+  parent?: T;
+  aliases?:
+    | T
+    | {
+        value?: T;
+        id?: T;
+      };
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "catalog-views_select".
+ */
+export interface CatalogViewsSelect<T extends boolean = true> {
+  tenant?: T;
+  key?: T;
+  tenantViewKey?: T;
+  path?: T;
+  title?: T;
+  heading?: T;
+  description?: T;
+  taxonomy?: T;
+  filters?:
+    | T
+    | {
+        sportKey?: T;
+        categoryKeys?:
+          | T
+          | {
+              key?: T;
+              id?: T;
+            };
+        searchTagKeys?:
+          | T
+          | {
+              key?: T;
+              id?: T;
+            };
+        productTypeKeys?:
+          | T
+          | {
+              key?: T;
+              id?: T;
+            };
+        audienceKeys?:
+          | T
+          | {
+              key?: T;
+              id?: T;
+            };
+        colorKeys?:
+          | T
+          | {
+              key?: T;
+              id?: T;
+            };
+      };
+  matchMode?: T;
+  indexPolicy?: T;
+  canonicalPath?: T;
+  includeInSitemap?: T;
+  enabled?: T;
+  distribution?:
+    | T
+    | {
+        targetMasters?: T;
+        navigationLabelOverride?: T;
+        navigationOrderOverride?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation-menus_select".
+ */
+export interface NavigationMenusSelect<T extends boolean = true> {
+  tenant?: T;
+  key?: T;
+  location?: T;
+  tenantMenuKey?: T;
+  status?: T;
+  revision?: T;
+  manifestHash?: T;
+  lastValidatedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation-items_select".
+ */
+export interface NavigationItemsSelect<T extends boolean = true> {
+  tenant?: T;
+  menu?: T;
+  key?: T;
+  tenantMenuItemKey?: T;
+  parent?: T;
+  order?: T;
+  enabled?: T;
+  label?: T;
+  description?: T;
+  iconKey?: T;
+  featured?: T;
+  targetType?: T;
+  targetCategory?: T;
+  targetCatalogView?: T;
+  targetPage?: T;
+  customUrl?: T;
+  childrenSource?: T;
+  categoryQuery?:
+    | T
+    | {
+        group?: T;
+        taxonomyRoot?: T;
+        minimumProductCount?: T;
+        sort?: T;
+        limit?: T;
+      };
+  catalogViewQuery?:
+    | T
+    | {
+        taxonomyRoot?: T;
+        indexPolicy?: T;
+        sort?: T;
+        limit?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
@@ -941,6 +1369,7 @@ export interface MediaSelect<T extends boolean = true> {
   searchTags?:
     | T
     | {
+        key?: T;
         value?: T;
         id?: T;
       };
@@ -985,9 +1414,14 @@ export interface ProductCategoriesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
   tenantSlugKey?: T;
+  taxonomy?: T;
   parent?: T;
   group?: T;
   description?: T;
+  navigationLabel?: T;
+  showInNavigation?: T;
+  navigationOrder?: T;
+  status?: T;
   legacyPath?: T;
   tenantLegacyPathKey?: T;
   sourceSystem?: T;
@@ -1046,6 +1480,7 @@ export interface ProductsSelect<T extends boolean = true> {
   searchTags?:
     | T
     | {
+        key?: T;
         value?: T;
         id?: T;
       };
@@ -1190,6 +1625,7 @@ export interface StoreSettingsSelect<T extends boolean = true> {
               id?: T;
             };
       };
+  navigationMode?: T;
   navigation?:
     | T
     | {

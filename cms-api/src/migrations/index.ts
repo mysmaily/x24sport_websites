@@ -17,6 +17,7 @@ import * as migration_20260814_023700_store_settings_contact_bar from './2026081
 import * as migration_20260816_010000_product_category_taxonomy_groups from './20260816_010000_product_category_taxonomy_groups';
 import * as migration_20260822_090000_catalog_distributions from './20260822_090000_catalog_distributions';
 import * as migration_20260822_100000_catalog_distribution_tenant_labels from './20260822_100000_catalog_distribution_tenant_labels';
+import * as migration_20260822_110000_navigation_unification_schema from './20260822_110000_navigation_unification_schema';
 
 export const migrations = [
   {
@@ -113,5 +114,10 @@ export const migrations = [
     up: migration_20260822_100000_catalog_distribution_tenant_labels.up,
     down: migration_20260822_100000_catalog_distribution_tenant_labels.down,
     name: '20260822_100000_catalog_distribution_tenant_labels'
+  },
+  {
+    up: migration_20260822_110000_navigation_unification_schema.up,
+    down: migration_20260822_110000_navigation_unification_schema.down,
+    name: '20260822_110000_navigation_unification_schema',
   },
 ];

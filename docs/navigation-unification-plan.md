@@ -10,18 +10,18 @@
 |---|---|
 | Ngày baseline | 2026-08-22, Asia/Ho_Chi_Minh |
 | Phạm vi | 11 tenant storefront đang hoạt động |
-| Phase hiện tại | Phase 0 — hoàn tất |
-| Production mutation trong Phase 0 | Không |
-| CMS/frontend/cache đã tác động | Không |
+| Phase hiện tại | Phase 1 — hoàn tất |
+| Production mutation trong Phase 1 | Chưa; schema đang chờ deploy theo runbook |
+| CMS/frontend/cache đã tác động | Chưa trong Phase 1 local |
 | Commit locator | `git log -1 --format=%H -- docs/navigation-unification-plan.md` |
-| Phase kế tiếp | Phase 1 — schema CMS và migration idempotent |
+| Phase kế tiếp | Phase 2 — projection category/catalog view lên website tổng |
 
 ### Checkpoint theo phase
 
 | Phase | Trạng thái | Kết quả bắt buộc | Commit dự kiến |
 |---|---|---|---|
 | 0. Baseline và hợp đồng dữ liệu | **Hoàn tất** | Inventory source, public crawl, route defects, kiến trúc đích, rollout contract | `docs: establish navigation unification baseline` |
-| 1. Schema CMS | Chưa bắt đầu | Taxonomy, catalog view, navigation menu/item, category distribution, feature flag | `feat(cms): add tenant navigation and catalog view schema` |
+| 1. Schema CMS | **Hoàn tất local** | Taxonomy, catalog view, navigation menu/item, category distribution, feature flag | `feat(cms): add tenant navigation and catalog view schema` |
 | 2. Projection lên website tổng | Chưa bắt đầu | Category/catalog-view projection idempotent tới X24Sport và PND Sport | `feat(cms): sync approved catalog projections to master tenants` |
 | 3. Frontend adapter | Chưa bắt đầu | View model chung, legacy fallback, shadow manifest | `refactor(frontend): add legacy-safe navigation adapter` |
 | 4. Backfill và cutover | Chưa bắt đầu | Draft backfill, shadow validation, chuyển từng tenant | Commit riêng theo tenant |
@@ -446,6 +446,25 @@ Nghiệm thu Phase 0: **đạt**. Các URL 404 là baseline defect đã biết v
 blocker của Phase 4, không làm mất tính hoàn tất của inventory.
 
 ### Phase 1 — Schema CMS và migration idempotent
+
+Trạng thái: **hoàn tất local, sẵn sàng deploy CMS**.
+
+Đã triển khai:
+
+- Thêm `catalog-taxonomies`, `catalog-views`, `navigation-menus`,
+  `navigation-items` và `category-distributions`; các collection tenant-owned đã
+  được thêm vào multi-tenant plugin, còn taxonomy/projection giữ quyền super
+  admin đúng hợp đồng.
+- Mở rộng category, product/media search tags và Store Settings theo hướng tương
+  thích ngược; mọi tenant vẫn mặc định `navigationMode=legacy`.
+- Thêm validation stable key, URL allowlist, target union, cùng-tenant,
+  depth/cycle và exact-match catalog query.
+- Migration `20260822_110000_navigation_unification_schema` có `up/down`, chỉ
+  chứa schema navigation mới; test database riêng đã chạy `up -> up -> down`
+  thành công và giữ nguyên bảng baseline.
+- `generate:types`, `generate:importmap`, TypeScript, CMS production build,
+  navigation schema test, tenant identity test và media sharing access test đều
+  đạt ngày 2026-08-22.
 
 Công việc:
 

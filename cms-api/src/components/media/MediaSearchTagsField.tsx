@@ -8,10 +8,12 @@ import styles from './MediaSearchTagsField.module.scss'
 
 type SearchTag = {
   id?: string | null
+  key?: unknown
   value?: unknown
 }
 
 type SearchTagValue = {
+  key?: string
   value: string
 }
 
@@ -40,6 +42,21 @@ const tagsToText = (value: unknown) => {
     .map((tag: SearchTag) => (typeof tag.value === 'string' ? tag.value.trim() : ''))
     .filter(Boolean)
     .join('\n')
+}
+
+const tagsToRows = (text: string, currentValue: unknown): SearchTagValue[] => {
+  const keysByValue = new Map<string, string>()
+  if (Array.isArray(currentValue)) {
+    currentValue.filter(isRecord).forEach((tag: SearchTag) => {
+      if (typeof tag.value !== 'string' || typeof tag.key !== 'string') return
+      keysByValue.set(tag.value.trim().toLocaleLowerCase('vi-VN'), tag.key)
+    })
+  }
+
+  return normalizeTags(text).map((tag) => {
+    const key = keysByValue.get(tag.toLocaleLowerCase('vi-VN'))
+    return key ? { key, value: tag } : { value: tag }
+  })
 }
 
 const formStateToText = (
@@ -76,7 +93,7 @@ export function MediaSearchTagsField({ path }: ArrayFieldClientProps) {
     if (hasEdited || !sourceTextValue) return
 
     setTextValue(sourceTextValue)
-    setValue(normalizeTags(sourceTextValue).map((tag) => ({ value: tag })), true)
+    setValue(tagsToRows(sourceTextValue, value), true)
   }, [hasEdited, setValue, sourceTextValue])
 
   useEffect(() => {
@@ -97,7 +114,7 @@ export function MediaSearchTagsField({ path }: ArrayFieldClientProps) {
         if (!nextTextValue) return
 
         setTextValue(nextTextValue)
-        setValue(normalizeTags(nextTextValue).map((tag) => ({ value: tag })), true)
+        setValue(tagsToRows(nextTextValue, doc.searchTags), true)
       })
       .catch((error: unknown) => {
         if (error instanceof DOMException && error.name === 'AbortError') return
@@ -120,7 +137,7 @@ export function MediaSearchTagsField({ path }: ArrayFieldClientProps) {
         id={`${path}-tag-composer`}
         onChange={(event) => {
           const nextTextValue = event.target.value
-          const nextTags = normalizeTags(nextTextValue).map((tag) => ({ value: tag }))
+          const nextTags = tagsToRows(nextTextValue, value)
           setHasEdited(true)
           setTextValue(nextTextValue)
           setValue(nextTags)

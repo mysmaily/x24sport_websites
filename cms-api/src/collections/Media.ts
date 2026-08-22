@@ -8,6 +8,7 @@ import {
   type UserWithRole,
 } from '../access/roles'
 import { resolveTenantUploadPrefix } from '../storage/r2'
+import { isStableKey } from '../util/navigationIdentity'
 import { buildTenantIdentity, relationID } from '../util/tenantIdentity'
 
 export const mediaRead: Access = ({ req }) => {
@@ -141,7 +142,17 @@ export const Media: CollectionConfig = {
         },
         description: 'Internal search helpers for tone, gradient, pose, and sport.',
       },
-      fields: [{ name: 'value', type: 'text', required: true }],
+      fields: [
+        {
+          name: 'key',
+          type: 'text',
+          index: true,
+          validate: (value: unknown) =>
+            !value || isStableKey(value) || 'Key phải là stable key chữ thường ASCII.',
+          admin: { description: 'Khóa exact-match chuẩn, ví dụ color.red.' },
+        },
+        { name: 'value', type: 'text', required: true },
+      ],
     },
     {
       name: 'mediaPreview',

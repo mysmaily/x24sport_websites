@@ -139,6 +139,18 @@ export const StoreSettings: CollectionConfig = {
       ],
     },
     {
+      name: 'navigationMode',
+      type: 'select',
+      defaultValue: 'legacy',
+      options: [
+        { label: 'Legacy (menu hiện tại)', value: 'legacy' },
+        { label: 'CMS (navigation mới)', value: 'cms' },
+      ],
+      admin: {
+        description: 'Giữ legacy cho tới khi menu CMS đã qua shadow diff và được duyệt cutover.',
+      },
+    },
+    {
       name: 'navigation',
       type: 'array',
       fields: [

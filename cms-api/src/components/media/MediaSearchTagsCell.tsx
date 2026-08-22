@@ -7,6 +7,7 @@ import styles from './MediaSearchTagsCell.module.scss'
 
 type SearchTag = {
   id?: string | null
+  key?: unknown
   value?: unknown
 }
 
@@ -37,6 +38,21 @@ const tagsToText = (value: unknown) => {
     .join(', ')
 }
 
+const tagsToRows = (text: string, currentValue: unknown) => {
+  const keysByValue = new Map<string, string>()
+  if (Array.isArray(currentValue)) {
+    currentValue.filter(isRecord).forEach((tag: SearchTag) => {
+      if (typeof tag.value !== 'string' || typeof tag.key !== 'string') return
+      keysByValue.set(tag.value.trim().toLocaleLowerCase('vi-VN'), tag.key)
+    })
+  }
+
+  return normalizeTags(text).map((tag) => {
+    const key = keysByValue.get(tag.toLocaleLowerCase('vi-VN'))
+    return key ? { key, value: tag } : { value: tag }
+  })
+}
+
 export function MediaSearchTagsCell({ cellData, rowData }: DefaultCellComponentProps) {
   const initialValue = useMemo(() => tagsToText(cellData), [cellData])
   const [value, setValue] = useState(initialValue)
@@ -54,7 +70,7 @@ export function MediaSearchTagsCell({ cellData, rowData }: DefaultCellComponentP
     setMessage('Đang lưu')
 
     try {
-      const tags = normalizeTags(value).map((tag) => ({ value: tag }))
+      const tags = tagsToRows(value, cellData)
       const response = await fetch(`/api/media/${encodeURIComponent(String(mediaID))}`, {
         body: JSON.stringify({ searchTags: tags }),
         credentials: 'same-origin',

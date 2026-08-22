@@ -2,6 +2,7 @@ import type { CollectionConfig, TextFieldValidation, Where } from 'payload'
 
 import { adminsOnly, publicRead } from '../access/roles'
 import { enrichProductDistributionSummary } from '../hooks/enrichProductDistributionSummary'
+import { isStableKey } from '../util/navigationIdentity'
 import { buildTenantIdentity, relationID } from '../util/tenantIdentity'
 
 type ProductValidationData = {
@@ -275,7 +276,17 @@ export const Products: CollectionConfig = {
                     description:
                       'Từ khóa nội bộ như màu sắc, chất liệu, môn thể thao, dáng áo.',
                   },
-                  fields: [{ name: 'value', type: 'text', required: true }],
+                  fields: [
+                    {
+                      name: 'key',
+                      type: 'text',
+                      index: true,
+                      validate: (value: unknown) =>
+                        !value || isStableKey(value) || 'Key phải là stable key chữ thường ASCII.',
+                      admin: { description: 'Khóa exact-match chuẩn, ví dụ color.red.' },
+                    },
+                    { name: 'value', type: 'text', required: true },
+                  ],
                 },
               ],
             },
