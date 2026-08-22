@@ -10,6 +10,7 @@ type Doc = Record<string, any>
 
 class FakePayload implements ProjectionPayload {
   collections: Record<string, Doc[]>
+  findByIDCalls: Doc[] = []
   sequence = 100
 
   constructor(collections: Record<string, Doc[]>) {
@@ -22,6 +23,7 @@ class FakePayload implements ProjectionPayload {
   }
 
   async findByID(args: Doc) {
+    this.findByIDCalls.push(structuredClone(args))
     const doc = (this.collections[args.collection] || []).find((item) => String(item.id) === String(args.id))
     if (!doc) throw new Error(`missing ${args.collection}:${args.id}`)
     return structuredClone(doc)
@@ -91,6 +93,7 @@ const payload = new FakePayload({
 const dryRun = await syncMasterCatalogProjections({ payload })
 assert.equal(dryRun.projectedCategories, 1)
 assert.equal(payload.collections['product-categories'].length, 1)
+assert.equal(payload.findByIDCalls.filter((call) => call.collection === 'products').length, 0)
 
 const firstApply = await syncMasterCatalogProjections({ apply: true, payload })
 assert.equal(firstApply.projectedCategories, 1)

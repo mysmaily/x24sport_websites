@@ -94,27 +94,38 @@ const publishedProductDistributions = async (
     ],
   })
 
+type ProductDistributionPair = { distribution: Doc; source: Doc; target: Doc }
+
+const hydrateProductDistributions = async (
+  payload: ProjectionPayload,
+  distributions: Doc[],
+): Promise<ProductDistributionPair[]> => {
+  const sourceIDs = Array.from(new Set(distributions.map((item) => relationID(item.sourceProduct)).filter((id): id is number | string => id !== undefined)))
+  const targetIDs = Array.from(new Set(distributions.map((item) => relationID(item.targetProduct)).filter((id): id is number | string => id !== undefined)))
+  const [sources, targets] = await Promise.all([
+    sourceIDs.length ? allDocs(payload, 'products', { id: { in: sourceIDs } }) : [],
+    targetIDs.length ? allDocs(payload, 'products', { id: { in: targetIDs } }) : [],
+  ])
+  const sourcesByID = new Map(sources.map((doc) => [String(doc.id), doc]))
+  const targetsByID = new Map(targets.map((doc) => [String(doc.id), doc]))
+  return distributions.flatMap((distribution) => {
+    const sourceID = relationID(distribution.sourceProduct)
+    const targetID = relationID(distribution.targetProduct)
+    const source = sourceID === undefined ? undefined : sourcesByID.get(String(sourceID))
+    const target = targetID === undefined ? undefined : targetsByID.get(String(targetID))
+    return source && target ? [{ distribution, source, target }] : []
+  })
+}
+
 const eligibleCategoryProducts = async ({
-  payload,
-  productDistributions,
+  productPairs,
   sourceCategoryID,
 }: {
-  payload: ProjectionPayload
-  productDistributions: Doc[]
+  productPairs: ProductDistributionPair[]
   sourceCategoryID: number | string
 }) => {
-  const eligible: Array<{ distribution: Doc; source: Doc; target: Doc }> = []
-  for (const distribution of productDistributions) {
-    const [source, target] = await Promise.all([
-      resolveDocument(payload, 'products', distribution.sourceProduct, 0),
-      resolveDocument(payload, 'products', distribution.targetProduct, 0),
-    ])
-    if (!source || !target) continue
-    if (!hasRelation(source.categories, sourceCategoryID)) continue
-    if (target.publicationStatus !== 'publish') continue
-    eligible.push({ distribution, source, target })
-  }
-  return eligible
+  return productPairs.filter(({ source, target }) =>
+    hasRelation(source.categories, sourceCategoryID) && target.publicationStatus === 'publish')
 }
 
 const findTargetCategory = async ({
@@ -221,14 +232,14 @@ async function syncCategory({
   apply,
   distribution,
   payload,
-  productDistributions,
+  productPairs,
   sourceTenant,
   targetTenant,
 }: {
   apply: boolean
   distribution: Doc
   payload: ProjectionPayload
-  productDistributions: Doc[]
+  productPairs: ProductDistributionPair[]
   sourceTenant: Doc
   targetTenant: Doc
 }) {
@@ -244,8 +255,7 @@ async function syncCategory({
     taxonomyID,
   })
   const eligible = await eligibleCategoryProducts({
-    payload,
-    productDistributions,
+    productPairs,
     sourceCategoryID: source.id,
   })
   const proposed = distribution.proposedCopy || {}
@@ -316,13 +326,13 @@ async function syncCatalogView({
   apply,
   distribution,
   payload,
-  productDistributions,
+  productPairs,
   targetTenant,
 }: {
   apply: boolean
   distribution: Doc
   payload: ProjectionPayload
-  productDistributions: Doc[]
+  productPairs: ProductDistributionPair[]
   targetTenant: Doc
 }) {
   const source = await resolveDocument(payload, 'catalog-views', distribution.sourceCatalogView, 0)
@@ -333,9 +343,7 @@ async function syncCatalogView({
     targetCatalogView: distribution.targetCatalogView,
     targetTenantID: targetTenant.id,
   })
-  const targetProductIDs = productDistributions
-    .map((item) => relationID(item.targetProduct))
-    .filter((id): id is number | string => id !== undefined)
+  const targetProductIDs = productPairs.map((item) => item.target.id)
   const viewWhere = buildCatalogViewProductWhere({
     filters: source.filters,
     matchMode: source.matchMode === 'any' ? 'any' : 'all',
@@ -436,6 +444,7 @@ export async function syncMasterCatalogProjections({
     skipped: 0,
     errors: [],
   }
+  const productPairCache = new Map<string, Promise<ProductDistributionPair[]>>()
 
   for (const distribution of distributions) {
     try {
@@ -452,17 +461,20 @@ export async function syncMasterCatalogProjections({
         throw new Error('Projection không được dùng cùng tenant nguồn và đích.')
       }
 
-      const productDistributions = await publishedProductDistributions(
-        payload,
-        sourceTenant.id,
-        targetTenant.id,
-      )
+      const pairKey = `${sourceTenant.id}:${targetTenant.id}`
+      let productPairs = productPairCache.get(pairKey)
+      if (!productPairs) {
+        productPairs = publishedProductDistributions(payload, sourceTenant.id, targetTenant.id)
+          .then((entries) => hydrateProductDistributions(payload, entries))
+        productPairCache.set(pairKey, productPairs)
+      }
+      const hydratedProductPairs = await productPairs
       if (distribution.sourceKind === 'category') {
         const result = await syncCategory({
           apply,
           distribution,
           payload,
-          productDistributions,
+          productPairs: hydratedProductPairs,
           sourceTenant,
           targetTenant,
         })
@@ -473,7 +485,7 @@ export async function syncMasterCatalogProjections({
           apply,
           distribution,
           payload,
-          productDistributions,
+          productPairs: hydratedProductPairs,
           targetTenant,
         })
         if (result.projected) summary.projectedCatalogViews += 1
