@@ -79,9 +79,10 @@ export function SiteHeader() {
   const catalogRoot = cmsRoots.find((item) => item.key === 'catalog')
   const typeGroup = catalogRoot?.children.find((item) => item.key === 'catalog-types')
   const colorGroup = catalogRoot?.children.find((item) => item.key === 'catalog-colors')
+  const normalizedHref = (href: string) => href === '/' ? href : href.replace(/\/$/, '')
   const mapFilters = (nodes: typeof navigationState.cmsNodes, fallback: CatalogFilter[]) => nodes
     .flatMap((item) => {
-      const existing = fallback.find((filter) => filter.href === item.href)
+      const existing = fallback.find((filter) => normalizedHref(filter.href) === normalizedHref(item.href || ''))
       return existing ? [{ ...existing, label: item.label }] : []
     })
   const typeFilters = typeGroup ? mapFilters(typeGroup.children, catalogTypeFilters) : catalogTypeFilters

@@ -33,6 +33,10 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState<'samples' | 'colors' | null>(null)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const sampleButton = useRef<HTMLButtonElement>(null)
+  const colorButton = useRef<HTMLButtonElement>(null)
+  const mobileButton = useRef<HTMLButtonElement>(null)
+  const suppressFocusOpen = useRef(false)
   const cmsRoots = navigationState.mode === 'cms' && navigationState.ready ? navigationState.cmsNodes : []
   const samplesRoot = cmsRoots.find((item) => item.key === 'samples')
   const colorsRoot = cmsRoots.find((item) => item.key === 'colors')
@@ -60,16 +64,31 @@ export function SiteHeader() {
     : legacyLinks
   const productActive = pathname === '/san-pham/' || pathname.startsWith('/mau-ao-chay-bo-duoc-xem-nhieu/') || sampleLinks.some((item) => pathname.startsWith(item.href)) || TYPE_LANDINGS.some((item) => pathname.startsWith(item.path))
   const colorActive = colorLandings.some((item) => pathname.startsWith(item.path))
-  const showMenu = (menu: 'samples' | 'colors') => { if (closeTimer.current) clearTimeout(closeTimer.current); setActiveMenu(menu) }
+  const showMenu = (menu: 'samples' | 'colors') => {
+    if (suppressFocusOpen.current) { suppressFocusOpen.current = false; return }
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setActiveMenu(menu)
+  }
   const hideMenuSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setActiveMenu(null), 120) }
   useEffect(() => { setOpen(false); setActiveMenu(null) }, [pathname])
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') { setOpen(false); setActiveMenu(null) }
+      if (event.key !== 'Escape') return
+      if (open) {
+        setOpen(false)
+        requestAnimationFrame(() => mobileButton.current?.focus())
+        return
+      }
+      if (activeMenu) {
+        const trigger = activeMenu === 'samples' ? sampleButton : colorButton
+        suppressFocusOpen.current = true
+        setActiveMenu(null)
+        requestAnimationFrame(() => trigger.current?.focus())
+      }
     }
     document.addEventListener('keydown', closeOnEscape)
     return () => document.removeEventListener('keydown', closeOnEscape)
-  }, [])
+  }, [activeMenu, open])
 
   return (
     <header className="mcb-site-header z-50 border-b border-white/10 bg-[#0b1220]/95 text-white backdrop-blur-xl">
@@ -90,6 +109,7 @@ export function SiteHeader() {
               aria-expanded={activeMenu === 'samples'}
               className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`}
               onClick={() => setActiveMenu((value) => value === 'samples' ? null : 'samples')}
+              ref={sampleButton}
               type="button"
             >
               Mẫu áo <ChevronDown className={`transition-transform duration-200 ${activeMenu === 'samples' ? 'rotate-180' : ''}`} size={16} />
@@ -108,6 +128,7 @@ export function SiteHeader() {
               aria-expanded={activeMenu === 'colors'}
               className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${colorActive ? 'text-brand' : ''}`}
               onClick={() => setActiveMenu((value) => value === 'colors' ? null : 'colors')}
+              ref={colorButton}
               type="button"
             >
               Màu áo <ChevronDown className={`transition-transform duration-200 ${activeMenu === 'colors' ? 'rotate-180' : ''}`} size={16} />
@@ -125,7 +146,7 @@ export function SiteHeader() {
         </div>
         <div className="mcb-mobile-actions flex items-center justify-end gap-2 lg:hidden">
           <SearchDialog iconSize={18} triggerClassName="size-11 rounded-lg border border-white/20" />
-          <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setOpen(!open)} type="button">{open ? <X /> : <Menu />}</button>
+          <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setOpen(!open)} ref={mobileButton} type="button">{open ? <X /> : <Menu />}</button>
         </div>
       </div>
       <div

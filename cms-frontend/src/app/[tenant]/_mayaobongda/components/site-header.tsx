@@ -75,6 +75,9 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
   const [productsOpen, setProductsOpen] = useState(false)
   const [mobileSection, setMobileSection] = useState<MobileSection>('types')
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const productButton = useRef<HTMLButtonElement>(null)
+  const mobileButton = useRef<HTMLButtonElement>(null)
+  const suppressFocusOpen = useRef(false)
   const cmsRoots = navigationState.mode === 'cms' && navigationState.ready ? navigationState.cmsNodes : []
   const categoryBySlug = new Map(categories.map((category) => [category.slug, category]))
   const collections = categories
@@ -142,18 +145,32 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
   const featuredLabel = featuredNode?.label || (featuredCollection ? `Mẫu thiết kế ${collectionYear(featuredCollection)}` : '')
   const menuPaths = [...typeItems, ...collectionItems, ...audienceItems]
   const productActive = menuPaths.some((item) => pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)))
-  const showProducts = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setProductsOpen(true) }
+  const showProducts = () => {
+    if (suppressFocusOpen.current) { suppressFocusOpen.current = false; return }
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setProductsOpen(true)
+  }
   const hideProductsSoon = () => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setProductsOpen(false), 120) }
   const toggleMobileSection = (section: Exclude<MobileSection, null>) => setMobileSection((current) => current === section ? null : section)
 
   useEffect(() => { setOpen(false); setProductsOpen(false) }, [pathname])
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') { setOpen(false); setProductsOpen(false) }
+      if (event.key !== 'Escape') return
+      if (open) {
+        setOpen(false)
+        requestAnimationFrame(() => mobileButton.current?.focus())
+        return
+      }
+      if (productsOpen) {
+        suppressFocusOpen.current = true
+        setProductsOpen(false)
+        requestAnimationFrame(() => productButton.current?.focus())
+      }
     }
     document.addEventListener('keydown', closeOnEscape)
     return () => document.removeEventListener('keydown', closeOnEscape)
-  }, [])
+  }, [open, productsOpen])
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1220]/95 text-white backdrop-blur-xl">
@@ -163,7 +180,7 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
         </Link>
         <nav aria-label="Điều hướng chính" className="mabd-desktop-nav hidden items-center justify-center gap-4 text-sm font-extrabold text-slate-300">
           <div className="relative" onBlur={hideProductsSoon} onFocus={showProducts} onMouseEnter={showProducts} onMouseLeave={hideProductsSoon}>
-            <button aria-controls="product-mega-menu" aria-expanded={productsOpen} className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`} onClick={showProducts} type="button">
+            <button aria-controls="product-mega-menu" aria-expanded={productsOpen} className={`relative flex min-h-12 cursor-pointer items-center gap-1.5 py-6 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${productActive ? 'text-brand' : ''}`} onClick={showProducts} ref={productButton} type="button">
               Sản phẩm <ChevronDown aria-hidden="true" className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} size={16} />
               {productActive ? <span className="absolute inset-x-0 bottom-0 h-0.5 bg-brand" /> : null}
             </button>
@@ -180,7 +197,7 @@ export function SiteHeader({ categories }: { categories: ProductCategory[] }) {
         </div>
         <div className="mabd-mobile-actions flex items-center justify-end gap-2">
           <SearchDialog iconSize={18} triggerClassName="size-11 rounded-lg border border-white/20" />
-          <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setOpen(!open)} type="button">{open ? <X /> : <Menu />}</button>
+          <button aria-controls="mobile-navigation" aria-expanded={open} aria-label={open ? 'Đóng menu' : 'Mở menu'} className="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/20" onClick={() => setOpen(!open)} ref={mobileButton} type="button">{open ? <X /> : <Menu />}</button>
         </div>
       </div>
 

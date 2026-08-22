@@ -35,12 +35,16 @@ export async function SiteHeader() {
   const [cmsMenu, navigationState] = await Promise.all([getCategoryNavigation(), getTenantNavigationState()])
   const legacyMenu = cmsMenu.some((group) => group.children.length > 0) ? cmsMenu : categoryMenu
   const cmsActive = navigationState.mode === 'cms' && navigationState.ready
+  const cmsCategoryHref = (item: (typeof navigationState.cmsNodes)[number]) => {
+    const slug = item.key.startsWith('category-') ? item.key.slice('category-'.length) : ''
+    return slug ? `/danh-muc/${slug}/` : item.href || ''
+  }
   const navigationMenu = cmsActive
     ? navigationState.cmsNodes.filter((item) => item.kind === 'category').map((item) => ({
-        children: item.children.filter((child) => child.href).map((child) => ({ href: child.href!, label: child.label })),
-        href: item.href || '',
+        children: item.children.filter((child) => child.href).map((child) => ({ href: cmsCategoryHref(child), label: child.label })),
+        href: cmsCategoryHref(item),
         label: item.label,
-        slug: item.href?.split('/').filter(Boolean).at(-1) || item.key,
+        slug: item.key.startsWith('category-') ? item.key.slice('category-'.length) : item.key,
       }))
     : legacyMenu.map((item) => ({
         children: item.children.map((child) => ({ href: `/danh-muc/${child.slug}`, label: child.name })),
@@ -51,6 +55,9 @@ export async function SiteHeader() {
   const utilityLinks = cmsActive
     ? navigationState.cmsNodes.filter((item) => item.kind !== 'category' && item.href)
     : []
+  const desktopUtilityLinks = utilityLinks
+    .filter((item) => item.key !== 'process')
+    .map((item) => item.key === 'contact' ? { ...item, label: 'Liên hệ' } : item)
 
   return (
     <>
@@ -103,7 +110,7 @@ export async function SiteHeader() {
             </div>
             : <Link href={group.href} key={group.slug}>{group.label}</Link>
         ))}
-        {utilityLinks.length ? utilityLinks.map((item) => <Link href={item.href!} key={item.key}>{item.label}</Link>) : <><Link href="/blog/">Blog</Link><Link href="/lien-he/">Liên hệ</Link></>}
+        {desktopUtilityLinks.length ? desktopUtilityLinks.map((item) => <Link href={item.href!} key={item.key}>{item.label}</Link>) : <><Link href="/blog/">Blog</Link><Link href="/lien-he/">Liên hệ</Link></>}
       </StickyNavigation>
     </>
   )

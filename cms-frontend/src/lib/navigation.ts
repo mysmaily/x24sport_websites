@@ -328,18 +328,25 @@ export function diffNavigationManifests(legacy: NavigationNode[], cms: Navigatio
 export async function getTenantNavigationState(): Promise<NavigationState> {
   const tenantSlug = await getTenantSlug()
   try {
-    const mode = await getNavigationMode(tenantSlug)
+    const shadowTenants = new Set(
+      process.env.SITE_ENV === 'preview'
+        ? (process.env.NAVIGATION_SHADOW_TENANTS || '').split(',').map((item) => item.trim()).filter(Boolean)
+        : [],
+    )
+    const shadowPreview = shadowTenants.has(tenantSlug)
+    const mode = shadowPreview ? 'cms' : await getNavigationMode(tenantSlug)
+    const lifecycleStatus = shadowPreview ? 'ready' : 'published'
     const menuParams = new URLSearchParams({
       'where[tenant.slug][equals]': tenantSlug,
       'where[location][equals]': 'header',
-      'where[status][equals]': 'published',
+      'where[status][equals]': lifecycleStatus,
       depth: '1',
       limit: '2',
       sort: '-updatedAt',
     })
     const menus = await fetchList<NavigationMenuDocument>('navigation-menus', menuParams)
     const menu = menus.docs?.[0]
-    if (!menu || menu.status !== 'published' || menu._status !== 'published' || menus.docs?.length !== 1) {
+    if (!menu || menu.status !== lifecycleStatus || menu._status !== 'published' || menus.docs?.length !== 1) {
       return { cmsNodes: [], mode, ready: false, tenantSlug }
     }
 
