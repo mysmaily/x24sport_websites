@@ -10,11 +10,11 @@
 |---|---|
 | Ngày baseline | 2026-08-22, Asia/Ho_Chi_Minh |
 | Phạm vi | 11 tenant storefront đang hoạt động |
-| Phase hiện tại | Phase 3 — hoàn tất local |
-| Production mutation | Phase 1 schema đã migrate; Phase 2 chưa có ledger opt-in để mutate |
-| CMS/frontend/cache đã tác động | CMS image `sports-cms-cms-api:deploy-20260822015551`; frontend/cache chưa tác động |
-| Commit locator | `git log -1 --format=%H -- docs/navigation-unification-plan.md` |
-| Phase kế tiếp | Phase 4 — backfill, shadow diff và cutover theo tenant |
+| Phase hiện tại | **Phase 5 — hoàn tất production ngày 2026-08-22** |
+| Production mutation | 78 projection ledger đã apply; 10 header menu/199 item đã backfill; 10 tenant đủ điều kiện đã cutover `cms` |
+| CMS/frontend/cache đã tác động | CMS `sports-cms-cms-api:deploy-20260822034632`; frontend image `sha256:342cc7ed91d1d94d82f69c9bdcaf6182baf282dda403a91ade7311fb19ea5aaa`; đã chờ và kiểm tra sau cache window |
+| Commit locator | Schema `c44726d`; projection `6b026bf`; adapter `4f2c392`; production hardening `27863ae`, `2bea567`, `73ecf86`; manifest alignment `74fab46` |
+| Phase kế tiếp | Bảo trì; xử lý riêng 10 route hỏng của `mayaobongchuyen` trước khi thêm adapter/cutover tenant này |
 
 ### Checkpoint theo phase
 
@@ -22,10 +22,10 @@
 |---|---|---|---|
 | 0. Baseline và hợp đồng dữ liệu | **Hoàn tất** | Inventory source, public crawl, route defects, kiến trúc đích, rollout contract | `docs: establish navigation unification baseline` |
 | 1. Schema CMS | **Hoàn tất production** | Taxonomy, catalog view, navigation menu/item, category distribution, feature flag | `c44726d` |
-| 2. Projection lên website tổng | **Hoàn tất local** | Category/catalog-view projection idempotent tới X24Sport và PND Sport | `6b026bf` |
-| 3. Frontend adapter | **Hoàn tất local** | View model chung, legacy fallback, shadow manifest | `refactor(frontend): add legacy-safe navigation adapter` |
-| 4. Backfill và cutover | Chưa bắt đầu | Draft backfill, shadow validation, chuyển từng tenant | Commit riêng theo tenant |
-| 5. Tích hợp và vận hành | Chưa bắt đầu | Isolation, cache, responsive, crawl, rollback và runbook | `chore: complete tenant navigation unification` |
+| 2. Projection lên website tổng | **Hoàn tất production** | Category/catalog-view projection idempotent tới X24Sport và PND Sport | `6b026bf`, `94ee447`–`9bf208e` |
+| 3. Frontend adapter | **Hoàn tất production** | View model chung, legacy fallback, shadow manifest | `4f2c392`, `27863ae` |
+| 4. Backfill và cutover | **Hoàn tất cho 10/10 tenant đủ gate** | 10 menu published, shadow diff sạch, chuyển từng tenant; `mayaobongchuyen` giữ legacy theo contract | `74fab46`, `2bea567`, `73ecf86` |
+| 5. Tích hợp và vận hành | **Hoàn tất production** | Isolation, cache, responsive, crawl, rollback và runbook | checkpoint trong tài liệu này |
 
 Không đánh dấu một phase là hoàn tất chỉ vì đã viết code. Phase chỉ hoàn tất khi
 đạt toàn bộ nghiệm thu, cập nhật bảng trên và commit đúng phạm vi.
@@ -447,7 +447,7 @@ blocker của Phase 4, không làm mất tính hoàn tất của inventory.
 
 ### Phase 1 — Schema CMS và migration idempotent
 
-Trạng thái: **hoàn tất local, sẵn sàng deploy CMS**.
+Trạng thái: **hoàn tất production**.
 
 Đã triển khai:
 
@@ -490,7 +490,7 @@ Không đổi frontend source hoặc `navigationMode` trong Phase 1.
 
 ### Phase 2 — Projection category/catalog view tới website tổng
 
-Trạng thái: **hoàn tất local; production dry-run chờ worker image mới**.
+Trạng thái: **hoàn tất production**.
 
 Đã triển khai:
 
@@ -505,6 +505,10 @@ Trạng thái: **hoàn tất local; production dry-run chờ worker image mới*
   query của view; nếu chưa đủ dữ liệu, projection vẫn ở draft.
 - Dry-run là mặc định. Contract test xác nhận dry-run không ghi, apply hai lần
   không tạo category hoặc product relation trùng, và Ryno bị chặn.
+- Production apply cuối quét 78 ledger: 4 category, 74 catalog view, `blocked=0`,
+  `errors=[]`. Lần apply idempotency tiếp theo có `productLinksAdded=0`.
+- Production dry-run sau toàn bộ cutover ngày 2026-08-22 tiếp tục trả 78/4/74,
+  `blocked=0`, `skipped=0`, `errors=[]`; không có projection nào tới RynoSport.
 
 Công việc:
 
@@ -526,7 +530,7 @@ Nghiệm thu:
 
 ### Phase 3 — Adapter navigation chung
 
-Trạng thái: **hoàn tất local; chưa cutover tenant**.
+Trạng thái: **hoàn tất production**.
 
 Đã triển khai:
 
@@ -561,6 +565,22 @@ Nghiệm thu:
 
 ### Phase 4 — Backfill và cutover từng tenant
 
+Trạng thái: **hoàn tất cho toàn bộ 10 tenant có adapter và đạt quality gate**.
+
+Kết quả production:
+
+- 10 header menu ở trạng thái `published`, tổng 199 navigation item; mọi manifest
+  hash public khớp hash được frontend kiểm tra trước khi dùng CMS.
+- `rynosport`, `x24sport`, `pndsport`, `mayaodongphuc`, `dongphucx24`,
+  `mayaocaulong`, `mayaopickleball` và `mayaobongro` được cutover trước.
+- `mayaochaybo` được cutover lúc `2026-08-22T04:06:48.035Z`; chờ hết cache window,
+  shadow diff/crawl và browser audit đều đạt rồi mới xử lý tenant kế tiếp.
+- `mayaobongda` được cutover cuối cùng lúc `2026-08-22T04:11:00.038Z`; kiểm tra
+  lại sau cache window đạt toàn bộ gate.
+- `mayaobongchuyen` không có adapter/menu CMS và vẫn dùng fallback legacy. Đây là
+  ngoại lệ bắt buộc, không phải rollout thiếu: 10 link header của baseline vẫn
+  kết thúc ở 404 nên tenant này chưa đủ điều kiện cutover theo rollback contract.
+
 Thứ tự dựa trên baseline mới, thay cho thứ tự phỏng đoán ban đầu:
 
 1. `rynosport`: canary menu đơn giản, không có dynamic group.
@@ -585,13 +605,27 @@ Mỗi tenant phải có:
 
 ### Phase 5 — Tích hợp, production và theo dõi
 
-- Test category + catalog view + product distribution trên ít nhất ba satellite.
-- Test X24Sport và PND Sport projection, tắt/bật, manual lock và retry.
-- Test cache/revalidation và rollback `cms -> legacy`.
-- Crawl header/footer/mobile, sitemap, canonical, robots và breadcrumbs.
-- Kiểm tra 390x844, 1440x900 và breakpoint của từng renderer.
-- Deploy theo `PRODUCTION-DEPLOYMENT-RUNBOOK.md`; không sửa source trực tiếp qua SSH.
-- Theo dõi logs/HTTP sau cache window và cập nhật checkpoint cuối.
+Trạng thái: **hoàn tất production**.
+
+Bằng chứng nghiệm thu cuối ngày 2026-08-22:
+
+- `scripts/audit-navigation-shadow.py --crawl` xác nhận production CMS và forced
+  legacy khớp nhau trên cả 10 adapter: 10/45/178/9/15/42/44/13/49/44 header
+  controls theo thứ tự Ryno, X24, PND, May Áo Đồng Phục, Đồng Phục X24, cầu lông,
+  pickleball, bóng rổ, chạy bộ và bóng đá.
+- 184/184 URL header cùng origin kết thúc ở `2xx` sau redirect.
+- 11/11 homepage, canonical apex, `robots.txt` và `sitemap.xml` trả `200`.
+- Browser production tại `390x844` và `1440x900` xác nhận không horizontal
+  overflow. Hai tenant trọng yếu đều mở/đóng menu đúng, `Escape` trả focus về
+  trigger; Mayaochaybo chuyển `Mẫu áo -> Màu áo` đúng trạng thái và Mayaobongda
+  giữ đúng các URL collection 2024/2025/2026, type và audience.
+- Frontend `pnpm typecheck`/`pnpm build`, CMS typecheck/test/build và projection
+  contract đều đạt trước deploy. Frontend container đang `running/healthy`; CMS
+  container đang `running` trên image được ghi ở bảng trạng thái.
+- Rollback drill production trên canary RynoSport: chuyển `cms -> legacy` lúc
+  `2026-08-22T04:19:48.417Z`, xác nhận API, bật lại `cms` lúc
+  `2026-08-22T04:19:57.014Z`, chờ cache window và chạy lại shadow/crawl.
+- Không thay Ads, GTM, Consent, CTA, DNS, SSL hoặc tenant product ownership.
 
 ## Quality gates bắt buộc
 
@@ -628,6 +662,9 @@ pnpm build
 - Schema migration rollback theo migration `down` chỉ dùng khi đã xác nhận không
   làm mất dữ liệu cần giữ; ưu tiên tắt feature trước.
 - Runtime rollback: `navigationMode=cms -> legacy`, revalidate đúng tenant.
+- Lệnh runtime đã được thực hành trên canary production:
+  `pnpm backfill:tenant-navigation --legacy=<tenant-slug> --apply`, chạy trong
+  container CMS theo production runbook; chờ cache window rồi crawl lại tenant.
 - Projection rollback: chuyển ledger sang `archived/blocked`, không xóa lịch sử và
   không xóa target product/category nếu vẫn được tham chiếu.
 - Không xóa legacy menu source cho tới khi tenant đã qua ít nhất một vòng kiểm tra
@@ -638,14 +675,15 @@ pnpm build
 
 | Rủi ro | Bằng chứng baseline | Mitigation | Trạng thái |
 |---|---|---|---|
-| Link menu hỏng | 10 URL Mayaobongchuyen, 1 URL Mayaobongro final 404 | Fix route/redirect trước Phase 4 | Open |
+| Link menu hỏng | 10 URL Mayaobongchuyen final 404; Mayaobongro `/lien-he/` đã sửa | Giữ Mayaobongchuyen ở legacy/fallback; chỉ thêm adapter sau khi 10/10 URL đạt 2xx | Open có cô lập |
 | Store Settings cũ bị dùng nhầm | Nhiều tenant có navigation khác UI hoặc không dùng | Backfill từ rendered manifest + source, không seed mù | Controlled |
-| Tenant không có category CMS | Mayaocaulong, Mayaobongchuyen, DongphucX24 public = 0 | Tạo data draft trước adapter/cutover | Open |
-| Màu/type không nhất quán | Slug/tag khác nhau giữa football, pickleball, running, basketball | Canonical taxonomy + exact searchTag key | Open |
+| Tenant không có category CMS | Mayaobongchuyen vẫn chưa có data đủ gate; Mayaocaulong/DongphucX24 đã backfill manifest phù hợp | Giữ Mayaobongchuyen ngoài rollout tới khi data/route hoàn chỉnh | Open có cô lập |
+| Màu/type không nhất quán | Slug/tag khác nhau giữa football, pickleball, running, basketball | Canonical taxonomy + exact searchTag key; shadow diff hiện bằng 0 | Controlled |
 | Category rỗng trên website tổng | Master có category `dong-phuc` productCount 0 | Gate bằng product distribution ledger | Controlled |
 | Trùng worker phân phối | Product ledger đã tồn tại với 2.072 record X24 | Tách `category-distributions`, chỉ tích hợp trạng thái | Controlled |
-| Ảnh hưởng Ads | Mayaochaybo và Mayaobongda đang chạy quảng cáo | Legacy mode, shadow diff, cutover nối tiếp | Controlled |
-| Cache làm rollback chậm | Revalidation 60–300 giây tùy tenant | Tenant tag revalidation khi đổi mode | Open trong Phase 3 |
+| Ảnh hưởng Ads | Mayaochaybo và Mayaobongda đang chạy quảng cáo | Đã cutover nối tiếp, chờ cache và audit từng tenant trước khi sang tenant sau | Closed cho rollout này |
+| Cache làm rollback chậm | Revalidation 60–300 giây tùy tenant | Đã kiểm tra sau cache window; giữ lệnh `--legacy` làm rollback runtime | Controlled |
+| Next.js data-cache cảnh báo ở product fetch | Audit tải nhiều homepage đồng thời ghi nhận `Failed to set Next.js data cache` cho một số response product; HTTP và navigation vẫn đạt | Theo dõi riêng dung lượng/handler cache của catalog; không phải lỗi navigation hoặc blocker cutover | Open ngoài phạm vi menu |
 
 ## Cách tiếp tục sau khi context bị rút gọn
 
