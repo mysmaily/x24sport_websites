@@ -48,6 +48,7 @@ const allDocs = async (
   collection: string,
   where: Doc,
   depth = 0,
+  select?: Doc,
 ) => {
   const docs: Doc[] = []
   let page = 1
@@ -59,6 +60,7 @@ const allDocs = async (
       limit: 1000,
       overrideAccess: true,
       page,
+      select,
       where,
     })
     docs.push(...result.docs)
@@ -91,7 +93,7 @@ const publishedProductDistributions = async (
       { targetTenant: { equals: targetTenantID } },
       { status: { equals: 'published' } },
     ],
-  })
+  }, 0, { sourceProduct: true, targetProduct: true })
 
 type ProductDistributionPair = { distribution: Doc; source: Doc; target: Doc }
 
@@ -102,8 +104,12 @@ const hydrateProductDistributions = async (
   const sourceIDs = Array.from(new Set(distributions.map((item) => relationID(item.sourceProduct)).filter((id): id is number | string => id !== undefined)))
   const targetIDs = Array.from(new Set(distributions.map((item) => relationID(item.targetProduct)).filter((id): id is number | string => id !== undefined)))
   const [sources, targets] = await Promise.all([
-    sourceIDs.length ? allDocs(payload, 'products', { id: { in: sourceIDs } }) : [],
-    targetIDs.length ? allDocs(payload, 'products', { id: { in: targetIDs } }) : [],
+    sourceIDs.length
+      ? allDocs(payload, 'products', { id: { in: sourceIDs } }, 0, { categories: true, publicationStatus: true })
+      : [],
+    targetIDs.length
+      ? allDocs(payload, 'products', { id: { in: targetIDs } }, 0, { categories: true, publicationStatus: true })
+      : [],
   ])
   const sourcesByID = new Map(sources.map((doc) => [String(doc.id), doc]))
   const targetsByID = new Map(targets.map((doc) => [String(doc.id), doc]))
@@ -125,7 +131,13 @@ const hydrateTargetProducts = async (
       .map((item) => relationID(item.targetProduct))
       .filter((id): id is number | string => id !== undefined),
   ))
-  return targetIDs.length ? allDocs(payload, 'products', { id: { in: targetIDs } }, 2) : []
+  return targetIDs.length
+    ? allDocs(payload, 'products', { id: { in: targetIDs } }, 2, {
+        categories: true,
+        publicationStatus: true,
+        searchTags: true,
+      })
+    : []
 }
 
 const rowKeys = (rows: unknown) => new Set(
