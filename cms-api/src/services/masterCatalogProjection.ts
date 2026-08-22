@@ -57,7 +57,7 @@ const allDocs = async (
     const result = await payload.find({
       collection,
       depth,
-      limit: 100,
+      limit: 1000,
       overrideAccess: true,
       page,
       where,
@@ -342,13 +342,13 @@ async function syncCatalogView({
   apply,
   distribution,
   payload,
-  productPairs,
+  productDistributions,
   targetTenant,
 }: {
   apply: boolean
   distribution: Doc
   payload: ProjectionPayload
-  productPairs: ProductDistributionPair[]
+  productDistributions: Doc[]
   targetTenant: Doc
 }) {
   const source = await resolveDocument(payload, 'catalog-views', distribution.sourceCatalogView, 0)
@@ -359,7 +359,11 @@ async function syncCatalogView({
     targetCatalogView: distribution.targetCatalogView,
     targetTenantID: targetTenant.id,
   })
-  const targetProductIDs = Array.from(new Set(productPairs.map((item) => item.target.id)))
+  const targetProductIDs = Array.from(new Set(
+    productDistributions
+      .map((item) => relationID(item.targetProduct))
+      .filter((id): id is number | string => id !== undefined),
+  ))
   const viewWhere = buildCatalogViewProductWhere({
     filters: source.filters,
     matchMode: source.matchMode === 'any' ? 'any' : 'all',
@@ -460,6 +464,7 @@ export async function syncMasterCatalogProjections({
     skipped: 0,
     errors: [],
   }
+  const productDistributionCache = new Map<string, Promise<Doc[]>>()
   const productPairCache = new Map<string, Promise<ProductDistributionPair[]>>()
 
   for (const distribution of distributions) {
@@ -478,19 +483,23 @@ export async function syncMasterCatalogProjections({
       }
 
       const pairKey = `${sourceTenant.id}:${targetTenant.id}`
-      let productPairs = productPairCache.get(pairKey)
-      if (!productPairs) {
-        productPairs = publishedProductDistributions(payload, sourceTenant.id, targetTenant.id)
-          .then((entries) => hydrateProductDistributions(payload, entries))
-        productPairCache.set(pairKey, productPairs)
+      let productDistributions = productDistributionCache.get(pairKey)
+      if (!productDistributions) {
+        productDistributions = publishedProductDistributions(payload, sourceTenant.id, targetTenant.id)
+        productDistributionCache.set(pairKey, productDistributions)
       }
-      const hydratedProductPairs = await productPairs
+      const publishedDistributions = await productDistributions
       if (distribution.sourceKind === 'category') {
+        let productPairs = productPairCache.get(pairKey)
+        if (!productPairs) {
+          productPairs = hydrateProductDistributions(payload, publishedDistributions)
+          productPairCache.set(pairKey, productPairs)
+        }
         const result = await syncCategory({
           apply,
           distribution,
           payload,
-          productPairs: hydratedProductPairs,
+          productPairs: await productPairs,
           sourceTenant,
           targetTenant,
         })
@@ -501,7 +510,7 @@ export async function syncMasterCatalogProjections({
           apply,
           distribution,
           payload,
-          productPairs: hydratedProductPairs,
+          productDistributions: publishedDistributions,
           targetTenant,
         })
         if (result.projected) summary.projectedCatalogViews += 1
