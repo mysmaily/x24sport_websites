@@ -57,20 +57,20 @@ unrecognized runtime file.
 
 | Target | SSH host | Remote source | Container | Published origin |
 |---|---|---|---|---|
-| `x24sport.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| `rynosport.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| `mayaocaulong.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| `mayaopickleball.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| `mayaobongchuyen.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| `mayaobongro.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| `mayaochaybo.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| `mayaobongda.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| `mayaodongphuc.com.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| `dongphucx24.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| `pndsport.vn` | `root@10.10.0.58` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.58:3010` |
-| Shared `cms-api` | `root@10.10.0.28` | `/opt/sports-cms/cms-api` | `sports-cms-cms-api-1` | `10.10.0.28:3001` |
+| `x24sport.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| `rynosport.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| `mayaocaulong.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| `mayaopickleball.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| `mayaobongchuyen.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| `mayaobongro.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| `mayaochaybo.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| `mayaobongda.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| `mayaodongphuc.com.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| `dongphucx24.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| `pndsport.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| Shared `cms-api` | `root@10.10.0.53` | `/opt/sports-cms/cms-api` | `sports-cms-cms-api-1` | `10.10.0.53:3001` |
 
-## Compose frontends on 10.10.0.58
+## Compose frontends on 10.10.0.53
 
 ### Shared cms-frontend tenants
 
@@ -91,16 +91,16 @@ This shared frontend currently serves:
 Synchronize `cms-frontend/` to `/root/websites/cms-frontend/`, then run only:
 
 ```bash
-ssh root@10.10.0.58 \
+ssh root@10.10.0.53 \
   'cd /root/websites/cms-frontend && docker compose -f compose.production.yml up -d --build web'
 ```
 
 Verify:
 
 ```bash
-ssh root@10.10.0.58 \
+ssh root@10.10.0.53 \
   'docker inspect -f "{{.State.Status}} {{.State.Health.Status}}" cms-frontend && docker logs --tail 120 cms-frontend'
-curl -fsSI http://10.10.0.58:3010/
+curl -fsSI http://10.10.0.53:3010/
 curl -fsSI https://x24sport.vn/
 curl -fsSI https://rynosport.vn/
 curl -fsSI https://mayaocaulong.vn/
@@ -128,7 +128,7 @@ Create the canonical source directory if needed, then use the standard rsync
 filter from this runbook:
 
 ```bash
-ssh root@10.10.0.28 'mkdir -p /opt/sports-cms/cms-api'
+ssh root@10.10.0.53 'mkdir -p /opt/sports-cms/cms-api'
 ```
 
 Run local checks first:
@@ -145,17 +145,17 @@ Build and migrate before replacing the container:
 
 ```bash
 DEPLOY_ID=$(date -u +%Y%m%d%H%M%S)
-ssh root@10.10.0.28 "docker build -t sports-cms-cms-api:deploy-${DEPLOY_ID} /opt/sports-cms/cms-api"
-ssh root@10.10.0.28 "docker run --rm --env-file /opt/sports-cms/.env --network host -v /opt/sports-cms/cms-api/tsconfig.json:/app/tsconfig.json:ro sports-cms-cms-api:deploy-${DEPLOY_ID} pnpm payload migrate"
-ssh root@10.10.0.28 "set -e; docker stop sports-cms-cms-api-1; docker container rm sports-cms-cms-api-1; docker run -d --name sports-cms-cms-api-1 --restart unless-stopped --env-file /opt/sports-cms/.env -p 3001:3001 sports-cms-cms-api:deploy-${DEPLOY_ID}"
+ssh root@10.10.0.53 "docker build -t sports-cms-cms-api:deploy-${DEPLOY_ID} /opt/sports-cms/cms-api"
+ssh root@10.10.0.53 "docker run --rm --env-file /opt/sports-cms/.env --network host -v /opt/sports-cms/cms-api/tsconfig.json:/app/tsconfig.json:ro sports-cms-cms-api:deploy-${DEPLOY_ID} pnpm payload migrate"
+ssh root@10.10.0.53 "set -e; docker stop sports-cms-cms-api-1; docker container rm sports-cms-cms-api-1; docker run -d --name sports-cms-cms-api-1 --restart unless-stopped --env-file /opt/sports-cms/.env -p 3001:3001 sports-cms-cms-api:deploy-${DEPLOY_ID}"
 ```
 
 Verify:
 
 ```bash
-curl -fsSI http://10.10.0.28:3001/admin/login
+curl -fsSI http://10.10.0.53:3001/admin/login
 curl -fsSI https://cms.x24sport.vn/admin/login
-ssh root@10.10.0.28 'docker inspect -f "{{.State.Status}}" sports-cms-cms-api-1 && docker logs --tail 120 sports-cms-cms-api-1'
+ssh root@10.10.0.53 'docker inspect -f "{{.State.Status}}" sports-cms-cms-api-1 && docker logs --tail 120 sports-cms-cms-api-1'
 ```
 
 For shared changes, also verify authentication and tenant isolation with scoped

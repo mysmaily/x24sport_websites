@@ -12,8 +12,8 @@ Shared runtime:
 
 | Component | Local source | Production |
 |---|---|---|
-| Public storefront | `cms-frontend/` | `root@10.10.0.58:/root/websites/cms-frontend`, container `cms-frontend`, port `3010` |
-| CMS/API/admin | `cms-api/` | `root@10.10.0.28:/opt/sports-cms/cms-api`, container `sports-cms-cms-api-1`, port `3001` |
+| Public storefront | `cms-frontend/` | `root@10.10.0.53:/root/websites/cms-frontend`, container `cms-frontend`, port `3010` |
+| CMS/API/admin | `cms-api/` | `root@10.10.0.53:/opt/sports-cms/cms-api`, container `sports-cms-cms-api-1`, port `3001` |
 | Payload database | tenant records and content | PostgreSQL `sports_cms` on `10.10.0.17` |
 | Public proxy | per-domain Nginx vhost | `root@10.10.0.56:/etc/nginx/conf.d/<domain>.conf` |
 | Public CMS | — | `https://cms.x24sport.vn` |
@@ -31,7 +31,7 @@ resolvable when it has:
 2. at least one `domains.domain` entry;
 3. brand name/headline/subheadline values;
 4. Store Settings and published content appropriate for the storefront;
-5. DNS/Nginx routing to `10.10.0.58:3010` for each public domain.
+5. DNS/Nginx routing to `10.10.0.53:3010` for each public domain.
 
 `cms-frontend/src/lib/tenant-registry.ts` resolves the request host against
 Payload. Current production tenants have a small static fallback only so their
@@ -170,7 +170,7 @@ of the production runbook. Normal content edits never rebuild CMS.
 2. Create tenant Store Settings, a dedicated `tenant_admin` REST account and
    `/root/sports-cms/<slug>-rest-api.env` with mode `0600`.
 3. Create `<domain>/AGENTS.md` and `<domain>/CLAUDE.md` from this contract.
-4. Add DNS and a version-controlled Nginx vhost routing to `10.10.0.58:3010`.
+4. Add DNS and a version-controlled Nginx vhost routing to `10.10.0.53:3010`.
 5. Generic storefront routes require no frontend registry edit. Add a
    slug-specific override only when the tenant needs its own visual/route system.
 6. Verify homepage, catalog, product, sitemap, robots, canonical domain, media,

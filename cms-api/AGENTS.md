@@ -11,11 +11,11 @@
 
 - Runtime: Payload CMS 3 + Next.js.
 - Database: PostgreSQL on private host `10.10.0.17`.
-- Docker application host: `10.10.0.28`.
+- Docker application host: `10.10.0.53`.
 - Deployed path: `/opt/sports-cms/cms-api`.
 - Compose project path: `/opt/sports-cms`.
 - Container service: `cms-api`.
-- Internal CMS origin: `http://10.10.0.28:3001`.
+- Internal CMS origin: `http://10.10.0.53:3001`.
 - Public admin URL: `https://cms.x24sport.vn/admin/login`.
 - Public media URL base: `https://static.x24sport.vn`.
 
@@ -26,7 +26,7 @@ ask for the private proxy address before changing Nginx.
 ## SSH And Runtime Access
 
 ```bash
-ssh root@10.10.0.28
+ssh root@10.10.0.53
 docker inspect sports-cms-cms-api-1
 docker logs --tail=120 sports-cms-cms-api-1
 ```
@@ -41,7 +41,7 @@ sudo -u postgres psql -d sports_cms
 Admin credentials are stored on the app host, not in this repository:
 
 ```bash
-ssh root@10.10.0.28 'cat /root/sports-cms/admin-credentials.txt'
+ssh root@10.10.0.53 'cat /root/sports-cms/admin-credentials.txt'
 ```
 
 Never paste passwords, API keys, R2 keys, or database secrets into chat,

@@ -7,7 +7,7 @@ RUN pnpm install --frozen-lockfile
 FROM node:24-alpine AS builder
 WORKDIR /app
 ARG SITE_ENV=production
-ARG PAYLOAD_API_URL=http://10.10.0.28:3001
+ARG PAYLOAD_API_URL=http://10.10.0.53:3001
 ENV SITE_ENV=$SITE_ENV
 ENV PAYLOAD_API_URL=$PAYLOAD_API_URL
 RUN corepack enable
@@ -20,7 +20,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3010
 ENV HOSTNAME=0.0.0.0
-ENV PAYLOAD_API_URL=http://10.10.0.28:3001
+ENV PAYLOAD_API_URL=http://10.10.0.53:3001
 RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
