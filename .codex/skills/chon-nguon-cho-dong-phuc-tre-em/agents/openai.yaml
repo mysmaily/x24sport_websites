@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chọn nguồn đồng phục trẻ em"
+  short_description: "Lọc mẫu nguồn phù hợp làm đồng phục trẻ em"
+  default_prompt: "Dùng $chon-nguon-cho-dong-phuc-tre-em để rà catalog nguồn, chấm điểm và chọn các mẫu phù hợp làm đồng phục trẻ em theo từng lô 5 sản phẩm."
