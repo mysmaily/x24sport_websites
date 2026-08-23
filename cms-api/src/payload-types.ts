@@ -68,6 +68,7 @@ export interface Config {
   blocks: {};
   collections: {
     users: User;
+    customers: Customer;
     tenants: Tenant;
     'tenant-pinterest-connections': TenantPinterestConnection;
     'catalog-distributions': CatalogDistribution;
@@ -97,6 +98,7 @@ export interface Config {
   };
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
+    customers: CustomersSelect<false> | CustomersSelect<true>;
     tenants: TenantsSelect<false> | TenantsSelect<true>;
     'tenant-pinterest-connections': TenantPinterestConnectionsSelect<false> | TenantPinterestConnectionsSelect<true>;
     'catalog-distributions': CatalogDistributionsSelect<false> | CatalogDistributionsSelect<true>;
@@ -196,8 +198,10 @@ export interface Tenant {
   id: number;
   name: string;
   slug: string;
+  customer: number | Customer;
   domains: {
     domain: string;
+    domainKey?: string | null;
     id?: string | null;
   }[];
   brand: {
@@ -207,6 +211,18 @@ export interface Tenant {
     accentColor?: string | null;
     style?: ('flevo-inspired' | 'arenix-inspired') | null;
   };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "customers".
+ */
+export interface Customer {
+  id: number;
+  name: string;
+  slug: string;
+  status: 'active' | 'suspended';
   updatedAt: string;
   createdAt: string;
 }
@@ -947,6 +963,10 @@ export interface PayloadLockedDocument {
         value: number | User;
       } | null)
     | ({
+        relationTo: 'customers';
+        value: number | Customer;
+      } | null)
+    | ({
         relationTo: 'tenants';
         value: number | Tenant;
       } | null)
@@ -1087,15 +1107,28 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "customers_select".
+ */
+export interface CustomersSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tenants_select".
  */
 export interface TenantsSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  customer?: T;
   domains?:
     | T
     | {
         domain?: T;
+        domainKey?: T;
         id?: T;
       };
   brand?:

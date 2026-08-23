@@ -6,6 +6,13 @@ const tenantSlug = 'rynosport'
 
 async function run() {
   const payload = await getPayload({ config })
+  const customer =
+    (await payload.find({ collection: 'customers', limit: 1, where: { slug: { equals: 'x24sport' } }, overrideAccess: true })).docs[0] ||
+    (await payload.create({
+      collection: 'customers',
+      data: { name: 'X24Sport', slug: 'x24sport', status: 'active' },
+      overrideAccess: true,
+    }))
   const existing = await payload.find({
     collection: 'tenants',
     limit: 1,
@@ -15,6 +22,7 @@ async function run() {
   const data = {
     name: 'RynoSport',
     slug: tenantSlug,
+    customer: customer.id,
     domains: [{ domain: 'rynosport.vn' }, { domain: 'www.rynosport.vn' }],
     brand: {
       headline: 'RynoSport',

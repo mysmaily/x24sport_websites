@@ -2,6 +2,20 @@ import type { CollectionConfig } from 'payload'
 
 import { adminsOnly, publicRead, superAdminsOnly } from '../access/roles'
 
+export const normalizeTenantDomain = (value: unknown) => {
+  if (typeof value !== 'string') return ''
+
+  const withoutProtocol = value
+    .trim()
+    .toLowerCase()
+    .replace(/^[a-z][a-z0-9+.-]*:\/\//, '')
+    .replace(/^\/\//, '')
+
+  return withoutProtocol
+    .split(/[/?#]/)[0]
+    .replace(/\.$/, '')
+}
+
 export const Tenants: CollectionConfig = {
   slug: 'tenants',
   labels: {
@@ -22,10 +36,23 @@ export const Tenants: CollectionConfig = {
     { name: 'name', type: 'text', required: true },
     { name: 'slug', type: 'text', required: true, unique: true },
     {
+      name: 'customer',
+      type: 'relationship',
+      relationTo: 'customers',
+      required: true,
+      index: true,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'domains',
       type: 'array',
       required: true,
-      fields: [{ name: 'domain', type: 'text', required: true }],
+      fields: [
+        { name: 'domain', type: 'text', required: true },
+        { name: 'domainKey', type: 'text', unique: true, admin: { hidden: true } },
+      ],
     },
     {
       name: 'brand',
@@ -39,4 +66,30 @@ export const Tenants: CollectionConfig = {
       ],
     },
   ],
+  hooks: {
+    beforeValidate: [
+      ({ data }) => {
+        if (!data || !Array.isArray(data.domains)) return data
+
+        const seen = new Set<string>()
+        data.domains = data.domains.map((domainRow) => {
+          const domain = normalizeTenantDomain(domainRow?.domain)
+          if (!domain) return domainRow
+
+          if (seen.has(domain)) {
+            throw new Error(`Domain ${domain} bị nhập trùng trong cùng một website.`)
+          }
+          seen.add(domain)
+
+          return {
+            ...domainRow,
+            domain,
+            domainKey: domain,
+          }
+        })
+
+        return data
+      },
+    ],
+  },
 }

@@ -46,6 +46,13 @@ const slugify = (value: string) =>
 
 const run = async () => {
   const payload = await getPayload({ config })
+  const customer =
+    (await payload.find({ collection: 'customers', limit: 1, where: { slug: { equals: 'x24sport' } }, overrideAccess: true })).docs[0] ||
+    (await payload.create({
+      collection: 'customers',
+      data: { name: 'X24Sport', slug: 'x24sport', status: 'active' },
+      overrideAccess: true,
+    }))
   const tenantResult = await payload.find({
     collection: 'tenants',
     limit: 1,
@@ -57,6 +64,7 @@ const run = async () => {
     data: {
       name: 'X24Sport',
       slug: tenantSlug,
+      customer: customer.id,
       domains: [{ domain: 'x24sport.vn' }, { domain: 'next.x24sport.vn' }],
       brand: {
         headline: 'Trang phục cho mọi chuyển động',

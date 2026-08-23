@@ -77,6 +77,13 @@ const run = async () => {
   const payload = await getPayload({ config })
   const email = process.env.PAYLOAD_SEED_EMAIL || 'admin@hacadostore.local'
   const password = process.env.PAYLOAD_SEED_PASSWORD || 'change-this-password'
+  const customer =
+    (await payload.find({ collection: 'customers', limit: 1, where: { slug: { equals: 'x24sport' } }, overrideAccess: true })).docs[0] ||
+    (await payload.create({
+      collection: 'customers',
+      data: { name: 'X24Sport', slug: 'x24sport', status: 'active' },
+      overrideAccess: true,
+    }))
 
   const createdTenants = []
 
@@ -94,6 +101,7 @@ const run = async () => {
         data: {
           name: tenant.name,
           slug: tenant.slug,
+          customer: customer.id,
           domains: [{ domain: tenant.domain }],
           brand: {
             headline: tenant.headline,

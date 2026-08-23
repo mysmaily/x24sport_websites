@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
 import { Users } from './collections/Users'
+import { Customers } from './collections/Customers'
 import { WebContent } from './collections/WebContent'
 import { Media } from './collections/Media'
 import { MigrationRuns } from './collections/MigrationRuns'
@@ -71,6 +72,7 @@ export default buildConfig({
   },
   collections: [
     Users,
+    Customers,
     Tenants,
     TenantPinterestConnections,
     CatalogDistributions,
