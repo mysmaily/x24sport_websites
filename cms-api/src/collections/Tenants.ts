@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { adminsOnly, publicRead, superAdminsOnly } from '../access/roles'
+import { syncCustomerTenantUsersForTenantChange } from '../util/customerTenantAccess'
 
 export const normalizeTenantDomain = (value: unknown) => {
   if (typeof value !== 'string') return ''
@@ -67,6 +68,12 @@ export const Tenants: CollectionConfig = {
     },
   ],
   hooks: {
+    afterChange: [
+      async ({ doc, previousDoc, req }) => syncCustomerTenantUsersForTenantChange({ doc, previousDoc, req }),
+    ],
+    afterDelete: [
+      async ({ doc, req }) => syncCustomerTenantUsersForTenantChange({ doc, req }),
+    ],
     beforeValidate: [
       ({ data }) => {
         if (!data || !Array.isArray(data.domains)) return data

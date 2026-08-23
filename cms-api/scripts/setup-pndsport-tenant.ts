@@ -163,6 +163,12 @@ async function run() {
   if (apply && !secretFile) throw new Error('Apply mode requires --secret-file=<absolute path>.')
 
   const payload: any = await getPayload({ config })
+  const [existingCustomer] = await allDocs(payload, 'customers', { slug: { equals: 'x24sport' } }, 0)
+  const customer = existingCustomer || await payload.create({
+    collection: 'customers',
+    data: { name: 'X24Sport', slug: 'x24sport', status: 'active' },
+    overrideAccess: true,
+  })
   const [sourceTenant] = await allDocs(payload, 'tenants', { slug: { equals: SOURCE_SLUG } }, 0)
   if (!sourceTenant) throw new Error(`Source tenant ${SOURCE_SLUG} was not found.`)
 
@@ -204,6 +210,7 @@ async function run() {
   const tenantData = {
     name: 'PND Sport Việt Nam',
     slug: TARGET_SLUG,
+    customer: customer.id,
     domains: [{ domain: 'pndsport.vn' }, { domain: 'www.pndsport.vn' }],
     brand: {
       headline: 'Trang phục thể thao mang bản sắc riêng',
@@ -320,6 +327,8 @@ async function run() {
     email: SERVICE_EMAIL,
     name: 'PND Sport REST',
     role: 'tenant_admin' as const,
+    customer: customer.id,
+    tenantAccessMode: 'assigned_tenants' as const,
     tenants: [{ tenant: targetTenant.id }],
     enableAPIKey: true,
     apiKey,

@@ -27,6 +27,12 @@ async function run() {
   const configPath = pathToFileURL(path.resolve(process.cwd(), 'src/payload.config.ts')).href
   const { default: config } = await import(configPath)
   const payload: any = await getPayload({ config })
+  const [existingCustomer] = await allDocs(payload, 'customers', { slug: { equals: 'x24sport' } })
+  const customer = existingCustomer || await payload.create({
+    collection: 'customers',
+    data: { name: 'X24Sport', slug: 'x24sport', status: 'active' },
+    overrideAccess: true,
+  })
   const [existingTenant] = await allDocs(payload, 'tenants', { slug: { equals: TARGET_SLUG } })
   const [existingUser] = await allDocs(payload, 'users', { email: { equals: SERVICE_EMAIL } })
   const existingSettings = existingTenant
@@ -47,6 +53,7 @@ async function run() {
   const tenantData = {
     name: 'May Áo Đồng Phục',
     slug: TARGET_SLUG,
+    customer: customer.id,
     domains: [{ domain: 'mayaodongphuc.com.vn' }, { domain: 'www.mayaodongphuc.com.vn' }],
     brand: {
       headline: 'Đồng phục được cấu hình đúng',
@@ -85,6 +92,8 @@ async function run() {
     email: SERVICE_EMAIL,
     name: 'May Áo Đồng Phục REST',
     role: 'tenant_admin' as const,
+    customer: customer.id,
+    tenantAccessMode: 'assigned_tenants' as const,
     tenants: [{ tenant: tenant.id }],
     enableAPIKey: true,
     apiKey,

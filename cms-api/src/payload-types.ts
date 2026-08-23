@@ -162,6 +162,11 @@ export interface User {
   id: number;
   name?: string | null;
   role: 'super_admin' | 'tenant_admin' | 'editor';
+  customer?: (number | null) | Customer;
+  /**
+   * Chọn "Toàn bộ customer" cho tài khoản dashboard quản lý tất cả website của khách hàng.
+   */
+  tenantAccessMode: 'assigned_tenants' | 'customer_tenants';
   tenants?:
     | {
         tenant: number | Tenant;
@@ -192,6 +197,18 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "customers".
+ */
+export interface Customer {
+  id: number;
+  name: string;
+  slug: string;
+  status: 'active' | 'suspended';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tenants".
  */
 export interface Tenant {
@@ -211,18 +228,6 @@ export interface Tenant {
     accentColor?: string | null;
     style?: ('flevo-inspired' | 'arenix-inspired') | null;
   };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "customers".
- */
-export interface Customer {
-  id: number;
-  name: string;
-  slug: string;
-  status: 'active' | 'suspended';
   updatedAt: string;
   createdAt: string;
 }
@@ -1079,6 +1084,8 @@ export interface PayloadMigration {
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
   role?: T;
+  customer?: T;
+  tenantAccessMode?: T;
   tenants?:
     | T
     | {

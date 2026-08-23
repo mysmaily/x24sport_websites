@@ -217,6 +217,7 @@ const run = async () => {
         password,
         name: 'Hacado Admin',
         role: 'super_admin',
+        tenantAccessMode: 'assigned_tenants',
         tenants: createdTenants.map((tenant) => ({ tenant: tenant.id })),
       },
     })

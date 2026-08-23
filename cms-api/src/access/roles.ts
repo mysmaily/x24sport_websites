@@ -1,10 +1,16 @@
 import type { Access, FieldAccess, Where } from 'payload'
 
+import { relationID } from '../util/tenantIdentity'
+
 type Role = 'super_admin' | 'tenant_admin' | 'editor'
+type CustomerRelation = number | string | { id?: number | string } | null | undefined
+type TenantAccessMode = 'assigned_tenants' | 'customer_tenants'
 
 export type UserWithRole = {
+  customer?: CustomerRelation
   id?: number | string
   role?: Role
+  tenantAccessMode?: TenantAccessMode | null
   tenants?: Array<{ tenant?: number | string | { id?: number | string } }> | null
 }
 
@@ -18,6 +24,8 @@ export const userTenantIDs = (user?: UserWithRole | null) =>
     .filter((id): id is number | string => id !== undefined && id !== null)
 
 export const isSuperAdmin = (user?: UserWithRole | null) => user?.role === 'super_admin'
+
+export const userCustomerID = (user?: UserWithRole | null) => relationID(user?.customer)
 
 export const isAdminRole = (user?: UserWithRole | null) =>
   user?.role === 'super_admin' || user?.role === 'tenant_admin'
@@ -36,6 +44,20 @@ export const publishedOrAuthenticatedRead: Access = ({ req }) =>
       }
 
 export const superAdminsOnly: Access = ({ req }) => isSuperAdmin(req.user as UserWithRole)
+
+export const customerRead: Access = ({ req }) => {
+  const user = req.user as UserWithRole | null
+  if (isSuperAdmin(user)) return true
+
+  const customerID = userCustomerID(user)
+  return customerID
+    ? {
+        id: {
+          equals: customerID,
+        },
+      }
+    : false
+}
 
 export const distributionRead: Access = ({ req }) => {
   const user = req.user as UserWithRole | null

@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-import { adminsOnly, superAdminsOnly } from '../access/roles'
+import { customerRead, superAdminsOnly } from '../access/roles'
 
 export const Customers: CollectionConfig = {
   slug: 'customers',
@@ -16,7 +16,7 @@ export const Customers: CollectionConfig = {
   access: {
     create: superAdminsOnly,
     delete: superAdminsOnly,
-    read: adminsOnly,
+    read: customerRead,
     update: superAdminsOnly,
   },
   fields: [

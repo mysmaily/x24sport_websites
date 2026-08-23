@@ -44,6 +44,12 @@ async function allDocs(payload: any, collection: any, where: Doc, depth = 0) {
 
 async function run() {
   const payload: any = await getPayload({ config })
+  const [existingCustomer] = await allDocs(payload, 'customers', { slug: { equals: 'x24sport' } })
+  const customer = existingCustomer || await payload.create({
+    collection: 'customers',
+    data: { name: 'X24Sport', slug: 'x24sport', status: 'active' },
+    overrideAccess: true,
+  })
   const [sourceTenant] = await allDocs(payload, 'tenants', { slug: { equals: sourceSlug } })
   if (!sourceTenant) throw new Error('Không tìm thấy tenant nguồn x24sport.')
 
@@ -51,6 +57,7 @@ async function run() {
   const tenantData = {
     name: 'RynoSport',
     slug: targetSlug,
+    customer: customer.id,
     domains: [{ domain: 'rynosport.vn' }, { domain: 'www.rynosport.vn' }],
     brand: {
       headline: 'RynoSport',
