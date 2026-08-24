@@ -50,19 +50,13 @@ const fileKey = ({
     filename,
   }).fileKey
 
-const storageFromDocument = (data: any): Pick<ResolvedCustomerR2Storage, 'bucket' | 'endpoint' | 'publicBaseUrl'> | null => {
-  const bucket = trim(data?.r2StorageBucket)
-  const endpoint = trim(data?.r2StorageEndpoint)
+const publicBaseURLFromDocument = (data: any) => {
   const publicBaseUrl = trim(data?.r2StoragePublicBaseUrl)
 
-  return bucket && endpoint && publicBaseUrl
-    ? {
-        bucket,
-        endpoint,
-        publicBaseUrl: publicBaseUrl.startsWith('http')
-          ? trimSlashes(publicBaseUrl)
-          : `https://${trimSlashes(publicBaseUrl)}`,
-      }
+  return publicBaseUrl
+    ? publicBaseUrl.startsWith('http')
+      ? trimSlashes(publicBaseUrl)
+      : `https://${trimSlashes(publicBaseUrl)}`
     : null
 }
 
@@ -70,11 +64,11 @@ export const createCustomerR2Adapter: Adapter =
   ({ collection, prefix: collectionPrefix = '' }): GeneratedAdapter => ({
     name: 'customer-r2',
     generateURL: ({ data, filename, prefix: docPrefix = '' }) => {
-      const storage = storageFromDocument(data)
-      if (!storage) return ''
+      const publicBaseUrl = publicBaseURLFromDocument(data)
+      if (!publicBaseUrl) return ''
 
       const key = fileKey({ collectionPrefix, docPrefix, filename })
-      return `${storage.publicBaseUrl}/${key}`
+      return `${publicBaseUrl}/${key}`
     },
     handleDelete: async ({ doc, filename, req }) => {
       const mediaDoc = doc as any
