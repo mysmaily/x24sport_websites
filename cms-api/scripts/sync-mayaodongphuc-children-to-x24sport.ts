@@ -105,15 +105,14 @@ function buildX24Copy(product: Doc) {
   const audience = audiences[index % audiences.length]
   const design = designAngles[index % designAngles.length]
   const planning = planningNotes[index % planningNotes.length]
-  const shortDescription = `${name} là mẫu ${garment} phối ${style}, phù hợp cho ${audience}. Mã mẫu: ${sku || 'đang cập nhật'}.`
-  const intro = `${name} là gợi ý thiết kế dành cho ${audience}. Mẫu tập trung vào phối màu ${style}, tạo cảm giác gần gũi và năng động cho trang phục của các em.`
-  const useCase = `Với form ${isPolo ? 'polo' : 'đồng phục'} quen thuộc, thiết kế này phù hợp để tham khảo khi cần xây dựng hình ảnh đồng bộ cho lớp, câu lạc bộ hoặc một chương trình dành cho trẻ em.`
+  const shortDescription = `Mẫu ${garment} phối ${style}, phù hợp cho ${audience}. Có thể điều chỉnh logo, màu nhận diện và thông tin tập thể theo nhu cầu. Mã mẫu: ${sku || 'đang cập nhật'}.`
+  const intro = `${name} sử dụng form ${isPolo ? 'polo' : 'đồng phục'} cùng mảng màu ${style}. Tổng thể hướng đến ${audience}, vừa tạo dấu ấn riêng vừa giữ vẻ gọn gàng cho trang phục của các em.`
+  const useCase = `Thiết kế phù hợp để xây dựng hình ảnh đồng bộ cho lớp, câu lạc bộ hoặc chương trình dành cho trẻ em; bố cục có thể điều chỉnh để phù hợp với nhận diện của từng đơn vị.`
   const consult = `${planning} X24Sport hỗ trợ trao đổi phương án phù hợp trước khi đặt may.`
-  const reference = `Mã ${sku || 'sản phẩm'} dùng để đối chiếu đúng mẫu khi cần tư vấn hoặc gửi yêu cầu thiết kế.`
-  const paragraphs = [intro, design, useCase, consult, reference]
+  const paragraphs = [intro, design, useCase, consult]
   const contentHtml = paragraphs.map((paragraph) => `<p>${escapeHTML(paragraph)}</p>`).join('\n')
   const seoTitle = `${name} | Mã ${sku || 'đồng phục trẻ em'}`.slice(0, 120)
-  const metaDescription = `${name} với phối màu ${style}, phù hợp cho ${audience}. Tham khảo thiết kế, logo và nhận diện theo nhu cầu. Mã ${sku || 'sản phẩm'}.`.slice(0, 300)
+  const metaDescription = `${name}, mã ${sku || 'sản phẩm'}. Mẫu ${garment} phù hợp cho ${audience}; có thể điều chỉnh logo và màu nhận diện theo nhu cầu.`.slice(0, 300)
 
   return { name, shortDescription, description: richText(paragraphs), contentHtml, seoTitle, metaDescription, reviewText: paragraphs.join('\n\n') }
 }
