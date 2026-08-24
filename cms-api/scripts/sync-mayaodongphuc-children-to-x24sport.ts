@@ -80,7 +80,7 @@ function styleName(product: Doc) {
 function buildX24Copy(product: Doc) {
   const sku = plainText(product.sku)
   const style = styleName(product)
-  const name = `Đồng phục trẻ em ${style} – X24Sport`
+  const name = `Đồng phục trẻ em ${style}`
   const shortDescription = `Mẫu đồng phục trẻ em ${style} trong danh mục X24Sport, dùng để tham khảo phương án phối màu và nhận diện cho trường, lớp hoặc câu lạc bộ thiếu nhi. Mã sản phẩm: ${sku || 'X24Sport'}.`
   const intro = `X24Sport giới thiệu ${name.toLowerCase()} như một gợi ý thiết kế cho nhu cầu đồng phục trẻ em. Mẫu giữ mã ${sku || 'sản phẩm X24Sport'} để thuận tiện đối chiếu khi trao đổi yêu cầu.`
   const design = `Điểm nhận diện của mẫu là cách phối ${style}; hình ảnh giúp đơn vị hình dung bố cục màu sắc và phong cách thể hiện trước khi phát triển phương án riêng.`
@@ -124,24 +124,6 @@ function targetCopyFingerprint(copy: ReturnType<typeof buildX24Copy>) {
     seoTitle: copy.seoTitle,
     metaDescription: copy.metaDescription,
   })
-}
-
-async function attachSharedGalleryByREST(productID: number | string, media: Array<number | string>) {
-  const apiURL = process.env.CMS_API_URL
-  const apiKey = process.env.X24_PAYLOAD_API_KEY
-  if (!apiURL || !apiKey) throw new Error('Thiếu CMS_API_URL hoặc X24_PAYLOAD_API_KEY để gắn gallery qua REST.')
-  const response = await fetch(`${apiURL.replace(/\/$/, '')}/api/products/${productID}`, {
-    method: 'PATCH',
-    headers: {
-      Authorization: `users API-Key ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ gallery: media }),
-  })
-  if (!response.ok) {
-    const detail = await response.text()
-    throw new Error(`REST không thể gắn gallery cho product ${productID}: HTTP ${response.status} ${detail.slice(0, 500)}`)
-  }
 }
 
 async function run() {
@@ -265,10 +247,7 @@ async function run() {
       badges: cloneValue(source.badges),
       searchTags: cloneValue(source.searchTags),
       categories: [targetCategory.id],
-      // Attach through the X24Sport REST identity immediately after create/update.
-      // Payload's local batch API does not preserve the relation validator context
-      // for shared media, while the authenticated REST request does.
-      gallery: [],
+      gallery: galleryIDs(source),
       legacyImages: cloneValue(source.legacyImages),
       seoTitle: copy.seoTitle,
       metaDescription: copy.metaDescription,
@@ -289,7 +268,6 @@ async function run() {
       : target || { id: `dry-${source.id}` }
     if (target) updated += 1
     else created += 1
-    if (apply) await attachSharedGalleryByREST(targetProduct.id, galleryIDs(source))
 
     const distributionKey = `${sourceTenant.id}:${source.id}:${targetTenant.id}`
     const existingDistribution = distributionsByKey.get(distributionKey)
