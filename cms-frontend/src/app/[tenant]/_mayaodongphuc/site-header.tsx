@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, BriefcaseBusiness, CalendarDays, ChefHat, ChevronDown, Menu, School, ShieldCheck, Shirt, Stethoscope, TentTree, X, type LucideIcon } from 'lucide-react'
+import { ArrowRight, Baby, BriefcaseBusiness, CalendarDays, ChefHat, ChevronDown, Menu, School, ShieldCheck, Shirt, Stethoscope, TentTree, X, type LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
@@ -18,7 +18,10 @@ const categoryIcons: Record<string, LucideIcon> = {
   'dong-phuc-da-ngoai-team-building': TentTree,
   'dong-phuc-doanh-nghiep': BriefcaseBusiness,
   'dong-phuc-fnb': ChefHat,
+  'dong-phuc-su-kien-doi-nhom': CalendarDays,
+  'dong-phuc-tre-em': Baby,
   'dong-phuc-truong-hoc': School,
+  'dong-phuc-y-te-dich-vu': Stethoscope,
   'su-kien-doi-nhom': CalendarDays,
   'y-te-dich-vu': Stethoscope,
 }
@@ -39,7 +42,7 @@ export function UniformHeader({ categories, consultationEnabled }: { categories:
   const actionHref = consultationEnabled ? '/#bao-gia' : '/san-pham/'
   const cmsRoots = navigationState.mode === 'cms' && navigationState.ready ? navigationState.cmsNodes : []
   const solutions = cmsRoots.find((item) => item.key === 'solutions')
-  const activeCategories = solutions
+  const navigationCategories = solutions
     ? solutions.children.filter((item) => item.href).map((item, index) => ({
         description: item.description || '',
         href: item.href!,
@@ -48,7 +51,14 @@ export function UniformHeader({ categories, consultationEnabled }: { categories:
         order: index,
         slug: item.href!.split('/').filter(Boolean).at(-1) || item.key,
       }))
-    : categories.map((item) => ({ ...item, href: `/danh-muc/${item.slug}/` }))
+    : []
+  const navigationCategorySlugs = new Set(navigationCategories.map((item) => item.slug))
+  const activeCategories = [
+    ...navigationCategories,
+    ...categories
+      .filter((item) => !navigationCategorySlugs.has(item.slug))
+      .map((item) => ({ ...item, href: `/danh-muc/${item.slug}/` })),
+  ]
   const utilityLinks = cmsRoots.length
     ? cmsRoots.filter((item) => item.href && item.key !== 'solutions').map((item) => ({ href: item.href!, label: item.label }))
     : [
@@ -121,7 +131,26 @@ export function UniformHeader({ categories, consultationEnabled }: { categories:
     <nav className={styles.nav} aria-label="Điều hướng chính">
       <div className={styles.navMenu} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) closeMenus() }} onFocus={openDesktopMenu} onPointerEnter={openDesktopMenu} onPointerLeave={scheduleDesktopClose} ref={desktopMenuRef}>
         <button aria-controls="uniform-solutions-menu" aria-expanded={desktopOpen} className={styles.navMenuButton} onClick={openDesktopMenu} ref={desktopButtonRef} type="button">Giải pháp <ChevronDown aria-hidden="true" /></button>
-        {desktopOpen ? <div className={`${styles.mega} ${styles.megaCompact}`} id="uniform-solutions-menu" onPointerEnter={openDesktopMenu}><div className={styles.megaCategories}>{activeCategories.map((item) => { const Icon = categoryIcon(item.slug); return <Link href={item.href} key={item.slug} onClick={closeMenus}><Icon aria-hidden="true" className={styles.megaCategoryIcon} /><b>{item.name}</b><small>{item.description}</small></Link> })}</div><aside><h3>Đi nhanh</h3><Link href="/san-pham/" onClick={closeMenus}>Tất cả mẫu <ArrowRight aria-hidden="true" /></Link><Link href="/#quy-trinh" onClick={closeMenus}>Quy trình đặt may <ArrowRight aria-hidden="true" /></Link><Link href="/#vat-lieu" onClick={closeMenus}>Vật liệu <ArrowRight aria-hidden="true" /></Link></aside></div> : null}
+        {desktopOpen ? <div className={`${styles.mega} ${styles.megaCompact}`} id="uniform-solutions-menu" onPointerEnter={openDesktopMenu}>
+          <div className={styles.megaCategories}>
+            {activeCategories.map((item) => {
+              const Icon = categoryIcon(item.slug)
+              return <Link href={item.href} key={item.slug} onClick={closeMenus}>
+                <span className={styles.megaCategoryIconWrap}><Icon aria-hidden="true" className={styles.megaCategoryIcon} /></span>
+                <b>{item.name}</b>
+                {item.description ? <small>{item.description}</small> : null}
+                <ArrowRight aria-hidden="true" className={styles.megaCategoryArrow} />
+              </Link>
+            })}
+          </div>
+          <aside className={styles.megaQuickLinks}>
+            <span>Khám phá</span>
+            <h3>Đi nhanh</h3>
+            <Link href="/san-pham/" onClick={closeMenus}>Tất cả mẫu <ArrowRight aria-hidden="true" /></Link>
+            <Link href="/#quy-trinh" onClick={closeMenus}>Quy trình đặt may <ArrowRight aria-hidden="true" /></Link>
+            <Link href="/#vat-lieu" onClick={closeMenus}>Vật liệu <ArrowRight aria-hidden="true" /></Link>
+          </aside>
+        </div> : null}
       </div>
       {utilityLinks.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
     </nav>
