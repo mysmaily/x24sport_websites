@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  deploymentId: process.env.NEXT_DEPLOYMENT_ID,
   trailingSlash: true,
   poweredByHeader: false,
   experimental: {

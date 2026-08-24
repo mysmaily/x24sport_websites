@@ -19,8 +19,9 @@ instead of inventing commands from container names or shell history.
 - Use the exact host, path, container, port, environment, and network in this
   runbook. If live state differs, stop before mutation and update this runbook
   from verified Docker, filesystem, and Nginx evidence.
-- Current deployments replace one container behind one Nginx upstream. They are
-  not zero-downtime deployments.
+- Shared frontend deployments use two Docker slots behind a gracefully reloaded
+  Nginx upstream. The active slot stays online until the inactive candidate is
+  healthy and public traffic has switched.
 
 ## Standard sequence
 
@@ -31,8 +32,8 @@ Every code deployment uses this order:
 3. Commit the task-scoped source changes unless the user requested no commit.
 4. Run an rsync dry-run and review every deletion.
 5. Synchronize source using the exact target mapping below.
-6. Build the image on the application host while the current container serves.
-7. Replace only the target container using the documented runtime command.
+6. Build an immutable image on the application host while the active slot serves.
+7. Start and verify only the inactive frontend slot, then switch Nginx upstream.
 8. Verify origin HTTP, public HTTP, container status/health, and recent logs.
 9. Report the image/container deployed, observed checks, and service impact.
 
@@ -57,17 +58,7 @@ unrecognized runtime file.
 
 | Target | SSH host | Remote source | Container | Published origin |
 |---|---|---|---|---|
-| `x24sport.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
-| `rynosport.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
-| `mayaocaulong.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
-| `mayaopickleball.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
-| `mayaobongchuyen.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
-| `mayaobongro.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
-| `mayaochaybo.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
-| `mayaobongda.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
-| `mayaodongphuc.com.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
-| `dongphucx24.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
-| `pndsport.vn` | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend` | `10.10.0.53:3010` |
+| Shared storefront tenants | `root@10.10.0.53` | `/root/websites/cms-frontend` | `cms-frontend-blue`, `cms-frontend-green` | blue `10.10.0.53:3010`, green `10.10.0.53:3011` |
 | Shared `cms-api` | `root@10.10.0.53` | `/opt/sports-cms/cms-api` | `sports-cms-cms-api-1` | `10.10.0.53:3001` |
 
 ## Compose frontends on 10.10.0.53
@@ -88,29 +79,23 @@ This shared frontend currently serves:
 - `dongphucx24.vn`
 - `pndsport.vn`
 
-Synchronize `cms-frontend/` to `/root/websites/cms-frontend/`, then run only:
+The only canonical shared-frontend deployment command is:
 
 ```bash
-ssh root@10.10.0.53 \
-  'cd /root/websites/cms-frontend && docker compose -f compose.production.yml up -d --build web'
+bin/deploy-cms-frontend-blue-green --yes
 ```
 
-Verify:
+The script performs local type/build checks, source and Nginx rsync dry-runs,
+builds one immutable image tagged with the Git revision and deployment time,
+starts the inactive slot, checks every tenant directly with its `Host` header,
+installs the version-controlled Nginx upstream/vhosts, runs `nginx -t`, reloads
+Nginx gracefully, and checks every public domain. The previous slot remains the
+passive Nginx backup and rollback target.
+
+Rollback without rebuilding:
 
 ```bash
-ssh root@10.10.0.53 \
-  'docker inspect -f "{{.State.Status}} {{.State.Health.Status}}" cms-frontend && docker logs --tail 120 cms-frontend'
-curl -fsSI http://10.10.0.53:3010/
-curl -fsSI https://x24sport.vn/
-curl -fsSI https://rynosport.vn/
-curl -fsSI https://mayaocaulong.vn/
-curl -fsSI https://mayaopickleball.vn/
-curl -fsSI https://mayaobongchuyen.vn/
-curl -fsSI https://mayaobongro.vn/
-curl -fsSI https://mayaochaybo.vn/
-curl -fsSI https://mayaobongda.vn/
-curl -fsSI https://mayaodongphuc.com.vn/
-curl -fsSI https://pndsport.vn/
+bin/deploy-cms-frontend-blue-green --rollback --yes
 ```
 
 There are no standalone public frontends. Do not create or deploy a per-domain
@@ -168,5 +153,6 @@ service accounts. Never restart PostgreSQL for an application deployment.
   improvise a different runtime command.
 - Do not change Nginx, DNS, Cloudflare, CMS, or a sibling frontend to compensate
   for a failed site-local deployment.
-- This runbook intentionally documents the current single-instance replacement
-  model. A future blue-green rollout requires a separate approved runbook update.
+- If a candidate or public check fails, do not remove the previous slot. Switch
+  the version-controlled upstream back with the rollback command and diagnose
+  the inactive candidate.

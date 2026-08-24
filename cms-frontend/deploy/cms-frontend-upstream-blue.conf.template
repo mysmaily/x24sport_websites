@@ -1,0 +1,10 @@
+upstream cms_frontend_active {
+    server 10.10.0.53:3010 max_fails=1 fail_timeout=5s;
+    server 10.10.0.53:3011 backup;
+    keepalive 32;
+}
+
+upstream cms_frontend_previous {
+    server 10.10.0.53:3011;
+    keepalive 8;
+}

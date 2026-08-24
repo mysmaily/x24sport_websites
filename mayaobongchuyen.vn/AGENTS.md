@@ -15,8 +15,8 @@ Read `../AGENTS.md` first.
 - Tenant UI: `../cms-frontend/src/app/[tenant]/_mayaobongchuyen/`.
 - CSS/assets: `../cms-frontend/src/app/mayaobongchuyen.css`, `../cms-frontend/public/images/mayaobongchuyen/`.
 - API tenant filter: `mayaobongchuyen`; current content fetch policy: `no-store`.
-- Frontend runtime: `root@10.10.0.58:/root/websites/cms-frontend`, `cms-frontend:3010`.
-- Proxy: `root@10.10.0.56:/etc/nginx/conf.d/mayaobongchuyen.vn.conf` → `10.10.0.58:3010`.
+- Frontend runtime: `root@10.10.0.53:/root/websites/cms-frontend`, blue/green ports `3010` and `3011`.
+- Proxy: `root@10.10.0.56:/etc/nginx/conf.d/mayaobongchuyen.vn.conf` → shared `cms_frontend_active` upstream.
 
 For UI changes edit the tenant UI/CSS/assets, test `cms-frontend`, then deploy the
 shared frontend. For products, categories, pages, posts, Store Settings or

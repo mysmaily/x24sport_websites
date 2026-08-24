@@ -37,10 +37,10 @@ depend on the confirmed configuration and quantity.
   design primitives under `../cms-frontend/src/app/pndsport-preview/`.
 - Assets: `../cms-frontend/public/images/pndsport/`.
 - CMS/API: `https://cms.x24sport.vn/api`; tenant filter `pndsport`.
-- Production: `root@10.10.0.58:/root/websites/cms-frontend`, container
-  `cms-frontend`, port `3010`.
-- Proxy: `root@10.10.0.56:/etc/nginx/conf.d/pndsport.vn.conf` to
-  `10.10.0.58:3010`.
+- Production: `root@10.10.0.53:/root/websites/cms-frontend`, blue/green
+  containers on ports `3010` and `3011`.
+- Proxy: `root@10.10.0.56:/etc/nginx/conf.d/pndsport.vn.conf` to the shared
+  `cms_frontend_active` upstream.
 - Frontend content revalidation: normally 60 seconds.
 
 REST service account contract:

@@ -34,8 +34,8 @@ Read `../AGENTS.md` first.
 - The approved V2 design now lives only in the production tenant override; V1/V2/V3 preview routes and trial design-system documents are intentionally removed after selection.
 - Assets: `../cms-frontend/public/images/mayaodongphuc/`.
 - CMS/API: `https://cms.x24sport.vn/api`; tenant filter `mayaodongphuc`; revalidation: 180 seconds.
-- Frontend runtime: `root@10.10.0.58:/root/websites/cms-frontend`, container `cms-frontend:3010`.
-- Proxy target: `root@10.10.0.56:/etc/nginx/conf.d/mayaodongphuc.com.vn.conf` → `10.10.0.58:3010`.
+- Frontend runtime: `root@10.10.0.53:/root/websites/cms-frontend`, blue/green ports `3010` and `3011`.
+- Proxy target: `root@10.10.0.56:/etc/nginx/conf.d/mayaodongphuc.com.vn.conf` → shared `cms_frontend_active` upstream.
 - TLS: Let's Encrypt certificate at `/etc/letsencrypt/live/mayaodongphuc.com.vn/`, covering apex and `www`; HTTP and `www` redirect to the canonical HTTPS apex domain. Renewal is managed by Certbot.
 
 REST service account contract:

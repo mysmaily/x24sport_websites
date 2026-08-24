@@ -14,11 +14,16 @@ Usage:
 
 Targets:
   x24sport.vn
+  rynosport.vn
   mayaochaybo.vn
   mayaocaulong.vn
   mayaobongchuyen.vn
   mayaobongro.vn
   mayaopickleball.vn
+  mayaobongda.vn
+  mayaodongphuc.com.vn
+  dongphucx24.vn
+  pndsport.vn
   cms-api
 
 Options:
@@ -263,23 +268,12 @@ require_command rsync
 require_command ssh
 
 case "$TARGET" in
-  x24sport.vn)
-    deploy_compose_frontend "x24sport.vn" "root@10.10.0.58" "/root/websites/x24sport.vn" "next-x24sport" "http://10.10.0.58:3010/" "https://x24sport.vn/"
-    ;;
-  mayaochaybo.vn)
-    deploy_compose_frontend "cms-frontend" "root@10.10.0.58" "/root/websites/cms-frontend" "cms-frontend" "http://10.10.0.58:3010/" "https://mayaochaybo.vn/"
-    ;;
-  mayaocaulong.vn)
-    deploy_standalone_frontend "mayaocaulong.vn" "root@10.10.0.28" "/opt/sports-cms/mayaocaulong.vn" "sports-cms-mayaocaulong" "sports-cms-mayaocaulong-1" "3002" "--network sports-cms_default --add-host host.docker.internal:host-gateway -p 3002:3002 -e NODE_ENV=production -e PORT=3002 -e TENANT_SLUG=mayaocaulong -e PAYLOAD_API_URL=http://host.docker.internal:3001" "http://10.10.0.28:3002/" "https://mayaocaulong.vn/"
-    ;;
-  mayaobongchuyen.vn)
-    deploy_standalone_frontend "mayaobongchuyen.vn" "root@10.10.0.28" "/opt/sports-cms/mayaobongchuyen.vn" "sports-cms-mayaobongchuyen" "sports-cms-mayaobongchuyen-1" "3003" "--network sports-cms_default -p 3003:3003 -e NODE_ENV=production -e PORT=3003 -e TENANT_SLUG=mayaobongchuyen -e PAYLOAD_API_URL=http://10.10.0.28:3001" "http://10.10.0.28:3003/" "https://mayaobongchuyen.vn/"
-    ;;
-  mayaobongro.vn)
-    deploy_standalone_frontend "mayaobongro.vn" "root@10.10.0.28" "/opt/sports-cms/mayaobongro.vn" "sports-cms-mayaobongro" "sports-cms-mayaobongro-1" "3005" "--network sports-cms_default -p 3005:3005 -e NODE_ENV=production -e PORT=3005 -e TENANT_SLUG=mayaobongro -e PAYLOAD_API_URL=http://10.10.0.28:3001" "http://10.10.0.28:3005/" "https://mayaobongro.vn/"
-    ;;
-  mayaopickleball.vn)
-    deploy_pickleball
+  x24sport.vn|rynosport.vn|mayaochaybo.vn|mayaocaulong.vn|mayaobongchuyen.vn|mayaobongro.vn|mayaopickleball.vn|mayaobongda.vn|mayaodongphuc.com.vn|dongphucx24.vn|pndsport.vn)
+    blue_green_args=()
+    [[ "$ASSUME_YES" -eq 1 ]] && blue_green_args+=(--yes)
+    [[ "$DRY_RUN_ONLY" -eq 1 ]] && blue_green_args+=(--dry-run)
+    [[ "$SKIP_LOCAL_CHECKS" -eq 1 ]] && blue_green_args+=(--skip-local-checks)
+    "${ROOT_DIR}/bin/deploy-cms-frontend-blue-green" "${blue_green_args[@]}"
     ;;
   cms-api)
     deploy_cms_api

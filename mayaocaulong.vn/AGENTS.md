@@ -15,8 +15,8 @@ Read `../AGENTS.md` first.
 - Tenant UI: `../cms-frontend/src/app/[tenant]/_mayaocaulong/`.
 - CSS/assets: `../cms-frontend/src/app/mayaocaulong.css`, `../cms-frontend/public/images/mayaocaulong/`.
 - API tenant filter: `mayaocaulong`; revalidation: 60 seconds.
-- Frontend runtime: `root@10.10.0.58:/root/websites/cms-frontend`, `cms-frontend:3010`.
-- Proxy: `root@10.10.0.56:/etc/nginx/conf.d/mayaocaulong.vn.conf` → `10.10.0.58:3010`.
+- Frontend runtime: `root@10.10.0.53:/root/websites/cms-frontend`, blue/green ports `3010` and `3011`.
+- Proxy: `root@10.10.0.56:/etc/nginx/conf.d/mayaocaulong.vn.conf` → shared `cms_frontend_active` upstream.
 
 For UI changes edit the tenant UI/CSS/assets, test `cms-frontend`, then deploy the
 shared frontend. For products, categories, pages, posts, Store Settings or
