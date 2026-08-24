@@ -52,13 +52,9 @@ export function UniformHeader({ categories, consultationEnabled }: { categories:
         slug: item.href!.split('/').filter(Boolean).at(-1) || item.key,
       }))
     : []
-  const navigationCategorySlugs = new Set(navigationCategories.map((item) => item.slug))
-  const activeCategories = [
-    ...navigationCategories,
-    ...categories
-      .filter((item) => !navigationCategorySlugs.has(item.slug))
-      .map((item) => ({ ...item, href: `/danh-muc/${item.slug}/` })),
-  ]
+  const activeCategories = solutions
+    ? navigationCategories
+    : categories.map((item) => ({ ...item, href: `/danh-muc/${item.slug}/` }))
   const utilityLinks = cmsRoots.length
     ? cmsRoots.filter((item) => item.href && item.key !== 'solutions').map((item) => ({ href: item.href!, label: item.label }))
     : [
