@@ -20,6 +20,7 @@ import * as migration_20260822_100000_catalog_distribution_tenant_labels from '.
 import * as migration_20260822_110000_navigation_unification_schema from './20260822_110000_navigation_unification_schema';
 import * as migration_20260823_010000_customer_ownership from './20260823_010000_customer_ownership';
 import * as migration_20260823_020000_customer_dashboard_users from './20260823_020000_customer_dashboard_users';
+import * as migration_20260825_001500_customer_r2_storage from './20260825_001500_customer_r2_storage';
 
 export const migrations = [
   {
@@ -131,5 +132,10 @@ export const migrations = [
     up: migration_20260823_020000_customer_dashboard_users.up,
     down: migration_20260823_020000_customer_dashboard_users.down,
     name: '20260823_020000_customer_dashboard_users',
+  },
+  {
+    up: migration_20260825_001500_customer_r2_storage.up,
+    down: migration_20260825_001500_customer_r2_storage.down,
+    name: '20260825_001500_customer_r2_storage',
   },
 ];

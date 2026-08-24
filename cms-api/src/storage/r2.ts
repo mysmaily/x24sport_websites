@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 const trimSlashes = (value: string) => value.replace(/^\/+|\/+$/g, '')
+const trim = (value: unknown) => (typeof value === 'string' ? value.trim() : '')
 
 export const getR2Endpoint = () => {
   if (process.env.CLOUDFLARE_R2_ENDPOINT) {
@@ -52,6 +53,16 @@ type TenantValue =
   | null
   | undefined
 
+export type ResolvedCustomerR2Storage = {
+  accessKeyId: string
+  bucket: string
+  customerID: number | string
+  endpoint: string
+  publicBaseUrl: string
+  secretAccessKey: string
+  tenantSlug: string
+}
+
 const getTenantID = (tenant: TenantValue) => {
   if (!tenant) {
     return undefined
@@ -93,4 +104,90 @@ export const resolveTenantUploadPrefix = async ({
   }
 
   return tenantDoc.slug
+}
+
+const resolveCustomerID = (customer: TenantValue) => {
+  if (typeof customer === 'number' || typeof customer === 'string') return customer
+  return customer?.id || undefined
+}
+
+export const resolveCustomerR2Storage = async ({
+  req,
+  tenant,
+}: {
+  req: any
+  tenant: TenantValue
+}): Promise<ResolvedCustomerR2Storage> => {
+  const tenantID = getTenantID(tenant)
+  const tenantDoc =
+    tenant && typeof tenant === 'object' && tenant.slug && 'customer' in tenant
+      ? tenant
+      : tenantID
+        ? await req.payload.findByID({
+            id: tenantID,
+            collection: 'tenants',
+            depth: 1,
+            overrideAccess: true,
+            req,
+          })
+        : null
+
+  if (!tenantDoc?.slug || typeof tenantDoc.slug !== 'string') {
+    throw new Error('Media uploads require a tenant with a slug so R2 objects can use the tenant prefix.')
+  }
+
+  const customerID = resolveCustomerID((tenantDoc as { customer?: TenantValue }).customer)
+  if (!customerID) {
+    throw new Error(`Tenant "${tenantDoc.slug}" does not have a customer assigned for R2 storage.`)
+  }
+
+  return resolveR2StorageForCustomer({
+    customerID,
+    req,
+    tenantSlug: tenantDoc.slug,
+  })
+}
+
+export const resolveR2StorageForCustomer = async ({
+  customerID,
+  req,
+  tenantSlug,
+}: {
+  customerID: number | string
+  req: any
+  tenantSlug: string
+}): Promise<ResolvedCustomerR2Storage> => {
+  const customerDoc = await req.payload.findByID({
+    id: customerID,
+    collection: 'customers',
+    depth: 0,
+    overrideAccess: true,
+    req,
+  })
+
+  const r2Storage = customerDoc?.r2Storage
+  const bucket = trim(r2Storage?.bucket)
+  const endpoint = trim(r2Storage?.endpoint)
+  const publicBaseUrl = trim(r2Storage?.publicBaseUrl)
+  const accessKeyId = trim(r2Storage?.accessKeyId)
+  const secretAccessKey = trim(r2Storage?.secretAccessKey)
+
+  if (!r2Storage?.enabled || !bucket || !endpoint || !publicBaseUrl || !accessKeyId || !secretAccessKey) {
+    throw new Error(`Customer "${customerDoc?.slug || customerID}" does not have complete R2 storage config.`)
+  }
+
+  return {
+    accessKeyId,
+    bucket,
+    customerID,
+    endpoint,
+    publicBaseUrl: getNormalizedPublicBaseURL(publicBaseUrl),
+    secretAccessKey,
+    tenantSlug,
+  }
+}
+
+export const getNormalizedPublicBaseURL = (value: string) => {
+  const configuredURL = value || 'https://static.x24sport.vn'
+  return configuredURL.startsWith('http') ? trimSlashes(configuredURL) : `https://${trimSlashes(configuredURL)}`
 }

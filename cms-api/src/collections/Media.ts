@@ -7,7 +7,7 @@ import {
   userTenantIDs,
   type UserWithRole,
 } from '../access/roles'
-import { resolveTenantUploadPrefix } from '../storage/r2'
+import { resolveCustomerR2Storage } from '../storage/r2'
 import { isStableKey } from '../util/navigationIdentity'
 import { buildTenantIdentity, relationID } from '../util/tenantIdentity'
 
@@ -52,7 +52,7 @@ export const Media: CollectionConfig = {
   },
   hooks: {
     beforeValidate: [
-      ({ data, originalDoc, req }) => {
+      async ({ data, originalDoc, req }) => {
         const user = req.user as UserWithRole | null
         const nextTenant = relationID(data?.tenant ?? originalDoc?.tenant)
 
@@ -71,6 +71,42 @@ export const Media: CollectionConfig = {
           }
         }
 
+        const sharedTenantIDs = Array.isArray(data?.sharedWithTenants)
+          ? data.sharedWithTenants
+              .map(relationID)
+              .filter((id): id is number | string => id !== undefined)
+          : []
+
+        if (nextTenant && sharedTenantIDs.length > 0) {
+          const tenants = await req.payload.find({
+            collection: 'tenants',
+            depth: 0,
+            limit: sharedTenantIDs.length + 1,
+            overrideAccess: true,
+            req,
+            where: {
+              id: {
+                in: [nextTenant, ...sharedTenantIDs],
+              },
+            },
+          })
+          const ownerCustomer = tenants.docs.find((tenant) => String(tenant.id) === String(nextTenant))?.customer
+          const ownerCustomerID = relationID(ownerCustomer)
+
+          if (!ownerCustomerID) {
+            throw new Error('Website sở hữu media phải thuộc một customer trước khi chia sẻ media.')
+          }
+
+          const crossCustomerShare = tenants.docs.some((tenant) => {
+            if (String(tenant.id) === String(nextTenant)) return false
+            return String(relationID(tenant.customer)) !== String(ownerCustomerID)
+          })
+
+          if (crossCustomerShare) {
+            throw new Error('Media chỉ được chia sẻ giữa các website thuộc cùng customer.')
+          }
+        }
+
         return {
           ...data,
           ...buildTenantIdentity({ data, originalDoc }),
@@ -80,10 +116,15 @@ export const Media: CollectionConfig = {
     beforeChange: [
       async ({ data, originalDoc, req }) => {
         const tenant = data?.tenant || originalDoc?.tenant
+        const storage = await resolveCustomerR2Storage({ req, tenant })
 
         return {
           ...data,
-          prefix: await resolveTenantUploadPrefix({ req, tenant }),
+          prefix: storage.tenantSlug,
+          r2StorageBucket: storage.bucket,
+          r2StorageEndpoint: storage.endpoint,
+          r2StoragePublicBaseUrl: storage.publicBaseUrl,
+          storageCustomer: storage.customerID,
         }
       },
     ],
@@ -112,6 +153,40 @@ export const Media: CollectionConfig = {
     { name: 'sourceUrl', type: 'text', admin: { hidden: true } },
     { name: 'sourceChecksum', type: 'text', admin: { hidden: true } },
     { name: 'tenantSourceKey', type: 'text', unique: true, admin: { hidden: true } },
+    {
+      name: 'storageCustomer',
+      type: 'relationship',
+      relationTo: 'customers',
+      index: true,
+      admin: { hidden: true },
+      access: {
+        read: superAdminFieldOnly,
+      },
+    },
+    {
+      name: 'r2StorageBucket',
+      type: 'text',
+      admin: { hidden: true },
+      access: {
+        read: superAdminFieldOnly,
+      },
+    },
+    {
+      name: 'r2StorageEndpoint',
+      type: 'text',
+      admin: { hidden: true },
+      access: {
+        read: superAdminFieldOnly,
+      },
+    },
+    {
+      name: 'r2StoragePublicBaseUrl',
+      type: 'text',
+      admin: { hidden: true },
+      access: {
+        read: superAdminFieldOnly,
+      },
+    },
     {
       name: 'sharedWithTenants',
       type: 'relationship',

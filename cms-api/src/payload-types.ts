@@ -204,6 +204,26 @@ export interface Customer {
   name: string;
   slug: string;
   status: 'active' | 'suspended';
+  /**
+   * Cloudflare R2 config riêng cho customer. Các website cùng customer dùng chung bucket này.
+   */
+  r2Storage?: {
+    enabled?: boolean | null;
+    bucket?: string | null;
+    /**
+     * Ví dụ https://<account-id>.r2.cloudflarestorage.com.
+     */
+    endpoint?: string | null;
+    /**
+     * Ví dụ https://static.example.com.
+     */
+    publicBaseUrl?: string | null;
+    accessKeyId?: string | null;
+    /**
+     * Chỉ hiển thị qua tài khoản super admin/service account.
+     */
+    secretAccessKey?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -536,6 +556,10 @@ export interface Media {
   sourceUrl?: string | null;
   sourceChecksum?: string | null;
   tenantSourceKey?: string | null;
+  storageCustomer?: (number | null) | Customer;
+  r2StorageBucket?: string | null;
+  r2StorageEndpoint?: string | null;
+  r2StoragePublicBaseUrl?: string | null;
   /**
    * Website khác được phép dùng chung media record và cùng file R2. Chỉ quản trị hệ thống được thay đổi.
    */
@@ -1120,6 +1144,16 @@ export interface CustomersSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
   status?: T;
+  r2Storage?:
+    | T
+    | {
+        enabled?: T;
+        bucket?: T;
+        endpoint?: T;
+        publicBaseUrl?: T;
+        accessKeyId?: T;
+        secretAccessKey?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1404,6 +1438,10 @@ export interface MediaSelect<T extends boolean = true> {
   sourceUrl?: T;
   sourceChecksum?: T;
   tenantSourceKey?: T;
+  storageCustomer?: T;
+  r2StorageBucket?: T;
+  r2StorageEndpoint?: T;
+  r2StoragePublicBaseUrl?: T;
   sharedWithTenants?: T;
   alt?: T;
   searchTags?:

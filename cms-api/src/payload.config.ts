@@ -1,7 +1,6 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import { s3Storage } from '@payloadcms/storage-s3'
 import path from 'path'
 import { buildConfig, type Plugin } from 'payload'
 import { fileURLToPath } from 'url'
@@ -28,7 +27,7 @@ import { NavigationMenus } from './collections/NavigationMenus'
 import type { Config } from './payload-types'
 import { isSuperAdmin } from './access/roles'
 import { migrations } from './migrations'
-import { generateR2FileURL, getR2Endpoint, isR2StorageEnabled } from './storage/r2'
+import { customerR2Storage } from './storage/customerR2Storage'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -140,26 +139,6 @@ export default buildConfig({
       userHasAccessToAllTenants: (user) => isSuperAdmin(user),
     }),
     placeTenantPersistenceInsideTenantContext,
-    s3Storage({
-      alwaysInsertFields: true,
-      bucket: process.env.CLOUDFLARE_R2_BUCKET_NAME || '',
-      collections: {
-        media: {
-          disablePayloadAccessControl: true,
-          generateFileURL: generateR2FileURL,
-          prefix: '',
-        },
-      },
-      config: {
-        credentials: {
-          accessKeyId: process.env.CLOUDFLARE_R2_ACCESS_KEY_ID || '',
-          secretAccessKey: process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY || '',
-        },
-        endpoint: getR2Endpoint(),
-        forcePathStyle: true,
-        region: 'auto',
-      },
-      enabled: isR2StorageEnabled(),
-    }),
+    customerR2Storage(),
   ],
 })
