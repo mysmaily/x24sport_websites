@@ -183,9 +183,6 @@ export const Media: CollectionConfig = {
       name: 'r2StoragePublicBaseUrl',
       type: 'text',
       admin: { hidden: true },
-      access: {
-        read: superAdminFieldOnly,
-      },
     },
     {
       name: 'sharedWithTenants',
