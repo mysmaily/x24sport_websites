@@ -8,8 +8,10 @@ FROM node:24-alpine AS builder
 WORKDIR /app
 ARG SITE_ENV=production
 ARG PAYLOAD_API_URL=http://10.10.0.53:3001
+ARG NEXT_DEPLOYMENT_ID
 ENV SITE_ENV=$SITE_ENV
 ENV PAYLOAD_API_URL=$PAYLOAD_API_URL
+ENV NEXT_DEPLOYMENT_ID=$NEXT_DEPLOYMENT_ID
 RUN corepack enable
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .

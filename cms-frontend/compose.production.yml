@@ -1,22 +1,27 @@
+x-cms-frontend: &cms-frontend
+  image: ${CMS_FRONTEND_IMAGE:-cms-frontend:production}
+  restart: unless-stopped
+  environment:
+    PAYLOAD_API_URL: http://10.10.0.53:3001
+    SITE_ENV: production
+    TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+  healthcheck:
+    test: ["CMD", "wget", "--quiet", "--spider", "--header=Host: x24sport.vn", "http://127.0.0.1:3010/"]
+    interval: 10s
+    timeout: 5s
+    retries: 6
+    start_period: 20s
+  stop_grace_period: 75s
+
 services:
-  web:
-    build:
-      context: .
-      args:
-        SITE_ENV: production
-        PAYLOAD_API_URL: http://10.10.0.53:3001
-    image: cms-frontend:production
-    container_name: cms-frontend
-    restart: unless-stopped
+  blue:
+    <<: *cms-frontend
+    container_name: cms-frontend-blue
     ports:
       - "3010:3010"
-    environment:
-      PAYLOAD_API_URL: http://10.10.0.53:3001
-      SITE_ENV: production
-      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--spider", "http://127.0.0.1:3010/"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 20s
+
+  green:
+    <<: *cms-frontend
+    container_name: cms-frontend-green
+    ports:
+      - "3011:3010"

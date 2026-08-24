@@ -22,8 +22,8 @@ RynoSport is an independent peer brand, not an X24Sport satellite.
 - Frontend: `../cms-frontend/`; generic X24 pages and shared components.
 - Tenant assets: `../cms-frontend/public/images/brand/` and shared catalog media.
 - CMS/API: `https://cms.x24sport.vn/api`; tenant filter `x24sport`.
-- Production: `root@10.10.0.58:/root/websites/cms-frontend`, container `cms-frontend`, port `3010`.
-- Proxy: `root@10.10.0.56:/etc/nginx/conf.d/x24sport.vn.conf` → `10.10.0.58:3010`.
+- Production: `root@10.10.0.53:/root/websites/cms-frontend`, blue/green containers on ports `3010` and `3011`.
+- Proxy: `root@10.10.0.56:/etc/nginx/conf.d/x24sport.vn.conf` → shared `cms_frontend_active` upstream.
 - Frontend content revalidation: normally 60 seconds.
 
 ## How to act

@@ -1,0 +1,280 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+FRONTEND_DIR="${PROJECT_ROOT}/cms-frontend"
+APP_HOST="root@10.10.0.53"
+APP_SOURCE="/root/websites/cms-frontend"
+PROXY_HOST="root@10.10.0.56"
+PROXY_UPSTREAM="/etc/nginx/conf.d/00-cms-frontend-upstream.conf"
+PROXY_SNIPPET="/etc/nginx/snippets/cms-frontend-static-fallback.conf"
+
+ASSUME_YES=0
+DRY_RUN_ONLY=0
+SKIP_LOCAL_CHECKS=0
+ROLLBACK_ONLY=0
+
+DOMAINS=(
+  x24sport.vn
+  rynosport.vn
+  mayaocaulong.vn
+  mayaopickleball.vn
+  mayaobongchuyen.vn
+  mayaobongro.vn
+  mayaochaybo.vn
+  mayaobongda.vn
+  mayaodongphuc.com.vn
+  dongphucx24.vn
+  pndsport.vn
+)
+
+usage() {
+  cat <<'USAGE'
+Usage:
+  bin/deploy-cms-frontend-blue-green [--yes] [--dry-run] [--skip-local-checks]
+  bin/deploy-cms-frontend-blue-green --rollback [--yes]
+
+Options:
+  --yes                Apply the deployment without an interactive prompt.
+  --dry-run            Run local checks and rsync dry-runs only.
+  --skip-local-checks  Skip pnpm typecheck and pnpm build.
+  --rollback           Switch traffic to the healthy previous slot without rebuilding.
+USAGE
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --yes|-y)
+      ASSUME_YES=1
+      ;;
+    --dry-run)
+      DRY_RUN_ONLY=1
+      ;;
+    --skip-local-checks)
+      SKIP_LOCAL_CHECKS=1
+      ;;
+    --rollback)
+      ROLLBACK_ONLY=1
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "Unknown option: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+  shift
+done
+
+require_command() {
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "Missing required command: $1" >&2
+    exit 1
+  }
+}
+
+confirm() {
+  local prompt="$1"
+  local answer
+
+  if [[ "$ASSUME_YES" -eq 1 ]]; then
+    return 0
+  fi
+
+  read -r -p "${prompt} [y/N] " answer
+  [[ "$answer" =~ ^([yY]|yes|YES)$ ]]
+}
+
+active_slot() {
+  local active_port
+
+  active_port="$(
+    ssh "$PROXY_HOST" \
+      "if test -f '$PROXY_UPSTREAM'; then awk '/upstream cms_frontend_active/{found=1; next} found && /server 10.10.0.53:/{gsub(/;/, \"\", \$2); split(\$2, address, \":\"); print address[2]; exit}' '$PROXY_UPSTREAM'; fi"
+  )"
+
+  case "$active_port" in
+    3011)
+      echo green
+      ;;
+    3010|"")
+      echo blue
+      ;;
+    *)
+      echo "Unsupported active frontend port: ${active_port}" >&2
+      exit 1
+      ;;
+  esac
+}
+
+opposite_slot() {
+  if [[ "$1" == "blue" ]]; then
+    echo green
+  else
+    echo blue
+  fi
+}
+
+slot_port() {
+  if [[ "$1" == "blue" ]]; then
+    echo 3010
+  else
+    echo 3011
+  fi
+}
+
+slot_container() {
+  echo "cms-frontend-$1"
+}
+
+upstream_template() {
+  echo "${FRONTEND_DIR}/deploy/cms-frontend-upstream-$1.conf.template"
+}
+
+run_local_checks() {
+  if [[ "$SKIP_LOCAL_CHECKS" -eq 1 || "$ROLLBACK_ONLY" -eq 1 ]]; then
+    return 0
+  fi
+
+  (
+    cd "$FRONTEND_DIR"
+    pnpm typecheck
+    pnpm build
+  )
+}
+
+rsync_frontend() {
+  local dry_flag="${1:-}"
+
+  rsync -az --delete ${dry_flag} \
+    --exclude node_modules \
+    --exclude .next \
+    --exclude .git \
+    --exclude '.env*' \
+    --exclude backups \
+    --exclude operations \
+    "${FRONTEND_DIR}/" "${APP_HOST}:${APP_SOURCE}/"
+}
+
+rsync_nginx_dry_run() {
+  local target_slot="$1"
+
+  rsync -az --dry-run "$(upstream_template "$target_slot")" "${PROXY_HOST}:${PROXY_UPSTREAM}"
+  rsync -az --dry-run "${FRONTEND_DIR}/deploy/cms-frontend-static-fallback.conf" "${PROXY_HOST}:${PROXY_SNIPPET}"
+  for domain in "${DOMAINS[@]}"; do
+    rsync -az --dry-run "${FRONTEND_DIR}/deploy/${domain}.conf" "${PROXY_HOST}:/etc/nginx/conf.d/${domain}.conf"
+  done
+}
+
+install_nginx_config() {
+  local target_slot="$1"
+
+  rsync -az "$(upstream_template "$target_slot")" "${PROXY_HOST}:${PROXY_UPSTREAM}"
+  rsync -az "${FRONTEND_DIR}/deploy/cms-frontend-static-fallback.conf" "${PROXY_HOST}:${PROXY_SNIPPET}"
+  for domain in "${DOMAINS[@]}"; do
+    rsync -az "${FRONTEND_DIR}/deploy/${domain}.conf" "${PROXY_HOST}:/etc/nginx/conf.d/${domain}.conf"
+  done
+  ssh "$PROXY_HOST" 'nginx -t && systemctl reload nginx'
+}
+
+verify_slot() {
+  local slot="$1"
+  local port
+  local container
+
+  port="$(slot_port "$slot")"
+  container="$(slot_container "$slot")"
+  ssh "$APP_HOST" "docker inspect -f '{{.State.Status}} {{.State.Health.Status}} {{.Config.Image}}' '$container'"
+
+  for domain in "${DOMAINS[@]}"; do
+    curl --fail --silent --show-error --output /dev/null \
+      --header "Host: ${domain}" \
+      --write-out "candidate ${domain} %{http_code}\n" \
+      "http://10.10.0.53:${port}/"
+  done
+}
+
+verify_public() {
+  for domain in "${DOMAINS[@]}"; do
+    curl --fail --silent --show-error --location --output /dev/null \
+      --max-redirs 5 \
+      --write-out "public ${domain} %{http_code}\n" \
+      "https://${domain}/"
+  done
+}
+
+switch_only() {
+  local target_slot="$1"
+
+  verify_slot "$target_slot"
+  install_nginx_config "$target_slot"
+  verify_public
+  ssh "$APP_HOST" "docker logs --tail 120 '$(slot_container "$target_slot")'"
+  echo "Traffic now uses ${target_slot} on port $(slot_port "$target_slot")."
+}
+
+for command in curl docker git pnpm rsync ssh; do
+  require_command "$command"
+done
+
+current_slot="$(active_slot)"
+candidate_slot="$(opposite_slot "$current_slot")"
+
+if [[ "$ROLLBACK_ONLY" -eq 1 ]]; then
+  confirm "Switch production from ${current_slot} back to ${candidate_slot}?" || exit 1
+  switch_only "$candidate_slot"
+  exit 0
+fi
+
+run_local_checks
+
+echo "Current slot: ${current_slot}; candidate slot: ${candidate_slot}."
+echo "Frontend rsync dry-run:"
+rsync_frontend --dry-run
+echo "Nginx rsync dry-run:"
+rsync_nginx_dry_run "$candidate_slot"
+
+if [[ "$DRY_RUN_ONLY" -eq 1 ]]; then
+  echo "Dry-run complete. Production was not changed."
+  exit 0
+fi
+
+confirm "Build and deploy ${candidate_slot}, then switch all shared tenants?" || exit 1
+
+deploy_sha="$(git -C "$PROJECT_ROOT" rev-parse --short=12 HEAD)"
+deploy_time="$(date -u +%Y%m%d%H%M%S)"
+deploy_id="${deploy_sha}-${deploy_time}"
+image="cms-frontend:deploy-${deploy_id}"
+candidate_container="$(slot_container "$candidate_slot")"
+
+if [[ "$current_slot" == "blue" ]]; then
+  ssh "$APP_HOST" \
+    "if docker container inspect cms-frontend >/dev/null 2>&1 && ! docker container inspect cms-frontend-blue >/dev/null 2>&1; then docker rename cms-frontend cms-frontend-blue; fi"
+fi
+
+rsync_frontend
+ssh "$APP_HOST" \
+  "docker build --build-arg SITE_ENV=production --build-arg PAYLOAD_API_URL=http://10.10.0.53:3001 --build-arg NEXT_DEPLOYMENT_ID='$deploy_id' -t '$image' '$APP_SOURCE'"
+
+ssh "$APP_HOST" \
+  "if docker container inspect '$candidate_container' >/dev/null 2>&1; then docker container rm --force '$candidate_container'; fi"
+
+if [[ "$candidate_slot" == "blue" ]]; then
+  ssh "$APP_HOST" \
+    "if docker container inspect cms-frontend >/dev/null 2>&1; then docker container rm --force cms-frontend; fi"
+fi
+
+ssh "$APP_HOST" \
+  "cd '$APP_SOURCE' && CMS_FRONTEND_IMAGE='$image' docker compose -f compose.production.yml up -d --no-deps --wait --wait-timeout 180 '$candidate_slot'"
+
+verify_slot "$candidate_slot"
+install_nginx_config "$candidate_slot"
+verify_public
+ssh "$APP_HOST" "docker logs --tail 120 '$candidate_container'"
+
+echo "Deployment complete: ${image} is active in ${candidate_slot} on port $(slot_port "$candidate_slot")."
+echo "Previous slot ${current_slot} remains running as Nginx backup and rollback target."
+echo "Rollback command: bin/deploy-cms-frontend-blue-green --rollback --yes"
