@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tạo ảnh áo ngộ nghĩnh"
+  short_description: "Tạo cặp artwork in và ảnh áo marketing"
+  default_prompt: "Dùng $tao-anh-ao-ngo-nghinh để tạo bộ áo đồng phục ngộ nghĩnh gồm artwork in tái sử dụng và ảnh áo marketing tương ứng."
