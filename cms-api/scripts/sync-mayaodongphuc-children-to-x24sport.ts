@@ -81,15 +81,39 @@ function buildX24Copy(product: Doc) {
   const sku = plainText(product.sku)
   const style = styleName(product)
   const name = `Đồng phục trẻ em ${style}`
-  const shortDescription = `Mẫu đồng phục trẻ em ${style} trong danh mục X24Sport, dùng để tham khảo phương án phối màu và nhận diện cho trường, lớp hoặc câu lạc bộ thiếu nhi. Mã sản phẩm: ${sku || 'X24Sport'}.`
-  const intro = `X24Sport giới thiệu ${name.toLowerCase()} như một gợi ý thiết kế cho nhu cầu đồng phục trẻ em. Mẫu giữ mã ${sku || 'sản phẩm X24Sport'} để thuận tiện đối chiếu khi trao đổi yêu cầu.`
-  const design = `Điểm nhận diện của mẫu là cách phối ${style}; hình ảnh giúp đơn vị hình dung bố cục màu sắc và phong cách thể hiện trước khi phát triển phương án riêng.`
-  const consult = 'Khi cần đặt theo đội nhóm, có thể trao đổi với X24Sport về size, màu nhận diện, logo, tên lớp hoặc thông tin của chương trình để hoàn thiện thiết kế phù hợp.'
-  const reference = 'Nội dung này được biên tập riêng cho catalog X24Sport; thông tin hình ảnh là mẫu tham khảo, không thay thế cho việc xác nhận thông số của đơn hàng thực tế.'
-  const paragraphs = [intro, design, consult, reference]
+  const isPolo = /^áo\s+polo\b/i.test(plainText(product.name))
+  const garment = isPolo ? 'áo polo đồng phục trẻ em' : 'đồng phục trẻ em'
+  const index = [...(sku || style)].reduce((total, character) => total + character.charCodeAt(0), 0)
+  const audiences = [
+    'lớp học và hoạt động ngoại khóa',
+    'câu lạc bộ thiếu nhi và chương trình kỹ năng',
+    'ngày hội trường, đội nhóm và sự kiện dành cho học sinh',
+    'nhóm học sinh cần một bộ nhận diện vui tươi, dễ nhận biết',
+  ]
+  const designAngles = [
+    `Bảng màu ${style} tạo ấn tượng tươi sáng và giúp tổng thể trang phục nổi bật hơn khi hoạt động theo nhóm.`,
+    `Cách phối ${style} nhấn vào sự trẻ trung, phù hợp với không khí sinh hoạt tập thể của học sinh.`,
+    `Phần màu ${style} giúp mẫu có điểm nhận diện rõ ràng mà vẫn giữ cảm giác gọn gàng, thân thiện với lứa tuổi nhỏ.`,
+    `Sự kết hợp ${style} mang lại diện mạo năng động, dễ ứng dụng cho nhiều bối cảnh học tập và vui chơi.`,
+  ]
+  const planningNotes = [
+    'Khi phát triển theo nhận diện riêng, có thể điều chỉnh màu chủ đạo, vị trí logo và thông tin của lớp hoặc câu lạc bộ.',
+    'Mẫu có thể dùng làm điểm xuất phát để thống nhất màu sắc, logo và chi tiết in theo nhu cầu của từng đơn vị.',
+    'Trước khi triển khai, nên chốt lại bảng màu, logo, size và số lượng để phương án thiết kế bám sát nhu cầu sử dụng.',
+    'Các chi tiết nhận diện như tên lớp, logo hoặc thông điệp sự kiện có thể được bố trí lại theo phương án thực tế.',
+  ]
+  const audience = audiences[index % audiences.length]
+  const design = designAngles[index % designAngles.length]
+  const planning = planningNotes[index % planningNotes.length]
+  const shortDescription = `${name} là mẫu ${garment} phối ${style}, phù hợp cho ${audience}. Mã mẫu: ${sku || 'đang cập nhật'}.`
+  const intro = `${name} là gợi ý thiết kế dành cho ${audience}. Mẫu tập trung vào phối màu ${style}, tạo cảm giác gần gũi và năng động cho trang phục của các em.`
+  const useCase = `Với form ${isPolo ? 'polo' : 'đồng phục'} quen thuộc, thiết kế này phù hợp để tham khảo khi cần xây dựng hình ảnh đồng bộ cho lớp, câu lạc bộ hoặc một chương trình dành cho trẻ em.`
+  const consult = `${planning} X24Sport hỗ trợ trao đổi phương án phù hợp trước khi đặt may.`
+  const reference = `Mã ${sku || 'sản phẩm'} dùng để đối chiếu đúng mẫu khi cần tư vấn hoặc gửi yêu cầu thiết kế.`
+  const paragraphs = [intro, design, useCase, consult, reference]
   const contentHtml = paragraphs.map((paragraph) => `<p>${escapeHTML(paragraph)}</p>`).join('\n')
   const seoTitle = `${name} | Mã ${sku || 'đồng phục trẻ em'}`.slice(0, 120)
-  const metaDescription = `Khám phá mẫu đồng phục trẻ em ${style} tại X24Sport. Mã ${sku || 'sản phẩm'} phù hợp để tham khảo phối màu, logo và nhận diện cho trường lớp, câu lạc bộ thiếu nhi.`.slice(0, 300)
+  const metaDescription = `${name} với phối màu ${style}, phù hợp cho ${audience}. Tham khảo thiết kế, logo và nhận diện theo nhu cầu. Mã ${sku || 'sản phẩm'}.`.slice(0, 300)
 
   return { name, shortDescription, description: richText(paragraphs), contentHtml, seoTitle, metaDescription, reviewText: paragraphs.join('\n\n') }
 }
