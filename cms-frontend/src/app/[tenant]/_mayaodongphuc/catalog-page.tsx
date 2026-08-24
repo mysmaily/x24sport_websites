@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import styles from './mayaodongphuc.module.css'
 import { Breadcrumbs, UniformProductCard } from './components'
-import { getUniformCategories, getUniformCategory, getUniformColorFilters, getUniformProducts, isIndexableUniformColorSlug, uniformColorLabelFromSlug } from './lib'
+import { getUniformCategories, getUniformCategory, getUniformColorFilters, getUniformProducts, isIndexableUniformColorSlug, uniformColorLabelFromSlug, uniformColorPath } from './lib'
 import { MayAoDongPhucShell } from './shell'
 
 type Search = { mau?: string; page?: string; q?: string; sort?: string }
@@ -41,7 +41,11 @@ export async function getMayAoDongPhucCatalogMetadata(categorySlug?: string, sea
       ? `Kết quả tìm kiếm mẫu đồng phục theo từ khóa ${query}, có thể phát triển thêm logo, màu sắc và quy chuẩn nhận diện.`
       : categoryContent?.description || category?.description || 'Khám phá mẫu đồng phục theo bối cảnh sử dụng và chọn một mẫu phù hợp để phát triển theo nhận diện tổ chức.'
   const path = category ? `/danh-muc/${category.slug}/` : '/san-pham/'
-  const colorPath = query ? '/tim-kiem/' : colorSlug && isIndexableUniformColorSlug(colorSlug) ? `${path}${colorSlug}/` : path
+  const colorPath = query
+    ? '/tim-kiem/'
+    : colorSlug && isIndexableUniformColorSlug(colorSlug)
+      ? category ? `${path}${colorSlug}/` : uniformColorPath(colorSlug)
+      : path
   const canonical = page > 1 ? `${colorPath}?page=${page}` : colorPath
   const queryColorRobots = (query || (search.mau && !colorSlug)) ? { index: false, follow: true } : undefined
   return { title, description, alternates: { canonical }, openGraph: { title, description, url: canonical }, robots: queryColorRobots }
@@ -63,7 +67,11 @@ export async function MayAoDongPhucCatalogPage({ categorySlug, colorSlug, search
   const title = query ? `Kết quả tìm kiếm: ${query}` : category?.name || 'Tất cả mẫu đồng phục'
   const basePath = category ? `/danh-muc/${category.slug}/` : '/san-pham/'
   const colorFilters = await getUniformColorFilters({ basePath, categorySlug, sort })
-  const activeColor = colorFilters.find((item) => item.slug === activeColorSlug) || (activeColorSlug ? { label: uniformColorLabelFromSlug(activeColorSlug), slug: activeColorSlug } : undefined)
+  const queryColor = query
+    ? colorFilters.find((item) => item.label.localeCompare(query, 'vi', { sensitivity: 'base' }) === 0)
+    : undefined
+  const selectedColorSlug = activeColorSlug || queryColor?.slug
+  const activeColor = colorFilters.find((item) => item.slug === activeColorSlug) || queryColor || (activeColorSlug ? { label: uniformColorLabelFromSlug(activeColorSlug), slug: activeColorSlug } : undefined)
   if (activeColorSlug && !activeColor?.label) notFound()
   const categoryContent = category?.slug ? CATEGORY_CONTENT[category.slug] : undefined
   const heroDescription = activeColor?.label
@@ -72,17 +80,27 @@ export async function MayAoDongPhucCatalogPage({ categorySlug, colorSlug, search
   const resultLabel = category ? 'mẫu phù hợp' : 'mẫu đồng phục'
   const resultText = query ? `mẫu phù hợp với "${query}"` : activeColor?.label ? `${resultLabel} ${activeColor.label}` : resultLabel
   const sortQuery = search.sort === 'oldest' ? '?sort=oldest' : ''
+  const activeLandingPath = colorSlug
+    ? category ? `${basePath}${colorSlug}/` : uniformColorPath(colorSlug)
+    : undefined
+  const sortHref = (oldest = false) => {
+    const params = new URLSearchParams()
+    if (!colorSlug && search.mau) params.set('mau', search.mau)
+    if (query) params.set('q', query)
+    if (oldest) params.set('sort', 'oldest')
+    return `${activeLandingPath || basePath}${params.size ? `?${params}` : ''}`
+  }
   const pageHref = (value: number) => {
     const params = new URLSearchParams()
     if (!colorSlug && search.mau) params.set('mau', search.mau)
     if (query) params.set('q', query)
     if (search.sort === 'oldest') params.set('sort', 'oldest')
     if (value > 1) params.set('page', String(value))
-    return `${query ? '/tim-kiem/' : colorSlug ? `${basePath}${colorSlug}/` : basePath}${params.size ? `?${params}` : ''}`
+    return `${activeLandingPath || basePath}${params.size ? `?${params}` : ''}`
   }
 
   return <MayAoDongPhucShell>
     <section className={styles.categoryHero}><Breadcrumbs items={query ? [{ label: 'Catalog', href: '/san-pham/' }, { label: 'Tìm kiếm' }] : category ? [{ label: 'Catalog', href: '/san-pham/' }, { label: category.name }, ...(activeColor?.label ? [{ label: activeColor.label }] : [])] : [{ label: 'Catalog' }]} /><div><span>{query ? 'SEARCH' : `CATALOG / ${category ? String(category.order || 1).padStart(2, '0') : 'ALL'}`}</span><h1>{activeColor?.label && !query ? `${title} ${activeColor.label}` : title}</h1><p>{query ? `Các mẫu đồng phục liên quan đến "${query}" trong catalog hiện có.` : heroDescription}</p><aside><b>{String(result.totalDocs).padStart(2, '0')}</b><span>{resultText}</span></aside></div></section>
-    <section className={styles.catalogPage}><nav className={styles.filterRow} aria-label="Lọc catalog theo nhóm"><Link aria-current={!category ? 'page' : undefined} className={!category ? styles.activeFilter : undefined} href="/san-pham/">Tất cả</Link>{categories.map((item) => <Link aria-current={item.slug === category?.slug ? 'page' : undefined} className={item.slug === category?.slug ? styles.activeFilter : undefined} href={`/danh-muc/${item.slug}/`} key={item.slug}>{item.name}</Link>)}</nav><div className={styles.catalogSummary}><p>Đang hiển thị <b>{result.totalDocs} {resultText}</b></p><div className={styles.catalogTools}><details className={styles.colorFilter}><summary><Palette aria-hidden="true" /><span>{activeColor?.label || 'Lọc theo màu'}</span><ChevronDown aria-hidden="true" /></summary><div className={styles.colorPanel}><Link className={styles.colorAll} href={`${basePath}${sortQuery}`}>Tất cả màu</Link>{colorFilters.map((item) => <Link aria-current={item.slug === activeColorSlug ? 'page' : undefined} href={item.href} key={item.slug}><span>{item.label}</span><small>{item.count}</small></Link>)}</div></details><span className={styles.sortLabel}><SlidersHorizontal aria-hidden="true" /> Sắp xếp</span><Link aria-current={search.sort !== 'oldest' ? 'page' : undefined} className={search.sort !== 'oldest' ? styles.activeSort : undefined} href={colorSlug ? `${basePath}${colorSlug}/` : activeColorSlug ? `${basePath}?mau=${activeColorSlug}` : basePath}>Đề xuất</Link><Link aria-current={search.sort === 'oldest' ? 'page' : undefined} className={search.sort === 'oldest' ? styles.activeSort : undefined} href={colorSlug ? `${basePath}${colorSlug}/?sort=oldest` : activeColorSlug ? `${basePath}?mau=${activeColorSlug}&sort=oldest` : `${basePath}?sort=oldest`}>Cũ trước</Link></div></div>{result.docs.length ? <div className={styles.categoryGrid}>{result.docs.map((product, index) => <UniformProductCard eager={index < 3} key={product.id} product={product} />)}</div> : <div className={styles.catalogCta}><div><span>CHƯA CÓ MẪU PHÙ HỢP</span><h2>Thử màu khác hoặc xem toàn bộ catalog.</h2></div><Link href={basePath}>Xem toàn bộ màu <ArrowRight aria-hidden="true" /></Link></div>}{result.totalPages > 1 ? <nav className={styles.pagination} aria-label="Phân trang">{Array.from({ length: result.totalPages }, (_, index) => index + 1).map((value) => <Link aria-current={value === page ? 'page' : undefined} href={pageHref(value)} key={value}>{value}</Link>)}</nav> : null}{categoryContent ? <section className={styles.categorySeoBlock} aria-labelledby="category-seo-heading"><div><span>GỢI Ý CHỌN MẪU</span><h2 id="category-seo-heading">Áo đồng phục dã ngoại và team building cho đội nhóm</h2><p>{categoryContent.summary}</p></div><div>{categoryContent.sections.map((section) => <article key={section.title}><h3>{section.title}</h3><p>{section.text}</p></article>)}</div></section> : null}<div className={styles.catalogCta}><div><span>CẦN MỘT HƯỚNG KHÁC?</span><h2>Bắt đầu từ nhu cầu thật của đội ngũ.</h2></div><Link href="/#quy-trinh">Xem quy trình <ArrowRight aria-hidden="true" /></Link></div></section>
+    <section className={styles.catalogPage}><nav className={styles.filterRow} aria-label="Lọc catalog theo nhóm"><Link aria-current={!category ? 'page' : undefined} className={!category ? styles.activeFilter : undefined} href="/san-pham/">Tất cả</Link>{categories.map((item) => <Link aria-current={item.slug === category?.slug ? 'page' : undefined} className={item.slug === category?.slug ? styles.activeFilter : undefined} href={`/danh-muc/${item.slug}/`} key={item.slug}>{item.name}</Link>)}</nav><div className={styles.catalogSummary}><p>Đang hiển thị <b>{result.totalDocs} {resultText}</b></p><div className={styles.catalogTools}><details className={styles.colorFilter}><summary><Palette aria-hidden="true" /><span>{activeColor?.label || 'Lọc theo màu'}</span><ChevronDown aria-hidden="true" /></summary><div className={styles.colorPanel}><Link className={styles.colorAll} href={`${basePath}${sortQuery}`}>Tất cả màu</Link>{colorFilters.map((item) => <Link aria-current={item.slug === selectedColorSlug ? 'page' : undefined} href={item.href} key={item.slug}><span>{item.label}</span><small>{item.count}</small></Link>)}</div></details><span className={styles.sortLabel}><SlidersHorizontal aria-hidden="true" /> Sắp xếp</span><Link aria-current={search.sort !== 'oldest' ? 'page' : undefined} className={search.sort !== 'oldest' ? styles.activeSort : undefined} href={sortHref()}>Đề xuất</Link><Link aria-current={search.sort === 'oldest' ? 'page' : undefined} className={search.sort === 'oldest' ? styles.activeSort : undefined} href={sortHref(true)}>Cũ trước</Link></div></div>{result.docs.length ? <div className={styles.categoryGrid}>{result.docs.map((product, index) => <UniformProductCard eager={index < 3} key={product.id} product={product} />)}</div> : <div className={styles.catalogCta}><div><span>CHƯA CÓ MẪU PHÙ HỢP</span><h2>Thử màu khác hoặc xem toàn bộ catalog.</h2></div><Link href={basePath}>Xem toàn bộ màu <ArrowRight aria-hidden="true" /></Link></div>}{result.totalPages > 1 ? <nav className={styles.pagination} aria-label="Phân trang">{Array.from({ length: result.totalPages }, (_, index) => index + 1).map((value) => <Link aria-current={value === page ? 'page' : undefined} href={pageHref(value)} key={value}>{value}</Link>)}</nav> : null}{categoryContent ? <section className={styles.categorySeoBlock} aria-labelledby="category-seo-heading"><div><span>GỢI Ý CHỌN MẪU</span><h2 id="category-seo-heading">Áo đồng phục dã ngoại và team building cho đội nhóm</h2><p>{categoryContent.summary}</p></div><div>{categoryContent.sections.map((section) => <article key={section.title}><h3>{section.title}</h3><p>{section.text}</p></article>)}</div></section> : null}<div className={styles.catalogCta}><div><span>CẦN MỘT HƯỚNG KHÁC?</span><h2>Bắt đầu từ nhu cầu thật của đội ngũ.</h2></div><Link href="/#quy-trinh">Xem quy trình <ArrowRight aria-hidden="true" /></Link></div></section>
   </MayAoDongPhucShell>
 }

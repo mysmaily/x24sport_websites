@@ -15,6 +15,7 @@ import { MayaoChayBoShell } from '../_mayaochaybo/shell'
 import MayaoBongDaPathPage, { generateMetadata as generateMayaoBongDaPathMetadata } from '../_mayaobongda/[...segments]/page'
 import { MayaoBongDaShell } from '../_mayaobongda/shell'
 import { footballPermanentRedirect } from '../_mayaobongda/lib/permanent-redirects'
+import { uniformColorSlugFromPath } from '../_mayaodongphuc/lib'
 
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ tenant: string; path: string[] }>; searchParams: Promise<Record<string, string | string[] | undefined>> }): Promise<Metadata> {
   const [{ tenant, path }, query] = await Promise.all([params, searchParams])
@@ -26,6 +27,13 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     }
     const { getPndContentMetadata } = await import('../_pndsport/content-page')
     return getPndContentMetadata(path)
+  }
+  if (tenant === 'mayaodongphuc' && path.length === 1) {
+    const colorSlug = uniformColorSlugFromPath(`/${path[0]}/`)
+    if (colorSlug) {
+      const { getMayAoDongPhucCatalogMetadata } = await import('../_mayaodongphuc/catalog-page')
+      return getMayAoDongPhucCatalogMetadata(undefined, query, colorSlug)
+    }
   }
   if (tenant === 'mayaocaulong' && path.length === 1 && getCatalogFilterBySlug(path[0])) {
     return generateMayaoCauLongCatalogMetadata({ params: Promise.resolve({ catalogSlug: path[0] }) })
@@ -80,6 +88,13 @@ export default async function TenantPathPage(props: Parameters<typeof X24PathPag
     }
     const { PndContentPage } = await import('../_pndsport/content-page')
     return <PndContentPage segments={path} />
+  }
+  if (tenant === 'mayaodongphuc' && path.length === 1) {
+    const colorSlug = uniformColorSlugFromPath(`/${path[0]}/`)
+    if (colorSlug) {
+      const { MayAoDongPhucCatalogPage } = await import('../_mayaodongphuc/catalog-page')
+      return <MayAoDongPhucCatalogPage colorSlug={colorSlug} search={await props.searchParams} />
+    }
   }
   if (tenant === 'mayaocaulong' && path.length === 1 && getCatalogFilterBySlug(path[0])) {
     return <MayaoCauLongCatalogFilterPage params={Promise.resolve({ catalogSlug: path[0] })} />

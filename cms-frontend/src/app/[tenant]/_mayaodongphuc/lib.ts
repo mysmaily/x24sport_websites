@@ -64,6 +64,8 @@ export const INDEXABLE_UNIFORM_COLOR_SLUGS = new Set([
   'mau-kem',
 ])
 
+const UNIFORM_COLOR_LANDING_PREFIX = 'ao-dong-phuc-'
+
 const UNIFORM_COLOR_LABELS: Record<string, string> = {
   'mau-cam': 'màu cam',
   'mau-den': 'màu đen',
@@ -163,8 +165,8 @@ export async function getUniformColorFilters({ basePath, categorySlug, sort }: {
   return [...counts.entries()]
     .map(([slug, value]) => ({
       count: value.productIds.size,
-      href: uniformColorHref(basePath, slug),
-      indexable: INDEXABLE_UNIFORM_COLOR_SLUGS.has(slug),
+      href: uniformColorHref(basePath, slug, value.label),
+      indexable: basePath === '/san-pham/' && INDEXABLE_UNIFORM_COLOR_SLUGS.has(slug),
       label: value.label,
       slug,
     }))
@@ -176,9 +178,18 @@ export function isIndexableUniformColorSlug(slug?: string) {
   return Boolean(slug && INDEXABLE_UNIFORM_COLOR_SLUGS.has(slug))
 }
 
-export function uniformColorHref(basePath: string, slug: string) {
-  if (INDEXABLE_UNIFORM_COLOR_SLUGS.has(slug)) return `${basePath}${slug}/`
-  const params = new URLSearchParams({ mau: slug })
+export function uniformColorPath(slug: string) {
+  return `/${UNIFORM_COLOR_LANDING_PREFIX}${slug}/`
+}
+
+export function uniformColorSlugFromPath(path: string) {
+  const match = path.match(new RegExp(`^/${UNIFORM_COLOR_LANDING_PREFIX}(mau-[a-z0-9-]+)/$`))
+  return match && INDEXABLE_UNIFORM_COLOR_SLUGS.has(match[1]) ? match[1] : null
+}
+
+export function uniformColorHref(basePath: string, slug: string, label = uniformColorLabelFromSlug(slug) || slug) {
+  if (basePath === '/san-pham/' && INDEXABLE_UNIFORM_COLOR_SLUGS.has(slug)) return uniformColorPath(slug)
+  const params = new URLSearchParams({ q: label })
   return `${basePath}?${params}`
 }
 

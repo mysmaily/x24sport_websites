@@ -117,6 +117,10 @@ shared behavior, content records, or technical concerns.
 - Classify every filter, sort, search, pagination, and variant URL before
   implementation. Curate useful indexable landing pages; prevent transient or
   combinatorial URL spaces from consuming crawl resources.
+- For a storefront color filter, apply the portfolio's bounded color-URL
+  convention in `references/ecommerce-search-contract.md`; the link emitter,
+  route resolver, canonical metadata, redirects, and sitemap must agree on the
+  same curated palette.
 - Add only supported structured data that matches visible facts. Never fabricate
   reviews, offers, stock, shipping, or return data.
 
