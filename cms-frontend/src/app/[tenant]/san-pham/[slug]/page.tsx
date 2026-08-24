@@ -8,6 +8,7 @@ import { MayaoChayBoShell } from '../../_mayaochaybo/shell'
 import MayaoBongDaProductPage, { generateMetadata as generateMayaoBongDaProductMetadata } from '../../_mayaobongda/san-pham/[slug]/page'
 import { MayaoBongDaShell } from '../../_mayaobongda/shell'
 import MayaoBongChuyenProductPage, { generateMetadata as generateMayaoBongChuyenProductMetadata } from '../../_mayaobongchuyen/san-pham/[slug]/page'
+import { permanentRedirect } from 'next/navigation'
 
 type Props = {
   params: Promise<{ tenant: string; slug: string }>
@@ -17,6 +18,8 @@ type Props = {
 export async function generateMetadata({ params, searchParams }: Props) {
   const { tenant, slug } = await params
   if (tenant === 'mayaodongphuc') {
+    const { isIndexableUniformColorSlug } = await import('../../_mayaodongphuc/lib')
+    if (isIndexableUniformColorSlug(slug)) return {}
     const { getMayAoDongPhucProductMetadata } = await import('../../_mayaodongphuc/product-page')
     return getMayAoDongPhucProductMetadata(slug)
   }
@@ -40,6 +43,8 @@ export async function generateMetadata({ params, searchParams }: Props) {
 export default async function TenantProductPage({ params, searchParams }: Props) {
   const { tenant, slug } = await params
   if (tenant === 'mayaodongphuc') {
+    const { isIndexableUniformColorSlug, uniformColorPath } = await import('../../_mayaodongphuc/lib')
+    if (isIndexableUniformColorSlug(slug)) permanentRedirect(uniformColorPath(slug))
     const { MayAoDongPhucProductPage } = await import('../../_mayaodongphuc/product-page')
     return <MayAoDongPhucProductPage slug={slug} />
   }

@@ -46,6 +46,27 @@ canonical, robots behavior, link policy, sitemap inclusion, and user value.
 - Never block the canonical category, product resources, or assets required to
   render indexable content.
 
+### Portfolio color URL convention
+
+For X24Sport storefront tenants, split color filters into exactly two URL
+classes:
+
+- Maintain a finite tenant-owned allowlist of common base colors. Give each
+  stocked color one crawlable landing route shaped like
+  `/<primary-product-family>-mau-<color>/`, with a self-canonical, useful visible
+  content, internal links, and sitemap inclusion. Use lowercase ASCII slugs.
+- Send shades, combinations, modifiers, and other non-curated colors to
+  `/san-pham/?q=<Vietnamese color label>` using `URLSearchParams`. Treat these as
+  search/filter state: followable when useful, noindex, and absent from the
+  sitemap.
+
+Do not derive an indexable route merely because a color tag exists. The same
+allowlist must drive link generation, route validation, legacy redirects,
+canonical metadata, and sitemap output. Before handoff, crawl every emitted
+color link and confirm that curated URLs return 200 while non-curated options
+retain the encoded query URL. Category-plus-color combinations stay query state
+unless the tenant explicitly curates them as separate landing pages.
+
 ## 3. Product discovery
 
 - Link every intended indexable product from a crawlable hierarchy whenever

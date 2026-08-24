@@ -30,7 +30,7 @@ import {
   staticPages as mayaoPickleballStaticPages,
 } from './[tenant]/_mayaopickleball/lib/seo'
 import { pndLandings } from './[tenant]/_pndsport/lib'
-import { getUniformCategories, getUniformProducts } from './[tenant]/_mayaodongphuc/lib'
+import { getUniformCategories, getUniformColorFilters, getUniformProducts } from './[tenant]/_mayaodongphuc/lib'
 import { volleyballCategorySlugs } from './[tenant]/_mayaobongchuyen/lib/content'
 
 const mayaoCauLongStaticPages = [
@@ -70,8 +70,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
   if (tenant.slug === 'mayaodongphuc') {
     const now = new Date()
-    const [categories, productResult] = await Promise.all([
+    const [categories, colorFilters, productResult] = await Promise.all([
       getUniformCategories(),
+      getUniformColorFilters({ basePath: '/san-pham/' }),
       getUniformProducts({ limit: 100 }),
     ])
 
@@ -83,6 +84,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: now,
         changeFrequency: 'weekly' as const,
         priority: 0.8,
+      })),
+      ...colorFilters.filter((color) => color.indexable).map((color) => ({
+        url: `${base}${color.href}`,
+        lastModified: now,
+        changeFrequency: 'weekly' as const,
+        priority: 0.72,
       })),
       ...productResult.docs.map((product) => ({
         url: `${base}/san-pham/${product.slug}/`,

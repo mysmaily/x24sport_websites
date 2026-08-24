@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { FOOTBALL_PERMANENT_REDIRECTS } from './app/[tenant]/_mayaobongda/lib/permanent-redirects'
+import { isIndexableUniformColorSlug, uniformColorSlugFromPath } from './app/[tenant]/_mayaodongphuc/lib'
 import { encodeTenantHeader, resolveTenantByHost } from './lib/tenant-registry'
 
 const API_URL = process.env.PAYLOAD_API_URL || 'http://localhost:3001'
@@ -32,8 +33,12 @@ async function mayaodongphucRecordExists(collection: 'product-categories' | 'pro
 
 async function shouldUseMayAoDongPhuc404(pathname: string) {
   if (pathname === '/' || pathname === '/san-pham/' || pathname === '/tim-kiem/' || pathname === '/blog/') return false
+  if (uniformColorSlugFromPath(pathname)) return false
   const productMatch = pathname.match(/^\/san-pham\/([^/]+)\/$/)
-  if (productMatch) return !(await mayaodongphucRecordExists('products', productMatch[1]))
+  if (productMatch) {
+    if (isIndexableUniformColorSlug(productMatch[1])) return false
+    return !(await mayaodongphucRecordExists('products', productMatch[1]))
+  }
 
   const categoryMatch = pathname.match(/^\/danh-muc\/([^/]+)(?:\/[^/]+)?\/$/)
   if (categoryMatch) return !(await mayaodongphucRecordExists('product-categories', categoryMatch[1]))
