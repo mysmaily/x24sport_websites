@@ -20,7 +20,7 @@ type CompactHeaderProps = {
 
 function DesktopNavigation({ base, items }: { base: string; items: readonly NavigationCategory[] }) {
   return <nav className={styles.compactNav} aria-label="Menu nhanh">
-    {items.slice(0, 8).map((item) => item.children?.length ? <div className={styles.navDropdown} key={item.slug}><Link className={styles.navItem} href={`${base}/danh-muc/${item.slug}`}>{item.name}</Link><div className={styles.navSubmenu}>{item.children.map((child) => <Link href={`${base}/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}</div></div> : <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}
+    {items.map((item) => item.children?.length ? <div className={styles.navDropdown} key={item.slug}><Link className={styles.navItem} href={`${base}/danh-muc/${item.slug}`}>{item.name}</Link><div className={styles.navSubmenu}>{item.children.map((child) => <Link href={`${base}/danh-muc/${child.slug}`} key={child.slug}>{child.name}</Link>)}</div></div> : <Link href={`${base}/danh-muc/${item.slug}`} key={item.slug}>{item.name}</Link>)}
     <Link href={`${base}/blog`}>Góc tư vấn</Link>
   </nav>
 }

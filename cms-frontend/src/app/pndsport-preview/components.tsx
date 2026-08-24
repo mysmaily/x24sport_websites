@@ -26,7 +26,7 @@ export function Brand({ base = previewBase, variant = 'v1', imageLogo = false, i
 }
 
 export function SiteShell({ children, base = previewBase, variant = 'v1', navigationCategories = categories, imageLogo = false, showDraftNotice = true, showMobileBar = true }: { children: ReactNode; base?: string; variant?: PreviewVariant; navigationCategories?: readonly NavigationCategory[]; imageLogo?: boolean; showDraftNotice?: boolean; showMobileBar?: boolean }) {
-  const navItems = navigationCategories.slice(0, 8)
+  const navItems = navigationCategories
   const variantClass = variant === 'v2' ? styles.v2 : variant === 'v3' ? styles.v3 : ''
   return <div className={`${styles.site} ${variantClass}`} data-preview-variant={variant}>
     <a className={styles.skipLink} href="#pnd-main">Bỏ qua đến nội dung</a>
