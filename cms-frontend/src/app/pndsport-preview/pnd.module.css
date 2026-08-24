@@ -91,7 +91,7 @@
 .dynamicGallery :global(.product-media-stage){min-width:0}
 .dynamicGallery :global(.product-media-track),.dynamicGallery :global(.product-media-slide){min-width:0}
 .dynamicGallery :global(.product-gallery-thumbnails){align-content:flex-start}
-.dynamicGallery :global(.product-gallery-thumbnails button){width:62px;min-width:62px;flex:0 0 62px;border:2px solid transparent;box-shadow:inset 0 0 0 1px var(--line)}
+.dynamicGallery :global(.product-gallery-thumbnails button){width:62px;height:62px;min-width:62px;flex:0 0 62px;border:2px solid transparent;box-shadow:inset 0 0 0 1px var(--line)}
 .dynamicGallery :global(.product-gallery-thumbnails button.is-active){border-color:var(--orange);box-shadow:none}
 .dynamicGallery :global(.gallery-nav){width:36px;height:36px}
 .productDetail>h1{overflow-wrap:anywhere;text-wrap:balance}
@@ -108,7 +108,7 @@
   .dynamicGallery :global(.product-media-gallery--utility){grid-template-columns:minmax(0,1fr)}
   .dynamicGallery :global(.product-media-stage){grid-column:1}
   .dynamicGallery :global(.product-gallery-thumbnails){grid-column:1;grid-row:2;flex-direction:row;overflow-x:auto;overscroll-behavior-inline:contain;gap:8px;padding:2px 2px 4px}
-  .dynamicGallery :global(.product-gallery-thumbnails button){width:68px;min-width:68px;flex-basis:68px}
+  .dynamicGallery :global(.product-gallery-thumbnails button){width:68px;height:68px;min-width:68px;flex-basis:68px}
   .dynamicGallery :global(.gallery-nav){width:34px;height:34px}
   .contentTabs{grid-template-columns:minmax(0,1fr);gap:20px}
 }
