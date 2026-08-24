@@ -47,6 +47,40 @@ const uniqueTenantSKU: TextFieldValidation = async (value, { data, id, req, sibl
   return true
 }
 
+const validateGalleryAccess = async (value: unknown, { data, req, siblingData }: any) => {
+  const selectedMedia = (Array.isArray(value) ? value : [value])
+    .map(relationID)
+    .filter((id): id is number | string => id !== undefined)
+  const mediaIDs = [...new Set(selectedMedia.map(String))]
+  if (!mediaIDs.length) return true
+
+  const productData = (siblingData || data) as ProductValidationData | undefined
+  const tenant = relationID(productData?.tenant)
+  if (!tenant) return 'Sản phẩm phải có website trước khi chọn ảnh.'
+
+  const visibleMedia = await req.payload.find({
+    collection: 'media',
+    depth: 0,
+    limit: mediaIDs.length,
+    overrideAccess: true,
+    where: {
+      and: [
+        { id: { in: mediaIDs } },
+        {
+          or: [
+            { tenant: { equals: tenant } },
+            { sharedWithTenants: { in: [tenant] } },
+          ],
+        },
+      ],
+    },
+  })
+
+  return visibleMedia.totalDocs === mediaIDs.length
+    ? true
+    : 'Mỗi ảnh phải thuộc website của sản phẩm hoặc đã được chia sẻ cho website đó.'
+}
+
 export const Products: CollectionConfig = {
   slug: 'products',
   admin: {
@@ -301,6 +335,7 @@ export const Products: CollectionConfig = {
               relationTo: 'media',
               hasMany: true,
               label: 'Ảnh',
+              validate: validateGalleryAccess,
               admin: {
                 components: {
                   Cell: '/components/products/ProductGalleryCell#ProductGalleryCell',
