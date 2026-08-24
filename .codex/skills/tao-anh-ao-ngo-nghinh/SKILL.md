@@ -1,6 +1,6 @@
 ---
 name: tao-anh-ao-ngo-nghinh
-description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo cặp: artwork in có chữ trên nền trắng chất lượng cao và ảnh áo thành phẩm marketing dùng đúng artwork đó. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn đến hàng nghìn concept; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
+description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo cặp: artwork in có chữ trên nền trắng chất lượng cao và ảnh áo thành phẩm marketing có dấu Mayaodongphuc, hotline, website, dùng đúng artwork đó. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn đến hàng nghìn concept; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
 ---
 
 # Tạo ảnh áo ngộ nghĩnh
@@ -48,8 +48,8 @@ Kiểm tra ảnh full-size. Sai một ký tự, dấu, tay, mặt hoặc chi ti�
 Sau khi duyệt `print-master`:
 
 1. Dùng `view_image` để đưa file artwork vào ngữ cảnh.
-2. Gọi `imagegen` với `referenced_image_paths` trỏ tới đúng `print-master`.
-3. Yêu cầu áp nguyên artwork lên một áo phông cổ tròn nền một màu.
+2. Dùng thêm logo campaign thật tại `../tao-anh-dong-phuc-tre-em/assets/mayaodongphuc-logo.png`; gọi `imagegen` với `referenced_image_paths` gồm đúng `print-master` và logo này.
+3. Yêu cầu áp nguyên artwork lên một áo phông cổ tròn nền một màu, đồng thời bố trí dấu thương hiệu và contact ở khoảng trống ngoài áo.
 
 Invariants bắt buộc:
 
@@ -58,9 +58,13 @@ Invariants bắt buộc:
 - nền trắng của file nguồn không trở thành hình chữ nhật in trên áo;
 - hình in bám phối cảnh, nếp vải, texture và ánh sáng như mực in thật;
 - ảnh marketing vuông, áo nhìn trọn vẹn, artwork đọc rõ, đạo cụ chỉ ở rìa;
-- không logo, watermark, nhãn giả hoặc copy marketing ngoài áo nếu người dùng chưa yêu cầu.
+- logo Mayaodongphuc xuất hiện đúng một lần như dấu campaign ngoài áo, không in lên áo và không tự vẽ lại logo;
+- contact phải ghi đúng nguyên văn `0982 254 458` và `mayaodongphuc.com.vn`;
+- logo/contact nằm trong chip, corner panel, micro footer hoặc partial rail gọn, tổng vùng branding không quá 12% diện tích ảnh và không che áo hay artwork;
+- luân phiên vị trí và treatment giữa các sản phẩm; không dùng một thanh footer toàn chiều ngang làm template mặc định cho cả batch;
+- ngoài logo và contact bắt buộc, không thêm watermark, nhãn giả, slogan quảng cáo hoặc copy marketing khác nếu người dùng chưa yêu cầu.
 
-Nếu artwork bị drift, sửa bằng một correction pass sử dụng lại cùng reference; không generate một thiết kế mới rồi coi là cùng sản phẩm.
+Nếu artwork bị drift, sửa bằng một correction pass sử dụng lại cùng reference; không generate một thiết kế mới rồi coi là cùng sản phẩm. Nếu logo, số điện thoại hoặc website sai, sửa riêng vùng branding hoặc composite lại bằng logo asset thật và font rõ; giữ nguyên áo cùng artwork đã duyệt.
 
 ## Xuất file
 
@@ -82,12 +86,12 @@ Chạy validator sau khi xuất:
 python3 scripts/validate_product_pair.py /absolute/path/to/product-folder
 ```
 
-Kiểm tra trực quan cả hai ảnh cuối ở full-size. Báo đường dẫn từng cặp, kích thước, trạng thái kiểm tra chữ và xác nhận marketing được tạo từ artwork tham chiếu.
+Kiểm tra trực quan cả hai ảnh cuối ở full-size. Báo đường dẫn từng cặp, kích thước, trạng thái kiểm tra chữ, logo/contact và xác nhận marketing được tạo từ artwork tham chiếu.
 
 ## Quy mô lớn
 
 - Mỗi asset riêng biệt dùng một lần gọi `imagegen`; không dùng một ảnh lưới thay cho nhiều deliverable.
 - Duy trì `batch-plan.json` và `batch-registry.jsonl` để không lặp `uniquenessSignature`, slogan hoặc palette quá dày.
 - Trong cùng 20 sản phẩm liên tiếp, hai concept kề nhau phải khác ít nhất ba trục sáng tạo.
-- Sau mỗi đợt, kiểm tra: lỗi chữ, trùng concept, tỷ lệ chủ thể, màu áo, độ trung thành giữa master và marketing, rồi mới tiếp tục.
+- Sau mỗi đợt, kiểm tra: lỗi chữ, trùng concept, tỷ lệ chủ thể, màu áo, độ trung thành giữa master và marketing, logo đúng asset, hotline/website đúng tuyệt đối, rồi mới tiếp tục.
 - Khi người dùng yêu cầu hàng trăm hoặc hàng nghìn mẫu, ưu tiên tính nhất quán của pipeline hơn tốc độ tạo một mạch.

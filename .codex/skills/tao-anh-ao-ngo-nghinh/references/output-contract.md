@@ -5,7 +5,7 @@
 | Role | File | Yêu cầu |
 |---|---|---|
 | Print master | `<slug>-print-master.png` | PNG RGB, nền `#FFFFFF`, 4500×4500 px, 300 DPI, artwork và exact text, không áo/đạo cụ/watermark |
-| Marketing | `<slug>-marketing.webp` | WebP Q100, vuông ≥1200 px, một áo nền đơn sắc, sử dụng đúng artwork master |
+| Marketing | `<slug>-marketing.webp` | WebP Q100, vuông ≥1200 px, một áo nền đơn sắc, sử dụng đúng artwork master, có dấu Mayaodongphuc và contact chuẩn |
 
 Ảnh master là nguồn thiết kế. Ảnh marketing là phần trình bày thương mại của cùng thiết kế, không phải biến thể sáng tạo thứ hai.
 
@@ -30,6 +30,18 @@
 - Mực in nhận texture, bóng, nếp và phối cảnh của vải.
 - Không có khung nền trắng ngoài ý muốn.
 - Đạo cụ và background hỗ trợ chủ đề nhưng không che áo.
+
+## Dấu thương hiệu và contact trên marketing
+
+- Logo chuẩn: `../../tao-anh-dong-phuc-tre-em/assets/mayaodongphuc-logo.png`.
+- Hotline exact text: `0982 254 458`.
+- Website exact text: `mayaodongphuc.com.vn`.
+- Dấu campaign chỉ xuất hiện một lần ngoài áo; không được in lên áo, bóp méo, đổi màu hoặc tự vẽ lại logo.
+- Hotline và website phải rõ ở kích thước listing, không thiếu số, sai khoảng trắng, sai chính tả hoặc đổi domain.
+- Đặt branding/contact trong khoảng trống bằng contact chip, corner panel, micro footer hoặc partial rail; tổng vùng này không quá 12% diện tích ảnh.
+- Không che thân áo, tay áo, artwork hoặc biến nền ảnh thành poster quảng cáo nặng chữ.
+- Luân phiên vị trí, hình dạng và màu treatment theo palette từng mẫu; tránh lặp thanh footer toàn chiều ngang cho cả batch.
+- Nếu image generation làm sai logo hoặc contact, sửa riêng vùng branding hoặc composite bằng asset logo thật và font rõ; không regenerate thiết kế áo đã duyệt.
 
 ## Conversion
 
