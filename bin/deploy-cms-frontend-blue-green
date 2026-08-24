@@ -162,7 +162,7 @@ rsync_frontend() {
 rsync_nginx_dry_run() {
   local target_slot="$1"
 
-  rsync -az --dry-run "$(upstream_template "$target_slot")" "${PROXY_HOST}:${PROXY_UPSTREAM}"
+  rsync -az --checksum --dry-run "$(upstream_template "$target_slot")" "${PROXY_HOST}:${PROXY_UPSTREAM}"
   rsync -az --dry-run "${FRONTEND_DIR}/deploy/cms-frontend-static-fallback.conf" "${PROXY_HOST}:${PROXY_SNIPPET}"
   for domain in "${DOMAINS[@]}"; do
     rsync -az --dry-run "${FRONTEND_DIR}/deploy/${domain}.conf" "${PROXY_HOST}:/etc/nginx/conf.d/${domain}.conf"
@@ -172,7 +172,7 @@ rsync_nginx_dry_run() {
 install_nginx_config() {
   local target_slot="$1"
 
-  rsync -az "$(upstream_template "$target_slot")" "${PROXY_HOST}:${PROXY_UPSTREAM}"
+  rsync -az --checksum "$(upstream_template "$target_slot")" "${PROXY_HOST}:${PROXY_UPSTREAM}"
   rsync -az "${FRONTEND_DIR}/deploy/cms-frontend-static-fallback.conf" "${PROXY_HOST}:${PROXY_SNIPPET}"
   for domain in "${DOMAINS[@]}"; do
     rsync -az "${FRONTEND_DIR}/deploy/${domain}.conf" "${PROXY_HOST}:/etc/nginx/conf.d/${domain}.conf"
