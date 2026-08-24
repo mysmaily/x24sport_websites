@@ -1,6 +1,6 @@
 ---
 name: tao-anh-ao-ngo-nghinh
-description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo cặp: artwork in có chữ trên nền trắng chất lượng cao và ảnh áo thành phẩm marketing có dấu Mayaodongphuc, hotline, website, dùng đúng artwork đó. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn đến hàng nghìn concept; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
+description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo cặp: artwork in có chữ trên nền trắng đặt tên theo SKU X24-DP-HHSSMM và ảnh áo marketing có mã mẫu, dấu Mayaodongphuc, hotline, website, dùng đúng artwork đó. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn đến hàng nghìn concept; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
 ---
 
 # Tạo ảnh áo ngộ nghĩnh
@@ -23,12 +23,21 @@ Tạo đúng hai ảnh cuối cho mỗi sản phẩm:
 
 Mỗi sản phẩm phải khóa trước:
 
-- `productSlug`, slogan chính và tên lớp/đơn vị/nhóm;
+- `sku`, `productSlug`, slogan chính và tên lớp/đơn vị/nhóm;
 - họ chủ thể, phong cách minh họa, bố cục, palette và màu áo;
 - exact text có dấu;
 - `uniquenessSignature = subject|style|layout|slogan|identity|palette|shirtColor`.
 
 Không dùng nhân vật, logo, huy hiệu hoặc tài sản có bản quyền/thương hiệu. Mặc định động vật không vượt quá 25% batch; phân bổ thêm emoji, hoạt hình người, đồ vật có tính cách, đồ ăn, môn học, thể thao, thiên nhiên và fantasy/sci-fi.
+
+### Khóa SKU và copy sản phẩm
+
+- SKU có dạng exact `X24-DP-HHSSMM`, trong đó `HH` là giờ, `SS` là giây và `MM` là phút theo múi giờ `Asia/Ho_Chi_Minh`. Không đổi thứ tự thành `HHMMSS`.
+- Cấp và giữ chỗ SKU bằng `python3 scripts/allocate_sku.py --registry=/absolute/path/to/batch-registry.jsonl --root=/absolute/path/to/generated/tao-anh-ao-ngo-nghinh`. Script kiểm tra trùng trong registry và tên file đã xuất; nếu candidate đã tồn tại, nó tiến giây cho tới mã chưa dùng.
+- Cùng một SKU phải được dùng nguyên vẹn ở tên file thiết kế, tên file marketing, ảnh marketing, tiêu đề và mô tả sản phẩm; không cấp lại SKU ở bước publish.
+- Tiêu đề sản phẩm dùng cấu trúc tự nhiên `<tên mẫu> - mã <SKU>` hoặc `<tên mẫu> mã <SKU>`; không nhồi thêm từ khóa chỉ để kéo dài tiêu đề.
+- Mô tả ngắn phải có câu `Mã mẫu: <SKU>.` ở phần đầu, rồi mới mô tả màu áo, slogan, đối tượng và khả năng tùy chỉnh dựa trên dữ kiện đã khóa.
+- Workflow vẫn là `images-only`: chỉ trả sẵn `productTitle` và `productDescription` trong báo cáo/handoff. Chỉ đăng CMS khi người dùng yêu cầu riêng; khi đó publisher phải giữ nguyên SKU, title và description này.
 
 ## Tạo ảnh 1: print-master
 
@@ -60,7 +69,8 @@ Invariants bắt buộc:
 - ảnh marketing vuông, áo nhìn trọn vẹn, artwork đọc rõ, đạo cụ chỉ ở rìa;
 - logo Mayaodongphuc xuất hiện đúng một lần như dấu campaign ngoài áo, không in lên áo và không tự vẽ lại logo;
 - contact phải ghi đúng nguyên văn `0982 254 458` và `mayaodongphuc.com.vn`;
-- logo/contact nằm trong chip, corner panel, micro footer hoặc partial rail gọn, tổng vùng branding không quá 12% diện tích ảnh và không che áo hay artwork;
+- mã mẫu phải ghi đúng nguyên văn `MÃ MẪU: <SKU>` trong cùng cụm thông tin thương mại;
+- logo/contact/SKU nằm trong chip, corner panel, micro footer hoặc partial rail gọn, tổng vùng branding không quá 12% diện tích ảnh và không che áo hay artwork;
 - luân phiên vị trí và treatment giữa các sản phẩm; không dùng một thanh footer toàn chiều ngang làm template mặc định cho cả batch;
 - ngoài logo và contact bắt buộc, không thêm watermark, nhãn giả, slogan quảng cáo hoặc copy marketing khác nếu người dùng chưa yêu cầu.
 
@@ -72,12 +82,12 @@ Xuất dưới:
 
 ```text
 generated/tao-anh-ao-ngo-nghinh/<batch-id>/<product-slug>/
-  <product-slug>-print-master.png
-  <product-slug>-marketing.webp
+  <SKU>.png
+  <SKU>-marketing.webp
 ```
 
-- `print-master.png`: nền trắng, 4500×4500 px, 300 DPI. Ưu tiên nguồn native lớn nhất; nếu phải upscale raster thì dùng Lanczos và báo rõ đây không phải vector.
-- `marketing.webp`: vuông tối thiểu 1200×1200 px, WebP quality 100.
+- `<SKU>.png`: print-master nền trắng, 4500×4500 px, 300 DPI. Tên file phải là đúng SKU để có thể tìm trực tiếp trên máy. Ưu tiên nguồn native lớn nhất; nếu phải upscale raster thì dùng Lanczos và báo rõ đây không phải vector.
+- `<SKU>-marketing.webp`: ảnh marketing vuông tối thiểu 1200×1200 px, WebP quality 100.
 - Mỗi sản phẩm chỉ có hai ảnh xuất bản. Contact sheet và metadata của batch không tính là ảnh sản phẩm.
 
 Chạy validator sau khi xuất:
@@ -86,12 +96,12 @@ Chạy validator sau khi xuất:
 python3 scripts/validate_product_pair.py /absolute/path/to/product-folder
 ```
 
-Kiểm tra trực quan cả hai ảnh cuối ở full-size. Báo đường dẫn từng cặp, kích thước, trạng thái kiểm tra chữ, logo/contact và xác nhận marketing được tạo từ artwork tham chiếu.
+Kiểm tra trực quan cả hai ảnh cuối ở full-size. Báo SKU, `productTitle`, `productDescription`, đường dẫn từng cặp, kích thước, trạng thái kiểm tra chữ, logo/contact/mã mẫu và xác nhận marketing được tạo từ artwork tham chiếu.
 
 ## Quy mô lớn
 
 - Mỗi asset riêng biệt dùng một lần gọi `imagegen`; không dùng một ảnh lưới thay cho nhiều deliverable.
 - Duy trì `batch-plan.json` và `batch-registry.jsonl` để không lặp `uniquenessSignature`, slogan hoặc palette quá dày.
 - Trong cùng 20 sản phẩm liên tiếp, hai concept kề nhau phải khác ít nhất ba trục sáng tạo.
-- Sau mỗi đợt, kiểm tra: lỗi chữ, trùng concept, tỷ lệ chủ thể, màu áo, độ trung thành giữa master và marketing, logo đúng asset, hotline/website đúng tuyệt đối, rồi mới tiếp tục.
+- Sau mỗi đợt, kiểm tra: SKU không trùng, file đúng tên SKU, lỗi chữ, trùng concept, tỷ lệ chủ thể, màu áo, độ trung thành giữa master và marketing, logo đúng asset, mã mẫu/hotline/website đúng tuyệt đối, rồi mới tiếp tục.
 - Khi người dùng yêu cầu hàng trăm hoặc hàng nghìn mẫu, ưu tiên tính nhất quán của pipeline hơn tốc độ tạo một mạch.

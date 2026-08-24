@@ -4,10 +4,15 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import sys
 from pathlib import Path
+
+
+MASTER_NAME = re.compile(r"^(X24-DP-[0-9]{6})\.png$")
+MARKETING_NAME = re.compile(r"^(X24-DP-[0-9]{6})-marketing\.webp$")
 
 
 def fail(message: str) -> None:
@@ -58,10 +63,15 @@ def main() -> None:
     if len(images) != 2:
         fail(f"expected exactly 2 published images, found {len(images)}")
 
-    masters = [p for p in images if p.name.endswith("-print-master.png")]
-    marketing = [p for p in images if p.name.endswith("-marketing.webp")]
+    masters = [p for p in images if MASTER_NAME.fullmatch(p.name)]
+    marketing = [p for p in images if MARKETING_NAME.fullmatch(p.name)]
     if len(masters) != 1 or len(marketing) != 1:
-        fail("expected one *-print-master.png and one *-marketing.webp")
+        fail("expected one X24-DP-HHSSMM.png and one matching X24-DP-HHSSMM-marketing.webp")
+
+    master_sku = MASTER_NAME.fullmatch(masters[0].name).group(1)
+    marketing_sku = MARKETING_NAME.fullmatch(marketing[0].name).group(1)
+    if master_sku != marketing_sku:
+        fail("print master and marketing filenames must use the same SKU")
 
     master_info = identify(masters[0])
     marketing_info = identify(marketing[0])
@@ -88,6 +98,7 @@ def main() -> None:
     print(json.dumps({
         "ok": True,
         "folder": str(folder),
+        "sku": master_sku,
         "printMaster": {"file": masters[0].name, **master_info},
         "marketing": {"file": marketing[0].name, **marketing_info},
         "visualInspectionRequired": True,
