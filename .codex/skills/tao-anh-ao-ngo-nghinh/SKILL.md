@@ -1,15 +1,16 @@
 ---
 name: tao-anh-ao-ngo-nghinh
-description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo cặp: artwork in có chữ trên nền trắng đặt tên theo SKU X24-DP-HHSSMM và ảnh chụp áo thành phẩm chân thực có mã mẫu, dấu Mayaodongphuc, hotline, website, dùng đúng artwork đó. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn đến hàng nghìn concept; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
+description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo bộ: artwork in nền trắng đặt tên theo SKU X24-DP-HHSSMM, ảnh chụp áo thành phẩm có thông tin Mayaodongphuc, và ảnh học sinh lớp 8-12 mặc đúng mẫu áo. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
 ---
 
 # Tạo ảnh áo ngộ nghĩnh
 
-Tạo hai ảnh gốc và một derivative website cho mỗi sản phẩm:
+Tạo ba ảnh gốc và một derivative website cho mỗi sản phẩm:
 
 1. `print-master`: artwork và text tách biệt trên nền trắng, sẵn sàng tái sử dụng để in.
 2. `marketing`: áo thành phẩm dùng chính `print-master`, không tự diễn giải lại thiết kế.
-3. `print-preview`: bản WebP 500×500 crop/resize từ master để làm ảnh gallery website.
+3. `student-lifestyle`: học sinh Việt Nam thuộc một khối được chọn ổn định từ lớp 8-12 mặc đúng mẫu áo.
+4. `print-preview`: bản WebP 500×500 crop/resize từ master để làm ảnh gallery website.
 
 Đây là workflow `images-only` mặc định. Luôn chuẩn bị handoff cho `create-tenant-product`, nhưng không đăng CMS, không tạo sản phẩm và không triển khai website trừ khi người dùng yêu cầu rõ ở một bước riêng.
 
@@ -20,6 +21,7 @@ Tạo hai ảnh gốc và một derivative website cho mỗi sản phẩm:
 - Với hơn 10 sản phẩm, đọc [references/creative-system.md](references/creative-system.md), lập `batch-plan.json`, rồi tạo theo đợt 10-25 sản phẩm. Không tạo hàng trăm mẫu mà không có checkpoint kiểm tra.
 - Đọc [references/output-contract.md](references/output-contract.md) trước khi xuất file hoặc khi cần quyết định kích thước, định dạng và tên file.
 - Đọc [references/product-handoff.md](references/product-handoff.md) trước khi tạo preview website hoặc handoff sang `create-tenant-product`.
+- Trước khi tạo `student-lifestyle`, đọc [skill đồng phục lớp - trường học](../tao-anh-dong-phuc-lop-truong-hoc/SKILL.md) và [approved output contract](../tao-anh-dong-phuc-lop-truong-hoc/references/approved-output-contract.md); chỉ lấy contract cast, bối cảnh học đường, logo và rail, không thay workflow SKU/artwork của skill này.
 
 ## Khóa concept
 
@@ -29,6 +31,7 @@ Mỗi sản phẩm phải khóa trước:
 - `categorySlugs` theo đúng slug danh mục của website Mayaodongphuc; một sản phẩm thuộc nhiều danh mục thì giữ đủ các slug;
 - họ chủ thể, phong cách minh họa, bố cục, palette và màu áo;
 - exact text có dấu;
+- `studentVariant` gồm lớp, dải tuổi, số người, scene và action từ script ổn định theo SKU;
 - `uniquenessSignature = subject|style|layout|slogan|identity|palette|shirtColor`.
 
 Không dùng nhân vật, logo, huy hiệu hoặc tài sản có bản quyền/thương hiệu. Mặc định động vật không vượt quá 25% batch; phân bổ thêm emoji, hoạt hình người, đồ vật có tính cách, đồ ăn, môn học, thể thao, thiên nhiên và fantasy/sci-fi.
@@ -97,6 +100,31 @@ Nếu artwork bị drift, sửa bằng một correction pass sử dụng lại c
 
 Sau composite, dùng `view_image` kiểm tra file marketing cuối ở full-size và tự trả lời đủ 5 câu: `vuông 1:1?`, `áo là ảnh chụp thật?`, `thấy cấu trúc vải/cổ/đường may?`, `artwork đúng master và nằm trong 35-48% thân áo?`, `logo/contact/SKU đúng và không che áo?`. Chỉ xuất bản khi cả 5 câu đều là `có`.
 
+## Tạo ảnh 3: học sinh lớp 8-12 mặc áo
+
+Chọn một biến thể học sinh ổn định theo SKU trước khi prompt:
+
+```bash
+python3 scripts/choose_student_variant.py --sku <SKU>
+```
+
+Script chọn pseudo-random một khối từ lớp 8 đến lớp 12, dải tuổi phù hợp, 4-5 người, bối cảnh và hành động học đường. Cùng một SKU luôn trả cùng biến thể để correction pass hoặc retry không đổi độ tuổi. Ghi nguyên kết quả vào `studentVariant` trong handoff. Khối lớp chỉ điều khiển cast; không tự thay exact slogan, identity hay mã lớp đang có trong artwork.
+
+Dùng `imagegen` với `print-master`, ảnh `marketing`, logo thật và benchmark `../tao-anh-dong-phuc-lop-truong-hoc/assets/approved-main.png` làm reference:
+
+- use case `ads-marketing`, ảnh vuông 1:1, photorealistic school campaign;
+- cast học sinh Việt Nam đúng lớp/dải tuổi đã chọn, mixed gender khi phù hợp, gương mặt khác nhau, hành động tự nhiên và an toàn;
+- scene phải đọc rõ là trường học: sân trường, hành lang, lớp học, thư viện, phòng CLB hoặc sân thể thao trường; không đọc thành team-building công ty, picnic, nightlife hay fashion editorial;
+- tất cả áo giữ cùng màu, cổ, tay, form và exact artwork; ưu tiên ít nhất hai mặt trước rõ. Không bịa artwork mặt sau khi nguồn chỉ khóa mặt trước;
+- hình in trên từng người phải bám riêng theo phối cảnh, độ cong thân, texture, nếp và ánh sáng; không lặp một sticker cứng cùng biến dạng trên nhiều áo;
+- logo Mayaodongphuc đúng asset xuất hiện một lần ở góc trên, ngoài áo;
+- bottom rail cao không quá 14%, chỉ có exact copy `THOÁNG MÁT`, `DỄ MẶC`, `IN TÊN - LOGO LỚP`, `MAY NHANH SỐ LƯỢNG LỚN`, `0982 254 458` kèm phone icon; không thêm website, SKU, title hay paragraph;
+- nếu imagegen làm sai logo hoặc rail nhưng photo và áo đã đạt, sửa riêng vùng đó bằng composite deterministic; không regenerate người và áo.
+
+Hard reject nếu cast sai rõ rệt dải tuổi đã chọn, có dưới 3 người, anatomy/tay lỗi, áo khác nhau, artwork sai chữ hoặc trôi thiết kế, hình in nổi như decal, logo in lên áo, rail sai hotline/copy, scene không còn ngữ cảnh học đường, hoặc nhân vật bị thể hiện theo cách không phù hợp với lứa tuổi.
+
+Sau khi xuất WebP, dùng `view_image` kiểm tra full-size và xác nhận: `vuông 1:1?`, `đúng lớp/dải tuổi?`, `ít nhất hai mặt áo đọc rõ?`, `artwork bám vải và nhất quán?`, `logo/rail/hotline đúng?`. Chỉ nhận khi cả năm câu là `có`.
+
 ## Xuất file
 
 Xuất dưới:
@@ -105,15 +133,17 @@ Xuất dưới:
 generated/tao-anh-ao-ngo-nghinh/<batch-id>/<product-slug>/
   <SKU>.png
   <SKU>-marketing.webp
+  <SKU>-student-lifestyle.webp
   <SKU>-print-preview.webp
   product-handoff.json
 ```
 
 - `<SKU>.png`: print-master nền trắng, 4500×4500 px, 300 DPI. Tên file phải là đúng SKU để có thể tìm trực tiếp trên máy. Ưu tiên nguồn native lớn nhất; nếu phải upscale raster thì dùng Lanczos và báo rõ đây không phải vector.
 - `<SKU>-marketing.webp`: ảnh marketing vuông tối thiểu 1200×1200 px, WebP quality 100.
+- `<SKU>-student-lifestyle.webp`: ảnh học sinh lớp 8-12 vuông tối thiểu 1200×1200 px, WebP quality 100, dùng đúng mẫu áo và campaign contract học đường.
 - `<SKU>-print-preview.webp`: bản xem trước website được crop/resize deterministic từ print master, đúng 500×500 px, WebP quality 100. Không dùng imagegen để tạo lại preview.
-- `product-handoff.json`: manifest checksum cho `create-tenant-product`; gallery order là marketing trước, print preview sau.
-- Hai ảnh được phép upload website là marketing và print preview. Print master PNG 4500px không được upload CMS. Contact sheet và metadata batch không tính là ảnh sản phẩm.
+- `product-handoff.json`: manifest checksum cho `create-tenant-product`; gallery order là marketing, student lifestyle, rồi print preview.
+- Ba ảnh được phép upload website là marketing, student lifestyle và print preview. Print master PNG 4500px không được upload CMS. Contact sheet và metadata batch không tính là ảnh sản phẩm.
 
 Tạo preview sau khi print master vượt validator:
 
@@ -147,7 +177,9 @@ python3 scripts/archive_print_master.py \
 Chạy validator sau khi xuất:
 
 ```bash
-python3 scripts/validate_product_pair.py /absolute/path/to/product-folder
+python3 scripts/validate_product_pair.py \
+  /absolute/path/to/product-folder \
+  --require-student-lifestyle
 ```
 
 Validator trả lỗi thì không được báo hoàn tất, không đăng CMS, không copy vào kho dữ liệu và không dùng ảnh đó làm đầu vào publish. Validator chỉ kiểm tra được cấu trúc file; visual gate ảnh áo thật vẫn phải được kiểm tra bằng `view_image`.
@@ -155,28 +187,29 @@ Validator trả lỗi thì không được báo hoàn tất, không đăng CMS, 
 ## Handoff sang create-tenant-product
 
 - Tạo `product-handoff.json` theo [references/product-handoff.md](references/product-handoff.md), dùng đường dẫn tuyệt đối và SHA-256 của bytes cuối.
-- `acceptedImages` phải có đúng hai ảnh theo thứ tự: `<SKU>-marketing.webp` role `product hero`, rồi `<SKU>-print-preview.webp` role `print artwork preview`.
+- Với schema `1.1`, `acceptedImages` phải có đúng ba ảnh theo thứ tự: `<SKU>-marketing.webp` role `product hero`, `<SKU>-student-lifestyle.webp` role `content-inline lifestyle`, rồi `<SKU>-print-preview.webp` role `print artwork preview`.
 - Print master chỉ xuất hiện trong `sourceAssets.printMaster`; không được liệt kê trong `acceptedImages`.
 - `publishingIntent.action` mặc định là `images-only`. Chỉ đổi thành `publish` hoặc `draft` khi người dùng yêu cầu đăng hoặc tạo nháp.
 - Giữ nguyên SKU `X24-DP-HHSSMM` đã cấp trong `productIdentity.sku`, `sourceId`, title và description; publisher không cấp SKU mới.
-- Chạy validator handoff và truyền đúng cả hai publishing images:
+- Chạy validator handoff và truyền đúng cả ba publishing images:
 
 ```bash
 python3 scripts/validate_product_handoff.py \
   --manifest /absolute/path/to/product-handoff.json \
   --image /absolute/path/to/<SKU>-marketing.webp \
+  --image /absolute/path/to/<SKU>-student-lifestyle.webp \
   --image /absolute/path/to/<SKU>-print-preview.webp \
   --require-publishing-set
 ```
 
-- Nếu người dùng yêu cầu đăng, invoke `create-tenant-product` bằng manifest đã validate. Publisher phải upload hai WebP, giữ marketing làm hero, dùng preview 500px làm ảnh gallery/contextual và không upload master PNG.
+- Nếu người dùng yêu cầu đăng, invoke `create-tenant-product` bằng manifest đã validate. Publisher phải upload ba WebP theo thứ tự manifest, giữ marketing làm hero, dùng student lifestyle và preview 500px làm hai ảnh gallery/contextual, và không upload master PNG.
 
-Kiểm tra trực quan master, marketing và preview. Báo SKU, `productTitle`, `productDescription`, đường dẫn ba ảnh, manifest handoff, đường dẫn kho print master theo từng danh mục, kích thước, trạng thái kiểm tra chữ, logo/contact/mã mẫu, kết quả 5 câu visual gate và xác nhận marketing được tạo từ artwork tham chiếu.
+Kiểm tra trực quan master, marketing, student lifestyle và preview. Báo SKU, `productTitle`, `productDescription`, `studentVariant`, đường dẫn bốn ảnh, manifest handoff, đường dẫn kho print master theo từng danh mục, kích thước, trạng thái kiểm tra chữ, logo/contact/mã mẫu, kết quả visual gate và xác nhận hai ảnh chụp đều dùng artwork tham chiếu.
 
 ## Quy mô lớn
 
 - Mỗi asset riêng biệt dùng một lần gọi `imagegen`; không dùng một ảnh lưới thay cho nhiều deliverable.
 - Duy trì `batch-plan.json` và `batch-registry.jsonl` để không lặp `uniquenessSignature`, slogan hoặc palette quá dày.
 - Trong cùng 20 sản phẩm liên tiếp, hai concept kề nhau phải khác ít nhất ba trục sáng tạo.
-- Sau mỗi đợt, kiểm tra: SKU không trùng, file đúng tên SKU, lỗi chữ, trùng concept, tỷ lệ chủ thể, màu áo, độ trung thành giữa master và marketing, logo đúng asset, mã mẫu/hotline/website đúng tuyệt đối, rồi mới tiếp tục.
+- Sau mỗi đợt, kiểm tra: SKU không trùng, file đúng tên SKU, lỗi chữ, trùng concept, tỷ lệ chủ thể, màu áo, phân bổ lớp 8-12, độ trung thành giữa master/marketing/student lifestyle, logo đúng asset, mã mẫu/hotline/website đúng tuyệt đối, rồi mới tiếp tục.
 - Khi người dùng yêu cầu hàng trăm hoặc hàng nghìn mẫu, ưu tiên tính nhất quán của pipeline hơn tốc độ tạo một mạch.

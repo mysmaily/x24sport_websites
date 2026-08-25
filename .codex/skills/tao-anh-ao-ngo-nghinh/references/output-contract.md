@@ -1,16 +1,17 @@
 # Output Contract
 
-## Một sản phẩm, hai ảnh gốc và một preview website
+## Một sản phẩm, ba ảnh gốc và một preview website
 
 | Role | File | Yêu cầu |
 |---|---|---|
 | Print master | `<SKU>.png` | PNG RGB, nền `#FFFFFF`, 4500×4500 px, 300 DPI, artwork và exact text, không áo/đạo cụ/watermark |
 | Marketing | `<SKU>-marketing.webp` | WebP Q100, vuông ≥1200 px, ảnh chụp áo thật nền đơn sắc, sử dụng đúng artwork master, có mã mẫu, dấu Mayaodongphuc và contact chuẩn |
+| Student lifestyle | `<SKU>-student-lifestyle.webp` | WebP Q100, vuông ≥1200 px, 3-5 học sinh Việt Nam thuộc một khối ổn định từ lớp 8-12 mặc đúng mẫu áo trong bối cảnh trường học |
 | Website print preview | `<SKU>-print-preview.webp` | WebP Q100, đúng 500×500 px, crop/resize từ print master, không áo/branding/contact |
 
-Ảnh master là nguồn thiết kế. Ảnh marketing là phần trình bày thương mại của cùng thiết kế, không phải biến thể sáng tạo thứ hai. Preview 500px là derivative dành riêng cho gallery website.
+Ảnh master là nguồn thiết kế. Marketing và student lifestyle là hai cách trình bày thương mại của cùng thiết kế, không phải biến thể artwork. Preview 500px là derivative dành riêng cho gallery website.
 
-CMS chỉ được nhận marketing và website print preview. Không upload print master PNG 4500px.
+CMS chỉ được nhận marketing, student lifestyle và website print preview theo thứ tự đó. Không upload print master PNG 4500px.
 
 ## Bản lưu kho theo danh mục
 
@@ -24,7 +25,7 @@ CMS chỉ được nhận marketing và website print preview. Không upload pri
 
 - SKU exact format: `X24-DP-HHSSMM`, regex `^X24-DP-[0-9]{6}$`.
 - `HH` = giờ, `SS` = giây, `MM` = phút theo `Asia/Ho_Chi_Minh`; không diễn giải thành `HHMMSS`.
-- Hai file của một sản phẩm phải dùng cùng SKU: `<SKU>.png` và `<SKU>-marketing.webp`.
+- Bốn file của một sản phẩm phải dùng cùng SKU: `<SKU>.png`, `<SKU>-marketing.webp`, `<SKU>-student-lifestyle.webp` và `<SKU>-print-preview.webp`.
 - Ảnh marketing phải đọc rõ exact text `MÃ MẪU: <SKU>`.
 - Tiêu đề và mô tả sản phẩm phải dùng cùng SKU, không cấp mã mới khi publish.
 
@@ -33,7 +34,7 @@ CMS chỉ được nhận marketing và website print preview. Không upload pri
 - So sánh từng chữ với exact text đã khóa.
 - Kiểm tra dấu tiếng Việt, mã lớp, chữ số và khoảng trắng.
 - Không chấp nhận chữ gần giống, thiếu dấu hoặc thêm ký tự trang trí thành chữ.
-- Text trên marketing phải khớp master. Nếu tool làm drift, correction pass từ master là bắt buộc.
+- Text trên marketing và student lifestyle phải khớp master. Nếu tool làm drift, correction pass từ master là bắt buộc.
 
 ## Print gate
 
@@ -67,6 +68,17 @@ CMS chỉ được nhận marketing và website print preview. Không upload pri
 - Nếu image generation làm sai logo hoặc contact, sửa riêng vùng branding hoặc composite bằng asset logo thật và font rõ; không regenerate thiết kế áo đã duyệt.
 - Mặc định tạo và duyệt ảnh áo chưa branding trước, sau đó composite logo thật cùng exact SKU/hotline/website bằng công cụ raster deterministic. Không nhờ imagegen tự vẽ lại logo hoặc tự đánh máy chuỗi thương mại.
 
+## Student lifestyle gate
+
+- Chạy `scripts/choose_student_variant.py --sku <SKU>` và giữ nguyên kết quả lớp 8-12, dải tuổi, số người, scene và action trong mọi retry.
+- Ảnh phải là photography vuông với 3-5 học sinh Việt Nam đúng dải tuổi, bối cảnh trường học rõ và hành động tự nhiên, an toàn.
+- Ít nhất hai mặt trước áo phải đọc rõ. Không suy diễn mặt sau nếu nguồn không có thiết kế lưng.
+- Màu áo, cổ, tay, form, nhân vật, exact text, palette và layout phải giống master/marketing trên mọi người.
+- Mỗi hình in phải nhận phối cảnh, độ cong, nếp, texture và ánh sáng riêng của thân áo; hard reject sticker/decal phẳng hoặc cùng một biến dạng cứng lặp trên nhiều người.
+- Logo chuẩn xuất hiện đúng một lần ngoài áo ở góc trên. Bottom rail cao không quá 14%, chỉ có `THOÁNG MÁT`, `DỄ MẶC`, `IN TÊN - LOGO LỚP`, `MAY NHANH SỐ LƯỢNG LỚN`, `0982 254 458` và icon tương ứng.
+- Không có website, SKU, giá, tên trường/lớp thật, copy ngoài rail, pose nguy hiểm, corporate team-building, nightlife hoặc thể hiện lứa tuổi không phù hợp.
+- Sửa deterministic riêng logo/rail nếu cần; lỗi cast, anatomy, áo hoặc artwork phải correction/regenerate từ reference.
+
 ## Conversion
 
 Ví dụ với ImageMagick:
@@ -80,6 +92,7 @@ magick source.png \
   X24-DP-HHSSMM.png
 
 magick marketing-source.png -quality 100 X24-DP-HHSSMM-marketing.webp
+magick student-source.png -quality 100 X24-DP-HHSSMM-student-lifestyle.webp
 ```
 
-Flood-fill từ góc chỉ chuẩn hóa vùng nền trắng liền mạch; sau conversion phải kiểm tra lại bốn góc và artwork. Giữ ảnh nguồn của tool ngoài thư mục xuất bản nếu cần truy vết; thư mục sản phẩm chỉ chứa hai deliverable cuối.
+Flood-fill từ góc chỉ chuẩn hóa vùng nền trắng liền mạch; sau conversion phải kiểm tra lại bốn góc và artwork. Giữ ảnh nguồn của tool ngoài thư mục xuất bản nếu cần truy vết; thư mục sản phẩm chỉ chứa bốn deliverable cuối và manifest.

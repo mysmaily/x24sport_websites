@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import shutil
@@ -14,6 +15,7 @@ from pathlib import Path
 MASTER_NAME = re.compile(r"^(X24-DP-[0-9]{6})\.png$")
 MARKETING_NAME = re.compile(r"^(X24-DP-[0-9]{6})-marketing\.webp$")
 PREVIEW_NAME = re.compile(r"^(X24-DP-[0-9]{6})-print-preview\.webp$")
+STUDENT_NAME = re.compile(r"^(X24-DP-[0-9]{6})-student-lifestyle\.webp$")
 
 
 def fail(message: str) -> None:
@@ -54,32 +56,45 @@ def is_white(pixel: str) -> bool:
 
 
 def main() -> None:
-    if len(sys.argv) != 2:
-        fail("usage: validate_product_pair.py /absolute/path/to/product-folder")
-    folder = Path(sys.argv[1]).expanduser().resolve()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("folder", type=Path)
+    parser.add_argument("--require-student-lifestyle", action="store_true")
+    args = parser.parse_args()
+    folder = args.folder.expanduser().resolve()
     if not folder.is_dir():
         fail(f"not a directory: {folder}")
 
     images = sorted(p for p in folder.iterdir() if p.suffix.lower() in {".png", ".webp", ".jpg", ".jpeg"})
     previews = [p for p in images if PREVIEW_NAME.fullmatch(p.name)]
-    pair_images = [p for p in images if p not in previews]
-    if len(pair_images) != 2:
-        fail(f"expected exactly 2 production-pair images, found {len(pair_images)}")
+    production_images = [p for p in images if p not in previews]
+    if len(production_images) not in {2, 3}:
+        fail(f"expected master, marketing, and optional student lifestyle, found {len(production_images)} files")
     if len(previews) > 1:
         fail("expected at most one SKU-print-preview.webp")
 
-    masters = [p for p in pair_images if MASTER_NAME.fullmatch(p.name)]
-    marketing = [p for p in pair_images if MARKETING_NAME.fullmatch(p.name)]
+    masters = [p for p in production_images if MASTER_NAME.fullmatch(p.name)]
+    marketing = [p for p in production_images if MARKETING_NAME.fullmatch(p.name)]
+    students = [p for p in production_images if STUDENT_NAME.fullmatch(p.name)]
     if len(masters) != 1 or len(marketing) != 1:
         fail("expected one X24-DP-HHSSMM.png and one matching X24-DP-HHSSMM-marketing.webp")
+    if len(students) > 1:
+        fail("expected at most one X24-DP-HHSSMM-student-lifestyle.webp")
+    if args.require_student_lifestyle and len(students) != 1:
+        fail("student lifestyle is required")
+    classified = set(masters + marketing + students)
+    if classified != set(production_images):
+        fail("product folder contains an unsupported image filename")
 
     master_sku = MASTER_NAME.fullmatch(masters[0].name).group(1)
     marketing_sku = MARKETING_NAME.fullmatch(marketing[0].name).group(1)
     if master_sku != marketing_sku:
         fail("print master and marketing filenames must use the same SKU")
+    if students and STUDENT_NAME.fullmatch(students[0].name).group(1) != master_sku:
+        fail("student lifestyle filename must use the same SKU")
 
     master_info = identify(masters[0])
     marketing_info = identify(marketing[0])
+    student_info = identify(students[0]) if students else None
 
     if master_info["format"] != "PNG":
         fail("print master must be PNG")
@@ -100,6 +115,14 @@ def main() -> None:
     if int(marketing_info["width"]) < 1200:
         fail("marketing image must be at least 1200px")
 
+    if student_info:
+        if student_info["format"] != "WEBP":
+            fail("student lifestyle must be WebP")
+        if student_info["width"] != student_info["height"]:
+            fail("student lifestyle must be square")
+        if int(student_info["width"]) < 1200:
+            fail("student lifestyle must be at least 1200px")
+
     preview_report = None
     if previews:
         preview_sku = PREVIEW_NAME.fullmatch(previews[0].name).group(1)
@@ -116,6 +139,7 @@ def main() -> None:
         "sku": master_sku,
         "printMaster": {"file": masters[0].name, **master_info},
         "marketing": {"file": marketing[0].name, **marketing_info},
+        "studentLifestyle": ({"file": students[0].name, **student_info} if students else None),
         "printPreview": preview_report,
         "visualInspectionRequired": True,
     }, ensure_ascii=False, indent=2))
