@@ -1,6 +1,6 @@
 ---
 name: tao-anh-ao-ngo-nghinh
-description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo cặp: artwork in có chữ trên nền trắng đặt tên theo SKU X24-DP-HHSSMM và ảnh áo marketing có mã mẫu, dấu Mayaodongphuc, hotline, website, dùng đúng artwork đó. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn đến hàng nghìn concept; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
+description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo cặp: artwork in có chữ trên nền trắng đặt tên theo SKU X24-DP-HHSSMM và ảnh chụp áo thành phẩm chân thực có mã mẫu, dấu Mayaodongphuc, hotline, website, dùng đúng artwork đó. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn đến hàng nghìn concept; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
 ---
 
 # Tạo ảnh áo ngộ nghĩnh
@@ -57,8 +57,24 @@ Kiểm tra ảnh full-size. Sai một ký tự, dấu, tay, mặt hoặc chi ti�
 Sau khi duyệt `print-master`:
 
 1. Dùng `view_image` để đưa file artwork vào ngữ cảnh.
-2. Dùng thêm logo campaign thật tại `../tao-anh-dong-phuc-tre-em/assets/mayaodongphuc-logo.png`; gọi `imagegen` với `referenced_image_paths` gồm đúng `print-master` và logo này.
-3. Yêu cầu áp nguyên artwork lên một áo phông cổ tròn nền một màu, đồng thời bố trí dấu thương hiệu và contact ở khoảng trống ngoài áo.
+2. Gọi `imagegen` với `print-master` làm reference để tạo **ảnh chụp sản phẩm áo thật**, chưa cần nhờ model viết SKU/contact. Use case phải là `product-mockup`; prompt phải nói rõ `photorealistic ecommerce product photography`, không dùng từ `illustration`, `vector shirt` hoặc `T-shirt template` cho bản thân chiếc áo.
+3. Kiểm tra riêng ảnh áo nền bằng `view_image`. Chỉ khi áo vượt visual gate bên dưới mới dùng logo campaign thật tại `../tao-anh-dong-phuc-tre-em/assets/mayaodongphuc-logo.png` và composite deterministic logo, SKU, hotline, website vào khoảng trống ngoài áo. Ưu tiên ImageMagick hoặc công cụ raster tương đương để contact đúng tuyệt đối; không giao cho imagegen tự vẽ lại logo hoặc tự đánh máy contact.
+
+Prompt ảnh áo phải khóa các dấu hiệu vật lý: áo phông thật đặt flat-lay hoặc chụp studio, vải dệt nhìn thấy được, cổ bo rib-knit có đường may, đường vai và lai tay rõ, thân áo có mép thật, nếp nhăn và bóng đổ tự nhiên. Áo phải nhìn như sản phẩm có thể cầm lên, không phải hình chiếc áo được vẽ.
+
+### Visual gate bắt buộc cho ảnh marketing
+
+Hard reject và tạo lại ảnh áo nền nếu có một trong các dấu hiệu sau:
+
+- canvas dọc/ngang thay vì vuông;
+- áo là silhouette phẳng, paper-cut, vector, 3D icon, poster hoặc template 2D;
+- lỗ cổ là một hình elip trắng rỗng, không có bo cổ/vải/đường may chân thực;
+- thiếu texture vải, đường vai, lai tay, nếp gấp hoặc bóng tiếp xúc;
+- artwork nổi như sticker/cardboard, đổ bóng riêng hoặc tràn ra ngoài bề mặt thân áo;
+- artwork rộng quá 48% thân áo, chạm cổ, nách, đường may hoặc lai áo;
+- bố cục thành poster quảng cáo, contact footer lớn hoặc branding che áo.
+
+Không được chữa một áo 2D bằng cách thêm texture, noise hay shadow giả. Phải regenerate ảnh áo nền từ `print-master` với prompt `photorealistic product photography`, rồi kiểm tra lại.
 
 Invariants bắt buộc:
 
@@ -66,7 +82,7 @@ Invariants bắt buộc:
 - không thêm, bớt, viết lại hoặc thay slogan;
 - nền trắng của file nguồn không trở thành hình chữ nhật in trên áo;
 - hình in bám phối cảnh, nếp vải, texture và ánh sáng như mực in thật;
-- ảnh marketing vuông, áo nhìn trọn vẹn, artwork đọc rõ, đạo cụ chỉ ở rìa;
+- ảnh marketing vuông 1:1, áo thật nhìn trọn vẹn cả thân và hai tay, artwork đọc rõ, đạo cụ chỉ ở rìa;
 - logo Mayaodongphuc xuất hiện đúng một lần như dấu campaign ngoài áo, không in lên áo và không tự vẽ lại logo;
 - contact phải ghi đúng nguyên văn `0982 254 458` và `mayaodongphuc.com.vn`;
 - mã mẫu phải ghi đúng nguyên văn `MÃ MẪU: <SKU>` trong cùng cụm thông tin thương mại;
@@ -75,6 +91,8 @@ Invariants bắt buộc:
 - ngoài logo và contact bắt buộc, không thêm watermark, nhãn giả, slogan quảng cáo hoặc copy marketing khác nếu người dùng chưa yêu cầu.
 
 Nếu artwork bị drift, sửa bằng một correction pass sử dụng lại cùng reference; không generate một thiết kế mới rồi coi là cùng sản phẩm. Nếu logo, số điện thoại hoặc website sai, sửa riêng vùng branding hoặc composite lại bằng logo asset thật và font rõ; giữ nguyên áo cùng artwork đã duyệt.
+
+Sau composite, dùng `view_image` kiểm tra file marketing cuối ở full-size và tự trả lời đủ 5 câu: `vuông 1:1?`, `áo là ảnh chụp thật?`, `thấy cấu trúc vải/cổ/đường may?`, `artwork đúng master và nằm trong 35-48% thân áo?`, `logo/contact/SKU đúng và không che áo?`. Chỉ xuất bản khi cả 5 câu đều là `có`.
 
 ## Xuất file
 
@@ -96,7 +114,9 @@ Chạy validator sau khi xuất:
 python3 scripts/validate_product_pair.py /absolute/path/to/product-folder
 ```
 
-Kiểm tra trực quan cả hai ảnh cuối ở full-size. Báo SKU, `productTitle`, `productDescription`, đường dẫn từng cặp, kích thước, trạng thái kiểm tra chữ, logo/contact/mã mẫu và xác nhận marketing được tạo từ artwork tham chiếu.
+Validator trả lỗi thì không được báo hoàn tất, không đăng CMS và không dùng ảnh đó làm đầu vào publish. Validator chỉ kiểm tra được cấu trúc file; visual gate ảnh áo thật vẫn phải được kiểm tra bằng `view_image`.
+
+Kiểm tra trực quan cả hai ảnh cuối ở full-size. Báo SKU, `productTitle`, `productDescription`, đường dẫn từng cặp, kích thước, trạng thái kiểm tra chữ, logo/contact/mã mẫu, kết quả 5 câu visual gate và xác nhận marketing được tạo từ artwork tham chiếu.
 
 ## Quy mô lớn
 

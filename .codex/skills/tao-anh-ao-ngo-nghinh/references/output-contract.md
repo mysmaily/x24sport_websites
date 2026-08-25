@@ -5,7 +5,7 @@
 | Role | File | Yêu cầu |
 |---|---|---|
 | Print master | `<SKU>.png` | PNG RGB, nền `#FFFFFF`, 4500×4500 px, 300 DPI, artwork và exact text, không áo/đạo cụ/watermark |
-| Marketing | `<SKU>-marketing.webp` | WebP Q100, vuông ≥1200 px, một áo nền đơn sắc, sử dụng đúng artwork master, có mã mẫu, dấu Mayaodongphuc và contact chuẩn |
+| Marketing | `<SKU>-marketing.webp` | WebP Q100, vuông ≥1200 px, ảnh chụp áo thật nền đơn sắc, sử dụng đúng artwork master, có mã mẫu, dấu Mayaodongphuc và contact chuẩn |
 
 Ảnh master là nguồn thiết kế. Ảnh marketing là phần trình bày thương mại của cùng thiết kế, không phải biến thể sáng tạo thứ hai.
 
@@ -33,11 +33,14 @@
 
 ## Marketing gate
 
-- Áo cổ tròn tay ngắn, một màu nền, nhìn đủ thân áo và hai tay.
+- Đây phải là ảnh chụp sản phẩm chân thực, không phải hình minh họa chiếc áo. Áo cổ tròn tay ngắn, một màu nền, nhìn đủ thân áo và hai tay.
+- Phải nhìn thấy cấu trúc vật lý của áo: texture vải dệt, bo cổ rib-knit, đường may vai/lai tay, mép thân, nếp vải và bóng tiếp xúc tự nhiên.
 - Artwork thường chiếm 35-48% bề ngang thân áo, không chạm đường may.
 - Mực in nhận texture, bóng, nếp và phối cảnh của vải.
 - Không có khung nền trắng ngoài ý muốn.
 - Đạo cụ và background hỗ trợ chủ đề nhưng không che áo.
+- Hard reject nếu áo là silhouette/vector/paper-cut/template/3D icon, lỗ cổ là elip trắng rỗng, artwork nổi như sticker, canvas không vuông hoặc bố cục giống poster.
+- Không sửa áo 2D bằng noise/texture giả; regenerate ảnh áo nền theo hướng `photorealistic ecommerce product photography`.
 
 ## Dấu thương hiệu và contact trên marketing
 
@@ -51,6 +54,7 @@
 - Không che thân áo, tay áo, artwork hoặc biến nền ảnh thành poster quảng cáo nặng chữ.
 - Luân phiên vị trí, hình dạng và màu treatment theo palette từng mẫu; tránh lặp thanh footer toàn chiều ngang cho cả batch.
 - Nếu image generation làm sai logo hoặc contact, sửa riêng vùng branding hoặc composite bằng asset logo thật và font rõ; không regenerate thiết kế áo đã duyệt.
+- Mặc định tạo và duyệt ảnh áo chưa branding trước, sau đó composite logo thật cùng exact SKU/hotline/website bằng công cụ raster deterministic. Không nhờ imagegen tự vẽ lại logo hoặc tự đánh máy chuỗi thương mại.
 
 ## Conversion
 
