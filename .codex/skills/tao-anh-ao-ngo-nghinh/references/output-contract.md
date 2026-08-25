@@ -28,7 +28,9 @@ CMS chỉ được nhận marketing, student lifestyle và website print preview
 - Để chống trùng giữa nhiều batch, dùng chung registry hoặc truyền đủ thư mục lịch sử bằng `--scan-root`; allocator cũng tự quét kho print-master `/Volumes/Data/x24_project/mayaodongphuc.vn` nếu volume đang mount.
 - Bốn file của một sản phẩm phải dùng cùng SKU: `<SKU>.png`, `<SKU>-marketing.webp`, `<SKU>-student-lifestyle.webp` và `<SKU>-print-preview.webp`.
 - Ảnh marketing phải đọc rõ exact text `MÃ MẪU: <SKU>`.
-- Tiêu đề và mô tả sản phẩm phải dùng cùng SKU, không cấp mã mới khi publish.
+- `productTitle` là tên mẫu sạch để làm H1 và không chứa SKU.
+- `skuLabel` dùng exact text `Mã mẫu: <SKU>` để hiển thị gần H1 khi publish.
+- Mô tả sản phẩm phải bắt đầu bằng `Mã mẫu: <SKU>.`; không cấp mã mới khi publish.
 
 ## Text gate
 

@@ -35,7 +35,8 @@ Use this manifest to transfer an accepted playful-shirt product into `create-ten
     "sku": "X24-DP-NNNNNN",
     "sourceSystem": "tao-anh-ao-ngo-nghinh",
     "sourceId": "X24-DP-NNNNNN",
-    "productTitle": "Tên mẫu - mã X24-DP-NNNNNN",
+    "productTitle": "Tên mẫu",
+    "skuLabel": "Mã mẫu: X24-DP-NNNNNN",
     "productDescription": "Mã mẫu: X24-DP-NNNNNN. Mô tả ngắn theo concept đã khóa."
   },
   "studentVariant": {
@@ -112,7 +113,7 @@ Use this manifest to transfer an accepted playful-shirt product into `create-ten
 }
 ```
 
-`studentVariant` must be the exact JSON returned by `scripts/choose_student_variant.py --sku <SKU>`. The grade controls cast and age only; it does not replace approved garment text. `publishingIntent.action` defaults to `images-only`. Use `publish` or `draft` only with user authorization. The consumer preserves `productIdentity.sku` exactly and may refine title/copy without removing that SKU.
+`studentVariant` must be the exact JSON returned by `scripts/choose_student_variant.py --sku <SKU>`. The grade controls cast and age only; it does not replace approved garment text. `publishingIntent.action` defaults to `images-only`. Use `publish` or `draft` only with user authorization. The consumer preserves `productIdentity.sku` and `productIdentity.skuLabel` exactly. `productIdentity.productTitle` is the clean H1 title and must not include the SKU.
 
 ## Consumer fallback
 

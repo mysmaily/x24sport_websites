@@ -125,8 +125,13 @@ def main() -> None:
         fail("productIdentity.sku must match X24-DP-NNNNNN")
     if identity.get("sourceSystem") != PRODUCER or identity.get("sourceId") != sku:
         fail("productIdentity sourceSystem/sourceId must preserve producer and SKU")
-    if sku not in str(identity.get("productTitle", "")):
-        fail("productIdentity.productTitle must contain the SKU")
+    product_title = str(identity.get("productTitle", "")).strip()
+    if not product_title:
+        fail("productIdentity.productTitle is required")
+    if sku in product_title:
+        fail("productIdentity.productTitle must be a clean H1 and must not contain the SKU")
+    if str(identity.get("skuLabel", "")).strip() != f"Mã mẫu: {sku}":
+        fail("productIdentity.skuLabel must be exact text: Mã mẫu: <SKU>")
     if not str(identity.get("productDescription", "")).startswith(f"Mã mẫu: {sku}."):
         fail("productIdentity.productDescription must begin with exact SKU sentence")
 

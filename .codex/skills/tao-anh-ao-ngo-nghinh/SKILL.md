@@ -41,10 +41,11 @@ Không dùng nhân vật, logo, huy hiệu hoặc tài sản có bản quyền/t
 - SKU có dạng exact `X24-DP-NNNNNN`, trong đó `NNNNNN` là số thứ tự 6 chữ số do script cấp phát, ví dụ `X24-DP-235960`. Không tự ghép giờ/phút/giây/millisecond bằng tay vì các format thời gian vẫn có thể lặp khi chạy khác ngày, chạy song song hoặc mất registry.
 - Cấp và giữ chỗ SKU bằng `python3 scripts/allocate_sku.py --registry=/absolute/path/to/batch-registry.jsonl --root=/absolute/path/to/generated/tao-anh-ao-ngo-nghinh`. Script khóa registry, quét registry, thư mục output, các `--scan-root` bổ sung và kho print-master `/Volumes/Data/x24_project/mayaodongphuc.vn` nếu đang mount, rồi lấy số lớn nhất đã biết + 1 trong namespace `000000-999999`.
 - Muốn chống trùng giữa nhiều batch hoặc nhiều máy, phải dùng chung registry hoặc truyền đủ mọi thư mục lịch sử bằng `--scan-root`; không tự gõ SKU và không cấp SKU ngoài script.
-- Cùng một SKU phải được dùng nguyên vẹn ở tên file thiết kế, tên file marketing, ảnh marketing, tiêu đề và mô tả sản phẩm; không cấp lại SKU ở bước publish.
-- Tiêu đề sản phẩm dùng cấu trúc tự nhiên `<tên mẫu> - mã <SKU>` hoặc `<tên mẫu> mã <SKU>`; không nhồi thêm từ khóa chỉ để kéo dài tiêu đề.
+- Cùng một SKU phải được dùng nguyên vẹn ở tên file thiết kế, tên file marketing, ảnh marketing, label mã mẫu và mô tả sản phẩm; không cấp lại SKU ở bước publish.
+- Tiêu đề sản phẩm dùng cấu trúc tự nhiên `<tên mẫu>` để làm H1 sạch trên trang chi tiết; không đưa đoạn `- mã <SKU>` hoặc SKU vào `productTitle`.
+- Label mã mẫu dùng field riêng `skuLabel` với exact text `Mã mẫu: <SKU>` và được đặt gần H1 khi publish.
 - Mô tả ngắn phải có câu `Mã mẫu: <SKU>.` ở phần đầu, rồi mới mô tả màu áo, slogan, đối tượng và khả năng tùy chỉnh dựa trên dữ kiện đã khóa.
-- Workflow vẫn là `images-only`: chỉ trả sẵn `productTitle` và `productDescription` trong báo cáo/handoff. Chỉ đăng CMS khi người dùng yêu cầu riêng; khi đó publisher phải giữ nguyên SKU, title và description này.
+- Workflow vẫn là `images-only`: chỉ trả sẵn `productTitle`, `skuLabel` và `productDescription` trong báo cáo/handoff. Chỉ đăng CMS khi người dùng yêu cầu riêng; khi đó publisher phải giữ nguyên SKU, title, label mã mẫu và description này.
 
 ## Tạo ảnh 1: print-master
 
@@ -191,7 +192,7 @@ Validator trả lỗi thì không được báo hoàn tất, không đăng CMS, 
 - Với schema `1.1`, `acceptedImages` phải có đúng ba ảnh theo thứ tự: `<SKU>-marketing.webp` role `product hero`, `<SKU>-student-lifestyle.webp` role `content-inline lifestyle`, rồi `<SKU>-print-preview.webp` role `print artwork preview`.
 - Print master chỉ xuất hiện trong `sourceAssets.printMaster`; không được liệt kê trong `acceptedImages`.
 - `publishingIntent.action` mặc định là `images-only`. Chỉ đổi thành `publish` hoặc `draft` khi người dùng yêu cầu đăng hoặc tạo nháp.
-- Giữ nguyên SKU `X24-DP-NNNNNN` đã cấp trong `productIdentity.sku`, `sourceId`, title và description; publisher không cấp SKU mới.
+- Giữ nguyên SKU `X24-DP-NNNNNN` đã cấp trong `productIdentity.sku`, `sourceId`, `skuLabel` và description; publisher không cấp SKU mới và không tự nối SKU vào `productTitle`.
 - Chạy validator handoff và truyền đúng cả ba publishing images:
 
 ```bash
@@ -205,7 +206,7 @@ python3 scripts/validate_product_handoff.py \
 
 - Nếu người dùng yêu cầu đăng, invoke `create-tenant-product` bằng manifest đã validate. Publisher phải upload ba WebP theo thứ tự manifest, giữ marketing làm hero, dùng student lifestyle và preview 500px làm hai ảnh gallery/contextual, và không upload master PNG.
 
-Kiểm tra trực quan master, marketing, student lifestyle và preview. Báo SKU, `productTitle`, `productDescription`, `studentVariant`, đường dẫn bốn ảnh, manifest handoff, đường dẫn kho print master theo từng danh mục, kích thước, trạng thái kiểm tra chữ, logo/contact/mã mẫu, kết quả visual gate và xác nhận hai ảnh chụp đều dùng artwork tham chiếu.
+Kiểm tra trực quan master, marketing, student lifestyle và preview. Báo SKU, `productTitle`, `skuLabel`, `productDescription`, `studentVariant`, đường dẫn bốn ảnh, manifest handoff, đường dẫn kho print master theo từng danh mục, kích thước, trạng thái kiểm tra chữ, logo/contact/mã mẫu, kết quả visual gate và xác nhận hai ảnh chụp đều dùng artwork tham chiếu.
 
 ## Quy mô lớn
 
