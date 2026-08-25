@@ -32,6 +32,9 @@ resolvable when it has:
 3. brand name/headline/subheadline values;
 4. Store Settings and published content appropriate for the storefront;
 5. DNS/Nginx routing through the shared `cms_frontend_active` upstream for each public domain.
+6. product-detail routes that mount the shared `ProductViewTracker` with the
+   request-resolved tenant slug and that tenant's own published Payload product
+   ID; never hard-code another tenant slug or use a sibling product ID.
 
 `cms-frontend/src/lib/tenant-registry.ts` resolves the request host against
 Payload. Current production tenants have a small static fallback only so their
@@ -173,7 +176,14 @@ of the production runbook. Normal content edits never rebuild CMS.
 4. Add DNS and a version-controlled Nginx vhost routing to the shared `cms_frontend_active` upstream.
 5. Generic storefront routes require no frontend registry edit. Add a
    slug-specific override only when the tenant needs its own visual/route system.
-6. Verify homepage, catalog, product, sitemap, robots, canonical domain, media,
+6. Mount the shared `ProductViewTracker` exactly once on every product-detail
+   renderer. A static or custom catalog must still have tenant-owned published
+   Payload product records resolved by stable slug/SKU so `viewCount` can be
+   updated; a client-only/static product identifier is not sufficient.
+7. Verify a representative product view in production: after the tracker delay,
+   the analytics endpoint accepts the tenant origin, increments `viewCount`
+   once, and does not increment again for the same product/session.
+8. Verify homepage, catalog, product, sitemap, robots, canonical domain, media,
    analytics and tenant isolation.
 
 ## Shared content and customer experience rules
@@ -195,6 +205,10 @@ of the production runbook. Normal content edits never rebuild CMS.
   `2px` larger.
 - Product galleries use the shared `product-media-gallery.tsx`, a square stage,
   `object-fit: contain` and PhotoSwipe.
+- Every product-detail renderer mounts the shared `product-view-tracker.tsx`
+  exactly once with the current tenant slug and a published product ID owned by
+  that tenant. View counting is a baseline storefront requirement independent
+  of optional GA/advertising configuration.
 - Catalogs show the first product row within the initial viewport at `390x844`
   and `1440x900`. Primary filters are one horizontally scrollable `40px` row;
   secondary options use an overlay dropdown with crawlable links.

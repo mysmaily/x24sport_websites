@@ -15,6 +15,7 @@ import {
 } from '../../lib/content'
 import { ProductInterestForm } from '../_components/product-interest-form'
 import { absoluteUrl, breadcrumbSchema, cleanSeoTitle, metadataDescription, pageCanonical, pageTitle, truncateText } from '../../lib/seo'
+import { getTenantSlug } from '../../lib/tenant'
 
 const money = (value?: number | null, currency = 'VND') =>
   typeof value === 'number' && value > 0
@@ -74,7 +75,7 @@ export async function generateMetadata({ params, searchParams }: {
   return { title: 'Không tìm thấy trang' }
 }
 
-function ProductDetail({ product, related, showInterestForm }: { product: CmsProduct; related: Awaited<ReturnType<typeof getRelatedProducts>>; showInterestForm: boolean }) {
+function ProductDetail({ product, related, showInterestForm, tenantSlug }: { product: CmsProduct; related: Awaited<ReturnType<typeof getRelatedProducts>>; showInterestForm: boolean; tenantSlug: string }) {
   const categories = categoryObjects(product)
   const currency = product.currency || 'VND'
   const inStock = product.stockStatus !== 'outofstock'
@@ -116,7 +117,7 @@ function ProductDetail({ product, related, showInterestForm }: { product: CmsPro
         price={product.price}
         productId={product.id}
         sku={product.sku}
-        tenantSlug="x24sport"
+        tenantSlug={tenantSlug}
       />
       <JsonLd data={jsonLd} />
       <JsonLd data={breadcrumbs} />
@@ -205,8 +206,8 @@ export async function ContentPathPage({ params, searchParams, redirectProducts =
   const result = await resolve((await params).path)
   if (result.product) {
     if (redirectProducts) permanentRedirect(`/san-pham/${result.product.slug}/`)
-    const [related, showInterestForm] = await Promise.all([getRelatedProducts(result.product), hasProductInterestForm()])
-    return <div className="page-shell"><SiteHeader /><ProductDetail product={result.product} related={related} showInterestForm={showInterestForm} /><PageFooter /><FloatingContact /></div>
+    const [related, showInterestForm, tenantSlug] = await Promise.all([getRelatedProducts(result.product), hasProductInterestForm(), getTenantSlug()])
+    return <div className="page-shell"><SiteHeader /><ProductDetail product={result.product} related={related} showInterestForm={showInterestForm} tenantSlug={tenantSlug} /><PageFooter /><FloatingContact /></div>
   }
   if (result.content) return <div className="page-shell"><SiteHeader /><ContentDetail content={result.content} /><PageFooter /><FloatingContact /></div>
   if (result.category) {

@@ -7,6 +7,7 @@ import { hasProductInterestForm } from '../../../lib/content'
 import { JsonLd } from '../../_components/json-ld'
 import { ProductInterestForm } from '../../_components/product-interest-form'
 import { ProductMediaGallery } from '../../_components/product-media-gallery'
+import { ProductViewTracker } from '../../_components/product-view-tracker'
 import styles from './mayaodongphuc.module.css'
 import { Breadcrumbs, UniformProductCard } from './components'
 import { cleanContentHtml, getRelatedUniformProducts, getUniformProduct, productCategory, productColors, productDescriptionParagraphs, productImages, productMaterial } from './lib'
@@ -48,6 +49,13 @@ export async function MayAoDongPhucProductPage({ slug }: { slug: string }) {
     .filter((attribute) => attribute.name && attribute.values.length)
 
   return <MayAoDongPhucShell>
+    <ProductViewTracker
+      itemCategory={category?.slug}
+      name={product.name}
+      productId={product.id}
+      sku={product.sku}
+      tenantSlug="mayaodongphuc"
+    />
     <JsonLd data={structuredData} />
     <section className={styles.productPage}><Breadcrumbs items={[...(category ? [{ label: category.name, href: `/danh-muc/${category.slug}/` }] : []), { label: product.name }]} /><h1 className={styles.mobileProductTitle}>{product.name}</h1><div className={styles.productLayout}><div className={styles.galleryWrap}><ProductMediaGallery images={images} productName={product.name} variant="utility" /></div><div className={styles.productContent}><span className={styles.productCode}>{product.sku || product.id} · MADE TO ORDER</span><p className={styles.productIntro}>{product.shortDescription || 'Mẫu đồng phục để phát triển theo bối cảnh, vai trò và nhận diện của tổ chức.'}</p><div className={styles.priceBlock}><span>ĐƠN GIÁ</span><strong>Báo giá theo yêu cầu</strong><p>Phụ thuộc vật liệu, kỹ thuật logo và số lượng được xác nhận.</p></div><div className={styles.configBlock}><h2>Màu khởi đầu</h2><div className={styles.colorOptions}>{productColors(product).map((color, index) => <span aria-label={`Màu gợi ý ${index + 1}`} className={index === 0 ? styles.selectedColor : ''} key={color} style={{ '--swatch': color } as React.CSSProperties} />)}</div></div><div className={styles.specList}><div><Shirt aria-hidden="true" /><span><b>Form</b>Điều chỉnh theo đội ngũ</span></div><div><Palette aria-hidden="true" /><span><b>Vật liệu gợi ý</b>{productMaterial(product)}</span></div><div><Ruler aria-hidden="true" /><span><b>Size</b>Tư vấn từ bảng size thực tế</span></div><div><PackageCheck aria-hidden="true" /><span><b>Sản xuất</b>Sau khi duyệt thiết kế & thông số</span></div></div>{consultationEnabled ? <Link className={styles.primaryCta} href="#nhan-bao-gia">Nhận tư vấn mẫu này <ArrowRight aria-hidden="true" /></Link> : <Link className={styles.primaryCta} href="/san-pham/">Xem thêm mẫu <ArrowRight aria-hidden="true" /></Link>}<p className={styles.productNote}><Check aria-hidden="true" /> Chỉ sản xuất sau khi thông tin được xác nhận.</p></div></div></section>
     <section className={styles.detailBand}><div><span>01 / DESIGN INTENT</span><h2>Ít chi tiết hơn.<br />Đúng chi tiết hơn.</h2></div><p>Vị trí logo, đường phối và độ tương phản được điều chỉnh để nhận diện rõ nhưng không tạo cảm giác như áo quảng cáo.</p><ul><li>Logo theo tỉ lệ trang phục</li><li>Màu phối có vai trò cụ thể</li><li>Form theo hoạt động thực tế</li></ul></section>
