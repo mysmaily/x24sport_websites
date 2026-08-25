@@ -76,9 +76,9 @@ def main() -> None:
     marketing = [p for p in production_images if MARKETING_NAME.fullmatch(p.name)]
     students = [p for p in production_images if STUDENT_NAME.fullmatch(p.name)]
     if len(masters) != 1 or len(marketing) != 1:
-        fail("expected one X24-DP-HHSSMM.png and one matching X24-DP-HHSSMM-marketing.webp")
+        fail("expected one X24-DP-NNNNNN.png and one matching X24-DP-NNNNNN-marketing.webp")
     if len(students) > 1:
-        fail("expected at most one X24-DP-HHSSMM-student-lifestyle.webp")
+        fail("expected at most one X24-DP-NNNNNN-student-lifestyle.webp")
     if args.require_student_lifestyle and len(students) != 1:
         fail("student lifestyle is required")
     classified = set(masters + marketing + students)

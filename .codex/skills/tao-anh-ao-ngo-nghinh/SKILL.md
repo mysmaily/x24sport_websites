@@ -1,6 +1,6 @@
 ---
 name: tao-anh-ao-ngo-nghinh
-description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo bộ: artwork in nền trắng đặt tên theo SKU X24-DP-HHSSMM, ảnh chụp áo thành phẩm có thông tin Mayaodongphuc, và ảnh học sinh lớp 8-12 mặc đúng mẫu áo. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
+description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo bộ: artwork in nền trắng đặt tên theo SKU X24-DP-NNNNNN, ảnh chụp áo thành phẩm có thông tin Mayaodongphuc, và ảnh học sinh lớp 8-12 mặc đúng mẫu áo. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
 ---
 
 # Tạo ảnh áo ngộ nghĩnh
@@ -38,8 +38,9 @@ Không dùng nhân vật, logo, huy hiệu hoặc tài sản có bản quyền/t
 
 ### Khóa SKU và copy sản phẩm
 
-- SKU có dạng exact `X24-DP-HHSSMM`, trong đó `HH` là giờ, `SS` là giây và `MM` là phút theo múi giờ `Asia/Ho_Chi_Minh`. Không đổi thứ tự thành `HHMMSS`.
-- Cấp và giữ chỗ SKU bằng `python3 scripts/allocate_sku.py --registry=/absolute/path/to/batch-registry.jsonl --root=/absolute/path/to/generated/tao-anh-ao-ngo-nghinh`. Script kiểm tra trùng trong registry và tên file đã xuất; nếu candidate đã tồn tại, nó tiến giây cho tới mã chưa dùng.
+- SKU có dạng exact `X24-DP-NNNNNN`, trong đó `NNNNNN` là số thứ tự 6 chữ số do script cấp phát, ví dụ `X24-DP-235960`. Không tự ghép giờ/phút/giây/millisecond bằng tay vì các format thời gian vẫn có thể lặp khi chạy khác ngày, chạy song song hoặc mất registry.
+- Cấp và giữ chỗ SKU bằng `python3 scripts/allocate_sku.py --registry=/absolute/path/to/batch-registry.jsonl --root=/absolute/path/to/generated/tao-anh-ao-ngo-nghinh`. Script khóa registry, quét registry, thư mục output, các `--scan-root` bổ sung và kho print-master `/Volumes/Data/x24_project/mayaodongphuc.vn` nếu đang mount, rồi lấy số lớn nhất đã biết + 1 trong namespace `000000-999999`.
+- Muốn chống trùng giữa nhiều batch hoặc nhiều máy, phải dùng chung registry hoặc truyền đủ mọi thư mục lịch sử bằng `--scan-root`; không tự gõ SKU và không cấp SKU ngoài script.
 - Cùng một SKU phải được dùng nguyên vẹn ở tên file thiết kế, tên file marketing, ảnh marketing, tiêu đề và mô tả sản phẩm; không cấp lại SKU ở bước publish.
 - Tiêu đề sản phẩm dùng cấu trúc tự nhiên `<tên mẫu> - mã <SKU>` hoặc `<tên mẫu> mã <SKU>`; không nhồi thêm từ khóa chỉ để kéo dài tiêu đề.
 - Mô tả ngắn phải có câu `Mã mẫu: <SKU>.` ở phần đầu, rồi mới mô tả màu áo, slogan, đối tượng và khả năng tùy chỉnh dựa trên dữ kiện đã khóa.
@@ -190,7 +191,7 @@ Validator trả lỗi thì không được báo hoàn tất, không đăng CMS, 
 - Với schema `1.1`, `acceptedImages` phải có đúng ba ảnh theo thứ tự: `<SKU>-marketing.webp` role `product hero`, `<SKU>-student-lifestyle.webp` role `content-inline lifestyle`, rồi `<SKU>-print-preview.webp` role `print artwork preview`.
 - Print master chỉ xuất hiện trong `sourceAssets.printMaster`; không được liệt kê trong `acceptedImages`.
 - `publishingIntent.action` mặc định là `images-only`. Chỉ đổi thành `publish` hoặc `draft` khi người dùng yêu cầu đăng hoặc tạo nháp.
-- Giữ nguyên SKU `X24-DP-HHSSMM` đã cấp trong `productIdentity.sku`, `sourceId`, title và description; publisher không cấp SKU mới.
+- Giữ nguyên SKU `X24-DP-NNNNNN` đã cấp trong `productIdentity.sku`, `sourceId`, title và description; publisher không cấp SKU mới.
 - Chạy validator handoff và truyền đúng cả ba publishing images:
 
 ```bash

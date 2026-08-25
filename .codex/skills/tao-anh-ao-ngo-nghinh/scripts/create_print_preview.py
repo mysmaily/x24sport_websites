@@ -35,7 +35,7 @@ def main() -> None:
         raise SystemExit(f"ERROR: print master not found: {source}")
     match = MASTER_NAME.fullmatch(source.name)
     if not match:
-        raise SystemExit("ERROR: print master filename must be exactly X24-DP-HHSSMM.png")
+        raise SystemExit("ERROR: print master filename must be exactly X24-DP-NNNNNN.png")
     sku = match.group(1)
     output = (args.output.expanduser() if args.output else source.with_name(f"{sku}-print-preview.webp")).resolve()
     if output.name != f"{sku}-print-preview.webp":

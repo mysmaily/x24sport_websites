@@ -23,8 +23,9 @@ CMS chỉ được nhận marketing, student lifestyle và website print preview
 
 ## SKU gate
 
-- SKU exact format: `X24-DP-HHSSMM`, regex `^X24-DP-[0-9]{6}$`.
-- `HH` = giờ, `SS` = giây, `MM` = phút theo `Asia/Ho_Chi_Minh`; không diễn giải thành `HHMMSS`.
+- SKU exact format: `X24-DP-NNNNNN`, regex `^X24-DP-[0-9]{6}$`.
+- `NNNNNN` là số thứ tự 6 chữ số do `scripts/allocate_sku.py` cấp phát và giữ chỗ trong registry. Không tự ghép từ giờ/phút/giây/millisecond vì các format thời gian vẫn có thể lặp.
+- Để chống trùng giữa nhiều batch, dùng chung registry hoặc truyền đủ thư mục lịch sử bằng `--scan-root`; allocator cũng tự quét kho print-master `/Volumes/Data/x24_project/mayaodongphuc.vn` nếu volume đang mount.
 - Bốn file của một sản phẩm phải dùng cùng SKU: `<SKU>.png`, `<SKU>-marketing.webp`, `<SKU>-student-lifestyle.webp` và `<SKU>-print-preview.webp`.
 - Ảnh marketing phải đọc rõ exact text `MÃ MẪU: <SKU>`.
 - Tiêu đề và mô tả sản phẩm phải dùng cùng SKU, không cấp mã mới khi publish.
@@ -89,10 +90,10 @@ magick source.png \
   -filter Lanczos -resize 4500x4500 \
   -units PixelsPerInch -density 300 \
   -fuzz 3% -fill white -draw 'color 0,0 floodfill' -alpha off \
-  X24-DP-HHSSMM.png
+  X24-DP-NNNNNN.png
 
-magick marketing-source.png -quality 100 X24-DP-HHSSMM-marketing.webp
-magick student-source.png -quality 100 X24-DP-HHSSMM-student-lifestyle.webp
+magick marketing-source.png -quality 100 X24-DP-NNNNNN-marketing.webp
+magick student-source.png -quality 100 X24-DP-NNNNNN-student-lifestyle.webp
 ```
 
 Flood-fill từ góc chỉ chuẩn hóa vùng nền trắng liền mạch; sau conversion phải kiểm tra lại bốn góc và artwork. Giữ ảnh nguồn của tool ngoài thư mục xuất bản nếu cần truy vết; thư mục sản phẩm chỉ chứa bốn deliverable cuối và manifest.

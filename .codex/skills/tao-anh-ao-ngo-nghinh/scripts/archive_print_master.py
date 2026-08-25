@@ -43,7 +43,7 @@ def main() -> None:
     if not source.is_file():
         raise SystemExit(f"ERROR: print master not found: {source}")
     if not MASTER_NAME.fullmatch(source.name):
-        raise SystemExit("ERROR: filename must be exactly X24-DP-HHSSMM.png")
+        raise SystemExit("ERROR: filename must be exactly X24-DP-NNNNNN.png")
 
     categories = list(dict.fromkeys(args.category))
     invalid = [slug for slug in categories if not CATEGORY_SLUG.fullmatch(slug)]

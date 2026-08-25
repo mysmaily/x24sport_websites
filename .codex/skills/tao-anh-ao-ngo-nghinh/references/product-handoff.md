@@ -32,11 +32,11 @@ Use this manifest to transfer an accepted playful-shirt product into `create-ten
     "currency": "VND"
   },
   "productIdentity": {
-    "sku": "X24-DP-HHSSMM",
+    "sku": "X24-DP-NNNNNN",
     "sourceSystem": "tao-anh-ao-ngo-nghinh",
-    "sourceId": "X24-DP-HHSSMM",
-    "productTitle": "Tên mẫu - mã X24-DP-HHSSMM",
-    "productDescription": "Mã mẫu: X24-DP-HHSSMM. Mô tả ngắn theo concept đã khóa."
+    "sourceId": "X24-DP-NNNNNN",
+    "productTitle": "Tên mẫu - mã X24-DP-NNNNNN",
+    "productDescription": "Mã mẫu: X24-DP-NNNNNN. Mô tả ngắn theo concept đã khóa."
   },
   "studentVariant": {
     "grade": 10,
@@ -48,28 +48,28 @@ Use this manifest to transfer an accepted playful-shirt product into `create-ten
   },
   "sourceAssets": {
     "printMaster": {
-      "path": "/absolute/path/X24-DP-HHSSMM.png",
+      "path": "/absolute/path/X24-DP-NNNNNN.png",
       "sha256": "64 lowercase hexadecimal characters",
       "archivePaths": [
-        "/Volumes/Data/x24_project/mayaodongphuc.vn/dong-phuc-ngo-nghinh/X24-DP-HHSSMM.png"
+        "/Volumes/Data/x24_project/mayaodongphuc.vn/dong-phuc-ngo-nghinh/X24-DP-NNNNNN.png"
       ]
     }
   },
   "acceptedImages": [
     {
-      "path": "/absolute/path/X24-DP-HHSSMM-marketing.webp",
+      "path": "/absolute/path/X24-DP-NNNNNN-marketing.webp",
       "sha256": "64 lowercase hexadecimal characters",
       "role": "product hero",
       "aspectRatio": "1:1",
       "width": 1254,
       "height": 1254,
-      "altSeed": "Áo lớp màu xanh với artwork vui nhộn và mã mẫu X24-DP-HHSSMM.",
+      "altSeed": "Áo lớp màu xanh với artwork vui nhộn và mã mẫu X24-DP-NNNNNN.",
       "captionSeed": "Mẫu áo nổi bật để tập thể dễ chọn thiết kế và gửi yêu cầu tùy chỉnh.",
       "visualTags": ["áo lớp", "màu xanh", "hoạt hình", "mặt trước"],
       "productPlacement": {"gallery": true, "contentEmbed": false, "contentOrder": null}
     },
     {
-      "path": "/absolute/path/X24-DP-HHSSMM-student-lifestyle.webp",
+      "path": "/absolute/path/X24-DP-NNNNNN-student-lifestyle.webp",
       "sha256": "64 lowercase hexadecimal characters",
       "role": "content-inline lifestyle",
       "aspectRatio": "1:1",
@@ -81,13 +81,13 @@ Use this manifest to transfer an accepted playful-shirt product into `create-ten
       "productPlacement": {"gallery": true, "contentEmbed": true, "contentOrder": 1}
     },
     {
-      "path": "/absolute/path/X24-DP-HHSSMM-print-preview.webp",
+      "path": "/absolute/path/X24-DP-NNNNNN-print-preview.webp",
       "sha256": "64 lowercase hexadecimal characters",
       "role": "print artwork preview",
       "aspectRatio": "1:1",
       "width": 500,
       "height": 500,
-      "altSeed": "Artwork in áo nền trắng của mẫu X24-DP-HHSSMM.",
+      "altSeed": "Artwork in áo nền trắng của mẫu X24-DP-NNNNNN.",
       "captionSeed": "Xem riêng artwork giúp khách đối chiếu rõ slogan, tên lớp và bố cục trước khi đặt may.",
       "visualTags": ["artwork in áo", "nền trắng", "slogan", "mã mẫu"],
       "productPlacement": {"gallery": true, "contentEmbed": true, "contentOrder": 2}

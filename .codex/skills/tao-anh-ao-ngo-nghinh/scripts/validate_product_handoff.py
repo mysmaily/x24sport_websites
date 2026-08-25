@@ -122,7 +122,7 @@ def main() -> None:
     identity = data["productIdentity"]
     sku = str(identity.get("sku", ""))
     if not SKU_RE.fullmatch(sku):
-        fail("productIdentity.sku must match X24-DP-HHSSMM")
+        fail("productIdentity.sku must match X24-DP-NNNNNN")
     if identity.get("sourceSystem") != PRODUCER or identity.get("sourceId") != sku:
         fail("productIdentity sourceSystem/sourceId must preserve producer and SKU")
     if sku not in str(identity.get("productTitle", "")):

@@ -46,7 +46,7 @@ def main() -> None:
     args = parse_args()
     sku = args.sku.strip().upper()
     if not SKU_RE.fullmatch(sku):
-        raise SystemExit("ERROR: --sku must match X24-DP-HHSSMM")
+        raise SystemExit("ERROR: --sku must match X24-DP-NNNNNN")
 
     digest = hashlib.sha256(sku.encode("utf-8")).digest()
     grade = 8 + digest[0] % 5
