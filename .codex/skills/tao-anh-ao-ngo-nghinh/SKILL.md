@@ -39,7 +39,7 @@ Không dùng nhân vật, logo, huy hiệu hoặc tài sản có bản quyền/t
 ### Khóa SKU và copy sản phẩm
 
 - SKU có dạng exact `X24-DP-NNNNNN`, trong đó `NNNNNN` là số thứ tự 6 chữ số do script cấp phát, ví dụ `X24-DP-235960`. Không tự ghép giờ/phút/giây/millisecond bằng tay vì các format thời gian vẫn có thể lặp khi chạy khác ngày, chạy song song hoặc mất registry.
-- Cấp và giữ chỗ SKU bằng `python3 scripts/allocate_sku.py --registry=/absolute/path/to/batch-registry.jsonl --root=/absolute/path/to/generated/tao-anh-ao-ngo-nghinh`. Script khóa registry, quét registry, thư mục output, các `--scan-root` bổ sung và kho print-master `/Volumes/Data/x24_project/mayaodongphuc.vn` nếu đang mount, rồi lấy số lớn nhất đã biết + 1 trong namespace `000000-999999`.
+- Cấp và giữ chỗ SKU bằng `python3 scripts/allocate_sku.py --registry=/absolute/path/to/batch-registry.jsonl --root=/absolute/path/to/generated/tao-anh-ao-ngo-nghinh`. Script khóa registry, quét registry, thư mục output, các `--scan-root` bổ sung và kho print-master `/Volumes/Data/x24_project/mayaodongphuc.com.vn` nếu đang mount, rồi lấy số lớn nhất đã biết + 1 trong namespace `000000-999999`.
 - Muốn chống trùng giữa nhiều batch hoặc nhiều máy, phải dùng chung registry hoặc truyền đủ mọi thư mục lịch sử bằng `--scan-root`; không tự gõ SKU và không cấp SKU ngoài script.
 - Cùng một SKU phải được dùng nguyên vẹn ở tên file thiết kế, tên file marketing, ảnh marketing, label mã mẫu và mô tả sản phẩm; không cấp lại SKU ở bước publish.
 - Tiêu đề sản phẩm dùng cấu trúc tự nhiên `<tên mẫu>` để làm H1 sạch trên trang chi tiết; không đưa đoạn `- mã <SKU>` hoặc SKU vào `productTitle`.
@@ -158,7 +158,7 @@ python3 scripts/create_print_preview.py /absolute/path/to/<SKU>.png
 Sau khi cặp ảnh vượt validator và visual gate, copy thêm **chỉ print master** vào ổ dữ liệu:
 
 ```text
-/Volumes/Data/x24_project/mayaodongphuc.vn/<category-slug>/<SKU>.png
+/Volumes/Data/x24_project/mayaodongphuc.com.vn/<category-slug>/<SKU>.png
 ```
 
 - Folder danh mục dùng exact slug của website, ví dụ `dong-phuc-ngo-nghinh`, `dong-phuc-truong-hoc`, `dong-phuc-da-ngoai-team-building`; không dùng tên hiển thị có dấu và không tự tạo slug khác.

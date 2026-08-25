@@ -52,7 +52,7 @@ Use this manifest to transfer an accepted playful-shirt product into `create-ten
       "path": "/absolute/path/X24-DP-NNNNNN.png",
       "sha256": "64 lowercase hexadecimal characters",
       "archivePaths": [
-        "/Volumes/Data/x24_project/mayaodongphuc.vn/dong-phuc-ngo-nghinh/X24-DP-NNNNNN.png"
+        "/Volumes/Data/x24_project/mayaodongphuc.com.vn/dong-phuc-ngo-nghinh/X24-DP-NNNNNN.png"
       ]
     }
   },

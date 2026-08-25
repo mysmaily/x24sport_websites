@@ -13,7 +13,7 @@ import tempfile
 from pathlib import Path
 
 
-DEFAULT_ROOT = Path("/Volumes/Data/x24_project/mayaodongphuc.vn")
+DEFAULT_ROOT = Path("/Volumes/Data/x24_project/mayaodongphuc.com.vn")
 VOLUME_MOUNT = Path("/Volumes/Data")
 MASTER_NAME = re.compile(r"^X24-DP-[0-9]{6}\.png$")
 CATEGORY_SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")

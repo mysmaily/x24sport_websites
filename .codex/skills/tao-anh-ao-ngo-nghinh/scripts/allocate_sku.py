@@ -16,7 +16,7 @@ from zoneinfo import ZoneInfo
 SKU_PATTERN = re.compile(r"X24-DP-([0-9]{6})")
 MAX_SEQUENCE = 999_999
 TIMEZONE = ZoneInfo("Asia/Ho_Chi_Minh")
-DEFAULT_ARCHIVE_ROOT = Path("/Volumes/Data/x24_project/mayaodongphuc.vn")
+DEFAULT_ARCHIVE_ROOT = Path("/Volumes/Data/x24_project/mayaodongphuc.com.vn")
 
 
 def parse_args() -> argparse.Namespace:

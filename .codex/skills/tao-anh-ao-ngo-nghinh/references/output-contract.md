@@ -15,7 +15,7 @@ CMS chỉ được nhận marketing, student lifestyle và website print preview
 
 ## Bản lưu kho theo danh mục
 
-- Sau khi hoàn tất kiểm tra, copy print master tới `/Volumes/Data/x24_project/mayaodongphuc.vn/<category-slug>/<SKU>.png`.
+- Sau khi hoàn tất kiểm tra, copy print master tới `/Volumes/Data/x24_project/mayaodongphuc.com.vn/<category-slug>/<SKU>.png`.
 - `<category-slug>` phải là slug danh mục thật của website; sản phẩm có nhiều danh mục thì copy vào tất cả folder tương ứng.
 - Kho chỉ nhận file exact `X24-DP-[0-9]{6}.png`; không nhận marketing, JPG/WebP, tên concept hoặc hậu tố khác.
 - Cùng SKU và cùng bytes là thao tác idempotent. Cùng SKU nhưng bytes khác là conflict và phải dừng, không ghi đè.
@@ -25,7 +25,7 @@ CMS chỉ được nhận marketing, student lifestyle và website print preview
 
 - SKU exact format: `X24-DP-NNNNNN`, regex `^X24-DP-[0-9]{6}$`.
 - `NNNNNN` là số thứ tự 6 chữ số do `scripts/allocate_sku.py` cấp phát và giữ chỗ trong registry. Không tự ghép từ giờ/phút/giây/millisecond vì các format thời gian vẫn có thể lặp.
-- Để chống trùng giữa nhiều batch, dùng chung registry hoặc truyền đủ thư mục lịch sử bằng `--scan-root`; allocator cũng tự quét kho print-master `/Volumes/Data/x24_project/mayaodongphuc.vn` nếu volume đang mount.
+- Để chống trùng giữa nhiều batch, dùng chung registry hoặc truyền đủ thư mục lịch sử bằng `--scan-root`; allocator cũng tự quét kho print-master `/Volumes/Data/x24_project/mayaodongphuc.com.vn` nếu volume đang mount.
 - Bốn file của một sản phẩm phải dùng cùng SKU: `<SKU>.png`, `<SKU>-marketing.webp`, `<SKU>-student-lifestyle.webp` và `<SKU>-print-preview.webp`.
 - Ảnh marketing phải đọc rõ exact text `MÃ MẪU: <SKU>`.
 - `productTitle` là tên mẫu sạch để làm H1 và không chứa SKU.
