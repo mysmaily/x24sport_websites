@@ -94,7 +94,8 @@ def main() -> None:
     missing = required - data.keys()
     if missing:
         fail(f"missing top-level fields: {sorted(missing)}")
-    if data["schemaVersion"] != "1.0" or data["producerSkill"] != PRODUCER:
+    schema_version = data["schemaVersion"]
+    if schema_version not in {"1.0", "1.1"} or data["producerSkill"] != PRODUCER:
         fail("unsupported schemaVersion or producerSkill")
     policy = data["consumerPolicy"]
     if policy.get("visualInspection") != "not-required-after-validation" or policy.get("uploadSourceAssets") is not False:
@@ -129,6 +130,24 @@ def main() -> None:
     if not str(identity.get("productDescription", "")).startswith(f"Mã mẫu: {sku}."):
         fail("productIdentity.productDescription must begin with exact SKU sentence")
 
+    student_variant = data.get("studentVariant")
+    if schema_version == "1.1":
+        if not isinstance(student_variant, dict):
+            fail("schema 1.1 requires studentVariant")
+        grade = student_variant.get("grade")
+        expected_ages = {8: "13-14", 9: "14-15", 10: "15-16", 11: "16-17", 12: "17-18"}
+        if grade not in expected_ages:
+            fail("studentVariant.grade must be an integer from 8 to 12")
+        if student_variant.get("ageRange") != expected_ages[grade]:
+            fail("studentVariant.ageRange does not match grade")
+        if student_variant.get("castCount") not in {4, 5}:
+            fail("studentVariant.castCount must be 4 or 5")
+        for key in ("scene", "action"):
+            if not str(student_variant.get(key, "")).strip():
+                fail(f"studentVariant.{key} is required")
+        if student_variant.get("selection") != "stable-sha256":
+            fail("studentVariant.selection must be stable-sha256")
+
     source_assets = data["sourceAssets"]
     master_item = source_assets.get("printMaster") if isinstance(source_assets, dict) else None
     if not isinstance(master_item, dict):
@@ -141,8 +160,9 @@ def main() -> None:
         fail("print master must be PNG 4500x4500")
 
     images = data["acceptedImages"]
-    if not isinstance(images, list) or len(images) != 2:
-        fail("acceptedImages must contain exactly marketing hero and print preview")
+    expected_count = 3 if schema_version == "1.1" else 2
+    if not isinstance(images, list) or len(images) != expected_count:
+        fail(f"schema {schema_version} acceptedImages must contain exactly {expected_count} publishing images")
     paths: list[Path] = []
     roles: list[str] = []
     for index, item in enumerate(images):
@@ -162,22 +182,41 @@ def main() -> None:
         if not isinstance(placement, dict) or placement.get("gallery") is not True:
             fail(f"{location}.productPlacement.gallery must be true")
 
-    if roles != ["product hero", "print artwork preview"]:
-        fail("acceptedImages roles/order must be product hero then print artwork preview")
+    expected_roles = (
+        ["product hero", "content-inline lifestyle", "print artwork preview"]
+        if schema_version == "1.1"
+        else ["product hero", "print artwork preview"]
+    )
+    if roles != expected_roles:
+        fail(f"acceptedImages roles/order must be {expected_roles}")
     if paths[0].name != f"{sku}-marketing.webp":
         fail("hero filename must be SKU-marketing.webp")
-    if paths[1].name != f"{sku}-print-preview.webp":
+    lifestyle_index = 1 if schema_version == "1.1" else None
+    preview_index = 2 if schema_version == "1.1" else 1
+    if lifestyle_index is not None and paths[lifestyle_index].name != f"{sku}-student-lifestyle.webp":
+        fail("student lifestyle filename must be SKU-student-lifestyle.webp")
+    if paths[preview_index].name != f"{sku}-print-preview.webp":
         fail("preview filename must be SKU-print-preview.webp")
     hero_fmt, hero_width, hero_height = image_info(paths[0])
-    preview_fmt, preview_width, preview_height = image_info(paths[1])
+    preview_fmt, preview_width, preview_height = image_info(paths[preview_index])
     if hero_fmt != "WEBP" or hero_width != hero_height or hero_width < 1200:
         fail("marketing hero must be square WebP at least 1200px")
+    if lifestyle_index is not None:
+        lifestyle_fmt, lifestyle_width, lifestyle_height = image_info(paths[lifestyle_index])
+        if lifestyle_fmt != "WEBP" or lifestyle_width != lifestyle_height or lifestyle_width < 1200:
+            fail("student lifestyle must be square WebP at least 1200px")
     if (preview_fmt, preview_width, preview_height) != ("WEBP", 500, 500):
         fail("print preview must be exact 500x500 WebP")
     if images[0]["productPlacement"].get("contentEmbed") is not False:
         fail("hero must not be embedded below product copy")
-    if images[1]["productPlacement"].get("contentEmbed") is not True or images[1]["productPlacement"].get("contentOrder") != 1:
-        fail("print preview must be contentEmbed=true with contentOrder=1")
+    if lifestyle_index is not None:
+        lifestyle_placement = images[lifestyle_index]["productPlacement"]
+        if lifestyle_placement.get("contentEmbed") is not True or lifestyle_placement.get("contentOrder") != 1:
+            fail("student lifestyle must be contentEmbed=true with contentOrder=1")
+    preview_placement = images[preview_index]["productPlacement"]
+    expected_preview_order = 2 if schema_version == "1.1" else 1
+    if preview_placement.get("contentEmbed") is not True or preview_placement.get("contentOrder") != expected_preview_order:
+        fail(f"print preview must be contentEmbed=true with contentOrder={expected_preview_order}")
 
     requested = {path.resolve() for path in args.image}
     manifest_paths = set(paths)
@@ -186,7 +225,10 @@ def main() -> None:
     if args.require_publishing_set and requested != manifest_paths:
         fail("publishing-set validation must pass exactly both accepted images")
 
-    print(f"PASS manifest={args.manifest.resolve()} producer={PRODUCER} sku={sku} images=2 preview=500x500")
+    print(
+        f"PASS manifest={args.manifest.resolve()} producer={PRODUCER} "
+        f"schema={schema_version} sku={sku} images={expected_count} preview=500x500"
+    )
 
 
 if __name__ == "__main__":
