@@ -4,7 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { getProductBySlug as getCmsProductBySlug } from '../../../lib/content'
 import { getPublicStoreSettings } from '../../../lib/store-settings'
+import { ProductViewTracker } from '../../_components/product-view-tracker'
 import { getCategory, getProduct, products } from './data'
 import { ProductCard } from './home'
 import { QuoteForm } from './quote-form'
@@ -18,13 +20,33 @@ export function getDongPhucX24ProductMetadata(slug: string): Metadata {
   return { title: { absolute: `${product.name} | Đồng Phục X24` }, description, alternates: { canonical: `https://dongphucx24.vn/san-pham/${slug}/` }, openGraph: { title: product.name, description, url: `https://dongphucx24.vn/san-pham/${slug}/`, images: [{ url: product.image, alt: product.alt }] } }
 }
 
+async function getTrackingProduct(slug: string) {
+  try {
+    return await getCmsProductBySlug(slug)
+  } catch (error) {
+    console.error('Unable to load Đồng Phục X24 product tracking record.', error)
+    return undefined
+  }
+}
+
 export async function DongPhucX24ProductPage({ slug }: { slug: string }) {
   const product = getProduct(slug)
   if (!product) notFound()
-  const consultationEnabled = Boolean((await getPublicStoreSettings()).telegramChatId)
+  const [storeSettings, trackingProduct] = await Promise.all([
+    getPublicStoreSettings(),
+    getTrackingProduct(slug),
+  ])
+  const consultationEnabled = Boolean(storeSettings.telegramChatId)
   const category = getCategory(product.category)
   const related = products.filter((item) => item.category === product.category && item.slug !== product.slug).slice(0, 4)
   return <DongPhucX24Shell><main className={styles.productPage} id="main-content">
+    {trackingProduct ? <ProductViewTracker
+      itemCategory={product.category}
+      name={product.name}
+      productId={trackingProduct.id}
+      sku={product.sku}
+      tenantSlug="dongphucx24"
+    /> : null}
     <nav aria-label="Breadcrumb" className={styles.breadcrumb}><Link href="/">Trang chủ</Link><span>/</span><Link href="/san-pham/">Sản phẩm</Link><span>/</span>{category ? <Link href={`/danh-muc/${category.slug}/`}>{category.name}</Link> : null}</nav>
     <h1 className={styles.mobileProductTitle}>{product.name}</h1>
     <section className={styles.productLayout}>

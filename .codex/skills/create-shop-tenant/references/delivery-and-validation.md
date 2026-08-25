@@ -12,6 +12,7 @@ the approved scope.
 | Core journeys | browse, filter/search, product/detail, consultation/order/contact, and policy/trust paths succeed |
 | Content | approved inventory is populated; no unintended placeholders, thin drafts, false claims, or orphan records |
 | Catalog | correct categories, variants/attributes, price states, media, and product reachability |
+| Product view counting | every product-detail renderer mounts the shared tracker once with the current tenant and its own published product ID; a representative event increments `viewCount` once per session |
 | Responsive UI | representative pages and interactive states checked at 390x844 and 1440x900, plus relevant extremes |
 | Accessibility | semantic structure, keyboard, focus, labels/errors, contrast, zoom/reflow, touch targets, reduced motion |
 | SEO | status, title, H1, description, canonical, robots, sitemap, crawlable links, image alt, and valid factual JSON-LD |
@@ -38,6 +39,10 @@ the approved scope.
 - Verify uniqueness by stable identity and ownership for every mutated class.
 - Verify media HTTP status, MIME type, dimensions, ownership or explicit share.
 - Prove a sibling-tenant query exposes no sibling record.
+- Post one representative product-view event from an allowed tenant origin and
+  verify `201` plus a one-step `viewCount` increase. Repeat the same
+  tenant/product/session payload and verify `200`, `recorded: false`, and no
+  second increase.
 
 ### Rendered browser experience
 

@@ -174,6 +174,13 @@ components, category/product/media content, guides and trust/policy content,
 conversion paths, metadata/structured data/sitemap/robots, accessibility,
 performance, analytics if configured, and operations.
 
+Product view counting is mandatory even when external analytics is not
+configured. Mount the shared `ProductViewTracker` exactly once on every product
+detail renderer using the request-resolved tenant slug and that tenant's own
+published Payload product ID. Custom or static catalogs must create and resolve
+tenant-owned product records by stable slug/SKU; never send a sibling tenant ID
+or a hard-coded fallback slug.
+
 ### Phase 5 - Validate and close
 
 Run the bundled `web-design-guidelines` pass for changed UI files, then run the
@@ -181,6 +188,10 @@ delivery-and-validation matrix plus market checks. Reopen every critical or high
 finding and re-test fresh post-fix output. Report only `verified`,
 `implemented-not-deployed`, `draft`, or `blocked`; never call a partly populated
 or unvalidated tenant complete.
+
+For a representative production product, wait for the tracker delay and verify
+the product-view endpoint accepts the public origin, increments `viewCount`
+once, and deduplicates a repeat event for the same product/session.
 
 ## Completion report
 

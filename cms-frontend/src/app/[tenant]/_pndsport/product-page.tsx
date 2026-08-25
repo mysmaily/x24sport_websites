@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { getProductBySlug, getRelatedProducts, prepareContentHtml, productImages } from '../../../lib/content'
 import { JsonLd } from '../../_components/json-ld'
 import { ProductMediaGallery } from '../../_components/product-media-gallery'
+import { ProductViewTracker } from '../../_components/product-view-tracker'
 import { Breadcrumbs, ProductGrid, SectionHeading } from '../../pndsport-preview/components'
 import { formatPrice } from '../../pndsport-preview/data'
 import styles from '../../pndsport-preview/pnd.module.css'
@@ -54,6 +55,15 @@ export async function PndProductPage({ slug }: { slug: string }) {
   }
 
   return <PndShell>
+    <ProductViewTracker
+      currency={product.currency}
+      itemCategory={product.sport}
+      name={product.name}
+      price={price}
+      productId={product.id}
+      sku={product.sku}
+      tenantSlug="pndsport"
+    />
     <JsonLd data={structuredData} />
     <Breadcrumbs base="" items={[...(categorySlug ? [{ label: categoryName, href: `/danh-muc/${categorySlug}/` }] : []), { label: product.name }]} />
     <article className={styles.productDetail}>
