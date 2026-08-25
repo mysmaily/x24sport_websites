@@ -9,6 +9,14 @@
 
 Ảnh master là nguồn thiết kế. Ảnh marketing là phần trình bày thương mại của cùng thiết kế, không phải biến thể sáng tạo thứ hai.
 
+## Bản lưu kho theo danh mục
+
+- Sau khi hoàn tất kiểm tra, copy print master tới `/Volumes/Data/x24_project/mayaodongphuc.vn/<category-slug>/<SKU>.png`.
+- `<category-slug>` phải là slug danh mục thật của website; sản phẩm có nhiều danh mục thì copy vào tất cả folder tương ứng.
+- Kho chỉ nhận file exact `X24-DP-[0-9]{6}.png`; không nhận marketing, JPG/WebP, tên concept hoặc hậu tố khác.
+- Cùng SKU và cùng bytes là thao tác idempotent. Cùng SKU nhưng bytes khác là conflict và phải dừng, không ghi đè.
+- Không lưu kho nếu validator hoặc visual gate chưa đạt. Không tạo đường dẫn dưới `/Volumes/Data` khi volume chưa được mount.
+
 ## SKU gate
 
 - SKU exact format: `X24-DP-HHSSMM`, regex `^X24-DP-[0-9]{6}$`.

@@ -24,6 +24,7 @@ Tạo đúng hai ảnh cuối cho mỗi sản phẩm:
 Mỗi sản phẩm phải khóa trước:
 
 - `sku`, `productSlug`, slogan chính và tên lớp/đơn vị/nhóm;
+- `categorySlugs` theo đúng slug danh mục của website Mayaodongphuc; một sản phẩm thuộc nhiều danh mục thì giữ đủ các slug;
 - họ chủ thể, phong cách minh họa, bố cục, palette và màu áo;
 - exact text có dấu;
 - `uniquenessSignature = subject|style|layout|slogan|identity|palette|shirtColor`.
@@ -108,15 +109,38 @@ generated/tao-anh-ao-ngo-nghinh/<batch-id>/<product-slug>/
 - `<SKU>-marketing.webp`: ảnh marketing vuông tối thiểu 1200×1200 px, WebP quality 100.
 - Mỗi sản phẩm chỉ có hai ảnh xuất bản. Contact sheet và metadata của batch không tính là ảnh sản phẩm.
 
+### Lưu kho print master theo danh mục website
+
+Sau khi cặp ảnh vượt validator và visual gate, copy thêm **chỉ print master** vào ổ dữ liệu:
+
+```text
+/Volumes/Data/x24_project/mayaodongphuc.vn/<category-slug>/<SKU>.png
+```
+
+- Folder danh mục dùng exact slug của website, ví dụ `dong-phuc-ngo-nghinh`, `dong-phuc-truong-hoc`, `dong-phuc-da-ngoai-team-building`; không dùng tên hiển thị có dấu và không tự tạo slug khác.
+- Nếu sản phẩm thuộc nhiều danh mục, lưu cùng file `<SKU>.png` vào từng folder danh mục tương ứng.
+- Tên file kho chỉ được là `<SKU>.png`; không thêm tên concept, hậu tố, ngày hoặc `print-master`.
+- Đây là bản sao lưu của deliverable master, không phải ảnh sản phẩm thứ ba và không thay đổi thư mục output trong workspace.
+- Dùng script idempotent, script sẽ từ chối ghi đè nếu cùng SKU nhưng bytes khác:
+
+```bash
+python3 scripts/archive_print_master.py \
+  /absolute/path/to/<SKU>.png \
+  --category dong-phuc-ngo-nghinh \
+  --category dong-phuc-truong-hoc
+```
+
+- Trước khi copy, xác nhận `/Volumes/Data` đang được mount và đích ghi được. Nếu volume không mount, không tạo giả đường dẫn `/Volumes/Data`; giữ bản workspace và báo rõ bước lưu kho chưa hoàn tất.
+
 Chạy validator sau khi xuất:
 
 ```bash
 python3 scripts/validate_product_pair.py /absolute/path/to/product-folder
 ```
 
-Validator trả lỗi thì không được báo hoàn tất, không đăng CMS và không dùng ảnh đó làm đầu vào publish. Validator chỉ kiểm tra được cấu trúc file; visual gate ảnh áo thật vẫn phải được kiểm tra bằng `view_image`.
+Validator trả lỗi thì không được báo hoàn tất, không đăng CMS, không copy vào kho dữ liệu và không dùng ảnh đó làm đầu vào publish. Validator chỉ kiểm tra được cấu trúc file; visual gate ảnh áo thật vẫn phải được kiểm tra bằng `view_image`.
 
-Kiểm tra trực quan cả hai ảnh cuối ở full-size. Báo SKU, `productTitle`, `productDescription`, đường dẫn từng cặp, kích thước, trạng thái kiểm tra chữ, logo/contact/mã mẫu, kết quả 5 câu visual gate và xác nhận marketing được tạo từ artwork tham chiếu.
+Kiểm tra trực quan cả hai ảnh cuối ở full-size. Báo SKU, `productTitle`, `productDescription`, đường dẫn từng cặp, đường dẫn kho print master theo từng danh mục, kích thước, trạng thái kiểm tra chữ, logo/contact/mã mẫu, kết quả 5 câu visual gate và xác nhận marketing được tạo từ artwork tham chiếu.
 
 ## Quy mô lớn
 
