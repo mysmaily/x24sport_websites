@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the two-file output contract for one playful-shirt product."""
+"""Validate the production pair and optional 500px publishing preview."""
 
 from __future__ import annotations
 
@@ -13,6 +13,7 @@ from pathlib import Path
 
 MASTER_NAME = re.compile(r"^(X24-DP-[0-9]{6})\.png$")
 MARKETING_NAME = re.compile(r"^(X24-DP-[0-9]{6})-marketing\.webp$")
+PREVIEW_NAME = re.compile(r"^(X24-DP-[0-9]{6})-print-preview\.webp$")
 
 
 def fail(message: str) -> None:
@@ -60,11 +61,15 @@ def main() -> None:
         fail(f"not a directory: {folder}")
 
     images = sorted(p for p in folder.iterdir() if p.suffix.lower() in {".png", ".webp", ".jpg", ".jpeg"})
-    if len(images) != 2:
-        fail(f"expected exactly 2 published images, found {len(images)}")
+    previews = [p for p in images if PREVIEW_NAME.fullmatch(p.name)]
+    pair_images = [p for p in images if p not in previews]
+    if len(pair_images) != 2:
+        fail(f"expected exactly 2 production-pair images, found {len(pair_images)}")
+    if len(previews) > 1:
+        fail("expected at most one SKU-print-preview.webp")
 
-    masters = [p for p in images if MASTER_NAME.fullmatch(p.name)]
-    marketing = [p for p in images if MARKETING_NAME.fullmatch(p.name)]
+    masters = [p for p in pair_images if MASTER_NAME.fullmatch(p.name)]
+    marketing = [p for p in pair_images if MARKETING_NAME.fullmatch(p.name)]
     if len(masters) != 1 or len(marketing) != 1:
         fail("expected one X24-DP-HHSSMM.png and one matching X24-DP-HHSSMM-marketing.webp")
 
@@ -95,12 +100,23 @@ def main() -> None:
     if int(marketing_info["width"]) < 1200:
         fail("marketing image must be at least 1200px")
 
+    preview_report = None
+    if previews:
+        preview_sku = PREVIEW_NAME.fullmatch(previews[0].name).group(1)
+        if preview_sku != master_sku:
+            fail("print preview filename must use the same SKU")
+        preview_info = identify(previews[0])
+        if preview_info["format"] != "WEBP" or (preview_info["width"], preview_info["height"]) != (500, 500):
+            fail("print preview must be exact 500x500 WebP")
+        preview_report = {"file": previews[0].name, **preview_info}
+
     print(json.dumps({
         "ok": True,
         "folder": str(folder),
         "sku": master_sku,
         "printMaster": {"file": masters[0].name, **master_info},
         "marketing": {"file": marketing[0].name, **marketing_info},
+        "printPreview": preview_report,
         "visualInspectionRequired": True,
     }, ensure_ascii=False, indent=2))
 

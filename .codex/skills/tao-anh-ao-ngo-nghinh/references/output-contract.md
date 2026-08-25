@@ -1,13 +1,16 @@
 # Output Contract
 
-## Một sản phẩm, hai ảnh
+## Một sản phẩm, hai ảnh gốc và một preview website
 
 | Role | File | Yêu cầu |
 |---|---|---|
 | Print master | `<SKU>.png` | PNG RGB, nền `#FFFFFF`, 4500×4500 px, 300 DPI, artwork và exact text, không áo/đạo cụ/watermark |
 | Marketing | `<SKU>-marketing.webp` | WebP Q100, vuông ≥1200 px, ảnh chụp áo thật nền đơn sắc, sử dụng đúng artwork master, có mã mẫu, dấu Mayaodongphuc và contact chuẩn |
+| Website print preview | `<SKU>-print-preview.webp` | WebP Q100, đúng 500×500 px, crop/resize từ print master, không áo/branding/contact |
 
-Ảnh master là nguồn thiết kế. Ảnh marketing là phần trình bày thương mại của cùng thiết kế, không phải biến thể sáng tạo thứ hai.
+Ảnh master là nguồn thiết kế. Ảnh marketing là phần trình bày thương mại của cùng thiết kế, không phải biến thể sáng tạo thứ hai. Preview 500px là derivative dành riêng cho gallery website.
+
+CMS chỉ được nhận marketing và website print preview. Không upload print master PNG 4500px.
 
 ## Bản lưu kho theo danh mục
 
