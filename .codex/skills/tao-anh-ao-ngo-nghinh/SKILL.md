@@ -5,12 +5,13 @@ description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh 
 
 # Tạo ảnh áo ngộ nghĩnh
 
-Tạo đúng hai ảnh cuối cho mỗi sản phẩm:
+Tạo hai ảnh gốc và một derivative website cho mỗi sản phẩm:
 
 1. `print-master`: artwork và text tách biệt trên nền trắng, sẵn sàng tái sử dụng để in.
 2. `marketing`: áo thành phẩm dùng chính `print-master`, không tự diễn giải lại thiết kế.
+3. `print-preview`: bản WebP 500×500 crop/resize từ master để làm ảnh gallery website.
 
-Đây là workflow `images-only`. Không đăng CMS, không tạo sản phẩm và không triển khai website trừ khi người dùng yêu cầu rõ ở một bước riêng.
+Đây là workflow `images-only` mặc định. Luôn chuẩn bị handoff cho `create-tenant-product`, nhưng không đăng CMS, không tạo sản phẩm và không triển khai website trừ khi người dùng yêu cầu rõ ở một bước riêng.
 
 ## Trước khi tạo
 
@@ -18,6 +19,7 @@ Tạo đúng hai ảnh cuối cho mỗi sản phẩm:
 - Nếu chưa có text, tự chọn slogan và tên lớp/CLB/nhóm dạng generic; không bịa tên trường hoặc đơn vị có thật.
 - Với hơn 10 sản phẩm, đọc [references/creative-system.md](references/creative-system.md), lập `batch-plan.json`, rồi tạo theo đợt 10-25 sản phẩm. Không tạo hàng trăm mẫu mà không có checkpoint kiểm tra.
 - Đọc [references/output-contract.md](references/output-contract.md) trước khi xuất file hoặc khi cần quyết định kích thước, định dạng và tên file.
+- Đọc [references/product-handoff.md](references/product-handoff.md) trước khi tạo preview website hoặc handoff sang `create-tenant-product`.
 
 ## Khóa concept
 
@@ -103,11 +105,21 @@ Xuất dưới:
 generated/tao-anh-ao-ngo-nghinh/<batch-id>/<product-slug>/
   <SKU>.png
   <SKU>-marketing.webp
+  <SKU>-print-preview.webp
+  product-handoff.json
 ```
 
 - `<SKU>.png`: print-master nền trắng, 4500×4500 px, 300 DPI. Tên file phải là đúng SKU để có thể tìm trực tiếp trên máy. Ưu tiên nguồn native lớn nhất; nếu phải upscale raster thì dùng Lanczos và báo rõ đây không phải vector.
 - `<SKU>-marketing.webp`: ảnh marketing vuông tối thiểu 1200×1200 px, WebP quality 100.
-- Mỗi sản phẩm chỉ có hai ảnh xuất bản. Contact sheet và metadata của batch không tính là ảnh sản phẩm.
+- `<SKU>-print-preview.webp`: bản xem trước website được crop/resize deterministic từ print master, đúng 500×500 px, WebP quality 100. Không dùng imagegen để tạo lại preview.
+- `product-handoff.json`: manifest checksum cho `create-tenant-product`; gallery order là marketing trước, print preview sau.
+- Hai ảnh được phép upload website là marketing và print preview. Print master PNG 4500px không được upload CMS. Contact sheet và metadata batch không tính là ảnh sản phẩm.
+
+Tạo preview sau khi print master vượt validator:
+
+```bash
+python3 scripts/create_print_preview.py /absolute/path/to/<SKU>.png
+```
 
 ### Lưu kho print master theo danh mục website
 
@@ -140,7 +152,26 @@ python3 scripts/validate_product_pair.py /absolute/path/to/product-folder
 
 Validator trả lỗi thì không được báo hoàn tất, không đăng CMS, không copy vào kho dữ liệu và không dùng ảnh đó làm đầu vào publish. Validator chỉ kiểm tra được cấu trúc file; visual gate ảnh áo thật vẫn phải được kiểm tra bằng `view_image`.
 
-Kiểm tra trực quan cả hai ảnh cuối ở full-size. Báo SKU, `productTitle`, `productDescription`, đường dẫn từng cặp, đường dẫn kho print master theo từng danh mục, kích thước, trạng thái kiểm tra chữ, logo/contact/mã mẫu, kết quả 5 câu visual gate và xác nhận marketing được tạo từ artwork tham chiếu.
+## Handoff sang create-tenant-product
+
+- Tạo `product-handoff.json` theo [references/product-handoff.md](references/product-handoff.md), dùng đường dẫn tuyệt đối và SHA-256 của bytes cuối.
+- `acceptedImages` phải có đúng hai ảnh theo thứ tự: `<SKU>-marketing.webp` role `product hero`, rồi `<SKU>-print-preview.webp` role `print artwork preview`.
+- Print master chỉ xuất hiện trong `sourceAssets.printMaster`; không được liệt kê trong `acceptedImages`.
+- `publishingIntent.action` mặc định là `images-only`. Chỉ đổi thành `publish` hoặc `draft` khi người dùng yêu cầu đăng hoặc tạo nháp.
+- Giữ nguyên SKU `X24-DP-HHSSMM` đã cấp trong `productIdentity.sku`, `sourceId`, title và description; publisher không cấp SKU mới.
+- Chạy validator handoff và truyền đúng cả hai publishing images:
+
+```bash
+python3 scripts/validate_product_handoff.py \
+  --manifest /absolute/path/to/product-handoff.json \
+  --image /absolute/path/to/<SKU>-marketing.webp \
+  --image /absolute/path/to/<SKU>-print-preview.webp \
+  --require-publishing-set
+```
+
+- Nếu người dùng yêu cầu đăng, invoke `create-tenant-product` bằng manifest đã validate. Publisher phải upload hai WebP, giữ marketing làm hero, dùng preview 500px làm ảnh gallery/contextual và không upload master PNG.
+
+Kiểm tra trực quan master, marketing và preview. Báo SKU, `productTitle`, `productDescription`, đường dẫn ba ảnh, manifest handoff, đường dẫn kho print master theo từng danh mục, kích thước, trạng thái kiểm tra chữ, logo/contact/mã mẫu, kết quả 5 câu visual gate và xác nhận marketing được tạo từ artwork tham chiếu.
 
 ## Quy mô lớn
 

@@ -88,6 +88,8 @@ The script searches existing products by:
 
 For `mayaodongphuc.com.vn`, new product SKUs must use `X24-DP-DDHHSS`, with `DDHHSS` taken from the local production timezone at allocation time. Always query the tenant by SKU before create. If a same-second collision exists, wait or advance to the next second and query again. Retries must find the existing product by `sourceSystem + sourceId`, SKU, or slug and update it instead of allocating a fresh SKU.
 
+Validated `tao-anh-ao-ngo-nghinh` handoffs are the exception: preserve their preallocated `X24-DP-HHSSMM` SKU, use `sourceSystem=tao-anh-ao-ngo-nghinh` and `sourceId=<SKU>`, and do not allocate a replacement. Upload only the two accepted WebP images—marketing hero and exact 500×500 print preview. The 4500×4500 PNG print master is source-only and must not appear in the REST media payload.
+
 It searches media by:
 
 1. `tenant.slug + sourceSystem + media.sourceId`.
