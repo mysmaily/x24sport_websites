@@ -64,12 +64,14 @@ CMS chỉ được nhận marketing, student lifestyle và website print preview
 - Hotline exact text: `0982 254 458`.
 - Website exact text: `mayaodongphuc.com.vn`.
 - Dấu campaign chỉ xuất hiện một lần ngoài áo; không được in lên áo, bóp méo, đổi màu hoặc tự vẽ lại logo.
-- Hotline và website phải rõ ở kích thước listing, không thiếu số, sai khoảng trắng, sai chính tả hoặc đổi domain.
-- Đặt branding/contact trong khoảng trống bằng contact chip, corner panel, micro footer hoặc partial rail; tổng vùng này không quá 12% diện tích ảnh.
+- Hotline và website phải rõ khi xem ảnh sản phẩm, không thiếu số, sai khoảng trắng, sai chính tả hoặc đổi domain; không phóng lớn chỉ để đọc được trong thumbnail contact sheet.
+- Dùng đúng hệ brand signature trong [brand-signature.md](brand-signature.md): quiet editorial lockup, nền trung tính bán trong suốt, không stroke/outline và không pill.
+- Signature rộng tối đa 32% cạnh ảnh, cao tối đa 8% cạnh ảnh, diện tích tối đa 2.5% canvas. Logo nhỏ; SKU và website là metadata; hotline là dòng chính nhưng vẫn dưới artwork và áo trong thứ bậc thị giác.
+- Không dùng rounded badge viền xanh/cam, border đôi, shadow nặng, font display siêu đậm, ba dòng cùng cỡ/cùng weight hoặc chữ brand bão hòa trên toàn cụm.
 - Không che thân áo, tay áo, artwork hoặc biến nền ảnh thành poster quảng cáo nặng chữ.
-- Luân phiên vị trí, hình dạng và màu treatment theo palette từng mẫu; tránh lặp thanh footer toàn chiều ngang cho cả batch.
-- Nếu image generation làm sai logo hoặc contact, sửa riêng vùng branding hoặc composite bằng asset logo thật và font rõ; không regenerate thiết kế áo đã duyệt.
-- Mặc định tạo và duyệt ảnh áo chưa branding trước, sau đó composite logo thật cùng exact SKU/hotline/website bằng công cụ raster deterministic. Không nhờ imagegen tự vẽ lại logo hoặc tự đánh máy chuỗi thương mại.
+- Luân phiên corner có khoảng trống nhưng giữ cùng một hệ signature trong batch; không thay hình dạng/màu treatment theo từng palette và không dùng footer toàn chiều ngang.
+- Mặc định tạo và duyệt ảnh áo chưa branding trước, sau đó chạy `scripts/apply_marketing_brand_signature.py`. Không nhờ imagegen tự vẽ lại logo hoặc tự đánh máy chuỗi thương mại.
+- Nếu signature sai hoặc đặt nhầm vị trí, chạy lại từ ảnh áo chưa branding; không composite đè lên ảnh đã có branding.
 
 ## Student lifestyle gate
 

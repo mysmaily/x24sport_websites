@@ -20,6 +20,7 @@ Tạo ba ảnh gốc và một derivative website cho mỗi sản phẩm:
 - Nếu chưa có text, tự chọn slogan và tên lớp/CLB/nhóm dạng generic; không bịa tên trường hoặc đơn vị có thật.
 - Với hơn 10 sản phẩm, đọc [references/creative-system.md](references/creative-system.md), lập `batch-plan.json`, rồi tạo theo đợt 10-25 sản phẩm. Không tạo hàng trăm mẫu mà không có checkpoint kiểm tra.
 - Đọc [references/output-contract.md](references/output-contract.md) trước khi xuất file hoặc khi cần quyết định kích thước, định dạng và tên file.
+- Trước khi đóng logo/contact lên ảnh marketing, đọc [references/brand-signature.md](references/brand-signature.md) và dùng script composite của skill; không tự thiết kế một tem contact mới cho từng batch.
 - Đọc [references/product-handoff.md](references/product-handoff.md) trước khi tạo preview website hoặc handoff sang `create-tenant-product`.
 - Trước khi tạo `student-lifestyle`, đọc [skill đồng phục lớp - trường học](../tao-anh-dong-phuc-lop-truong-hoc/SKILL.md) và [approved output contract](../tao-anh-dong-phuc-lop-truong-hoc/references/approved-output-contract.md); chỉ lấy contract cast, bối cảnh học đường, logo và rail, không thay workflow SKU/artwork của skill này.
 
@@ -66,7 +67,19 @@ Sau khi duyệt `print-master`:
 
 1. Dùng `view_image` để đưa file artwork vào ngữ cảnh.
 2. Gọi `imagegen` với `print-master` làm reference để tạo **ảnh chụp sản phẩm áo thật**, chưa cần nhờ model viết SKU/contact. Use case phải là `product-mockup`; prompt phải nói rõ `photorealistic ecommerce product photography`, không dùng từ `illustration`, `vector shirt` hoặc `T-shirt template` cho bản thân chiếc áo.
-3. Kiểm tra riêng ảnh áo nền bằng `view_image`. Chỉ khi áo vượt visual gate bên dưới mới dùng logo campaign thật tại `../tao-anh-dong-phuc-tre-em/assets/mayaodongphuc-logo.png` và composite deterministic logo, SKU, hotline, website vào khoảng trống ngoài áo. Ưu tiên ImageMagick hoặc công cụ raster tương đương để contact đúng tuyệt đối; không giao cho imagegen tự vẽ lại logo hoặc tự đánh máy contact.
+3. Kiểm tra riêng ảnh áo nền bằng `view_image`. Chỉ khi áo vượt visual gate bên dưới mới đóng brand signature bằng `scripts/apply_marketing_brand_signature.py`. Script dùng logo campaign thật, exact SKU/hotline/website và hệ phân cấp typography đã khóa; không giao cho imagegen tự vẽ logo, tự đánh máy contact hoặc tự sáng tác panel.
+
+Ví dụ:
+
+```bash
+python3 scripts/apply_marketing_brand_signature.py \
+  --input /absolute/path/to/approved-unbranded.webp \
+  --output /absolute/path/to/<SKU>-marketing.webp \
+  --sku <SKU> \
+  --position bottom-right
+```
+
+Chọn corner sau khi xem ảnh áo nền; corner đó phải có khoảng trống thật và không đè lên áo. Giữ ảnh chưa branding ngoài thư mục deliverable để có thể composite lại mà không suy giảm ảnh hoặc chồng hai signature.
 
 Prompt ảnh áo phải khóa các dấu hiệu vật lý: áo phông thật đặt flat-lay hoặc chụp studio, vải dệt nhìn thấy được, cổ bo rib-knit có đường may, đường vai và lai tay rõ, thân áo có mép thật, nếp nhăn và bóng đổ tự nhiên. Áo phải nhìn như sản phẩm có thể cầm lên, không phải hình chiếc áo được vẽ.
 
@@ -81,6 +94,7 @@ Hard reject và tạo lại ảnh áo nền nếu có một trong các dấu hi�
 - artwork nổi như sticker/cardboard, đổ bóng riêng hoặc tràn ra ngoài bề mặt thân áo;
 - artwork rộng quá 48% thân áo, chạm cổ, nách, đường may hoặc lai áo;
 - bố cục thành poster quảng cáo, contact footer lớn hoặc branding che áo.
+- branding thành tem quảng cáo viền xanh/cam, capsule/pill, badge nhiều lớp, shadow nặng hoặc ba dòng chữ cùng đậm/cùng cỡ;
 
 Không được chữa một áo 2D bằng cách thêm texture, noise hay shadow giả. Phải regenerate ảnh áo nền từ `print-master` với prompt `photorealistic product photography`, rồi kiểm tra lại.
 
@@ -94,13 +108,15 @@ Invariants bắt buộc:
 - logo Mayaodongphuc xuất hiện đúng một lần như dấu campaign ngoài áo, không in lên áo và không tự vẽ lại logo;
 - contact phải ghi đúng nguyên văn `0982 254 458` và `mayaodongphuc.com.vn`;
 - mã mẫu phải ghi đúng nguyên văn `MÃ MẪU: <SKU>` trong cùng cụm thông tin thương mại;
-- logo/contact/SKU nằm trong chip, corner panel, micro footer hoặc partial rail gọn, tổng vùng branding không quá 12% diện tích ảnh và không che áo hay artwork;
-- luân phiên vị trí và treatment giữa các sản phẩm; không dùng một thanh footer toàn chiều ngang làm template mặc định cho cả batch;
+- logo/contact/SKU dùng một brand signature biên tập tối giản: nền trung tính bán trong suốt, không stroke/outline, không pill, logo nhỏ và typography có phân cấp;
+- signature rộng không quá 32% cạnh ảnh, cao không quá 8% cạnh ảnh và tổng diện tích không quá 2.5% canvas; hotline là dòng chính nhưng không được lớn hơn 18 px trên canvas 1254 px;
+- SKU và website dùng cỡ nhỏ, weight thường/semibold; không dùng font display, outline chữ, all-caps siêu đậm hoặc màu brand bão hòa cho toàn bộ ba dòng;
+- giữa các sản phẩm chỉ luân phiên corner có khoảng trống; giữ cùng một hệ signature, không biến mỗi ảnh thành một mẫu tem/contact khác nhau và không dùng footer toàn chiều ngang;
 - ngoài logo và contact bắt buộc, không thêm watermark, nhãn giả, slogan quảng cáo hoặc copy marketing khác nếu người dùng chưa yêu cầu.
 
-Nếu artwork bị drift, sửa bằng một correction pass sử dụng lại cùng reference; không generate một thiết kế mới rồi coi là cùng sản phẩm. Nếu logo, số điện thoại hoặc website sai, sửa riêng vùng branding hoặc composite lại bằng logo asset thật và font rõ; giữ nguyên áo cùng artwork đã duyệt.
+Nếu artwork bị drift, sửa bằng một correction pass sử dụng lại cùng reference; không generate một thiết kế mới rồi coi là cùng sản phẩm. Nếu logo, số điện thoại, website hoặc hierarchy signature sai, composite lại từ ảnh áo **chưa branding** bằng script; không chồng đè một panel mới lên panel cũ.
 
-Sau composite, dùng `view_image` kiểm tra file marketing cuối ở full-size và tự trả lời đủ 5 câu: `vuông 1:1?`, `áo là ảnh chụp thật?`, `thấy cấu trúc vải/cổ/đường may?`, `artwork đúng master và nằm trong 35-48% thân áo?`, `logo/contact/SKU đúng và không che áo?`. Chỉ xuất bản khi cả 5 câu đều là `có`.
+Sau composite, dùng `view_image` kiểm tra file marketing cuối ở full-size và tự trả lời đủ 6 câu: `vuông 1:1?`, `áo là ảnh chụp thật?`, `thấy cấu trúc vải/cổ/đường may?`, `artwork đúng master và nằm trong 35-48% thân áo?`, `logo/contact/SKU đúng và không che áo?`, `signature đủ tinh gọn, không giống tem quảng cáo và không tranh sự chú ý với áo?`. Chỉ xuất bản khi cả 6 câu đều là `có`.
 
 ## Tạo ảnh 3: học sinh lớp 8-12 mặc áo
 
