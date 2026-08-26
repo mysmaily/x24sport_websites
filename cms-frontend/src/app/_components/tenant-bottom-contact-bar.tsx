@@ -4,6 +4,12 @@ import { FormEvent, useCallback, useEffect, useId, useRef, useState } from 'reac
 import { Facebook, Headphones, MapPin, MessageCircle, Phone, PhoneCall, Send, X } from 'lucide-react'
 
 import type { PublicStoreSettings, StoreMapLocation } from '../../lib/store-settings'
+import {
+  regionalSalesContacts,
+  regionalSalesRole,
+  regionalSalesZaloHref,
+} from '../../lib/regional-sales-contacts'
+import { RegionalSalesFooter } from './regional-sales-footer'
 
 type TenantBottomContactBarProps = {
   settings: PublicStoreSettings
@@ -13,12 +19,6 @@ type TenantBottomContactBarProps = {
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
 
 const quantityOptions = ['5-15 bộ', '15-30 bộ', 'Trên 30 bộ']
-
-const regionalSalesContacts = [
-  { region: 'Miền Bắc', name: 'Thu Hiền', phone: '0989353247', phoneLabel: '0989 353 247' },
-  { region: 'Miền Trung', name: 'Thanh Nga', phone: '0988643904', phoneLabel: '0988 643 904' },
-  { region: 'Miền Nam', name: 'Hà Phương', phone: '0982254458', phoneLabel: '0982 254 458' },
-]
 
 function telHref(phone?: string | null) {
   return phone ? `tel:${phone}` : ''
@@ -262,32 +262,36 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
             <h2 id={salesTitleId}>Chọn tư vấn theo khu vực</h2>
             <p>Liên hệ đúng người phụ trách để được hỗ trợ nhanh về mẫu áo, thiết kế và đơn hàng.</p>
           </div>
-          {phone ? (
-            <a aria-label={`Gọi hotline chính ${phoneLabel}`} className="x24-primary-hotline" href={telHref(phone)}>
-              <span><PhoneCall aria-hidden="true" /></span>
-              <span><small>Hotline chính</small><strong>{phoneLabel}</strong></span>
-              <Phone aria-hidden="true" />
-            </a>
-          ) : null}
           <div className="x24-sales-hotline-list">
-            {regionalSalesContacts.map((contact) => (
-              <a
-                aria-label={`Gọi Sale ${contact.region}, ${contact.name}, số ${contact.phoneLabel}`}
-                href={`tel:${contact.phone}`}
-                key={contact.region}
-              >
+            {regionalSalesContacts.map((contact) => {
+              const role = regionalSalesRole(contact.region)
+              return <article key={contact.region}>
                 <span className="x24-sales-region-icon"><MapPin aria-hidden="true" /></span>
                 <span className="x24-sales-contact-copy">
-                  <small>Sale {contact.region}</small>
+                  <small>{role}</small>
                   <strong>{contact.name}</strong>
-                  <b>{contact.phoneLabel}</b>
+                  <a href={`tel:${contact.phone}`}>{contact.phoneLabel}</a>
                 </span>
-                <span className="x24-sales-call-icon"><Phone aria-hidden="true" /></span>
-              </a>
-            ))}
+                <span className="x24-sales-contact-actions">
+                  <a aria-label={`Gọi ${contact.name}, ${role}`} className="is-call" href={`tel:${contact.phone}`}>
+                    <Phone aria-hidden="true" />
+                  </a>
+                  <a
+                    aria-label={`Chat Zalo với ${contact.name}, ${role}`}
+                    className="is-zalo"
+                    href={regionalSalesZaloHref(contact.phone)}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <BrandIcon alt="" src="/icons/zalo.svg" />
+                  </a>
+                </span>
+              </article>
+            })}
           </div>
         </Dialog>
       ) : null}
+      <RegionalSalesFooter />
     </>
   )
 }
