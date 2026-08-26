@@ -383,7 +383,8 @@ body {
 
 .x24-sales-contact-actions > a {
   display: grid;
-  min-height: 40px;
+  height: 44px;
+  min-height: 44px;
   place-items: center;
   border: 1px solid #e7e5e4;
   border-radius: 10px;
@@ -407,8 +408,8 @@ body {
 
 .x24-sales-contact-actions svg,
 .x24-sales-contact-actions img {
-  width: 21px;
-  height: 21px;
+  width: 24px;
+  height: 24px;
 }
 
 .x24-regional-sales-footer {
@@ -509,7 +510,7 @@ body {
   height: 20px;
 }
 
-.x24-regional-sales-footer-grid article > div {
+.x24-regional-sales-footer-copy {
   display: grid;
   min-width: 0;
   gap: 2px;
@@ -543,14 +544,15 @@ body {
 }
 
 .x24-regional-sales-footer-actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 44px);
   gap: 7px;
 }
 
 .x24-regional-sales-footer-actions a {
   display: grid;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   place-items: center;
   border: 1px solid #514740;
   border-radius: 999px;
@@ -574,8 +576,8 @@ body {
 
 .x24-regional-sales-footer-actions svg,
 .x24-regional-sales-footer-actions img {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 .x24-regional-sales-footer a:focus-visible {
@@ -707,6 +709,46 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .x24-sales-hotline-heading {
+    padding: 20px 58px 17px 18px;
+  }
+
+  .x24-sales-hotline-heading h2 {
+    font-size: 21px;
+  }
+
+  .x24-sales-hotline-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .x24-sales-hotline-list > article {
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    min-height: 88px;
+    gap: 10px;
+    padding: 11px 12px;
+  }
+
+  .x24-sales-region-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .x24-sales-contact-actions {
+    grid-column: auto;
+    grid-template-columns: repeat(2, 44px);
+    gap: 6px;
+    margin-top: 0;
+  }
+
+  .x24-sales-contact-actions > a {
+    width: 44px;
+    height: 44px;
+  }
+}
+
 @media (max-width: 420px) {
   body {
     padding-bottom: calc(68px + env(safe-area-inset-bottom));
@@ -739,36 +781,6 @@ body {
     padding-inline: 10px;
   }
 
-  .x24-sales-hotline-heading {
-    padding: 20px 58px 17px 18px;
-  }
-
-  .x24-sales-hotline-heading h2 {
-    font-size: 21px;
-  }
-
-  .x24-sales-hotline-list {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 12px;
-  }
-
-  .x24-sales-hotline-list > article {
-    grid-template-columns: 34px minmax(0, 1fr) auto;
-    min-height: 96px;
-    padding: 11px 12px;
-  }
-
-  .x24-sales-contact-actions {
-    grid-column: auto;
-    grid-template-columns: repeat(2, 38px);
-    margin-top: 0;
-  }
-
-  .x24-sales-contact-actions > a {
-    min-height: 38px;
-  }
-
   .x24-regional-sales-footer-inner {
     width: min(calc(100% - 28px), 1180px);
     padding: 32px 0 90px;
@@ -789,7 +801,7 @@ body {
   }
 
   .x24-regional-sales-footer-grid > article {
-    min-height: 100px;
+    min-height: 88px;
     padding: 14px;
   }
 }

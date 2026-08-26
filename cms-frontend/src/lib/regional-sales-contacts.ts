@@ -12,7 +12,7 @@ export const regionalSalesContacts: RegionalSalesContact[] = [
 ]
 
 export function regionalSalesRole(region: RegionalSalesContact['region']) {
-  return `Sale/Tư vấn thiết kế ${region}`
+  return `Tư vấn thiết kế ${region}`
 }
 
 export function regionalSalesZaloHref(phone: string) {

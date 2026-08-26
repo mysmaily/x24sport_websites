@@ -21,7 +21,7 @@ export function RegionalSalesFooter() {
             return (
               <article key={contact.region}>
                 <span className="x24-regional-sales-footer-pin"><MapPin aria-hidden="true" /></span>
-                <div>
+                <div className="x24-regional-sales-footer-copy">
                   <small>{role}</small>
                   <strong>{contact.name}</strong>
                   <a className="x24-regional-sales-footer-phone" href={`tel:${contact.phone}`}>{contact.phoneLabel}</a>
