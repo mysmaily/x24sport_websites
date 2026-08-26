@@ -1,7 +1,7 @@
 'use client'
 
-import { FormEvent, useEffect, useId, useState } from 'react'
-import { Facebook, MessageCircle, PhoneCall, Send, X } from 'lucide-react'
+import { FormEvent, useCallback, useEffect, useId, useRef, useState } from 'react'
+import { Facebook, Headphones, MapPin, MessageCircle, Phone, PhoneCall, Send, X } from 'lucide-react'
 
 import type { PublicStoreSettings, StoreMapLocation } from '../../lib/store-settings'
 
@@ -13,6 +13,12 @@ type TenantBottomContactBarProps = {
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
 
 const quantityOptions = ['5-15 bộ', '15-30 bộ', 'Trên 30 bộ']
+
+const regionalSalesContacts = [
+  { region: 'Miền Bắc', name: 'Thu Hiền', phone: '0989353247', phoneLabel: '0989 353 247' },
+  { region: 'Miền Trung', name: 'Thanh Nga', phone: '0988643904', phoneLabel: '0988 643 904' },
+  { region: 'Miền Nam', name: 'Hà Phương', phone: '0982254458', phoneLabel: '0982 254 458' },
+]
 
 function telHref(phone?: string | null) {
   return phone ? `tel:${phone}` : ''
@@ -30,32 +36,63 @@ function BrandIcon({ alt, src }: { alt: string; src: string }) {
 
 function Dialog({
   children,
+  className = '',
   labelledBy,
   onClose,
 }: {
   children: React.ReactNode
+  className?: string
   labelledBy: string
   onClose: () => void
 }) {
+  const dialogRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
+    const previousActiveElement = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    const previousOverflow = document.body.style.overflow
+    const dialogElement = dialogRef.current
+
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') onClose()
+      if (event.key !== 'Tab' || !dialogElement) return
+
+      const focusableElements = Array.from(dialogElement.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ))
+      if (focusableElements.length === 0) return
+      const firstElement = focusableElements[0]
+      const lastElement = focusableElements[focusableElements.length - 1]
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault()
+        lastElement.focus()
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault()
+        firstElement.focus()
+      }
     }
+
+    document.body.style.overflow = 'hidden'
+    dialogElement?.querySelector<HTMLElement>('[data-dialog-close]')?.focus()
     document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = previousOverflow
+      previousActiveElement?.focus()
+    }
   }, [onClose])
 
   return (
-    <div className="x24-contact-dialog-backdrop" role="presentation" onMouseDown={onClose}>
+    <div className="x24-contact-dialog-backdrop" role="presentation" onPointerDown={onClose}>
       <div
         aria-labelledby={labelledBy}
         aria-modal="true"
-        className="x24-contact-dialog"
+        className={`x24-contact-dialog ${className}`.trim()}
+        ref={dialogRef}
         role="dialog"
-        onMouseDown={(event) => event.stopPropagation()}
+        onPointerDown={(event) => event.stopPropagation()}
       >
-        <button aria-label="Đóng" className="x24-contact-dialog-close" onClick={onClose} type="button">
-          <X size={20} />
+        <button aria-label="Đóng" className="x24-contact-dialog-close" data-dialog-close onClick={onClose} type="button">
+          <X aria-hidden="true" size={20} />
         </button>
         {children}
       </div>
@@ -64,12 +101,13 @@ function Dialog({
 }
 
 export function TenantBottomContactBar({ settings, tenantName }: TenantBottomContactBarProps) {
-  const [dialog, setDialog] = useState<'callback' | 'maps' | null>(null)
+  const [dialog, setDialog] = useState<'callback' | 'maps' | 'sales' | null>(null)
   const [state, setState] = useState<SubmitState>('idle')
   const [message, setMessage] = useState('')
   const [startedAt, setStartedAt] = useState(() => Date.now())
   const callbackTitleId = useId()
   const mapTitleId = useId()
+  const salesTitleId = useId()
   const phone = settings.contactPhone || ''
   const phoneLabel = displayPhone(phone)
   const mapLocations = (settings.mapLocations || []) as StoreMapLocation[]
@@ -79,7 +117,10 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
     settings.zaloUrl,
     settings.telegramChatId,
     mapLocations.length,
+    true,
   ].filter(Boolean).length
+
+  const closeDialog = useCallback(() => setDialog(null), [])
 
   function openCallback() {
     setStartedAt(Date.now())
@@ -124,9 +165,6 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
     }
   }
 
-  const hasAnyAction = phone || settings.facebookUrl || settings.zaloUrl || settings.telegramChatId || mapLocations.length
-  if (!hasAnyAction) return null
-
   return (
     <>
       <nav
@@ -136,13 +174,13 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
       >
         {phone ? (
           <a className="x24-bottom-contact-item is-call" href={telHref(phone)} title={phoneLabel}>
-            <span className="x24-bottom-contact-icon"><PhoneCall size={31} strokeWidth={3} /></span>
+            <span className="x24-bottom-contact-icon"><PhoneCall aria-hidden="true" size={31} strokeWidth={3} /></span>
             <span>Gọi điện</span>
           </a>
         ) : null}
         {settings.facebookUrl ? (
           <a className="x24-bottom-contact-item is-facebook" href={settings.facebookUrl} rel="noreferrer" target="_blank">
-            <span className="x24-bottom-contact-icon"><Facebook size={34} fill="currentColor" strokeWidth={0} /></span>
+            <span className="x24-bottom-contact-icon"><Facebook aria-hidden="true" size={34} fill="currentColor" strokeWidth={0} /></span>
             <span>Facebook</span>
           </a>
         ) : null}
@@ -153,18 +191,22 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
           </a>
         ) : null}
         {settings.telegramChatId ? (
-          <button className="x24-bottom-contact-item is-callback" onClick={openCallback} type="button">
-            <span className="x24-bottom-contact-icon"><MessageCircle size={34} /></span>
+          <button aria-expanded={dialog === 'callback'} aria-haspopup="dialog" className="x24-bottom-contact-item is-callback" onClick={openCallback} type="button">
+            <span className="x24-bottom-contact-icon"><MessageCircle aria-hidden="true" size={34} /></span>
             <span>Gọi cho tôi</span>
           </button>
         ) : null}
+        <button aria-expanded={dialog === 'sales'} aria-haspopup="dialog" className="x24-bottom-contact-item is-sales" onClick={() => setDialog('sales')} type="button">
+          <span className="x24-bottom-contact-icon"><Headphones aria-hidden="true" size={30} /></span>
+          <span>Tư vấn 3 miền</span>
+        </button>
         {mapLocations.length === 1 ? (
           <a className="x24-bottom-contact-item is-map" href={mapLocations[0].googleMapUrl || '#'} rel="noreferrer" target="_blank">
             <span className="x24-bottom-contact-icon"><BrandIcon alt="" src="/icons/google-maps.svg" /></span>
             <span>Chỉ đường</span>
           </a>
         ) : mapLocations.length > 1 ? (
-          <button className="x24-bottom-contact-item is-map" onClick={() => setDialog('maps')} type="button">
+          <button aria-expanded={dialog === 'maps'} aria-haspopup="dialog" className="x24-bottom-contact-item is-map" onClick={() => setDialog('maps')} type="button">
             <span className="x24-bottom-contact-icon"><BrandIcon alt="" src="/icons/google-maps.svg" /></span>
             <span>Chỉ đường</span>
           </button>
@@ -172,13 +214,13 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
       </nav>
 
       {dialog === 'callback' ? (
-        <Dialog labelledBy={callbackTitleId} onClose={() => setDialog(null)}>
+        <Dialog labelledBy={callbackTitleId} onClose={closeDialog}>
           <h2 id={callbackTitleId}>Gọi cho tôi</h2>
           <p>Để lại số điện thoại, {tenantName} sẽ liên hệ tư vấn sớm.</p>
           <form className="x24-callback-form" onSubmit={handleSubmit}>
             <label>
               <span>Số điện thoại</span>
-              <input autoComplete="tel" autoFocus inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
+              <input autoComplete="tel" inputMode="tel" maxLength={20} name="phone" pattern="[0-9+ .-]{9,20}" required type="tel" />
             </label>
             <label>
               <span>Số lượng dự kiến</span>
@@ -191,8 +233,8 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
               <input autoComplete="off" name="website" tabIndex={-1} type="text" />
             </label>
             <button disabled={state === 'submitting'} type="submit">
-              <Send size={18} />
-              {state === 'submitting' ? 'Đang gửi...' : 'Gửi yêu cầu'}
+              <Send aria-hidden="true" size={18} />
+              {state === 'submitting' ? 'Đang gửi…' : 'Gửi yêu cầu'}
             </button>
             <p aria-live="polite" className={`x24-contact-status is-${state}`} role="status">{message}</p>
           </form>
@@ -200,13 +242,47 @@ export function TenantBottomContactBar({ settings, tenantName }: TenantBottomCon
       ) : null}
 
       {dialog === 'maps' ? (
-        <Dialog labelledBy={mapTitleId} onClose={() => setDialog(null)}>
+        <Dialog labelledBy={mapTitleId} onClose={closeDialog}>
           <h2 id={mapTitleId}>Chọn địa chỉ</h2>
           <div className="x24-map-location-list">
             {mapLocations.map((location) => (
               <a href={location.googleMapUrl || '#'} key={`${location.label}-${location.googleMapUrl}`} rel="noreferrer" target="_blank">
                 <strong>{location.label}</strong>
                 <span>{location.address}</span>
+              </a>
+            ))}
+          </div>
+        </Dialog>
+      ) : null}
+
+      {dialog === 'sales' ? (
+        <Dialog className="is-sales" labelledBy={salesTitleId} onClose={closeDialog}>
+          <div className="x24-sales-hotline-heading">
+            <span><Headphones aria-hidden="true" /> Hỗ trợ bán hàng toàn quốc</span>
+            <h2 id={salesTitleId}>Chọn tư vấn theo khu vực</h2>
+            <p>Liên hệ đúng người phụ trách để được hỗ trợ nhanh về mẫu áo, thiết kế và đơn hàng.</p>
+          </div>
+          {phone ? (
+            <a aria-label={`Gọi hotline chính ${phoneLabel}`} className="x24-primary-hotline" href={telHref(phone)}>
+              <span><PhoneCall aria-hidden="true" /></span>
+              <span><small>Hotline chính</small><strong>{phoneLabel}</strong></span>
+              <Phone aria-hidden="true" />
+            </a>
+          ) : null}
+          <div className="x24-sales-hotline-list">
+            {regionalSalesContacts.map((contact) => (
+              <a
+                aria-label={`Gọi Sale ${contact.region}, ${contact.name}, số ${contact.phoneLabel}`}
+                href={`tel:${contact.phone}`}
+                key={contact.region}
+              >
+                <span className="x24-sales-region-icon"><MapPin aria-hidden="true" /></span>
+                <span className="x24-sales-contact-copy">
+                  <small>Sale {contact.region}</small>
+                  <strong>{contact.name}</strong>
+                  <b>{contact.phoneLabel}</b>
+                </span>
+                <span className="x24-sales-call-icon"><Phone aria-hidden="true" /></span>
               </a>
             ))}
           </div>

@@ -57,6 +57,11 @@ const defaultPhoneByTenant: Record<string, string> = {
   mayaochaybo: '0989353247',
 }
 
+const primaryPhoneOverrideByTenant: Record<string, string> = {
+  dongphucx24: '0982254458',
+  mayaodongphuc: '0982254458',
+}
+
 const defaultFacebookByTenant: Record<string, string> = {
   x24sport: 'https://www.facebook.com/vnx24sport/',
   rynosport: 'https://www.facebook.com/vnx24sport/',
@@ -87,7 +92,10 @@ const defaultMapLocations: StoreMapLocation[] = [
 ]
 
 function mapSettings(settings: PublicStoreSettings | undefined, tenantSlug: string): PublicStoreSettings {
-  const phone = cleanPhone(settings?.contactPhone) || defaultPhoneByTenant[tenantSlug] || ''
+  const phone = primaryPhoneOverrideByTenant[tenantSlug]
+    || cleanPhone(settings?.contactPhone)
+    || defaultPhoneByTenant[tenantSlug]
+    || ''
   const zaloUrl = cleanUrl(settings?.zaloUrl) || (phone ? `https://zalo.me/${phone.replace(/^\+84/, '0')}` : '')
   const locations = (settings?.mapLocations || [])
     .map((location) => ({

@@ -101,6 +101,8 @@ body {
 .x24-bottom-contact-item.is-zalo .x24-bottom-contact-icon { background: transparent; }
 .x24-bottom-contact-item.is-callback { background: #f7f9ff; color: #334155; }
 .x24-bottom-contact-item.is-callback .x24-bottom-contact-icon { background: #0a84ff; }
+.x24-bottom-contact-item.is-sales { background: #fff8f3; color: #7c2d12; }
+.x24-bottom-contact-item.is-sales .x24-bottom-contact-icon { background: #ea580c; }
 .x24-bottom-contact-item.is-map { color: #334155; }
 .x24-bottom-contact-item.is-map .x24-bottom-contact-icon { background: transparent; }
 
@@ -113,6 +115,7 @@ body {
   padding: 18px;
   padding-bottom: calc(96px + env(safe-area-inset-bottom));
   background: rgba(15, 23, 42, .42);
+  overscroll-behavior: contain;
 }
 
 .x24-contact-dialog {
@@ -236,6 +239,199 @@ body {
   color: #475569;
   font-size: 13px;
   line-height: 1.5;
+}
+
+.x24-contact-dialog.is-sales {
+  width: min(590px, 100%);
+  overflow: hidden;
+  border: 1px solid #fed7aa;
+  border-radius: 18px;
+  padding: 0;
+}
+
+.x24-sales-hotline-heading {
+  padding: 24px 64px 20px 24px;
+  background: #171717;
+  color: #fff;
+}
+
+.x24-sales-hotline-heading > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
+  color: #fdba74;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.x24-sales-hotline-heading > span svg {
+  width: 17px;
+  height: 17px;
+}
+
+.x24-sales-hotline-heading h2 {
+  padding: 0;
+  font-size: 24px;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+
+.x24-sales-hotline-heading p {
+  max-width: 470px;
+  margin-top: 8px;
+  color: #d4d4d4;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.x24-contact-dialog.is-sales .x24-contact-dialog-close {
+  border-color: rgba(255, 255, 255, .22);
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+}
+
+.x24-primary-hotline {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 16px 0;
+  border: 1px solid #fed7aa;
+  border-radius: 13px;
+  padding: 11px 14px;
+  background: #fff7ed;
+  color: #431407;
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+  touch-action: manipulation;
+}
+
+.x24-primary-hotline:hover {
+  border-color: #fb923c;
+  background: #ffedd5;
+  transform: translateY(-1px);
+}
+
+.x24-primary-hotline > span:first-child,
+.x24-sales-region-icon,
+.x24-sales-call-icon {
+  display: grid;
+  place-items: center;
+}
+
+.x24-primary-hotline > span:first-child {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #ea580c;
+  color: #fff;
+}
+
+.x24-primary-hotline > span:first-child svg {
+  width: 22px;
+  height: 22px;
+}
+
+.x24-primary-hotline > span:nth-child(2) {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.x24-primary-hotline small,
+.x24-sales-contact-copy small {
+  color: #9a3412;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .09em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.x24-primary-hotline strong {
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .015em;
+}
+
+.x24-primary-hotline > svg {
+  width: 20px;
+  height: 20px;
+  color: #c2410c;
+}
+
+.x24-sales-hotline-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 12px 16px 16px;
+}
+
+.x24-sales-hotline-list > a {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-content: center;
+  gap: 9px;
+  min-width: 0;
+  min-height: 118px;
+  border: 1px solid #e7e5e4;
+  border-radius: 13px;
+  padding: 13px;
+  background: #fafaf9;
+  color: #1c1917;
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+  touch-action: manipulation;
+}
+
+.x24-sales-hotline-list > a:hover {
+  border-color: #fdba74;
+  background: #fffaf5;
+  transform: translateY(-2px);
+}
+
+.x24-sales-region-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.x24-sales-region-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.x24-sales-contact-copy {
+  display: grid;
+  min-width: 0;
+  align-content: center;
+  gap: 2px;
+}
+
+.x24-sales-contact-copy strong {
+  overflow-wrap: anywhere;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.x24-sales-contact-copy b {
+  margin-top: 3px;
+  color: #c2410c;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .01em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.x24-sales-call-icon {
+  display: none;
 }
 
 .x24-footer-store-details {
@@ -363,6 +559,94 @@ body {
 
   .x24-bottom-contact-item > span:last-child {
     font-size: 11px;
+  }
+
+  .x24-contact-dialog-backdrop {
+    padding-inline: 10px;
+  }
+
+  .x24-sales-hotline-heading {
+    padding: 20px 58px 17px 18px;
+  }
+
+  .x24-sales-hotline-heading h2 {
+    font-size: 21px;
+  }
+
+  .x24-primary-hotline {
+    margin: 12px 12px 0;
+  }
+
+  .x24-sales-hotline-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px 12px 12px;
+  }
+
+  .x24-sales-hotline-list > a {
+    grid-template-columns: 34px minmax(0, 1fr) 28px;
+    min-height: 68px;
+    padding: 10px 12px;
+  }
+
+  .x24-sales-contact-copy {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 8px;
+  }
+
+  .x24-sales-contact-copy small {
+    grid-column: 1 / -1;
+  }
+
+  .x24-sales-contact-copy b {
+    margin-top: 0;
+  }
+
+  .x24-sales-call-icon {
+    display: grid;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #171717;
+    color: #fff;
+  }
+
+  .x24-sales-call-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 359px) {
+  .x24-sales-contact-copy {
+    grid-template-columns: 1fr;
+  }
+
+  .x24-sales-contact-copy small {
+    grid-column: auto;
+  }
+
+  .x24-sales-contact-copy b {
+    margin-top: 2px;
+  }
+
+  .x24-sales-hotline-list > a {
+    min-height: 76px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .x24-bottom-contact-item,
+  .x24-primary-hotline,
+  .x24-sales-hotline-list > a {
+    transition: none;
+  }
+
+  .x24-bottom-contact-item:hover,
+  .x24-bottom-contact-item:focus-visible,
+  .x24-primary-hotline:hover,
+  .x24-sales-hotline-list > a:hover {
+    transform: none;
   }
 }
 

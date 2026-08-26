@@ -200,7 +200,7 @@ function buildHeadMarkup({
   return [
     '<link rel="preconnect" href="https://static.x24sport.vn" crossorigin="anonymous">',
     '<link rel="preconnect" href="https://cdn.x24sport.vn" crossorigin="anonymous">',
-    '<link rel="stylesheet" href="/styles/contact-bar.css?v=20260814d">',
+    '<link rel="stylesheet" href="/styles/contact-bar.css?v=20260826b">',
     ...stylesheets.map((href) => `<link rel="stylesheet" href="${href}">`),
     '<link rel="stylesheet" href="/styles/pagination.css?v=20260816b">',
     '<link rel="stylesheet" href="/styles/product-viewer.css?v=20260818a">',
