@@ -7,7 +7,7 @@ description: "Recreate a supplied apparel/artwork reference into standalone, hig
 
 Create one print-delivery artwork from a user-supplied design image: a clean, standalone raster asset at the requested physical size. The result is for the print operator, not a product photo, T-shirt mockup, social image, or vector source file.
 
-Use this skill when a user wants to turn a design found in a reference image—including a design shown on a garment—into a large bitmap they can print. Do not use it merely to make a lifestyle/product mockup, or where the user needs an editable vector master.
+Use this skill when a user wants to turn a design found in a reference image—including a design shown on a garment—into a large bitmap they can print. Do not use it merely to make a lifestyle/product mockup, or where the user needs an editable vector master. Internal procedural or vector construction is allowed when it is needed to rasterize precise geometric artwork; the delivery remains a raster file unless the user asks for a vector source.
 
 ## Inputs and scope
 
@@ -15,6 +15,7 @@ Use this skill when a user wants to turn a design found in a reference image—i
 - Before making an exact reproduction of a public design, logo, character, or other third-party artwork, obtain a brief confirmation that the user has the right to reproduce it for print. Do not use this workflow to remove a watermark or ownership notice.
 - Remove all text and logos from the recreated artwork by default: brand or sponsor names, taglines, player names and numbers, crests, badges, marks, and word-based graphics. Preserve them only when the user explicitly asks to retain a named element. When removing an element, rebuild the underlying pattern or leave intentional clear space; never leave a blurred, erased-looking patch. A source watermark remains excluded from the newly recreated artwork, but must never be erased from the source image itself.
 - For a multi-side garment reference, evaluate each side after those default removals. Do not create a delivery panel for a side that is only one uniform base colour with no remaining visual pattern or graphic; report the base colour instead. Create only the sides that still have print artwork.
+- Separate regular geometry from visual texture before recreating the design. Dot bands, grids, line lattices, stripes, repeats, and hard-edged gradients are construction-critical geometry, not decorative noise. For these elements, read [the geometric-pattern reference](references/geometric-patterns.md) and rebuild them deterministically.
 - Ask for the final print width/height, printing process, background, and delivery format only when those details materially affect the result. If they are absent, preserve the artwork aspect ratio, use a transparent PNG when the artwork does not have its own background, target 300 PPI, and state the assumed physical size before handoff. PNG is the default; produce TIFF when the user or print vendor requests it.
 - The source controls the non-text visual design. Do not add slogans, logos, decorative elements, garment contours, background scenes, or stylistic changes unless the user requests them.
 
@@ -27,6 +28,7 @@ Choose the least destructive path:
 - For a clean original artwork file, retain the source composition and use deterministic enlargement where possible. Remove text and logos unless the user has explicitly asked to retain them.
 - For an artwork embedded in a garment or screenshot, recreate the printed graphic on a flat canvas. Lock its palette, geometry, placement, and intentional texture while removing text, logos, the garment, folds, lighting, model, frame, UI, and unrelated background.
 - For photographic or painterly designs, preserve meaningful grain and intended texture. Do not make the result look like an unrelated vector illustration.
+- For artwork that combines irregular visual elements with regular geometry, use image generation only for the irregular base, composition, or colour reference. Build repeated dots, grids, stripes, and other construction-critical geometry as clean procedural/vector layers, then rasterize and composite them into the delivery artwork. Do not ask the image model to approximate those regular primitives as texture.
 
 Use a focused spec such as:
 
@@ -40,6 +42,8 @@ Constraints: artwork only; preserve the design's colors, layout, and intentional
 ```
 
 For fine line art or symmetrical patterns, compare the output closely with the reference at 100% and 200%. If any retained text, badge, or logo is print-critical but cannot be reproduced reliably, say so plainly and request the original asset, a clearer close-up, or the exact text. Do not claim that an AI reconstruction is an exact vector-equivalent master.
+
+For regular geometry, add explicit construction requirements to the prompt and working plan: identify the primitive, repetition direction, spacing, size progression, palette, clip region, and any intentional gradient. Never describe a dot field or triangular lattice merely as “texture.”
 
 Make one initial version and, at most, two targeted correction attempts. Each correction changes only the identified discrepancy. Stop instead of silently drifting from the reference.
 
@@ -72,6 +76,7 @@ Before handing off, inspect the final delivery file and check:
 - it has the intended background treatment, including real alpha when transparency was requested;
 - its pixel dimensions meet the physical-size/PPI calculation and its aspect ratio is not distorted;
 - text, fine details, edges, and repeated pattern alignment remain print-usable; and
+- regular geometric elements pass the relevant 100% and 200% checks in [the geometric-pattern reference](references/geometric-patterns.md); and
 - the final is a lossless PNG by default, or TIFF when specifically requested; never substitute a lossy web export.
 
 Report the saved file path, format, pixel dimensions, physical dimensions, PPI, background mode, and any fidelity issue that still needs the user's approval. For every skipped one-colour side, report its base colour and state that no artwork file was created. Explain that PPI metadata and resampling make the file print-sized, but cannot restore detail absent from the source; printer color should be proofed against that printer's profile before a production run.
