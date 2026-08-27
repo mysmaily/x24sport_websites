@@ -60,7 +60,7 @@ export default async function HomePage() {
       <main id="noi-dung" className="site-container">
         <section className="hero-directory" id="bo-mon">
           <div className="promo-hero">
-            <Image preload fetchPriority="high" quality={70} src="/images/brand/hero-teamwear-arena-20260803.webp" alt="Đội ngũ vận động viên mặc trang phục thể thao thiết kế" fill sizes="(max-width: 760px) 100vw, 65vw" />
+            <Image preload fetchPriority="high" quality={75} src="/images/brand/hero-teamwear-arena-20260827.webp" alt="Đội ngũ vận động viên mặc trang phục thể thao thiết kế" fill sizes="(max-width: 760px) 100vw, 65vw" />
             <div className="promo-shade" />
             <div className="promo-copy"><span>X24SPORT / CUSTOM TEAMWEAR</span><h1><span>TRANG PHỤC</span><span>CHO MỌI</span><span>CHUYỂN ĐỘNG</span></h1><p>Thiết kế đồng phục thể thao theo màu sắc và tinh thần riêng của đội bạn.</p><a href="#san-pham">Khám phá ngay <ArrowRight size={18} /></a></div>
           </div>
