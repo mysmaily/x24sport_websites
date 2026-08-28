@@ -1,6 +1,0 @@
-interface:
-  display_name: "Nâng cấp ảnh in"
-  short_description: "Tạo artwork raster độ phân giải cao để in"
-  default_prompt: "Dùng $upscale-print-artwork để tạo file in chất lượng cao từ ảnh thiết kế này."
-policy:
-  allow_implicit_invocation: true
