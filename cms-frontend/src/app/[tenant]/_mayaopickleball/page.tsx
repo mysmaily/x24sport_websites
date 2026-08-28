@@ -140,6 +140,7 @@ function ProductCard({ product, featured = false }: { product: Product; featured
           <img
             alt={image.alt || product.name}
             height={image.height || 1000}
+            loading="lazy"
             src={image.url}
             width={image.width || 1000}
           />
@@ -258,7 +259,7 @@ export default async function Home() {
         <div className="buyer-grid">
           {buyerPaths.map((item) => (
             <article key={item.title}>
-              <img alt={item.title} height={1100} src={item.image} width={900} />
+              <img alt={item.title} height={1387} loading="lazy" src={item.image} width={1134} />
               <div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
@@ -286,7 +287,9 @@ export default async function Home() {
             const image = product.gallery?.[0]
             return (
               <Link key={product.id} href={`/san-pham/${product.slug}`} aria-label={product.name}>
-                {image?.url ? <img alt={image.alt || product.name} src={image.url} /> : <span>{product.sku}</span>}
+                {image?.url ? (
+                  <img alt={image.alt || product.name} height={image.height || 1000} loading="lazy" src={image.url} width={image.width || 1000} />
+                ) : <span>{product.sku}</span>}
               </Link>
             )
           })}
@@ -334,9 +337,10 @@ export default async function Home() {
         <div className="fabric-visual">
           <img
             alt="Chi tiết áo pickleball đặt may trên sân"
-            height={1100}
+            height={1024}
+            loading="lazy"
             src="/images/mayaopickleball/home/pickleball-fabric-detail.webp"
-            width={980}
+            width={1536}
           />
         </div>
         <div className="fabric-copy">
@@ -363,9 +367,9 @@ export default async function Home() {
           </p>
         </div>
         <div className="proof-mosaic">
-          <img alt="Đội pickleball mặc áo thi đấu xanh trắng" src="/images/mayaopickleball/home/pickleball-blue-white-team.webp" />
-          <img alt="Mẫu áo pickleball có thể chỉnh màu theo đội" src="/images/mayaopickleball/home/pickleball-color-mockups.webp" />
-          <img alt="Đồng phục pickleball đặt may cho câu lạc bộ" src="/images/mayaopickleball/home/pickleball-club-delivery.webp" />
+          <img alt="Đội pickleball mặc áo thi đấu xanh trắng" height={1024} loading="lazy" src="/images/mayaopickleball/home/pickleball-blue-white-team.webp" width={1536} />
+          <img alt="Mẫu áo pickleball có thể chỉnh màu theo đội" height={1024} loading="lazy" src="/images/mayaopickleball/home/pickleball-color-mockups.webp" width={1536} />
+          <img alt="Đồng phục pickleball đặt may cho câu lạc bộ" height={1024} loading="lazy" src="/images/mayaopickleball/home/pickleball-club-delivery.webp" width={1536} />
         </div>
       </section>
 
@@ -433,7 +437,7 @@ export default async function Home() {
       <footer className="site-footer">
         <div>
           <Link className="brand-mark footer-brand" href="/">
-            <img src="/images/mayaopickleball/logo.svg" alt="MayaoPickleball" style={{height: 36, width: 'auto'}} />
+            <img src="/images/mayaopickleball/logo.svg" alt="MayaoPickleball" height={36} loading="lazy" width={233} />
           </Link>
           <FooterStoreDetails settings={settings} />
           <p>Đồng phục pickleball đặt may cho CLB, đội phong trào, trường lớp và doanh nghiệp.</p>

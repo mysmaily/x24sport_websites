@@ -15,21 +15,29 @@ const fabricColumns = [
     name: 'Mè Thái',
     note: 'Cân bằng, dễ mặc',
     image: 'https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/vai-me-thai-ao-bong-ro-20260711-112613.jpg',
+    imageHeight: 955,
+    imageWidth: 963,
   },
   {
     name: 'Mè Zennix',
     note: 'Lên màu sắc nét',
     image: 'https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/vai-thun-lanh-ao-bong-ro-20260711-112610.jpg',
+    imageHeight: 982,
+    imageWidth: 977,
   },
   {
     name: 'Mè Nano',
     note: 'Mặt vải mịn',
     image: 'https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/vai-me-texa-ao-bong-ro-20260711-112616.jpg',
+    imageHeight: 954,
+    imageWidth: 975,
   },
   {
     name: 'Mè Lava',
     note: 'Thoáng khí',
     image: 'https://cdn.mayaobongro.vn/wp-content/uploads/2026/07/vai-me-lava-ao-bong-ro-20260711-112620.jpg',
+    imageHeight: 958,
+    imageWidth: 966,
   },
 ] as const
 
@@ -132,10 +140,18 @@ export default function PricePage() {
               alt={`Ảnh mặt vải ${fabric.name} dùng may áo pickleball`}
               className="fabric-surface-card"
               image={fabric.image}
+              imageHeight={fabric.imageHeight}
+              imageWidth={fabric.imageWidth}
               key={fabric.name}
               title={fabric.name}
             >
-              <img alt={`Ảnh mặt vải ${fabric.name} dùng may áo pickleball`} src={fabric.image} />
+              <img
+                alt={`Ảnh mặt vải ${fabric.name} dùng may áo pickleball`}
+                height={fabric.imageHeight}
+                loading="lazy"
+                src={fabric.image}
+                width={fabric.imageWidth}
+              />
               <span>{fabric.name}</span>
             </FabricLightbox>
           ))}

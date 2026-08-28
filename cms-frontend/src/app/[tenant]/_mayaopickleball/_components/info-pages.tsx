@@ -62,7 +62,7 @@ export async function SiteFooter() {
     <footer className="site-footer">
       <div>
         <Link className="brand-mark footer-brand" href="/">
-          <img src="/images/mayaopickleball/logo.svg" alt="MayaoPickleball" style={{ height: 36, width: 'auto' }} />
+          <img src="/images/mayaopickleball/logo.svg" alt="MayaoPickleball" height={36} width={233} loading="lazy" />
         </Link>
         <FooterStoreDetails settings={settings} />
         <p>Đồng phục pickleball đặt may cho CLB, đội phong trào, trường lớp và doanh nghiệp.</p>

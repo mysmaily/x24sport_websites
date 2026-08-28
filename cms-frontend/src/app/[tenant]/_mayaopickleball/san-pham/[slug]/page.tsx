@@ -292,9 +292,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <table className="product-size-table">
                 <thead>
                   <tr>
-                    <th>Size</th>
-                    <th>Cân nặng</th>
-                    <th>Chiều cao</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Cân nặng</th>
+                    <th scope="col">Chiều cao</th>
                   </tr>
                 </thead>
                 <tbody>

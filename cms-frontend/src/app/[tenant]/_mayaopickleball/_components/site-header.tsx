@@ -127,7 +127,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-header-shell">
         <Link className="brand-mark" href="/" aria-label="MayaoPickleball.vn">
-          <img src="/images/mayaopickleball/logo.svg" alt="MayaoPickleball" style={{ height: 40, width: 'auto' }} />
+          <img src="/images/mayaopickleball/logo.svg" alt="MayaoPickleball" height={40} width={258} />
         </Link>
 
         <nav className="site-nav" aria-label="Điều hướng chính">
@@ -172,7 +172,7 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <div aria-hidden={!catalogOpen} className={catalogOpen ? 'nav-dropdown-panel is-open' : 'nav-dropdown-panel'} id="catalog-mega-menu" onBlur={hideCatalogSoon} onFocus={showCatalog} onMouseEnter={showCatalog} onMouseLeave={hideCatalogSoon}>
+      <div aria-hidden={!catalogOpen} className={catalogOpen ? 'nav-dropdown-panel is-open' : 'nav-dropdown-panel'} id="catalog-mega-menu" inert={!catalogOpen} onBlur={hideCatalogSoon} onFocus={showCatalog} onMouseEnter={showCatalog} onMouseLeave={hideCatalogSoon}>
         <div className="catalog-mega-grid">
           <section aria-labelledby="catalog-types-title">
             <p className="nav-dropdown-title" id="catalog-types-title">Kiểu áo</p>
@@ -193,7 +193,7 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <div aria-hidden={!mobileOpen} className={mobileOpen ? 'mobile-menu is-open' : 'mobile-menu'} id="mobile-site-menu">
+      <div aria-hidden={!mobileOpen} className={mobileOpen ? 'mobile-menu is-open' : 'mobile-menu'} id="mobile-site-menu" inert={!mobileOpen}>
         <nav aria-label="Điều hướng di động">
           <section className="mobile-menu-section">
             <button aria-controls="mobile-catalog-types" aria-expanded={mobileSection === 'types'} className="mobile-section-button" onClick={() => toggleMobileSection('types')} type="button">

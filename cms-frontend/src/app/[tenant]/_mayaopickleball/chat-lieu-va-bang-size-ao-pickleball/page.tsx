@@ -16,6 +16,8 @@ const fabrics = [
   {
     icon: Wind,
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-df5dd085-3f31-4f81-9121-3ddabb8822ee.png',
+    imageHeight: 958,
+    imageWidth: 966,
     title: 'Mè lava',
     text: 'Bề mặt lưới thoáng, nhẹ, hợp áo pickleball cần thoát hơi nhanh khi vận động liên tục.',
     bestFor: 'Đội chơi thường xuyên, ưu tiên cảm giác mát và nhẹ.',
@@ -27,6 +29,8 @@ const fabrics = [
   {
     icon: Shirt,
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-0efda5f5-7efe-4a75-8a16-14fb44009dd7.png',
+    imageHeight: 954,
+    imageWidth: 975,
     title: 'Mè nano',
     text: 'Mắt vải mịn, mặc êm và giữ bề mặt gọn, phù hợp đồng phục CLB cần cảm giác nhẹ.',
     bestFor: 'Đội muốn áo mặc êm, bề mặt tinh gọn khi in tên số.',
@@ -38,6 +42,8 @@ const fabrics = [
   {
     icon: Sparkles,
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-c937b825-1046-4a3e-a37d-2a4dd1551f4d.png',
+    imageHeight: 975,
+    imageWidth: 965,
     title: 'Mè zennix',
     text: 'Chất vải mềm, bề mặt đều, hỗ trợ lên màu thiết kế và in chuyển nhiệt sắc nét.',
     bestFor: 'Mẫu áo nhiều mảng màu, logo và chi tiết cần rõ nét.',
@@ -49,6 +55,8 @@ const fabrics = [
   {
     icon: BadgeCheck,
     image: 'https://static.x24sport.vn/mayaocaulong/codex-clipboard-eea74471-ee2d-4cce-9e41-0db6a6f25ae2.png',
+    imageHeight: 982,
+    imageWidth: 977,
     title: 'Mè thái',
     text: 'Kiểu vải thể thao phổ biến, bề mặt thoáng và ổn định cho đơn đội số lượng nhiều.',
     bestFor: 'Đơn đồng phục số lượng lớn cần phương án dễ mặc, dễ đồng bộ.',
@@ -223,15 +231,17 @@ export default function FabricSizePage() {
           <p>Bề mặt vải quyết định cảm giác mặc, độ thoáng và độ rõ của màu in. Phần size được đặt phía dưới để đội xem chất liệu trước khi gửi danh sách.</p>
         </div>
         <div className="fabric-first-grid">
-          {fabrics.map(({ bestFor, icon: Icon, image, tags, title, text }) => (
+          {fabrics.map(({ bestFor, icon: Icon, image, imageHeight, imageWidth, tags, title, text }) => (
             <article className="fabric-first-card" key={title}>
               <FabricLightbox
                 alt={`Chất liệu ${title} áo pickleball`}
                 className="fabric-first-media"
                 image={image}
+                imageHeight={imageHeight}
+                imageWidth={imageWidth}
                 title={title}
               >
-                <img alt={`Chất liệu ${title} áo pickleball`} src={image} />
+                <img alt={`Chất liệu ${title} áo pickleball`} height={imageHeight} loading="lazy" src={image} width={imageWidth} />
               </FabricLightbox>
               <div className="fabric-first-body">
                 <div className="fabric-first-title">

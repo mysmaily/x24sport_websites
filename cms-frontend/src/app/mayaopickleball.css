@@ -749,7 +749,7 @@ body.tenant-mayaopickleball .product-card-meta span:last-child {
 }
 
 body.tenant-mayaopickleball .product-card h3 {
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.25;
 }
@@ -4066,8 +4066,54 @@ body.tenant-mayaopickleball .home-reviews-track::-webkit-scrollbar {
     color: #176b34;
   }
 
-  body.tenant-mayaopickleball .trust-strip, body.tenant-mayaopickleball .process-grid, body.tenant-mayaopickleball .price-grid, body.tenant-mayaopickleball .fabric-grid, body.tenant-mayaopickleball .fabric-card-grid, body.tenant-mayaopickleball .review-grid, body.tenant-mayaopickleball .catalog-grid, body.tenant-mayaopickleball .info-stat-row, body.tenant-mayaopickleball .info-price-grid, body.tenant-mayaopickleball .factor-grid, body.tenant-mayaopickleball .order-step-grid, body.tenant-mayaopickleball .split-info-section, body.tenant-mayaopickleball .project-grid {
+  body.tenant-mayaopickleball .process-grid, body.tenant-mayaopickleball .price-grid, body.tenant-mayaopickleball .fabric-grid, body.tenant-mayaopickleball .fabric-card-grid, body.tenant-mayaopickleball .review-grid, body.tenant-mayaopickleball .catalog-grid, body.tenant-mayaopickleball .info-stat-row, body.tenant-mayaopickleball .info-price-grid, body.tenant-mayaopickleball .factor-grid, body.tenant-mayaopickleball .order-step-grid, body.tenant-mayaopickleball .split-info-section, body.tenant-mayaopickleball .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .trust-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.tenant-mayaopickleball .trust-strip article {
+    min-height: 0;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 16px 12px;
+  }
+
+  body.tenant-mayaopickleball .trust-strip h2 {
+    font-size: 15px;
+  }
+
+  body.tenant-mayaopickleball .trust-strip p {
+    font-size: 13px;
+    line-height: 1.42;
+  }
+
+  body.tenant-mayaopickleball .runway-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  body.tenant-mayaopickleball .product-card-featured {
+    grid-column: 1 / -1;
+  }
+
+  body.tenant-mayaopickleball .product-card:not(.product-card-featured) .product-card-body > p,
+  body.tenant-mayaopickleball .product-card:not(.product-card-featured) .text-link {
+    display: none;
+  }
+
+  body.tenant-mayaopickleball .product-card:not(.product-card-featured) .product-card-price {
+    gap: 4px;
+  }
+
+  body.tenant-mayaopickleball .product-card:not(.product-card-featured) .product-card-price strong {
+    font-size: 14px;
+  }
+
+  body.tenant-mayaopickleball .product-card:not(.product-card-featured) .product-card-price span {
+    font-size: 12px;
   }
 
   body.tenant-mayaopickleball .catalog-grid {
@@ -4112,6 +4158,10 @@ body.tenant-mayaopickleball .home-reviews-track::-webkit-scrollbar {
 
   body.tenant-mayaopickleball .proof-mosaic {
     grid-template-columns: 1fr;
+  }
+
+  body.tenant-mayaopickleball .proof-mosaic img {
+    height: 240px;
   }
 
   body.tenant-mayaopickleball .proof-mosaic img:first-child {
