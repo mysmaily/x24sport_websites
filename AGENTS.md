@@ -126,10 +126,37 @@ For a customer-facing UI change, use the smallest applicable set in this order:
 3. **Audit:** after material customer-facing UI work, run
    `web-design-guidelines` against the changed UI files and fix every relevant
    finding. Its audit does not replace visual inspection.
-4. **Render and inspect:** use `browser:control-in-app-browser` (or an
+4. **Front-End Checklist:** run `frontend-checklist-global` for material
+   customer-facing frontend changes and tenant launch/readiness work. Review
+   the changed code first, then the rendered local or public URL when available.
+   Prioritize evidence-backed Critical and High findings in the relevant HTML,
+   CSS, JavaScript, performance, accessibility, SEO, security, images, testing,
+   privacy and internationalization categories. Fix every applicable Critical
+   and High finding before handoff; either fix applicable Medium findings that
+   are within scope or report them explicitly as remaining risk. If the skill's
+   MCP tools are unavailable, use its installed guidance plus the official rule
+   pages and state that a full MCP corpus audit was not run; never claim a clean
+   full audit from memory alone.
+5. **Render and inspect:** use `browser:control-in-app-browser` (or an
    equivalent local browser surface) to capture fresh screenshots and exercise
    the changed flow before handoff. Test at 390x844 and 1440x900 at minimum;
    also test every breakpoint introduced or materially changed by the task.
+
+The Front-End Checklist is a quality gate, not a redesign brief. Apply only
+rules supported by the changed code or rendered page. Do not introduce PWA,
+service-worker, dark-mode, RTL, print, animation or other optional features
+unless the tenant requirements call for them. Next.js metadata, image, font,
+script and bundling APIs count as valid implementations; do not require literal
+HTML tags or duplicate framework behavior.
+
+For shared frontend changes, the checklist pass must cover the requested tenant,
+`x24sport.vn`, one tenant using the generic storefront and one tenant using a
+slug-specific override when those surfaces are affected. In addition to the
+upstream checklist, always verify the platform-specific invariants: tenant-safe
+content queries, the request-resolved canonical host, tenant-specific robots and
+sitemap output, no sibling analytics or branding leakage, compact scan-first
+commerce layout, the first product row within the required viewports, and exactly
+one tenant-owned `ProductViewTracker` on each product detail renderer.
 
 Do not use `design-taste-frontend`, `image-to-code`, `gpt-taste`, or multiple
 overlapping frontend-design skills for routine storefront work. Their
