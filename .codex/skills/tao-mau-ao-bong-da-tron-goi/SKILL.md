@@ -3,7 +3,7 @@ name: tao-mau-ao-bong-da-tron-goi
 description: "Tạo trọn bộ mẫu áo bóng đá từ ý tưởng mới hoặc ảnh áo/poster tham khảo theo quy trình master-first: dựng nền in phẳng trước–sau, chuẩn hóa file in, tạo mockup vải thật, ảnh chào hàng và handoff đăng mayaobongda.vn khi được yêu cầu. Dùng cho thiết kế catalog mới, chuyển mẫu nguồn thành bộ sản xuất hoặc batch áo bóng đá; không dùng khi chỉ cần chỉnh một ảnh mockup có sẵn mà không cần master."
 ---
 
-# Tạo mẫu áo bóng đá trọn gói
+# Tạo ảnh bóng đá - 29.08.2026
 
 Đây là workflow hợp nhất và là nguồn sự thật duy nhất cho cả sáng tạo mẫu mới lẫn chuyển ảnh áo nguồn:
 

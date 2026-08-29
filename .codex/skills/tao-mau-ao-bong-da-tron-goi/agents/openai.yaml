@@ -1,4 +1,5 @@
 interface:
-  display_name: "Tạo mẫu áo bóng đá trọn gói"
+  # Đồng bộ ngày này mỗi khi nội dung skill được cập nhật.
+  display_name: "Tạo ảnh bóng đá - 29.08.2026"
   short_description: "Master trước–sau, mockup và ảnh bán hàng"
   default_prompt: "Use $tao-mau-ao-bong-da-tron-goi để tạo một bộ áo bóng đá hoàn chỉnh từ ý tưởng mới hoặc ảnh tham khảo, luôn khóa master trước–sau trước mockup và ảnh chào hàng."
