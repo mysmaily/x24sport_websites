@@ -3,9 +3,18 @@
 Đọc trước khi tạo `design-spec.json`, mockup và sales image. File này tổng hợp
 phản hồi từ batch SKU ngày 30.08.2026 và là gu ưu tiên cho các batch tiếp theo.
 
+## Image availability rule
+
+Các SKU bên dưới là nhãn phản hồi bằng chữ, không phải bằng chứng rằng ảnh của
+SKU đó còn có trên máy. Không tự giả định có file local, không search mù theo SKU
+trong workspace như một bước bắt buộc, và không tưởng tượng lại chi tiết visual
+chưa được mô tả. Nếu ảnh SKU không được cung cấp hoặc không được chỉ đường dẫn
+rõ, chỉ dùng phần nhận xét chữ đã ghi ở đây để rút quy tắc gu. Khi cần học visual
+chính xác từ một SKU cụ thể, yêu cầu người dùng cung cấp ảnh hoặc đường dẫn file.
+
 ## SKU feedback
 
-### Ưu tiên mạnh
+### Ưu tiên mạnh bằng nhận xét chữ
 
 - `X24-BD-542129`: rất đẹp, không có gì để chê, background hợp lý.
 - `X24-BD-162329`: rất thích.
@@ -13,7 +22,7 @@ phản hồi từ batch SKU ngày 30.08.2026 và là gu ưu tiên cho các batch
 - `X24-BD-722329`: good good.
 - `X24-BD-902329`: good good good.
 
-### Chấp nhận / dùng làm vùng an toàn
+### Chấp nhận / dùng làm vùng an toàn bằng nhận xét chữ
 
 - `X24-BD-212329`: ổn.
 - `X24-BD-252329`: được.
@@ -96,8 +105,10 @@ phản hồi từ batch SKU ngày 30.08.2026 và là gu ưu tiên cho các batch
 Mỗi spec mới phải có:
 
 - `tasteProfileApplied: true`
-- `likedSkuAnchors`: danh sách SKU tích cực hoặc chấp nhận được dùng làm gu.
-- `avoidSkuAnchors`: danh sách SKU negative liên quan.
+- `likedSkuAnchors`: danh sách SKU tích cực hoặc chấp nhận được dùng làm nhãn
+  phản hồi chữ, không phải visual reference nếu thiếu ảnh.
+- `avoidSkuAnchors`: danh sách SKU negative liên quan, dùng làm nhãn phản hồi
+  chữ, không phải visual reference nếu thiếu ảnh.
 - `marketFitTarget`: ví dụ `corporate-bank`, `company-event`, `mass-market`,
   `youth-club`.
 - `paletteDiscipline`: `corporate restrained`, `commercial balanced` hoặc

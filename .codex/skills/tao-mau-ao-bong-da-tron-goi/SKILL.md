@@ -22,9 +22,11 @@ Master front/back là nguồn sản xuất. Không tạo mockup trước rồi t
 Nếu một batch có cả hai loại, ghi `inputMode` cho từng SKU và xử lý từng sản phẩm end-to-end.
 
 Luôn đọc [user-taste-profile.md](references/user-taste-profile.md) trước khi tạo
-`design-spec.json`. Đây là gu vận hành hiện tại từ phản hồi SKU thật: ưu tiên
+`design-spec.json`. Đây là gu vận hành hiện tại từ phản hồi SKU bằng chữ: ưu tiên
 mẫu thương mại, tinh gọn, dễ bán và đúng ngữ cảnh; tránh lòe loẹt, nền cạnh tranh
-với áo và pose người mẫu lặp.
+với áo và pose người mẫu lặp. Không giả định ảnh của các SKU feedback còn tồn tại
+trên máy; nếu thiếu file ảnh thì chỉ dùng nhận xét chữ, không dùng SKU như visual
+reference.
 
 ## Phạm vi và mặc định
 

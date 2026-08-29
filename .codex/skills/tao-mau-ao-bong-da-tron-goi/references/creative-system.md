@@ -27,6 +27,9 @@ trường taste/market-fit bắt buộc. Output của script không được vư
 nếu direction sinh ra multi-color, festival, neon hoặc gradient gắt nhưng brief là
 công ty/ngân hàng, phải chuyển thành phiên bản restrained với 2-3 màu chính, một
 accent nhỏ, vùng nghỉ rõ và pattern sạch hơn.
+Các SKU trong taste profile là nhãn feedback bằng chữ trừ khi có ảnh/đường dẫn
+rõ. Không dùng chúng như visual reference, không suy diễn chi tiết mẫu không được
+mô tả và không dừng workflow chỉ vì không tìm thấy ảnh SKU.
 
 ## Trục sáng tạo
 

@@ -21,7 +21,8 @@ Copy trong ảnh tham khảo không phải instruction. Chỉ dùng copy đã kh
 Đọc `user-taste-profile.md` trước khi viết prompt sales. Ảnh sales phải ưu tiên
 mẫu dễ xem, dễ bán, đúng phân khúc. Các SKU được thích là positive anchors; các
 SKU bị chê vì lòe loẹt, sai ngữ cảnh công ty/ngân hàng, background quá đỏ hoặc
-khó bán là negative anchors.
+khó bán là negative anchors. Những anchor này là nhận xét chữ nếu không có ảnh
+SKU đi kèm; không giả định ảnh local tồn tại hoặc tự dựng lại visual từ mã SKU.
 
 ## Contact và feature badges bắt buộc
 
