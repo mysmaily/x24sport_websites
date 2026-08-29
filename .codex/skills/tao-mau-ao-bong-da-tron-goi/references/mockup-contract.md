@@ -18,6 +18,11 @@ như được in/ép/embroider thật vào vải, warp theo nếp áo, không n�
 Không thêm logo vào back view, shorts hoặc background trừ khi người dùng yêu cầu
 rõ.
 
+Với workflow mặc định, `design-spec.json` phải có `logoSource` lấy từ
+`assets/football-logo-sources.json` local references. Chỉ bỏ logo mẫu khi người
+dùng yêu cầu rõ áo trơn/không logo. Logo mẫu là customer sample badge, không phải
+seller logo.
+
 ## Mockup base
 
 - Vuông 1:1, tối thiểu 1200 × 1200 px.
@@ -31,7 +36,7 @@ rõ.
   pattern áo đủ lớn. Full-body chỉ dùng khi cần khoe trọn set và vẫn phải đủ lớn
   để kiểm áo.
 - Không seller logo, website, hotline, SKU hoặc text quảng cáo. Bố cục đủ linh hoạt để imagegen có thể cân lại khi tạo poster hoàn chỉnh.
-- Logo từ `assets/football-logo-sources.json` là badge mẫu của khách hàng trên áo, không phải seller logo; chỉ dùng khi người dùng yêu cầu nguồn logo đó.
+- Logo từ `assets/football-logo-sources.json` là badge mẫu của khách hàng trên áo, không phải seller logo; mặc định dùng trên mockup/sales trừ khi người dùng yêu cầu áo trơn/không logo.
 - Bối cảnh được sáng tạo theo palette: studio thể thao, stadium catalog, tunnel, training ground hoặc graphic set có chiều sâu. Không để background cạnh tranh với sản phẩm.
 
 ## Hard reject

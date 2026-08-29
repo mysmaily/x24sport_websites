@@ -26,6 +26,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--ppi", type=int, default=300)
     parser.add_argument("--fit", choices=("cover", "contain"), default="cover")
     parser.add_argument("--background", default="#ffffff", help="Used only with contain")
+    parser.add_argument(
+        "--max-source-aspect-drift",
+        type=float,
+        help="Reject source aspect ratios that differ from the target by more than this relative fraction.",
+    )
     parser.add_argument("--overwrite", action="store_true")
     return parser.parse_args()
 
@@ -56,6 +61,19 @@ def main() -> None:
         icc = source_image.info.get("icc_profile")
         source_image = source_image.convert("RGB")
     source_pixels = source_image.size
+    source_aspect = source_image.width / source_image.height
+    target_aspect = target[0] / target[1]
+    aspect_drift = abs(source_aspect - target_aspect) / target_aspect
+    if args.max_source_aspect_drift is not None:
+        if args.max_source_aspect_drift < 0:
+            raise SystemExit("--max-source-aspect-drift must be non-negative")
+        if aspect_drift > args.max_source_aspect_drift:
+            raise SystemExit(
+                "Source aspect ratio drift exceeds limit: "
+                f"source={source_aspect:.4f}, target={target_aspect:.4f}, "
+                f"drift={aspect_drift:.4f}, limit={args.max_source_aspect_drift:.4f}. "
+                "Regenerate or crop-review the source master instead of stretching."
+            )
 
     if args.fit == "cover":
         scale = max(target[0] / source_image.width, target[1] / source_image.height)
@@ -82,6 +100,9 @@ def main() -> None:
         "output": str(output),
         "sourcePixels": list(source_pixels),
         "targetPixels": list(target),
+        "sourceAspectRatio": round(source_aspect, 6),
+        "targetAspectRatio": round(target_aspect, 6),
+        "sourceAspectDrift": round(aspect_drift, 6),
         "physicalMm": [args.width_mm, args.height_mm],
         "ppi": args.ppi,
         "fit": args.fit,

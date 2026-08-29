@@ -41,10 +41,10 @@ strip hoặc panel nhỏ để lấp khoảng trống hợp lý.
 
 ## Logo ngực áo mẫu
 
-Khi người dùng yêu cầu dùng logo bóng đá từ X24Sport, đọc
-`assets/football-logo-sources.json` và ghi `logoSource` vào `design-spec.json`.
-Trong prompt mockup/sales, yêu cầu imagegen chọn một logo phù hợp từ trang nguồn
-đó và đóng lên ngực áo như badge nhỏ đã in thật trên vải.
+Theo mặc định, đọc `assets/football-logo-sources.json` và ghi `logoSource` local
+reference vào `design-spec.json`. Trong prompt mockup/sales, yêu cầu imagegen
+dùng logo phù hợp từ local reference đó và đóng lên ngực áo như badge nhỏ đã in
+thật trên vải. Chỉ bỏ logo mẫu khi người dùng yêu cầu rõ áo trơn/không logo.
 
 Quy tắc:
 

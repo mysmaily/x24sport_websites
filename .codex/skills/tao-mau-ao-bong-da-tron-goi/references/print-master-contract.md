@@ -11,6 +11,21 @@ Hai deliverable bắt buộc:
 
 Mặc định: 700 × 850 mm, 300 PPI, tương ứng 8268 × 10039 px, PNG lossless, sRGB. Nếu xưởng cung cấp kích thước, rập, ICC hoặc yêu cầu TIFF/CMYK, ưu tiên thông số xưởng và ghi rõ thay đổi.
 
+## Tỷ lệ source master
+
+Master source phải được dựng gần tỷ lệ giao xưởng `700:850` (`aspectRatio =
+0.8235`). Đây là nền chữ nhật oversize để xưởng đặt lên rập panel áo, không phải
+ảnh vuông và không phải mockup.
+
+- Ưu tiên source nằm trong khoảng `0.80-0.85`.
+- Tối đa lệch 8% so với `700:850` khi artwork có bleed an toàn ở vùng bị crop.
+- Hard reject source vuông `1:1`, source quá cao/hẹp kiểu `2:3`, hoặc source có
+  motif quan trọng sát mép bị crop nếu chưa correction/crop-review.
+- `prepare_print_master.py --fit cover` chỉ crop để ra đúng tỷ lệ, không stretch.
+  Không được kéo méo artwork để vừa rập.
+- Nếu xưởng cung cấp rập thật, dùng rập đó làm authority. Khi chưa có rập, chỉ
+  ghi `edge-coherent`, không ghi seam/cutline chính xác.
+
 ## Nội dung được phép
 
 - màu nền và pattern full-bleed;
