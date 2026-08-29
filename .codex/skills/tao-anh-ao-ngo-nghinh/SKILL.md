@@ -52,7 +52,7 @@ Không dùng nhân vật, logo, huy hiệu hoặc tài sản có bản quyền/t
 
 Dùng `imagegen` tích hợp và tạo mới một ảnh vuông, yêu cầu đầu ra PNG có alpha:
 
-- artwork nguyên bản, bố cục gọn, nền trong suốt thật (`alpha = 0`) ngoài artwork;
+- artwork nguyên bản, bố cục gọn, nền trong suốt để có thể thay background thuận tiện;
 - không vẽ nền trắng, màu nền, ô caro mô phỏng transparency hoặc một khung chữ nhật phía sau artwork;
 - không có áo, người mẫu thật, đạo cụ ngoài artwork, watermark hoặc logo;
 - slogan và identity là một phần của artwork;
@@ -60,7 +60,7 @@ Dùng `imagegen` tích hợp và tạo mới một ảnh vuông, yêu cầu đ�
 - phong cách screen-print/vector-like raster, cạnh sạch, palette có chủ đích;
 - chừa lề trong suốt và giữ toàn bộ artwork trong khung.
 
-Kiểm tra ảnh full-size và alpha channel. Bốn góc cùng toàn bộ vùng ngoài artwork phải trong suốt; pixel của artwork phải giữ màu và độ đục có chủ đích. Nếu imagegen trả ảnh nền trắng/opaque, thực hiện correction pass yêu cầu transparent background hoặc tách riêng nền ngoài artwork trước khi xuất; không chỉ đổi đuôi file thành `.png`. Sai một ký tự, dấu, tay, mặt hoặc chi tiết quan trọng thì correction pass có mục tiêu; không chấp nhận lỗi chữ vì ảnh còn lại đẹp.
+Kiểm tra ảnh full-size và alpha channel. Vùng ngoài artwork phải trong suốt đủ để đổi background sạch; chấp nhận anti-alias và nhiễu alpha rất nhỏ ở mép/góc, không đòi từng pixel phải có alpha 0 tuyệt đối. Chỉ correction/tách nền khi ảnh còn nền trắng, nền màu hoặc opaque nhìn thấy rõ; không chỉ đổi đuôi file thành `.png`. Pixel của artwork phải giữ màu và độ đục có chủ đích. Sai một ký tự, dấu, tay, mặt hoặc chi tiết quan trọng thì correction pass có mục tiêu; không chấp nhận lỗi chữ vì ảnh còn lại đẹp.
 
 ## Tạo ảnh 2: marketing
 
@@ -157,7 +157,7 @@ generated/tao-anh-ao-ngo-nghinh/<batch-id>/<product-slug>/
   product-handoff.json
 ```
 
-- `<SKU>.png`: print-master PNG RGBA nền trong suốt, 4500×4500 px, 300 DPI; bốn góc và vùng ngoài artwork phải có alpha 0. Tên file phải là đúng SKU để có thể tìm trực tiếp trên máy. Ưu tiên nguồn native lớn nhất; nếu phải upscale raster thì dùng Lanczos và báo rõ đây không phải vector.
+- `<SKU>.png`: print-master PNG RGBA nền trong suốt để thay background, 4500×4500 px, 300 DPI. Chấp nhận viền anti-alias và nhiễu alpha rất nhỏ; không yêu cầu alpha 0 tuyệt đối ở mọi pixel. Tên file phải là đúng SKU để có thể tìm trực tiếp trên máy. Ưu tiên nguồn native lớn nhất; nếu phải upscale raster thì dùng Lanczos và báo rõ đây không phải vector.
 - `<SKU>-marketing.webp`: ảnh marketing vuông tối thiểu 1200×1200 px, WebP quality 100.
 - `<SKU>-student-lifestyle.webp`: ảnh học sinh lớp 8-12 vuông tối thiểu 1200×1200 px, WebP quality 100, dùng đúng mẫu áo và campaign contract học đường.
 - `<SKU>-print-preview.webp`: bản xem trước website được crop/resize deterministic từ print master và composite trên nền trắng, đúng 500×500 px, WebP quality 100. Không dùng imagegen để tạo lại preview.

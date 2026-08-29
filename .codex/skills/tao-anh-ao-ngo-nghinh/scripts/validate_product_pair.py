@@ -16,6 +16,7 @@ MASTER_NAME = re.compile(r"^(X24-DP-[0-9]{6})\.png$")
 MARKETING_NAME = re.compile(r"^(X24-DP-[0-9]{6})-marketing\.webp$")
 PREVIEW_NAME = re.compile(r"^(X24-DP-[0-9]{6})-print-preview\.webp$")
 STUDENT_NAME = re.compile(r"^(X24-DP-[0-9]{6})-student-lifestyle\.webp$")
+CORNER_ALPHA_TOLERANCE = 0.02
 
 
 def fail(message: str) -> None:
@@ -103,8 +104,8 @@ def main() -> None:
         fail("print master must be 4500x4500")
     if not has_alpha_channel(master_info["channels"]) or str(master_info["opaque"]).lower() != "false":
         fail("print master must have a transparent alpha channel")
-    if not all(float(alpha) == 0 for alpha in master_info["cornerAlpha"]):
-        fail("all print-master corners must be fully transparent")
+    if not all(float(alpha) <= CORNER_ALPHA_TOLERANCE for alpha in master_info["cornerAlpha"]):
+        fail("print-master corners must be visually transparent (alpha <= 2%)")
     if master_info["units"] == "PixelsPerCentimeter":
         if min(float(master_info["densityX"]), float(master_info["densityY"])) < 118:
             fail("print master density must be at least 300 DPI")

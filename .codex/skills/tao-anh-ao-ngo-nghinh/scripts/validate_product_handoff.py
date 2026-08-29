@@ -17,6 +17,7 @@ SKU_RE = re.compile(r"^X24-DP-[0-9]{6}$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SHA_RE = re.compile(r"^[0-9a-f]{64}$")
 INVENTORY_PREFIX = re.compile(r"^(?:ảnh chụp|hình ảnh|poster|bảng catalog|catalog)\b", re.IGNORECASE)
+CORNER_ALPHA_TOLERANCE = 0.02
 
 
 def fail(message: str) -> None:
@@ -71,8 +72,8 @@ def validate_transparent_master(path: Path) -> None:
     channels, opaque, *corner_alpha = parts
     if "a" not in channels.lower().split()[0] or opaque.lower() != "false":
         fail("print master must have a transparent alpha channel")
-    if any(float(alpha) != 0 for alpha in corner_alpha):
-        fail("all print-master corners must be fully transparent")
+    if any(float(alpha) > CORNER_ALPHA_TOLERANCE for alpha in corner_alpha):
+        fail("print-master corners must be visually transparent (alpha <= 2%)")
 
 
 def checked_file(item: dict, location: str) -> Path:

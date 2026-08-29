@@ -4,7 +4,7 @@
 
 | Role | File | Yêu cầu |
 |---|---|---|
-| Print master | `<SKU>.png` | PNG RGBA, nền ngoài artwork trong suốt (`alpha = 0`), 4500×4500 px, 300 DPI, artwork và exact text, không áo/đạo cụ/watermark |
+| Print master | `<SKU>.png` | PNG RGBA, nền ngoài artwork trong suốt để đổi background thuận tiện, 4500×4500 px, 300 DPI, artwork và exact text, không áo/đạo cụ/watermark |
 | Marketing | `<SKU>-marketing.webp` | WebP Q100, vuông ≥1200 px, ảnh chụp áo thật nền đơn sắc, sử dụng đúng artwork master, có mã mẫu, dấu Mayaodongphuc và contact chuẩn |
 | Student lifestyle | `<SKU>-student-lifestyle.webp` | WebP Q100, vuông ≥1200 px, 3-5 học sinh Việt Nam thuộc một khối ổn định từ lớp 8-12 mặc đúng mẫu áo trong bối cảnh trường học |
 | Website print preview | `<SKU>-print-preview.webp` | WebP Q100, đúng 500×500 px, crop/resize từ print master rồi composite nền trắng, không áo/branding/contact |
@@ -41,8 +41,9 @@ CMS chỉ được nhận marketing, student lifestyle và website print preview
 
 ## Print gate
 
-- File phải có alpha channel; bốn góc và toàn bộ nền ngoài artwork phải trong suốt thật (`alpha = 0`), không phải nền trắng hay ô caro được vẽ vào ảnh.
-- Không chỉ đổi đuôi sang `.png`; validator phải xác nhận ảnh có transparency và bốn góc trong suốt.
+- File phải có alpha channel; nền ngoài artwork phải trong suốt đủ để thay background sạch, không phải nền trắng hay ô caro được vẽ vào ảnh.
+- Chấp nhận anti-alias và nhiễu alpha rất nhỏ ở mép/góc. Validator chỉ cần xác nhận ảnh có transparency và bốn góc gần như trong suốt (`alpha <= 2%`), không đòi alpha 0 tuyệt đối ở từng pixel.
+- Không chỉ đổi đuôi sang `.png`; ảnh opaque hoặc còn nền nhìn thấy rõ vẫn không đạt.
 - Artwork không bị crop, không có áo hoặc scene.
 - Không tự gọi file raster là vector. Nếu cần SVG/PDF vector thật, đó là deliverable bổ sung và phải được yêu cầu riêng.
 - 4500 px ở 300 DPI tương đương vùng vuông 15 inch; kích thước này phù hợp cho nhiều bố cục ngực áo nhưng xưởng in vẫn quyết định khổ in cuối.
@@ -101,4 +102,4 @@ magick marketing-source.png -quality 100 X24-DP-NNNNNN-marketing.webp
 magick student-source.png -quality 100 X24-DP-NNNNNN-student-lifestyle.webp
 ```
 
-Lệnh trên chỉ bảo toàn alpha sẵn có; nó không biến một nền trắng opaque thành transparency. Nếu nguồn chưa có alpha, correction pass hoặc tách nền ngoài artwork trước, rồi kiểm tra lại alpha channel, bốn góc, mép artwork và các chi tiết màu trắng có chủ đích. Giữ ảnh nguồn của tool ngoài thư mục xuất bản nếu cần truy vết; thư mục sản phẩm chỉ chứa bốn deliverable cuối và manifest.
+Lệnh trên chỉ bảo toàn alpha sẵn có; nó không biến một nền trắng opaque thành transparency. Nếu nguồn chưa có alpha hoặc còn nền nhìn thấy rõ, correction pass hoặc tách nền ngoài artwork trước. Không cần xử lý lại chỉ vì một ít alpha thấp do anti-alias; kiểm tra thực dụng rằng artwork có thể đặt lên background khác mà không lộ khung nền. Giữ ảnh nguồn của tool ngoài thư mục xuất bản nếu cần truy vết; thư mục sản phẩm chỉ chứa bốn deliverable cuối và manifest.
