@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tạo ảnh gia đình"
+  short_description: "Tạo bộ ảnh áo đồng phục gia đình Mayaodongphuc"
+  default_prompt: "Dùng $tao-anh-gia-dinh để tạo bộ ảnh áo đồng phục gia đình gồm artwork in, ảnh áo marketing, ảnh gia đình mặc áo và preview website."
