@@ -109,24 +109,27 @@ function buildTargetCopy(product: Doc, targetSlug: string) {
   const name = plainText(product.name)
   const sku = plainText(product.sku)
   const targetName = targetSlug === 'pndsport' ? 'PND Sport Việt Nam' : 'X24Sport'
+  const productType = plainText(product.productType) || 'simple'
+  const stockCue = plainText(product.stockStatus) === 'instock' ? 'có thể tư vấn đặt may theo đội' : 'cần kiểm tra lại trước khi đặt'
+  const sourceShort = plainText(product.shortDescription)
   const paragraphs = targetSlug === 'pndsport'
     ? [
-        `${name} nổi bật với nền áo xanh navy và artwork kính thiên văn vui nhộn, phù hợp để tạo dấu ấn riêng cho câu lạc bộ học sinh và nhóm bạn cùng sở thích.`,
-        'Mẫu có thể dùng trong sinh hoạt câu lạc bộ, hoạt động ngoại khóa, ngày hội khoa học hoặc buổi chụp ảnh kỷ niệm tại trường.',
-        'Tên câu lạc bộ, slogan, màu áo và vị trí hình in có thể điều chỉnh theo nhận diện thực tế của từng tập thể.',
-        `Khi cần tư vấn, hãy cung cấp mã ${sku}, logo, số lượng và danh sách size để ${targetName} đối chiếu đúng thiết kế.`,
+        sourceShort || `${name} là mẫu áo bóng đá thiết kế riêng dành cho đội bóng phong trào, câu lạc bộ, trường học và doanh nghiệp cần đồng phục thi đấu nổi bật.`,
+        'Có thể tùy chỉnh logo đội, tên cầu thủ, số áo, màu phối và form cổ theo nhận diện thực tế của từng tập thể.',
+        'Mẫu phù hợp cho giải phong trào, hội thao công ty, lớp/trường và các đội cần bộ áo đồng nhất để đặt may theo số lượng.',
+        `Khi cần tư vấn, hãy cung cấp mã ${sku}, logo, số lượng và danh sách size để ${targetName} đối chiếu đúng mẫu và báo phương án phù hợp.`,
       ]
     : [
-        `${name} là gợi ý đồng phục câu lạc bộ học sinh với tông xanh navy, hình kính thiên văn hoạt hình và thông điệp “Nhìn Xa Mơ Lớn”.`,
-        'Thiết kế phù hợp cho câu lạc bộ trường học, đội nhóm yêu khoa học, hoạt động ngoại khóa và các dịp chụp ảnh tập thể.',
-        'Có thể tùy chỉnh tên câu lạc bộ, slogan, màu áo và bố cục artwork để đồng bộ với nhận diện của đơn vị.',
-        `Sử dụng mã ${sku} khi gửi yêu cầu để ${targetName} tư vấn phương án, size, số lượng và báo giá theo nhu cầu thực tế.`,
+        sourceShort || `${name} là mẫu áo bóng đá đặt may cho đội bóng, phối đồ họa thể thao hiện đại và có sẵn không gian để tùy chỉnh nhận diện đội.`,
+        'Người đặt có thể đổi logo, tên đội, tên cầu thủ, số áo và các chi tiết màu sắc để đồng bộ với giải đấu hoặc thương hiệu đơn vị.',
+        `Sản phẩm thuộc nhóm ${productType}, ${stockCue}; giá và thời gian hoàn thiện được tư vấn theo số lượng, chất liệu và yêu cầu in thực tế.`,
+        `Sử dụng mã ${sku} khi gửi yêu cầu để ${targetName} tư vấn size, số lượng và phương án cá nhân hóa cho đội.`,
       ]
   const shortDescription = targetSlug === 'pndsport'
-    ? `Mẫu áo CLB học sinh xanh navy với artwork kính thiên văn vui nhộn; có thể tùy chỉnh tên CLB, slogan và màu áo. Mã mẫu: ${sku}.`
-    : `Áo CLB chủ đề thiên văn với tông xanh navy và thông điệp “Nhìn Xa Mơ Lớn”, phù hợp hoạt động trường học. Mã mẫu: ${sku}.`
+    ? `${name} cho đội bóng phong trào, có thể tùy chỉnh logo, tên số, màu phối và size theo nhu cầu. Mã mẫu: ${sku}.`
+    : `${name} đặt may cho đội bóng, phù hợp tùy chỉnh logo, tên số và màu sắc theo nhận diện riêng. Mã mẫu: ${sku}.`
   const seoTitle = (targetSlug === 'pndsport' ? name : `${name} | ${targetName}`).slice(0, 120)
-  const metaDescription = `${name}, mã ${sku}. Mẫu áo câu lạc bộ học sinh có thể tùy chỉnh tên CLB, slogan, màu áo và hình in theo nhu cầu.`.slice(0, 300)
+  const metaDescription = `${name}, mã ${sku}. Mẫu áo bóng đá có thể tùy chỉnh logo, tên số, màu phối và size cho đội bóng, lớp hoặc công ty.`.slice(0, 300)
   return {
     name,
     shortDescription,
