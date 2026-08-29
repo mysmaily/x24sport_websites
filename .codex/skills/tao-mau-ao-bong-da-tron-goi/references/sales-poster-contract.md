@@ -38,6 +38,25 @@ Thư viện style nằm tại `assets/football-sales-styles.json`:
 - `street-futsal-energy`: sân futsal/urban, nét sơn chuyển động, năng lượng trẻ,
   nhưng vẫn giữ đủ front/back/shorts và chữ không bị nền cạnh tranh.
 
+## Background motif echo
+
+Ở bước prompt sales, background nên mượn lại ngôn ngữ đồ họa của master để ảnh
+có cảm giác chuyên nghiệp và cùng hệ, nhưng phải làm áo nổi bật hơn background.
+Đây chỉ là hướng dẫn prompt, không thêm validate/hard gate.
+
+Prompt sales nên nói rõ:
+
+- có thể echo motif, line rhythm, angle, stroke hoặc shape lớn từ master ở nền;
+- background motif phải chìm hơn áo: low-opacity, soft-focus, scale lớn, đẩy ra
+  rìa hoặc sau typography/product panels;
+- không để màu nền trùng sát màu áo trên vùng ngay sau áo; nếu áo dùng tím/xanh/
+  đỏ/cam mạnh, nền nên lệch hue, giảm saturation, tối hơn, sáng hơn hoặc chuyển
+  sang charcoal/neutral để tạo silhouette rõ;
+- accent của áo chỉ dùng làm rim light hoặc streak nhỏ ở background, không phủ
+  thành mảng lớn cạnh sản phẩm;
+- background không được invent pattern mới lên garment, không làm drift master,
+  và không cạnh tranh với front/back/shorts.
+
 ## 5 composition reference để nhân biến thể
 
 Mỗi sản phẩm cũng phải có đúng một `salesComposition` trong `design-spec.json`.
@@ -85,6 +104,8 @@ Prompt phải:
 
 - dùng `salesStyle.promptNotes` đã khóa để quyết định mood, ánh sáng, nền, nhịp
   typography và cách trình bày controls;
+- dùng quy tắc `Background motif echo` để mượn họa tiết master một cách hài hòa:
+  nền echo motif nhưng lệch/giảm màu để garment luôn tách rõ khỏi background;
 - dùng `salesComposition.promptNotes` đã khóa để quyết định vị trí/crop người
   mẫu và vị trí cụm front/back/shorts;
 - yêu cầu imagegen typeset toàn bộ copy lock ngay trong ảnh;
