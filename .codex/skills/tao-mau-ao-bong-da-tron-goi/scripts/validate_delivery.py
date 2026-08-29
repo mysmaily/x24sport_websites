@@ -17,14 +17,16 @@ except ImportError as error:
 
 SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
 EXPECTED_ROLES = {
-    "front print master": ("PNG", False),
-    "back print master": ("PNG", False),
-    "mockup base": ("WEBP", True),
-    "sales image": ("WEBP", True),
+    "front print master": ("PNG", "master"),
+    "back print master": ("PNG", "master"),
+    "mockup base": ("WEBP", "square"),
+    "sales image": ("WEBP", "square"),
+    "team photo": ("WEBP", "team-photo"),
 }
 VISUAL_FLAGS = {
     "frontFlatArtworkOnly", "backFlatArtworkOnly", "frontBackCoherent",
     "mockupMatchesFront", "mockupMatchesBack", "commercialTextExact",
+    "teamPhotoMatchesKit",
 }
 REQUIRED_SALES_SPEC_FIELDS = {
     "collection", "offer", "modelNumber", "frontNumber",
@@ -45,6 +47,42 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def validate_native_pixel_identity(
+    *,
+    folder: Path,
+    sku: str,
+    generation: object,
+    generation_name: str,
+    native_folder: Path,
+    native_suffix: str,
+    web_path: Path,
+) -> dict[str, object]:
+    if not isinstance(generation, dict):
+        fail(f"manifest {generation_name} is required")
+    if generation.get("mode") != "imagegen-native" or generation.get("postCompositeApplied") is not False:
+        fail(f"{generation_name} must be imagegen-native with no post-generation composite")
+    native_record = generation.get("nativeSource")
+    if not isinstance(native_record, dict):
+        fail(f"{generation_name}.nativeSource is required")
+    native_path = Path(native_record.get("path", "")).expanduser().resolve()
+    try:
+        native_path.relative_to(native_folder)
+    except ValueError:
+        fail(f"{generation_name} native source must be inside {native_folder.relative_to(folder)}")
+    if not native_path.is_file() or sku not in native_path.name or not native_path.name.endswith(native_suffix):
+        fail(f"{generation_name} native source is missing or has a mismatched SKU/name")
+    if native_record.get("sha256") != sha256(native_path):
+        fail(f"{generation_name} native source checksum mismatch")
+    with Image.open(native_path) as native_image, Image.open(web_path) as web_image:
+        native_rgb = native_image.convert("RGB")
+        web_rgb = web_image.convert("RGB")
+        if native_rgb.size != web_rgb.size or native_rgb.tobytes() != web_rgb.tobytes():
+            fail(f"{generation_name} WebP pixels differ from the imagegen-native source; post-generation editing is forbidden")
+        if native_record.get("pixels") != list(native_rgb.size):
+            fail(f"{generation_name} native source pixel size does not match manifest")
+    return native_record
 
 
 def main() -> None:
@@ -91,7 +129,7 @@ def main() -> None:
         fail(f"manifest must contain exactly these roles: {sorted(EXPECTED_ROLES)}")
 
     report = []
-    for role, (required_format, square) in EXPECTED_ROLES.items():
+    for role, (required_format, validation_kind) in EXPECTED_ROLES.items():
         item = by_role[role]
         path = Path(item.get("path", "")).expanduser().resolve()
         try:
@@ -111,41 +149,44 @@ def main() -> None:
             fail(f"{role} must be {required_format}")
         if item.get("pixels") != pixels:
             fail(f"manifest pixel size mismatch for {role}")
-        if square:
+        if validation_kind == "square":
             if pixels[0] != pixels[1] or pixels[0] < 1200:
                 fail(f"{role} must be square and at least 1200 px")
-        else:
+        elif validation_kind == "master":
             if pixels != expected_pixels:
                 fail(f"{role} must be {expected_pixels[0]}x{expected_pixels[1]} px")
             if min(float(dpi[0]), float(dpi[1])) < ppi - 1:
                 fail(f"{role} must carry at least {ppi} PPI metadata")
+        elif validation_kind == "team-photo":
+            if max(pixels) < 1200:
+                fail("team photo must have a long edge of at least 1200 px")
+            player_count = item.get("playerCount")
+            if not isinstance(player_count, int) or not 5 <= player_count <= 11:
+                fail("team photo manifest record must contain playerCount from 5 to 11")
+        else:
+            fail(f"unknown validation kind for {role}")
         report.append({"role": role, "file": path.name, "format": image_format, "pixels": pixels})
 
-    sales_generation = manifest.get("salesGeneration")
-    if not isinstance(sales_generation, dict):
-        fail("manifest salesGeneration is required")
-    if sales_generation.get("mode") != "imagegen-native" or sales_generation.get("postCompositeApplied") is not False:
-        fail("sales image must be imagegen-native with no post-generation composite")
-    native_record = sales_generation.get("nativeSource")
-    if not isinstance(native_record, dict):
-        fail("salesGeneration.nativeSource is required")
-    native_path = Path(native_record.get("path", "")).expanduser().resolve()
-    try:
-        native_path.relative_to(folder / "work")
-    except ValueError:
-        fail("native sales source must be inside the product work folder")
-    if not native_path.is_file() or sku not in native_path.name:
-        fail("native sales source is missing or has a mismatched SKU")
-    if native_record.get("sha256") != sha256(native_path):
-        fail("native sales source checksum mismatch")
     sales_path = Path(by_role["sales image"]["path"]).resolve()
-    with Image.open(native_path) as native_image, Image.open(sales_path) as sales_image:
-        native_rgb = native_image.convert("RGB")
-        sales_rgb = sales_image.convert("RGB")
-        if native_rgb.size != sales_rgb.size or native_rgb.tobytes() != sales_rgb.tobytes():
-            fail("sales image pixels differ from the imagegen-native source; post-generation editing is forbidden")
-        if native_record.get("pixels") != list(native_rgb.size):
-            fail("native sales source pixel size does not match manifest")
+    validate_native_pixel_identity(
+        folder=folder,
+        sku=sku,
+        generation=manifest.get("salesGeneration"),
+        generation_name="salesGeneration",
+        native_folder=folder / "work",
+        native_suffix="-sales-native-source.png",
+        web_path=sales_path,
+    )
+    team_photo_path = Path(by_role["team photo"]["path"]).resolve()
+    team_photo_native = validate_native_pixel_identity(
+        folder=folder,
+        sku=sku,
+        generation=manifest.get("teamPhotoGeneration"),
+        generation_name="teamPhotoGeneration",
+        native_folder=folder / "work",
+        native_suffix="-team-photo-native-source.png",
+        web_path=team_photo_path,
+    )
 
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
     sales_spec = spec.get("sales")
@@ -160,6 +201,19 @@ def main() -> None:
             fail(f"design spec sales field {key} must not be blank")
         if isinstance(value, list) and (not value or not all(isinstance(item, str) and item.strip() for item in value)):
             fail(f"design spec sales field {key} must contain nonblank labels")
+    team_photo_spec = spec.get("teamPhoto")
+    if not isinstance(team_photo_spec, dict):
+        fail("design spec teamPhoto is required")
+    player_count = team_photo_spec.get("playerCount")
+    if not isinstance(player_count, int) or not 5 <= player_count <= 11:
+        fail("design spec teamPhoto.playerCount must be an integer from 5 to 11")
+    if by_role["team photo"].get("playerCount") != player_count:
+        fail("team photo manifest playerCount must match design spec")
+    team_generation = manifest.get("teamPhotoGeneration")
+    if not isinstance(team_generation, dict) or team_generation.get("playerCount") != player_count:
+        fail("teamPhotoGeneration.playerCount must match design spec")
+    if team_photo_native.get("pixels") != by_role["team photo"].get("pixels"):
+        fail("team photo native source pixels must match the team photo WebP manifest pixels")
 
     front = Path(by_role["front print master"]["path"]).resolve()
     back = Path(by_role["back print master"]["path"]).resolve()
@@ -177,6 +231,7 @@ def main() -> None:
         "expectedMasterPixels": expected_pixels,
         "files": report,
         "salesGenerationValidated": "imagegen-native pixel identity",
+        "teamPhotoGenerationValidated": "imagegen-native pixel identity",
         "salesSpecFieldsValidated": sorted(REQUIRED_SALES_SPEC_FIELDS),
         "visualInspectionRecorded": True,
     }, ensure_ascii=False, indent=2))

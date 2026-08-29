@@ -11,16 +11,20 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
     <SKU>-front-source.png
     <SKU>-back-source.png
     <SKU>-sales-native-source.png      # output imagegen cuối, đã có typography
+    <SKU>-team-photo-native-source.png # output imagegen ảnh tập thể đội bóng
   print/
     <SKU>-front-print.png
     <SKU>-back-print.png
   marketing/
     <SKU>-mockup-base.webp
     <SKU>-sales.webp
+    <SKU>-team-photo.webp
   delivery-manifest.json
 ```
 
-`work/` chứa nguồn sinh ảnh và không phải file xưởng. Hai PNG trong `print/` là master raster giao xưởng. Hai WebP trong `marketing/` chỉ dùng duyệt/chào hàng.
+`work/` chứa nguồn sinh ảnh và không phải file xưởng. Hai PNG trong `print/` là
+master raster giao xưởng. Các WebP trong `marketing/` chỉ dùng duyệt/chào hàng
+và ảnh lifestyle/catalog.
 
 ## Đích bàn giao file print
 
@@ -84,6 +88,13 @@ Dùng `scripts/deliver_print_masters.py`; không đổi tên thủ công. Script
       "path": "/absolute/path/marketing/X24-BD-000001-sales.webp",
       "sha256": "...",
       "pixels": [1536, 1536]
+    },
+    {
+      "role": "team photo",
+      "path": "/absolute/path/marketing/X24-BD-000001-team-photo.webp",
+      "sha256": "...",
+      "pixels": [1536, 1024],
+      "playerCount": 9
     }
   ],
   "salesGeneration": {
@@ -95,17 +106,40 @@ Dùng `scripts/deliver_print_masters.py`; không đổi tên thủ công. Script
       "pixels": [1536, 1536]
     }
   },
+  "teamPhotoGeneration": {
+    "mode": "imagegen-native",
+    "postCompositeApplied": false,
+    "nativeSource": {
+      "path": "/absolute/path/work/X24-BD-000001-team-photo-native-source.png",
+      "sha256": "...",
+      "pixels": [1536, 1024]
+    },
+    "playerCount": 9
+  },
   "visualApproval": {
     "frontFlatArtworkOnly": true,
     "backFlatArtworkOnly": true,
     "frontBackCoherent": true,
     "mockupMatchesFront": true,
     "mockupMatchesBack": true,
-    "commercialTextExact": true
+    "commercialTextExact": true,
+    "teamPhotoMatchesKit": true
   }
 }
 ```
 
-Tạo manifest và SHA-256 từ bytes cuối bằng `build_delivery_manifest.py`. Ghi đúng `inputMode` và `salesLayout`; với conversion, thêm source analysis/reference vào spec nhưng không đưa ảnh seller vào gallery. Chỉ truyền `--approve-visual` sau khi đã xem full-size cả bốn ảnh và đối chiếu từng chuỗi copy. `validate_delivery.py` yêu cầu đúng bốn role, file nằm trong product folder, SKU đồng nhất, PNG/WebP đúng loại, master đúng `targetPixels`/PPI, mockup vuông tối thiểu 1200 px, checksum khớp và sáu cờ visual đều `true`. Validator còn yêu cầu copy lock trong `design-spec`, `salesGeneration.mode=imagegen-native`, `postCompositeApplied=false`, và pixel RGB của sales WebP giống tuyệt đối với PNG nguồn imagegen. Mọi composite hậu kỳ làm đổi pixel sẽ fail.
+Tạo manifest và SHA-256 từ bytes cuối bằng `build_delivery_manifest.py`. Ghi đúng
+`inputMode` và `salesLayout`; với conversion, thêm source analysis/reference vào
+spec nhưng không đưa ảnh seller vào gallery. `design-spec.json` phải có
+`teamPhoto.playerCount` là số nguyên `5-11`. Chỉ truyền `--approve-visual` sau
+khi đã xem full-size cả năm ảnh và đối chiếu từng chuỗi copy. `validate_delivery.py`
+yêu cầu đúng năm role, file nằm trong product folder, SKU đồng nhất, PNG/WebP
+đúng loại, master đúng `targetPixels`/PPI, mockup và sales vuông tối thiểu
+1200 px, team photo có cạnh dài tối thiểu 1200 px, checksum khớp và bảy cờ
+visual đều `true`. Validator còn yêu cầu copy lock trong `design-spec`,
+`salesGeneration.mode=imagegen-native`, `teamPhotoGeneration.mode=imagegen-native`,
+`postCompositeApplied=false`, pixel RGB của sales WebP giống tuyệt đối với PNG
+nguồn imagegen sales, và pixel RGB của team-photo WebP giống tuyệt đối với PNG
+nguồn imagegen team photo. Mọi composite hậu kỳ làm đổi pixel sẽ fail.
 
 Không đặt master PNG vào gallery website. Nếu sau này publish, tạo preview WebP riêng từ master; không dùng master 300 PPI làm ảnh web.

@@ -1,6 +1,6 @@
 ---
 name: tao-mau-ao-bong-da-tron-goi
-description: "Tạo trọn bộ mẫu áo bóng đá từ ý tưởng mới hoặc ảnh áo/poster tham khảo theo quy trình master-first: dựng nền in phẳng trước–sau, chuẩn hóa file in, tạo mockup vải thật, ảnh chào hàng và handoff đăng mayaobongda.vn khi được yêu cầu. Dùng cho thiết kế catalog mới, chuyển mẫu nguồn thành bộ sản xuất hoặc batch áo bóng đá; không dùng khi chỉ cần chỉnh một ảnh mockup có sẵn mà không cần master."
+description: "Tạo trọn bộ mẫu áo bóng đá từ ý tưởng mới hoặc ảnh áo/poster tham khảo theo quy trình master-first: dựng nền in phẳng trước–sau, chuẩn hóa file in, tạo mockup vải thật, ảnh chào hàng, ảnh tập thể đội bóng và handoff đăng mayaobongda.vn khi được yêu cầu. Dùng cho thiết kế catalog mới, chuyển mẫu nguồn thành bộ sản xuất hoặc batch áo bóng đá; không dùng khi chỉ cần chỉnh một ảnh mockup có sẵn mà không cần master."
 ---
 
 # Tạo ảnh bóng đá - 29.08.2026
@@ -9,7 +9,8 @@ description: "Tạo trọn bộ mẫu áo bóng đá từ ý tưởng mới ho�
 
 ```text
 input lock -> design/source analysis -> front master -> back master
--> print preparation -> mockup base -> sales image -> optional publish
+-> print preparation -> mockup base -> sales image -> team photo
+-> optional publish
 ```
 
 Master front/back là nguồn sản xuất. Không tạo mockup trước rồi tái tạo master từ mockup; không dùng ảnh chào hàng làm file in.
@@ -76,6 +77,8 @@ Xác định:
 - sales layout và brand/copy;
 - `salesStyle` do creative script chọn ngẫu nhiên ổn định theo SKU từ 5 kiểu trong `assets/football-sales-styles.json`;
 - `salesComposition` do creative script chọn ngẫu nhiên ổn định theo SKU từ 5 kiểu trong `assets/football-sales-compositions.json`;
+- `teamPhoto.playerCount` do creative script chọn ngẫu nhiên ổn định theo SKU
+  trong khoảng `5-11` và formation tương ứng; chỉ override khi user yêu cầu rõ;
 - `logoSource` mặc định cho mockup/sales là một local reference phù hợp trong
   `assets/football-logo-sources.json`; chỉ bỏ logo mẫu khi người dùng yêu cầu
   rõ áo trơn/không logo;
@@ -90,6 +93,8 @@ Tạo `design-spec.json` trước khi sinh ảnh:
 - SKU, `inputMode`, `productName` và `productSlug` do creative script cấp;
 - `salesStyle.id`, `salesStyle.name` và `salesStyle.promptNotes` do creative script cấp;
 - `salesComposition.id`, `salesComposition.name` và `salesComposition.promptNotes` do creative script cấp;
+- `teamPhoto.playerCount`, `teamPhoto.formationId` và `teamPhoto.promptNotes`
+  do creative script cấp, trừ khi user đã khóa số người khác;
 - source analysis path nếu là conversion;
 - palette HEX và vai trò màu;
 - motif, geometry, colorStrategy, energy, front/back layout, edge continuity;
@@ -211,7 +216,32 @@ Imagegen phải typeset toàn bộ commercial copy đã khóa trong spec ngay tr
 dễ xem trên catalog/mobile; chỉ dùng full-body khi thật sự cần khoe set và vẫn
 phải giữ mặt áo rõ.
 
-## 7. Đóng gói và validate
+## 7. Tạo ảnh tập thể đội bóng
+
+Đọc [team-photo-contract.md](references/team-photo-contract.md). Mặc định mỗi
+sản phẩm có thêm đúng một ảnh tập thể đội bóng mặc mẫu áo trên sân thật hoặc sân
+tập. Dùng mockup/sales đã duyệt và hai master làm reference để giữ kit.
+
+Với `original-design`, lấy `teamPhoto` từ
+`scripts/choose_creative_direction.py`: `playerCount` là số nguyên random ổn định
+theo SKU trong khoảng `5-11`, kèm `formation.id`/`promptNotes`. Cùng SKU retry
+phải giữ nguyên số người; không tự random lại ở prompt.
+
+Ảnh team photo:
+
+- photorealistic, sân bóng Việt Nam hoặc sân tập ngoài trời, ánh sáng tự nhiên;
+- đúng `teamPhoto.playerCount` cầu thủ, thường là đội nam Việt Nam trưởng thành
+  nếu brief không nói khác;
+- áo/quần đồng bộ cùng mẫu, pattern và palette nhận ra từ mockup/master;
+- ưu tiên ảnh ngang hoặc 4:3/3:2 để đủ chỗ cho 5-11 người;
+- không poster text, website, hotline, giá, SKU, watermark, sponsor lạ, logo
+  CLB nổi tiếng hoặc quốc kỳ/đội tuyển nếu user không yêu cầu.
+
+Sau visual gate, lưu native output thành
+`work/<SKU>-team-photo-native-source.png` và WebP lossless thành
+`marketing/<SKU>-team-photo.webp`.
+
+## 8. Đóng gói và validate
 
 Đọc [output-contract.md](references/output-contract.md). Sau khi xem full-size và xác nhận:
 
@@ -221,6 +251,8 @@ phải giữ mặt áo rõ.
 - mockup có cấu trúc vải thật;
 - mockup khớp đúng hai master;
 - sales copy đủ nhóm bắt buộc, chính xác và không che sản phẩm;
+- team photo đúng số người đã khóa, áo đồng bộ khớp mẫu và không có branding/text
+  ngoài ý muốn;
 - source branding không lọt vào output;
 
 tạo manifest:
@@ -247,7 +279,7 @@ python3 scripts/deliver_print_masters.py /absolute/path/to/product-folder \
 
 Output bắt buộc là `/Volumes/Data/x24_project/mayaobongda.vn/<SKU>_truoc.png` và `<SKU>_sau.png`. Script từ chối ghi đè file khác nội dung; chỉ dùng `--overwrite` khi người dùng yêu cầu rõ.
 
-## 8. Publish khi được yêu cầu
+## 9. Publish khi được yêu cầu
 
 Đọc [publishing.md](references/publishing.md). Dùng `create-tenant-product`; không dùng legacy publisher của `football-mockup-convert`. Sales image là hero, mockup base có thể vào gallery; không upload print masters.
 
@@ -256,5 +288,5 @@ Output bắt buộc là `/Volumes/Data/x24_project/mayaobongda.vn/<SKU>_truoc.pn
 - Mỗi asset riêng một lần gọi imagegen; không dùng contact sheet làm deliverable.
 - Hai concept original liền nhau khác ít nhất ba trục sáng tạo.
 - Batch trên 10 sản phẩm chia đợt 10–20 và checkpoint sau mỗi đợt.
-- Mỗi sản phẩm hoàn tất master → mockup → sales → validate trước sản phẩm tiếp theo.
+- Mỗi sản phẩm hoàn tất master → mockup → sales → team photo → validate trước sản phẩm tiếp theo.
 - Không publish hàng loạt ảnh chưa visual-review.

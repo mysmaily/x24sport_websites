@@ -21,6 +21,9 @@ sắc, và chọn `salesStyle` ổn định theo SKU từ
 sáng, nền và typography; `salesComposition` điều khiển hoán đổi trái/phải, người
 mẫu full body hoặc chân dung, và tỷ trọng product matrix. Cả hai không được đổi
 master front/back, palette sản phẩm, copy lock hoặc số lượng view bắt buộc.
+Script cũng chọn `teamPhoto` ổn định theo SKU: `playerCount` là số nguyên từ
+`5` đến `11`, kèm formation/promptNotes cho ảnh tập thể đội bóng. Cùng SKU retry
+phải giữ nguyên số người và formation, trừ khi user khóa override rõ trong brief.
 
 Trước khi chốt `design-spec.json`, đọc `user-taste-profile.md` và ghi rõ các
 trường taste/market-fit bắt buộc. Output của script không được vượt gu người dùng:
@@ -51,6 +54,9 @@ mô tả và không dừng workflow chỉ vì không tìm thấy ảnh SKU.
 - `salesComposition`: một trong 5 biến thể bố cục để cùng một style vẫn đa dạng:
   `model-left-full-body`, `model-right-full-body`, `model-left-portrait`,
   `model-right-portrait`, `product-focus-no-model`.
+- `teamPhoto`: số lượng cầu thủ từ 5-11 và formation ảnh đội, lấy ổn định theo
+  SKU để mỗi mẫu có thêm một ảnh lifestyle tập thể không bị lặp số người quá máy
+  móc.
 
 Không xem sự thay đổi màu đơn thuần là concept mới. Hai concept kề nhau phải khác tối thiểu ba trục. `salesStyle` và `salesComposition` là trục phụ giúp catalog phong phú hơn, nhưng không thay thế khác biệt thật ở motif, geometry, layout, colorStrategy hoặc palette.
 

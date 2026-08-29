@@ -32,6 +32,17 @@ def image_info(path: Path) -> tuple[list[int], str]:
         return list(image.size), str(image.format)
 
 
+def team_photo_player_count(spec_path: Path) -> int:
+    spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    team_photo = spec.get("teamPhoto")
+    if not isinstance(team_photo, dict):
+        raise SystemExit("design-spec.json must contain teamPhoto")
+    player_count = team_photo.get("playerCount")
+    if not isinstance(player_count, int) or not 5 <= player_count <= 11:
+        raise SystemExit("design-spec.json teamPhoto.playerCount must be an integer from 5 to 11")
+    return player_count
+
+
 def target_pixels_from_aspect(aspect_ratio: float, long_edge_px: int) -> list[int]:
     if aspect_ratio >= 1:
         return [long_edge_px, round(long_edge_px / aspect_ratio)]
@@ -106,13 +117,16 @@ def main() -> None:
     front_source = folder / "work" / f"{args.sku}-front-source.png"
     back_source = folder / "work" / f"{args.sku}-back-source.png"
     native_sales_source = folder / "work" / f"{args.sku}-sales-native-source.png"
+    native_team_photo_source = folder / "work" / f"{args.sku}-team-photo-native-source.png"
+    player_count = team_photo_player_count(spec)
     files = [
         ("front print master", folder / "print" / f"{args.sku}-front-print.png", front_source),
         ("back print master", folder / "print" / f"{args.sku}-back-print.png", back_source),
         ("mockup base", folder / "marketing" / f"{args.sku}-mockup-base.webp", None),
         ("sales image", folder / "marketing" / f"{args.sku}-sales.webp", None),
+        ("team photo", folder / "marketing" / f"{args.sku}-team-photo.webp", None),
     ]
-    required_support = [front_source, back_source, native_sales_source]
+    required_support = [front_source, back_source, native_sales_source, native_team_photo_source]
     missing = [str(path) for path in required_support if not path.is_file()]
     missing.extend(str(path) for _, path, _ in files if not path.is_file())
     if missing:
@@ -137,7 +151,13 @@ def main() -> None:
             "factoryPatternIncluded": False,
             "vectorIncluded": False,
         },
-        "files": [file_record(role, path, source) for role, path, source in files],
+        "files": [
+            {
+                **file_record(role, path, source),
+                **({"playerCount": player_count} if role == "team photo" else {}),
+            }
+            for role, path, source in files
+        ],
         "salesGeneration": {
             "mode": "imagegen-native",
             "postCompositeApplied": False,
@@ -147,6 +167,16 @@ def main() -> None:
                 "pixels": image_info(native_sales_source)[0],
             },
         },
+        "teamPhotoGeneration": {
+            "mode": "imagegen-native",
+            "postCompositeApplied": False,
+            "nativeSource": {
+                "path": str(native_team_photo_source),
+                "sha256": checksum(native_team_photo_source),
+                "pixels": image_info(native_team_photo_source)[0],
+            },
+            "playerCount": player_count,
+        },
         "visualApproval": {
             "frontFlatArtworkOnly": approved,
             "backFlatArtworkOnly": approved,
@@ -154,6 +184,7 @@ def main() -> None:
             "mockupMatchesFront": approved,
             "mockupMatchesBack": approved,
             "commercialTextExact": approved,
+            "teamPhotoMatchesKit": approved,
         },
     }
     output.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

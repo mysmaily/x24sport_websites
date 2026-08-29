@@ -59,6 +59,15 @@ DEFAULT_NAME_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "foot
 DEFAULT_SALES_STYLE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-styles.json"
 DEFAULT_SALES_COMPOSITION_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-compositions.json"
 DEFAULT_FEATURE_BADGE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-feature-badges.json"
+TEAM_PHOTO_FORMATIONS = [
+    {"id": "single-row-five", "playerCount": 5, "promptNotes": "Use one compact standing row of five Vietnamese amateur football players, shoulder-to-shoulder, all jersey fronts readable."},
+    {"id": "single-row-six", "playerCount": 6, "promptNotes": "Use one standing row of six Vietnamese amateur football players, slightly arced toward camera, all jersey fronts readable."},
+    {"id": "two-row-seven", "playerCount": 7, "promptNotes": "Use a two-row team-photo formation: four standing behind, three crouching or kneeling in front."},
+    {"id": "two-row-eight", "playerCount": 8, "promptNotes": "Use a two-row team-photo formation: five standing behind, three crouching or kneeling in front."},
+    {"id": "two-row-nine", "playerCount": 9, "promptNotes": "Use a balanced two-row team-photo formation: five standing behind, four crouching or kneeling in front."},
+    {"id": "two-row-ten", "playerCount": 10, "promptNotes": "Use a balanced two-row team-photo formation: six standing behind, four crouching or kneeling in front."},
+    {"id": "two-row-eleven", "playerCount": 11, "promptNotes": "Use a classic full team-photo formation: six standing behind, five crouching or kneeling in front."},
+]
 
 
 def index(seed: bytes, label: str, size: int, offset: int = 0) -> int:
@@ -155,6 +164,10 @@ def choose_sales_composition(sku: str, library: list[dict[str, object]]) -> dict
     return library[index(sku.encode("ascii"), "sales-composition", len(library))]
 
 
+def choose_team_photo(sku: str) -> dict[str, object]:
+    return TEAM_PHOTO_FORMATIONS[index(sku.encode("ascii"), "team-photo", len(TEAM_PHOTO_FORMATIONS))]
+
+
 def make_direction(
     sku: str,
     offset: int,
@@ -178,6 +191,7 @@ def make_direction(
         "palette": PALETTES[index(seed, "palette", len(PALETTES), offset)],
         "salesStyle": sales_style,
         "salesComposition": sales_composition,
+        "teamPhoto": choose_team_photo(sku),
         "featureBadges": feature_badge_library,
         "creativeGuardrail": "Do not default to a Tron/neon one-tone look. Use the selected motif, geometry, colorStrategy and palette to create varied football kit language with clear base, contrast and accent roles.",
         "edgeContinuity": "edge-coherent side bands; confirm exact seam alignment only on factory pattern",
@@ -285,6 +299,8 @@ def main() -> None:
                     row["salesStyle"] = choose_sales_style(args.sku, sales_style_library)
                 if not row.get("salesComposition"):
                     row["salesComposition"] = choose_sales_composition(args.sku, sales_composition_library)
+                if not row.get("teamPhoto"):
+                    row["teamPhoto"] = choose_team_photo(args.sku)
                 if not row.get("featureBadges"):
                     row["featureBadges"] = feature_badge_library
                 if not row.get("colorStrategy"):
