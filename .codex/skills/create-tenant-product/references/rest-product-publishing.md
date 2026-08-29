@@ -54,6 +54,8 @@
 
 `descriptionParagraphs` is converted to Payload Lexical rich text. `attributes[].values`, `badges`, `searchTags`, and media `searchTags` are converted to Payload array-row objects. Local media files may be PNG, JPEG, or WebP in the input JSON, but the helper always converts them to WebP quality 100 before `POST /api/media`; uploaded filenames, MIME type, and `sourceChecksum` refer to the converted WebP bytes. `uploadFormat` must be `"webp"`; PNG uploads are rejected. By default, upload filenames use the product slug plus `anh-chinh`, `anh-2`, etc. Set media `filenameBase` for a clearer Vietnamese ASCII basename. Use `forceUploadForFilename: true` only for a deliberate one-time media rename migration; normal retries should leave it unset to preserve idempotency.
 
+For storefronts that support contextual product media, including Mayaobongda and Mayaodongphuc, `media[0]` is the gallery hero and `media[1..n]` is reused below the long product description as semantic `<figure><img><figcaption>` content. The helper requires every media item after the first to include buyer-natural `alt` text because those storefronts may also display it as the visible caption. Do not use artifact labels such as "ảnh 2", "mockup", or raw model-count analysis in those fields.
+
 ## Environment
 
 The script expects:

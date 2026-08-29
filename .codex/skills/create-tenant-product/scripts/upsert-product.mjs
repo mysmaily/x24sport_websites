@@ -36,6 +36,20 @@ if (!TENANT_SLUG) throw new Error('tenantSlug is required in input JSON or TENAN
 if (!input.product?.name) throw new Error('product.name is required')
 if (!input.product?.slug) input.product.slug = slugify(input.product.name)
 
+function validateContextualMedia(mediaItems = []) {
+  const missing = mediaItems
+    .map((item, index) => ({ item, index }))
+    .slice(1)
+    .filter(({ item }) => !item?.alt?.trim())
+    .map(({ index }) => index + 1)
+
+  if (missing.length) {
+    throw new Error(`media[${missing.join(', ')}] need buyer-natural alt/caption text because gallery images after the hero are rendered below the product description`)
+  }
+}
+
+validateContextualMedia(input.media || [])
+
 const authHeaders = () => ({ Authorization: `users API-Key ${PAYLOAD_API_KEY}` })
 const jsonHeaders = () => ({ ...authHeaders(), 'Content-Type': 'application/json' })
 const unwrapDoc = (data) => data?.doc || data
@@ -341,6 +355,12 @@ console.log(JSON.stringify({
     sourceChecksum: media.sourceChecksum,
     uploadFilename: media.uploadFilename,
     uploadMimeType: media.uploadMimeType,
+  })),
+  contextualMedia: mediaRecords.slice(1).map((media, index) => ({
+    galleryIndex: index + 2,
+    id: media.id,
+    alt: media.alt,
+    url: media.url,
   })),
   categoryCounts,
 }, null, 2))

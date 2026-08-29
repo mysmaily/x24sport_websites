@@ -18,6 +18,32 @@ import { footballCategoryPath } from '../lib/category-paths'
 import { PHONE_DISPLAY, PHONE_VALUE, ZALO_URL, canonical, excerpt } from '../lib/site'
 import { rewriteLegacyHtml } from '../lib/legacy-content'
 
+function ContextualProductImages({ images, productName }: { images: ReturnType<typeof productImages>; productName: string }) {
+  if (!images.length) return null
+
+  return (
+    <div className="not-prose mt-9 grid gap-7">
+      {images.map((image) => {
+        const caption = image.alt?.trim() || `${productName} trong bộ sưu tập mẫu đặt may.`
+        return (
+          <figure className="overflow-hidden rounded-lg border border-slate-200 bg-white" key={image.id || image.url}>
+            <img
+              alt={caption}
+              className="h-auto w-full bg-slate-50 object-contain"
+              decoding="async"
+              height={image.height || 1254}
+              loading="lazy"
+              src={image.url}
+              width={image.width || 1254}
+            />
+            <figcaption className="border-t border-slate-100 px-4 py-3 text-sm leading-6 text-slate-600">{caption}</figcaption>
+          </figure>
+        )
+      })}
+    </div>
+  )
+}
+
 function productBreadcrumbCategory(product: Product) {
   const categories = (product.categories || []).filter(
     (category): category is ProductCategory => typeof category === 'object',
@@ -44,7 +70,8 @@ export async function ProductDetailPage({
   const showInterestForm = await hasProductInterestForm()
   const breadcrumbCategory = productBreadcrumbCategory(product)
   const descriptionBlocks = getProductDescriptionBlocks(product)
-  const hasDetailedDescription = Boolean(product.contentHtml || descriptionBlocks.length)
+  const contextualImages = images.slice(1)
+  const hasDetailedDescription = Boolean(product.contentHtml || descriptionBlocks.length || contextualImages.length)
   const breadcrumbItems = [
     { name: 'Trang chủ', item: canonical('/') },
     { name: catalogLabel, item: canonical(catalogHref) },
@@ -97,7 +124,10 @@ export async function ProductDetailPage({
           <section className="grid gap-8 py-14 sm:py-20 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-16">
             <div className="self-start border-t-2 border-slate-950 pt-4 text-xs font-black uppercase tracking-wider text-slate-500 lg:sticky lg:top-28"><span>Thông tin mẫu</span><b className="mt-2 block text-brand">Details / {product.slug.slice(-10)}</b></div>
             {product.contentHtml ? (
-              <div className="prose" dangerouslySetInnerHTML={{ __html: rewriteLegacyHtml(product.contentHtml) }} />
+              <div className="prose">
+                <div dangerouslySetInnerHTML={{ __html: rewriteLegacyHtml(product.contentHtml) }} />
+                <ContextualProductImages images={contextualImages} productName={product.name} />
+              </div>
             ) : (
               <div className="prose">
                 {descriptionBlocks.map((block, index) => (
@@ -105,6 +135,7 @@ export async function ProductDetailPage({
                     ? <div key={index} dangerouslySetInnerHTML={{ __html: rewriteLegacyHtml(block.html) }} />
                     : <p key={index}>{block.text}</p>
                 ))}
+                <ContextualProductImages images={contextualImages} productName={product.name} />
               </div>
             )}
           </section>
