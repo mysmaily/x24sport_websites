@@ -8,6 +8,8 @@ import hashlib
 import json
 import re
 import shutil
+import subprocess
+import sys
 from pathlib import Path
 
 try:
@@ -45,6 +47,16 @@ def main() -> None:
 
     folder = args.folder.expanduser().resolve()
     destination = args.destination_root.expanduser().resolve()
+    validator = Path(__file__).with_name("validate_delivery.py")
+    validated = subprocess.run(
+        [sys.executable, str(validator), str(folder)],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if validated.returncode != 0:
+        details = (validated.stderr or validated.stdout).strip()
+        raise SystemExit(f"Delivery validation failed; nothing was copied: {details}")
     pairs = [
         (
             "front",

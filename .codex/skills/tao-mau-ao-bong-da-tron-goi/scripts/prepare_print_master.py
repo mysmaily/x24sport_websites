@@ -5,16 +5,25 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 try:
-    from PIL import Image, ImageColor, ImageOps
+    from PIL import Image, ImageColor, ImageOps, PngImagePlugin
 except ImportError as error:
     raise SystemExit("Pillow is required") from error
 
 
 MM_PER_INCH = 25.4
+SAFE_LANCZOS_SCALE = 2.0
+REALESRGAN_NATIVE_SCALE = 4
+DEFAULT_MAX_TOTAL_UPSCALE = 8.0
+
+
+def default_realesrgan_root() -> Path:
+    return Path.home() / "Library" / "Caches" / "x24sport" / "realesrgan-ncnn-vulkan-v0.2.5.0"
 
 
 def parse_args() -> argparse.Namespace:
@@ -38,12 +47,99 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--fit", choices=("cover", "contain"), default="cover")
     parser.add_argument("--background", default="#ffffff", help="Used only with contain")
     parser.add_argument(
+        "--upscale-engine",
+        choices=("auto", "lanczos", "realesrgan"),
+        default="auto",
+        help=(
+            "auto uses Real-ESRGAN above 2x and Lanczos otherwise. "
+            "Plain Lanczos is rejected above 2x because it cannot restore print detail."
+        ),
+    )
+    parser.add_argument("--realesrgan-root", type=Path, default=default_realesrgan_root())
+    parser.add_argument(
+        "--realesrgan-model",
+        choices=("realesrgan-x4plus", "realesrgan-x4plus-anime", "realesr-animevideov3"),
+        default="realesrgan-x4plus",
+        help="General x4plus is the print-artwork default; the other models may remove faint geometry.",
+    )
+    parser.add_argument("--realesrgan-tile", type=int, default=256)
+    parser.add_argument("--realesrgan-tta", action="store_true", help="Enable slower test-time augmentation")
+    parser.add_argument("--max-total-upscale", type=float, default=DEFAULT_MAX_TOTAL_UPSCALE)
+    parser.add_argument(
+        "--allow-unsafe-lanczos-upscale",
+        action="store_true",
+        help="Create a review-only Lanczos enlargement above 2x; delivery validation will reject it.",
+    )
+    parser.add_argument(
         "--max-source-aspect-drift",
         type=float,
         help="Reject source aspect ratios that differ from the target by more than this relative fraction.",
     )
     parser.add_argument("--overwrite", action="store_true")
     return parser.parse_args()
+
+
+def crop_to_aspect(image: Image.Image, target_aspect: float) -> Image.Image:
+    """Apply the cover crop before expensive restoration, without stretching."""
+    source_aspect = image.width / image.height
+    if abs(source_aspect - target_aspect) < 1e-9:
+        return image
+    if source_aspect > target_aspect:
+        width = max(1, round(image.height * target_aspect))
+        left = (image.width - width) // 2
+        return image.crop((left, 0, left + width, image.height))
+    height = max(1, round(image.width / target_aspect))
+    top = (image.height - height) // 2
+    return image.crop((0, top, image.width, top + height))
+
+
+def run_realesrgan(
+    image: Image.Image,
+    *,
+    root: Path,
+    model: str,
+    tile: int,
+    tta: bool,
+) -> Image.Image:
+    root = root.expanduser().resolve()
+    binary = root / "realesrgan-ncnn-vulkan"
+    models = root / "models"
+    model_file_stem = f"{model}-x4" if model == "realesr-animevideov3" else model
+    required = [binary, models / f"{model_file_stem}.param", models / f"{model_file_stem}.bin"]
+    missing = [str(path) for path in required if not path.is_file()]
+    if missing:
+        installer = Path(__file__).with_name("install_print_upscaler.py")
+        raise SystemExit(
+            "Real-ESRGAN print upscaler is not installed. Run: "
+            f"{sys.executable} {installer} --destination {root}. Missing: {', '.join(missing)}"
+        )
+    if tile != 0 and tile < 32:
+        raise SystemExit("--realesrgan-tile must be 0 (auto) or at least 32")
+
+    with tempfile.TemporaryDirectory(prefix="x24-print-sr-") as temp_name:
+        temp = Path(temp_name)
+        sr_input = temp / "input.png"
+        sr_output = temp / "output.png"
+        image.save(sr_input, format="PNG", compress_level=1)
+        command = [
+            str(binary),
+            "-i", str(sr_input),
+            "-o", str(sr_output),
+            "-m", str(models),
+            "-n", model,
+            "-s", str(REALESRGAN_NATIVE_SCALE),
+            "-t", str(tile),
+            "-f", "png",
+        ]
+        if tta:
+            command.append("-x")
+        completed = subprocess.run(command, capture_output=True, text=True, check=False)
+        if completed.returncode != 0 or not sr_output.is_file():
+            details = (completed.stderr or completed.stdout).strip()
+            raise SystemExit(f"Real-ESRGAN failed: {details}")
+        with Image.open(sr_output) as restored:
+            restored.load()
+            return restored.convert("RGB").copy()
 
 
 def target_pixels(args: argparse.Namespace) -> tuple[tuple[int, int], str]:
@@ -115,12 +211,50 @@ def main() -> None:
                 "Regenerate or crop-review the source master instead of stretching."
             )
 
+    if args.max_total_upscale <= 0:
+        raise SystemExit("--max-total-upscale must be positive")
     if args.fit == "cover":
         scale = max(target[0] / source_image.width, target[1] / source_image.height)
+        prepared_source = crop_to_aspect(source_image, target_aspect)
     else:
         scale = min(target[0] / source_image.width, target[1] / source_image.height)
-    resized_size = (round(source_image.width * scale), round(source_image.height * scale))
-    resized = source_image.resize(resized_size, Image.Resampling.LANCZOS)
+        prepared_source = source_image
+    if scale > args.max_total_upscale:
+        raise SystemExit(
+            f"Required upscale {scale:.2f}x exceeds the {args.max_total_upscale:.2f}x print-quality limit. "
+            "Regenerate a larger native master instead of inventing more raster detail."
+        )
+
+    upscale_engine = args.upscale_engine
+    if upscale_engine == "auto":
+        upscale_engine = "realesrgan" if scale > SAFE_LANCZOS_SCALE else "lanczos"
+    if (
+        upscale_engine == "lanczos"
+        and scale > SAFE_LANCZOS_SCALE
+        and not args.allow_unsafe_lanczos_upscale
+    ):
+        raise SystemExit(
+            f"Lanczos-only upscale {scale:.2f}x is not print-safe. "
+            "Install/use Real-ESRGAN or regenerate a larger native source."
+        )
+
+    sr_applied = upscale_engine == "realesrgan" and scale > 1.0
+    if sr_applied:
+        intermediate = run_realesrgan(
+            prepared_source,
+            root=args.realesrgan_root,
+            model=args.realesrgan_model,
+            tile=args.realesrgan_tile,
+            tta=args.realesrgan_tta,
+        )
+    else:
+        intermediate = prepared_source
+    if args.fit == "cover":
+        post_scale = max(target[0] / intermediate.width, target[1] / intermediate.height)
+    else:
+        post_scale = min(target[0] / intermediate.width, target[1] / intermediate.height)
+    resized_size = (round(intermediate.width * post_scale), round(intermediate.height * post_scale))
+    resized = intermediate.resize(resized_size, Image.Resampling.LANCZOS)
 
     if args.fit == "cover":
         left = max(0, (resized.width - target[0]) // 2)
@@ -132,7 +266,27 @@ def main() -> None:
         canvas.paste(resized, ((target[0] - resized.width) // 2, (target[1] - resized.height) // 2))
 
     output.parent.mkdir(parents=True, exist_ok=True)
-    options: dict[str, object] = {"format": "PNG", "dpi": (args.ppi, args.ppi), "compress_level": 6}
+    quality_gate = (
+        "pass-super-resolution"
+        if sr_applied
+        else "pass-native-or-lanczos-under-2x"
+        if scale <= SAFE_LANCZOS_SCALE
+        else "review-only-unsafe-lanczos"
+    )
+    pnginfo = PngImagePlugin.PngInfo()
+    pnginfo.add_text("x24.upscaleEngine", upscale_engine)
+    pnginfo.add_text("x24.upscaleModel", args.realesrgan_model if sr_applied else "none")
+    pnginfo.add_text("x24.sourcePixels", f"{source_pixels[0]}x{source_pixels[1]}")
+    pnginfo.add_text("x24.scaleFactor", f"{scale:.6f}")
+    pnginfo.add_text("x24.superResolutionScale", str(REALESRGAN_NATIVE_SCALE if sr_applied else 1))
+    pnginfo.add_text("x24.postResizeScale", f"{post_scale:.6f}")
+    pnginfo.add_text("x24.qualityGate", quality_gate)
+    options: dict[str, object] = {
+        "format": "PNG",
+        "dpi": (args.ppi, args.ppi),
+        "compress_level": 6,
+        "pnginfo": pnginfo,
+    }
     if icc:
         options["icc_profile"] = icc
     canvas.save(output, **options)
@@ -149,7 +303,13 @@ def main() -> None:
         "fit": args.fit,
         "scaleFactor": round(scale, 4),
         "resampled": abs(scale - 1.0) > 0.01,
-        "fidelityWarning": scale > 2.0,
+        "upscaleEngine": upscale_engine,
+        "upscaleModel": args.realesrgan_model if sr_applied else None,
+        "superResolutionScale": REALESRGAN_NATIVE_SCALE if sr_applied else 1,
+        "intermediatePixels": list(intermediate.size),
+        "postResizeScale": round(post_scale, 4),
+        "qualityGate": quality_gate,
+        "fidelityWarning": scale > SAFE_LANCZOS_SCALE and not sr_applied,
     }, ensure_ascii=False, indent=2))
 
 

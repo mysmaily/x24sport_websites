@@ -63,19 +63,29 @@ Dùng `scripts/deliver_print_masters.py`; không đổi tên thủ công. Script
       "role": "front print master",
       "path": "/absolute/path/print/X24-BD-000001-front-print.png",
       "sha256": "...",
-      "pixels": [8268, 10039],
-      "sourcePixels": [1536, 1536],
+      "pixels": [6726, 10039],
+      "sourcePixels": [1024, 1536],
       "scaleFactor": 6.54,
-      "resampled": true
+      "resampled": true,
+      "upscaleEngine": "realesrgan",
+      "upscaleModel": "realesrgan-x4plus",
+      "superResolutionScale": 4,
+      "postResizeScale": 1.635,
+      "qualityGate": "pass-super-resolution"
     },
     {
       "role": "back print master",
       "path": "/absolute/path/print/X24-BD-000001-back-print.png",
       "sha256": "...",
-      "pixels": [8268, 10039],
-      "sourcePixels": [1536, 1536],
+      "pixels": [6726, 10039],
+      "sourcePixels": [1024, 1536],
       "scaleFactor": 6.54,
-      "resampled": true
+      "resampled": true,
+      "upscaleEngine": "realesrgan",
+      "upscaleModel": "realesrgan-x4plus",
+      "superResolutionScale": 4,
+      "postResizeScale": 1.635,
+      "qualityGate": "pass-super-resolution"
     },
     {
       "role": "mockup base",
@@ -134,7 +144,8 @@ spec nhưng không đưa ảnh seller vào gallery. `design-spec.json` phải c�
 `teamPhoto.playerCount` là số nguyên `5-11`. Chỉ truyền `--approve-visual` sau
 khi đã xem full-size cả năm ảnh và đối chiếu từng chuỗi copy. `validate_delivery.py`
 yêu cầu đúng năm role, file nằm trong product folder, SKU đồng nhất, PNG/WebP
-đúng loại, master đúng `targetPixels`/PPI, mockup và sales vuông tối thiểu
+đúng loại, master đúng `targetPixels`/PPI, master trên `2×` có provenance
+Real-ESRGAN 4× khớp giữa manifest và PNG, không phải Lanczos-only, mockup và sales vuông tối thiểu
 1200 px, team photo có cạnh dài tối thiểu 1200 px, checksum khớp và bảy cờ
 visual đều `true`. Validator còn yêu cầu copy lock trong `design-spec`,
 `salesGeneration.mode=imagegen-native`, `teamPhotoGeneration.mode=imagegen-native`,

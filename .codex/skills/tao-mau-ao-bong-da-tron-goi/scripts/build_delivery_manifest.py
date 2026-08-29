@@ -32,6 +32,24 @@ def image_info(path: Path) -> tuple[list[int], str]:
         return list(image.size), str(image.format)
 
 
+def print_provenance(path: Path) -> dict[str, object]:
+    with Image.open(path) as image:
+        info = image.info
+        engine = info.get("x24.upscaleEngine")
+        if not isinstance(engine, str):
+            return {}
+        try:
+            return {
+                "upscaleEngine": engine,
+                "upscaleModel": str(info.get("x24.upscaleModel", "none")),
+                "superResolutionScale": int(info.get("x24.superResolutionScale", "1")),
+                "postResizeScale": round(float(info.get("x24.postResizeScale", "1")), 4),
+                "qualityGate": str(info.get("x24.qualityGate", "missing")),
+            }
+        except (TypeError, ValueError) as error:
+            raise SystemExit(f"Invalid embedded print provenance in {path}: {error}") from error
+
+
 def team_photo_player_count(spec_path: Path) -> int:
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
     team_photo = spec.get("teamPhoto")
@@ -62,6 +80,7 @@ def file_record(role: str, path: Path, source_path: Path | None = None) -> dict[
         record["sourcePixels"] = source_pixels
         record["scaleFactor"] = round(max(pixels[0] / source_pixels[0], pixels[1] / source_pixels[1]), 4)
         record["resampled"] = pixels != source_pixels
+        record.update(print_provenance(path))
     return record
 
 

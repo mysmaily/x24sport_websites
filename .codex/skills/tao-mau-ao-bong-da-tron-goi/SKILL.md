@@ -151,15 +151,24 @@ Mỗi side có một bản đầu và tối đa hai correction pass có mục ti
 
 ## 4. Chuẩn hóa file in
 
+Trên máy macOS dùng workflow này, cài một lần bộ super-resolution chính thức đã
+pin version và checksum:
+
+```bash
+python3 scripts/install_print_upscaler.py
+```
+
 Sau visual gate, nếu dùng rập xưởng hiện tại thì chuẩn hóa bằng tỷ lệ trực tiếp:
 
 ```bash
 python3 scripts/prepare_print_master.py work/<SKU>-front-source.png print/<SKU>-front-print.png \
   --target-aspect-ratio 0.67 --target-long-edge-px 10039 --ppi 300 --fit cover \
+  --upscale-engine auto --realesrgan-model realesrgan-x4plus \
   --max-source-aspect-drift 0.08
 
 python3 scripts/prepare_print_master.py work/<SKU>-back-source.png print/<SKU>-back-print.png \
   --target-aspect-ratio 0.67 --target-long-edge-px 10039 --ppi 300 --fit cover \
+  --upscale-engine auto --realesrgan-model realesrgan-x4plus \
   --max-source-aspect-drift 0.08
 ```
 
@@ -168,14 +177,22 @@ Nếu chưa có rập xưởng, dùng generic fallback:
 ```bash
 python3 scripts/prepare_print_master.py work/<SKU>-front-source.png print/<SKU>-front-print.png \
   --width-mm 700 --height-mm 850 --ppi 300 --fit cover \
+  --upscale-engine auto --realesrgan-model realesrgan-x4plus \
   --max-source-aspect-drift 0.08
 
 python3 scripts/prepare_print_master.py work/<SKU>-back-source.png print/<SKU>-back-print.png \
   --width-mm 700 --height-mm 850 --ppi 300 --fit cover \
+  --upscale-engine auto --realesrgan-model realesrgan-x4plus \
   --max-source-aspect-drift 0.08
 ```
 
-Không stretch, JPEG, cutline hoặc ICC ngẫu nhiên. Script resample và gắn PPI nhưng không tạo chi tiết mới/vector. Ghi scale factor; trên 2× phải kiểm tra 100%/200% và khuyến nghị test swatch.
+Không stretch, JPEG, cutline hoặc ICC ngẫu nhiên. Từ `2×` trở xuống, script dùng
+Lanczos. Trên `2×`, `auto` bắt buộc chạy Real-ESRGAN `realesrgan-x4plus` để
+restoration/super-resolution trước rồi mới resample phần còn lại tới đúng canvas;
+Lanczos-only trên `2×` là review-only và validator từ chối giao xưởng. Tổng scale
+trên `8×` bị hard reject để buộc tạo source native lớn hơn. Luôn xem crop 100% và
+200%, kiểm tra line/halftone/gradient, rồi làm test swatch trước khi in hàng loạt.
+Super-resolution vẫn là raster suy đoán, không phải vector hay chi tiết native.
 Nếu script báo lệch aspect ratio vượt ngưỡng, phải tạo/crop-review lại source
 master theo tỷ lệ mục tiêu đang active trước khi chuẩn hóa, thay vì kéo méo
 artwork cho vừa rập. Với rập xưởng hiện tại, tỷ lệ mục tiêu của vùng thân áo là
@@ -278,6 +295,8 @@ python3 scripts/deliver_print_masters.py /absolute/path/to/product-folder \
 ```
 
 Output bắt buộc là `/Volumes/Data/x24_project/mayaobongda.vn/<SKU>_truoc.png` và `<SKU>_sau.png`. Script từ chối ghi đè file khác nội dung; chỉ dùng `--overwrite` khi người dùng yêu cầu rõ.
+Script chạy lại `validate_delivery.py` trước khi copy; nếu provenance upscale hoặc
+quality gate không hợp lệ thì không file nào được đưa vào Data volume.
 
 ## 9. Publish khi được yêu cầu
 

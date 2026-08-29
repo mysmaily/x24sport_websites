@@ -66,12 +66,22 @@ oversize để xưởng đặt lên rập panel áo, không phải ảnh vuông 
 
 ## Chất lượng nguồn và upscale
 
-`prepare_print_master.py` dùng Lanczos để đưa ảnh lên kích thước giao. Nó không tạo vector và không khôi phục chi tiết chưa có. Ghi `sourcePixels`, `targetPixels`, `scaleFactor` và `resampled: true|false` trong manifest.
+`prepare_print_master.py` dùng Lanczos khi tổng scale không vượt `2×`. Trên `2×`,
+workflow bắt buộc dùng Real-ESRGAN `realesrgan-x4plus` 4× để restoration và
+super-resolution trước, sau đó Lanczos chỉ làm bước khớp kích thước cuối. Nó
+không tạo vector và chi tiết mới vẫn là suy đoán raster. Ghi `sourcePixels`,
+`targetPixels`, `scaleFactor`, `upscaleEngine`, `upscaleModel`,
+`superResolutionScale`, `postResizeScale`, `qualityGate` và `resampled` trong
+manifest cũng như provenance nhúng trong PNG.
 
 Nếu scale factor lớn hơn 2×:
 
+- Lanczos-only bị hard reject khỏi delivery;
+- dùng model general `realesrgan-x4plus`; model anime có thể xóa line mảnh hoặc
+  texture có chủ đích và chỉ dùng sau A/B visual review;
+- tổng scale trên `8×` bị hard reject, phải tạo source native lớn hơn;
 - kiểm tra edge ở 100% và 200%;
-- ưu tiên shape lớn, không chấp nhận artefact/ringing;
+- kiểm tra tile seam, halo, pattern hallucination, noise và banding gradient;
 - tạo test swatch trước khi in hàng loạt;
 - không ghi “native 300 PPI” hoặc “vector-quality”.
 

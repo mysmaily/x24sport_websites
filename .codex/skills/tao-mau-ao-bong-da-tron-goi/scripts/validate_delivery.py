@@ -34,6 +34,8 @@ REQUIRED_SALES_SPEC_FIELDS = {
     "website", "hotline", "sizes", "selectedCollar",
 }
 FORBIDDEN_SALES_SPEC_FIELDS = {"price", "cta"}
+SAFE_LANCZOS_SCALE = 2.0
+MAX_TOTAL_UPSCALE = 8.0
 
 
 def fail(message: str) -> None:
@@ -157,6 +159,52 @@ def main() -> None:
                 fail(f"{role} must be {expected_pixels[0]}x{expected_pixels[1]} px")
             if min(float(dpi[0]), float(dpi[1])) < ppi - 1:
                 fail(f"{role} must carry at least {ppi} PPI metadata")
+            scale_factor = item.get("scaleFactor")
+            if not isinstance(scale_factor, (int, float)) or scale_factor <= 0:
+                fail(f"{role} must record a positive scaleFactor")
+            side = "front" if role.startswith("front") else "back"
+            source_path = folder / "work" / f"{sku}-{side}-source.png"
+            if not source_path.is_file():
+                fail(f"{role} source master is missing: {source_path}")
+            with Image.open(source_path) as source_image:
+                source_pixels = list(source_image.size)
+            expected_scale_factor = max(pixels[0] / source_pixels[0], pixels[1] / source_pixels[1])
+            if item.get("sourcePixels") != source_pixels:
+                fail(f"{role} sourcePixels do not match the source master")
+            if abs(float(scale_factor) - expected_scale_factor) > 0.001:
+                fail(f"{role} scaleFactor does not match source and target pixels")
+            if expected_scale_factor > MAX_TOTAL_UPSCALE:
+                fail(f"{role} exceeds the {MAX_TOTAL_UPSCALE:.0f}x print-quality limit")
+            with Image.open(path) as master_image:
+                embedded_engine = master_image.info.get("x24.upscaleEngine")
+                embedded_model = master_image.info.get("x24.upscaleModel")
+                embedded_quality_gate = master_image.info.get("x24.qualityGate")
+                try:
+                    embedded_sr_scale = int(master_image.info.get("x24.superResolutionScale", "0"))
+                    embedded_scale_factor = float(master_image.info.get("x24.scaleFactor", "0"))
+                    embedded_post_resize = float(master_image.info.get("x24.postResizeScale", "0"))
+                except (TypeError, ValueError):
+                    fail(f"{role} has invalid embedded super-resolution provenance")
+            if embedded_engine not in {"lanczos", "realesrgan"}:
+                fail(f"{role} is missing embedded print-quality provenance")
+            if item.get("upscaleEngine") != embedded_engine:
+                fail(f"{role} upscale engine does not match embedded provenance")
+            if item.get("qualityGate") != embedded_quality_gate:
+                fail(f"{role} quality gate does not match embedded provenance")
+            if abs(embedded_scale_factor - expected_scale_factor) > 0.001:
+                fail(f"{role} embedded scale factor does not match source and target pixels")
+            item_post_resize = item.get("postResizeScale")
+            if not isinstance(item_post_resize, (int, float)) or abs(float(item_post_resize) - embedded_post_resize) > 0.001:
+                fail(f"{role} post-resize scale does not match embedded provenance")
+            if scale_factor > SAFE_LANCZOS_SCALE:
+                if item.get("upscaleEngine") != "realesrgan" or embedded_engine != "realesrgan":
+                    fail(f"{role} above 2x must use Real-ESRGAN; Lanczos-only enlargement is review-only")
+                if item.get("upscaleModel") != embedded_model or not isinstance(embedded_model, str):
+                    fail(f"{role} upscale model does not match embedded provenance")
+                if item.get("superResolutionScale") != 4 or embedded_sr_scale != 4:
+                    fail(f"{role} above 2x must record 4x super-resolution restoration")
+                if item.get("qualityGate") != "pass-super-resolution" or embedded_quality_gate != "pass-super-resolution":
+                    fail(f"{role} did not pass the super-resolution quality gate")
         elif validation_kind == "team-photo":
             if max(pixels) < 1200:
                 fail("team photo must have a long edge of at least 1200 px")
