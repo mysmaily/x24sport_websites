@@ -23,6 +23,13 @@ rõ.
 - Vuông 1:1, tối thiểu 1200 × 1200 px.
 - Photorealistic sportswear catalog; vải polyester thể thao có mesh vừa phải, đường may, bo cổ, lai tay, độ dày gấu, nếp và bóng tiếp xúc tự nhiên.
 - Hiển thị áo trước và áo sau đủ lớn để đối chiếu. Có thể thêm quần và một cầu thủ Việt Nam mặc mặt trước nếu spec yêu cầu.
+- Khi có người mẫu, tuân thủ `modelPosePlan` từ spec. Không lặp mặc định một
+  pose đứng nghiêng nhìn từ trái sang phải. Ưu tiên luân phiên: nhìn thẳng
+  camera, ba phần tư nhìn camera, đứng thẳng chuyên nghiệp, bước nhẹ/chuyển động
+  thể thao, tay chống hông hoặc cầm bóng tự nhiên không che áo.
+- Với ảnh bán hàng/catalog, ưu tiên người mẫu từ đầu gối lên hoặc ba phần tư để
+  pattern áo đủ lớn. Full-body chỉ dùng khi cần khoe trọn set và vẫn phải đủ lớn
+  để kiểm áo.
 - Không seller logo, website, hotline, SKU hoặc text quảng cáo. Bố cục đủ linh hoạt để imagegen có thể cân lại khi tạo poster hoàn chỉnh.
 - Logo từ `assets/football-logo-sources.json` là badge mẫu của khách hàng trên áo, không phải seller logo; chỉ dùng khi người dùng yêu cầu nguồn logo đó.
 - Bối cảnh được sáng tạo theo palette: studio thể thao, stadium catalog, tunnel, training ground hoặc graphic set có chiều sâu. Không để background cạnh tranh với sản phẩm.
@@ -34,6 +41,8 @@ rõ.
 - pattern nổi như sticker, không warp theo form/nếp vải;
 - back có tên/số/logo do imagegen tự bịa;
 - model mặc pattern khác front master;
+- model lặp pose đứng nghiêng nhìn từ trái sang phải khi spec đã yêu cầu biến thể;
+- crop quá xa làm áo nhỏ, khó xem pattern trong sales/catalog;
 - có text/logo/contact sai hoặc watermark nguồn;
 - không nhìn đủ cả mặt trước và mặt sau để kiểm tra.
 

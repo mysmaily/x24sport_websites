@@ -22,6 +22,12 @@ sáng, nền và typography; `salesComposition` điều khiển hoán đổi tr�
 mẫu full body hoặc chân dung, và tỷ trọng product matrix. Cả hai không được đổi
 master front/back, palette sản phẩm, copy lock hoặc số lượng view bắt buộc.
 
+Trước khi chốt `design-spec.json`, đọc `user-taste-profile.md` và ghi rõ các
+trường taste/market-fit bắt buộc. Output của script không được vượt gu người dùng:
+nếu direction sinh ra multi-color, festival, neon hoặc gradient gắt nhưng brief là
+công ty/ngân hàng, phải chuyển thành phiên bản restrained với 2-3 màu chính, một
+accent nhỏ, vùng nghỉ rõ và pattern sạch hơn.
+
 ## Trục sáng tạo
 
 - `motifFamily`: đủ rộng, không chỉ Tron/neon: tốc độ, địa hình, quỹ đạo, âm thanh, kiến trúc, lưới chiến thuật, năng lượng, khối mô-đun, sọc cổ điển, brush strokes, marble, flame, tropical leaf, digital camo, retro sport, paint splatter, watercolor, heritage sash, sunburst, racing check, gradient ribbons, micro-geometric, ink wave, festival color.
@@ -32,6 +38,10 @@ master front/back, palette sản phẩm, copy lock hoặc số lượng view b�
 - `backLayout`: phản hồi front nhưng phải giữ vùng tên/số sạch.
 - `accentPlacement`: vai, sườn, gấu, đường chéo ngực, panel lệch tâm.
 - `palette`: thường 3–5 màu chính; ít nhất một màu nền, một màu tương phản và một accent có tỷ lệ nhỏ. Chấp nhận gradient, phối hoạ tiết và mảng màu táo bạo nếu vẫn in được và có vùng yên cho logo/số.
+- `paletteDiscipline`: lấy từ `user-taste-profile.md`. Với công ty/ngân hàng,
+  giảm xuống 2-3 màu chính, một accent nhỏ, tránh neon/festival mix và ưu tiên
+  nền yên, mảng lớn sạch, vùng logo/số dễ đọc. Với đại trà/trẻ, vẫn kiểm soát
+  accent sáng dưới 15-20% diện tích để không thành lòe loẹt.
 - `salesStyle`: một trong 5 kiểu poster để trang catalog không bị lặp thị giác:
   `stadium-tech-showcase`, `clean-sky-studio`, `night-tunnel-pro`,
   `minimal-ecommerce-grid`, `street-futsal-energy`.
@@ -47,10 +57,19 @@ Không mặc định tạo áo kiểu phim Tron Legacy, cyber neon, nền đen v
 một màu. Kiểu đó vẫn được phép khi direction chọn đúng vibe, nhưng không phải
 ngôn ngữ mặc định của skill.
 
+Không mặc định đi theo hướng lòe loẹt nhiều hue bão hòa. Những SKU bị chê vì quá
+lòe loẹt hoặc khó bán trong `user-taste-profile.md` là negative anchors; chỉ dùng
+hướng tương tự khi brief nói rõ cần đại trà rất bắt mắt, và vẫn phải có anchor
+trung tính/vùng nghỉ.
+
 Prompt thiết kế nên chủ động dùng motif và colorStrategy đã khóa: có mẫu retro,
 sọc/hoops cổ điển, tropical, brush, marble, flame, camo, watercolor, color-block,
 gradient đa sắc, light-base hoặc warm-cool. Nếu concept tối giản/tonal, vẫn cần
 một điểm phá tương phản để áo không thành một khối màu phẳng.
+
+Với brief công ty, ngân hàng, doanh nghiệp hoặc đội nội bộ, luôn ưu tiên
+`corporate restrained`: sạch, tin cậy, ít màu, pattern lớn, không rối. Đây là
+market-fit gate; một mẫu nhìn thể thao nhưng sai phân khúc phải bị reject.
 
 ## Quy tắc thiết kế cho in chuyển nhiệt
 

@@ -21,6 +21,11 @@ Master front/back là nguồn sản xuất. Không tạo mockup trước rồi t
 
 Nếu một batch có cả hai loại, ghi `inputMode` cho từng SKU và xử lý từng sản phẩm end-to-end.
 
+Luôn đọc [user-taste-profile.md](references/user-taste-profile.md) trước khi tạo
+`design-spec.json`. Đây là gu vận hành hiện tại từ phản hồi SKU thật: ưu tiên
+mẫu thương mại, tinh gọn, dễ bán và đúng ngữ cảnh; tránh lòe loẹt, nền cạnh tranh
+với áo và pose người mẫu lặp.
+
 ## Phạm vi và mặc định
 
 Workflow mặc định là `images-only`; không tạo CMS record hoặc publish nếu người dùng chưa yêu cầu rõ.
@@ -54,6 +59,7 @@ Một SKU theo sản phẩm từ source/master đến mockup, sales image và pu
 Xác định:
 
 - mode, số sản phẩm, người mặc, màu bắt buộc/cấm;
+- phân khúc sử dụng: đại trà, CLB/trẻ, công ty, ngân hàng hoặc đội nội bộ;
 - collar, sleeves, shirt/shorts set;
 - exact assets được phép giữ;
 - sales layout và brand/copy;
@@ -80,6 +86,8 @@ Tạo `design-spec.json` trước khi sinh ảnh:
 - logoSource nếu dùng logo mẫu trên ảnh người mẫu/poster;
 - kích thước vật lý, PPI, color space, printing assumption;
 - mockup composition, sales layout, exact commercial copy;
+- `tasteProfileApplied`, `marketFitTarget`, `paletteDiscipline`, `modelPosePlan`
+  và `salesCrop` theo `references/user-taste-profile.md`;
 - sales feature badges/benefits: website, hotline, vải thoáng mát, bền màu, thấm mồ hôi tốt, bảo hành 1 đổi 1 và các thuộc tính phù hợp từ `assets/football-sales-feature-badges.json`.
 
 Với `original-design`, chạy:
@@ -138,6 +146,9 @@ Không redesign, simplify, recolor, mirror, swap hoặc invent pattern.
 ```
 
 Mockup vuông tối thiểu 1200 px, photorealistic, có model Việt Nam khi phù hợp, áo front/back và đúng một shorts view. Vải phải có mesh, seam, hem, drape, wrinkle và contact shadow thật. Không seller text/logo trong base.
+Người mẫu không được mặc định một kiểu đứng nghiêng nhìn từ trái sang phải; phải
+theo `modelPosePlan` trong spec và ưu tiên biến thể nhìn thẳng camera, ba phần tư,
+chuyển động nhẹ hoặc đứng thẳng chuyên nghiệp tùy phân khúc.
 
 Khi người dùng yêu cầu dùng logo bóng đá X24Sport, đọc `assets/football-logo-sources.json` và thêm một logo mẫu nhỏ trên ngực áo ở mockup/sales như badge in thật. Logo mẫu này không được đưa vào master front/back.
 
@@ -151,6 +162,9 @@ Hard reject nếu pattern drift, front/back bị đổi, áo phẳng/nhựa/CGI,
 - `catalog-reference`: dùng mockup/catalog base, hai master và `assets/catalog-sales-layout-reference.png` trong cùng lần gọi imagegen cuối; benchmark chỉ làm layout reference.
 
 Imagegen phải typeset toàn bộ commercial copy đã khóa trong spec ngay trong ảnh cuối: collection, title, SKU, ưu đãi, số trên model/front, tên/số/tên đội trên back, collar labels `Cổ tròn` / `Cổ Tim` / `Cổ polo`, size, chất liệu/công nghệ in, feature badges, website và hotline. Ảnh không có giá và không có button/text `XEM THÊM SẢN PHẨM`. Không dùng script/Pillow/ImageMagick/SVG/Canvas để đắp text hậu kỳ. Nếu chữ hoặc bố cục sai, sửa bằng imagegen correction pass. Lưu output imagegen gốc thành `work/<SKU>-sales-native-source.png`; WebP bàn giao chỉ được chuyển định dạng lossless và validator phải xác nhận pixel identity.
+Ảnh bán hàng ưu tiên crop người mẫu từ đầu gối lên hoặc ba phần tư để áo đủ lớn
+dễ xem trên catalog/mobile; chỉ dùng full-body khi thật sự cần khoe set và vẫn
+phải giữ mặt áo rõ.
 
 ## 7. Đóng gói và validate
 
