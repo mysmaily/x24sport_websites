@@ -12,7 +12,7 @@ import re
 from pathlib import Path
 
 
-SKU_RE = re.compile(r"^X24-BD-[0-9]{6}$")
+SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
 MOTIFS = ["velocity", "topographic", "orbit", "tactical-grid", "soundwave", "modular", "architectural", "energy-field"]
 GEOMETRIES = ["diagonal-shards", "contour-bands", "radial-arcs", "split-field", "chevrons", "offset-grid", "wave-ribbons", "topographic-lines"]
 ENERGIES = ["calm-technical", "balanced-athletic", "explosive-matchday"]
@@ -30,6 +30,7 @@ PALETTES = [
     {"name": "crimson-sand", "colors": ["#6B1020", "#C7354C", "#D9B382", "#FFF8EB"]},
     {"name": "teal-sun", "colors": ["#053B44", "#00A6A6", "#FFD166", "#F7FFF7"]},
 ]
+DEFAULT_NAME_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-product-names.json"
 
 
 def index(seed: bytes, label: str, size: int, offset: int = 0) -> int:
@@ -61,19 +62,67 @@ def make_direction(sku: str, offset: int) -> dict[str, object]:
     return direction
 
 
+def load_name_library(path: Path) -> list[dict[str, str]]:
+    try:
+        rows = json.loads(path.expanduser().resolve().read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise SystemExit(f"Could not read product-name library: {error}") from error
+    if not isinstance(rows, list) or len(rows) != 40:
+        raise SystemExit("Product-name library must contain exactly 40 entries")
+    names: set[str] = set()
+    slugs: set[str] = set()
+    result: list[dict[str, str]] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            raise SystemExit("Each product-name entry must be an object")
+        name = row.get("name")
+        slug = row.get("slug")
+        if not isinstance(name, str) or not name.strip() or len(name.split()) > 2:
+            raise SystemExit("Each product name must contain one or two English words")
+        if not isinstance(slug, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+            raise SystemExit("Each product-name slug must be lowercase kebab-case")
+        if name in names or slug in slugs:
+            raise SystemExit("Product-name library contains duplicates")
+        names.add(name)
+        slugs.add(slug)
+        result.append({"name": name, "slug": slug})
+    return result
+
+
+def choose_product_name(
+    sku: str,
+    registry_rows: list[dict[str, object]],
+    library: list[dict[str, str]],
+) -> dict[str, str]:
+    usage = {row["name"]: 0 for row in library}
+    for row in registry_rows:
+        name = row.get("productName")
+        if isinstance(name, str) and name in usage:
+            usage[name] += 1
+    minimum = min(usage.values())
+    available = [row for row in library if usage[row["name"]] == minimum]
+    return available[index(sku.encode("ascii"), "product-name", len(available))]
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sku", required=True)
     parser.add_argument("--registry", type=Path)
+    parser.add_argument("--name-library", type=Path, default=DEFAULT_NAME_LIBRARY)
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
     if not SKU_RE.fullmatch(args.sku):
-        raise SystemExit("--sku must match X24-BD-NNNNNN")
+        raise SystemExit("--sku must match X24-BD-FFHHDD")
+    name_library = load_name_library(args.name_library)
     if not args.registry:
-        print(json.dumps(make_direction(args.sku, 0), ensure_ascii=False, indent=2))
+        direction = make_direction(args.sku, 0)
+        selected_name = choose_product_name(args.sku, [], name_library)
+        direction["productName"] = selected_name["name"]
+        direction["productSlug"] = selected_name["slug"]
+        print(json.dumps(direction, ensure_ascii=False, indent=2))
         return
 
     registry = args.registry.expanduser().resolve()
@@ -89,6 +138,12 @@ def main() -> None:
                 continue
         for row in rows:
             if row.get("sku") == args.sku and row.get("uniquenessSignature"):
+                if not row.get("productName"):
+                    # Legacy rows without a stored name still need stable retry
+                    # behavior even as later registry usage counts change.
+                    selected_name = choose_product_name(args.sku, [], name_library)
+                    row["productName"] = selected_name["name"]
+                    row["productSlug"] = selected_name["slug"]
                 print(json.dumps(row, ensure_ascii=False, indent=2))
                 return
         used = {row.get("uniquenessSignature") for row in rows}
@@ -100,6 +155,9 @@ def main() -> None:
                 break
         if direction is None:
             raise SystemExit("Could not find an unused creative signature")
+        selected_name = choose_product_name(args.sku, rows, name_library)
+        direction["productName"] = selected_name["name"]
+        direction["productSlug"] = selected_name["slug"]
         handle.seek(0, os.SEEK_END)
         handle.write(json.dumps(direction, ensure_ascii=False) + "\n")
         handle.flush()

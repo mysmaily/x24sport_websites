@@ -27,7 +27,8 @@ Workflow mặc định là `images-only`; không tạo CMS record hoặc publish
 
 Khi thiếu thông số:
 
-- SKU: `X24-BD-NNNNNN`;
+- SKU: `X24-BD-FFHHDD`, trong đó `FF` là hai chữ số phần nghìn giây quy về centisecond, `HH` là giờ 24h và `DD` là ngày theo `Asia/Ho_Chi_Minh`;
+- tên sản phẩm: một hoặc hai từ tiếng Anh, lấy từ thư viện 40 tên `assets/football-product-names.json`;
 - in chuyển nhiệt trên polyester;
 - mỗi master: 700 × 850 mm, 300 PPI, PNG lossless, sRGB, full-bleed;
 - cổ áo: một trong `Cổ tròn`, `Cổ V`, `Cổ polo`;
@@ -48,7 +49,7 @@ python3 scripts/allocate_sku.py \
   --scan-root /absolute/path/to/generated/tao-mau-ao-bong-da-tron-goi
 ```
 
-Một SKU theo sản phẩm từ source/master đến mockup, sales image và publish. Không cấp lại SKU ở bước sau.
+Một SKU theo sản phẩm từ source/master đến mockup, sales image và publish. Không cấp lại SKU ở bước sau. Không tự gõ suffix; allocator phải khóa registry và tránh trùng.
 
 Xác định:
 
@@ -64,7 +65,7 @@ Xác định:
 
 Tạo `design-spec.json` trước khi sinh ảnh:
 
-- SKU, `inputMode`, concept/product slug;
+- SKU, `inputMode`, `productName` và `productSlug` do creative script cấp;
 - source analysis path nếu là conversion;
 - palette HEX và vai trò màu;
 - motif, geometry, energy, front/back layout, edge continuity;
@@ -81,7 +82,7 @@ python3 scripts/choose_creative_direction.py \
   --sku <SKU> --registry /absolute/path/to/creative-registry.jsonl
 ```
 
-Cùng SKU giữ direction qua retry; concept khác hẳn phải có SKU mới.
+Cùng SKU giữ direction và tên qua retry; thư viện dùng hết 40 tên một lượt rồi mới tái sử dụng tên có số lần xuất hiện thấp nhất. Concept khác hẳn phải có SKU mới.
 
 ## 3. Dựng master front/back
 

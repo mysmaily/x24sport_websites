@@ -8,11 +8,11 @@ Chạy sau khi cấp SKU:
 
 ```bash
 python3 scripts/choose_creative_direction.py \
-  --sku X24-BD-000001 \
-  --registry /absolute/path/to/batch-registry.jsonl
+  --sku X24-BD-421529 \
+  --registry /absolute/path/to/creative-registry.jsonl
 ```
 
-Script chọn hướng pseudo-random ổn định theo SKU và ghi registry. Cùng SKU luôn trả cùng hướng để retry không đổi concept; SKU mới có hướng mới. Output là nền cho `design-spec.json`, không phải prompt hoàn chỉnh và không thay quyết định thẩm mỹ.
+Script chọn hướng pseudo-random và `productName` ổn định theo SKU rồi ghi registry. Tên lấy từ `assets/football-product-names.json`, đúng 40 tên tiếng Anh ngắn; dùng hết một vòng trước khi dùng lại tên có tần suất thấp nhất. Cùng SKU luôn trả cùng hướng/tên để retry không đổi concept. Output là nền cho `design-spec.json`, không phải prompt hoàn chỉnh và không thay quyết định thẩm mỹ.
 
 ## Trục sáng tạo
 

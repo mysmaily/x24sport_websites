@@ -15,7 +15,7 @@ except ImportError as error:
     raise SystemExit("Pillow is required") from error
 
 
-SKU_RE = re.compile(r"^X24-BD-[0-9]{6}$")
+SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
 
 
 def checksum(path: Path) -> str:
@@ -68,7 +68,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     if not SKU_RE.fullmatch(args.sku):
-        raise SystemExit("--sku must match X24-BD-NNNNNN")
+        raise SystemExit("--sku must match X24-BD-FFHHDD")
     folder = args.folder.expanduser().resolve()
     spec = folder / "design-spec.json"
     output = folder / "delivery-manifest.json"

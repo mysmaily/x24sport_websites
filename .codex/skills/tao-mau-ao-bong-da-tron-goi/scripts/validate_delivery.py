@@ -15,7 +15,7 @@ except ImportError as error:
     raise SystemExit("Pillow is required") from error
 
 
-SKU_RE = re.compile(r"^X24-BD-[0-9]{6}$")
+SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
 EXPECTED_ROLES = {
     "front print master": ("PNG", False),
     "back print master": ("PNG", False),
@@ -58,7 +58,7 @@ def main() -> None:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     sku = manifest.get("sku")
     if not isinstance(sku, str) or not SKU_RE.fullmatch(sku):
-        fail("manifest sku must match X24-BD-NNNNNN")
+        fail("manifest sku must match X24-BD-FFHHDD")
     assumptions = manifest.get("productionAssumptions", {})
     physical = assumptions.get("physicalMm")
     ppi = assumptions.get("ppi")
