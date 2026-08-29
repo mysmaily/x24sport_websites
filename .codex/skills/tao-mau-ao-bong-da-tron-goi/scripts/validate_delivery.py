@@ -27,10 +27,11 @@ VISUAL_FLAGS = {
     "mockupMatchesFront", "mockupMatchesBack", "commercialTextExact",
 }
 REQUIRED_SALES_SPEC_FIELDS = {
-    "collection", "price", "offer", "modelNumber", "frontNumber",
-    "playerName", "playerNumber", "teamName", "materialLine", "cta",
+    "collection", "offer", "modelNumber", "frontNumber",
+    "playerName", "playerNumber", "teamName", "materialLine",
     "website", "hotline", "sizes", "selectedCollar",
 }
+FORBIDDEN_SALES_SPEC_FIELDS = {"price", "cta"}
 
 
 def fail(message: str) -> None:
@@ -136,6 +137,9 @@ def main() -> None:
     sales_spec = spec.get("sales")
     if not isinstance(sales_spec, dict) or not REQUIRED_SALES_SPEC_FIELDS.issubset(sales_spec):
         fail(f"design spec sales copy must contain: {sorted(REQUIRED_SALES_SPEC_FIELDS)}")
+    forbidden_present = FORBIDDEN_SALES_SPEC_FIELDS.intersection(sales_spec)
+    if forbidden_present:
+        fail(f"design spec sales copy must omit: {sorted(forbidden_present)}")
     for key in REQUIRED_SALES_SPEC_FIELDS:
         value = sales_spec[key]
         if isinstance(value, str) and not value.strip():

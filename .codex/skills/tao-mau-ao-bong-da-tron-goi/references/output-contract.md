@@ -22,6 +22,17 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
 
 `work/` chứa nguồn sinh ảnh và không phải file xưởng. Hai PNG trong `print/` là master raster giao xưởng. Hai WebP trong `marketing/` chỉ dùng duyệt/chào hàng.
 
+## Đích bàn giao file print
+
+Sau khi validator pass, copy lossless hai master đến:
+
+```text
+/Volumes/Data/x24_project/mayaobongda.vn/<SKU>_truoc.png
+/Volumes/Data/x24_project/mayaobongda.vn/<SKU>_sau.png
+```
+
+Dùng `scripts/deliver_print_masters.py`; không đổi tên thủ công. Script xác minh SHA-256 source/destination, idempotent nếu file đích cùng nội dung và từ chối ghi đè file khác nội dung nếu không có `--overwrite` được người dùng cho phép.
+
 ## Manifest tối thiểu
 
 ```json

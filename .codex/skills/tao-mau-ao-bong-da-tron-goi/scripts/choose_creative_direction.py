@@ -19,7 +19,7 @@ ENERGIES = ["calm-technical", "balanced-athletic", "explosive-matchday"]
 FRONT_LAYOUTS = ["shoulder-led", "diagonal-chest", "lower-body-rise", "side-convergence", "offset-center", "central-split"]
 BACK_LAYOUTS = ["quiet-center-side-echo", "upper-frame-clean-core", "lower-accent-clean-number-zone", "asymmetric-side-return"]
 ACCENTS = ["shoulder", "side-panels", "lower-hem", "diagonal-chest", "offset-center", "sleeve-echo"]
-COLLARS = ["crew-neck", "v-neck", "folded-polo"]
+COLLARS = ["crew-neck", "heart-neck", "folded-polo"]
 PALETTES = [
     {"name": "deep-ocean", "colors": ["#071E3D", "#0B63CE", "#F5F8FF", "#44D7B6"]},
     {"name": "ember-night", "colors": ["#161616", "#D7263D", "#F46036", "#F7F3E8"]},

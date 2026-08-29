@@ -31,9 +31,9 @@ Khi thiếu thông số:
 - tên sản phẩm: một hoặc hai từ tiếng Anh, lấy từ thư viện 40 tên `assets/football-product-names.json`;
 - in chuyển nhiệt trên polyester;
 - mỗi master: 700 × 850 mm, 300 PPI, PNG lossless, sRGB, full-bleed;
-- cổ áo: một trong `Cổ tròn`, `Cổ V`, `Cổ polo`;
+- cổ áo: một trong `Cổ tròn`, `Cổ Tim`, `Cổ polo`;
 - sales brand: `mayaobongda.vn`, hotline `0989 353 247`;
-- commercial defaults: `GIÁ TỪ 125.000Đ`, `IN TÊN + SỐ MIỄN PHÍ`, `VẢI MÈ THỂ THAO • THOÁNG MÁT • IN CHUYỂN NHIỆT`, CTA `XEM THÊM SẢN PHẨM`;
+- commercial defaults: `IN TÊN + SỐ MIỄN PHÍ`, `VẢI MÈ THỂ THAO • THOÁNG MÁT • IN CHUYỂN NHIỆT`; không hiển thị giá và không có button `XEM THÊM SẢN PHẨM`;
 - không tên/số/logo/sponsor trong master;
 - layout sales: `catalog-reference` khi cần ảnh chào hàng đầy đủ, `compact` cho ecommerce gọn.
 
@@ -141,7 +141,7 @@ Hard reject nếu pattern drift, front/back bị đổi, áo phẳng/nhựa/CGI,
 - `compact`: dùng mockup base đã duyệt làm edit target và yêu cầu imagegen thiết kế sản phẩm cùng title/contact trong một lượt.
 - `catalog-reference`: dùng mockup/catalog base, hai master và `assets/catalog-sales-layout-reference.png` trong cùng lần gọi imagegen cuối; benchmark chỉ làm layout reference.
 
-Imagegen phải typeset toàn bộ commercial copy đã khóa trong spec ngay trong ảnh cuối: collection, title, SKU, giá, ưu đãi, số trên model/front, tên/số/tên đội trên back, collar labels, size, chất liệu/công nghệ in, CTA, website và hotline. Không dùng script/Pillow/ImageMagick/SVG/Canvas để đắp text hậu kỳ. Nếu chữ hoặc bố cục sai, sửa bằng imagegen correction pass. Lưu output imagegen gốc thành `work/<SKU>-sales-native-source.png`; WebP bàn giao chỉ được chuyển định dạng lossless và validator phải xác nhận pixel identity.
+Imagegen phải typeset toàn bộ commercial copy đã khóa trong spec ngay trong ảnh cuối: collection, title, SKU, ưu đãi, số trên model/front, tên/số/tên đội trên back, collar labels `Cổ tròn` / `Cổ Tim` / `Cổ polo`, size, chất liệu/công nghệ in, website và hotline. Ảnh không có giá và không có button/text `XEM THÊM SẢN PHẨM`. Không dùng script/Pillow/ImageMagick/SVG/Canvas để đắp text hậu kỳ. Nếu chữ hoặc bố cục sai, sửa bằng imagegen correction pass. Lưu output imagegen gốc thành `work/<SKU>-sales-native-source.png`; WebP bàn giao chỉ được chuyển định dạng lossless và validator phải xác nhận pixel identity.
 
 ## 7. Đóng gói và validate
 
@@ -168,6 +168,16 @@ python3 scripts/validate_delivery.py /absolute/path/to/product-folder
 ```
 
 Chỉ báo hoàn tất khi visual gate và validator đều pass.
+
+Sau khi pass, giao hai master print vào volume dùng chung:
+
+```bash
+python3 scripts/deliver_print_masters.py /absolute/path/to/product-folder \
+  --sku <SKU> \
+  --destination-root /Volumes/Data/x24_project/mayaobongda.vn
+```
+
+Output bắt buộc là `/Volumes/Data/x24_project/mayaobongda.vn/<SKU>_truoc.png` và `<SKU>_sau.png`. Script từ chối ghi đè file khác nội dung; chỉ dùng `--overwrite` khi người dùng yêu cầu rõ.
 
 ## 8. Publish khi được yêu cầu
 
