@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tạo mẫu áo bóng đá trọn gói"
+  short_description: "Master in trước–sau và mockup chào hàng"
+  default_prompt: "Use $tao-mau-ao-bong-da-tron-goi để sáng tạo một mẫu áo bóng đá mới, khóa master in trước–sau rồi tạo mockup chào hàng trung thành."
