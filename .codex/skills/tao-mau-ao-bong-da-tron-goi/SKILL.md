@@ -32,6 +32,7 @@ Khi thiếu thông số:
 - mỗi master: 700 × 850 mm, 300 PPI, PNG lossless, sRGB, full-bleed;
 - cổ áo: một trong `Cổ tròn`, `Cổ V`, `Cổ polo`;
 - sales brand: `mayaobongda.vn`, hotline `0989 353 247`;
+- commercial defaults: `GIÁ TỪ 125.000Đ`, `IN TÊN + SỐ MIỄN PHÍ`, `VẢI MÈ THỂ THAO • THOÁNG MÁT • IN CHUYỂN NHIỆT`, CTA `XEM THÊM SẢN PHẨM`;
 - không tên/số/logo/sponsor trong master;
 - layout sales: `catalog-reference` khi cần ảnh chào hàng đầy đủ, `compact` cho ecommerce gọn.
 
@@ -139,7 +140,7 @@ Hard reject nếu pattern drift, front/back bị đổi, áo phẳng/nhựa/CGI,
 - `compact`: chừa title/contact zone rồi dùng `scripts/apply_sales_signature.py`.
 - `catalog-reference`: dùng `assets/catalog-sales-layout-reference.png` chỉ làm layout reference, tạo blank catalog base rồi dùng `scripts/apply_catalog_sales_copy.py`.
 
-Imagegen không được viết commercial copy. Title, SKU, collar labels, size, website và hotline phải composite deterministic. Benchmark chỉ điều khiển hierarchy; không điều khiển kit/pattern/brand.
+Imagegen không được viết commercial copy. Collection, title, SKU, giá, ưu đãi, collar labels, size, chất liệu/công nghệ in, CTA, website và hotline phải composite deterministic. Benchmark chỉ điều khiển hierarchy; không điều khiển kit/pattern/brand.
 
 ## 7. Đóng gói và validate
 
@@ -150,7 +151,7 @@ Imagegen không được viết commercial copy. Title, SKU, collar labels, size
 - master đúng pixel/PPI, không méo;
 - mockup có cấu trúc vải thật;
 - mockup khớp đúng hai master;
-- sales copy chính xác và không che sản phẩm;
+- sales copy đủ nhóm bắt buộc, chính xác và không che sản phẩm;
 - source branding không lọt vào output;
 
 tạo manifest:

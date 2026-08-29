@@ -25,9 +25,9 @@ FONT_CANDIDATES = {
     ],
 }
 COLLARS = [
-    ("crew", "Cổ tròn", 0.49),
-    ("v-neck", "Cổ V", 0.67),
-    ("polo", "Cổ polo", 0.85),
+    ("crew", "Cổ tròn", 0.54),
+    ("v-neck", "Cổ V", 0.72),
+    ("polo", "Cổ polo", 0.90),
 ]
 
 
@@ -77,6 +77,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sku", required=True)
     parser.add_argument("--website", default="mayaobongda.vn")
     parser.add_argument("--hotline", default="0989 353 247")
+    parser.add_argument("--collection", default="BỘ SƯU TẬP BÓNG ĐÁ 2026")
+    parser.add_argument("--price", default="GIÁ TỪ 125.000Đ")
+    parser.add_argument("--offer", default="IN TÊN + SỐ MIỄN PHÍ")
+    parser.add_argument(
+        "--material-line",
+        default="VẢI MÈ THỂ THAO • THOÁNG MÁT • IN CHUYỂN NHIỆT",
+    )
+    parser.add_argument("--cta", default="XEM THÊM SẢN PHẨM")
     parser.add_argument("--selected-collar", choices=("crew", "v-neck", "polo"), default="v-neck")
     parser.add_argument("--sizes", nargs="+", default=["S", "M", "L", "XL", "2XL", "3XL", "4XL"])
     parser.add_argument("--accent", default="#6C38FF")
@@ -112,32 +120,59 @@ def main() -> None:
     draw = ImageDraw.Draw(overlay)
 
     # Header area reserved by the catalog-base prompt.
-    header = (round(size * 0.39), round(size * 0.014), round(size * 0.97), round(size * 0.094))
+    header = (round(size * 0.39), round(size * 0.014), round(size * 0.97), round(size * 0.089))
     draw.rounded_rectangle(header, radius=round(size * 0.014), fill=(250, 250, 255, 224))
     draw.rectangle((header[0], header[1], header[0] + round(size * 0.009), header[3]), fill=(*accent, 255))
-    title_font = fit_font(draw, args.title, round(size * 0.036), round(size * 0.52), bold=True)
-    sku_font = get_font(round(size * 0.016), bold=False)
-    draw.text((header[0] + round(size * 0.024), round(size * 0.025)), args.title, font=title_font, fill=ink)
+    header_left = header[0] + round(size * 0.024)
+    collection_font = fit_font(draw, args.collection, round(size * 0.012), round(size * 0.50), bold=True)
+    title_font = fit_font(draw, args.title, round(size * 0.027), round(size * 0.52), bold=True)
+    sku_font = fit_font(draw, f"MÃ MẪU: {args.sku}", round(size * 0.014), round(size * 0.20), bold=False)
+    draw.text((header_left, round(size * 0.021)), args.collection, font=collection_font, fill=(*accent, 255))
+    draw.text((header_left, round(size * 0.038)), args.title, font=title_font, fill=ink)
     draw.text(
-        (header[0] + round(size * 0.024), round(size * 0.066)),
+        (header_left, round(size * 0.068)),
         f"MÃ MẪU: {args.sku}",
         font=sku_font,
-        fill=(*accent, 255),
+        fill=muted,
     )
+
+    # Price and offer are required sales information, not optional decoration.
+    price_box = (round(size * 0.605), round(size * 0.065), round(size * 0.770), round(size * 0.085))
+    offer_box = (round(size * 0.780), round(size * 0.065), round(size * 0.955), round(size * 0.085))
+    draw.rounded_rectangle(price_box, radius=round(size * 0.009), fill=(*accent, 255))
+    draw.rounded_rectangle(offer_box, radius=round(size * 0.009), fill=(255, 241, 202, 255))
+    price_font = fit_font(draw, args.price, round(size * 0.0115), price_box[2] - price_box[0] - round(size * 0.016), bold=True)
+    offer_font = fit_font(draw, args.offer, round(size * 0.0105), offer_box[2] - offer_box[0] - round(size * 0.014), bold=True)
+    centered_text(draw, (price_box[0] + price_box[2]) // 2, round(size * 0.068), args.price, price_font, (255, 255, 255, 255))
+    centered_text(draw, (offer_box[0] + offer_box[2]) // 2, round(size * 0.069), args.offer, offer_font, ink)
 
     # Collar section. The generated base supplies three blank thumbnail cards.
     heading_font = get_font(round(size * 0.017), bold=True)
-    centered_text(draw, round(size * 0.67), round(size * 0.615), "TÙY CHỌN CỔ ÁO", heading_font, ink)
+    heading_panel = (round(size * 0.625), round(size * 0.604), round(size * 0.815), round(size * 0.629))
+    draw.rounded_rectangle(
+        heading_panel,
+        radius=round(size * 0.009),
+        fill=(250, 250, 255, 235),
+        outline=(*accent, 120),
+    )
+    centered_text(draw, round(size * 0.72), round(size * 0.608), "TÙY CHỌN CỔ ÁO", heading_font, ink)
     collar_font = get_font(round(size * 0.014), bold=False)
     selected_font = get_font(round(size * 0.014), bold=True)
     for key, label, center in COLLARS:
         is_selected = key == args.selected_collar
         label_font = selected_font if is_selected else collar_font
         label_fill = (*accent, 255) if is_selected else muted
-        centered_text(draw, round(size * center), round(size * 0.763), label, label_font, label_fill)
+        label_panel = (
+            round(size * (center - 0.072)),
+            round(size * 0.724),
+            round(size * (center + 0.072)),
+            round(size * 0.758),
+        )
+        draw.rounded_rectangle(label_panel, radius=round(size * 0.006), fill=(250, 250, 255, 222))
+        centered_text(draw, round(size * center), round(size * 0.731), label, label_font, label_fill)
         if is_selected:
             cx = round(size * center)
-            cy = round(size * 0.788)
+            cy = round(size * 0.771)
             radius = round(size * 0.014)
             draw.ellipse((cx - radius, cy - radius, cx + radius, cy + radius), fill=(*accent, 255))
             draw.line(
@@ -153,13 +188,15 @@ def main() -> None:
 
     # Size row is drawn deterministically over the reserved blank control zone.
     size_heading_font = get_font(round(size * 0.015), bold=True)
-    draw.text((round(size * 0.39), round(size * 0.792)), "SIZE", font=size_heading_font, fill=ink)
+    size_label = (round(size * 0.39), round(size * 0.780), round(size * 0.46), round(size * 0.806))
+    draw.rounded_rectangle(size_label, radius=round(size * 0.008), fill=(250, 250, 255, 235))
+    centered_text(draw, round(size * 0.425), round(size * 0.785), "SIZE", size_heading_font, ink)
     row_left = round(size * 0.40)
     row_right = round(size * 0.96)
     gap = round(size * 0.007)
     button_width = (row_right - row_left - gap * (len(args.sizes) - 1)) // len(args.sizes)
-    button_top = round(size * 0.815)
-    button_bottom = round(size * 0.872)
+    button_top = round(size * 0.807)
+    button_bottom = round(size * 0.855)
     button_font = get_font(round(size * 0.016), bold=True)
     for index, label in enumerate(args.sizes):
         left = row_left + index * (button_width + gap)
@@ -180,15 +217,21 @@ def main() -> None:
             ink,
         )
 
-    # Footer contact panel.
-    footer = (round(size * 0.39), round(size * 0.895), round(size * 0.97), round(size * 0.972))
+    # CTA and footer contact panel.
+    cta = (round(size * 0.51), round(size * 0.870), round(size * 0.85), round(size * 0.904))
+    draw.rounded_rectangle(cta, radius=round(size * 0.012), fill=(*accent, 255))
+    cta_font = fit_font(draw, args.cta, round(size * 0.017), cta[2] - cta[0] - round(size * 0.025), bold=True)
+    centered_text(draw, (cta[0] + cta[2]) // 2, round(size * 0.877), args.cta, cta_font, (255, 255, 255, 255))
+
+    footer = (round(size * 0.39), round(size * 0.912), round(size * 0.97), round(size * 0.985))
     draw.rounded_rectangle(footer, radius=round(size * 0.014), fill=(250, 250, 255, 230), outline=(*accent, 110))
-    website_font = get_font(round(size * 0.019), bold=True)
-    contact_font = get_font(round(size * 0.017), bold=False)
-    draw.text((round(size * 0.415), round(size * 0.915)), args.website, font=website_font, fill=ink)
+    material_font = fit_font(draw, args.material_line, round(size * 0.012), round(size * 0.52), bold=True)
+    centered_text(draw, round(size * 0.68), round(size * 0.920), args.material_line, material_font, muted)
+    website_font = get_font(round(size * 0.017), bold=True)
+    draw.text((round(size * 0.415), round(size * 0.952)), args.website, font=website_font, fill=ink)
     hotline_text = f"HOTLINE: {args.hotline}"
-    hotline_font = fit_font(draw, hotline_text, round(size * 0.017), round(size * 0.29), bold=False)
-    draw.text((round(size * 0.685), round(size * 0.917)), hotline_text, font=hotline_font, fill=ink)
+    hotline_font = fit_font(draw, hotline_text, round(size * 0.016), round(size * 0.29), bold=False)
+    draw.text((round(size * 0.685), round(size * 0.953)), hotline_text, font=hotline_font, fill=ink)
 
     final = Image.alpha_composite(image, overlay).convert("RGB")
     output.parent.mkdir(parents=True, exist_ok=True)
