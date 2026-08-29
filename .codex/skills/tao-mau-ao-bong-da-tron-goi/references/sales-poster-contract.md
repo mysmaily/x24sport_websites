@@ -38,6 +38,25 @@ Thư viện style nằm tại `assets/football-sales-styles.json`:
 - `street-futsal-energy`: sân futsal/urban, nét sơn chuyển động, năng lượng trẻ,
   nhưng vẫn giữ đủ front/back/shorts và chữ không bị nền cạnh tranh.
 
+## 5 composition reference để nhân biến thể
+
+Mỗi sản phẩm cũng phải có đúng một `salesComposition` trong `design-spec.json`.
+Composition là lớp bố cục độc lập với style: nó quyết định người mẫu nằm trái
+hay phải, full body hay chân dung, hoặc không có người mẫu để tập trung vào
+product board. Khi người dùng muốn “cùng style nhưng đa dạng card”, ưu tiên đổi
+`salesComposition` trước khi đổi `salesStyle`.
+
+Thư viện composition nằm tại `assets/football-sales-compositions.json`:
+
+- `model-left-full-body`: người mẫu full body bên trái, cụm sản phẩm bên phải.
+- `model-right-full-body`: người mẫu full body bên phải, cụm sản phẩm bên trái.
+- `model-left-portrait`: người mẫu chân dung/ba phần tư bên trái, áo trước/sau
+  lớn hơn bên phải.
+- `model-right-portrait`: người mẫu chân dung/ba phần tư bên phải, áo trước/sau
+  lớn hơn bên trái.
+- `product-focus-no-model`: không có người mẫu, front/back/shorts và controls là
+  nhân vật chính.
+
 ## Layout `compact`
 
 Dùng khi cần ảnh ecommerce gọn. Gọi imagegen một lần với mockup base đã duyệt, front/back master và copy lock. Imagegen phải tự thiết kế title/contact cùng sản phẩm; không chừa vùng để composite sau.
@@ -66,6 +85,8 @@ Prompt phải:
 
 - dùng `salesStyle.promptNotes` đã khóa để quyết định mood, ánh sáng, nền, nhịp
   typography và cách trình bày controls;
+- dùng `salesComposition.promptNotes` đã khóa để quyết định vị trí/crop người
+  mẫu và vị trí cụm front/back/shorts;
 - yêu cầu imagegen typeset toàn bộ copy lock ngay trong ảnh;
 - yêu cầu đúng chính tả và dấu tiếng Việt, không pseudo-text;
 - cấm hiển thị giá và cấm button/text `XEM THÊM SẢN PHẨM`;

@@ -15,9 +15,11 @@ python3 scripts/choose_creative_direction.py \
 Script chọn hướng pseudo-random và `productName` ổn định theo SKU rồi ghi registry. Tên lấy từ `assets/football-product-names.json`, đúng 40 tên tiếng Anh ngắn; dùng hết một vòng trước khi dùng lại tên có tần suất thấp nhất. Cùng SKU luôn trả cùng hướng/tên để retry không đổi concept. Output là nền cho `design-spec.json`, không phải prompt hoàn chỉnh và không thay quyết định thẩm mỹ.
 
 Script cũng chọn `salesStyle` ổn định theo SKU từ
-`assets/football-sales-styles.json`. Style này chỉ điều khiển poster chào hàng:
-mood, ánh sáng, nền, typography và hierarchy. Nó không được đổi master
-front/back, palette sản phẩm, copy lock hoặc số lượng view bắt buộc.
+`assets/football-sales-styles.json` và `salesComposition` ổn định theo SKU từ
+`assets/football-sales-compositions.json`. `salesStyle` điều khiển mood, ánh
+sáng, nền và typography; `salesComposition` điều khiển hoán đổi trái/phải, người
+mẫu full body hoặc chân dung, và tỷ trọng product matrix. Cả hai không được đổi
+master front/back, palette sản phẩm, copy lock hoặc số lượng view bắt buộc.
 
 ## Trục sáng tạo
 
@@ -31,8 +33,11 @@ front/back, palette sản phẩm, copy lock hoặc số lượng view bắt bu�
 - `salesStyle`: một trong 5 kiểu poster để trang catalog không bị lặp thị giác:
   `stadium-tech-showcase`, `clean-sky-studio`, `night-tunnel-pro`,
   `minimal-ecommerce-grid`, `street-futsal-energy`.
+- `salesComposition`: một trong 5 biến thể bố cục để cùng một style vẫn đa dạng:
+  `model-left-full-body`, `model-right-full-body`, `model-left-portrait`,
+  `model-right-portrait`, `product-focus-no-model`.
 
-Không xem sự thay đổi màu đơn thuần là concept mới. Hai concept kề nhau phải khác tối thiểu ba trục. `salesStyle` có thể là một trục phụ giúp catalog phong phú hơn, nhưng không thay thế khác biệt thật ở motif, geometry, layout hoặc palette.
+Không xem sự thay đổi màu đơn thuần là concept mới. Hai concept kề nhau phải khác tối thiểu ba trục. `salesStyle` và `salesComposition` là trục phụ giúp catalog phong phú hơn, nhưng không thay thế khác biệt thật ở motif, geometry, layout hoặc palette.
 
 ## Quy tắc thiết kế cho in chuyển nhiệt
 

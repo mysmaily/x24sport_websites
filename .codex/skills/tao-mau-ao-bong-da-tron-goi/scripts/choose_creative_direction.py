@@ -32,6 +32,7 @@ PALETTES = [
 ]
 DEFAULT_NAME_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-product-names.json"
 DEFAULT_SALES_STYLE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-styles.json"
+DEFAULT_SALES_COMPOSITION_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-compositions.json"
 
 
 def index(seed: bytes, label: str, size: int, offset: int = 0) -> int:
@@ -67,13 +68,51 @@ def load_sales_style_library(path: Path) -> list[dict[str, object]]:
     return result
 
 
+def load_sales_composition_library(path: Path) -> list[dict[str, object]]:
+    try:
+        rows = json.loads(path.expanduser().resolve().read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise SystemExit(f"Could not read sales-composition library: {error}") from error
+    if not isinstance(rows, list) or len(rows) != 5:
+        raise SystemExit("Sales-composition library must contain exactly 5 entries")
+    ids: set[str] = set()
+    result: list[dict[str, object]] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            raise SystemExit("Each sales-composition entry must be an object")
+        composition_id = row.get("id")
+        name = row.get("name")
+        prompt_notes = row.get("promptNotes")
+        if not isinstance(composition_id, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", composition_id):
+            raise SystemExit("Each sales-composition id must be lowercase kebab-case")
+        if not isinstance(name, str) or not name.strip():
+            raise SystemExit("Each sales-composition entry needs a nonblank name")
+        if not isinstance(prompt_notes, str) or not prompt_notes.strip():
+            raise SystemExit("Each sales-composition entry needs nonblank promptNotes")
+        if composition_id in ids:
+            raise SystemExit("Sales-composition library contains duplicate ids")
+        ids.add(composition_id)
+        result.append(row)
+    return result
+
+
 def choose_sales_style(sku: str, library: list[dict[str, object]]) -> dict[str, object]:
     return library[index(sku.encode("ascii"), "sales-style", len(library))]
 
 
-def make_direction(sku: str, offset: int, sales_style_library: list[dict[str, object]]) -> dict[str, object]:
+def choose_sales_composition(sku: str, library: list[dict[str, object]]) -> dict[str, object]:
+    return library[index(sku.encode("ascii"), "sales-composition", len(library))]
+
+
+def make_direction(
+    sku: str,
+    offset: int,
+    sales_style_library: list[dict[str, object]],
+    sales_composition_library: list[dict[str, object]],
+) -> dict[str, object]:
     seed = sku.encode("ascii")
     sales_style = choose_sales_style(sku, sales_style_library)
+    sales_composition = choose_sales_composition(sku, sales_composition_library)
     direction: dict[str, object] = {
         "sku": sku,
         "motifFamily": MOTIFS[index(seed, "motif", len(MOTIFS), offset)],
@@ -85,6 +124,7 @@ def make_direction(sku: str, offset: int, sales_style_library: list[dict[str, ob
         "collar": COLLARS[index(seed, "collar", len(COLLARS), offset)],
         "palette": PALETTES[index(seed, "palette", len(PALETTES), offset)],
         "salesStyle": sales_style,
+        "salesComposition": sales_composition,
         "edgeContinuity": "edge-coherent side bands; confirm exact seam alignment only on factory pattern",
     }
     palette = direction["palette"]
@@ -93,7 +133,7 @@ def make_direction(sku: str, offset: int, sales_style_library: list[dict[str, ob
         str(direction["motifFamily"]), str(direction["geometry"]), str(direction["energy"]),
         str(direction["frontLayout"]), str(direction["backLayout"]),
         str(direction["accentPlacement"]), str(palette_name), str(direction["collar"]),
-        str(sales_style["id"]),
+        str(sales_style["id"]), str(sales_composition["id"]),
     ])
     return direction
 
@@ -146,6 +186,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--registry", type=Path)
     parser.add_argument("--name-library", type=Path, default=DEFAULT_NAME_LIBRARY)
     parser.add_argument("--sales-style-library", type=Path, default=DEFAULT_SALES_STYLE_LIBRARY)
+    parser.add_argument("--sales-composition-library", type=Path, default=DEFAULT_SALES_COMPOSITION_LIBRARY)
     return parser.parse_args()
 
 
@@ -155,8 +196,9 @@ def main() -> None:
         raise SystemExit("--sku must match X24-BD-FFHHDD")
     name_library = load_name_library(args.name_library)
     sales_style_library = load_sales_style_library(args.sales_style_library)
+    sales_composition_library = load_sales_composition_library(args.sales_composition_library)
     if not args.registry:
-        direction = make_direction(args.sku, 0, sales_style_library)
+        direction = make_direction(args.sku, 0, sales_style_library, sales_composition_library)
         selected_name = choose_product_name(args.sku, [], name_library)
         direction["productName"] = selected_name["name"]
         direction["productSlug"] = selected_name["slug"]
@@ -184,12 +226,14 @@ def main() -> None:
                     row["productSlug"] = selected_name["slug"]
                 if not row.get("salesStyle"):
                     row["salesStyle"] = choose_sales_style(args.sku, sales_style_library)
+                if not row.get("salesComposition"):
+                    row["salesComposition"] = choose_sales_composition(args.sku, sales_composition_library)
                 print(json.dumps(row, ensure_ascii=False, indent=2))
                 return
         used = {row.get("uniquenessSignature") for row in rows}
         direction = None
         for offset in range(10_000):
-            candidate = make_direction(args.sku, offset, sales_style_library)
+            candidate = make_direction(args.sku, offset, sales_style_library, sales_composition_library)
             if candidate["uniquenessSignature"] not in used:
                 direction = candidate
                 break
