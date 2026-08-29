@@ -17,6 +17,7 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
     <SKU>-mockup-base.webp
     <SKU>-catalog-base.webp           # only for catalog-reference
     <SKU>-sales.webp
+    <SKU>-sales-copy.json             # rendered-copy proof + sales checksum
   delivery-manifest.json
 ```
 
@@ -72,6 +73,10 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
       "pixels": [1536, 1536]
     }
   ],
+  "salesCopyProof": {
+    "path": "/absolute/path/marketing/X24-BD-000001-sales-copy.json",
+    "sha256": "..."
+  },
   "visualApproval": {
     "frontFlatArtworkOnly": true,
     "backFlatArtworkOnly": true,
@@ -83,6 +88,6 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
 }
 ```
 
-Tạo manifest và SHA-256 từ bytes cuối bằng `build_delivery_manifest.py`. Ghi đúng `inputMode` và `salesLayout`; với conversion, thêm source analysis/reference vào spec nhưng không đưa ảnh seller vào gallery. Chỉ truyền `--approve-visual` sau khi đã xem full-size cả bốn ảnh và xác nhận đủ gate. `validate_delivery.py` yêu cầu đúng bốn role và kiểm tra file nằm trong product folder, tên SKU đồng nhất, PNG/WebP đúng loại, master đúng pixel/PPI, mockup vuông tối thiểu 1200 px, checksum khớp và sáu cờ visual đều `true`.
+Tạo manifest và SHA-256 từ bytes cuối bằng `build_delivery_manifest.py`. Ghi đúng `inputMode` và `salesLayout`; với conversion, thêm source analysis/reference vào spec nhưng không đưa ảnh seller vào gallery. Chỉ truyền `--approve-visual` sau khi đã xem full-size cả bốn ảnh và xác nhận đủ gate. `validate_delivery.py` yêu cầu đúng bốn role và kiểm tra file nằm trong product folder, tên SKU đồng nhất, PNG/WebP đúng loại, master đúng pixel/PPI, mockup vuông tối thiểu 1200 px, checksum khớp và sáu cờ visual đều `true`. Với `catalog-reference`, validator còn bắt buộc sales-copy proof chứa đủ 17 trường text và checksum trùng đúng sales image cuối.
 
 Không đặt master PNG vào gallery website. Nếu sau này publish, tạo preview WebP riêng từ master; không dùng master 300 PPI làm ảnh web.

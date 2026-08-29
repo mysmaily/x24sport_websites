@@ -140,7 +140,7 @@ Hard reject nếu pattern drift, front/back bị đổi, áo phẳng/nhựa/CGI,
 - `compact`: chừa title/contact zone rồi dùng `scripts/apply_sales_signature.py`.
 - `catalog-reference`: dùng `assets/catalog-sales-layout-reference.png` chỉ làm layout reference, tạo blank catalog base rồi dùng `scripts/apply_catalog_sales_copy.py`.
 
-Imagegen không được viết commercial copy. Collection, title, SKU, giá, ưu đãi, collar labels, size, chất liệu/công nghệ in, CTA, website và hotline phải composite deterministic. Benchmark chỉ điều khiển hierarchy; không điều khiển kit/pattern/brand.
+Imagegen không được viết commercial copy. Collection, title, SKU, giá, ưu đãi, số front, tên/số/tên đội trên back, collar labels, size, chất liệu/công nghệ in, CTA, website và hotline phải composite deterministic. Benchmark chỉ điều khiển hierarchy; không điều khiển kit/pattern/brand. `catalog-reference` phải có sales-copy proof gắn checksum với ảnh và validator phải xác nhận đủ trường.
 
 ## 7. Đóng gói và validate
 

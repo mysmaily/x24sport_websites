@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import re
 from pathlib import Path
 
@@ -63,10 +65,28 @@ def centered_text(
     text: str,
     font: ImageFont.FreeTypeFont | ImageFont.ImageFont,
     fill: tuple[int, ...],
+    *,
+    stroke_width: int = 0,
+    stroke_fill: tuple[int, ...] | None = None,
 ) -> None:
     bounds = draw.textbbox((0, 0), text, font=font)
     width = bounds[2] - bounds[0]
-    draw.text((center_x - width // 2, y), text, font=font, fill=fill)
+    draw.text(
+        (center_x - width // 2, y),
+        text,
+        font=font,
+        fill=fill,
+        stroke_width=stroke_width,
+        stroke_fill=stroke_fill,
+    )
+
+
+def checksum(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def parse_args() -> argparse.Namespace:
@@ -85,6 +105,12 @@ def parse_args() -> argparse.Namespace:
         default="VẢI MÈ THỂ THAO • THOÁNG MÁT • IN CHUYỂN NHIỆT",
     )
     parser.add_argument("--cta", default="XEM THÊM SẢN PHẨM")
+    parser.add_argument("--model-number", default="24")
+    parser.add_argument("--front-number", default="24")
+    parser.add_argument("--player-name", default="TÊN CẦU THỦ")
+    parser.add_argument("--player-number", default="24")
+    parser.add_argument("--team-name", default="TÊN ĐỘI BÓNG")
+    parser.add_argument("--proof", type=Path)
     parser.add_argument("--selected-collar", choices=("crew", "v-neck", "polo"), default="v-neck")
     parser.add_argument("--sizes", nargs="+", default=["S", "M", "L", "XL", "2XL", "3XL", "4XL"])
     parser.add_argument("--accent", default="#6C38FF")
@@ -96,10 +122,13 @@ def main() -> None:
     args = parse_args()
     source = args.input.expanduser().resolve()
     output = args.output.expanduser().resolve()
+    proof = args.proof.expanduser().resolve() if args.proof else output.with_name(f"{output.stem}-copy.json")
     if not source.is_file():
         raise SystemExit(f"Input not found: {source}")
     if output.exists() and not args.overwrite:
         raise SystemExit(f"Refusing to overwrite: {output}")
+    if proof.exists() and not args.overwrite:
+        raise SystemExit(f"Refusing to overwrite: {proof}")
     if output.suffix.lower() != ".webp":
         raise SystemExit("Output must be .webp")
     if not SKU_RE.fullmatch(args.sku):
@@ -145,6 +174,66 @@ def main() -> None:
     offer_font = fit_font(draw, args.offer, round(size * 0.0105), offer_box[2] - offer_box[0] - round(size * 0.014), bold=True)
     centered_text(draw, (price_box[0] + price_box[2]) // 2, round(size * 0.068), args.price, price_font, (255, 255, 255, 255))
     centered_text(draw, (offer_box[0] + offer_box[2]) // 2, round(size * 0.069), args.offer, offer_font, ink)
+
+    # Personalization sample belongs only to the sales derivative. The front
+    # and back print masters remain free of player names and numbers.
+    garment_white = (248, 250, 255, 255)
+    garment_stroke = (7, 30, 61, 210)
+    model_number_font = get_font(round(size * 0.032), bold=True)
+    centered_text(
+        draw,
+        round(size * 0.205),
+        round(size * 0.270),
+        args.model_number,
+        model_number_font,
+        garment_white,
+        stroke_width=max(1, round(size * 0.0012)),
+        stroke_fill=garment_stroke,
+    )
+    front_number_font = get_font(round(size * 0.032), bold=True)
+    centered_text(
+        draw,
+        round(size * 0.535),
+        round(size * 0.188),
+        args.front_number,
+        front_number_font,
+        garment_white,
+        stroke_width=max(1, round(size * 0.0012)),
+        stroke_fill=garment_stroke,
+    )
+    player_name_font = fit_font(draw, args.player_name, round(size * 0.015), round(size * 0.19), bold=True)
+    centered_text(
+        draw,
+        round(size * 0.825),
+        round(size * 0.190),
+        args.player_name,
+        player_name_font,
+        garment_white,
+        stroke_width=max(1, round(size * 0.001)),
+        stroke_fill=garment_stroke,
+    )
+    player_number_font = get_font(round(size * 0.070), bold=True)
+    centered_text(
+        draw,
+        round(size * 0.825),
+        round(size * 0.225),
+        args.player_number,
+        player_number_font,
+        garment_white,
+        stroke_width=max(1, round(size * 0.0015)),
+        stroke_fill=garment_stroke,
+    )
+    team_name_font = fit_font(draw, args.team_name, round(size * 0.014), round(size * 0.19), bold=True)
+    centered_text(
+        draw,
+        round(size * 0.825),
+        round(size * 0.345),
+        args.team_name,
+        team_name_font,
+        garment_white,
+        stroke_width=max(1, round(size * 0.001)),
+        stroke_fill=garment_stroke,
+    )
 
     # Collar section. The generated base supplies three blank thumbnail cards.
     heading_font = get_font(round(size * 0.017), bold=True)
@@ -236,7 +325,43 @@ def main() -> None:
     final = Image.alpha_composite(image, overlay).convert("RGB")
     output.parent.mkdir(parents=True, exist_ok=True)
     final.save(output, format="WEBP", quality=100, method=6)
+    proof.parent.mkdir(parents=True, exist_ok=True)
+    proof.write_text(
+        json.dumps(
+            {
+                "schemaVersion": "1.0",
+                "layout": "catalog-reference",
+                "sku": args.sku,
+                "salesImage": str(output),
+                "salesImageSha256": checksum(output),
+                "renderedText": {
+                    "collection": args.collection,
+                    "title": args.title,
+                    "skuLabel": f"MÃ MẪU: {args.sku}",
+                    "price": args.price,
+                    "offer": args.offer,
+                    "modelNumber": args.model_number,
+                    "frontNumber": args.front_number,
+                    "playerName": args.player_name,
+                    "playerNumber": args.player_number,
+                    "teamName": args.team_name,
+                    "collarHeading": "TÙY CHỌN CỔ ÁO",
+                    "collarLabels": [label for _, label, _ in COLLARS],
+                    "sizes": args.sizes,
+                    "materialLine": args.material_line,
+                    "cta": args.cta,
+                    "website": args.website,
+                    "hotline": f"HOTLINE: {args.hotline}",
+                },
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
     print(output)
+    print(proof)
 
 
 if __name__ == "__main__":

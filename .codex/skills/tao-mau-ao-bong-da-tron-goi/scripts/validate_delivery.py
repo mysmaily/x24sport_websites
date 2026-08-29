@@ -26,6 +26,11 @@ VISUAL_FLAGS = {
     "frontFlatArtworkOnly", "backFlatArtworkOnly", "frontBackCoherent",
     "mockupMatchesFront", "mockupMatchesBack", "commercialTextExact",
 }
+REQUIRED_COPY_FIELDS = {
+    "collection", "title", "skuLabel", "price", "offer", "modelNumber", "frontNumber",
+    "playerName", "playerNumber", "teamName", "collarHeading",
+    "collarLabels", "sizes", "materialLine", "cta", "website", "hotline",
+}
 
 
 def fail(message: str) -> None:
@@ -101,6 +106,40 @@ def main() -> None:
                 fail(f"{role} must carry at least {ppi} PPI metadata")
         report.append({"role": role, "file": path.name, "format": image_format, "pixels": pixels})
 
+    validated_copy_fields: list[str] = []
+    if manifest.get("salesLayout") == "catalog-reference":
+        sales_path = Path(by_role["sales image"]["path"]).resolve()
+        proof_record = manifest.get("salesCopyProof")
+        if not isinstance(proof_record, dict):
+            fail("manifest salesCopyProof is required for catalog-reference")
+        proof_path = Path(proof_record.get("path", "")).expanduser().resolve()
+        try:
+            proof_path.relative_to(folder)
+        except ValueError:
+            fail("salesCopyProof must be inside product folder")
+        if not proof_path.is_file() or proof_record.get("sha256") != sha256(proof_path):
+            fail("salesCopyProof is missing or its checksum does not match")
+        proof = json.loads(proof_path.read_text(encoding="utf-8"))
+        if proof.get("sku") != sku or Path(proof.get("salesImage", "")).resolve() != sales_path:
+            fail("salesCopyProof must point to the current SKU sales image")
+        if proof.get("salesImageSha256") != sha256(sales_path):
+            fail("sales image changed after deterministic copy was rendered")
+        rendered = proof.get("renderedText")
+        if not isinstance(rendered, dict) or set(rendered) != REQUIRED_COPY_FIELDS:
+            fail(f"sales copy proof must contain exactly: {sorted(REQUIRED_COPY_FIELDS)}")
+        for key, value in rendered.items():
+            if isinstance(value, str) and not value.strip():
+                fail(f"sales copy field {key} must not be blank")
+            if isinstance(value, list) and (not value or not all(isinstance(item, str) and item.strip() for item in value)):
+                fail(f"sales copy field {key} must contain nonblank labels")
+        if rendered["skuLabel"] != f"MÃ MẪU: {sku}":
+            fail("sales copy SKU label does not match manifest SKU")
+        if rendered["collarHeading"] != "TÙY CHỌN CỔ ÁO":
+            fail("sales copy collar heading is missing or incorrect")
+        if rendered["collarLabels"] != ["Cổ tròn", "Cổ V", "Cổ polo"]:
+            fail("sales copy must include all three collar labels")
+        validated_copy_fields = sorted(REQUIRED_COPY_FIELDS)
+
     front = Path(by_role["front print master"]["path"]).resolve()
     back = Path(by_role["back print master"]["path"]).resolve()
     if sha256(front) == sha256(back):
@@ -116,6 +155,7 @@ def main() -> None:
         "sku": sku,
         "expectedMasterPixels": expected_pixels,
         "files": report,
+        "salesCopyFieldsValidated": validated_copy_fields,
         "visualInspectionRecorded": True,
     }, ensure_ascii=False, indent=2))
 

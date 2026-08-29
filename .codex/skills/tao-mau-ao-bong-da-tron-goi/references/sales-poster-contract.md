@@ -60,6 +60,9 @@ python3 scripts/apply_catalog_sales_copy.py \
   --selected-collar v-neck \
   --price "GIÁ TỪ 125.000Đ" \
   --offer "IN TÊN + SỐ MIỄN PHÍ" \
+  --model-number "24" --front-number "24" \
+  --player-name "TÊN CẦU THỦ" --player-number "24" \
+  --team-name "TÊN ĐỘI BÓNG" \
   --material-line "VẢI MÈ THỂ THAO • THOÁNG MÁT • IN CHUYỂN NHIỆT" \
   --cta "XEM THÊM SẢN PHẨM" \
   --website mayaobongda.vn --hotline "0989 353 247"
@@ -69,12 +72,15 @@ Script đóng deterministic:
 
 - collection label, title và `MÃ MẪU`;
 - giá từ và ưu đãi in tên–số;
+- số áo minh hoạ trên model và áo front; tên cầu thủ, số và tên đội bóng trên áo back;
 - nhãn `Cổ tròn`, `Cổ V`, `Cổ polo` và selected marker;
 - dải size;
 - chất liệu/công nghệ in và CTA;
 - website và hotline.
 
-Một poster `catalog-reference` chỉ đạt khi đủ cả sáu nhóm thông tin trên. `commercialTextExact` trong manifest đồng nghĩa vừa **đủ text bán hàng**, vừa đúng chính tả, dấu, SKU, giá và contact; không được duyệt cờ này cho poster chỉ có title/contact.
+Script đồng thời tạo `marketing/<SKU>-sales-copy.json`, ghi toàn bộ text đã render và checksum của sales image. Validator bắt buộc proof này, từ chối ảnh bị đổi sau composite hoặc thiếu bất kỳ nhóm text nào.
+
+Một poster `catalog-reference` chỉ đạt khi đủ cả bảy nhóm thông tin trên. `commercialTextExact` trong manifest đồng nghĩa vừa **đủ text bán hàng**, vừa đúng chính tả, dấu, SKU, giá, nội dung cá nhân hoá và contact; không được duyệt cờ này cho poster chỉ có title/contact.
 
 Nếu base không chừa đúng vùng normalized của contract, regenerate base. Không kéo text panel đè lên người hoặc sản phẩm.
 
@@ -88,6 +94,7 @@ Hard reject nếu:
 - collar thumbnail sai hình học; polo phải có folded collar và placket hai nút;
 - text composite sai dấu/SKU/contact;
 - thiếu giá, ưu đãi, chất liệu/công nghệ in hoặc CTA;
+- thiếu minh hoạ tên–số–đội bóng trên garment views;
 - controls hoặc footer che sản phẩm;
 - ảnh thành poster phẳng, áo thiếu texture/đường may/nếp/bóng.
 

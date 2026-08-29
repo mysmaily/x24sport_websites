@@ -79,13 +79,17 @@ def main() -> None:
 
     front_source = folder / "work" / f"{args.sku}-front-source.png"
     back_source = folder / "work" / f"{args.sku}-back-source.png"
+    sales_copy_proof = folder / "marketing" / f"{args.sku}-sales-copy.json"
     files = [
         ("front print master", folder / "print" / f"{args.sku}-front-print.png", front_source),
         ("back print master", folder / "print" / f"{args.sku}-back-print.png", back_source),
         ("mockup base", folder / "marketing" / f"{args.sku}-mockup-base.webp", None),
         ("sales image", folder / "marketing" / f"{args.sku}-sales.webp", None),
     ]
-    missing = [str(path) for path in (front_source, back_source) if not path.is_file()]
+    required_support = [front_source, back_source]
+    if args.sales_layout == "catalog-reference":
+        required_support.append(sales_copy_proof)
+    missing = [str(path) for path in required_support if not path.is_file()]
     missing.extend(str(path) for _, path, _ in files if not path.is_file())
     if missing:
         raise SystemExit("Missing required files: " + ", ".join(missing))
@@ -116,6 +120,11 @@ def main() -> None:
             "commercialTextExact": approved,
         },
     }
+    if args.sales_layout == "catalog-reference":
+        manifest["salesCopyProof"] = {
+            "path": str(sales_copy_proof),
+            "sha256": checksum(sales_copy_proof),
+        }
     output.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(output)
 
