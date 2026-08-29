@@ -41,6 +41,6 @@ Nếu một surface sai, correction pass phải nói đúng surface và giữ c�
 
 ## Sales image
 
-Dùng mockup base đã duyệt làm edit target trong lần gọi imagegen cuối. Imagegen thiết kế toàn bộ typography, controls và contact cùng sản phẩm trong một composition thống nhất. Không dùng script đắp chữ hậu kỳ. Nếu sai text hoặc lệch layout, correction pass phải sửa trực tiếp ảnh native bằng imagegen.
+Dùng mockup base đã duyệt làm edit target trong lần gọi imagegen cuối. Imagegen thiết kế toàn bộ typography, controls, feature badges, website và hotline cùng sản phẩm trong một composition thống nhất. Không dùng script đắp chữ hậu kỳ. Nếu sai text hoặc lệch layout, correction pass phải sửa trực tiếp ảnh native bằng imagegen.
 
 Ảnh chào hàng là derivative. Không dùng nó làm nguồn để tái tạo master, rập hoặc màu sản xuất.

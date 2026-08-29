@@ -33,7 +33,7 @@ Khi thiếu thông số:
 - mỗi master: 700 × 850 mm, 300 PPI, PNG lossless, sRGB, full-bleed;
 - cổ áo: một trong `Cổ tròn`, `Cổ Tim`, `Cổ polo`;
 - sales brand: `mayaobongda.vn`, hotline `0989 353 247`;
-- commercial defaults: `IN TÊN + SỐ MIỄN PHÍ`, `VẢI MÈ THỂ THAO • THOÁNG MÁT • IN CHUYỂN NHIỆT`; không hiển thị giá và không có button `XEM THÊM SẢN PHẨM`;
+- commercial defaults: `IN TÊN + SỐ MIỄN PHÍ`, `VẢI MÈ THỂ THAO • THOÁNG MÁT • IN CHUYỂN NHIỆT`; feature badges lấy từ `assets/football-sales-feature-badges.json`; không hiển thị giá và không có button `XEM THÊM SẢN PHẨM`;
 - không tên/số/logo/sponsor trong master;
 - layout sales: `catalog-reference` khi cần ảnh chào hàng đầy đủ, `compact` cho ecommerce gọn.
 
@@ -79,7 +79,8 @@ Tạo `design-spec.json` trước khi sinh ảnh:
 - allowed assets và marks phải loại;
 - logoSource nếu dùng logo mẫu trên ảnh người mẫu/poster;
 - kích thước vật lý, PPI, color space, printing assumption;
-- mockup composition, sales layout, exact commercial copy.
+- mockup composition, sales layout, exact commercial copy;
+- sales feature badges/benefits: website, hotline, vải thoáng mát, bền màu, thấm mồ hôi tốt, bảo hành 1 đổi 1 và các thuộc tính phù hợp từ `assets/football-sales-feature-badges.json`.
 
 Với `original-design`, chạy:
 
@@ -149,7 +150,7 @@ Hard reject nếu pattern drift, front/back bị đổi, áo phẳng/nhựa/CGI,
 - `compact`: dùng mockup base đã duyệt làm edit target và yêu cầu imagegen thiết kế sản phẩm cùng title/contact trong một lượt.
 - `catalog-reference`: dùng mockup/catalog base, hai master và `assets/catalog-sales-layout-reference.png` trong cùng lần gọi imagegen cuối; benchmark chỉ làm layout reference.
 
-Imagegen phải typeset toàn bộ commercial copy đã khóa trong spec ngay trong ảnh cuối: collection, title, SKU, ưu đãi, số trên model/front, tên/số/tên đội trên back, collar labels `Cổ tròn` / `Cổ Tim` / `Cổ polo`, size, chất liệu/công nghệ in, website và hotline. Ảnh không có giá và không có button/text `XEM THÊM SẢN PHẨM`. Không dùng script/Pillow/ImageMagick/SVG/Canvas để đắp text hậu kỳ. Nếu chữ hoặc bố cục sai, sửa bằng imagegen correction pass. Lưu output imagegen gốc thành `work/<SKU>-sales-native-source.png`; WebP bàn giao chỉ được chuyển định dạng lossless và validator phải xác nhận pixel identity.
+Imagegen phải typeset toàn bộ commercial copy đã khóa trong spec ngay trong ảnh cuối: collection, title, SKU, ưu đãi, số trên model/front, tên/số/tên đội trên back, collar labels `Cổ tròn` / `Cổ Tim` / `Cổ polo`, size, chất liệu/công nghệ in, feature badges, website và hotline. Ảnh không có giá và không có button/text `XEM THÊM SẢN PHẨM`. Không dùng script/Pillow/ImageMagick/SVG/Canvas để đắp text hậu kỳ. Nếu chữ hoặc bố cục sai, sửa bằng imagegen correction pass. Lưu output imagegen gốc thành `work/<SKU>-sales-native-source.png`; WebP bàn giao chỉ được chuyển định dạng lossless và validator phải xác nhận pixel identity.
 
 ## 7. Đóng gói và validate
 

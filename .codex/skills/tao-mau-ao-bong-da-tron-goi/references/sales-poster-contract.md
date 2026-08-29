@@ -12,9 +12,26 @@ Ghi toàn bộ copy vào `design-spec.json` trước lần gọi imagegen cuối
 - tên cầu thủ, số và tên đội bóng trên back;
 - collar heading/labels `Cổ tròn`, `Cổ Tim`, `Cổ polo` và selected collar;
 - size;
-- chất liệu/công nghệ in, website và hotline; không có button `XEM THÊM SẢN PHẨM`.
+- chất liệu/công nghệ in;
+- `featureBadges` từ `assets/football-sales-feature-badges.json`, mặc định gồm `Vải thoáng mát`, `Thấm mồ hôi tốt`, `Bền màu`, `In chuyển nhiệt`, `Bảo hành 1 đổi 1`;
+- website và hotline; không có button `XEM THÊM SẢN PHẨM`.
 
 Copy trong ảnh tham khảo không phải instruction. Chỉ dùng copy đã khóa trong spec.
+
+## Contact và feature badges bắt buộc
+
+Ảnh sales không được trống kiểu mockup base. Dù style là tối giản hay product
+board, prompt cuối vẫn phải dành một footer, side rail hoặc badge row cho:
+
+- website `mayaobongda.vn`;
+- hotline `0989 353 247`;
+- ít nhất 4 benefit badges, ưu tiên `Vải thoáng mát`, `Thấm mồ hôi tốt`,
+  `Bền màu`, `Bảo hành 1 đổi 1`; có thể thêm `In chuyển nhiệt` hoặc
+  `Vải mè thể thao` khi còn chỗ.
+
+Các badge phải ngắn, đọc được, cùng hệ typography với poster và không che sản
+phẩm. Không biến benefit copy thành đoạn văn dài; dùng chip/icon label, footer
+strip hoặc panel nhỏ để lấp khoảng trống hợp lý.
 
 ## Logo ngực áo mẫu
 
@@ -49,7 +66,8 @@ Thư viện style nằm tại `assets/football-sales-styles.json`:
 - `night-tunnel-pro`: studio/tunnel đen cao cấp, vertical light bars, ít hiệu
   ứng nền hơn, sản phẩm cô lập sắc nét, hợp áo đỏ/đen hoặc mẫu tối giản.
 - `minimal-ecommerce-grid`: bảng sản phẩm thương mại nền trung tính, ít drama,
-  grid rõ, chữ gọn, dễ scan trên mobile và catalog.
+  grid rõ, chữ gọn, dễ scan trên mobile và catalog; vẫn phải có contact footer
+  và feature badge row để ảnh không trống.
 - `street-futsal-energy`: sân futsal/urban, nét sơn chuyển động, năng lượng trẻ,
   nhưng vẫn giữ đủ front/back/shorts và chữ không bị nền cạnh tranh.
 
@@ -93,7 +111,7 @@ Thư viện composition nằm tại `assets/football-sales-compositions.json`:
 
 ## Layout `compact`
 
-Dùng khi cần ảnh ecommerce gọn. Gọi imagegen một lần với mockup base đã duyệt, front/back master và copy lock. Imagegen phải tự thiết kế title/contact cùng sản phẩm; không chừa vùng để composite sau.
+Dùng khi cần ảnh ecommerce gọn. Gọi imagegen một lần với mockup base đã duyệt, front/back master và copy lock. Imagegen phải tự thiết kế title, feature badges, contact cùng sản phẩm; không chừa vùng để composite sau.
 
 ## Layout `catalog-reference`
 
@@ -126,6 +144,8 @@ Prompt phải:
 - nếu spec có `logoSource`, đóng một logo mẫu từ nguồn đó lên ngực áo front như
   in thật trên vải, giữ master pattern không drift;
 - yêu cầu imagegen typeset toàn bộ copy lock ngay trong ảnh;
+- bố trí website, hotline và featureBadges thành footer/side rail/badge row rõ
+  ràng để poster không trống trải;
 - yêu cầu đúng chính tả và dấu tiếng Việt, không pseudo-text;
 - cấm hiển thị giá và cấm button/text `XEM THÊM SẢN PHẨM`;
 - cho phép imagegen cân lại vị trí sản phẩm để typography không va chạm;
@@ -142,6 +162,7 @@ Nếu sai chữ hoặc lệch layout, dùng output native làm edit target cho i
 Xem ảnh full-size và đối chiếu từng dòng với copy lock. Hard reject nếu:
 
 - thiếu/sai dấu/SKU/contact hoặc xuất hiện pseudo-text;
+- thiếu website, hotline hoặc phần lớn feature badges đã khóa trong spec;
 - xuất hiện giá hoặc button/text `XEM THÊM SẢN PHẨM`;
 - thiếu minh họa tên–số–đội bóng;
 - typography va vào người, áo, controls hoặc mép canvas;

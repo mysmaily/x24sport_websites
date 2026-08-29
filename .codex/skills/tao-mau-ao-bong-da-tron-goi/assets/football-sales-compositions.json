@@ -27,6 +27,6 @@
     "id": "product-focus-no-model",
     "name": "Product Focus No Model",
     "shortDescription": "No human model; front, back, shorts, collar controls, and copy become the hero.",
-    "promptNotes": "Do not include a human model. Make the separate front shirt, back shirt, and exactly one shorts view the main hero in a strong catalog grid. Use extra space for readable title, SKU, offer, collar selector, size selector, material line, website, and hotline."
+    "promptNotes": "Do not include a human model. Make the separate front shirt, back shirt, and exactly one shorts view the main hero in a strong catalog grid. Use extra space for readable title, SKU, offer, collar selector, size selector, material line, feature badges, website, and hotline."
   }
 ]

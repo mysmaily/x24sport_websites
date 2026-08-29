@@ -1,0 +1,27 @@
+[
+  {
+    "id": "breathable-mesh",
+    "label": "Vải thoáng mát",
+    "promptNotes": "Use as a short product-benefit badge near the lower panel or side info strip."
+  },
+  {
+    "id": "sweat-wicking",
+    "label": "Thấm mồ hôi tốt",
+    "promptNotes": "Use as a short product-benefit badge; keep the Vietnamese text exact."
+  },
+  {
+    "id": "colorfast",
+    "label": "Bền màu",
+    "promptNotes": "Use as a short product-benefit badge; do not over-explain."
+  },
+  {
+    "id": "sublimation-print",
+    "label": "In chuyển nhiệt",
+    "promptNotes": "Use as a short production/technology badge."
+  },
+  {
+    "id": "one-for-one-warranty",
+    "label": "Bảo hành 1 đổi 1",
+    "promptNotes": "Use as a trust badge; keep it readable and avoid tiny type."
+  }
+]
