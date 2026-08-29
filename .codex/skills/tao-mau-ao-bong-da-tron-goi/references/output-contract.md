@@ -46,7 +46,10 @@ Dùng `scripts/deliver_print_masters.py`; không đổi tên thủ công. Script
   "productionAssumptions": {
     "process": "dye-sublimation on polyester",
     "colorSpace": "sRGB",
-    "physicalMm": [700, 850],
+    "targetMode": "aspect-ratio",
+    "targetAspectRatio": 0.67,
+    "targetPixels": [6726, 10039],
+    "physicalMm": null,
     "ppi": 300,
     "factoryPatternIncluded": false,
     "vectorIncluded": false
@@ -103,6 +106,6 @@ Dùng `scripts/deliver_print_masters.py`; không đổi tên thủ công. Script
 }
 ```
 
-Tạo manifest và SHA-256 từ bytes cuối bằng `build_delivery_manifest.py`. Ghi đúng `inputMode` và `salesLayout`; với conversion, thêm source analysis/reference vào spec nhưng không đưa ảnh seller vào gallery. Chỉ truyền `--approve-visual` sau khi đã xem full-size cả bốn ảnh và đối chiếu từng chuỗi copy. `validate_delivery.py` yêu cầu đúng bốn role, file nằm trong product folder, SKU đồng nhất, PNG/WebP đúng loại, master đúng pixel/PPI, mockup vuông tối thiểu 1200 px, checksum khớp và sáu cờ visual đều `true`. Validator còn yêu cầu copy lock trong `design-spec`, `salesGeneration.mode=imagegen-native`, `postCompositeApplied=false`, và pixel RGB của sales WebP giống tuyệt đối với PNG nguồn imagegen. Mọi composite hậu kỳ làm đổi pixel sẽ fail.
+Tạo manifest và SHA-256 từ bytes cuối bằng `build_delivery_manifest.py`. Ghi đúng `inputMode` và `salesLayout`; với conversion, thêm source analysis/reference vào spec nhưng không đưa ảnh seller vào gallery. Chỉ truyền `--approve-visual` sau khi đã xem full-size cả bốn ảnh và đối chiếu từng chuỗi copy. `validate_delivery.py` yêu cầu đúng bốn role, file nằm trong product folder, SKU đồng nhất, PNG/WebP đúng loại, master đúng `targetPixels`/PPI, mockup vuông tối thiểu 1200 px, checksum khớp và sáu cờ visual đều `true`. Validator còn yêu cầu copy lock trong `design-spec`, `salesGeneration.mode=imagegen-native`, `postCompositeApplied=false`, và pixel RGB của sales WebP giống tuyệt đối với PNG nguồn imagegen. Mọi composite hậu kỳ làm đổi pixel sẽ fail.
 
 Không đặt master PNG vào gallery website. Nếu sau này publish, tạo preview WebP riêng từ master; không dùng master 300 PPI làm ảnh web.

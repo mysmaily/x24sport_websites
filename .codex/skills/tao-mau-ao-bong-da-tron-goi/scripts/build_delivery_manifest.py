@@ -32,6 +32,12 @@ def image_info(path: Path) -> tuple[list[int], str]:
         return list(image.size), str(image.format)
 
 
+def target_pixels_from_aspect(aspect_ratio: float, long_edge_px: int) -> list[int]:
+    if aspect_ratio >= 1:
+        return [long_edge_px, round(long_edge_px / aspect_ratio)]
+    return [round(long_edge_px * aspect_ratio), long_edge_px]
+
+
 def file_record(role: str, path: Path, source_path: Path | None = None) -> dict[str, object]:
     pixels, _ = image_info(path)
     record: dict[str, object] = {
@@ -57,6 +63,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sales-layout", choices=("compact", "catalog-reference"), default="compact")
     parser.add_argument("--width-mm", type=float, default=700)
     parser.add_argument("--height-mm", type=float, default=850)
+    parser.add_argument(
+        "--target-aspect-ratio",
+        type=float,
+        help="Record/validate master print pixels by ratio only instead of physical mm.",
+    )
+    parser.add_argument("--target-long-edge-px", type=int, default=10039)
     parser.add_argument("--ppi", type=int, default=300)
     parser.add_argument("--process", default="dye-sublimation on polyester")
     parser.add_argument("--color-space", default="sRGB")
@@ -76,6 +88,20 @@ def main() -> None:
         raise SystemExit("Product folder and design-spec.json are required")
     if output.exists() and not args.overwrite:
         raise SystemExit(f"Refusing to overwrite: {output}")
+    if args.target_aspect_ratio is not None:
+        if args.target_aspect_ratio <= 0:
+            raise SystemExit("--target-aspect-ratio must be positive")
+        if args.target_long_edge_px <= 0:
+            raise SystemExit("--target-long-edge-px must be positive")
+        target_pixels = target_pixels_from_aspect(args.target_aspect_ratio, args.target_long_edge_px)
+        target_mode = "aspect-ratio"
+        physical_mm: list[float] | None = None
+    else:
+        if args.width_mm <= 0 or args.height_mm <= 0 or args.ppi <= 0:
+            raise SystemExit("Physical size and PPI must be positive")
+        target_pixels = [round(args.width_mm / 25.4 * args.ppi), round(args.height_mm / 25.4 * args.ppi)]
+        target_mode = "physical-mm"
+        physical_mm = [args.width_mm, args.height_mm]
 
     front_source = folder / "work" / f"{args.sku}-front-source.png"
     back_source = folder / "work" / f"{args.sku}-back-source.png"
@@ -103,7 +129,10 @@ def main() -> None:
         "productionAssumptions": {
             "process": args.process,
             "colorSpace": args.color_space,
-            "physicalMm": [args.width_mm, args.height_mm],
+            "targetMode": target_mode,
+            "targetAspectRatio": round(target_pixels[0] / target_pixels[1], 6),
+            "targetPixels": target_pixels,
+            "physicalMm": physical_mm,
             "ppi": args.ppi,
             "factoryPatternIncluded": False,
             "vectorIncluded": False,

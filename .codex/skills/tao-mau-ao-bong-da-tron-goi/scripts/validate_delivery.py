@@ -63,11 +63,25 @@ def main() -> None:
     assumptions = manifest.get("productionAssumptions", {})
     physical = assumptions.get("physicalMm")
     ppi = assumptions.get("ppi")
-    if not (isinstance(physical, list) and len(physical) == 2 and all(isinstance(v, (int, float)) and v > 0 for v in physical)):
-        fail("productionAssumptions.physicalMm must contain two positive numbers")
     if not isinstance(ppi, int) or ppi <= 0:
         fail("productionAssumptions.ppi must be a positive integer")
-    expected_pixels = [round(physical[0] / 25.4 * ppi), round(physical[1] / 25.4 * ppi)]
+    explicit_target_pixels = assumptions.get("targetPixels")
+    if explicit_target_pixels is not None:
+        if not (
+            isinstance(explicit_target_pixels, list)
+            and len(explicit_target_pixels) == 2
+            and all(isinstance(v, int) and v > 0 for v in explicit_target_pixels)
+        ):
+            fail("productionAssumptions.targetPixels must contain two positive integers")
+        expected_pixels = explicit_target_pixels
+    else:
+        if not (
+            isinstance(physical, list)
+            and len(physical) == 2
+            and all(isinstance(v, (int, float)) and v > 0 for v in physical)
+        ):
+            fail("productionAssumptions.physicalMm must contain two positive numbers")
+        expected_pixels = [round(physical[0] / 25.4 * ppi), round(physical[1] / 25.4 * ppi)]
 
     files = manifest.get("files")
     if not isinstance(files, list):

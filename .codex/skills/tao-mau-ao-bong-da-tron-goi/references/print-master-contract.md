@@ -9,15 +9,18 @@ Hai deliverable bắt buộc:
 - `<SKU>-front-print.png`
 - `<SKU>-back-print.png`
 
-Mặc định generic: 700 × 850 mm, 300 PPI, tương ứng 8268 × 10039 px, PNG
-lossless, sRGB. Nếu xưởng cung cấp kích thước, rập, ICC hoặc yêu cầu TIFF/CMYK,
-ưu tiên thông số xưởng và ghi rõ thay đổi.
+Mặc định generic khi chưa có rập: tỷ lệ `700:850`, 300 PPI metadata, PNG
+lossless, sRGB. Tỷ lệ ngang/dọc là tiêu chí chính; kích thước mm chỉ là metadata
+hoặc proxy để tính pixel khi xưởng chưa yêu cầu kích thước cụ thể. Nếu xưởng cung
+cấp kích thước, rập, ICC hoặc yêu cầu TIFF/CMYK, ưu tiên thông số xưởng và ghi rõ
+thay đổi.
 
 Khi dùng rập xưởng thực tế đã lưu trong
 `assets/factory-pattern-references/x24-factory-football-sleeveless-front-back-vneck-crew-2026-08-30.png`,
 đọc thêm [factory-pattern-ratio.md](factory-pattern-ratio.md). Rập này có tỷ lệ
-thân áo an toàn khoảng `0.67` rộng/cao. Canvas `700:850` rộng hơn thân rập khoảng
-23%, nên chỉ là canvas bleed/giao file nếu spec ghi rõ, không phải tỷ lệ thân áo.
+thân áo khoảng `0.67` rộng/cao. Canvas `700:850` rộng hơn thân rập khoảng 23%,
+nên không dùng làm tỷ lệ print master cho rập này trừ khi người dùng yêu cầu rõ
+canvas legacy.
 
 ## Tỷ lệ source master
 
@@ -31,8 +34,8 @@ oversize để xưởng đặt lên rập panel áo, không phải ảnh vuông 
   motif quan trọng sát mép bị crop nếu chưa correction/crop-review.
 - `prepare_print_master.py --fit cover` chỉ crop để ra đúng tỷ lệ, không stretch.
   Không được kéo méo artwork để vừa rập.
-- Nếu dùng rập xưởng hiện tại, source hoặc vùng safe-area nội dung chính phải
-  gần `0.67` rộng/cao. Phần ngoài safe-area chỉ là bleed/pattern nối mép.
+- Nếu dùng rập xưởng hiện tại, source/master phải gần `0.67` rộng/cao. Được tạo
+  thừa bleed trong chính canvas tỷ lệ này, nhưng không stretch artwork.
 - Nếu xưởng cung cấp rập thật hoặc file vector chính xác, dùng rập đó làm
   authority. Khi chưa có rập, chỉ ghi `edge-coherent`, không ghi seam/cutline
   chính xác.
@@ -42,7 +45,8 @@ oversize để xưởng đặt lên rập panel áo, không phải ảnh vuông 
 - màu nền và pattern full-bleed;
 - gradient, shape, line, halftone hoặc texture đồ họa có chủ đích và đủ lớn để in;
 - vùng thị giác yên để đặt logo/sponsor/tên/số ở bước sau.
-- khi có rập xưởng, motif chính nằm trong safe-area thân áo tỷ lệ khoảng `0.67`.
+- khi có rập xưởng, motif chính nằm trong canvas tỷ lệ khoảng `0.67`, có bleed
+  dư để xưởng canh rập.
 
 ## Nội dung cấm
 

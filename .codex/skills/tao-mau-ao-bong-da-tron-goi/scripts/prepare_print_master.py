@@ -23,6 +23,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("output", type=Path)
     parser.add_argument("--width-mm", type=float, default=700)
     parser.add_argument("--height-mm", type=float, default=850)
+    parser.add_argument(
+        "--target-aspect-ratio",
+        type=float,
+        help="Prepare by width/height ratio only. Overrides --width-mm/--height-mm for pixel sizing.",
+    )
+    parser.add_argument(
+        "--target-long-edge-px",
+        type=int,
+        default=10039,
+        help="Long edge in pixels when --target-aspect-ratio is used.",
+    )
     parser.add_argument("--ppi", type=int, default=300)
     parser.add_argument("--fit", choices=("cover", "contain"), default="cover")
     parser.add_argument("--background", default="#ffffff", help="Used only with contain")
@@ -35,6 +46,38 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def target_pixels(args: argparse.Namespace) -> tuple[tuple[int, int], str]:
+    if args.target_aspect_ratio is not None:
+        if args.target_aspect_ratio <= 0:
+            raise SystemExit("--target-aspect-ratio must be positive")
+        if args.target_long_edge_px <= 0:
+            raise SystemExit("--target-long-edge-px must be positive")
+        if args.target_aspect_ratio >= 1:
+            return (
+                (
+                    args.target_long_edge_px,
+                    round(args.target_long_edge_px / args.target_aspect_ratio),
+                ),
+                "aspect-ratio",
+            )
+        return (
+            (
+                round(args.target_long_edge_px * args.target_aspect_ratio),
+                args.target_long_edge_px,
+            ),
+            "aspect-ratio",
+        )
+    if args.width_mm <= 0 or args.height_mm <= 0:
+        raise SystemExit("Physical size must be positive")
+    return (
+        (
+            round(args.width_mm / MM_PER_INCH * args.ppi),
+            round(args.height_mm / MM_PER_INCH * args.ppi),
+        ),
+        "physical-mm",
+    )
+
+
 def main() -> None:
     args = parse_args()
     source = args.source.expanduser().resolve()
@@ -45,13 +88,10 @@ def main() -> None:
         raise SystemExit("Output must be .png")
     if output.exists() and not args.overwrite:
         raise SystemExit(f"Refusing to overwrite: {output}")
-    if args.width_mm <= 0 or args.height_mm <= 0 or args.ppi <= 0:
-        raise SystemExit("Physical size and PPI must be positive")
+    if args.ppi <= 0:
+        raise SystemExit("PPI must be positive")
 
-    target = (
-        round(args.width_mm / MM_PER_INCH * args.ppi),
-        round(args.height_mm / MM_PER_INCH * args.ppi),
-    )
+    target, target_mode = target_pixels(args)
     if target[0] * target[1] > 180_000_000:
         raise SystemExit("Requested canvas exceeds the 180 MP safety limit")
 
@@ -103,7 +143,8 @@ def main() -> None:
         "sourceAspectRatio": round(source_aspect, 6),
         "targetAspectRatio": round(target_aspect, 6),
         "sourceAspectDrift": round(aspect_drift, 6),
-        "physicalMm": [args.width_mm, args.height_mm],
+        "targetMode": target_mode,
+        "physicalMm": None if target_mode == "aspect-ratio" else [args.width_mm, args.height_mm],
         "ppi": args.ppi,
         "fit": args.fit,
         "scaleFactor": round(scale, 4),
