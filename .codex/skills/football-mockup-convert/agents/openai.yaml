@@ -1,4 +1,6 @@
 interface:
-  display_name: "Football Mockup Convert"
-  short_description: "Convert football kit inputs into WebP product mockups and publish them"
-  default_prompt: "Use $football-mockup-convert to convert these football kit references into natural-fabric WebP product mockups, write SEO content, and publish each approved product to mayaobongda.vn."
+  display_name: "Football Mockup Convert (Legacy)"
+  short_description: "Routes legacy requests to the master-first skill"
+  default_prompt: "Use $football-mockup-convert to route this legacy football reference into the unified $tao-mau-ao-bong-da-tron-goi master-first workflow."
+policy:
+  allow_implicit_invocation: false

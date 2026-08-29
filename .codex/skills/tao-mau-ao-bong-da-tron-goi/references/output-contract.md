@@ -5,6 +5,8 @@
 ```text
 generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
   design-spec.json
+  source-analysis.json                # only for reference-conversion
+  source/                             # optional preserved user references
   work/
     <SKU>-front-source.png
     <SKU>-back-source.png
@@ -13,6 +15,7 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
     <SKU>-back-print.png
   marketing/
     <SKU>-mockup-base.webp
+    <SKU>-catalog-base.webp           # only for catalog-reference
     <SKU>-sales.webp
   delivery-manifest.json
 ```
@@ -26,6 +29,8 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
   "schemaVersion": "1.0",
   "sku": "X24-BD-000001",
   "productSlug": "velocity-contour-blue",
+  "inputMode": "original-design",
+  "salesLayout": "catalog-reference",
   "designSpec": "/absolute/path/design-spec.json",
   "productionAssumptions": {
     "process": "dye-sublimation on polyester",
@@ -78,6 +83,6 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
 }
 ```
 
-Tạo manifest và SHA-256 từ bytes cuối bằng `build_delivery_manifest.py`. Chỉ truyền `--approve-visual` sau khi đã xem full-size cả bốn ảnh và xác nhận đủ sáu gate. `validate_delivery.py` yêu cầu đúng bốn role và kiểm tra file nằm trong product folder, tên SKU đồng nhất, PNG/WebP đúng loại, master đúng pixel/PPI, mockup vuông tối thiểu 1200 px, checksum khớp và sáu cờ visual đều `true`.
+Tạo manifest và SHA-256 từ bytes cuối bằng `build_delivery_manifest.py`. Ghi đúng `inputMode` và `salesLayout`; với conversion, thêm source analysis/reference vào spec nhưng không đưa ảnh seller vào gallery. Chỉ truyền `--approve-visual` sau khi đã xem full-size cả bốn ảnh và xác nhận đủ gate. `validate_delivery.py` yêu cầu đúng bốn role và kiểm tra file nằm trong product folder, tên SKU đồng nhất, PNG/WebP đúng loại, master đúng pixel/PPI, mockup vuông tối thiểu 1200 px, checksum khớp và sáu cờ visual đều `true`.
 
 Không đặt master PNG vào gallery website. Nếu sau này publish, tạo preview WebP riêng từ master; không dùng master 300 PPI làm ảnh web.

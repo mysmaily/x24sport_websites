@@ -53,6 +53,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("folder", type=Path)
     parser.add_argument("--sku", required=True)
     parser.add_argument("--product-slug", required=True)
+    parser.add_argument("--input-mode", choices=("original-design", "reference-conversion"), default="original-design")
+    parser.add_argument("--sales-layout", choices=("compact", "catalog-reference"), default="compact")
     parser.add_argument("--width-mm", type=float, default=700)
     parser.add_argument("--height-mm", type=float, default=850)
     parser.add_argument("--ppi", type=int, default=300)
@@ -93,6 +95,8 @@ def main() -> None:
         "schemaVersion": "1.0",
         "sku": args.sku,
         "productSlug": args.product_slug,
+        "inputMode": args.input_mode,
+        "salesLayout": args.sales_layout,
         "designSpec": str(spec),
         "productionAssumptions": {
             "process": args.process,
