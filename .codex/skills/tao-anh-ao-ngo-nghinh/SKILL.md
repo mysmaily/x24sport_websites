@@ -1,13 +1,13 @@
 ---
 name: tao-anh-ao-ngo-nghinh
-description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo bộ: artwork in nền trắng đặt tên theo SKU X24-DP-NNNNNN, ảnh chụp áo thành phẩm có thông tin Mayaodongphuc, và ảnh học sinh lớp 8-12 mặc đúng mẫu áo. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
+description: "Tạo một hoặc nhiều mẫu áo đồng phục ngộ nghĩnh theo bộ: artwork in PNG nền trong suốt đặt tên theo SKU X24-DP-NNNNNN, ảnh chụp áo thành phẩm có thông tin Mayaodongphuc, và ảnh học sinh lớp 8-12 mặc đúng mẫu áo. Dùng cho áo lớp, CLB, nhóm bạn, đồng phục dã ngoại hoặc catalog số lượng lớn; không dùng cho áo thể thao cần giữ nguyên thiết kế nguồn phức tạp."
 ---
 
 # Tạo ảnh áo ngộ nghĩnh
 
 Tạo ba ảnh gốc và một derivative website cho mỗi sản phẩm:
 
-1. `print-master`: artwork và text tách biệt trên nền trắng, sẵn sàng tái sử dụng để in.
+1. `print-master`: artwork và text tách biệt trong PNG nền trong suốt, sẵn sàng tái sử dụng để in.
 2. `marketing`: áo thành phẩm dùng chính `print-master`, không tự diễn giải lại thiết kế.
 3. `student-lifestyle`: học sinh Việt Nam thuộc một khối được chọn ổn định từ lớp 8-12 mặc đúng mẫu áo.
 4. `print-preview`: bản WebP 500×500 crop/resize từ master để làm ảnh gallery website.
@@ -50,16 +50,17 @@ Không dùng nhân vật, logo, huy hiệu hoặc tài sản có bản quyền/t
 
 ## Tạo ảnh 1: print-master
 
-Dùng `imagegen` tích hợp và tạo mới một ảnh vuông:
+Dùng `imagegen` tích hợp và tạo mới một ảnh vuông, yêu cầu đầu ra PNG có alpha:
 
-- artwork nguyên bản, bố cục gọn, nền trắng thuần `#FFFFFF`;
+- artwork nguyên bản, bố cục gọn, nền trong suốt thật (`alpha = 0`) ngoài artwork;
+- không vẽ nền trắng, màu nền, ô caro mô phỏng transparency hoặc một khung chữ nhật phía sau artwork;
 - không có áo, người mẫu thật, đạo cụ ngoài artwork, watermark hoặc logo;
 - slogan và identity là một phần của artwork;
 - prompt phải ghi exact text verbatim và yêu cầu đúng dấu tiếng Việt;
 - phong cách screen-print/vector-like raster, cạnh sạch, palette có chủ đích;
-- chừa lề trắng và giữ toàn bộ artwork trong khung.
+- chừa lề trong suốt và giữ toàn bộ artwork trong khung.
 
-Kiểm tra ảnh full-size. Sai một ký tự, dấu, tay, mặt hoặc chi tiết quan trọng thì correction pass có mục tiêu; không chấp nhận lỗi chữ vì ảnh còn lại đẹp.
+Kiểm tra ảnh full-size và alpha channel. Bốn góc cùng toàn bộ vùng ngoài artwork phải trong suốt; pixel của artwork phải giữ màu và độ đục có chủ đích. Nếu imagegen trả ảnh nền trắng/opaque, thực hiện correction pass yêu cầu transparent background hoặc tách riêng nền ngoài artwork trước khi xuất; không chỉ đổi đuôi file thành `.png`. Sai một ký tự, dấu, tay, mặt hoặc chi tiết quan trọng thì correction pass có mục tiêu; không chấp nhận lỗi chữ vì ảnh còn lại đẹp.
 
 ## Tạo ảnh 2: marketing
 
@@ -102,7 +103,7 @@ Invariants bắt buộc:
 
 - giữ nguyên nhân vật, text, dấu, palette và bố cục;
 - không thêm, bớt, viết lại hoặc thay slogan;
-- nền trắng của file nguồn không trở thành hình chữ nhật in trên áo;
+- vùng trong suốt của file nguồn không trở thành hình chữ nhật, quầng trắng hoặc viền halo trên áo;
 - hình in bám phối cảnh, nếp vải, texture và ánh sáng như mực in thật;
 - ảnh marketing vuông 1:1, áo thật nhìn trọn vẹn cả thân và hai tay, artwork đọc rõ, đạo cụ chỉ ở rìa;
 - logo Mayaodongphuc xuất hiện đúng một lần như dấu campaign ngoài áo, không in lên áo và không tự vẽ lại logo;
@@ -156,10 +157,10 @@ generated/tao-anh-ao-ngo-nghinh/<batch-id>/<product-slug>/
   product-handoff.json
 ```
 
-- `<SKU>.png`: print-master nền trắng, 4500×4500 px, 300 DPI. Tên file phải là đúng SKU để có thể tìm trực tiếp trên máy. Ưu tiên nguồn native lớn nhất; nếu phải upscale raster thì dùng Lanczos và báo rõ đây không phải vector.
+- `<SKU>.png`: print-master PNG RGBA nền trong suốt, 4500×4500 px, 300 DPI; bốn góc và vùng ngoài artwork phải có alpha 0. Tên file phải là đúng SKU để có thể tìm trực tiếp trên máy. Ưu tiên nguồn native lớn nhất; nếu phải upscale raster thì dùng Lanczos và báo rõ đây không phải vector.
 - `<SKU>-marketing.webp`: ảnh marketing vuông tối thiểu 1200×1200 px, WebP quality 100.
 - `<SKU>-student-lifestyle.webp`: ảnh học sinh lớp 8-12 vuông tối thiểu 1200×1200 px, WebP quality 100, dùng đúng mẫu áo và campaign contract học đường.
-- `<SKU>-print-preview.webp`: bản xem trước website được crop/resize deterministic từ print master, đúng 500×500 px, WebP quality 100. Không dùng imagegen để tạo lại preview.
+- `<SKU>-print-preview.webp`: bản xem trước website được crop/resize deterministic từ print master và composite trên nền trắng, đúng 500×500 px, WebP quality 100. Không dùng imagegen để tạo lại preview.
 - `product-handoff.json`: manifest checksum cho `create-tenant-product`; gallery order là marketing, student lifestyle, rồi print preview.
 - Ba ảnh được phép upload website là marketing, student lifestyle và print preview. Print master PNG 4500px không được upload CMS. Contact sheet và metadata batch không tính là ảnh sản phẩm.
 

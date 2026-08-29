@@ -4,10 +4,10 @@
 
 | Role | File | Yêu cầu |
 |---|---|---|
-| Print master | `<SKU>.png` | PNG RGB, nền `#FFFFFF`, 4500×4500 px, 300 DPI, artwork và exact text, không áo/đạo cụ/watermark |
+| Print master | `<SKU>.png` | PNG RGBA, nền ngoài artwork trong suốt (`alpha = 0`), 4500×4500 px, 300 DPI, artwork và exact text, không áo/đạo cụ/watermark |
 | Marketing | `<SKU>-marketing.webp` | WebP Q100, vuông ≥1200 px, ảnh chụp áo thật nền đơn sắc, sử dụng đúng artwork master, có mã mẫu, dấu Mayaodongphuc và contact chuẩn |
 | Student lifestyle | `<SKU>-student-lifestyle.webp` | WebP Q100, vuông ≥1200 px, 3-5 học sinh Việt Nam thuộc một khối ổn định từ lớp 8-12 mặc đúng mẫu áo trong bối cảnh trường học |
-| Website print preview | `<SKU>-print-preview.webp` | WebP Q100, đúng 500×500 px, crop/resize từ print master, không áo/branding/contact |
+| Website print preview | `<SKU>-print-preview.webp` | WebP Q100, đúng 500×500 px, crop/resize từ print master rồi composite nền trắng, không áo/branding/contact |
 
 Ảnh master là nguồn thiết kế. Marketing và student lifestyle là hai cách trình bày thương mại của cùng thiết kế, không phải biến thể artwork. Preview 500px là derivative dành riêng cho gallery website.
 
@@ -41,7 +41,8 @@ CMS chỉ được nhận marketing, student lifestyle và website print preview
 
 ## Print gate
 
-- Bốn góc và nền ngoài artwork phải trắng thuần.
+- File phải có alpha channel; bốn góc và toàn bộ nền ngoài artwork phải trong suốt thật (`alpha = 0`), không phải nền trắng hay ô caro được vẽ vào ảnh.
+- Không chỉ đổi đuôi sang `.png`; validator phải xác nhận ảnh có transparency và bốn góc trong suốt.
 - Artwork không bị crop, không có áo hoặc scene.
 - Không tự gọi file raster là vector. Nếu cần SVG/PDF vector thật, đó là deliverable bổ sung và phải được yêu cầu riêng.
 - 4500 px ở 300 DPI tương đương vùng vuông 15 inch; kích thước này phù hợp cho nhiều bố cục ngực áo nhưng xưởng in vẫn quyết định khổ in cuối.
@@ -90,14 +91,14 @@ Ví dụ với ImageMagick:
 
 ```bash
 magick source.png \
-  -background white -alpha remove -alpha off \
+  -alpha on -background none \
   -filter Lanczos -resize 4500x4500 \
+  -gravity center -extent 4500x4500 \
   -units PixelsPerInch -density 300 \
-  -fuzz 3% -fill white -draw 'color 0,0 floodfill' -alpha off \
-  X24-DP-NNNNNN.png
+  PNG32:X24-DP-NNNNNN.png
 
 magick marketing-source.png -quality 100 X24-DP-NNNNNN-marketing.webp
 magick student-source.png -quality 100 X24-DP-NNNNNN-student-lifestyle.webp
 ```
 
-Flood-fill từ góc chỉ chuẩn hóa vùng nền trắng liền mạch; sau conversion phải kiểm tra lại bốn góc và artwork. Giữ ảnh nguồn của tool ngoài thư mục xuất bản nếu cần truy vết; thư mục sản phẩm chỉ chứa bốn deliverable cuối và manifest.
+Lệnh trên chỉ bảo toàn alpha sẵn có; nó không biến một nền trắng opaque thành transparency. Nếu nguồn chưa có alpha, correction pass hoặc tách nền ngoài artwork trước, rồi kiểm tra lại alpha channel, bốn góc, mép artwork và các chi tiết màu trắng có chủ đích. Giữ ảnh nguồn của tool ngoài thư mục xuất bản nếu cần truy vết; thư mục sản phẩm chỉ chứa bốn deliverable cuối và manifest.

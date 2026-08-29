@@ -47,6 +47,34 @@ def image_info(path: Path) -> tuple[str, int, int]:
     return fmt, int(width), int(height)
 
 
+def validate_transparent_master(path: Path) -> None:
+    magick = shutil.which("magick")
+    if not magick:
+        fail("ImageMagick `magick` is required")
+    result = subprocess.run(
+        [
+            magick,
+            "identify",
+            "-format",
+            "%[channels]|%[opaque]|%[fx:p{0,0}.a]|%[fx:p{%[fx:w-1],0}.a]|%[fx:p{0,%[fx:h-1]}.a]|%[fx:p{%[fx:w-1],%[fx:h-1]}.a]",
+            str(path),
+        ],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode:
+        fail(f"cannot inspect transparency for {path}: {result.stderr.strip()}")
+    parts = result.stdout.split("|")
+    if len(parts) != 6:
+        fail(f"unexpected transparency output for {path}")
+    channels, opaque, *corner_alpha = parts
+    if "a" not in channels.lower().split()[0] or opaque.lower() != "false":
+        fail("print master must have a transparent alpha channel")
+    if any(float(alpha) != 0 for alpha in corner_alpha):
+        fail("all print-master corners must be fully transparent")
+
+
 def checked_file(item: dict, location: str) -> Path:
     path = Path(str(item.get("path", "")))
     if not path.is_absolute():
@@ -163,6 +191,7 @@ def main() -> None:
     master_fmt, master_width, master_height = image_info(master_path)
     if (master_fmt, master_width, master_height) != ("PNG", 4500, 4500):
         fail("print master must be PNG 4500x4500")
+    validate_transparent_master(master_path)
 
     images = data["acceptedImages"]
     expected_count = 3 if schema_version == "1.1" else 2

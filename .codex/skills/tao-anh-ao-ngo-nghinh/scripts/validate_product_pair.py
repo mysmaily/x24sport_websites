@@ -27,7 +27,7 @@ def identify(path: Path) -> dict[str, object]:
     magick = shutil.which("magick")
     if not magick:
         fail("ImageMagick `magick` is required for validation")
-    fmt = "%m|%w|%h|%x|%y|%U|%[pixel:p{0,0}]|%[pixel:p{%[fx:w-1],0}]|%[pixel:p{0,%[fx:h-1]}]|%[pixel:p{%[fx:w-1],%[fx:h-1]}]"
+    fmt = "%m|%w|%h|%x|%y|%U|%[channels]|%[opaque]|%[fx:p{0,0}.a]|%[fx:p{%[fx:w-1],0}.a]|%[fx:p{0,%[fx:h-1]}.a]|%[fx:p{%[fx:w-1],%[fx:h-1]}.a]"
     result = subprocess.run(
         [magick, "identify", "-format", fmt, str(path)],
         check=False,
@@ -37,7 +37,7 @@ def identify(path: Path) -> dict[str, object]:
     if result.returncode:
         fail(f"cannot inspect {path.name}: {result.stderr.strip()}")
     parts = result.stdout.split("|")
-    if len(parts) != 10:
+    if len(parts) != 12:
         fail(f"unexpected identify output for {path.name}")
     return {
         "format": parts[0],
@@ -46,13 +46,14 @@ def identify(path: Path) -> dict[str, object]:
         "densityX": float(parts[3]),
         "densityY": float(parts[4]),
         "units": parts[5],
-        "corners": parts[6:],
+        "channels": parts[6],
+        "opaque": parts[7],
+        "cornerAlpha": [float(value) for value in parts[8:]],
     }
 
 
-def is_white(pixel: str) -> bool:
-    normalized = pixel.lower().replace(" ", "")
-    return normalized.startswith("srgb(255,255,255)") or normalized.startswith("srgba(255,255,255,1") or normalized in {"white", "gray(255)"}
+def has_alpha_channel(channels: object) -> bool:
+    return "a" in str(channels).lower().split()[0]
 
 
 def main() -> None:
@@ -100,8 +101,10 @@ def main() -> None:
         fail("print master must be PNG")
     if (master_info["width"], master_info["height"]) != (4500, 4500):
         fail("print master must be 4500x4500")
-    if not all(is_white(str(pixel)) for pixel in master_info["corners"]):
-        fail("all print-master corners must be pure white")
+    if not has_alpha_channel(master_info["channels"]) or str(master_info["opaque"]).lower() != "false":
+        fail("print master must have a transparent alpha channel")
+    if not all(float(alpha) == 0 for alpha in master_info["cornerAlpha"]):
+        fail("all print-master corners must be fully transparent")
     if master_info["units"] == "PixelsPerCentimeter":
         if min(float(master_info["densityX"]), float(master_info["densityY"])) < 118:
             fail("print master density must be at least 300 DPI")
