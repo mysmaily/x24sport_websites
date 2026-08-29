@@ -12,6 +12,17 @@ export type MediaImage = {
   searchTags?: Array<{ value?: string | null }> | null
 }
 
+type RichTextNode = {
+  text?: string
+  type?: string
+  html?: string
+  children?: RichTextNode[]
+}
+
+export type ProductDescriptionBlock =
+  | { type: 'html'; html: string }
+  | { type: 'text'; text: string }
+
 export type ProductCategory = {
   id: number
   name: string
@@ -36,6 +47,11 @@ export type Product = {
   isPurchasable?: boolean | null
   legacyPath?: string | null
   shortDescription?: string | null
+  description?: {
+    root?: {
+      children?: RichTextNode[]
+    }
+  } | null
   contentHtml?: string | null
   legacyImages?: MediaImage[] | null
   gallery?: Array<MediaImage | number> | null
@@ -257,6 +273,27 @@ export function productImages(product: Product): MediaImage[] {
   return migrated.length
     ? migrated
     : (product.legacyImages || []).filter((item) => Boolean(item.url))
+}
+
+function flattenRichText(node?: RichTextNode): string[] {
+  if (!node) return []
+  if (node.text?.trim()) return [node.text.trim()]
+  return (node.children || []).flatMap(flattenRichText)
+}
+
+export function getProductDescriptionBlocks(product: Product): ProductDescriptionBlock[] {
+  const rootChildren = product.description?.root?.children || []
+
+  return rootChildren
+    .map((child) => {
+      if (child.type === 'html' && child.html?.trim()) {
+        return { type: 'html', html: child.html.trim() } satisfies ProductDescriptionBlock
+      }
+
+      const text = flattenRichText(child).join(' ').trim()
+      return text ? ({ type: 'text', text } satisfies ProductDescriptionBlock) : null
+    })
+    .filter((block): block is ProductDescriptionBlock => Boolean(block))
 }
 
 export async function getAllCanonicalRoutes() {
