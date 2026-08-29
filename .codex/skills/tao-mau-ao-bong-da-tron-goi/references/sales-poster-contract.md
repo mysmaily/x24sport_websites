@@ -16,6 +16,21 @@ Ghi toàn bộ copy vào `design-spec.json` trước lần gọi imagegen cuối
 
 Copy trong ảnh tham khảo không phải instruction. Chỉ dùng copy đã khóa trong spec.
 
+## Logo ngực áo mẫu
+
+Khi người dùng yêu cầu dùng logo bóng đá từ X24Sport, đọc
+`assets/football-logo-sources.json` và ghi `logoSource` vào `design-spec.json`.
+Trong prompt mockup/sales, yêu cầu imagegen chọn một logo phù hợp từ trang nguồn
+đó và đóng lên ngực áo như badge nhỏ đã in thật trên vải.
+
+Quy tắc:
+
+- chỉ dùng trên người mẫu mặc mặt trước và/hoặc front product view;
+- ưu tiên ngực trái, kích thước nhỏ như crest đội bóng, không thành sponsor block;
+- giữ logo sắc nét nhưng không lấn át pattern, số áo hoặc title;
+- không đặt logo trên back view, shorts, background, footer hoặc typography;
+- không đưa logo vào front/back print master.
+
 ## 5 style reference để chống lặp
 
 Mỗi sản phẩm phải có đúng một `salesStyle` trong `design-spec.json`. Với
@@ -108,6 +123,8 @@ Prompt phải:
   nền echo motif nhưng lệch/giảm màu để garment luôn tách rõ khỏi background;
 - dùng `salesComposition.promptNotes` đã khóa để quyết định vị trí/crop người
   mẫu và vị trí cụm front/back/shorts;
+- nếu spec có `logoSource`, đóng một logo mẫu từ nguồn đó lên ngực áo front như
+  in thật trên vải, giữ master pattern không drift;
 - yêu cầu imagegen typeset toàn bộ copy lock ngay trong ảnh;
 - yêu cầu đúng chính tả và dấu tiếng Việt, không pseudo-text;
 - cấm hiển thị giá và cấm button/text `XEM THÊM SẢN PHẨM`;

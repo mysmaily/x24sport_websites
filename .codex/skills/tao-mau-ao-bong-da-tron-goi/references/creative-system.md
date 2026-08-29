@@ -14,7 +14,8 @@ python3 scripts/choose_creative_direction.py \
 
 Script chọn hướng pseudo-random và `productName` ổn định theo SKU rồi ghi registry. Tên lấy từ `assets/football-product-names.json`, đúng 40 tên tiếng Anh ngắn; dùng hết một vòng trước khi dùng lại tên có tần suất thấp nhất. Cùng SKU luôn trả cùng hướng/tên để retry không đổi concept. Output là nền cho `design-spec.json`, không phải prompt hoàn chỉnh và không thay quyết định thẩm mỹ.
 
-Script cũng chọn `salesStyle` ổn định theo SKU từ
+Script cũng chọn `colorStrategy` để tránh mẫu bị kẹt vào một vibe tối/neon đơn
+sắc, và chọn `salesStyle` ổn định theo SKU từ
 `assets/football-sales-styles.json` và `salesComposition` ổn định theo SKU từ
 `assets/football-sales-compositions.json`. `salesStyle` điều khiển mood, ánh
 sáng, nền và typography; `salesComposition` điều khiển hoán đổi trái/phải, người
@@ -23,13 +24,14 @@ master front/back, palette sản phẩm, copy lock hoặc số lượng view b�
 
 ## Trục sáng tạo
 
-- `motifFamily`: tốc độ, địa hình, quỹ đạo, âm thanh, kiến trúc, lưới chiến thuật, năng lượng, khối mô-đun.
-- `geometry`: diagonal shards, contour bands, radial arcs, split field, chevrons, offset grid, wave ribbons, topographic lines.
+- `motifFamily`: đủ rộng, không chỉ Tron/neon: tốc độ, địa hình, quỹ đạo, âm thanh, kiến trúc, lưới chiến thuật, năng lượng, khối mô-đun, sọc cổ điển, brush strokes, marble, flame, tropical leaf, digital camo, retro sport, paint splatter, watercolor, heritage sash, sunburst, racing check, gradient ribbons, micro-geometric, ink wave, festival color.
+- `geometry`: diagonal shards, contour bands, radial arcs, split field, chevrons, offset grid, wave ribbons, topographic lines, vertical stripes, hoops, quartered blocks, sash, raglan burst, center/side fade, broken grid, floral panels, checker accents, painted sweeps, gradient panels, color blocks.
+- `colorStrategy`: multi-color gradient, contrast color-blocking, light base/bold accent, dark base/bright accent, warm-cool duotone, triadic pop, retro sport, pastel with dark anchor, tonal with contrast break, white base color splash, split-complementary hoặc festival mix.
 - `energy`: calm technical, balanced athletic, explosive matchday.
 - `frontLayout`: trọng tâm vai, ngực chéo, thân dưới, sườn hội tụ, trung tâm phân tách.
 - `backLayout`: phản hồi front nhưng phải giữ vùng tên/số sạch.
 - `accentPlacement`: vai, sườn, gấu, đường chéo ngực, panel lệch tâm.
-- `palette`: 2–4 màu chính; ít nhất một màu nền, một tương phản và một accent có tỷ lệ nhỏ.
+- `palette`: thường 3–5 màu chính; ít nhất một màu nền, một màu tương phản và một accent có tỷ lệ nhỏ. Chấp nhận gradient, phối hoạ tiết và mảng màu táo bạo nếu vẫn in được và có vùng yên cho logo/số.
 - `salesStyle`: một trong 5 kiểu poster để trang catalog không bị lặp thị giác:
   `stadium-tech-showcase`, `clean-sky-studio`, `night-tunnel-pro`,
   `minimal-ecommerce-grid`, `street-futsal-energy`.
@@ -37,7 +39,18 @@ master front/back, palette sản phẩm, copy lock hoặc số lượng view b�
   `model-left-full-body`, `model-right-full-body`, `model-left-portrait`,
   `model-right-portrait`, `product-focus-no-model`.
 
-Không xem sự thay đổi màu đơn thuần là concept mới. Hai concept kề nhau phải khác tối thiểu ba trục. `salesStyle` và `salesComposition` là trục phụ giúp catalog phong phú hơn, nhưng không thay thế khác biệt thật ở motif, geometry, layout hoặc palette.
+Không xem sự thay đổi màu đơn thuần là concept mới. Hai concept kề nhau phải khác tối thiểu ba trục. `salesStyle` và `salesComposition` là trục phụ giúp catalog phong phú hơn, nhưng không thay thế khác biệt thật ở motif, geometry, layout, colorStrategy hoặc palette.
+
+## Chống một màu / chống mặc định Tron
+
+Không mặc định tạo áo kiểu phim Tron Legacy, cyber neon, nền đen và line xanh/tím
+một màu. Kiểu đó vẫn được phép khi direction chọn đúng vibe, nhưng không phải
+ngôn ngữ mặc định của skill.
+
+Prompt thiết kế nên chủ động dùng motif và colorStrategy đã khóa: có mẫu retro,
+sọc/hoops cổ điển, tropical, brush, marble, flame, camo, watercolor, color-block,
+gradient đa sắc, light-base hoặc warm-cool. Nếu concept tối giản/tonal, vẫn cần
+một điểm phá tương phản để áo không thành một khối màu phẳng.
 
 ## Quy tắc thiết kế cho in chuyển nhiệt
 
@@ -52,3 +65,8 @@ Không xem sự thay đổi màu đơn thuần là concept mới. Hai concept k�
 Không prompt theo tên một kit nổi tiếng hoặc “giống hệt” đội/nhãn. Có thể dùng mô tả trừu tượng như “nhịp chéo tốc độ, tương phản lạnh–nóng, vùng lưng sạch” nhưng không giữ trade dress, huy hiệu, sponsor hoặc pattern nhận diện của nguồn.
 
 Nếu người dùng cung cấp logo/crest/sponsor riêng, ghi asset đó vào `allowedAssets` và vẫn giữ file nền front/back không có asset; mockup có thể composite asset khi người dùng đã xác nhận quyền sử dụng.
+
+Nếu người dùng dẫn trang `https://x24sport.vn/tim-kiem/?q=logo%20b%C3%B3ng%20%C4%91%C3%A1`,
+đọc `assets/football-logo-sources.json` và dùng một logo phù hợp từ trang đó như
+badge mẫu trên ngực áo trong mockup/sales. Không đưa logo này vào master in
+phẳng; master vẫn là nền sản xuất sạch để xưởng bình tài sản khách hàng sau.

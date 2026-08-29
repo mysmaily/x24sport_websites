@@ -1,0 +1,11 @@
+[
+  {
+    "id": "x24sport-football-logo-search",
+    "name": "X24Sport football logo search",
+    "sourceUrl": "https://x24sport.vn/tim-kiem/?q=logo%20b%C3%B3ng%20%C4%91%C3%A1",
+    "query": "logo bóng đá",
+    "usage": "sample chest badge for mockup and sales images only",
+    "placement": "left chest or upper chest on the worn front jersey and front product view",
+    "promptNotes": "Use one suitable football logo from this X24Sport search result page as a small customer-sample chest badge. Render it like embroidery/heat-transfer print integrated on fabric. Keep it subordinate to the jersey design, do not use it as a sponsor block, do not place it on the back unless the user explicitly asks, and do not add it to front/back print masters."
+  }
+]

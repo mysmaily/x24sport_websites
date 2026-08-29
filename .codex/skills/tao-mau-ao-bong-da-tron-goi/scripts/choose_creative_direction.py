@@ -13,13 +13,28 @@ from pathlib import Path
 
 
 SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
-MOTIFS = ["velocity", "topographic", "orbit", "tactical-grid", "soundwave", "modular", "architectural", "energy-field"]
-GEOMETRIES = ["diagonal-shards", "contour-bands", "radial-arcs", "split-field", "chevrons", "offset-grid", "wave-ribbons", "topographic-lines"]
+MOTIFS = [
+    "velocity", "topographic", "orbit", "tactical-grid", "soundwave", "modular", "architectural", "energy-field",
+    "classic-stripes", "brush-strokes", "marble-veins", "flame-trails", "tropical-leaf", "digital-camo",
+    "retro-sport", "paint-splatter", "watercolor-flow", "heritage-sash", "sunburst", "racing-check",
+    "gradient-ribbons", "micro-geometric", "ink-wave", "festival-color",
+]
+GEOMETRIES = [
+    "diagonal-shards", "contour-bands", "radial-arcs", "split-field", "chevrons", "offset-grid",
+    "wave-ribbons", "topographic-lines", "vertical-stripes", "horizontal-hoops", "quartered-blocks",
+    "sash-band", "raglan-burst", "center-fade", "side-fade", "collar-radiance", "broken-grid",
+    "oversized-floral-panels", "checker-accents", "painted-sweeps", "gradient-panels", "clean-color-blocks",
+]
 ENERGIES = ["calm-technical", "balanced-athletic", "explosive-matchday"]
 FRONT_LAYOUTS = ["shoulder-led", "diagonal-chest", "lower-body-rise", "side-convergence", "offset-center", "central-split"]
 BACK_LAYOUTS = ["quiet-center-side-echo", "upper-frame-clean-core", "lower-accent-clean-number-zone", "asymmetric-side-return"]
 ACCENTS = ["shoulder", "side-panels", "lower-hem", "diagonal-chest", "offset-center", "sleeve-echo"]
 COLLARS = ["crew-neck", "heart-neck", "folded-polo"]
+COLOR_STRATEGIES = [
+    "multi-color-gradient", "contrast-color-blocking", "light-base-bold-accent", "dark-base-bright-accent",
+    "warm-cool-duotone", "triadic-pop", "retro-sport", "pastel-with-dark-anchor", "tonal-with-contrast-break",
+    "white-base-color-splash", "split-complementary", "festival-mix",
+]
 PALETTES = [
     {"name": "deep-ocean", "colors": ["#071E3D", "#0B63CE", "#F5F8FF", "#44D7B6"]},
     {"name": "ember-night", "colors": ["#161616", "#D7263D", "#F46036", "#F7F3E8"]},
@@ -29,6 +44,16 @@ PALETTES = [
     {"name": "ice-navy", "colors": ["#071A33", "#2C7BE5", "#BEE9F7", "#FFFFFF"]},
     {"name": "crimson-sand", "colors": ["#6B1020", "#C7354C", "#D9B382", "#FFF8EB"]},
     {"name": "teal-sun", "colors": ["#053B44", "#00A6A6", "#FFD166", "#F7FFF7"]},
+    {"name": "white-carnival", "colors": ["#F8FAFC", "#111827", "#FF4D6D", "#FFD23F", "#00B4D8"]},
+    {"name": "mango-aqua", "colors": ["#FFB703", "#FB5607", "#00B4D8", "#023047", "#FFFFFF"]},
+    {"name": "mint-rose", "colors": ["#D8F3DC", "#52B788", "#FF6B9A", "#2B2D42", "#FFFFFF"]},
+    {"name": "royal-gold", "colors": ["#102A83", "#FFD166", "#EF476F", "#F8F9FA"]},
+    {"name": "retro-cream-green", "colors": ["#FFF6D6", "#1B4332", "#E76F51", "#2A9D8F", "#264653"]},
+    {"name": "sky-coral", "colors": ["#E0FBFC", "#3D5A80", "#EE6C4D", "#98C1D9", "#FFFFFF"]},
+    {"name": "black-rainbow-pop", "colors": ["#090A0F", "#FFFFFF", "#FF006E", "#3A86FF", "#FFBE0B"]},
+    {"name": "lavender-lime", "colors": ["#E9D8FD", "#240046", "#70E000", "#00BBF9", "#FFFFFF"]},
+    {"name": "ruby-mint", "colors": ["#8A1538", "#FF477E", "#06D6A0", "#F7FFF7", "#1B1B1E"]},
+    {"name": "pearl-orange-blue", "colors": ["#F7F7FF", "#FF8500", "#006D77", "#83C5BE", "#111827"]},
 ]
 DEFAULT_NAME_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-product-names.json"
 DEFAULT_SALES_STYLE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-styles.json"
@@ -122,9 +147,11 @@ def make_direction(
         "backLayout": BACK_LAYOUTS[index(seed, "back", len(BACK_LAYOUTS), offset)],
         "accentPlacement": ACCENTS[index(seed, "accent", len(ACCENTS), offset)],
         "collar": COLLARS[index(seed, "collar", len(COLLARS), offset)],
+        "colorStrategy": COLOR_STRATEGIES[index(seed, "color-strategy", len(COLOR_STRATEGIES), offset)],
         "palette": PALETTES[index(seed, "palette", len(PALETTES), offset)],
         "salesStyle": sales_style,
         "salesComposition": sales_composition,
+        "creativeGuardrail": "Do not default to a Tron/neon one-tone look. Use the selected motif, geometry, colorStrategy and palette to create varied football kit language with clear base, contrast and accent roles.",
         "edgeContinuity": "edge-coherent side bands; confirm exact seam alignment only on factory pattern",
     }
     palette = direction["palette"]
@@ -132,7 +159,7 @@ def make_direction(
     direction["uniquenessSignature"] = "|".join([
         str(direction["motifFamily"]), str(direction["geometry"]), str(direction["energy"]),
         str(direction["frontLayout"]), str(direction["backLayout"]),
-        str(direction["accentPlacement"]), str(palette_name), str(direction["collar"]),
+        str(direction["accentPlacement"]), str(direction["colorStrategy"]), str(palette_name), str(direction["collar"]),
         str(sales_style["id"]), str(sales_composition["id"]),
     ])
     return direction
@@ -228,6 +255,10 @@ def main() -> None:
                     row["salesStyle"] = choose_sales_style(args.sku, sales_style_library)
                 if not row.get("salesComposition"):
                     row["salesComposition"] = choose_sales_composition(args.sku, sales_composition_library)
+                if not row.get("colorStrategy"):
+                    row["colorStrategy"] = COLOR_STRATEGIES[index(args.sku.encode("ascii"), "color-strategy", len(COLOR_STRATEGIES))]
+                if not row.get("creativeGuardrail"):
+                    row["creativeGuardrail"] = "Do not default to a Tron/neon one-tone look. Use the selected motif, geometry, colorStrategy and palette to create varied football kit language with clear base, contrast and accent roles."
                 print(json.dumps(row, ensure_ascii=False, indent=2))
                 return
         used = {row.get("uniquenessSignature") for row in rows}

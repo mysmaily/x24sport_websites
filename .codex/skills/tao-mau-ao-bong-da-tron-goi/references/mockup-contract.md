@@ -12,12 +12,19 @@ Do not redesign, simplify, recolor, mirror, swap, or invent either pattern.
 
 `design-spec.json` điều khiển cổ, tay, form, quần, model và bố cục. Master điều khiển tuyệt đối pattern/palette.
 
+Nếu `design-spec.json` có `logoSource`, dùng nó như asset tham khảo để đặt một
+logo mẫu nhỏ trên ngực trái hoặc vùng ngực trên của áo front. Logo phải trông
+như được in/ép/embroider thật vào vải, warp theo nếp áo, không nổi như sticker.
+Không thêm logo vào back view, shorts hoặc background trừ khi người dùng yêu cầu
+rõ.
+
 ## Mockup base
 
 - Vuông 1:1, tối thiểu 1200 × 1200 px.
 - Photorealistic sportswear catalog; vải polyester thể thao có mesh vừa phải, đường may, bo cổ, lai tay, độ dày gấu, nếp và bóng tiếp xúc tự nhiên.
 - Hiển thị áo trước và áo sau đủ lớn để đối chiếu. Có thể thêm quần và một cầu thủ Việt Nam mặc mặt trước nếu spec yêu cầu.
 - Không seller logo, website, hotline, SKU hoặc text quảng cáo. Bố cục đủ linh hoạt để imagegen có thể cân lại khi tạo poster hoàn chỉnh.
+- Logo từ `assets/football-logo-sources.json` là badge mẫu của khách hàng trên áo, không phải seller logo; chỉ dùng khi người dùng yêu cầu nguồn logo đó.
 - Bối cảnh được sáng tạo theo palette: studio thể thao, stadium catalog, tunnel, training ground hoặc graphic set có chiều sâu. Không để background cạnh tranh với sản phẩm.
 
 ## Hard reject
