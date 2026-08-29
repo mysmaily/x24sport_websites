@@ -14,6 +14,11 @@ python3 scripts/choose_creative_direction.py \
 
 Script chọn hướng pseudo-random và `productName` ổn định theo SKU rồi ghi registry. Tên lấy từ `assets/football-product-names.json`, đúng 40 tên tiếng Anh ngắn; dùng hết một vòng trước khi dùng lại tên có tần suất thấp nhất. Cùng SKU luôn trả cùng hướng/tên để retry không đổi concept. Output là nền cho `design-spec.json`, không phải prompt hoàn chỉnh và không thay quyết định thẩm mỹ.
 
+Script cũng chọn `salesStyle` ổn định theo SKU từ
+`assets/football-sales-styles.json`. Style này chỉ điều khiển poster chào hàng:
+mood, ánh sáng, nền, typography và hierarchy. Nó không được đổi master
+front/back, palette sản phẩm, copy lock hoặc số lượng view bắt buộc.
+
 ## Trục sáng tạo
 
 - `motifFamily`: tốc độ, địa hình, quỹ đạo, âm thanh, kiến trúc, lưới chiến thuật, năng lượng, khối mô-đun.
@@ -23,8 +28,11 @@ Script chọn hướng pseudo-random và `productName` ổn định theo SKU r�
 - `backLayout`: phản hồi front nhưng phải giữ vùng tên/số sạch.
 - `accentPlacement`: vai, sườn, gấu, đường chéo ngực, panel lệch tâm.
 - `palette`: 2–4 màu chính; ít nhất một màu nền, một tương phản và một accent có tỷ lệ nhỏ.
+- `salesStyle`: một trong 5 kiểu poster để trang catalog không bị lặp thị giác:
+  `stadium-tech-showcase`, `clean-sky-studio`, `night-tunnel-pro`,
+  `minimal-ecommerce-grid`, `street-futsal-energy`.
 
-Không xem sự thay đổi màu đơn thuần là concept mới. Hai concept kề nhau phải khác tối thiểu ba trục.
+Không xem sự thay đổi màu đơn thuần là concept mới. Hai concept kề nhau phải khác tối thiểu ba trục. `salesStyle` có thể là một trục phụ giúp catalog phong phú hơn, nhưng không thay thế khác biệt thật ở motif, geometry, layout hoặc palette.
 
 ## Quy tắc thiết kế cho in chuyển nhiệt
 

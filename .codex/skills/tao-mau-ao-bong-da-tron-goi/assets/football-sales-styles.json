@@ -1,0 +1,62 @@
+[
+  {
+    "id": "stadium-tech-showcase",
+    "name": "Stadium Tech Showcase",
+    "shortDescription": "Dark stadium catalog poster with neon rails, large title, model on the left, product surfaces on the right, and selector panels below.",
+    "promptNotes": "Use a premium night-stadium or training-arena background, teal/red/purple/yellow lighting adapted to the kit palette, a full-body Vietnamese football model on the left, front shirt, back shirt and exactly one shorts view on the right, strong sports display typography, compact collar and size controls, and a contact footer. This is the Orbit Rush-approved legacy style.",
+    "bestFor": [
+      "high-contrast kits",
+      "neon accents",
+      "hero catalog cards",
+      "new-design launches"
+    ]
+  },
+  {
+    "id": "clean-sky-studio",
+    "name": "Clean Sky Studio",
+    "shortDescription": "Bright daylight catalog layout with white/sky background, airy spacing, blue sport accents, and crisp product comparison.",
+    "promptNotes": "Use a bright studio or open training-ground atmosphere with white, sky-blue and soft daylight tones adapted to the kit palette. Keep the model and garments highly legible, use clean italic football typography, lighter panels, and clear selector controls. Avoid heavy smoke or dark overlays.",
+    "bestFor": [
+      "blue kits",
+      "white kits",
+      "youth teams",
+      "fresh summer collections"
+    ]
+  },
+  {
+    "id": "night-tunnel-pro",
+    "name": "Night Tunnel Pro",
+    "shortDescription": "Premium black tunnel/studio style with vertical light bars, sharp product isolation, and understated pro-club mood.",
+    "promptNotes": "Use a dark football tunnel or black studio with controlled vertical light bars, rim light, subtle floor reflections and restrained metallic typography. Keep product views large and clean. Use fewer background effects than Stadium Tech Showcase and make the kit feel premium and professional.",
+    "bestFor": [
+      "red kits",
+      "black kits",
+      "minimal patterns",
+      "club-inspired sets"
+    ]
+  },
+  {
+    "id": "minimal-ecommerce-grid",
+    "name": "Minimal Ecommerce Grid",
+    "shortDescription": "Clean commerce-first product board with neutral background, large garments, restrained type, and fast-scanning selectors.",
+    "promptNotes": "Use a light neutral or soft gray background with subtle sport lines, no stadium drama, no heavy effects. Put the product surfaces first: front, back, shorts and model are cleanly separated in a balanced grid. Typography is compact, crisp and ecommerce-friendly; selector controls are simple and readable.",
+    "bestFor": [
+      "catalog variety",
+      "busy patterns",
+      "marketplace cards",
+      "mobile scanning"
+    ]
+  },
+  {
+    "id": "street-futsal-energy",
+    "name": "Street Futsal Energy",
+    "shortDescription": "Urban futsal/court poster with bold motion strokes, gritty texture, and energetic youth-club appeal.",
+    "promptNotes": "Use an urban futsal court or night street-football setting with painted motion strokes, diagonal energy, practical product panels and confident display type. Keep the background lively but never let it obscure product surfaces or text. Adapt stroke colors to the kit palette.",
+    "bestFor": [
+      "orange kits",
+      "gradient kits",
+      "youth clubs",
+      "street football themes"
+    ]
+  }
+]
