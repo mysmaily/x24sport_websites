@@ -28,6 +28,11 @@ với áo và pose người mẫu lặp. Không giả định ảnh của các S
 trên máy; nếu thiếu file ảnh thì chỉ dùng nhận xét chữ, không dùng SKU như visual
 reference.
 
+Luôn đọc [factory-pattern-ratio.md](references/factory-pattern-ratio.md) khi tạo
+master print cho form rập bóng đá xưởng đang dùng. Reference rập thực tế hiện tại
+có tỷ lệ thân áo an toàn khoảng `0.67` rộng/cao; tỷ lệ `700:850` chỉ là canvas
+giao xưởng generic/bleed nếu chưa có kích thước mm hoặc rập vector chính xác.
+
 ## Phạm vi và mặc định
 
 Workflow mặc định là `images-only`; không tạo CMS record hoặc publish nếu người dùng chưa yêu cầu rõ.
@@ -37,7 +42,9 @@ Khi thiếu thông số:
 - SKU: `X24-BD-FFHHDD`, trong đó `FF` là hai chữ số phần nghìn giây quy về centisecond, `HH` là giờ 24h và `DD` là ngày theo `Asia/Ho_Chi_Minh`;
 - tên sản phẩm: một hoặc hai từ tiếng Anh, lấy từ thư viện 40 tên `assets/football-product-names.json`;
 - in chuyển nhiệt trên polyester;
-- mỗi master: 700 × 850 mm, 300 PPI, PNG lossless, sRGB, full-bleed;
+- mỗi master generic: 700 × 850 mm, 300 PPI, PNG lossless, sRGB, full-bleed;
+  nếu dùng rập xưởng hiện tại, giữ motif chính trong safe-area thân áo khoảng
+  `0.67` rộng/cao hoặc dựng source master theo tỷ lệ rập thay vì canvas rộng;
 - cổ áo: một trong `Cổ tròn`, `Cổ Tim`, `Cổ polo`;
 - sales brand: `mayaobongda.vn`, hotline `0989 353 247`;
 - commercial defaults: `IN TÊN + SỐ MIỄN PHÍ`, `VẢI MÈ THỂ THAO • THOÁNG MÁT • IN CHUYỂN NHIỆT`; feature badges lấy từ `assets/football-sales-feature-badges.json`; không hiển thị giá và không có button `XEM THÊM SẢN PHẨM`;
@@ -90,6 +97,8 @@ Tạo `design-spec.json` trước khi sinh ảnh:
 - logoSource mặc định từ `assets/football-logo-sources.json` cho ảnh
   mockup/sales, không đưa vào master front/back;
 - kích thước vật lý, PPI, color space, printing assumption;
+- `factoryPatternReference`, `factoryPatternSafeAspectRatio` và quan hệ giữa
+  `deliveryCanvas` với safe-area thân rập nếu có dùng rập xưởng;
 - mockup composition, sales layout, exact commercial copy;
 - `tasteProfileApplied`, `marketFitTarget`, `paletteDiscipline`, `modelPosePlan`
   và `salesCrop` theo `references/user-taste-profile.md`;
@@ -111,10 +120,13 @@ Cùng SKU giữ direction và tên qua retry; thư viện dùng hết 40 tên m�
 ### Front
 
 - canvas artwork phẳng, full-bleed, gần tỷ lệ panel áo;
-- source master phải gần tỷ lệ 700:850, tức aspect ratio khoảng `0.8235`;
-  ưu tiên nằm trong `0.80-0.85`, tối đa lệch 8% nếu có bleed an toàn. Không
-  chấp nhận source vuông hoặc source 2:3 quá cao/hẹp cho master print nếu chưa
-  correction/crop-review;
+- nếu dùng rập xưởng hiện tại, source/safe-area phải gần tỷ lệ thân áo `0.67`
+  rộng/cao; canvas `700:850` chỉ được dùng như oversize bleed và không được đặt
+  motif quan trọng ngoài vùng rập;
+- nếu không có rập xưởng, source master phải gần tỷ lệ 700:850, tức aspect ratio
+  khoảng `0.8235`; ưu tiên nằm trong `0.80-0.85`, tối đa lệch 8% nếu có bleed an
+  toàn. Không chấp nhận source vuông hoặc source 2:3 quá cao/hẹp cho master print
+  nếu chưa correction/crop-review;
 - không áo, cổ/tay, rập, đường may, model, hanger, nếp vải, ánh sáng, bóng hoặc phối cảnh;
 - không text, number, logo, crest, sponsor, watermark, UI/contact;
 - edge sạch, shape đủ lớn để in, không moiré/nhiễu li ti;
@@ -146,8 +158,10 @@ python3 scripts/prepare_print_master.py work/<SKU>-back-source.png print/<SKU>-b
 
 Không stretch, JPEG, cutline hoặc ICC ngẫu nhiên. Script resample và gắn PPI nhưng không tạo chi tiết mới/vector. Ghi scale factor; trên 2× phải kiểm tra 100%/200% và khuyến nghị test swatch.
 Nếu script báo lệch aspect ratio vượt ngưỡng, phải tạo/crop-review lại source
-master theo tỷ lệ 700:850 trước khi chuẩn hóa, thay vì kéo méo artwork cho vừa
-rập.
+master theo tỷ lệ mục tiêu đang active trước khi chuẩn hóa, thay vì kéo méo
+artwork cho vừa rập. Với rập xưởng hiện tại, tỷ lệ mục tiêu của vùng thân áo là
+`0.67`; chỉ dùng lệnh `700 x 850` như canvas bleed khi spec đã khóa safe-area
+rập bên trong.
 
 ## 5. Tạo mockup base
 

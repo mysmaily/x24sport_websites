@@ -9,13 +9,21 @@ Hai deliverable bắt buộc:
 - `<SKU>-front-print.png`
 - `<SKU>-back-print.png`
 
-Mặc định: 700 × 850 mm, 300 PPI, tương ứng 8268 × 10039 px, PNG lossless, sRGB. Nếu xưởng cung cấp kích thước, rập, ICC hoặc yêu cầu TIFF/CMYK, ưu tiên thông số xưởng và ghi rõ thay đổi.
+Mặc định generic: 700 × 850 mm, 300 PPI, tương ứng 8268 × 10039 px, PNG
+lossless, sRGB. Nếu xưởng cung cấp kích thước, rập, ICC hoặc yêu cầu TIFF/CMYK,
+ưu tiên thông số xưởng và ghi rõ thay đổi.
+
+Khi dùng rập xưởng thực tế đã lưu trong
+`assets/factory-pattern-references/x24-factory-football-sleeveless-front-back-vneck-crew-2026-08-30.png`,
+đọc thêm [factory-pattern-ratio.md](factory-pattern-ratio.md). Rập này có tỷ lệ
+thân áo an toàn khoảng `0.67` rộng/cao. Canvas `700:850` rộng hơn thân rập khoảng
+23%, nên chỉ là canvas bleed/giao file nếu spec ghi rõ, không phải tỷ lệ thân áo.
 
 ## Tỷ lệ source master
 
-Master source phải được dựng gần tỷ lệ giao xưởng `700:850` (`aspectRatio =
-0.8235`). Đây là nền chữ nhật oversize để xưởng đặt lên rập panel áo, không phải
-ảnh vuông và không phải mockup.
+Nếu chưa có rập hoặc kích thước xưởng, master source phải được dựng gần tỷ lệ
+giao xưởng generic `700:850` (`aspectRatio = 0.8235`). Đây là nền chữ nhật
+oversize để xưởng đặt lên rập panel áo, không phải ảnh vuông và không phải mockup.
 
 - Ưu tiên source nằm trong khoảng `0.80-0.85`.
 - Tối đa lệch 8% so với `700:850` khi artwork có bleed an toàn ở vùng bị crop.
@@ -23,14 +31,18 @@ Master source phải được dựng gần tỷ lệ giao xưởng `700:850` (`a
   motif quan trọng sát mép bị crop nếu chưa correction/crop-review.
 - `prepare_print_master.py --fit cover` chỉ crop để ra đúng tỷ lệ, không stretch.
   Không được kéo méo artwork để vừa rập.
-- Nếu xưởng cung cấp rập thật, dùng rập đó làm authority. Khi chưa có rập, chỉ
-  ghi `edge-coherent`, không ghi seam/cutline chính xác.
+- Nếu dùng rập xưởng hiện tại, source hoặc vùng safe-area nội dung chính phải
+  gần `0.67` rộng/cao. Phần ngoài safe-area chỉ là bleed/pattern nối mép.
+- Nếu xưởng cung cấp rập thật hoặc file vector chính xác, dùng rập đó làm
+  authority. Khi chưa có rập, chỉ ghi `edge-coherent`, không ghi seam/cutline
+  chính xác.
 
 ## Nội dung được phép
 
 - màu nền và pattern full-bleed;
 - gradient, shape, line, halftone hoặc texture đồ họa có chủ đích và đủ lớn để in;
 - vùng thị giác yên để đặt logo/sponsor/tên/số ở bước sau.
+- khi có rập xưởng, motif chính nằm trong safe-area thân áo tỷ lệ khoảng `0.67`.
 
 ## Nội dung cấm
 
