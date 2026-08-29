@@ -137,10 +137,10 @@ Hard reject nếu pattern drift, front/back bị đổi, áo phẳng/nhựa/CGI,
 
 Đọc [sales-poster-contract.md](references/sales-poster-contract.md).
 
-- `compact`: chừa title/contact zone rồi dùng `scripts/apply_sales_signature.py`.
-- `catalog-reference`: dùng `assets/catalog-sales-layout-reference.png` chỉ làm layout reference, tạo blank catalog base rồi dùng `scripts/apply_catalog_sales_copy.py`.
+- `compact`: dùng mockup base đã duyệt làm edit target và yêu cầu imagegen thiết kế sản phẩm cùng title/contact trong một lượt.
+- `catalog-reference`: dùng mockup/catalog base, hai master và `assets/catalog-sales-layout-reference.png` trong cùng lần gọi imagegen cuối; benchmark chỉ làm layout reference.
 
-Imagegen không được viết commercial copy. Collection, title, SKU, giá, ưu đãi, số front, tên/số/tên đội trên back, collar labels, size, chất liệu/công nghệ in, CTA, website và hotline phải composite deterministic. Benchmark chỉ điều khiển hierarchy; không điều khiển kit/pattern/brand. `catalog-reference` phải có sales-copy proof gắn checksum với ảnh và validator phải xác nhận đủ trường.
+Imagegen phải typeset toàn bộ commercial copy đã khóa trong spec ngay trong ảnh cuối: collection, title, SKU, giá, ưu đãi, số trên model/front, tên/số/tên đội trên back, collar labels, size, chất liệu/công nghệ in, CTA, website và hotline. Không dùng script/Pillow/ImageMagick/SVG/Canvas để đắp text hậu kỳ. Nếu chữ hoặc bố cục sai, sửa bằng imagegen correction pass. Lưu output imagegen gốc thành `work/<SKU>-sales-native-source.png`; WebP bàn giao chỉ được chuyển định dạng lossless và validator phải xác nhận pixel identity.
 
 ## 7. Đóng gói và validate
 

@@ -10,14 +10,13 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
   work/
     <SKU>-front-source.png
     <SKU>-back-source.png
+    <SKU>-sales-native-source.png      # output imagegen cuối, đã có typography
   print/
     <SKU>-front-print.png
     <SKU>-back-print.png
   marketing/
     <SKU>-mockup-base.webp
-    <SKU>-catalog-base.webp           # only for catalog-reference
     <SKU>-sales.webp
-    <SKU>-sales-copy.json             # rendered-copy proof + sales checksum
   delivery-manifest.json
 ```
 
@@ -73,9 +72,14 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
       "pixels": [1536, 1536]
     }
   ],
-  "salesCopyProof": {
-    "path": "/absolute/path/marketing/X24-BD-000001-sales-copy.json",
-    "sha256": "..."
+  "salesGeneration": {
+    "mode": "imagegen-native",
+    "postCompositeApplied": false,
+    "nativeSource": {
+      "path": "/absolute/path/work/X24-BD-000001-sales-native-source.png",
+      "sha256": "...",
+      "pixels": [1536, 1536]
+    }
   },
   "visualApproval": {
     "frontFlatArtworkOnly": true,
@@ -88,6 +92,6 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
 }
 ```
 
-Tạo manifest và SHA-256 từ bytes cuối bằng `build_delivery_manifest.py`. Ghi đúng `inputMode` và `salesLayout`; với conversion, thêm source analysis/reference vào spec nhưng không đưa ảnh seller vào gallery. Chỉ truyền `--approve-visual` sau khi đã xem full-size cả bốn ảnh và xác nhận đủ gate. `validate_delivery.py` yêu cầu đúng bốn role và kiểm tra file nằm trong product folder, tên SKU đồng nhất, PNG/WebP đúng loại, master đúng pixel/PPI, mockup vuông tối thiểu 1200 px, checksum khớp và sáu cờ visual đều `true`. Với `catalog-reference`, validator còn bắt buộc sales-copy proof chứa đủ 17 trường text và checksum trùng đúng sales image cuối.
+Tạo manifest và SHA-256 từ bytes cuối bằng `build_delivery_manifest.py`. Ghi đúng `inputMode` và `salesLayout`; với conversion, thêm source analysis/reference vào spec nhưng không đưa ảnh seller vào gallery. Chỉ truyền `--approve-visual` sau khi đã xem full-size cả bốn ảnh và đối chiếu từng chuỗi copy. `validate_delivery.py` yêu cầu đúng bốn role, file nằm trong product folder, SKU đồng nhất, PNG/WebP đúng loại, master đúng pixel/PPI, mockup vuông tối thiểu 1200 px, checksum khớp và sáu cờ visual đều `true`. Validator còn yêu cầu copy lock trong `design-spec`, `salesGeneration.mode=imagegen-native`, `postCompositeApplied=false`, và pixel RGB của sales WebP giống tuyệt đối với PNG nguồn imagegen. Mọi composite hậu kỳ làm đổi pixel sẽ fail.
 
 Không đặt master PNG vào gallery website. Nếu sau này publish, tạo preview WebP riêng từ master; không dùng master 300 PPI làm ảnh web.

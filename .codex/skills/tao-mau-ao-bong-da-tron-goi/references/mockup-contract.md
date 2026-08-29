@@ -17,7 +17,7 @@ Do not redesign, simplify, recolor, mirror, swap, or invent either pattern.
 - Vuông 1:1, tối thiểu 1200 × 1200 px.
 - Photorealistic sportswear catalog; vải polyester thể thao có mesh vừa phải, đường may, bo cổ, lai tay, độ dày gấu, nếp và bóng tiếp xúc tự nhiên.
 - Hiển thị áo trước và áo sau đủ lớn để đối chiếu. Có thể thêm quần và một cầu thủ Việt Nam mặc mặt trước nếu spec yêu cầu.
-- Không seller logo, website, hotline, SKU hoặc text quảng cáo. Chừa vùng trống thật cho composite deterministic.
+- Không seller logo, website, hotline, SKU hoặc text quảng cáo. Bố cục đủ linh hoạt để imagegen có thể cân lại khi tạo poster hoàn chỉnh.
 - Bối cảnh được sáng tạo theo palette: studio thể thao, stadium catalog, tunnel, training ground hoặc graphic set có chiều sâu. Không để background cạnh tranh với sản phẩm.
 
 ## Hard reject
@@ -34,13 +34,6 @@ Nếu một surface sai, correction pass phải nói đúng surface và giữ c�
 
 ## Sales image
 
-Dùng `apply_sales_signature.py` trên mockup base đã duyệt. Script chỉ thêm:
-
-- title;
-- `MÃ MẪU: <SKU>`;
-- website;
-- `HOTLINE: <phone>`.
-
-Chọn vị trí title/signature theo vùng trống sau khi xem ảnh. Không đóng panel lên áo hoặc mặt người. Mọi nội dung khác như giá, size, cổ áo, ưu đãi, QR hoặc logo brand chỉ thêm khi người dùng cung cấp copy/asset và nên composite deterministic ở một bước riêng.
+Dùng mockup base đã duyệt làm edit target trong lần gọi imagegen cuối. Imagegen thiết kế toàn bộ typography, controls và contact cùng sản phẩm trong một composition thống nhất. Không dùng script đắp chữ hậu kỳ. Nếu sai text hoặc lệch layout, correction pass phải sửa trực tiếp ảnh native bằng imagegen.
 
 Ảnh chào hàng là derivative. Không dùng nó làm nguồn để tái tạo master, rập hoặc màu sản xuất.
