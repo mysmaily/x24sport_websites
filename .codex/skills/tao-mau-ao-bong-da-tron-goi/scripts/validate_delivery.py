@@ -16,6 +16,10 @@ except ImportError as error:
 
 
 SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
+SCHEMA_VERSION = "1.1"
+COLLAR_LABELS = ["Cổ tròn", "Cổ Tim", "Cổ polo"]
+WEBSITE = "mayaobongda.vn"
+HOTLINE = "0989 353 247"
 EXPECTED_ROLES = {
     "front print master": ("PNG", "master"),
     "back print master": ("PNG", "master"),
@@ -26,12 +30,14 @@ EXPECTED_ROLES = {
 VISUAL_FLAGS = {
     "frontFlatArtworkOnly", "backFlatArtworkOnly", "frontBackCoherent",
     "mockupMatchesFront", "mockupMatchesBack", "commercialTextExact",
-    "teamPhotoMatchesKit",
+    "collarOptionsExact", "mockupContactExact", "teamPhotoMatchesKit",
+    "teamPhotoContactExact",
 }
 REQUIRED_SALES_SPEC_FIELDS = {
     "collection", "offer", "modelNumber", "frontNumber",
     "playerName", "playerNumber", "teamName", "materialLine",
-    "website", "hotline", "sizes", "selectedCollar",
+    "website", "hotline", "sizes", "collarHeading", "collarLabels",
+    "selectedCollar",
 }
 FORBIDDEN_SALES_SPEC_FIELDS = {"price", "cta"}
 SAFE_LANCZOS_SCALE = 2.0
@@ -97,6 +103,8 @@ def main() -> None:
         fail("product folder, design-spec.json, and delivery-manifest.json are required")
 
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("schemaVersion") != SCHEMA_VERSION:
+        fail(f"manifest schemaVersion must be {SCHEMA_VERSION}")
     sku = manifest.get("sku")
     if not isinstance(sku, str) or not SKU_RE.fullmatch(sku):
         fail("manifest sku must match X24-BD-FFHHDD")
@@ -215,6 +223,16 @@ def main() -> None:
             fail(f"unknown validation kind for {role}")
         report.append({"role": role, "file": path.name, "format": image_format, "pixels": pixels})
 
+    mockup_path = Path(by_role["mockup base"]["path"]).resolve()
+    validate_native_pixel_identity(
+        folder=folder,
+        sku=sku,
+        generation=manifest.get("mockupGeneration"),
+        generation_name="mockupGeneration",
+        native_folder=folder / "work",
+        native_suffix="-mockup-native-source.png",
+        web_path=mockup_path,
+    )
     sales_path = Path(by_role["sales image"]["path"]).resolve()
     validate_native_pixel_identity(
         folder=folder,
@@ -249,6 +267,29 @@ def main() -> None:
             fail(f"design spec sales field {key} must not be blank")
         if isinstance(value, list) and (not value or not all(isinstance(item, str) and item.strip() for item in value)):
             fail(f"design spec sales field {key} must contain nonblank labels")
+    if sales_spec["website"] != WEBSITE or sales_spec["hotline"] != HOTLINE:
+        fail(f"all gallery images must use website {WEBSITE} and hotline {HOTLINE}")
+    if sales_spec["collarLabels"] != COLLAR_LABELS:
+        fail(f"sales.collarLabels must be exactly {COLLAR_LABELS}")
+    if sales_spec["selectedCollar"] not in COLLAR_LABELS:
+        fail(f"sales.selectedCollar must be one of {COLLAR_LABELS}")
+    garment_spec = spec.get("garment")
+    if not isinstance(garment_spec, dict) or garment_spec.get("collar") != sales_spec["selectedCollar"]:
+        fail("design spec garment.collar must equal sales.selectedCollar")
+    expected_contact = {"website": WEBSITE, "hotline": HOTLINE}
+    if spec.get("galleryContact") != expected_contact:
+        fail(f"design spec galleryContact must be exactly {expected_contact}")
+    hard_constraints = spec.get("salesHardConstraints")
+    if not isinstance(hard_constraints, dict):
+        fail("design spec salesHardConstraints is required")
+    if (
+        hard_constraints.get("collarLabels") != COLLAR_LABELS
+        or hard_constraints.get("collarCount") != 3
+        or hard_constraints.get("additionalCollarVariantsAllowed") is not False
+        or hard_constraints.get("galleryContact") != expected_contact
+        or hard_constraints.get("galleryContactRequiredOn") != ["sales", "mockup", "teamPhoto"]
+    ):
+        fail("design spec salesHardConstraints does not match the locked collar/contact contract")
     team_photo_spec = spec.get("teamPhoto")
     if not isinstance(team_photo_spec, dict):
         fail("design spec teamPhoto is required")
@@ -270,7 +311,7 @@ def main() -> None:
 
     approval = manifest.get("visualApproval", {})
     if set(approval) != VISUAL_FLAGS or not all(approval.get(flag) is True for flag in VISUAL_FLAGS):
-        fail("all six visualApproval flags must exist and be true after visual inspection")
+        fail(f"all {len(VISUAL_FLAGS)} visualApproval flags must exist and be true after visual inspection")
 
     print(json.dumps({
         "ok": True,
@@ -278,9 +319,12 @@ def main() -> None:
         "sku": sku,
         "expectedMasterPixels": expected_pixels,
         "files": report,
+        "mockupGenerationValidated": "imagegen-native pixel identity",
         "salesGenerationValidated": "imagegen-native pixel identity",
         "teamPhotoGenerationValidated": "imagegen-native pixel identity",
         "salesSpecFieldsValidated": sorted(REQUIRED_SALES_SPEC_FIELDS),
+        "collarLabelsValidated": COLLAR_LABELS,
+        "galleryContactValidated": expected_contact,
         "visualInspectionRecorded": True,
     }, ensure_ascii=False, indent=2))
 

@@ -10,7 +10,8 @@ Ghi toàn bộ copy vào `design-spec.json` trước lần gọi imagegen cuối
 - ưu đãi; không có giá;
 - số áo trên model/front;
 - tên cầu thủ, số và tên đội bóng trên back;
-- collar heading/labels `Cổ tròn`, `Cổ Tim`, `Cổ polo` và selected collar;
+- collar heading, đúng ba labels theo thứ tự `Cổ tròn`, `Cổ Tim`, `Cổ polo` và
+  selected collar thuộc chính danh sách này;
 - size;
 - chất liệu/công nghệ in;
 - `featureBadges` từ `assets/football-sales-feature-badges.json`, mặc định gồm `Vải thoáng mát`, `Thấm mồ hôi tốt`, `Bền màu`, `In chuyển nhiệt`, `Bảo hành 1 đổi 1`;
@@ -38,6 +39,22 @@ board, prompt cuối vẫn phải dành một footer, side rail hoặc badge row
 Các badge phải ngắn, đọc được, cùng hệ typography với poster và không che sản
 phẩm. Không biến benefit copy thành đoạn văn dài; dùng chip/icon label, footer
 strip hoặc panel nhỏ để lấp khoảng trống hợp lý.
+
+## Collar selector khóa cứng
+
+Ảnh sales phải hiển thị **đúng ba** thumbnail/lựa chọn cổ, không ít hơn và không
+nhiều hơn:
+
+1. `Cổ tròn`
+2. `Cổ Tim`
+3. `Cổ polo`
+
+Không tự sáng tạo `Cổ V viền`, `Cổ V chéo`, `Cổ V phối`, polo biến thể hoặc bất
+kỳ lựa chọn thứ tư/thứ năm nào. `selectedCollar` phải là một trong ba nhãn trên
+và hình học thumbnail phải khớp nhãn. Prompt phải ghi rõ “exactly 3 collar
+options, no additional collar variants”. Nếu imagegen trả ra sai số lượng hoặc
+sai nhãn, correction pass phải xóa lựa chọn dư/thay nhãn sai; không được đánh
+dấu ảnh là đạt chỉ vì `design-spec.json` đã ghi đúng.
 
 ## Logo ngực áo mẫu
 
@@ -168,6 +185,8 @@ Prompt phải:
 - nếu spec có `logoSource`, đóng một logo mẫu từ nguồn đó lên ngực áo front như
   in thật trên vải, giữ master pattern không drift;
 - yêu cầu imagegen typeset toàn bộ copy lock ngay trong ảnh;
+- yêu cầu selector có exactly 3 collar options, theo đúng thứ tự `Cổ tròn`,
+  `Cổ Tim`, `Cổ polo`, và no additional collar variants;
 - bố trí website, hotline và featureBadges thành footer/side rail/badge row rõ
   ràng để poster không trống trải;
 - yêu cầu đúng chính tả và dấu tiếng Việt, không pseudo-text;
@@ -197,6 +216,9 @@ Xem ảnh full-size và đối chiếu từng dòng với copy lock. Hard reject
 - benchmark brand lọt vào ảnh;
 - front/back drift khỏi master;
 - thiếu front, back, shorts hoặc có hai shorts;
+- collar selector không có đúng ba thumbnail/nhãn `Cổ tròn`, `Cổ Tim`,
+  `Cổ polo`, có lựa chọn thứ tư/thứ năm, hoặc selected collar nằm ngoài danh
+  sách;
 - collar thumbnail sai hình học;
 - vải thiếu mesh, seam, drape, wrinkle hoặc contact shadow.
 

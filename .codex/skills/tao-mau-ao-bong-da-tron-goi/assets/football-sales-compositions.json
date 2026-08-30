@@ -3,30 +3,30 @@
     "id": "model-left-full-body",
     "name": "Model Left Full Body",
     "shortDescription": "Vietnamese model on the left, usually knee-up unless the full set needs a wider view; product matrix on the right.",
-    "promptNotes": "Place a Vietnamese football model on the left side, preferably cropped from head to knees so the jersey is large and readable. Use a front-facing or three-quarter pose looking toward the camera; avoid the repeated side-profile pose looking left-to-right. Arrange front shirt, back shirt, and exactly one shorts view on the right. Keep title/SKU at the top and controls/contact at the bottom."
+    "promptNotes": "Place a Vietnamese football model on the left side, preferably cropped from head to knees so the jersey is large and readable. Use a front-facing or three-quarter pose looking toward the camera; avoid the repeated side-profile pose looking left-to-right. Arrange front shirt, back shirt, and exactly one shorts view on the right. Keep title/SKU at the top and controls/contact at the bottom. Show exactly 3 collar options and no additional variants: Cổ tròn, Cổ Tim, Cổ polo."
   },
   {
     "id": "model-right-full-body",
     "name": "Model Right Full Body",
     "shortDescription": "Vietnamese model on the right, usually knee-up unless the full set needs a wider view; product matrix on the left.",
-    "promptNotes": "Place a Vietnamese football model on the right side, preferably cropped from head to knees so the jersey is large and readable. Use a confident front-facing stance, a three-quarter pose looking at camera, or a subtle athletic step; avoid the repeated side-profile pose looking left-to-right. Arrange front shirt, back shirt, and exactly one shorts view on the left. Keep title/SKU at the top and controls/contact at the bottom."
+    "promptNotes": "Place a Vietnamese football model on the right side, preferably cropped from head to knees so the jersey is large and readable. Use a confident front-facing stance, a three-quarter pose looking at camera, or a subtle athletic step; avoid the repeated side-profile pose looking left-to-right. Arrange front shirt, back shirt, and exactly one shorts view on the left. Keep title/SKU at the top and controls/contact at the bottom. Show exactly 3 collar options and no additional variants: Cổ tròn, Cổ Tim, Cổ polo."
   },
   {
     "id": "model-left-portrait",
     "name": "Model Left Portrait",
     "shortDescription": "Upper-body or three-quarter portrait model on the left, larger product surfaces on the right.",
-    "promptNotes": "Place a Vietnamese football model as an upper-body, knee-up, or three-quarter portrait on the left, looking at the camera or in a slight three-quarter turn. Avoid the repeated side-profile pose looking left-to-right. Make the separate front shirt and back shirt larger on the right, with exactly one shorts view below them."
+    "promptNotes": "Place a Vietnamese football model as an upper-body, knee-up, or three-quarter portrait on the left, looking at the camera or in a slight three-quarter turn. Avoid the repeated side-profile pose looking left-to-right. Make the separate front shirt and back shirt larger on the right, with exactly one shorts view below them. Show exactly 3 collar options and no additional variants: Cổ tròn, Cổ Tim, Cổ polo."
   },
   {
     "id": "model-right-portrait",
     "name": "Model Right Portrait",
     "shortDescription": "Upper-body or three-quarter portrait model on the right, larger product surfaces on the left.",
-    "promptNotes": "Place a Vietnamese football model as an upper-body, knee-up, or three-quarter portrait on the right, looking at the camera or in a slight three-quarter turn. Avoid the repeated side-profile pose looking left-to-right. Make the separate front shirt and back shirt larger on the left, with exactly one shorts view below them."
+    "promptNotes": "Place a Vietnamese football model as an upper-body, knee-up, or three-quarter portrait on the right, looking at the camera or in a slight three-quarter turn. Avoid the repeated side-profile pose looking left-to-right. Make the separate front shirt and back shirt larger on the left, with exactly one shorts view below them. Show exactly 3 collar options and no additional variants: Cổ tròn, Cổ Tim, Cổ polo."
   },
   {
     "id": "product-focus-no-model",
     "name": "Product Focus No Model",
     "shortDescription": "No human model; front, back, shorts, collar controls, and copy become the hero.",
-    "promptNotes": "Do not include a human model. Make the separate front shirt, back shirt, and exactly one shorts view the main hero in a strong catalog grid. Use extra space for readable title, SKU, offer, collar selector, size selector, material line, feature badges, website, and hotline."
+    "promptNotes": "Do not include a human model. Make the separate front shirt, back shirt, and exactly one shorts view the main hero in a strong catalog grid. Use extra space for readable title, SKU, offer, collar selector, size selector, material line, feature badges, website, and hotline. Show exactly 3 collar options and no additional variants: Cổ tròn, Cổ Tim, Cổ polo."
   }
 ]

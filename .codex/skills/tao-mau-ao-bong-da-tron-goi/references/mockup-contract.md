@@ -23,7 +23,7 @@ Với workflow mặc định, `design-spec.json` phải có `logoSource` lấy t
 dùng yêu cầu rõ áo trơn/không logo. Logo mẫu là customer sample badge, không phải
 seller logo.
 
-## Mockup base
+## Mockup gallery
 
 - Vuông 1:1, tối thiểu 1200 × 1200 px.
 - Photorealistic sportswear catalog; vải polyester thể thao có mesh vừa phải, đường may, bo cổ, lai tay, độ dày gấu, nếp và bóng tiếp xúc tự nhiên.
@@ -35,7 +35,13 @@ seller logo.
 - Với ảnh bán hàng/catalog, ưu tiên người mẫu từ đầu gối lên hoặc ba phần tư để
   pattern áo đủ lớn. Full-body chỉ dùng khi cần khoe trọn set và vẫn phải đủ lớn
   để kiểm áo.
-- Không seller logo, website, hotline, SKU hoặc text quảng cáo. Bố cục đủ linh hoạt để imagegen có thể cân lại khi tạo poster hoàn chỉnh.
+- Đây là ảnh marketing public thứ hai trong gallery. Phải có một contact strip
+  gọn với đúng hai chuỗi `mayaobongda.vn` và `0989 353 247`, đặt ở mép dưới hoặc
+  side rail và không che áo/quần. Không thêm seller logo, SKU, giá, CTA, title
+  hoặc copy quảng cáo khác.
+- Website/hotline phải được imagegen typeset ngay trong lần tạo/correction ảnh
+  native. Không dùng Pillow, ImageMagick, SVG, Canvas hoặc script để đắp contact
+  hậu kỳ.
 - Logo từ `assets/football-logo-sources.json` là badge mẫu của khách hàng trên áo, không phải seller logo; mặc định dùng trên mockup/sales trừ khi người dùng yêu cầu áo trơn/không logo.
 - Bối cảnh được sáng tạo theo palette: studio thể thao, stadium catalog, tunnel, training ground hoặc graphic set có chiều sâu. Không để background cạnh tranh với sản phẩm.
 
@@ -48,10 +54,15 @@ seller logo.
 - model mặc pattern khác front master;
 - model lặp pose đứng nghiêng nhìn từ trái sang phải khi spec đã yêu cầu biến thể;
 - crop quá xa làm áo nhỏ, khó xem pattern trong sales/catalog;
-- có text/logo/contact sai hoặc watermark nguồn;
+- thiếu/sai website `mayaobongda.vn`, thiếu/sai hotline `0989 353 247`, có
+  pseudo-text, seller logo, CTA hoặc watermark nguồn;
 - không nhìn đủ cả mặt trước và mặt sau để kiểm tra.
 
 Nếu một surface sai, correction pass phải nói đúng surface và giữ các surface đã đúng. Tối đa hai correction pass; nếu vẫn drift, dừng và báo image model chưa đảm bảo fidelity thay vì sửa master cho giống mockup.
+
+Sau khi duyệt, lưu native output vào `work/<SKU>-mockup-native-source.png` và
+WebP lossless vào `marketing/<SKU>-mockup-base.webp`. Hai ảnh phải có pixel RGB
+giống nhau; chỉ được chuyển định dạng lossless.
 
 ## Sales image
 

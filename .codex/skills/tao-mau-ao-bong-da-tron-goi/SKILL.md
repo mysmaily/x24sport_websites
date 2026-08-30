@@ -48,7 +48,10 @@ Khi thiếu thông số:
   dùng rập xưởng hiện tại, target aspect ratio là khoảng `0.67` rộng/cao. File
   được phép tạo thừa/bleed nhưng toàn canvas print phải match tỷ lệ rập để không
   phải kéo méo khi đưa vào form;
-- cổ áo: một trong `Cổ tròn`, `Cổ Tim`, `Cổ polo`;
+- cổ áo sản phẩm: chọn đúng một trong `Cổ tròn`, `Cổ Tim`, `Cổ polo`;
+- selector cổ trên ảnh chào hàng: luôn đúng ba lựa chọn theo đúng thứ tự
+  `Cổ tròn`, `Cổ Tim`, `Cổ polo`; không được thêm biến thể như cổ viền, cổ chéo
+  hoặc cổ V phối;
 - sales brand: `mayaobongda.vn`, hotline `0989 353 247`;
 - commercial defaults: `IN TÊN + SỐ MIỄN PHÍ`, `VẢI MÈ THỂ THAO • THOÁNG MÁT • IN CHUYỂN NHIỆT`; feature badges lấy từ `assets/football-sales-feature-badges.json`; không hiển thị giá và không có button `XEM THÊM SẢN PHẨM`;
 - không tên/số/logo/sponsor trong master;
@@ -93,6 +96,8 @@ Tạo `design-spec.json` trước khi sinh ảnh:
 - SKU, `inputMode`, `productName` và `productSlug` do creative script cấp;
 - `salesStyle.id`, `salesStyle.name` và `salesStyle.promptNotes` do creative script cấp;
 - `salesComposition.id`, `salesComposition.name` và `salesComposition.promptNotes` do creative script cấp;
+- `salesHardConstraints` dùng nguyên output của creative script: đúng ba collar
+  labels, không cho phép collar dư và contact bắt buộc trên cả ba ảnh marketing;
 - `teamPhoto.playerCount`, `teamPhoto.formationId` và `teamPhoto.promptNotes`
   do creative script cấp, trừ khi user đã khóa số người khác;
 - source analysis path nếu là conversion;
@@ -110,6 +115,10 @@ Tạo `design-spec.json` trước khi sinh ảnh:
 - `tasteProfileApplied`, `marketFitTarget`, `paletteDiscipline`, `modelPosePlan`
   và `salesCrop` theo `references/user-taste-profile.md`;
 - sales feature badges/benefits: website, hotline, vải thoáng mát, bền màu, thấm mồ hôi tốt, bảo hành 1 đổi 1 và các thuộc tính phù hợp từ `assets/football-sales-feature-badges.json`.
+- `galleryContact`: website `mayaobongda.vn` và hotline `0989 353 247`; hai
+  chuỗi này phải xuất hiện rõ, đúng chính tả trên cả ba ảnh marketing public:
+  sales, mockup/phối áo và team photo. Nếu creative script và spec khác nhau,
+  dừng trước khi generate để sửa spec; không tự chọn một nguồn.
 
 Với `original-design`, chạy:
 
@@ -209,7 +218,11 @@ Image 2 = approved back master, chỉ áp vào surface mặt sau.
 Không redesign, simplify, recolor, mirror, swap hoặc invent pattern.
 ```
 
-Mockup vuông tối thiểu 1200 px, photorealistic, có model Việt Nam khi phù hợp, áo front/back và đúng một shorts view. Vải phải có mesh, seam, hem, drape, wrinkle và contact shadow thật. Không seller text/logo trong base.
+Mockup vuông tối thiểu 1200 px, photorealistic, có model Việt Nam khi phù hợp,
+áo front/back và đúng một shorts view. Vải phải có mesh, seam, hem, drape,
+wrinkle và contact shadow thật. Đây là ảnh gallery public nên imagegen phải đặt
+một contact strip gọn, rõ với đúng `mayaobongda.vn` và `0989 353 247` ngay trong
+ảnh native; không thêm seller logo, SKU, giá, CTA hoặc copy quảng cáo khác.
 Người mẫu không được mặc định một kiểu đứng nghiêng nhìn từ trái sang phải; phải
 theo `modelPosePlan` trong spec và ưu tiên biến thể nhìn thẳng camera, ba phần tư,
 chuyển động nhẹ hoặc đứng thẳng chuyên nghiệp tùy phân khúc.
@@ -228,7 +241,17 @@ Hard reject nếu pattern drift, front/back bị đổi, áo phẳng/nhựa/CGI,
 - `compact`: dùng mockup base đã duyệt làm edit target và yêu cầu imagegen thiết kế sản phẩm cùng title/contact trong một lượt.
 - `catalog-reference`: dùng mockup/catalog base, hai master và `assets/catalog-sales-layout-reference.png` trong cùng lần gọi imagegen cuối; benchmark chỉ làm layout reference.
 
-Imagegen phải typeset toàn bộ commercial copy đã khóa trong spec ngay trong ảnh cuối: collection, title, SKU, ưu đãi, số trên model/front, tên/số/tên đội trên back, collar labels `Cổ tròn` / `Cổ Tim` / `Cổ polo`, size, chất liệu/công nghệ in, feature badges, website và hotline. Ảnh không có giá và không có button/text `XEM THÊM SẢN PHẨM`. Không dùng script/Pillow/ImageMagick/SVG/Canvas để đắp text hậu kỳ. Nếu chữ hoặc bố cục sai, sửa bằng imagegen correction pass. Lưu output imagegen gốc thành `work/<SKU>-sales-native-source.png`; WebP bàn giao chỉ được chuyển định dạng lossless và validator phải xác nhận pixel identity.
+Imagegen phải typeset toàn bộ commercial copy đã khóa trong spec ngay trong ảnh
+cuối: collection, title, SKU, ưu đãi, số trên model/front, tên/số/tên đội trên
+back, size, chất liệu/công nghệ in, feature badges, website và hotline. Selector
+cổ phải có **đúng ba thumbnail và đúng ba nhãn theo thứ tự**: `Cổ tròn`,
+`Cổ Tim`, `Cổ polo`; không có lựa chọn thứ tư/thứ năm và không đổi tên thành cổ
+V viền, cổ V chéo, cổ V phối hoặc biến thể khác. Ảnh không có giá và không có
+button/text `XEM THÊM SẢN PHẨM`. Không dùng script/Pillow/ImageMagick/SVG/Canvas
+để đắp text hậu kỳ. Nếu chữ, số lượng cổ hoặc bố cục sai, sửa bằng imagegen
+correction pass. Lưu output imagegen gốc thành
+`work/<SKU>-sales-native-source.png`; WebP bàn giao chỉ được chuyển định dạng
+lossless và validator phải xác nhận pixel identity.
 Ảnh bán hàng ưu tiên crop người mẫu từ đầu gối lên hoặc ba phần tư để áo đủ lớn
 dễ xem trên catalog/mobile; chỉ dùng full-body khi thật sự cần khoe set và vẫn
 phải giữ mặt áo rõ.
@@ -251,8 +274,9 @@ phải giữ nguyên số người; không tự random lại ở prompt.
   nếu brief không nói khác;
 - áo/quần đồng bộ cùng mẫu, pattern và palette nhận ra từ mockup/master;
 - ưu tiên ảnh ngang hoặc 4:3/3:2 để đủ chỗ cho 5-11 người;
-- không poster text, website, hotline, giá, SKU, watermark, sponsor lạ, logo
-  CLB nổi tiếng hoặc quốc kỳ/đội tuyển nếu user không yêu cầu.
+- có contact strip gọn với đúng website `mayaobongda.vn` và hotline
+  `0989 353 247`; không thêm poster title, giá, SKU, CTA, watermark, sponsor lạ,
+  logo CLB nổi tiếng hoặc quốc kỳ/đội tuyển nếu user không yêu cầu.
 
 Sau visual gate, lưu native output thành
 `work/<SKU>-team-photo-native-source.png` và WebP lossless thành
@@ -268,6 +292,10 @@ Sau visual gate, lưu native output thành
 - mockup có cấu trúc vải thật;
 - mockup khớp đúng hai master;
 - sales copy đủ nhóm bắt buộc, chính xác và không che sản phẩm;
+- sales image hiển thị đúng ba lựa chọn cổ `Cổ tròn`, `Cổ Tim`, `Cổ polo`, không
+  có lựa chọn dư;
+- mockup/phối áo và team photo đều có đúng website `mayaobongda.vn` và hotline
+  `0989 353 247`, rõ và không che sản phẩm/người;
 - team photo đúng số người đã khóa, áo đồng bộ khớp mẫu và không có branding/text
   ngoài ý muốn;
 - source branding không lọt vào output;

@@ -10,6 +10,7 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
   work/
     <SKU>-front-source.png
     <SKU>-back-source.png
+    <SKU>-mockup-native-source.png     # output imagegen mockup, đã có contact
     <SKU>-sales-native-source.png      # output imagegen cuối, đã có typography
     <SKU>-team-photo-native-source.png # output imagegen ảnh tập thể đội bóng
   print/
@@ -41,7 +42,7 @@ Dùng `scripts/deliver_print_masters.py`; không đổi tên thủ công. Script
 
 ```json
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
   "sku": "X24-BD-000001",
   "productSlug": "velocity-contour-blue",
   "inputMode": "original-design",
@@ -116,6 +117,15 @@ Dùng `scripts/deliver_print_masters.py`; không đổi tên thủ công. Script
       "pixels": [1536, 1536]
     }
   },
+  "mockupGeneration": {
+    "mode": "imagegen-native",
+    "postCompositeApplied": false,
+    "nativeSource": {
+      "path": "/absolute/path/work/X24-BD-000001-mockup-native-source.png",
+      "sha256": "...",
+      "pixels": [1536, 1536]
+    }
+  },
   "teamPhotoGeneration": {
     "mode": "imagegen-native",
     "postCompositeApplied": false,
@@ -133,7 +143,10 @@ Dùng `scripts/deliver_print_masters.py`; không đổi tên thủ công. Script
     "mockupMatchesFront": true,
     "mockupMatchesBack": true,
     "commercialTextExact": true,
-    "teamPhotoMatchesKit": true
+    "collarOptionsExact": true,
+    "mockupContactExact": true,
+    "teamPhotoMatchesKit": true,
+    "teamPhotoContactExact": true
   }
 }
 ```
@@ -146,11 +159,20 @@ khi đã xem full-size cả năm ảnh và đối chiếu từng chuỗi copy. `
 yêu cầu đúng năm role, file nằm trong product folder, SKU đồng nhất, PNG/WebP
 đúng loại, master đúng `targetPixels`/PPI, master trên `2×` có provenance
 Real-ESRGAN 4× khớp giữa manifest và PNG, không phải Lanczos-only, mockup và sales vuông tối thiểu
-1200 px, team photo có cạnh dài tối thiểu 1200 px, checksum khớp và bảy cờ
+1200 px, team photo có cạnh dài tối thiểu 1200 px, checksum khớp và mười cờ
 visual đều `true`. Validator còn yêu cầu copy lock trong `design-spec`,
-`salesGeneration.mode=imagegen-native`, `teamPhotoGeneration.mode=imagegen-native`,
-`postCompositeApplied=false`, pixel RGB của sales WebP giống tuyệt đối với PNG
-nguồn imagegen sales, và pixel RGB của team-photo WebP giống tuyệt đối với PNG
-nguồn imagegen team photo. Mọi composite hậu kỳ làm đổi pixel sẽ fail.
+`mockupGeneration.mode=imagegen-native`, `salesGeneration.mode=imagegen-native`,
+`teamPhotoGeneration.mode=imagegen-native`, `postCompositeApplied=false`, pixel
+RGB của từng WebP marketing giống tuyệt đối với PNG nguồn imagegen tương ứng.
+Validator khóa `sales.collarLabels` đúng ba giá trị `Cổ tròn`, `Cổ Tim`,
+`Cổ polo`, `selectedCollar` thuộc danh sách và bằng `garment.collar`; đồng thời
+khóa website `mayaobongda.vn` và hotline `0989 353 247`. Mọi composite hậu kỳ
+làm đổi pixel hoặc mọi spec có loại cổ dư sẽ fail.
+
+Các cờ `collarOptionsExact`, `mockupContactExact` và
+`teamPhotoContactExact` chỉ được bật sau khi xem full-size: sales có đúng ba
+thumbnail cổ, mockup/team photo đều có đủ hai chuỗi contact và không có
+pseudo-text. Validator không tự OCR ảnh nên cờ visual là lời xác nhận bắt buộc,
+không được suy ra từ việc spec đúng.
 
 Không đặt master PNG vào gallery website. Nếu sau này publish, tạo preview WebP riêng từ master; không dùng master 300 PPI làm ảnh web.

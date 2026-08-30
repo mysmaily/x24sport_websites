@@ -16,6 +16,8 @@ except ImportError as error:
 
 
 SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
+COLLAR_LABELS = ["Cổ tròn", "Cổ Tim", "Cổ polo"]
+GALLERY_CONTACT = {"website": "mayaobongda.vn", "hotline": "0989 353 247"}
 
 
 def checksum(path: Path) -> str:
@@ -50,8 +52,31 @@ def print_provenance(path: Path) -> dict[str, object]:
             raise SystemExit(f"Invalid embedded print provenance in {path}: {error}") from error
 
 
-def team_photo_player_count(spec_path: Path) -> int:
+def validate_design_spec(spec_path: Path) -> int:
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    sales = spec.get("sales")
+    if not isinstance(sales, dict):
+        raise SystemExit("design-spec.json must contain sales")
+    if sales.get("collarLabels") != COLLAR_LABELS:
+        raise SystemExit(f"design-spec.json sales.collarLabels must be exactly {COLLAR_LABELS}")
+    if sales.get("selectedCollar") not in COLLAR_LABELS:
+        raise SystemExit(f"design-spec.json sales.selectedCollar must be one of {COLLAR_LABELS}")
+    garment = spec.get("garment")
+    if not isinstance(garment, dict) or garment.get("collar") != sales.get("selectedCollar"):
+        raise SystemExit("design-spec.json garment.collar must equal sales.selectedCollar")
+    if sales.get("website") != GALLERY_CONTACT["website"] or sales.get("hotline") != GALLERY_CONTACT["hotline"]:
+        raise SystemExit("design-spec.json sales website/hotline do not match the gallery contact lock")
+    if spec.get("galleryContact") != GALLERY_CONTACT:
+        raise SystemExit(f"design-spec.json galleryContact must be exactly {GALLERY_CONTACT}")
+    hard_constraints = spec.get("salesHardConstraints")
+    if not isinstance(hard_constraints, dict) or (
+        hard_constraints.get("collarLabels") != COLLAR_LABELS
+        or hard_constraints.get("collarCount") != 3
+        or hard_constraints.get("additionalCollarVariantsAllowed") is not False
+        or hard_constraints.get("galleryContact") != GALLERY_CONTACT
+        or hard_constraints.get("galleryContactRequiredOn") != ["sales", "mockup", "teamPhoto"]
+    ):
+        raise SystemExit("design-spec.json salesHardConstraints does not match the locked collar/contact contract")
     team_photo = spec.get("teamPhoto")
     if not isinstance(team_photo, dict):
         raise SystemExit("design-spec.json must contain teamPhoto")
@@ -136,8 +161,9 @@ def main() -> None:
     front_source = folder / "work" / f"{args.sku}-front-source.png"
     back_source = folder / "work" / f"{args.sku}-back-source.png"
     native_sales_source = folder / "work" / f"{args.sku}-sales-native-source.png"
+    native_mockup_source = folder / "work" / f"{args.sku}-mockup-native-source.png"
     native_team_photo_source = folder / "work" / f"{args.sku}-team-photo-native-source.png"
-    player_count = team_photo_player_count(spec)
+    player_count = validate_design_spec(spec)
     files = [
         ("front print master", folder / "print" / f"{args.sku}-front-print.png", front_source),
         ("back print master", folder / "print" / f"{args.sku}-back-print.png", back_source),
@@ -145,7 +171,13 @@ def main() -> None:
         ("sales image", folder / "marketing" / f"{args.sku}-sales.webp", None),
         ("team photo", folder / "marketing" / f"{args.sku}-team-photo.webp", None),
     ]
-    required_support = [front_source, back_source, native_sales_source, native_team_photo_source]
+    required_support = [
+        front_source,
+        back_source,
+        native_mockup_source,
+        native_sales_source,
+        native_team_photo_source,
+    ]
     missing = [str(path) for path in required_support if not path.is_file()]
     missing.extend(str(path) for _, path, _ in files if not path.is_file())
     if missing:
@@ -153,7 +185,7 @@ def main() -> None:
 
     approved = bool(args.approve_visual)
     manifest = {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "sku": args.sku,
         "productSlug": args.product_slug,
         "inputMode": args.input_mode,
@@ -177,6 +209,15 @@ def main() -> None:
             }
             for role, path, source in files
         ],
+        "mockupGeneration": {
+            "mode": "imagegen-native",
+            "postCompositeApplied": False,
+            "nativeSource": {
+                "path": str(native_mockup_source),
+                "sha256": checksum(native_mockup_source),
+                "pixels": image_info(native_mockup_source)[0],
+            },
+        },
         "salesGeneration": {
             "mode": "imagegen-native",
             "postCompositeApplied": False,
@@ -203,7 +244,10 @@ def main() -> None:
             "mockupMatchesFront": approved,
             "mockupMatchesBack": approved,
             "commercialTextExact": approved,
+            "collarOptionsExact": approved,
+            "mockupContactExact": approved,
             "teamPhotoMatchesKit": approved,
+            "teamPhotoContactExact": approved,
         },
     }
     output.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

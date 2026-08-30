@@ -44,7 +44,12 @@ ra cùng một mẫu.
 
 ## Text và branding
 
-- Không thêm poster text, website, hotline, giá, SKU, watermark hoặc UI.
+- Đây là ảnh marketing public thứ ba trong gallery. Phải có contact strip gọn,
+  đọc rõ đúng website `mayaobongda.vn` và hotline `0989 353 247`, đặt sát mép
+  dưới hoặc side rail và không che người/áo.
+- Website/hotline phải được imagegen typeset trong ảnh native; không đắp text
+  hậu kỳ bằng script, Pillow, ImageMagick, SVG hoặc Canvas.
+- Không thêm poster title, giá, SKU, CTA, seller logo, watermark hoặc UI khác.
 - Có thể giữ logo mẫu nhỏ trên ngực áo nếu đã có trong mockup/sales.
 - Không thêm sponsor block, quốc kỳ, huy hiệu đội tuyển, logo CLB nổi tiếng
   hoặc nhận diện thương hiệu chưa được cấp quyền.
@@ -59,7 +64,8 @@ Hard reject nếu:
 - áo bị đổi palette, đổi motif, thành áo đội tuyển/CLB nổi tiếng hoặc sponsor lạ;
 - mẫu áo giữa các cầu thủ không nhất quán;
 - mặt áo quá nhỏ, bị che phần lớn, hoặc crop mất người;
-- ảnh có text quảng cáo, watermark, pseudo-text hoặc UI;
+- thiếu/sai website `mayaobongda.vn`, thiếu/sai hotline `0989 353 247`, hoặc có
+  poster title, giá, CTA, watermark, pseudo-text hay UI khác;
 - người bị biến dạng rõ, thiếu chi, mặt trùng lặp kỳ dị, phối cảnh sân sai nặng;
 - background tranh vai với áo hoặc nhìn như poster CGI thay vì ảnh chụp thật.
 

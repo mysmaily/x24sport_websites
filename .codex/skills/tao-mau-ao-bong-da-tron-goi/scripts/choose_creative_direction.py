@@ -30,6 +30,8 @@ FRONT_LAYOUTS = ["shoulder-led", "diagonal-chest", "lower-body-rise", "side-conv
 BACK_LAYOUTS = ["quiet-center-side-echo", "upper-frame-clean-core", "lower-accent-clean-number-zone", "asymmetric-side-return"]
 ACCENTS = ["shoulder", "side-panels", "lower-hem", "diagonal-chest", "offset-center", "sleeve-echo"]
 COLLARS = ["crew-neck", "heart-neck", "folded-polo"]
+COLLAR_LABELS = ["Cổ tròn", "Cổ Tim", "Cổ polo"]
+GALLERY_CONTACT = {"website": "mayaobongda.vn", "hotline": "0989 353 247"}
 COLOR_STRATEGIES = [
     "multi-color-gradient", "contrast-color-blocking", "light-base-bold-accent", "dark-base-bright-accent",
     "warm-cool-duotone", "triadic-pop", "retro-sport", "pastel-with-dark-anchor", "tonal-with-contrast-break",
@@ -193,6 +195,14 @@ def make_direction(
         "salesComposition": sales_composition,
         "teamPhoto": choose_team_photo(sku),
         "featureBadges": feature_badge_library,
+        "salesHardConstraints": {
+            "collarLabels": COLLAR_LABELS,
+            "collarCount": 3,
+            "additionalCollarVariantsAllowed": False,
+            "galleryContact": GALLERY_CONTACT,
+            "galleryContactRequiredOn": ["sales", "mockup", "teamPhoto"],
+            "promptNotes": "Render exactly 3 collar options and no additional collar variants: Cổ tròn, Cổ Tim, Cổ polo. Render mayaobongda.vn and 0989 353 247 clearly on the sales image, mockup gallery image, and team photo.",
+        },
         "creativeGuardrail": "Do not default to a Tron/neon one-tone look. Use the selected motif, geometry, colorStrategy and palette to create varied football kit language with clear base, contrast and accent roles.",
         "edgeContinuity": "edge-coherent side bands; confirm exact seam alignment only on factory pattern",
     }
@@ -301,6 +311,15 @@ def main() -> None:
                     row["salesComposition"] = choose_sales_composition(args.sku, sales_composition_library)
                 if not row.get("teamPhoto"):
                     row["teamPhoto"] = choose_team_photo(args.sku)
+                if not row.get("salesHardConstraints"):
+                    row["salesHardConstraints"] = {
+                        "collarLabels": COLLAR_LABELS,
+                        "collarCount": 3,
+                        "additionalCollarVariantsAllowed": False,
+                        "galleryContact": GALLERY_CONTACT,
+                        "galleryContactRequiredOn": ["sales", "mockup", "teamPhoto"],
+                        "promptNotes": "Render exactly 3 collar options and no additional collar variants: Cổ tròn, Cổ Tim, Cổ polo. Render mayaobongda.vn and 0989 353 247 clearly on the sales image, mockup gallery image, and team photo.",
+                    }
                 if not row.get("featureBadges"):
                     row["featureBadges"] = feature_badge_library
                 if not row.get("colorStrategy"):
