@@ -31,9 +31,9 @@ class NativeDeliveryContractTests(unittest.TestCase):
         spec = {
             "print": {
                 "masterPolicy": "native-large-single-source",
-                "nativeTargetPixels": [80, 120],
-                "targetAspectRatio": 0.666667,
-                "minNativeLongEdgePx": 120,
+                "nativeTargetPixels": [2336, 3504],
+                "targetAspectRatio": 0.67,
+                "minNativeLongEdgePx": 3504,
                 "resamplingAllowed": False,
                 "regenerationAfterMasterLock": False,
             },
@@ -68,8 +68,8 @@ class NativeDeliveryContractTests(unittest.TestCase):
             json.dumps(spec, ensure_ascii=False), encoding="utf-8"
         )
 
-        Image.new("RGB", (80, 120), "#174d3b").save(product / "print" / f"{SKU}-front-print.png")
-        Image.new("RGB", (80, 120), "#9b1d20").save(product / "print" / f"{SKU}-back-print.png")
+        Image.new("RGB", (2336, 3504), "#174d3b").save(product / "print" / f"{SKU}-front-print.png")
+        Image.new("RGB", (2336, 3504), "#9b1d20").save(product / "print" / f"{SKU}-back-print.png")
         marketing_assets = (
             ("mockup", (1200, 1200), "#134074", "mockup-base"),
             ("sales", (1200, 1200), "#f6bd60", "sales"),
@@ -91,10 +91,10 @@ class NativeDeliveryContractTests(unittest.TestCase):
                 str(product),
                 "--sku", SKU,
                 "--product-slug", "native-product",
-                "--target-width-px", "80",
-                "--target-height-px", "120",
-                "--target-aspect-ratio", "0.666667",
-                "--min-native-long-edge-px", "120",
+                "--target-width-px", "2336",
+                "--target-height-px", "3504",
+                "--target-aspect-ratio", "0.67",
+                "--min-native-long-edge-px", "3504",
                 "--approve-visual",
             ],
             capture_output=True,
@@ -131,6 +131,41 @@ class NativeDeliveryContractTests(unittest.TestCase):
             validated = self.run_validator(product)
             self.assertNotEqual(validated.returncode, 0)
             self.assertIn("resampled must be false", validated.stderr + validated.stdout)
+
+    def test_builder_cannot_lower_native_floor_to_1536(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_name:
+            product = self.make_product(Path(temp_name))
+            built = subprocess.run(
+                [
+                    sys.executable,
+                    str(BUILDER),
+                    str(product),
+                    "--sku", SKU,
+                    "--product-slug", "native-product",
+                    "--target-width-px", "1024",
+                    "--target-height-px", "1536",
+                    "--target-aspect-ratio", "0.67",
+                    "--min-native-long-edge-px", "1536",
+                    "--approve-visual",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertNotEqual(built.returncode, 0)
+            self.assertIn("cannot be lower than 3504", built.stderr + built.stdout)
+
+    def test_validator_rejects_manifest_with_lowered_native_floor(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_name:
+            product = self.make_product(Path(temp_name))
+            self.assertEqual(self.run_builder(product).returncode, 0)
+            manifest_path = product / "delivery-manifest.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["productionAssumptions"]["minNativeLongEdgePx"] = 1536
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            validated = self.run_validator(product)
+            self.assertNotEqual(validated.returncode, 0)
+            self.assertIn("cannot be lower than 3504", validated.stderr + validated.stdout)
 
     def test_data_handoff_preserves_canonical_master_bytes(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:

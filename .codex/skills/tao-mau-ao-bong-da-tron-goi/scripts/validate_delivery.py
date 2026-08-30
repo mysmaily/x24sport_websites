@@ -18,6 +18,7 @@ except ImportError as error:
 SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
 SCHEMA_VERSION = "1.2"
 MASTER_POLICY = "native-large-single-source"
+MIN_NATIVE_LONG_EDGE_PX = 3504
 COLLAR_LABELS = ["Cổ tròn", "Cổ Tim", "Cổ polo"]
 WEBSITE = "mayaobongda.vn"
 HOTLINE = "0989 353 247"
@@ -115,6 +116,11 @@ def main() -> None:
     min_native_long_edge = assumptions.get("minNativeLongEdgePx")
     if not isinstance(min_native_long_edge, int) or min_native_long_edge <= 0:
         fail("productionAssumptions.minNativeLongEdgePx must be a positive integer")
+    if min_native_long_edge < MIN_NATIVE_LONG_EDGE_PX:
+        fail(
+            f"productionAssumptions.minNativeLongEdgePx cannot be lower than "
+            f"{MIN_NATIVE_LONG_EDGE_PX}; 1024x1536 is not a native-large print master"
+        )
     explicit_target_pixels = assumptions.get("targetPixels")
     if not (
         isinstance(explicit_target_pixels, list)

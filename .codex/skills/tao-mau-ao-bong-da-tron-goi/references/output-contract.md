@@ -34,20 +34,20 @@ trùng canonical master; workflow không sử dụng lại đường dẫn ngoà
 {
   "print": {
     "masterPolicy": "native-large-single-source",
-    "nativeTargetPixels": [1024, 1536],
+    "nativeTargetPixels": [2336, 3504],
     "targetAspectRatio": 0.67,
-    "minNativeLongEdgePx": 1536,
+    "minNativeLongEdgePx": 3504,
     "resamplingAllowed": false,
     "regenerationAfterMasterLock": false
   }
 }
 ```
 
-`1024 x 1536` là mặc định với backend có portrait native 2:3 khi xưởng chưa đưa
-pixel cụ thể. Phải dùng native canvas lớn nhất backend thật sự hỗ trợ và có thể
-khóa canvas lớn hơn nếu backend tạo trực tiếp được. Kích thước output thật phải
-đúng canvas; file nhỏ hơn không được resize/upscale để pass. Dung lượng MB không
-phải quality gate vì PNG có thể nén rất khác nhau dù cùng lượng pixel.
+`2336 x 3504` là native canvas tối thiểu mặc định khi xưởng chưa đưa pixel cụ
+thể. Có thể khóa canvas lớn hơn nếu backend tạo trực tiếp được. `1024 x 1536`
+phải bị validator từ chối, không được khóa rồi đi tiếp. Kích thước output thật
+phải đúng canvas; file nhỏ hơn không được resize/upscale để pass. Dung lượng MB
+không phải quality gate vì PNG có thể nén rất khác nhau dù cùng lượng pixel.
 
 Sau visual gate, dùng `lock_native_print_master.py`. Script copy byte-for-byte;
 `sourcePixels = targetPixels`, `scaleFactor = 1.0`, `resampled = false` và SHA-256
@@ -75,8 +75,8 @@ chối ghi đè file khác nội dung nếu chưa có `--overwrite` do người 
   "productionAssumptions": {
     "masterPolicy": "native-large-single-source",
     "targetAspectRatio": 0.67,
-    "targetPixels": [1024, 1536],
-    "minNativeLongEdgePx": 1536,
+    "targetPixels": [2336, 3504],
+    "minNativeLongEdgePx": 3504,
     "resamplingAllowed": false,
     "regenerationAfterMasterLock": false,
     "colorSpace": "sRGB"
@@ -86,8 +86,8 @@ chối ghi đè file khác nội dung nếu chưa có `--overwrite` do người 
       "role": "front print master",
       "path": "/absolute/path/print/X24-BD-000001-front-print.png",
       "sha256": "...",
-      "pixels": [1024, 1536],
-      "sourcePixels": [1024, 1536],
+      "pixels": [2336, 3504],
+      "sourcePixels": [2336, 3504],
       "scaleFactor": 1.0,
       "resampled": false,
       "nativeLarge": true,
@@ -99,12 +99,12 @@ chối ghi đè file khác nội dung nếu chưa có `--overwrite` do người 
     "front": {
       "canonicalPath": "/absolute/path/print/X24-BD-000001-front-print.png",
       "sha256": "...",
-      "pixels": [1024, 1536]
+      "pixels": [2336, 3504]
     },
     "back": {
       "canonicalPath": "/absolute/path/print/X24-BD-000001-back-print.png",
       "sha256": "...",
-      "pixels": [1024, 1536]
+      "pixels": [2336, 3504]
     }
   }
 }

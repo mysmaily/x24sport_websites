@@ -14,6 +14,8 @@ try:
 except ImportError as error:
     raise SystemExit("Pillow is required") from error
 
+MIN_NATIVE_LONG_EDGE_PX = 3504
+
 
 def checksum(path: Path) -> str:
     digest = hashlib.sha256()
@@ -31,7 +33,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--height-px", type=int, required=True)
     parser.add_argument("--target-aspect-ratio", type=float, default=0.67)
     parser.add_argument("--aspect-tolerance", type=float, default=0.015)
-    parser.add_argument("--min-long-edge-px", type=int, default=1536)
+    parser.add_argument("--min-long-edge-px", type=int, default=3504)
     return parser.parse_args()
 
 
@@ -43,6 +45,11 @@ def main() -> None:
         raise SystemExit(f"Native source does not exist: {source}")
     if args.width_px <= 0 or args.height_px <= 0 or args.min_long_edge_px <= 0:
         raise SystemExit("Pixel dimensions must be positive")
+    if args.min_long_edge_px < MIN_NATIVE_LONG_EDGE_PX:
+        raise SystemExit(
+            f"--min-long-edge-px cannot be lower than {MIN_NATIVE_LONG_EDGE_PX}; "
+            "1024x1536 is not an acceptable native-large print master."
+        )
     if args.target_aspect_ratio <= 0 or args.aspect_tolerance < 0:
         raise SystemExit("Aspect ratio must be positive and tolerance cannot be negative")
 

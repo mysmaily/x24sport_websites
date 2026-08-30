@@ -66,9 +66,9 @@ oversize để xưởng đặt lên rập panel áo, không phải ảnh vuông 
 ## Chất lượng nguồn native và master lock
 
 Canvas native phải được khóa trong `design-spec.json` trước khi generate. Mặc
-định khi chưa có thông số pixel của xưởng là native portrait lớn nhất mà backend
-hỗ trợ ở tỷ lệ gần `0.67`; với backend 2:3 thông dụng là `1024 x 1536 px`. Có thể
-lớn hơn nếu backend sinh trực tiếp được, nhưng front và back phải cùng canvas.
+định khi chưa có thông số pixel của xưởng là tối thiểu `2336 x 3504 px` ở tỷ lệ
+gần `0.67`. `1024 x 1536` không đạt native-large print gate. Có thể lớn hơn nếu
+backend sinh trực tiếp được, nhưng front và back phải cùng canvas.
 
 - Kích thước được đo từ file output thật, không suy ra từ prompt hay dung lượng.
 - `sourcePixels` phải bằng `targetPixels`; `scaleFactor` bắt buộc `1.0` và

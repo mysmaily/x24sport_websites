@@ -19,6 +19,7 @@ SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[
 COLLAR_LABELS = ["Cổ tròn", "Cổ Tim", "Cổ polo"]
 GALLERY_CONTACT = {"website": "mayaobongda.vn", "hotline": "0989 353 247"}
 MASTER_POLICY = "native-large-single-source"
+MIN_NATIVE_LONG_EDGE_PX = 3504
 
 
 def checksum(path: Path) -> str:
@@ -109,10 +110,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--product-slug", required=True)
     parser.add_argument("--input-mode", choices=("original-design", "reference-conversion"), default="original-design")
     parser.add_argument("--sales-layout", choices=("compact", "catalog-reference"), default="compact")
-    parser.add_argument("--target-width-px", type=int, default=1024)
-    parser.add_argument("--target-height-px", type=int, default=1536)
+    parser.add_argument("--target-width-px", type=int, default=2336)
+    parser.add_argument("--target-height-px", type=int, default=3504)
     parser.add_argument("--target-aspect-ratio", type=float, default=0.67)
-    parser.add_argument("--min-native-long-edge-px", type=int, default=1536)
+    parser.add_argument("--min-native-long-edge-px", type=int, default=3504)
     parser.add_argument("--process", default="dye-sublimation on polyester")
     parser.add_argument("--color-space", default="sRGB")
     parser.add_argument("--approve-visual", action="store_true")
@@ -137,6 +138,11 @@ def main() -> None:
     target_pixels = [args.target_width_px, args.target_height_px]
     if any(value <= 0 for value in target_pixels) or args.min_native_long_edge_px <= 0:
         raise SystemExit("Target pixels and minimum native long edge must be positive")
+    if args.min_native_long_edge_px < MIN_NATIVE_LONG_EDGE_PX:
+        raise SystemExit(
+            f"--min-native-long-edge-px cannot be lower than {MIN_NATIVE_LONG_EDGE_PX}; "
+            "1024x1536 must not be accepted as a print master"
+        )
     actual_aspect = args.target_width_px / args.target_height_px
     if abs(actual_aspect - args.target_aspect_ratio) / args.target_aspect_ratio > 0.015:
         raise SystemExit("Target pixels drift more than 1.5% from --target-aspect-ratio")

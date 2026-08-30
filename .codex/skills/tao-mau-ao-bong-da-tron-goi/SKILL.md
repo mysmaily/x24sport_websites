@@ -53,12 +53,12 @@ Khi thiếu thông số:
   dùng rập xưởng hiện tại, target aspect ratio là khoảng `0.67` rộng/cao. File
   được phép tạo thừa/bleed nhưng toàn canvas print phải match tỷ lệ rập để không
   phải kéo méo khi đưa vào form;
-- khi xưởng chưa khóa pixel cụ thể, dùng canvas dọc native lớn nhất mà generation
-  backend thật sự hỗ trợ ở tỷ lệ gần `0.67`; với backend chỉ có portrait 2:3,
-  mặc định là `1024 x 1536 px`. Nếu backend hỗ trợ native lớn hơn thì khóa kích
-  thước lớn hơn trước khi generate. Đây là kích thước pixel gốc, không phải đích
-  để phóng từ ảnh nhỏ; dung lượng MB và PPI metadata không được dùng để ngụy
-  trang một nguồn thiếu pixel;
+- khi xưởng chưa khóa pixel cụ thể, canvas native mặc định tối thiểu là
+  `2336 x 3504 px` (tỷ lệ `0.6667`, gần `0.67`). Có thể khóa canvas lớn hơn nếu
+  generation backend sinh trực tiếp được. `1024 x 1536` không được xem là
+  native-large print master và phải bị từ chối. Đây là kích thước pixel gốc,
+  không phải đích để phóng từ ảnh nhỏ; dung lượng MB và PPI metadata không được
+  dùng để ngụy trang một nguồn thiếu pixel;
 - cổ áo sản phẩm: chọn đúng một trong `Cổ tròn`, `Cổ Tim`, `Cổ polo`;
 - selector cổ trên ảnh chào hàng: luôn đúng ba lựa chọn theo đúng thứ tự
   `Cổ tròn`, `Cổ Tim`, `Cổ polo`; không được thêm biến thể như cổ viền, cổ chéo
@@ -178,7 +178,7 @@ Mỗi side có một bản đầu và tối đa hai correction pass có mục ti
 correction phải diễn ra trước master lock và phải trả lại toàn bộ side ở đúng
 native canvas đã khóa. Hard reject nếu còn dấu hiệu mockup, text/logo, sai
 palette, back mirror, drift spec hoặc kích thước output nhỏ hơn/khác canvas đã
-khóa. Nếu backend trả `768 x 1152` trong khi spec khóa `1024 x 1536`, loại output
+khóa. Nếu backend trả `1024 x 1536` trong khi spec khóa `2336 x 3504`, loại output
 đó ngay tại bước master và retry bằng route có thể xuất native canvas; không đưa
 ảnh nhỏ sang mockup và không phóng nó ở bước sau.
 
@@ -190,12 +190,12 @@ checksum; nó không resize, crop, sharpen, denoise, thêm metadata hay encode l
 
 ```bash
 python3 scripts/lock_native_print_master.py /absolute/path/to/generated-front.png \
-  print/<SKU>-front-print.png --width-px 1024 --height-px 1536 \
-  --target-aspect-ratio 0.67 --min-long-edge-px 1536
+  print/<SKU>-front-print.png --width-px 2336 --height-px 3504 \
+  --target-aspect-ratio 0.67 --min-long-edge-px 3504
 
 python3 scripts/lock_native_print_master.py /absolute/path/to/generated-back.png \
-  print/<SKU>-back-print.png --width-px 1024 --height-px 1536 \
-  --target-aspect-ratio 0.67 --min-long-edge-px 1536
+  print/<SKU>-back-print.png --width-px 2336 --height-px 3504 \
+  --target-aspect-ratio 0.67 --min-long-edge-px 3504
 ```
 
 Từ thời điểm lock, `print/<SKU>-front-print.png` và
@@ -305,7 +305,7 @@ python3 scripts/build_delivery_manifest.py /absolute/path/to/product-folder \
   --sku <SKU> --product-slug <slug> \
   --input-mode <original-design|reference-conversion> \
   --sales-layout <compact|catalog-reference> \
-  --target-width-px 1024 --target-height-px 1536 \
+  --target-width-px 2336 --target-height-px 3504 \
   --target-aspect-ratio 0.67 --approve-visual
 
 python3 scripts/validate_delivery.py /absolute/path/to/product-folder

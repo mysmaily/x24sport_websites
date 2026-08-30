@@ -31,10 +31,10 @@ class NativeMasterLockTests(unittest.TestCase):
                 str(SCRIPT),
                 str(source),
                 str(output),
-                "--width-px", "80",
-                "--height-px", "120",
-                "--target-aspect-ratio", "0.666667",
-                "--min-long-edge-px", "120",
+                "--width-px", "2336",
+                "--height-px", "3504",
+                "--target-aspect-ratio", "0.67",
+                "--min-long-edge-px", "3504",
             ],
             capture_output=True,
             text=True,
@@ -44,7 +44,7 @@ class NativeMasterLockTests(unittest.TestCase):
     def test_exact_native_master_is_copied_byte_identically(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:
             folder = Path(temp_name)
-            source = self.make_source(folder, "native.png", (80, 120))
+            source = self.make_source(folder, "native.png", (2336, 3504))
             output = folder / "print" / "X24-BD-000001-front-print.png"
             result = self.run_lock(source, output)
             self.assertEqual(result.returncode, 0, result.stderr)
@@ -52,10 +52,10 @@ class NativeMasterLockTests(unittest.TestCase):
             self.assertIn('"scaleFactor": 1.0', result.stdout)
             self.assertIn('"resampled": false', result.stdout)
 
-    def test_small_or_wrong_canvas_is_rejected_instead_of_resized(self) -> None:
+    def test_1024x1536_is_rejected_instead_of_locked_or_resized(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:
             folder = Path(temp_name)
-            source = self.make_source(folder, "small.png", (40, 60))
+            source = self.make_source(folder, "small.png", (1024, 1536))
             result = self.run_lock(source, folder / "out.png")
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("Do not resize or upscale", result.stderr + result.stdout)
@@ -64,8 +64,8 @@ class NativeMasterLockTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp_name:
             folder = Path(temp_name)
             output = folder / "print.png"
-            first = self.make_source(folder, "first.png", (80, 120), "#174d3b")
-            second = self.make_source(folder, "second.png", (80, 120), "#9b1d20")
+            first = self.make_source(folder, "first.png", (2336, 3504), "#174d3b")
+            second = self.make_source(folder, "second.png", (2336, 3504), "#9b1d20")
             self.assertEqual(self.run_lock(first, output).returncode, 0)
             result = self.run_lock(second, output)
             self.assertNotEqual(result.returncode, 0)
