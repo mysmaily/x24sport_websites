@@ -23,8 +23,8 @@ class CreativeDirectionTests(unittest.TestCase):
         return json.loads(result.stdout)
 
     def test_logo_source_is_selected_stably_for_sku(self) -> None:
-        first = self.run_direction("X24-BD-000001")
-        second = self.run_direction("X24-BD-000001")
+        first = self.run_direction("X24-BD-00000001")
+        second = self.run_direction("X24-BD-00000001")
         self.assertEqual(first["logoSource"], second["logoSource"])
         logo_source = first["logoSource"]
         self.assertIsInstance(logo_source, dict)
@@ -49,7 +49,7 @@ class CreativeDirectionTests(unittest.TestCase):
                 (logo_dir / f"logo-white-{index}.png").write_bytes(b"placeholder")
             logo_ids = {
                 str(
-                    self.run_direction_with_logo_dir(f"X24-BD-{ff:02d}0001", logo_dir)[
+                    self.run_direction_with_logo_dir(f"X24-BD-{ff:02d}000001", logo_dir)[
                         "logoSource"
                     ]["id"]
                 )
@@ -86,7 +86,7 @@ class CreativeDirectionTests(unittest.TestCase):
             raw_logo.write_bytes(b"placeholder")
             dark_logo.write_bytes(b"placeholder")
             white_logo.write_bytes(b"placeholder")
-            direction = self.run_direction_with_logo_dir("X24-BD-000001", logo_dir)
+            direction = self.run_direction_with_logo_dir("X24-BD-00000001", logo_dir)
             self.assertNotEqual(direction["logoSource"]["path"], str(raw_logo.resolve()))
             estimated_chest_zone = direction["logoContrastPolicy"]["estimatedChestZone"]
             if estimated_chest_zone == "dark":
@@ -102,7 +102,7 @@ class CreativeDirectionTests(unittest.TestCase):
             second_logo = logo_dir / "fresh-club-b.png"
             first_logo.write_bytes(b"placeholder")
             second_logo.write_bytes(b"placeholder")
-            direction = self.run_direction_with_logo_dir("X24-BD-000001", logo_dir)
+            direction = self.run_direction_with_logo_dir("X24-BD-00000001", logo_dir)
             self.assertIn(
                 direction["logoSource"]["path"],
                 {str(first_logo.resolve()), str(second_logo.resolve())},

@@ -15,7 +15,7 @@ SCRIPTS = Path(__file__).resolve().parents[1]
 BUILDER = SCRIPTS / "build_delivery_manifest.py"
 VALIDATOR = SCRIPTS / "validate_delivery.py"
 DELIVER = SCRIPTS / "deliver_print_masters.py"
-SKU = "X24-BD-000001"
+SKU = "X24-BD-00000001"
 
 
 class FourImageDeliveryContractTests(unittest.TestCase):

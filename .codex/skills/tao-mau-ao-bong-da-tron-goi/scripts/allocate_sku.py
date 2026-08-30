@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Allocate an X24-BD SKU as two millisecond digits + HH + DD."""
+"""Allocate an X24-BD SKU as centisecond + minute + hour + day."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 
-SKU_PATTERN = re.compile(r"X24-BD-([0-9]{6})")
+SKU_PATTERN = re.compile(r"X24-BD-([0-9]{8}|[0-9]{6})")
 TIMEZONE = ZoneInfo("Asia/Ho_Chi_Minh")
 
 
@@ -39,9 +39,8 @@ def suffixes_in_text(value: str) -> set[str]:
 
 
 def timed_suffix(now: datetime, fraction: int | None = None) -> str:
-    # Two decimal digits from milliseconds are the centisecond component.
-    two_millisecond_digits = now.microsecond // 10_000 if fraction is None else fraction
-    return f"{two_millisecond_digits:02d}{now:%H%d}"
+    centisecond = now.microsecond // 10_000 if fraction is None else fraction
+    return f"{centisecond:02d}{now:%M%H%d}"
 
 
 def main() -> None:
@@ -66,19 +65,22 @@ def main() -> None:
                 suffix = candidate
                 break
         if not suffix:
-            raise SystemExit(f"All 100 millisecond slots are used for hour/day {now:%H/%d}")
+            raise SystemExit(
+                f"All 100 centisecond slots are used for minute/hour/day {now:%M/%H/%d}"
+            )
 
         sku = f"X24-BD-{suffix}"
         handle.seek(0, os.SEEK_END)
         handle.write(json.dumps({
             "sku": sku,
             "allocatedAt": now.isoformat(timespec="milliseconds"),
-            "allocationMode": "millisecond2-HH-DD",
-            "format": "X24-BD-FFHHDD",
+            "allocationMode": "centisecond-minute-hour-day",
+            "format": "X24-BD-FFMMHHDD",
             "components": {
                 "FF": suffix[:2],
-                "HH": suffix[2:4],
-                "DD": suffix[4:6],
+                "MM": suffix[2:4],
+                "HH": suffix[4:6],
+                "DD": suffix[6:8],
             },
         }, ensure_ascii=False) + "\n")
         handle.flush()
