@@ -18,10 +18,11 @@ như được in/ép/embroider thật vào vải, warp theo nếp áo, không n�
 Không thêm logo vào back view, shorts hoặc background trừ khi người dùng yêu cầu
 rõ.
 
-Với workflow mặc định, `design-spec.json` phải có `logoSource` lấy từ
-`assets/football-logo-sources.json` local references. Chỉ bỏ logo mẫu khi người
-dùng yêu cầu rõ áo trơn/không logo. Logo mẫu là customer sample badge, không phải
-seller logo.
+Với workflow mặc định, `design-spec.json` phải có `logoSource` do creative script
+chọn ổn định theo SKU từ `assets/football-logo-sources.json` local references.
+Không tự dùng entry đầu tiên hoặc lặp một logo cho toàn batch nếu spec đã chọn
+khác. Chỉ bỏ logo mẫu khi người dùng yêu cầu rõ áo trơn/không logo. Logo mẫu là
+customer sample badge, không phải seller logo.
 
 ## Mockup gallery
 
@@ -42,7 +43,7 @@ seller logo.
 - Website/hotline phải được imagegen typeset ngay trong lần tạo/correction ảnh
   native. Không dùng Pillow, ImageMagick, SVG, Canvas hoặc script để đắp contact
   hậu kỳ.
-- Logo từ `assets/football-logo-sources.json` là badge mẫu của khách hàng trên áo, không phải seller logo; mặc định dùng trên mockup/sales trừ khi người dùng yêu cầu áo trơn/không logo.
+- Logo từ `design-spec.json.logoSource` là badge mẫu của khách hàng trên áo, không phải seller logo; mặc định dùng trên mockup/sales trừ khi người dùng yêu cầu áo trơn/không logo.
 - Bối cảnh được sáng tạo theo palette: studio thể thao, stadium catalog, tunnel, training ground hoặc graphic set có chiều sâu. Không để background cạnh tranh với sản phẩm.
 
 ## Hard reject

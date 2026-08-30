@@ -61,6 +61,7 @@ DEFAULT_NAME_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "foot
 DEFAULT_SALES_STYLE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-styles.json"
 DEFAULT_SALES_COMPOSITION_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-compositions.json"
 DEFAULT_FEATURE_BADGE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-feature-badges.json"
+DEFAULT_LOGO_SOURCE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-logo-sources.json"
 TEAM_PHOTO_FORMATIONS = [
     {"id": "single-row-five", "playerCount": 5, "promptNotes": "Use one compact standing row of five Vietnamese amateur football players, shoulder-to-shoulder, all jersey fronts readable."},
     {"id": "single-row-six", "playerCount": 6, "promptNotes": "Use one standing row of six Vietnamese amateur football players, slightly arced toward camera, all jersey fronts readable."},
@@ -158,6 +159,37 @@ def load_feature_badge_library(path: Path) -> list[dict[str, object]]:
     return result
 
 
+def load_logo_source_library(path: Path) -> list[dict[str, object]]:
+    try:
+        rows = json.loads(path.expanduser().resolve().read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise SystemExit(f"Could not read logo-source library: {error}") from error
+    if not isinstance(rows, list) or not rows:
+        raise SystemExit("Logo-source library must contain at least 1 entry")
+    ids: set[str] = set()
+    result: list[dict[str, object]] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            raise SystemExit("Each logo-source entry must be an object")
+        logo_id = row.get("id")
+        name = row.get("name")
+        path_value = row.get("path")
+        prompt_notes = row.get("promptNotes")
+        if not isinstance(logo_id, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", logo_id):
+            raise SystemExit("Each logo-source id must be lowercase kebab-case")
+        if not isinstance(name, str) or not name.strip():
+            raise SystemExit("Each logo-source entry needs a nonblank name")
+        if not isinstance(path_value, str) or not path_value.startswith("assets/logo-references/"):
+            raise SystemExit("Each logo-source entry needs a local assets/logo-references path")
+        if not isinstance(prompt_notes, str) or not prompt_notes.strip():
+            raise SystemExit("Each logo-source entry needs nonblank promptNotes")
+        if logo_id in ids:
+            raise SystemExit("Logo-source library contains duplicate ids")
+        ids.add(logo_id)
+        result.append(row)
+    return result
+
+
 def choose_sales_style(sku: str, library: list[dict[str, object]]) -> dict[str, object]:
     return library[index(sku.encode("ascii"), "sales-style", len(library))]
 
@@ -170,12 +202,17 @@ def choose_team_photo(sku: str) -> dict[str, object]:
     return TEAM_PHOTO_FORMATIONS[index(sku.encode("ascii"), "team-photo", len(TEAM_PHOTO_FORMATIONS))]
 
 
+def choose_logo_source(sku: str, library: list[dict[str, object]]) -> dict[str, object]:
+    return library[index(sku.encode("ascii"), "logo-source", len(library))]
+
+
 def make_direction(
     sku: str,
     offset: int,
     sales_style_library: list[dict[str, object]],
     sales_composition_library: list[dict[str, object]],
     feature_badge_library: list[dict[str, object]],
+    logo_source_library: list[dict[str, object]],
 ) -> dict[str, object]:
     seed = sku.encode("ascii")
     sales_style = choose_sales_style(sku, sales_style_library)
@@ -194,6 +231,7 @@ def make_direction(
         "salesStyle": sales_style,
         "salesComposition": sales_composition,
         "teamPhoto": choose_team_photo(sku),
+        "logoSource": choose_logo_source(sku, logo_source_library),
         "featureBadges": feature_badge_library,
         "salesHardConstraints": {
             "collarLabels": COLLAR_LABELS,
@@ -267,6 +305,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sales-style-library", type=Path, default=DEFAULT_SALES_STYLE_LIBRARY)
     parser.add_argument("--sales-composition-library", type=Path, default=DEFAULT_SALES_COMPOSITION_LIBRARY)
     parser.add_argument("--feature-badge-library", type=Path, default=DEFAULT_FEATURE_BADGE_LIBRARY)
+    parser.add_argument("--logo-source-library", type=Path, default=DEFAULT_LOGO_SOURCE_LIBRARY)
     return parser.parse_args()
 
 
@@ -278,8 +317,9 @@ def main() -> None:
     sales_style_library = load_sales_style_library(args.sales_style_library)
     sales_composition_library = load_sales_composition_library(args.sales_composition_library)
     feature_badge_library = load_feature_badge_library(args.feature_badge_library)
+    logo_source_library = load_logo_source_library(args.logo_source_library)
     if not args.registry:
-        direction = make_direction(args.sku, 0, sales_style_library, sales_composition_library, feature_badge_library)
+        direction = make_direction(args.sku, 0, sales_style_library, sales_composition_library, feature_badge_library, logo_source_library)
         selected_name = choose_product_name(args.sku, [], name_library)
         direction["productName"] = selected_name["name"]
         direction["productSlug"] = selected_name["slug"]
@@ -311,6 +351,8 @@ def main() -> None:
                     row["salesComposition"] = choose_sales_composition(args.sku, sales_composition_library)
                 if not row.get("teamPhoto"):
                     row["teamPhoto"] = choose_team_photo(args.sku)
+                if not row.get("logoSource"):
+                    row["logoSource"] = choose_logo_source(args.sku, logo_source_library)
                 if not row.get("salesHardConstraints"):
                     row["salesHardConstraints"] = {
                         "collarLabels": COLLAR_LABELS,
@@ -331,7 +373,7 @@ def main() -> None:
         used = {row.get("uniquenessSignature") for row in rows}
         direction = None
         for offset in range(10_000):
-            candidate = make_direction(args.sku, offset, sales_style_library, sales_composition_library, feature_badge_library)
+            candidate = make_direction(args.sku, offset, sales_style_library, sales_composition_library, feature_badge_library, logo_source_library)
             if candidate["uniquenessSignature"] not in used:
                 direction = candidate
                 break
