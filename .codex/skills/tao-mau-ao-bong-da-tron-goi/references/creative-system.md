@@ -24,9 +24,11 @@ master front/back, palette sản phẩm, copy lock hoặc số lượng view b�
 Script cũng chọn `teamPhoto` ổn định theo SKU: `playerCount` là số nguyên từ
 `5` đến `11`, kèm formation/promptNotes cho ảnh tập thể đội bóng. Cùng SKU retry
 phải giữ nguyên số người và formation, trừ khi user khóa override rõ trong brief.
-`logoSource` cũng do script chọn ổn định theo SKU từ
-`assets/football-logo-sources.json`; đây là badge mẫu cho mockup/sales để batch
-không bị cố định vào một logo ngực duy nhất.
+`logoSource` cũng do script chọn ổn định theo SKU từ các file ảnh trong
+`assets/logo-references/`; `assets/football-logo-sources.json` chỉ bổ sung
+metadata/prompt notes cho các file đã biết. Nếu folder có
+`x24sport-round-badge-*`, script chỉ random trong nhóm badge chuẩn đó. Đây là
+badge mẫu cho mockup/sales để batch không bị cố định vào một logo ngực duy nhất.
 
 Trước khi chốt `design-spec.json`, đọc `user-taste-profile.md` và ghi rõ các
 trường taste/market-fit bắt buộc. Output của script không được vượt gu người dùng:
@@ -98,8 +100,7 @@ Không prompt theo tên một kit nổi tiếng hoặc “giống hệt” độ
 Nếu người dùng cung cấp logo/crest/sponsor riêng, ghi asset đó vào `allowedAssets` và vẫn giữ file nền front/back không có asset; mockup có thể composite asset khi người dùng đã xác nhận quyền sử dụng.
 
 Nếu người dùng dẫn trang `https://x24sport.vn/tim-kiem/?q=logo%20b%C3%B3ng%20%C4%91%C3%A1`,
-đọc `assets/football-logo-sources.json`, nhưng vẫn chọn một logo local cụ thể
-qua creative script hoặc brief fit; không mặc định lấy entry đầu tiên. Dùng logo
-đã chọn như badge mẫu trên ngực áo trong mockup/sales. Không đưa logo này vào
-master in phẳng; master vẫn là nền sản xuất sạch để xưởng bình tài sản khách
-hàng sau.
+chọn một logo local cụ thể từ `assets/logo-references/` qua creative script hoặc
+brief fit; không mặc định lấy entry đầu tiên trong metadata. Dùng logo đã chọn
+như badge mẫu trên ngực áo trong mockup/sales. Không đưa logo này vào master in
+phẳng; master vẫn là nền sản xuất sạch để xưởng bình tài sản khách hàng sau.

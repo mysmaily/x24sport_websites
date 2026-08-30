@@ -62,6 +62,9 @@ DEFAULT_SALES_STYLE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" 
 DEFAULT_SALES_COMPOSITION_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-compositions.json"
 DEFAULT_FEATURE_BADGE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-feature-badges.json"
 DEFAULT_LOGO_SOURCE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-logo-sources.json"
+DEFAULT_LOGO_REFERENCE_DIR = Path(__file__).resolve().parent.parent / "assets" / "logo-references"
+PREFERRED_LOGO_PREFIX = "x24sport-round-badge-"
+LOGO_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 TEAM_PHOTO_FORMATIONS = [
     {"id": "single-row-five", "playerCount": 5, "promptNotes": "Use one compact standing row of five Vietnamese amateur football players, shoulder-to-shoulder, all jersey fronts readable."},
     {"id": "single-row-six", "playerCount": 6, "promptNotes": "Use one standing row of six Vietnamese amateur football players, slightly arced toward camera, all jersey fronts readable."},
@@ -159,15 +162,32 @@ def load_feature_badge_library(path: Path) -> list[dict[str, object]]:
     return result
 
 
-def load_logo_source_library(path: Path) -> list[dict[str, object]]:
+def logo_id_from_path(path: Path) -> str:
+    normalized = re.sub(r"[^a-z0-9]+", "-", path.stem.lower()).strip("-")
+    return normalized or "logo-reference"
+
+
+def display_name_from_path(path: Path) -> str:
+    return " ".join(part.capitalize() for part in re.split(r"[-_]+", path.stem) if part) or path.name
+
+
+def relative_or_absolute(path: Path, root: Path) -> str:
+    try:
+        return str(path.relative_to(root))
+    except ValueError:
+        return str(path)
+
+
+def load_logo_metadata(path: Path) -> dict[str, dict[str, object]]:
     try:
         rows = json.loads(path.expanduser().resolve().read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as error:
+    except OSError:
+        return {}
+    except json.JSONDecodeError as error:
         raise SystemExit(f"Could not read logo-source library: {error}") from error
-    if not isinstance(rows, list) or not rows:
-        raise SystemExit("Logo-source library must contain at least 1 entry")
-    ids: set[str] = set()
-    result: list[dict[str, object]] = []
+    if not isinstance(rows, list):
+        raise SystemExit("Logo-source library must be a list")
+    metadata: dict[str, dict[str, object]] = {}
     for row in rows:
         if not isinstance(row, dict):
             raise SystemExit("Each logo-source entry must be an object")
@@ -183,10 +203,43 @@ def load_logo_source_library(path: Path) -> list[dict[str, object]]:
             raise SystemExit("Each logo-source entry needs a local assets/logo-references path")
         if not isinstance(prompt_notes, str) or not prompt_notes.strip():
             raise SystemExit("Each logo-source entry needs nonblank promptNotes")
-        if logo_id in ids:
+        if path_value in metadata:
+            raise SystemExit("Logo-source library contains duplicate ids")
+        metadata[path_value] = row
+    return metadata
+
+
+def load_logo_source_library(path: Path, reference_dir: Path) -> list[dict[str, object]]:
+    skill_root = Path(__file__).resolve().parent.parent
+    logo_dir = reference_dir.expanduser().resolve()
+    if not logo_dir.is_dir():
+        raise SystemExit(f"Logo reference directory does not exist: {logo_dir}")
+    metadata = load_logo_metadata(path)
+    image_paths = sorted(candidate for candidate in logo_dir.iterdir() if candidate.suffix.lower() in LOGO_EXTENSIONS)
+    preferred_paths = [candidate for candidate in image_paths if candidate.name.startswith(PREFERRED_LOGO_PREFIX)]
+    candidate_paths = preferred_paths or image_paths
+    ids: set[str] = set()
+    result: list[dict[str, object]] = []
+    for logo_path in candidate_paths:
+        relative_path = relative_or_absolute(logo_path.resolve(), skill_root)
+        row = dict(metadata.get(relative_path, {}))
+        row.setdefault("id", logo_id_from_path(logo_path))
+        row.setdefault("name", display_name_from_path(logo_path))
+        row.setdefault("path", relative_path)
+        row.setdefault("usage", "sample chest badge for mockup and sales images only")
+        row.setdefault("placement", "left chest or upper chest on the worn front jersey and front product view")
+        row.setdefault("preferredFor", ["general-football"])
+        row.setdefault(
+            "promptNotes",
+            "Use this local sample as a small fictional customer crest on the chest. Keep it subordinate to the jersey design, integrated on fabric, and out of the print masters.",
+        )
+        logo_id = row["id"]
+        if not isinstance(logo_id, str) or logo_id in ids:
             raise SystemExit("Logo-source library contains duplicate ids")
         ids.add(logo_id)
         result.append(row)
+    if not result:
+        raise SystemExit("Logo reference directory must contain at least 1 image")
     return result
 
 
@@ -306,6 +359,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sales-composition-library", type=Path, default=DEFAULT_SALES_COMPOSITION_LIBRARY)
     parser.add_argument("--feature-badge-library", type=Path, default=DEFAULT_FEATURE_BADGE_LIBRARY)
     parser.add_argument("--logo-source-library", type=Path, default=DEFAULT_LOGO_SOURCE_LIBRARY)
+    parser.add_argument("--logo-reference-dir", type=Path, default=DEFAULT_LOGO_REFERENCE_DIR)
     return parser.parse_args()
 
 
@@ -317,7 +371,7 @@ def main() -> None:
     sales_style_library = load_sales_style_library(args.sales_style_library)
     sales_composition_library = load_sales_composition_library(args.sales_composition_library)
     feature_badge_library = load_feature_badge_library(args.feature_badge_library)
-    logo_source_library = load_logo_source_library(args.logo_source_library)
+    logo_source_library = load_logo_source_library(args.logo_source_library, args.logo_reference_dir)
     if not args.registry:
         direction = make_direction(args.sku, 0, sales_style_library, sales_composition_library, feature_badge_library, logo_source_library)
         selected_name = choose_product_name(args.sku, [], name_library)

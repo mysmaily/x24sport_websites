@@ -59,12 +59,14 @@ dấu ảnh là đạt chỉ vì `design-spec.json` đã ghi đúng.
 ## Logo ngực áo mẫu
 
 Theo mặc định, `design-spec.json.logoSource` phải đến từ output của creative
-script, được chọn ổn định theo SKU từ pool local trong
-`assets/football-logo-sources.json`. Không tự dùng logo đầu tiên trong asset và
-không lặp một logo cho toàn batch nếu script đã chọn khác. Trong prompt
-mockup/sales, yêu cầu imagegen dùng đúng local reference đó và đóng lên ngực áo
-như badge nhỏ đã in thật trên vải. Chỉ bỏ logo mẫu khi người dùng yêu cầu rõ áo
-trơn/không logo.
+script, được chọn ổn định theo SKU từ các file ảnh trong
+`assets/logo-references/`; `assets/football-logo-sources.json` chỉ bổ sung
+metadata/prompt notes cho các file đã biết. Nếu folder có
+`x24sport-round-badge-*`, chỉ random trong nhóm badge chuẩn đó để tránh dùng raw
+logo/source. Không tự dùng logo đầu tiên trong asset và không lặp một logo cho
+toàn batch nếu script đã chọn khác. Trong prompt mockup/sales, yêu cầu imagegen
+dùng đúng local reference đó và đóng lên ngực áo như badge nhỏ đã in thật trên
+vải. Chỉ bỏ logo mẫu khi người dùng yêu cầu rõ áo trơn/không logo.
 
 Quy tắc:
 

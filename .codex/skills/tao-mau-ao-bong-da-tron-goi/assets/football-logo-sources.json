@@ -1,76 +1,47 @@
 [
   {
-    "id": "blue-sky-football-academy",
-    "name": "Blue Sky Football Academy",
-    "path": "assets/logo-references/x24-football-logo-blue-white-02.jpg",
-    "sourceUrl": "https://cdn.x24sport.vn/wp-content/uploads/2025/04/logo-xanh-duong-02.jpg",
+    "id": "x24sport-round-badge-01-classic-white",
+    "name": "X24Sport Round Badge 01 Classic White",
+    "path": "assets/logo-references/x24sport-round-badge-01-classic-white.png",
     "usage": "sample chest badge for mockup and sales images only",
     "placement": "left chest or upper chest on the worn front jersey and front product view",
-    "preferredFor": ["football", "clean-corporate", "blue-white-kits"],
-    "promptNotes": "Use only the shield crest as the small customer-sample chest badge; ignore any footer, hotline, or seller text in the reference image. Render it like embroidery/heat-transfer print integrated on fabric. Do not use it as a sponsor block, do not place it on the back unless the user explicitly asks, and do not add it to front/back print masters."
+    "preferredFor": ["dark-kits", "bold-kits", "general-football"],
+    "promptNotes": "Use this transparent round X24Sport sample badge as a small customer crest on the front chest. The badge has a light field and dark/red outline so it remains visible on dark or saturated jersey colors. Keep it subordinate to the jersey design, integrated on fabric, and out of the print masters."
   },
   {
-    "id": "round-school-club",
-    "name": "Round School Club",
-    "path": "assets/logo-references/x24-football-logo-round-thcs-02.jpg",
-    "sourceUrl": "https://cdn.x24sport.vn/wp-content/uploads/2025/04/logo-thcs-02.jpg",
+    "id": "x24sport-round-badge-02-night-white",
+    "name": "X24Sport Round Badge 02 Night White",
+    "path": "assets/logo-references/x24sport-round-badge-02-night-white.png",
     "usage": "sample chest badge for mockup and sales images only",
     "placement": "left chest or upper chest on the worn front jersey and front product view",
-    "preferredFor": ["school-club", "round-crest-reference", "youth-team"],
-    "promptNotes": "Use only the circular crest as the small customer-sample chest badge when the brief fits school or club apparel; ignore footer, hotline, or seller text. Render it like embroidery/heat-transfer print integrated on fabric. Do not use it as a sponsor block, do not place it on the back unless the user explicitly asks, and do not add it to front/back print masters."
+    "preferredFor": ["light-kits", "white-kits", "clean-kits"],
+    "promptNotes": "Use this transparent round X24Sport sample badge as a small customer crest on the front chest. The dark field, white wordmark, red accent, and light ring help it stand out on light or low-contrast jerseys. Keep it integrated on fabric and out of the print masters."
   },
   {
-    "id": "sample-sports-053",
-    "name": "Sample Sports 053",
-    "path": "assets/logo-references/x24-sample-sports-logo-053.webp",
+    "id": "x24sport-round-badge-03-clear-outline",
+    "name": "X24Sport Round Badge 03 Clear Outline",
+    "path": "assets/logo-references/x24sport-round-badge-03-clear-outline.png",
     "usage": "sample chest badge for mockup and sales images only",
     "placement": "left chest or upper chest on the worn front jersey and front product view",
-    "preferredFor": ["general-football", "bold-kits", "dark-kits"],
-    "promptNotes": "Use this local sample as a small fictional customer crest on the chest. Keep it subordinate to the jersey design, integrated on fabric, and out of the print masters."
+    "preferredFor": ["balanced-kits", "minimal-kits", "corporate"],
+    "promptNotes": "Use this transparent round X24Sport sample badge as a small customer crest on the front chest when a lighter, less intrusive badge is needed. It has a dual light/dark outline for contrast on mixed jersey backgrounds. Keep it integrated on fabric and out of the print masters."
   },
   {
-    "id": "sample-sports-054",
-    "name": "Sample Sports 054",
-    "path": "assets/logo-references/x24-sample-sports-logo-054.webp",
+    "id": "x24sport-round-badge-04-red-field",
+    "name": "X24Sport Round Badge 04 Red Field",
+    "path": "assets/logo-references/x24sport-round-badge-04-red-field.png",
     "usage": "sample chest badge for mockup and sales images only",
     "placement": "left chest or upper chest on the worn front jersey and front product view",
-    "preferredFor": ["general-football", "clean-kits", "light-kits"],
-    "promptNotes": "Use this local sample as a small fictional customer crest on the chest. Keep it subordinate to the jersey design, integrated on fabric, and out of the print masters."
+    "preferredFor": ["dark-kits", "neutral-kits", "high-energy-kits"],
+    "promptNotes": "Use this transparent round X24Sport sample badge as a small customer crest on the front chest for a stronger red accent. The white wordmark and white/dark ring are designed to remain legible on most jersey colors. Keep it integrated on fabric and out of the print masters."
   },
   {
-    "id": "sample-sports-057",
-    "name": "Sample Sports 057",
-    "path": "assets/logo-references/x24-sample-sports-logo-057.webp",
+    "id": "x24sport-round-badge-05-steel-red",
+    "name": "X24Sport Round Badge 05 Steel Red",
+    "path": "assets/logo-references/x24sport-round-badge-05-steel-red.png",
     "usage": "sample chest badge for mockup and sales images only",
     "placement": "left chest or upper chest on the worn front jersey and front product view",
-    "preferredFor": ["general-football", "energetic-kits", "academy"],
-    "promptNotes": "Use this local sample as a small fictional customer crest on the chest. Keep it subordinate to the jersey design, integrated on fabric, and out of the print masters."
-  },
-  {
-    "id": "sample-sports-058",
-    "name": "Sample Sports 058",
-    "path": "assets/logo-references/x24-sample-sports-logo-058.webp",
-    "usage": "sample chest badge for mockup and sales images only",
-    "placement": "left chest or upper chest on the worn front jersey and front product view",
-    "preferredFor": ["general-football", "corporate", "restrained-kits"],
-    "promptNotes": "Use this local sample as a small fictional customer crest on the chest. Keep it subordinate to the jersey design, integrated on fabric, and out of the print masters."
-  },
-  {
-    "id": "sample-sports-059",
-    "name": "Sample Sports 059",
-    "path": "assets/logo-references/x24-sample-sports-logo-059.webp",
-    "usage": "sample chest badge for mockup and sales images only",
-    "placement": "left chest or upper chest on the worn front jersey and front product view",
-    "preferredFor": ["general-football", "youth-team", "colorful-kits"],
-    "promptNotes": "Use this local sample as a small fictional customer crest on the chest. Keep it subordinate to the jersey design, integrated on fabric, and out of the print masters."
-  },
-  {
-    "id": "sample-sports-060",
-    "name": "Sample Sports 060",
-    "path": "assets/logo-references/x24-sample-sports-logo-060.webp",
-    "usage": "sample chest badge for mockup and sales images only",
-    "placement": "left chest or upper chest on the worn front jersey and front product view",
-    "preferredFor": ["general-football", "club", "high-contrast-kits"],
-    "promptNotes": "Use this local sample as a small fictional customer crest on the chest. Keep it subordinate to the jersey design, integrated on fabric, and out of the print masters."
+    "preferredFor": ["corporate", "restrained-kits", "blue-green-kits"],
+    "promptNotes": "Use this transparent round X24Sport sample badge as a small customer crest on the front chest for a professional dark steel look. The red and white rings give it edge contrast on bright, dark, and saturated jersey colors. Keep it integrated on fabric and out of the print masters."
   }
 ]

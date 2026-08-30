@@ -19,10 +19,13 @@ Không thêm logo vào back view, shorts hoặc background trừ khi người d�
 rõ.
 
 Với workflow mặc định, `design-spec.json` phải có `logoSource` do creative script
-chọn ổn định theo SKU từ `assets/football-logo-sources.json` local references.
-Không tự dùng entry đầu tiên hoặc lặp một logo cho toàn batch nếu spec đã chọn
-khác. Chỉ bỏ logo mẫu khi người dùng yêu cầu rõ áo trơn/không logo. Logo mẫu là
-customer sample badge, không phải seller logo.
+chọn ổn định theo SKU từ các file ảnh trong `assets/logo-references/`.
+`assets/football-logo-sources.json` chỉ bổ sung metadata/prompt notes cho các
+file đã biết. Nếu folder có file `x24sport-round-badge-*`, chỉ nhóm badge chuẩn
+đó được random để raw logo/source không bị đóng thẳng lên áo. Không tự dùng entry
+đầu tiên hoặc lặp một logo cho toàn batch nếu spec đã chọn khác. Chỉ bỏ logo mẫu
+khi người dùng yêu cầu rõ áo trơn/không logo. Logo mẫu là customer sample badge,
+không phải seller logo.
 
 ## Mockup gallery
 
