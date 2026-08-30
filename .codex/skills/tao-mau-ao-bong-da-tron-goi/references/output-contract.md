@@ -5,17 +5,15 @@
 ```text
 generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
   design-spec.json
-  source-analysis.json                # only for reference-conversion
-  source/                             # optional preserved user references
-  work/
-    <SKU>-front-source.png
-    <SKU>-back-source.png
-    <SKU>-mockup-native-source.png     # output imagegen mockup, đã có contact
-    <SKU>-sales-native-source.png      # output imagegen cuối, đã có typography
-    <SKU>-team-photo-native-source.png # output imagegen ảnh tập thể đội bóng
+  source-analysis.json                # chỉ có ở reference-conversion
+  source/                             # optional user references
   print/
-    <SKU>-front-print.png
-    <SKU>-back-print.png
+    <SKU>-front-print.png             # canonical native-large master
+    <SKU>-back-print.png              # canonical native-large master
+  work/
+    <SKU>-mockup-native-source.png
+    <SKU>-sales-native-source.png
+    <SKU>-team-photo-native-source.png
   marketing/
     <SKU>-mockup-base.webp
     <SKU>-sales.webp
@@ -23,156 +21,108 @@ generated/tao-mau-ao-bong-da-tron-goi/<batch-id>/<product-slug>/
   delivery-manifest.json
 ```
 
-`work/` chứa nguồn sinh ảnh và không phải file xưởng. Hai PNG trong `print/` là
-master raster giao xưởng. Các WebP trong `marketing/` chỉ dùng duyệt/chào hàng
-và ảnh lifestyle/catalog.
+Hai PNG trong `print/` là nguồn duy nhất từ lúc master lock đến Data volume.
+Không tạo `work/<SKU>-front-source.png` hoặc `back-source.png` làm nguồn nhỏ song
+song. Nếu cần giữ output ban đầu ngoài product folder để audit, hash của nó phải
+trùng canonical master; workflow không sử dụng lại đường dẫn ngoài đó.
+
+## Native-large single-source contract
+
+`design-spec.json` phải khóa trước khi generate:
+
+```json
+{
+  "print": {
+    "masterPolicy": "native-large-single-source",
+    "nativeTargetPixels": [1024, 1536],
+    "targetAspectRatio": 0.67,
+    "minNativeLongEdgePx": 1536,
+    "resamplingAllowed": false,
+    "regenerationAfterMasterLock": false
+  }
+}
+```
+
+`1024 x 1536` là mặc định với backend có portrait native 2:3 khi xưởng chưa đưa
+pixel cụ thể. Phải dùng native canvas lớn nhất backend thật sự hỗ trợ và có thể
+khóa canvas lớn hơn nếu backend tạo trực tiếp được. Kích thước output thật phải
+đúng canvas; file nhỏ hơn không được resize/upscale để pass. Dung lượng MB không
+phải quality gate vì PNG có thể nén rất khác nhau dù cùng lượng pixel.
+
+Sau visual gate, dùng `lock_native_print_master.py`. Script copy byte-for-byte;
+`sourcePixels = targetPixels`, `scaleFactor = 1.0`, `resampled = false` và SHA-256
+input/canonical phải bằng nhau. PPI chỉ được ghi nhận nếu output vốn có; không
+encode lại master chỉ để thêm metadata 300 PPI.
 
 ## Đích bàn giao file print
 
-Sau khi validator pass, copy lossless hai master đến:
+Sau khi validator pass, dùng `scripts/deliver_print_masters.py` để copy lossless:
 
 ```text
 /Volumes/Data/x24_project/mayaobongda.vn/<SKU>_truoc.png
 /Volumes/Data/x24_project/mayaobongda.vn/<SKU>_sau.png
 ```
 
-Dùng `scripts/deliver_print_masters.py`; không đổi tên thủ công. Script xác minh SHA-256 source/destination, idempotent nếu file đích cùng nội dung và từ chối ghi đè file khác nội dung nếu không có `--overwrite` được người dùng cho phép.
+Script xác minh SHA-256 canonical/Data, chạy idempotent nếu cùng nội dung và từ
+chối ghi đè file khác nội dung nếu chưa có `--overwrite` do người dùng cho phép.
 
 ## Manifest tối thiểu
 
 ```json
 {
-  "schemaVersion": "1.1",
+  "schemaVersion": "1.2",
   "sku": "X24-BD-000001",
-  "productSlug": "velocity-contour-blue",
-  "inputMode": "original-design",
-  "salesLayout": "catalog-reference",
-  "designSpec": "/absolute/path/design-spec.json",
   "productionAssumptions": {
-    "process": "dye-sublimation on polyester",
-    "colorSpace": "sRGB",
-    "targetMode": "aspect-ratio",
+    "masterPolicy": "native-large-single-source",
     "targetAspectRatio": 0.67,
-    "targetPixels": [6726, 10039],
-    "physicalMm": null,
-    "ppi": 300,
-    "factoryPatternIncluded": false,
-    "vectorIncluded": false
+    "targetPixels": [1024, 1536],
+    "minNativeLongEdgePx": 1536,
+    "resamplingAllowed": false,
+    "regenerationAfterMasterLock": false,
+    "colorSpace": "sRGB"
   },
   "files": [
     {
       "role": "front print master",
       "path": "/absolute/path/print/X24-BD-000001-front-print.png",
       "sha256": "...",
-      "pixels": [6726, 10039],
+      "pixels": [1024, 1536],
       "sourcePixels": [1024, 1536],
-      "scaleFactor": 6.54,
-      "resampled": true,
-      "upscaleEngine": "realesrgan",
-      "upscaleModel": "realesrgan-x4plus",
-      "superResolutionScale": 4,
-      "postResizeScale": 1.635,
-      "qualityGate": "pass-super-resolution"
-    },
-    {
-      "role": "back print master",
-      "path": "/absolute/path/print/X24-BD-000001-back-print.png",
-      "sha256": "...",
-      "pixels": [6726, 10039],
-      "sourcePixels": [1024, 1536],
-      "scaleFactor": 6.54,
-      "resampled": true,
-      "upscaleEngine": "realesrgan",
-      "upscaleModel": "realesrgan-x4plus",
-      "superResolutionScale": 4,
-      "postResizeScale": 1.635,
-      "qualityGate": "pass-super-resolution"
-    },
-    {
-      "role": "mockup base",
-      "path": "/absolute/path/marketing/X24-BD-000001-mockup-base.webp",
-      "sha256": "...",
-      "pixels": [1536, 1536]
-    },
-    {
-      "role": "sales image",
-      "path": "/absolute/path/marketing/X24-BD-000001-sales.webp",
-      "sha256": "...",
-      "pixels": [1536, 1536]
-    },
-    {
-      "role": "team photo",
-      "path": "/absolute/path/marketing/X24-BD-000001-team-photo.webp",
-      "sha256": "...",
-      "pixels": [1536, 1024],
-      "playerCount": 9
+      "scaleFactor": 1.0,
+      "resampled": false,
+      "nativeLarge": true,
+      "masterPolicy": "native-large-single-source"
     }
   ],
-  "salesGeneration": {
-    "mode": "imagegen-native",
-    "postCompositeApplied": false,
-    "nativeSource": {
-      "path": "/absolute/path/work/X24-BD-000001-sales-native-source.png",
+  "masterGeneration": {
+    "mode": "imagegen-native-large-single-source",
+    "front": {
+      "canonicalPath": "/absolute/path/print/X24-BD-000001-front-print.png",
       "sha256": "...",
-      "pixels": [1536, 1536]
-    }
-  },
-  "mockupGeneration": {
-    "mode": "imagegen-native",
-    "postCompositeApplied": false,
-    "nativeSource": {
-      "path": "/absolute/path/work/X24-BD-000001-mockup-native-source.png",
-      "sha256": "...",
-      "pixels": [1536, 1536]
-    }
-  },
-  "teamPhotoGeneration": {
-    "mode": "imagegen-native",
-    "postCompositeApplied": false,
-    "nativeSource": {
-      "path": "/absolute/path/work/X24-BD-000001-team-photo-native-source.png",
-      "sha256": "...",
-      "pixels": [1536, 1024]
+      "pixels": [1024, 1536]
     },
-    "playerCount": 9
-  },
-  "visualApproval": {
-    "frontFlatArtworkOnly": true,
-    "backFlatArtworkOnly": true,
-    "frontBackCoherent": true,
-    "mockupMatchesFront": true,
-    "mockupMatchesBack": true,
-    "commercialTextExact": true,
-    "collarOptionsExact": true,
-    "mockupContactExact": true,
-    "teamPhotoMatchesKit": true,
-    "teamPhotoContactExact": true
+    "back": {
+      "canonicalPath": "/absolute/path/print/X24-BD-000001-back-print.png",
+      "sha256": "...",
+      "pixels": [1024, 1536]
+    }
   }
 }
 ```
 
-Tạo manifest và SHA-256 từ bytes cuối bằng `build_delivery_manifest.py`. Ghi đúng
-`inputMode` và `salesLayout`; với conversion, thêm source analysis/reference vào
-spec nhưng không đưa ảnh seller vào gallery. `design-spec.json` phải có
-`teamPhoto.playerCount` là số nguyên `5-11`. Chỉ truyền `--approve-visual` sau
-khi đã xem full-size cả năm ảnh và đối chiếu từng chuỗi copy. `validate_delivery.py`
-yêu cầu đúng năm role, file nằm trong product folder, SKU đồng nhất, PNG/WebP
-đúng loại, master đúng `targetPixels`/PPI, master trên `2×` có provenance
-Real-ESRGAN 4× khớp giữa manifest và PNG, không phải Lanczos-only, mockup và sales vuông tối thiểu
-1200 px, team photo có cạnh dài tối thiểu 1200 px, checksum khớp và mười cờ
-visual đều `true`. Validator còn yêu cầu copy lock trong `design-spec`,
-`mockupGeneration.mode=imagegen-native`, `salesGeneration.mode=imagegen-native`,
-`teamPhotoGeneration.mode=imagegen-native`, `postCompositeApplied=false`, pixel
-RGB của từng WebP marketing giống tuyệt đối với PNG nguồn imagegen tương ứng.
-Validator khóa `sales.collarLabels` đúng ba giá trị `Cổ tròn`, `Cổ Tim`,
-`Cổ polo`, `selectedCollar` thuộc danh sách và bằng `garment.collar`; đồng thời
-khóa website `mayaobongda.vn` và hotline `0989 353 247`. Mọi composite hậu kỳ
-làm đổi pixel hoặc mọi spec có loại cổ dư sẽ fail.
+Manifest vẫn phải chứa đúng năm role, ba generation record marketing và mười cờ
+visual approval như validator yêu cầu. WebP marketing phải pixel-identical với
+PNG imagegen-native tương ứng; không composite text hậu kỳ.
 
-Các cờ `collarOptionsExact`, `mockupContactExact` và
-`teamPhotoContactExact` chỉ được bật sau khi xem full-size: sales có đúng ba
-thumbnail cổ, mockup/team photo đều có đủ hai chuỗi contact và không có
-pseudo-text. Validator không tự OCR ảnh nên cờ visual là lời xác nhận bắt buộc,
-không được suy ra từ việc spec đúng.
+`validate_delivery.py` hard reject khi:
 
-Không đặt master PNG vào gallery website. Nếu sau này publish, tạo preview WebP riêng từ master; không dùng master 300 PPI làm ảnh web.
+- master sai `targetPixels`, sai tỷ lệ hoặc cạnh dài dưới minimum;
+- `sourcePixels != pixels`, `scaleFactor != 1`, `resampled != false`;
+- thiếu `masterGeneration` hoặc canonical path/hash/pixels không khớp file;
+- design spec cho phép resampling hoặc regeneration sau lock;
+- front/back giống hệt nhau;
+- checksum, role, contact/collar lock, marketing pixel identity hoặc visual gate
+  không hợp lệ.
+
+Không đặt master PNG vào gallery website. Nếu publish, tạo preview WebP riêng và
+không thay đổi canonical master.

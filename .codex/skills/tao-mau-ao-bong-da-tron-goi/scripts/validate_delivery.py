@@ -16,7 +16,8 @@ except ImportError as error:
 
 
 SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
-SCHEMA_VERSION = "1.1"
+SCHEMA_VERSION = "1.2"
+MASTER_POLICY = "native-large-single-source"
 COLLAR_LABELS = ["Cổ tròn", "Cổ Tim", "Cổ polo"]
 WEBSITE = "mayaobongda.vn"
 HOTLINE = "0989 353 247"
@@ -40,10 +41,6 @@ REQUIRED_SALES_SPEC_FIELDS = {
     "selectedCollar",
 }
 FORBIDDEN_SALES_SPEC_FIELDS = {"price", "cta"}
-SAFE_LANCZOS_SCALE = 2.0
-MAX_TOTAL_UPSCALE = 8.0
-
-
 def fail(message: str) -> None:
     print(f"ERROR: {message}", file=sys.stderr)
     raise SystemExit(1)
@@ -109,27 +106,25 @@ def main() -> None:
     if not isinstance(sku, str) or not SKU_RE.fullmatch(sku):
         fail("manifest sku must match X24-BD-FFHHDD")
     assumptions = manifest.get("productionAssumptions", {})
-    physical = assumptions.get("physicalMm")
-    ppi = assumptions.get("ppi")
-    if not isinstance(ppi, int) or ppi <= 0:
-        fail("productionAssumptions.ppi must be a positive integer")
+    if assumptions.get("masterPolicy") != MASTER_POLICY:
+        fail(f"productionAssumptions.masterPolicy must be {MASTER_POLICY}")
+    if assumptions.get("resamplingAllowed") is not False:
+        fail("productionAssumptions.resamplingAllowed must be false")
+    if assumptions.get("regenerationAfterMasterLock") is not False:
+        fail("productionAssumptions.regenerationAfterMasterLock must be false")
+    min_native_long_edge = assumptions.get("minNativeLongEdgePx")
+    if not isinstance(min_native_long_edge, int) or min_native_long_edge <= 0:
+        fail("productionAssumptions.minNativeLongEdgePx must be a positive integer")
     explicit_target_pixels = assumptions.get("targetPixels")
-    if explicit_target_pixels is not None:
-        if not (
-            isinstance(explicit_target_pixels, list)
-            and len(explicit_target_pixels) == 2
-            and all(isinstance(v, int) and v > 0 for v in explicit_target_pixels)
-        ):
-            fail("productionAssumptions.targetPixels must contain two positive integers")
-        expected_pixels = explicit_target_pixels
-    else:
-        if not (
-            isinstance(physical, list)
-            and len(physical) == 2
-            and all(isinstance(v, (int, float)) and v > 0 for v in physical)
-        ):
-            fail("productionAssumptions.physicalMm must contain two positive numbers")
-        expected_pixels = [round(physical[0] / 25.4 * ppi), round(physical[1] / 25.4 * ppi)]
+    if not (
+        isinstance(explicit_target_pixels, list)
+        and len(explicit_target_pixels) == 2
+        and all(isinstance(v, int) and v > 0 for v in explicit_target_pixels)
+    ):
+        fail("productionAssumptions.targetPixels must contain two positive integers")
+    expected_pixels = explicit_target_pixels
+    if max(expected_pixels) < min_native_long_edge:
+        fail("productionAssumptions.targetPixels is below minNativeLongEdgePx")
 
     files = manifest.get("files")
     if not isinstance(files, list):
@@ -165,54 +160,16 @@ def main() -> None:
         elif validation_kind == "master":
             if pixels != expected_pixels:
                 fail(f"{role} must be {expected_pixels[0]}x{expected_pixels[1]} px")
-            if min(float(dpi[0]), float(dpi[1])) < ppi - 1:
-                fail(f"{role} must carry at least {ppi} PPI metadata")
-            scale_factor = item.get("scaleFactor")
-            if not isinstance(scale_factor, (int, float)) or scale_factor <= 0:
-                fail(f"{role} must record a positive scaleFactor")
-            side = "front" if role.startswith("front") else "back"
-            source_path = folder / "work" / f"{sku}-{side}-source.png"
-            if not source_path.is_file():
-                fail(f"{role} source master is missing: {source_path}")
-            with Image.open(source_path) as source_image:
-                source_pixels = list(source_image.size)
-            expected_scale_factor = max(pixels[0] / source_pixels[0], pixels[1] / source_pixels[1])
-            if item.get("sourcePixels") != source_pixels:
-                fail(f"{role} sourcePixels do not match the source master")
-            if abs(float(scale_factor) - expected_scale_factor) > 0.001:
-                fail(f"{role} scaleFactor does not match source and target pixels")
-            if expected_scale_factor > MAX_TOTAL_UPSCALE:
-                fail(f"{role} exceeds the {MAX_TOTAL_UPSCALE:.0f}x print-quality limit")
-            with Image.open(path) as master_image:
-                embedded_engine = master_image.info.get("x24.upscaleEngine")
-                embedded_model = master_image.info.get("x24.upscaleModel")
-                embedded_quality_gate = master_image.info.get("x24.qualityGate")
-                try:
-                    embedded_sr_scale = int(master_image.info.get("x24.superResolutionScale", "0"))
-                    embedded_scale_factor = float(master_image.info.get("x24.scaleFactor", "0"))
-                    embedded_post_resize = float(master_image.info.get("x24.postResizeScale", "0"))
-                except (TypeError, ValueError):
-                    fail(f"{role} has invalid embedded super-resolution provenance")
-            if embedded_engine not in {"lanczos", "realesrgan"}:
-                fail(f"{role} is missing embedded print-quality provenance")
-            if item.get("upscaleEngine") != embedded_engine:
-                fail(f"{role} upscale engine does not match embedded provenance")
-            if item.get("qualityGate") != embedded_quality_gate:
-                fail(f"{role} quality gate does not match embedded provenance")
-            if abs(embedded_scale_factor - expected_scale_factor) > 0.001:
-                fail(f"{role} embedded scale factor does not match source and target pixels")
-            item_post_resize = item.get("postResizeScale")
-            if not isinstance(item_post_resize, (int, float)) or abs(float(item_post_resize) - embedded_post_resize) > 0.001:
-                fail(f"{role} post-resize scale does not match embedded provenance")
-            if scale_factor > SAFE_LANCZOS_SCALE:
-                if item.get("upscaleEngine") != "realesrgan" or embedded_engine != "realesrgan":
-                    fail(f"{role} above 2x must use Real-ESRGAN; Lanczos-only enlargement is review-only")
-                if item.get("upscaleModel") != embedded_model or not isinstance(embedded_model, str):
-                    fail(f"{role} upscale model does not match embedded provenance")
-                if item.get("superResolutionScale") != 4 or embedded_sr_scale != 4:
-                    fail(f"{role} above 2x must record 4x super-resolution restoration")
-                if item.get("qualityGate") != "pass-super-resolution" or embedded_quality_gate != "pass-super-resolution":
-                    fail(f"{role} did not pass the super-resolution quality gate")
+            if item.get("sourcePixels") != pixels:
+                fail(f"{role} sourcePixels must equal canonical master pixels")
+            if item.get("scaleFactor") != 1.0:
+                fail(f"{role} scaleFactor must be exactly 1.0; enlargement is forbidden")
+            if item.get("resampled") is not False:
+                fail(f"{role} resampled must be false")
+            if item.get("nativeLarge") is not True:
+                fail(f"{role} nativeLarge must be true")
+            if item.get("masterPolicy") != MASTER_POLICY:
+                fail(f"{role} masterPolicy must be {MASTER_POLICY}")
         elif validation_kind == "team-photo":
             if max(pixels) < 1200:
                 fail("team photo must have a long edge of at least 1200 px")
@@ -222,6 +179,24 @@ def main() -> None:
         else:
             fail(f"unknown validation kind for {role}")
         report.append({"role": role, "file": path.name, "format": image_format, "pixels": pixels})
+
+    master_generation = manifest.get("masterGeneration")
+    if not isinstance(master_generation, dict) or master_generation.get("mode") != "imagegen-native-large-single-source":
+        fail("masterGeneration.mode must be imagegen-native-large-single-source")
+    for side, role in (("front", "front print master"), ("back", "back print master")):
+        record = master_generation.get(side)
+        if not isinstance(record, dict):
+            fail(f"masterGeneration.{side} is required")
+        canonical_path = Path(record.get("canonicalPath", "")).expanduser().resolve()
+        expected_path = Path(by_role[role]["path"]).expanduser().resolve()
+        if canonical_path != expected_path:
+            fail(f"masterGeneration.{side}.canonicalPath must be the print master path")
+        if record.get("sha256") != sha256(expected_path):
+            fail(f"masterGeneration.{side} checksum does not match the canonical master")
+        if record.get("pixels") != expected_pixels:
+            fail(f"masterGeneration.{side} pixels do not match targetPixels")
+        if record.get("scaleFactor") != 1.0 or record.get("resampled") is not False:
+            fail(f"masterGeneration.{side} must record scaleFactor=1.0 and resampled=false")
 
     mockup_path = Path(by_role["mockup base"]["path"]).resolve()
     validate_native_pixel_identity(
@@ -255,6 +230,19 @@ def main() -> None:
     )
 
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    print_spec = spec.get("print")
+    if not isinstance(print_spec, dict):
+        fail("design spec print contract is required")
+    if print_spec.get("masterPolicy") != MASTER_POLICY:
+        fail(f"design spec print.masterPolicy must be {MASTER_POLICY}")
+    if print_spec.get("nativeTargetPixels") != expected_pixels:
+        fail("design spec print.nativeTargetPixels must match manifest targetPixels")
+    if print_spec.get("minNativeLongEdgePx") != min_native_long_edge:
+        fail("design spec print.minNativeLongEdgePx must match manifest")
+    if print_spec.get("resamplingAllowed") is not False:
+        fail("design spec print.resamplingAllowed must be false")
+    if print_spec.get("regenerationAfterMasterLock") is not False:
+        fail("design spec print.regenerationAfterMasterLock must be false")
     sales_spec = spec.get("sales")
     if not isinstance(sales_spec, dict) or not REQUIRED_SALES_SPEC_FIELDS.issubset(sales_spec):
         fail(f"design spec sales copy must contain: {sorted(REQUIRED_SALES_SPEC_FIELDS)}")
@@ -318,6 +306,9 @@ def main() -> None:
         "folder": str(folder),
         "sku": sku,
         "expectedMasterPixels": expected_pixels,
+        "masterPolicyValidated": MASTER_POLICY,
+        "masterScaleFactorValidated": 1.0,
+        "masterResamplingValidated": False,
         "files": report,
         "mockupGenerationValidated": "imagegen-native pixel identity",
         "salesGenerationValidated": "imagegen-native pixel identity",

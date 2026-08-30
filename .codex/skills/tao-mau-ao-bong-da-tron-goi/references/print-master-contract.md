@@ -9,11 +9,10 @@ Hai deliverable bắt buộc:
 - `<SKU>-front-print.png`
 - `<SKU>-back-print.png`
 
-Mặc định generic khi chưa có rập: tỷ lệ `700:850`, 300 PPI metadata, PNG
-lossless, sRGB. Tỷ lệ ngang/dọc là tiêu chí chính; kích thước mm chỉ là metadata
-hoặc proxy để tính pixel khi xưởng chưa yêu cầu kích thước cụ thể. Nếu xưởng cung
-cấp kích thước, rập, ICC hoặc yêu cầu TIFF/CMYK, ưu tiên thông số xưởng và ghi rõ
-thay đổi.
+Mặc định generic khi chưa có rập: tỷ lệ `700:850`, PNG lossless, sRGB. Tỷ lệ
+ngang/dọc và số pixel native là tiêu chí chính; PPI chỉ được ghi nhận nếu output
+vốn có, không encode lại master để thêm metadata. Nếu xưởng cung cấp kích thước,
+rập, ICC hoặc yêu cầu TIFF/CMYK, ưu tiên thông số xưởng và ghi rõ thay đổi.
 
 Khi dùng rập xưởng thực tế đã lưu trong
 `assets/factory-pattern-references/x24-factory-football-sleeveless-front-back-vneck-crew-2026-08-30.png`,
@@ -32,8 +31,8 @@ oversize để xưởng đặt lên rập panel áo, không phải ảnh vuông 
 - Tối đa lệch 8% so với `700:850` khi artwork có bleed an toàn ở vùng bị crop.
 - Hard reject source vuông `1:1`, source quá cao/hẹp kiểu `2:3`, hoặc source có
   motif quan trọng sát mép bị crop nếu chưa correction/crop-review.
-- `prepare_print_master.py --fit cover` chỉ crop để ra đúng tỷ lệ, không stretch.
-  Không được kéo méo artwork để vừa rập.
+- Phải sinh trực tiếp ở canvas native đã khóa. Không crop/resize một ảnh nhỏ để
+  biến nó thành master; không được kéo méo artwork để vừa rập.
 - Nếu dùng rập xưởng hiện tại, source/master phải gần `0.67` rộng/cao. Được tạo
   thừa bleed trong chính canvas tỷ lệ này, nhưng không stretch artwork.
 - Nếu xưởng cung cấp rập thật hoặc file vector chính xác, dùng rập đó làm
@@ -64,26 +63,26 @@ oversize để xưởng đặt lên rập panel áo, không phải ảnh vuông 
 - Hai mép bên dùng màu/nhịp có khả năng nối. Chỉ tuyên bố “seam-aligned” khi đã kiểm tra trên rập thật; nếu chưa có rập, dùng “edge-coherent”.
 - Màu base và accent phải được ghi bằng HEX trong spec. HEX/sRGB là tham chiếu màn hình, không thay proof màu máy in.
 
-## Chất lượng nguồn và upscale
+## Chất lượng nguồn native và master lock
 
-`prepare_print_master.py` dùng Lanczos khi tổng scale không vượt `2×`. Trên `2×`,
-workflow bắt buộc dùng Real-ESRGAN `realesrgan-x4plus` 4× để restoration và
-super-resolution trước, sau đó Lanczos chỉ làm bước khớp kích thước cuối. Nó
-không tạo vector và chi tiết mới vẫn là suy đoán raster. Ghi `sourcePixels`,
-`targetPixels`, `scaleFactor`, `upscaleEngine`, `upscaleModel`,
-`superResolutionScale`, `postResizeScale`, `qualityGate` và `resampled` trong
-manifest cũng như provenance nhúng trong PNG.
+Canvas native phải được khóa trong `design-spec.json` trước khi generate. Mặc
+định khi chưa có thông số pixel của xưởng là native portrait lớn nhất mà backend
+hỗ trợ ở tỷ lệ gần `0.67`; với backend 2:3 thông dụng là `1024 x 1536 px`. Có thể
+lớn hơn nếu backend sinh trực tiếp được, nhưng front và back phải cùng canvas.
 
-Nếu scale factor lớn hơn 2×:
-
-- Lanczos-only bị hard reject khỏi delivery;
-- dùng model general `realesrgan-x4plus`; model anime có thể xóa line mảnh hoặc
-  texture có chủ đích và chỉ dùng sau A/B visual review;
-- tổng scale trên `8×` bị hard reject, phải tạo source native lớn hơn;
-- kiểm tra edge ở 100% và 200%;
-- kiểm tra tile seam, halo, pattern hallucination, noise và banding gradient;
-- tạo test swatch trước khi in hàng loạt;
-- không ghi “native 300 PPI” hoặc “vector-quality”.
+- Kích thước được đo từ file output thật, không suy ra từ prompt hay dung lượng.
+- `sourcePixels` phải bằng `targetPixels`; `scaleFactor` bắt buộc `1.0` và
+  `resampled` bắt buộc `false`.
+- Không dùng Lanczos, Real-ESRGAN, generative fill, sharpen, denoise hoặc encode
+  lại để tạo master lớn hơn.
+- `lock_native_print_master.py` chỉ copy bytes và xác minh SHA-256; hash input,
+  canonical master và bản ở Data phải giống nhau.
+- Correction chỉ được thực hiện trước lock. Sau lock, mockup/sales/team photo
+  dùng canonical master làm reference; không sinh lại master từ bất kỳ ảnh nào.
+- Nếu backend không trả đúng native canvas, loại output và retry ở bước master
+  hoặc dừng. Không dùng file nhỏ làm source tạm cho các bước sau.
+- Kiểm tra edge ở 100% và 200%, tile seam, noise, banding và motif nhỏ trước khi
+  lock; tạo test swatch trước khi in hàng loạt.
 
 ## Color handoff
 

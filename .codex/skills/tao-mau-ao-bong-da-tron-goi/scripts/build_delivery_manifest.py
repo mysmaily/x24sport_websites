@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the delivery manifest from final X24-BD files and their exact bytes."""
+"""Build a delivery manifest for immutable native-large football print masters."""
 
 from __future__ import annotations
 
@@ -18,6 +18,7 @@ except ImportError as error:
 SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
 COLLAR_LABELS = ["Cổ tròn", "Cổ Tim", "Cổ polo"]
 GALLERY_CONTACT = {"website": "mayaobongda.vn", "hotline": "0989 353 247"}
+MASTER_POLICY = "native-large-single-source"
 
 
 def checksum(path: Path) -> str:
@@ -34,26 +35,22 @@ def image_info(path: Path) -> tuple[list[int], str]:
         return list(image.size), str(image.format)
 
 
-def print_provenance(path: Path) -> dict[str, object]:
-    with Image.open(path) as image:
-        info = image.info
-        engine = info.get("x24.upscaleEngine")
-        if not isinstance(engine, str):
-            return {}
-        try:
-            return {
-                "upscaleEngine": engine,
-                "upscaleModel": str(info.get("x24.upscaleModel", "none")),
-                "superResolutionScale": int(info.get("x24.superResolutionScale", "1")),
-                "postResizeScale": round(float(info.get("x24.postResizeScale", "1")), 4),
-                "qualityGate": str(info.get("x24.qualityGate", "missing")),
-            }
-        except (TypeError, ValueError) as error:
-            raise SystemExit(f"Invalid embedded print provenance in {path}: {error}") from error
-
-
-def validate_design_spec(spec_path: Path) -> int:
+def validate_design_spec(spec_path: Path, target_pixels: list[int], min_long_edge: int) -> int:
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    print_spec = spec.get("print")
+    if not isinstance(print_spec, dict):
+        raise SystemExit("design-spec.json must contain print")
+    if print_spec.get("masterPolicy") != MASTER_POLICY:
+        raise SystemExit(f"design-spec.json print.masterPolicy must be {MASTER_POLICY}")
+    if print_spec.get("nativeTargetPixels") != target_pixels:
+        raise SystemExit("design-spec.json print.nativeTargetPixels must equal the locked target pixels")
+    if print_spec.get("minNativeLongEdgePx") != min_long_edge:
+        raise SystemExit("design-spec.json print.minNativeLongEdgePx must equal the manifest minimum")
+    if print_spec.get("resamplingAllowed") is not False:
+        raise SystemExit("design-spec.json print.resamplingAllowed must be false")
+    if print_spec.get("regenerationAfterMasterLock") is not False:
+        raise SystemExit("design-spec.json print.regenerationAfterMasterLock must be false")
+
     sales = spec.get("sales")
     if not isinstance(sales, dict):
         raise SystemExit("design-spec.json must contain sales")
@@ -86,13 +83,7 @@ def validate_design_spec(spec_path: Path) -> int:
     return player_count
 
 
-def target_pixels_from_aspect(aspect_ratio: float, long_edge_px: int) -> list[int]:
-    if aspect_ratio >= 1:
-        return [long_edge_px, round(long_edge_px / aspect_ratio)]
-    return [round(long_edge_px * aspect_ratio), long_edge_px]
-
-
-def file_record(role: str, path: Path, source_path: Path | None = None) -> dict[str, object]:
+def file_record(role: str, path: Path, *, native_master: bool = False) -> dict[str, object]:
     pixels, _ = image_info(path)
     record: dict[str, object] = {
         "role": role,
@@ -100,12 +91,14 @@ def file_record(role: str, path: Path, source_path: Path | None = None) -> dict[
         "sha256": checksum(path),
         "pixels": pixels,
     }
-    if source_path and source_path.is_file():
-        source_pixels, _ = image_info(source_path)
-        record["sourcePixels"] = source_pixels
-        record["scaleFactor"] = round(max(pixels[0] / source_pixels[0], pixels[1] / source_pixels[1]), 4)
-        record["resampled"] = pixels != source_pixels
-        record.update(print_provenance(path))
+    if native_master:
+        record.update({
+            "sourcePixels": pixels,
+            "scaleFactor": 1.0,
+            "resampled": False,
+            "nativeLarge": True,
+            "masterPolicy": MASTER_POLICY,
+        })
     return record
 
 
@@ -116,15 +109,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--product-slug", required=True)
     parser.add_argument("--input-mode", choices=("original-design", "reference-conversion"), default="original-design")
     parser.add_argument("--sales-layout", choices=("compact", "catalog-reference"), default="compact")
-    parser.add_argument("--width-mm", type=float, default=700)
-    parser.add_argument("--height-mm", type=float, default=850)
-    parser.add_argument(
-        "--target-aspect-ratio",
-        type=float,
-        help="Record/validate master print pixels by ratio only instead of physical mm.",
-    )
-    parser.add_argument("--target-long-edge-px", type=int, default=10039)
-    parser.add_argument("--ppi", type=int, default=300)
+    parser.add_argument("--target-width-px", type=int, default=1024)
+    parser.add_argument("--target-height-px", type=int, default=1536)
+    parser.add_argument("--target-aspect-ratio", type=float, default=0.67)
+    parser.add_argument("--min-native-long-edge-px", type=int, default=1536)
     parser.add_argument("--process", default="dye-sublimation on polyester")
     parser.add_argument("--color-space", default="sRGB")
     parser.add_argument("--approve-visual", action="store_true")
@@ -132,10 +120,29 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def native_generation_record(path: Path) -> dict[str, object]:
+    return {
+        "canonicalPath": str(path),
+        "sha256": checksum(path),
+        "pixels": image_info(path)[0],
+        "scaleFactor": 1.0,
+        "resampled": False,
+    }
+
+
 def main() -> None:
     args = parse_args()
     if not SKU_RE.fullmatch(args.sku):
         raise SystemExit("--sku must match X24-BD-FFHHDD")
+    target_pixels = [args.target_width_px, args.target_height_px]
+    if any(value <= 0 for value in target_pixels) or args.min_native_long_edge_px <= 0:
+        raise SystemExit("Target pixels and minimum native long edge must be positive")
+    actual_aspect = args.target_width_px / args.target_height_px
+    if abs(actual_aspect - args.target_aspect_ratio) / args.target_aspect_ratio > 0.015:
+        raise SystemExit("Target pixels drift more than 1.5% from --target-aspect-ratio")
+    if max(target_pixels) < args.min_native_long_edge_px:
+        raise SystemExit("Target long edge is below --min-native-long-edge-px")
+
     folder = args.folder.expanduser().resolve()
     spec = folder / "design-spec.json"
     output = folder / "delivery-manifest.json"
@@ -143,49 +150,32 @@ def main() -> None:
         raise SystemExit("Product folder and design-spec.json are required")
     if output.exists() and not args.overwrite:
         raise SystemExit(f"Refusing to overwrite: {output}")
-    if args.target_aspect_ratio is not None:
-        if args.target_aspect_ratio <= 0:
-            raise SystemExit("--target-aspect-ratio must be positive")
-        if args.target_long_edge_px <= 0:
-            raise SystemExit("--target-long-edge-px must be positive")
-        target_pixels = target_pixels_from_aspect(args.target_aspect_ratio, args.target_long_edge_px)
-        target_mode = "aspect-ratio"
-        physical_mm: list[float] | None = None
-    else:
-        if args.width_mm <= 0 or args.height_mm <= 0 or args.ppi <= 0:
-            raise SystemExit("Physical size and PPI must be positive")
-        target_pixels = [round(args.width_mm / 25.4 * args.ppi), round(args.height_mm / 25.4 * args.ppi)]
-        target_mode = "physical-mm"
-        physical_mm = [args.width_mm, args.height_mm]
 
-    front_source = folder / "work" / f"{args.sku}-front-source.png"
-    back_source = folder / "work" / f"{args.sku}-back-source.png"
-    native_sales_source = folder / "work" / f"{args.sku}-sales-native-source.png"
-    native_mockup_source = folder / "work" / f"{args.sku}-mockup-native-source.png"
-    native_team_photo_source = folder / "work" / f"{args.sku}-team-photo-native-source.png"
-    player_count = validate_design_spec(spec)
-    files = [
-        ("front print master", folder / "print" / f"{args.sku}-front-print.png", front_source),
-        ("back print master", folder / "print" / f"{args.sku}-back-print.png", back_source),
-        ("mockup base", folder / "marketing" / f"{args.sku}-mockup-base.webp", None),
-        ("sales image", folder / "marketing" / f"{args.sku}-sales.webp", None),
-        ("team photo", folder / "marketing" / f"{args.sku}-team-photo.webp", None),
-    ]
-    required_support = [
-        front_source,
-        back_source,
-        native_mockup_source,
-        native_sales_source,
-        native_team_photo_source,
-    ]
-    missing = [str(path) for path in required_support if not path.is_file()]
-    missing.extend(str(path) for _, path, _ in files if not path.is_file())
+    front = folder / "print" / f"{args.sku}-front-print.png"
+    back = folder / "print" / f"{args.sku}-back-print.png"
+    native_mockup = folder / "work" / f"{args.sku}-mockup-native-source.png"
+    native_sales = folder / "work" / f"{args.sku}-sales-native-source.png"
+    native_team = folder / "work" / f"{args.sku}-team-photo-native-source.png"
+    mockup = folder / "marketing" / f"{args.sku}-mockup-base.webp"
+    sales = folder / "marketing" / f"{args.sku}-sales.webp"
+    team = folder / "marketing" / f"{args.sku}-team-photo.webp"
+    required = [front, back, native_mockup, native_sales, native_team, mockup, sales, team]
+    missing = [str(path) for path in required if not path.is_file()]
     if missing:
         raise SystemExit("Missing required files: " + ", ".join(missing))
 
+    for role, path in (("front", front), ("back", back)):
+        pixels, image_format = image_info(path)
+        if image_format != "PNG" or pixels != target_pixels:
+            raise SystemExit(
+                f"{role} master must already be native PNG {target_pixels[0]}x{target_pixels[1]}; "
+                "do not resize it in the manifest step"
+            )
+
+    player_count = validate_design_spec(spec, target_pixels, args.min_native_long_edge_px)
     approved = bool(args.approve_visual)
     manifest = {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.2",
         "sku": args.sku,
         "productSlug": args.product_slug,
         "inputMode": args.input_mode,
@@ -194,46 +184,46 @@ def main() -> None:
         "productionAssumptions": {
             "process": args.process,
             "colorSpace": args.color_space,
-            "targetMode": target_mode,
-            "targetAspectRatio": round(target_pixels[0] / target_pixels[1], 6),
+            "masterPolicy": MASTER_POLICY,
+            "targetAspectRatio": round(actual_aspect, 6),
             "targetPixels": target_pixels,
-            "physicalMm": physical_mm,
-            "ppi": args.ppi,
+            "minNativeLongEdgePx": args.min_native_long_edge_px,
+            "resamplingAllowed": False,
+            "regenerationAfterMasterLock": False,
             "factoryPatternIncluded": False,
             "vectorIncluded": False,
         },
         "files": [
-            {
-                **file_record(role, path, source),
-                **({"playerCount": player_count} if role == "team photo" else {}),
-            }
-            for role, path, source in files
+            file_record("front print master", front, native_master=True),
+            file_record("back print master", back, native_master=True),
+            file_record("mockup base", mockup),
+            file_record("sales image", sales),
+            {**file_record("team photo", team), "playerCount": player_count},
         ],
+        "masterGeneration": {
+            "mode": "imagegen-native-large-single-source",
+            "front": native_generation_record(front),
+            "back": native_generation_record(back),
+        },
         "mockupGeneration": {
             "mode": "imagegen-native",
             "postCompositeApplied": False,
             "nativeSource": {
-                "path": str(native_mockup_source),
-                "sha256": checksum(native_mockup_source),
-                "pixels": image_info(native_mockup_source)[0],
+                "path": str(native_mockup), "sha256": checksum(native_mockup), "pixels": image_info(native_mockup)[0]
             },
         },
         "salesGeneration": {
             "mode": "imagegen-native",
             "postCompositeApplied": False,
             "nativeSource": {
-                "path": str(native_sales_source),
-                "sha256": checksum(native_sales_source),
-                "pixels": image_info(native_sales_source)[0],
+                "path": str(native_sales), "sha256": checksum(native_sales), "pixels": image_info(native_sales)[0]
             },
         },
         "teamPhotoGeneration": {
             "mode": "imagegen-native",
             "postCompositeApplied": False,
             "nativeSource": {
-                "path": str(native_team_photo_source),
-                "sha256": checksum(native_team_photo_source),
-                "pixels": image_info(native_team_photo_source)[0],
+                "path": str(native_team), "sha256": checksum(native_team), "pixels": image_info(native_team)[0]
             },
             "playerCount": player_count,
         },

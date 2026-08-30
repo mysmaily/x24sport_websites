@@ -1,6 +1,6 @@
 ---
 name: tao-mau-ao-bong-da-tron-goi
-description: "Tạo trọn bộ mẫu áo bóng đá từ ý tưởng mới hoặc ảnh áo/poster tham khảo theo quy trình master-first: dựng nền in phẳng trước–sau, chuẩn hóa file in, tạo mockup vải thật, ảnh chào hàng, ảnh tập thể đội bóng và handoff đăng mayaobongda.vn khi được yêu cầu. Dùng cho thiết kế catalog mới, chuyển mẫu nguồn thành bộ sản xuất hoặc batch áo bóng đá; không dùng khi chỉ cần chỉnh một ảnh mockup có sẵn mà không cần master."
+description: "Tạo trọn bộ mẫu áo bóng đá từ ý tưởng mới hoặc ảnh áo/poster tham khảo theo quy trình native-large master-first: sinh và khóa nền in phẳng trước–sau ở canvas lớn ngay từ đầu, dùng nguyên master xuyên suốt cho mockup, ảnh chào hàng, ảnh đội bóng và copy byte-identical sang Data volume; handoff đăng mayaobongda.vn chỉ khi được yêu cầu. Dùng cho thiết kế catalog mới, chuyển mẫu nguồn thành bộ sản xuất hoặc batch áo bóng đá; không dùng khi chỉ cần chỉnh một ảnh mockup có sẵn mà không cần master."
 ---
 
 # Tạo ảnh bóng đá - 29.08.2026
@@ -8,12 +8,17 @@ description: "Tạo trọn bộ mẫu áo bóng đá từ ý tưởng mới ho�
 Đây là workflow hợp nhất và là nguồn sự thật duy nhất cho cả sáng tạo mẫu mới lẫn chuyển ảnh áo nguồn:
 
 ```text
-input lock -> design/source analysis -> front master -> back master
--> print preparation -> mockup base -> sales image -> team photo
+input lock -> design/source analysis -> native canvas lock
+-> native-large front master -> native-large back master -> immutable master lock
+-> mockup base -> sales image -> team photo
 -> optional publish
 ```
 
-Master front/back là nguồn sản xuất. Không tạo mockup trước rồi tái tạo master từ mockup; không dùng ảnh chào hàng làm file in.
+Master front/back là nguồn sản xuất duy nhất. Phải sinh chúng ngay từ đầu ở canvas
+native lớn đã khóa trong spec, sau đó dùng chính hai file đã khóa làm reference
+cho mọi ảnh marketing và copy nguyên byte sang Data volume. Không tạo master nhỏ
+rồi upscale, resample, enhance hoặc tái tạo master lớn ở bước sau; không tạo
+mockup trước rồi tái tạo master từ mockup; không dùng ảnh chào hàng làm file in.
 
 ## Chọn mode
 
@@ -44,10 +49,16 @@ Khi thiếu thông số:
 - SKU: `X24-BD-FFHHDD`, trong đó `FF` là hai chữ số phần nghìn giây quy về centisecond, `HH` là giờ 24h và `DD` là ngày theo `Asia/Ho_Chi_Minh`;
 - tên sản phẩm: một hoặc hai từ tiếng Anh, lấy từ thư viện 40 tên `assets/football-product-names.json`;
 - in chuyển nhiệt trên polyester;
-- mỗi master generic: PNG lossless, sRGB, full-bleed, 300 PPI metadata; nếu
+- mỗi master generic: PNG lossless, sRGB, full-bleed; nếu
   dùng rập xưởng hiện tại, target aspect ratio là khoảng `0.67` rộng/cao. File
   được phép tạo thừa/bleed nhưng toàn canvas print phải match tỷ lệ rập để không
   phải kéo méo khi đưa vào form;
+- khi xưởng chưa khóa pixel cụ thể, dùng canvas dọc native lớn nhất mà generation
+  backend thật sự hỗ trợ ở tỷ lệ gần `0.67`; với backend chỉ có portrait 2:3,
+  mặc định là `1024 x 1536 px`. Nếu backend hỗ trợ native lớn hơn thì khóa kích
+  thước lớn hơn trước khi generate. Đây là kích thước pixel gốc, không phải đích
+  để phóng từ ảnh nhỏ; dung lượng MB và PPI metadata không được dùng để ngụy
+  trang một nguồn thiếu pixel;
 - cổ áo sản phẩm: chọn đúng một trong `Cổ tròn`, `Cổ Tim`, `Cổ polo`;
 - selector cổ trên ảnh chào hàng: luôn đúng ba lựa chọn theo đúng thứ tự
   `Cổ tròn`, `Cổ Tim`, `Cổ polo`; không được thêm biến thể như cổ viền, cổ chéo
@@ -108,7 +119,12 @@ Tạo `design-spec.json` trước khi sinh ảnh:
 - allowed assets và marks phải loại;
 - logoSource mặc định từ `assets/football-logo-sources.json` cho ảnh
   mockup/sales, không đưa vào master front/back;
-- target aspect ratio, target pixels, PPI metadata, color space, printing assumption;
+- target aspect ratio, target pixels, PPI metadata nếu output có sẵn, color
+  space và printing assumption; không rewrite master chỉ để thêm PPI;
+- `print.masterPolicy = "native-large-single-source"`,
+  `print.nativeTargetPixels`, `print.resamplingAllowed = false` và
+  `print.regenerationAfterMasterLock = false`; khóa các giá trị này trước lần
+  gọi tạo front master đầu tiên;
 - `factoryPatternReference`, `factoryPatternSafeAspectRatio` và quan hệ giữa
   `deliveryCanvas` với safe-area thân rập nếu có dùng rập xưởng;
 - mockup composition, sales layout, exact commercial copy;
@@ -129,12 +145,14 @@ python3 scripts/choose_creative_direction.py \
 
 Cùng SKU giữ direction và tên qua retry; thư viện dùng hết 40 tên một lượt rồi mới tái sử dụng tên có số lần xuất hiện thấp nhất. Concept khác hẳn phải có SKU mới.
 
-## 3. Dựng master front/back
+## 3. Dựng master front/back native lớn
 
 Đọc [print-master-contract.md](references/print-master-contract.md).
 
 ### Front
 
+- yêu cầu generation route tạo trực tiếp đúng `print.nativeTargetPixels`; không
+  được coi kích thước ghi trong prompt là bằng chứng, phải đo file output thật;
 - canvas artwork phẳng, full-bleed, gần tỷ lệ panel áo;
 - nếu dùng rập xưởng hiện tại, source/master phải gần tỷ lệ thân áo `0.67`
   rộng/cao. Được tạo dư bleed, nhưng không đổi sang tỷ lệ rộng kiểu `700:850`
@@ -150,71 +168,51 @@ Cùng SKU giữ direction và tên qua retry; thư viện dùng hết 40 tên m�
 
 ### Back
 
-- dùng front master và spec làm reference;
+- dùng front master native lớn đã duyệt và spec làm reference;
 - cùng palette/motif/stroke scale nhưng không mirror/copy front;
 - vùng tên/số sạch;
 - cạnh trái/phải edge-coherent với front;
 - side không nhìn thấy trong nguồn phải ghi `inferred`, không giả độ chính xác.
 
-Mỗi side có một bản đầu và tối đa hai correction pass có mục tiêu. Hard reject nếu còn dấu hiệu mockup, text/logo, sai palette, back mirror hoặc drift spec.
+Mỗi side có một bản đầu và tối đa hai correction pass có mục tiêu, nhưng mọi
+correction phải diễn ra trước master lock và phải trả lại toàn bộ side ở đúng
+native canvas đã khóa. Hard reject nếu còn dấu hiệu mockup, text/logo, sai
+palette, back mirror, drift spec hoặc kích thước output nhỏ hơn/khác canvas đã
+khóa. Nếu backend trả `768 x 1152` trong khi spec khóa `1024 x 1536`, loại output
+đó ngay tại bước master và retry bằng route có thể xuất native canvas; không đưa
+ảnh nhỏ sang mockup và không phóng nó ở bước sau.
 
-## 4. Chuẩn hóa file in
+## 4. Khóa master canonical, không tái tạo
 
-Trên máy macOS dùng workflow này, cài một lần bộ super-resolution chính thức đã
-pin version và checksum:
-
-```bash
-python3 scripts/install_print_upscaler.py
-```
-
-Sau visual gate, nếu dùng rập xưởng hiện tại thì chuẩn hóa bằng tỷ lệ trực tiếp:
-
-```bash
-python3 scripts/prepare_print_master.py work/<SKU>-front-source.png print/<SKU>-front-print.png \
-  --target-aspect-ratio 0.67 --target-long-edge-px 10039 --ppi 300 --fit cover \
-  --upscale-engine auto --realesrgan-model realesrgan-x4plus \
-  --max-source-aspect-drift 0.08
-
-python3 scripts/prepare_print_master.py work/<SKU>-back-source.png print/<SKU>-back-print.png \
-  --target-aspect-ratio 0.67 --target-long-edge-px 10039 --ppi 300 --fit cover \
-  --upscale-engine auto --realesrgan-model realesrgan-x4plus \
-  --max-source-aspect-drift 0.08
-```
-
-Nếu chưa có rập xưởng, dùng generic fallback:
+Ngay sau visual gate, copy byte-for-byte output imagegen/native-generation đã
+duyệt vào hai đường dẫn canonical. Script chỉ kiểm tra format, pixel, tỷ lệ và
+checksum; nó không resize, crop, sharpen, denoise, thêm metadata hay encode lại:
 
 ```bash
-python3 scripts/prepare_print_master.py work/<SKU>-front-source.png print/<SKU>-front-print.png \
-  --width-mm 700 --height-mm 850 --ppi 300 --fit cover \
-  --upscale-engine auto --realesrgan-model realesrgan-x4plus \
-  --max-source-aspect-drift 0.08
+python3 scripts/lock_native_print_master.py /absolute/path/to/generated-front.png \
+  print/<SKU>-front-print.png --width-px 1024 --height-px 1536 \
+  --target-aspect-ratio 0.67 --min-long-edge-px 1536
 
-python3 scripts/prepare_print_master.py work/<SKU>-back-source.png print/<SKU>-back-print.png \
-  --width-mm 700 --height-mm 850 --ppi 300 --fit cover \
-  --upscale-engine auto --realesrgan-model realesrgan-x4plus \
-  --max-source-aspect-drift 0.08
+python3 scripts/lock_native_print_master.py /absolute/path/to/generated-back.png \
+  print/<SKU>-back-print.png --width-px 1024 --height-px 1536 \
+  --target-aspect-ratio 0.67 --min-long-edge-px 1536
 ```
 
-Không stretch, JPEG, cutline hoặc ICC ngẫu nhiên. Từ `2×` trở xuống, script dùng
-Lanczos. Trên `2×`, `auto` bắt buộc chạy Real-ESRGAN `realesrgan-x4plus` để
-restoration/super-resolution trước rồi mới resample phần còn lại tới đúng canvas;
-Lanczos-only trên `2×` là review-only và validator từ chối giao xưởng. Tổng scale
-trên `8×` bị hard reject để buộc tạo source native lớn hơn. Luôn xem crop 100% và
-200%, kiểm tra line/halftone/gradient, rồi làm test swatch trước khi in hàng loạt.
-Super-resolution vẫn là raster suy đoán, không phải vector hay chi tiết native.
-Nếu script báo lệch aspect ratio vượt ngưỡng, phải tạo/crop-review lại source
-master theo tỷ lệ mục tiêu đang active trước khi chuẩn hóa, thay vì kéo méo
-artwork cho vừa rập. Với rập xưởng hiện tại, tỷ lệ mục tiêu của vùng thân áo là
-`0.67`; không dùng `700 x 850` cho rập này trừ khi người dùng yêu cầu rõ canvas
-legacy.
+Từ thời điểm lock, `print/<SKU>-front-print.png` và
+`print/<SKU>-back-print.png` là hai nguồn bất biến. Mọi mockup, sales image và
+team photo phải tham chiếu trực tiếp hai file này. Không tồn tại bước
+`prepare/upscale` sau đó. Nếu kích thước, tỷ lệ hoặc chi tiết chưa đạt, quay lại
+bước 3 trước khi lock; không sửa master đã khóa. Nếu môi trường hiện tại không có
+generation route tạo được native canvas yêu cầu, dừng và báo đúng hạn chế thay vì
+tạo file lớn giả bằng resampling.
 
 ## 5. Tạo mockup base
 
 Đọc [mockup-contract.md](references/mockup-contract.md). Gọi `imagegen` với role bất biến:
 
 ```text
-Image 1 = approved front master, chỉ áp vào surface mặt trước.
-Image 2 = approved back master, chỉ áp vào surface mặt sau.
+Image 1 = locked canonical print/<SKU>-front-print.png, chỉ áp vào surface mặt trước.
+Image 2 = locked canonical print/<SKU>-back-print.png, chỉ áp vào surface mặt sau.
 Không redesign, simplify, recolor, mirror, swap hoặc invent pattern.
 ```
 
@@ -288,7 +286,7 @@ Sau visual gate, lưu native output thành
 
 - front/back là artwork phẳng;
 - front/back cùng hệ, back không mirror và safe zone đúng;
-- master đúng pixel/PPI, không méo;
+- master đúng pixel/tỷ lệ, không méo; PPI được ghi nhận trung thực nếu file có;
 - mockup có cấu trúc vải thật;
 - mockup khớp đúng hai master;
 - sales copy đủ nhóm bắt buộc, chính xác và không che sản phẩm;
@@ -307,7 +305,8 @@ python3 scripts/build_delivery_manifest.py /absolute/path/to/product-folder \
   --sku <SKU> --product-slug <slug> \
   --input-mode <original-design|reference-conversion> \
   --sales-layout <compact|catalog-reference> \
-  --target-aspect-ratio 0.67 --target-long-edge-px 10039 --ppi 300 --approve-visual
+  --target-width-px 1024 --target-height-px 1536 \
+  --target-aspect-ratio 0.67 --approve-visual
 
 python3 scripts/validate_delivery.py /absolute/path/to/product-folder
 ```
@@ -323,8 +322,10 @@ python3 scripts/deliver_print_masters.py /absolute/path/to/product-folder \
 ```
 
 Output bắt buộc là `/Volumes/Data/x24_project/mayaobongda.vn/<SKU>_truoc.png` và `<SKU>_sau.png`. Script từ chối ghi đè file khác nội dung; chỉ dùng `--overwrite` khi người dùng yêu cầu rõ.
-Script chạy lại `validate_delivery.py` trước khi copy; nếu provenance upscale hoặc
-quality gate không hợp lệ thì không file nào được đưa vào Data volume.
+Script chạy lại `validate_delivery.py` trước khi copy. Validator bắt buộc
+`masterPolicy=native-large-single-source`, `scaleFactor=1`, `resampled=false` và
+hash master lock khớp canonical file. Sau copy, SHA-256 tại Data phải giống hệt
+canonical master; nếu khác thì không báo hoàn tất.
 
 ## 9. Publish khi được yêu cầu
 

@@ -39,8 +39,10 @@ Với sản phẩm bóng đá dùng rập này:
 
 1. `design-spec.json` phải ghi `factoryPatternReference` và
    `targetAspectRatio: 0.67`.
-2. Source master và print master nên dựng theo tỷ lệ gần `0.67`.
+2. Source/master phải được sinh trực tiếp ở native canvas lớn nhất backend hỗ
+   trợ gần `0.67`; với backend portrait 2:3 mặc định là `1024 x 1536 px` khi
+   xưởng chưa cung cấp pixel cụ thể.
 3. Hard reject source/master vuông hoặc nguồn quá rộng nếu phải kéo méo mới vào
    được form.
-4. Không stretch artwork để khớp rập; chỉ crop, pad bằng bleed hoặc dựng lại
-   đúng tỷ lệ.
+4. Không stretch, upscale hoặc resample artwork để khớp rập; dựng lại đúng tỷ lệ
+   trước khi master được khóa.
