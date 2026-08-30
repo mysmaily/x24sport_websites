@@ -30,8 +30,14 @@ class CreativeDirectionTests(unittest.TestCase):
         self.assertIsInstance(logo_source, dict)
         self.assertRegex(str(logo_source["id"]), r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
         self.assertTrue(str(logo_source["path"]).startswith("assets/logo-references/"))
+        self.assertTrue(Path(str(logo_source["absolutePath"])).is_absolute())
+        self.assertTrue(Path(str(logo_source["absolutePath"])).is_file())
         self.assertIn(logo_source["logoTone"], {"dark", "white"})
         self.assertIn("logoContrastPolicy", first)
+        self.assertEqual(
+            first["salesHardConstraints"]["galleryContactRequiredOn"],
+            ["sales"],
+        )
 
     def test_logo_source_varies_across_batch(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:

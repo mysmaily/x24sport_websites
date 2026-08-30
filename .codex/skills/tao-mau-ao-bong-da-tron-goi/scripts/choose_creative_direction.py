@@ -231,7 +231,8 @@ def load_logo_source_library(path: Path, reference_dir: Path) -> list[dict[str, 
         row.setdefault("id", logo_id_from_path(logo_path))
         row.setdefault("name", display_name_from_path(logo_path))
         row.setdefault("path", relative_path)
-        row.setdefault("usage", "sample chest badge for mockup and sales images only")
+        row.setdefault("absolutePath", str(logo_path.resolve()))
+        row.setdefault("usage", "exact local chest badge reference for sales and team images only")
         row.setdefault("placement", "left chest or upper chest on the worn front jersey and front product view")
         if logo_path.name.startswith(LOGO_DARK_PREFIX):
             row.setdefault("logoTone", "dark")
@@ -353,8 +354,8 @@ def make_direction(
             "collarCount": 3,
             "additionalCollarVariantsAllowed": False,
             "galleryContact": GALLERY_CONTACT,
-            "galleryContactRequiredOn": ["sales", "mockup", "teamPhoto"],
-            "promptNotes": "Render exactly 3 collar options and no additional collar variants: Cổ tròn, Cổ Tim, Cổ polo. Render mayaobongda.vn and 0989 353 247 clearly on the sales image, mockup gallery image, and team photo.",
+            "galleryContactRequiredOn": ["sales"],
+            "promptNotes": "Keep commercial copy minimal. Render mayaobongda.vn and 0989 353 247 clearly on the sales image.",
         },
         "creativeGuardrail": "Do not default to a Tron/neon one-tone look. Use the selected motif, geometry, colorStrategy and palette to create varied football kit language with clear base, contrast and accent roles.",
         "edgeContinuity": "edge-coherent side bands; confirm exact seam alignment only on factory pattern",
@@ -470,8 +471,13 @@ def main() -> None:
                 palette = row.get("palette")
                 chest_zone = estimate_chest_zone_from_palette(palette)
                 logo_source = row.get("logoSource")
-                if not isinstance(logo_source, dict) or logo_source.get("path") not in {item.get("path") for item in logo_source_library}:
+                logo_by_path = {item.get("path"): item for item in logo_source_library}
+                if not isinstance(logo_source, dict) or logo_source.get("path") not in logo_by_path:
                     row["logoSource"] = choose_logo_source(args.sku, logo_source_library, chest_zone)
+                else:
+                    # Upgrade older registry rows so imagegen always receives a
+                    # concrete local file, not only prompt metadata.
+                    row["logoSource"] = dict(logo_by_path[logo_source.get("path")])
                 if not row.get("logoContrastPolicy"):
                     row["logoContrastPolicy"] = {
                         "estimatedChestZone": chest_zone,
@@ -480,15 +486,14 @@ def main() -> None:
                         "selection": "stable random within the contrast-correct group",
                         "promptNotes": "Before writing design-spec.json, confirm the actual front chest zone. Use a logo-white-* file on dark/saturated chest zones and a logo-dark-* file on light/bright chest zones. If the final chest zone differs from the palette estimate, switch logoSource to a stable file from the correct group.",
                     }
-                if not row.get("salesHardConstraints"):
-                    row["salesHardConstraints"] = {
-                        "collarLabels": COLLAR_LABELS,
-                        "collarCount": 3,
-                        "additionalCollarVariantsAllowed": False,
-                        "galleryContact": GALLERY_CONTACT,
-                        "galleryContactRequiredOn": ["sales", "mockup", "teamPhoto"],
-                        "promptNotes": "Render exactly 3 collar options and no additional collar variants: Cổ tròn, Cổ Tim, Cổ polo. Render mayaobongda.vn and 0989 353 247 clearly on the sales image, mockup gallery image, and team photo.",
-                    }
+                row["salesHardConstraints"] = {
+                    "collarLabels": COLLAR_LABELS,
+                    "collarCount": 3,
+                    "additionalCollarVariantsAllowed": False,
+                    "galleryContact": GALLERY_CONTACT,
+                    "galleryContactRequiredOn": ["sales"],
+                    "promptNotes": "Keep commercial copy minimal. Render mayaobongda.vn and 0989 353 247 clearly on the sales image.",
+                }
                 if not row.get("featureBadges"):
                     row["featureBadges"] = feature_badge_library
                 if not row.get("colorStrategy"):

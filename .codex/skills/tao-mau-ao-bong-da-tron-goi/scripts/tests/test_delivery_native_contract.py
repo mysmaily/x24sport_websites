@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import json
 import hashlib
+import json
 import subprocess
 import sys
 import tempfile
@@ -18,69 +18,49 @@ DELIVER = SCRIPTS / "deliver_print_masters.py"
 SKU = "X24-BD-000001"
 
 
-class NativeDeliveryContractTests(unittest.TestCase):
+class FourImageDeliveryContractTests(unittest.TestCase):
     @staticmethod
     def sha256(path: Path) -> str:
         return hashlib.sha256(path.read_bytes()).hexdigest()
 
     def make_product(self, root: Path) -> Path:
-        product = root / "native-product"
-        for name in ("print", "work", "marketing"):
+        product = root / "four-image-product"
+        for name in ("print", "marketing"):
             (product / name).mkdir(parents=True, exist_ok=True)
 
+        logo = root / "logo-white-test.png"
+        Image.new("RGBA", (128, 128), "#ffffff").save(logo)
         spec = {
+            "sku": SKU,
+            "inputMode": "original-design",
             "print": {
-                "masterPolicy": "native-large-single-source",
-                "nativeTargetPixels": [2336, 3504],
-                "targetAspectRatio": 0.67,
-                "minNativeLongEdgePx": 3504,
+                "masterPolicy": "builtin-imagegen-original",
+                "singleGenerationPerSide": True,
                 "resamplingAllowed": False,
-                "regenerationAfterMasterLock": False,
+                "regenerationAllowed": False,
             },
-            "garment": {"collar": "Cổ polo"},
-            "galleryContact": {"website": "mayaobongda.vn", "hotline": "0989 353 247"},
-            "salesHardConstraints": {
-                "collarLabels": ["Cổ tròn", "Cổ Tim", "Cổ polo"],
-                "collarCount": 3,
-                "additionalCollarVariantsAllowed": False,
-                "galleryContact": {"website": "mayaobongda.vn", "hotline": "0989 353 247"},
-                "galleryContactRequiredOn": ["sales", "mockup", "teamPhoto"],
+            "logoSource": {
+                "path": "assets/logo-references/logo-white-test.png",
+                "absolutePath": str(logo.resolve()),
             },
-            "teamPhoto": {"playerCount": 5},
-            "sales": {
-                "collection": "Mẫu áo bóng đá CLB",
-                "offer": "IN TÊN + SỐ MIỄN PHÍ",
-                "modelNumber": "09",
-                "frontNumber": "09",
-                "playerName": "NAM",
-                "playerNumber": "09",
-                "teamName": "NOVA FC",
-                "materialLine": "VẢI MÈ THỂ THAO",
-                "website": "mayaobongda.vn",
-                "hotline": "0989 353 247",
-                "sizes": ["S", "M", "L"],
-                "collarHeading": "Cổ áo",
-                "collarLabels": ["Cổ tròn", "Cổ Tim", "Cổ polo"],
-                "selectedCollar": "Cổ polo",
-            },
+            "teamPhoto": {"playerCount": 7},
         }
         (product / "design-spec.json").write_text(
             json.dumps(spec, ensure_ascii=False), encoding="utf-8"
         )
 
-        Image.new("RGB", (2336, 3504), "#174d3b").save(product / "print" / f"{SKU}-front-print.png")
-        Image.new("RGB", (2336, 3504), "#9b1d20").save(product / "print" / f"{SKU}-back-print.png")
-        marketing_assets = (
-            ("mockup", (1200, 1200), "#134074", "mockup-base"),
-            ("sales", (1200, 1200), "#f6bd60", "sales"),
-            ("team-photo", (1200, 800), "#84a59d", "team-photo"),
+        Image.new("RGB", (1024, 1536), "#174d3b").save(
+            product / "print" / f"{SKU}-front-print.png"
         )
-        for native_name, size, color, web_name in marketing_assets:
-            native_path = product / "work" / f"{SKU}-{native_name}-native-source.png"
-            web_path = product / "marketing" / f"{SKU}-{web_name}.webp"
-            image = Image.new("RGB", size, color)
-            image.save(native_path)
-            image.save(web_path, format="WEBP", lossless=True)
+        Image.new("RGB", (1024, 1536), "#9b1d20").save(
+            product / "print" / f"{SKU}-back-print.png"
+        )
+        Image.new("RGB", (1536, 1024), "#f6bd60").save(
+            product / "marketing" / f"{SKU}-sales.png"
+        )
+        Image.new("RGB", (1536, 1024), "#84a59d").save(
+            product / "marketing" / f"{SKU}-team-photo.png"
+        )
         return product
 
     def run_builder(self, product: Path) -> subprocess.CompletedProcess[str]:
@@ -89,12 +69,10 @@ class NativeDeliveryContractTests(unittest.TestCase):
                 sys.executable,
                 str(BUILDER),
                 str(product),
-                "--sku", SKU,
-                "--product-slug", "native-product",
-                "--target-width-px", "2336",
-                "--target-height-px", "3504",
-                "--target-aspect-ratio", "0.67",
-                "--min-native-long-edge-px", "3504",
+                "--sku",
+                SKU,
+                "--product-slug",
+                "four-image-product",
                 "--approve-visual",
             ],
             capture_output=True,
@@ -110,15 +88,35 @@ class NativeDeliveryContractTests(unittest.TestCase):
             check=False,
         )
 
-    def test_native_single_source_delivery_passes(self) -> None:
+    def test_four_image_builtin_delivery_passes_without_pixel_floor(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:
             product = self.make_product(Path(temp_name))
             built = self.run_builder(product)
             self.assertEqual(built.returncode, 0, built.stderr)
             validated = self.run_validator(product)
             self.assertEqual(validated.returncode, 0, validated.stderr)
-            self.assertIn('"masterScaleFactorValidated": 1.0', validated.stdout)
-            self.assertIn('"masterResamplingValidated": false', validated.stdout)
+            report = json.loads(validated.stdout)
+            self.assertEqual(report["imageCount"], 4)
+            self.assertEqual(report["actualPrintPixels"], [1024, 1536])
+            self.assertFalse(report["pixelFloorApplied"])
+            self.assertTrue(report["singleGenerationPerSideValidated"])
+
+    def test_manifest_contains_exactly_four_roles(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_name:
+            product = self.make_product(Path(temp_name))
+            self.assertEqual(self.run_builder(product).returncode, 0)
+            manifest = json.loads(
+                (product / "delivery-manifest.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                {item["role"] for item in manifest["files"]},
+                {
+                    "front print master",
+                    "back print master",
+                    "sales image",
+                    "team photo",
+                },
+            )
 
     def test_resampled_master_claim_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:
@@ -126,48 +124,34 @@ class NativeDeliveryContractTests(unittest.TestCase):
             self.assertEqual(self.run_builder(product).returncode, 0)
             manifest_path = product / "delivery-manifest.json"
             manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            manifest["files"][0]["resampled"] = True
+            manifest["masterGeneration"]["front"]["resampled"] = True
             manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
             validated = self.run_validator(product)
             self.assertNotEqual(validated.returncode, 0)
             self.assertIn("resampled must be false", validated.stderr + validated.stdout)
 
-    def test_builder_cannot_lower_native_floor_to_1536(self) -> None:
+    def test_missing_logo_asset_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:
             product = self.make_product(Path(temp_name))
-            built = subprocess.run(
-                [
-                    sys.executable,
-                    str(BUILDER),
-                    str(product),
-                    "--sku", SKU,
-                    "--product-slug", "native-product",
-                    "--target-width-px", "1024",
-                    "--target-height-px", "1536",
-                    "--target-aspect-ratio", "0.67",
-                    "--min-native-long-edge-px", "1536",
-                    "--approve-visual",
-                ],
-                capture_output=True,
-                text=True,
-                check=False,
-            )
+            spec_path = product / "design-spec.json"
+            spec = json.loads(spec_path.read_text(encoding="utf-8"))
+            spec["logoSource"]["absolutePath"] = str(Path(temp_name) / "missing.png")
+            spec_path.write_text(json.dumps(spec), encoding="utf-8")
+            built = self.run_builder(product)
             self.assertNotEqual(built.returncode, 0)
-            self.assertIn("cannot be lower than 3504", built.stderr + built.stdout)
+            self.assertIn("does not exist", built.stderr + built.stdout)
 
-    def test_validator_rejects_manifest_with_lowered_native_floor(self) -> None:
+    def test_extra_mockup_image_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:
             product = self.make_product(Path(temp_name))
-            self.assertEqual(self.run_builder(product).returncode, 0)
-            manifest_path = product / "delivery-manifest.json"
-            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            manifest["productionAssumptions"]["minNativeLongEdgePx"] = 1536
-            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
-            validated = self.run_validator(product)
-            self.assertNotEqual(validated.returncode, 0)
-            self.assertIn("cannot be lower than 3504", validated.stderr + validated.stdout)
+            Image.new("RGB", (1024, 1024), "#134074").save(
+                product / "marketing" / f"{SKU}-mockup.png"
+            )
+            built = self.run_builder(product)
+            self.assertNotEqual(built.returncode, 0)
+            self.assertIn("exactly the four required images", built.stderr + built.stdout)
 
-    def test_data_handoff_preserves_canonical_master_bytes(self) -> None:
+    def test_data_handoff_preserves_only_canonical_print_bytes(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:
             root = Path(temp_name)
             product = self.make_product(root)
@@ -178,14 +162,20 @@ class NativeDeliveryContractTests(unittest.TestCase):
                     sys.executable,
                     str(DELIVER),
                     str(product),
-                    "--sku", SKU,
-                    "--destination-root", str(destination),
+                    "--sku",
+                    SKU,
+                    "--destination-root",
+                    str(destination),
                 ],
                 capture_output=True,
                 text=True,
                 check=False,
             )
             self.assertEqual(delivered.returncode, 0, delivered.stderr)
+            self.assertEqual(
+                sorted(path.name for path in destination.iterdir()),
+                [f"{SKU}_sau.png", f"{SKU}_truoc.png"],
+            )
             self.assertEqual(
                 self.sha256(product / "print" / f"{SKU}-front-print.png"),
                 self.sha256(destination / f"{SKU}_truoc.png"),

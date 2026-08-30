@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a complete front/back print-master and football sales delivery."""
+"""Validate the exact four-image built-in imagegen delivery."""
 
 from __future__ import annotations
 
@@ -16,32 +16,28 @@ except ImportError as error:
 
 
 SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
-SCHEMA_VERSION = "1.2"
-MASTER_POLICY = "native-large-single-source"
-MIN_NATIVE_LONG_EDGE_PX = 3504
-COLLAR_LABELS = ["Cổ tròn", "Cổ Tim", "Cổ polo"]
-WEBSITE = "mayaobongda.vn"
-HOTLINE = "0989 353 247"
+SCHEMA_VERSION = "2.0"
+MASTER_POLICY = "builtin-imagegen-original"
 EXPECTED_ROLES = {
-    "front print master": ("PNG", "master"),
-    "back print master": ("PNG", "master"),
-    "mockup base": ("WEBP", "square"),
-    "sales image": ("WEBP", "square"),
-    "team photo": ("WEBP", "team-photo"),
+    "front print master",
+    "back print master",
+    "sales image",
+    "team photo",
 }
 VISUAL_FLAGS = {
-    "frontFlatArtworkOnly", "backFlatArtworkOnly", "frontBackCoherent",
-    "mockupMatchesFront", "mockupMatchesBack", "commercialTextExact",
-    "collarOptionsExact", "mockupContactExact", "teamPhotoMatchesKit",
-    "teamPhotoContactExact",
+    "frontFlatArtworkOnly",
+    "backFlatArtworkOnly",
+    "frontBackCoherent",
+    "marketingMatchesMasters",
+    "teamPhotoMatchesMasters",
+    "marketingLogoMatchesReference",
+    "teamLogoMatchesReference",
+    "salesContactExact",
+    "teamPlayerCountExact",
+    "noUnexpectedBranding",
 }
-REQUIRED_SALES_SPEC_FIELDS = {
-    "collection", "offer", "modelNumber", "frontNumber",
-    "playerName", "playerNumber", "teamName", "materialLine",
-    "website", "hotline", "sizes", "collarHeading", "collarLabels",
-    "selectedCollar",
-}
-FORBIDDEN_SALES_SPEC_FIELDS = {"price", "cta"}
+
+
 def fail(message: str) -> None:
     print(f"ERROR: {message}", file=sys.stderr)
     raise SystemExit(1)
@@ -55,40 +51,17 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def validate_native_pixel_identity(
-    *,
-    folder: Path,
-    sku: str,
-    generation: object,
-    generation_name: str,
-    native_folder: Path,
-    native_suffix: str,
-    web_path: Path,
-) -> dict[str, object]:
-    if not isinstance(generation, dict):
-        fail(f"manifest {generation_name} is required")
-    if generation.get("mode") != "imagegen-native" or generation.get("postCompositeApplied") is not False:
-        fail(f"{generation_name} must be imagegen-native with no post-generation composite")
-    native_record = generation.get("nativeSource")
-    if not isinstance(native_record, dict):
-        fail(f"{generation_name}.nativeSource is required")
-    native_path = Path(native_record.get("path", "")).expanduser().resolve()
+def image_info(path: Path) -> tuple[list[int], str]:
+    with Image.open(path) as image:
+        image.load()
+        return list(image.size), str(image.format)
+
+
+def require_inside(path: Path, folder: Path, label: str) -> None:
     try:
-        native_path.relative_to(native_folder)
+        path.relative_to(folder)
     except ValueError:
-        fail(f"{generation_name} native source must be inside {native_folder.relative_to(folder)}")
-    if not native_path.is_file() or sku not in native_path.name or not native_path.name.endswith(native_suffix):
-        fail(f"{generation_name} native source is missing or has a mismatched SKU/name")
-    if native_record.get("sha256") != sha256(native_path):
-        fail(f"{generation_name} native source checksum mismatch")
-    with Image.open(native_path) as native_image, Image.open(web_path) as web_image:
-        native_rgb = native_image.convert("RGB")
-        web_rgb = web_image.convert("RGB")
-        if native_rgb.size != web_rgb.size or native_rgb.tobytes() != web_rgb.tobytes():
-            fail(f"{generation_name} WebP pixels differ from the imagegen-native source; post-generation editing is forbidden")
-        if native_record.get("pixels") != list(native_rgb.size):
-            fail(f"{generation_name} native source pixel size does not match manifest")
-    return native_record
+        fail(f"{label} must be inside the product folder")
 
 
 def main() -> None:
@@ -106,222 +79,175 @@ def main() -> None:
     sku = manifest.get("sku")
     if not isinstance(sku, str) or not SKU_RE.fullmatch(sku):
         fail("manifest sku must match X24-BD-FFHHDD")
-    assumptions = manifest.get("productionAssumptions", {})
-    if assumptions.get("masterPolicy") != MASTER_POLICY:
-        fail(f"productionAssumptions.masterPolicy must be {MASTER_POLICY}")
-    if assumptions.get("resamplingAllowed") is not False:
-        fail("productionAssumptions.resamplingAllowed must be false")
-    if assumptions.get("regenerationAfterMasterLock") is not False:
-        fail("productionAssumptions.regenerationAfterMasterLock must be false")
-    min_native_long_edge = assumptions.get("minNativeLongEdgePx")
-    if not isinstance(min_native_long_edge, int) or min_native_long_edge <= 0:
-        fail("productionAssumptions.minNativeLongEdgePx must be a positive integer")
-    if min_native_long_edge < MIN_NATIVE_LONG_EDGE_PX:
-        fail(
-            f"productionAssumptions.minNativeLongEdgePx cannot be lower than "
-            f"{MIN_NATIVE_LONG_EDGE_PX}; 1024x1536 is not a native-large print master"
-        )
-    explicit_target_pixels = assumptions.get("targetPixels")
-    if not (
-        isinstance(explicit_target_pixels, list)
-        and len(explicit_target_pixels) == 2
-        and all(isinstance(v, int) and v > 0 for v in explicit_target_pixels)
-    ):
-        fail("productionAssumptions.targetPixels must contain two positive integers")
-    expected_pixels = explicit_target_pixels
-    if max(expected_pixels) < min_native_long_edge:
-        fail("productionAssumptions.targetPixels is below minNativeLongEdgePx")
+
+    assumptions = manifest.get("productionAssumptions")
+    if not isinstance(assumptions, dict):
+        fail("productionAssumptions is required")
+    expected_assumptions = {
+        "masterPolicy": MASTER_POLICY,
+        "singleGenerationPerSide": True,
+        "resamplingAllowed": False,
+        "regenerationAllowed": False,
+    }
+    for key, value in expected_assumptions.items():
+        if assumptions.get(key) != value:
+            fail(f"productionAssumptions.{key} must be {value!r}")
 
     files = manifest.get("files")
-    if not isinstance(files, list):
-        fail("manifest files must be a list")
+    if not isinstance(files, list) or len(files) != 4:
+        fail("manifest must contain exactly four image files")
     by_role = {item.get("role"): item for item in files if isinstance(item, dict)}
-    if set(by_role) != set(EXPECTED_ROLES):
+    if set(by_role) != EXPECTED_ROLES:
         fail(f"manifest must contain exactly these roles: {sorted(EXPECTED_ROLES)}")
 
-    report = []
-    for role, (required_format, validation_kind) in EXPECTED_ROLES.items():
+    report: list[dict[str, object]] = []
+    resolved_paths: dict[str, Path] = {}
+    for role in sorted(EXPECTED_ROLES):
         item = by_role[role]
-        path = Path(item.get("path", "")).expanduser().resolve()
-        try:
-            path.relative_to(folder)
-        except ValueError:
-            fail(f"{role} must be inside product folder")
+        path = Path(str(item.get("path", ""))).expanduser().resolve()
+        require_inside(path, folder, role)
         if not path.is_file() or sku not in path.name:
             fail(f"missing or mismatched SKU file for {role}")
         if item.get("sha256") != sha256(path):
             fail(f"checksum mismatch for {role}")
-        with Image.open(path) as image:
-            image.load()
-            image_format = image.format
-            pixels = list(image.size)
-            dpi = image.info.get("dpi", (0, 0))
-        if image_format != required_format:
-            fail(f"{role} must be {required_format}")
+        pixels, image_format = image_info(path)
+        if image_format != "PNG":
+            fail(f"{role} must be the original PNG output")
         if item.get("pixels") != pixels:
             fail(f"manifest pixel size mismatch for {role}")
-        if validation_kind == "square":
-            if pixels[0] != pixels[1] or pixels[0] < 1200:
-                fail(f"{role} must be square and at least 1200 px")
-        elif validation_kind == "master":
-            if pixels != expected_pixels:
-                fail(f"{role} must be {expected_pixels[0]}x{expected_pixels[1]} px")
-            if item.get("sourcePixels") != pixels:
-                fail(f"{role} sourcePixels must equal canonical master pixels")
-            if item.get("scaleFactor") != 1.0:
-                fail(f"{role} scaleFactor must be exactly 1.0; enlargement is forbidden")
-            if item.get("resampled") is not False:
-                fail(f"{role} resampled must be false")
-            if item.get("nativeLarge") is not True:
-                fail(f"{role} nativeLarge must be true")
-            if item.get("masterPolicy") != MASTER_POLICY:
-                fail(f"{role} masterPolicy must be {MASTER_POLICY}")
-        elif validation_kind == "team-photo":
-            if max(pixels) < 1200:
-                fail("team photo must have a long edge of at least 1200 px")
-            player_count = item.get("playerCount")
-            if not isinstance(player_count, int) or not 5 <= player_count <= 11:
-                fail("team photo manifest record must contain playerCount from 5 to 11")
-        else:
-            fail(f"unknown validation kind for {role}")
-        report.append({"role": role, "file": path.name, "format": image_format, "pixels": pixels})
+        if item.get("originalImagegenOutput") is not True:
+            fail(f"{role} must be marked as the original imagegen output")
+        resolved_paths[role] = path
+        report.append({"role": role, "file": path.name, "pixels": pixels})
 
-    master_generation = manifest.get("masterGeneration")
-    if not isinstance(master_generation, dict) or master_generation.get("mode") != "imagegen-native-large-single-source":
-        fail("masterGeneration.mode must be imagegen-native-large-single-source")
-    for side, role in (("front", "front print master"), ("back", "back print master")):
-        record = master_generation.get(side)
-        if not isinstance(record, dict):
-            fail(f"masterGeneration.{side} is required")
-        canonical_path = Path(record.get("canonicalPath", "")).expanduser().resolve()
-        expected_path = Path(by_role[role]["path"]).expanduser().resolve()
-        if canonical_path != expected_path:
-            fail(f"masterGeneration.{side}.canonicalPath must be the print master path")
-        if record.get("sha256") != sha256(expected_path):
-            fail(f"masterGeneration.{side} checksum does not match the canonical master")
-        if record.get("pixels") != expected_pixels:
-            fail(f"masterGeneration.{side} pixels do not match targetPixels")
-        if record.get("scaleFactor") != 1.0 or record.get("resampled") is not False:
-            fail(f"masterGeneration.{side} must record scaleFactor=1.0 and resampled=false")
+    if len(set(resolved_paths.values())) != 4:
+        fail("the four image roles must point to four distinct files")
+    image_suffixes = {".png", ".jpg", ".jpeg", ".webp"}
+    found_images = {
+        path.resolve()
+        for output_dir in (folder / "print", folder / "marketing")
+        if output_dir.is_dir()
+        for path in output_dir.iterdir()
+        if path.is_file() and path.suffix.lower() in image_suffixes
+    }
+    if found_images != set(resolved_paths.values()):
+        fail("print/ and marketing/ must contain exactly the four manifest images")
 
-    mockup_path = Path(by_role["mockup base"]["path"]).resolve()
-    validate_native_pixel_identity(
-        folder=folder,
-        sku=sku,
-        generation=manifest.get("mockupGeneration"),
-        generation_name="mockupGeneration",
-        native_folder=folder / "work",
-        native_suffix="-mockup-native-source.png",
-        web_path=mockup_path,
-    )
-    sales_path = Path(by_role["sales image"]["path"]).resolve()
-    validate_native_pixel_identity(
-        folder=folder,
-        sku=sku,
-        generation=manifest.get("salesGeneration"),
-        generation_name="salesGeneration",
-        native_folder=folder / "work",
-        native_suffix="-sales-native-source.png",
-        web_path=sales_path,
-    )
-    team_photo_path = Path(by_role["team photo"]["path"]).resolve()
-    team_photo_native = validate_native_pixel_identity(
-        folder=folder,
-        sku=sku,
-        generation=manifest.get("teamPhotoGeneration"),
-        generation_name="teamPhotoGeneration",
-        native_folder=folder / "work",
-        native_suffix="-team-photo-native-source.png",
-        web_path=team_photo_path,
-    )
-
-    spec = json.loads(spec_path.read_text(encoding="utf-8"))
-    print_spec = spec.get("print")
-    if not isinstance(print_spec, dict):
-        fail("design spec print contract is required")
-    if print_spec.get("masterPolicy") != MASTER_POLICY:
-        fail(f"design spec print.masterPolicy must be {MASTER_POLICY}")
-    if print_spec.get("nativeTargetPixels") != expected_pixels:
-        fail("design spec print.nativeTargetPixels must match manifest targetPixels")
-    if print_spec.get("minNativeLongEdgePx") != min_native_long_edge:
-        fail("design spec print.minNativeLongEdgePx must match manifest")
-    if print_spec.get("resamplingAllowed") is not False:
-        fail("design spec print.resamplingAllowed must be false")
-    if print_spec.get("regenerationAfterMasterLock") is not False:
-        fail("design spec print.regenerationAfterMasterLock must be false")
-    sales_spec = spec.get("sales")
-    if not isinstance(sales_spec, dict) or not REQUIRED_SALES_SPEC_FIELDS.issubset(sales_spec):
-        fail(f"design spec sales copy must contain: {sorted(REQUIRED_SALES_SPEC_FIELDS)}")
-    forbidden_present = FORBIDDEN_SALES_SPEC_FIELDS.intersection(sales_spec)
-    if forbidden_present:
-        fail(f"design spec sales copy must omit: {sorted(forbidden_present)}")
-    for key in REQUIRED_SALES_SPEC_FIELDS:
-        value = sales_spec[key]
-        if isinstance(value, str) and not value.strip():
-            fail(f"design spec sales field {key} must not be blank")
-        if isinstance(value, list) and (not value or not all(isinstance(item, str) and item.strip() for item in value)):
-            fail(f"design spec sales field {key} must contain nonblank labels")
-    if sales_spec["website"] != WEBSITE or sales_spec["hotline"] != HOTLINE:
-        fail(f"all gallery images must use website {WEBSITE} and hotline {HOTLINE}")
-    if sales_spec["collarLabels"] != COLLAR_LABELS:
-        fail(f"sales.collarLabels must be exactly {COLLAR_LABELS}")
-    if sales_spec["selectedCollar"] not in COLLAR_LABELS:
-        fail(f"sales.selectedCollar must be one of {COLLAR_LABELS}")
-    garment_spec = spec.get("garment")
-    if not isinstance(garment_spec, dict) or garment_spec.get("collar") != sales_spec["selectedCollar"]:
-        fail("design spec garment.collar must equal sales.selectedCollar")
-    expected_contact = {"website": WEBSITE, "hotline": HOTLINE}
-    if spec.get("galleryContact") != expected_contact:
-        fail(f"design spec galleryContact must be exactly {expected_contact}")
-    hard_constraints = spec.get("salesHardConstraints")
-    if not isinstance(hard_constraints, dict):
-        fail("design spec salesHardConstraints is required")
-    if (
-        hard_constraints.get("collarLabels") != COLLAR_LABELS
-        or hard_constraints.get("collarCount") != 3
-        or hard_constraints.get("additionalCollarVariantsAllowed") is not False
-        or hard_constraints.get("galleryContact") != expected_contact
-        or hard_constraints.get("galleryContactRequiredOn") != ["sales", "mockup", "teamPhoto"]
-    ):
-        fail("design spec salesHardConstraints does not match the locked collar/contact contract")
-    team_photo_spec = spec.get("teamPhoto")
-    if not isinstance(team_photo_spec, dict):
-        fail("design spec teamPhoto is required")
-    player_count = team_photo_spec.get("playerCount")
-    if not isinstance(player_count, int) or not 5 <= player_count <= 11:
-        fail("design spec teamPhoto.playerCount must be an integer from 5 to 11")
-    if by_role["team photo"].get("playerCount") != player_count:
-        fail("team photo manifest playerCount must match design spec")
-    team_generation = manifest.get("teamPhotoGeneration")
-    if not isinstance(team_generation, dict) or team_generation.get("playerCount") != player_count:
-        fail("teamPhotoGeneration.playerCount must match design spec")
-    if team_photo_native.get("pixels") != by_role["team photo"].get("pixels"):
-        fail("team photo native source pixels must match the team photo WebP manifest pixels")
-
-    front = Path(by_role["front print master"]["path"]).resolve()
-    back = Path(by_role["back print master"]["path"]).resolve()
+    front = resolved_paths["front print master"]
+    back = resolved_paths["back print master"]
+    front_pixels, _ = image_info(front)
+    back_pixels, _ = image_info(back)
+    if front_pixels != back_pixels:
+        fail("front and back print masters must have the same original dimensions")
+    aspect_ratio = front_pixels[0] / front_pixels[1]
+    if not 0.60 <= aspect_ratio <= 0.75:
+        fail("print masters must use a portrait canvas with aspect ratio 0.60-0.75")
+    if assumptions.get("actualPrintPixels") != front_pixels:
+        fail("productionAssumptions.actualPrintPixels must match the print files")
+    if assumptions.get("actualPrintAspectRatio") != round(aspect_ratio, 6):
+        fail("productionAssumptions.actualPrintAspectRatio must match the print files")
+    if by_role["front print master"].get("resampled") is not False:
+        fail("front print master resampled must be false")
+    if by_role["back print master"].get("resampled") is not False:
+        fail("back print master resampled must be false")
     if sha256(front) == sha256(back):
         fail("front and back print masters must not be byte-identical")
 
-    approval = manifest.get("visualApproval", {})
-    if set(approval) != VISUAL_FLAGS or not all(approval.get(flag) is True for flag in VISUAL_FLAGS):
-        fail(f"all {len(VISUAL_FLAGS)} visualApproval flags must exist and be true after visual inspection")
+    spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    if spec.get("sku") != sku:
+        fail("design spec sku must match the manifest")
+    if spec.get("inputMode") != manifest.get("inputMode"):
+        fail("design spec inputMode must match the manifest")
+    print_spec = spec.get("print")
+    if not isinstance(print_spec, dict):
+        fail("design spec print is required")
+    for key, value in expected_assumptions.items():
+        if print_spec.get(key) != value:
+            fail(f"design spec print.{key} must be {value!r}")
+
+    logo_source = spec.get("logoSource")
+    if not isinstance(logo_source, dict):
+        fail("design spec logoSource is required")
+    logo_path_value = logo_source.get("absolutePath")
+    if not isinstance(logo_path_value, str) or not Path(logo_path_value).is_absolute():
+        fail("design spec logoSource.absolutePath must be an absolute local path")
+    logo_path = Path(logo_path_value).resolve()
+    if not logo_path.is_file():
+        fail("design spec logoSource.absolutePath does not exist")
+    logo_reference = manifest.get("logoReference")
+    if not isinstance(logo_reference, dict):
+        fail("manifest logoReference is required")
+    if Path(str(logo_reference.get("path", ""))).resolve() != logo_path:
+        fail("manifest logoReference path must match design spec")
+    if logo_reference.get("sha256") != sha256(logo_path):
+        fail("manifest logoReference checksum mismatch")
+
+    master_generation = manifest.get("masterGeneration")
+    if not isinstance(master_generation, dict):
+        fail("masterGeneration is required")
+    if (
+        master_generation.get("mode") != MASTER_POLICY
+        or master_generation.get("singleGenerationPerSide") is not True
+        or master_generation.get("postProcessingApplied") is not False
+    ):
+        fail("masterGeneration must record one built-in imagegen generation per side with no post-processing")
+    for side, role in (("front", "front print master"), ("back", "back print master")):
+        record = master_generation.get(side)
+        path = resolved_paths[role]
+        if not isinstance(record, dict):
+            fail(f"masterGeneration.{side} is required")
+        if Path(str(record.get("canonicalPath", ""))).resolve() != path:
+            fail(f"masterGeneration.{side}.canonicalPath must be the print file")
+        if record.get("sha256") != sha256(path) or record.get("pixels") != image_info(path)[0]:
+            fail(f"masterGeneration.{side} does not match the print file")
+        if record.get("resampled") is not False:
+            fail(f"masterGeneration.{side}.resampled must be false")
+
+    expected_references = [str(front), str(back), str(logo_path)]
+    expected_generation_references = {
+        "salesGeneration": expected_references,
+        "teamPhotoGeneration": expected_references + [str(resolved_paths["sales image"])],
+    }
+    for name, expected_paths in expected_generation_references.items():
+        generation = manifest.get(name)
+        if not isinstance(generation, dict):
+            fail(f"{name} is required")
+        if (
+            generation.get("mode") != "builtin-imagegen-original"
+            or generation.get("postProcessingApplied") is not False
+        ):
+            fail(f"{name} must use the original built-in imagegen output")
+        references = generation.get("referencedImagePaths")
+        if references != expected_paths:
+            fail(f"{name} referencedImagePaths do not match the locked image order")
+
+    team_photo = spec.get("teamPhoto")
+    player_count = team_photo.get("playerCount") if isinstance(team_photo, dict) else None
+    if not isinstance(player_count, int) or not 5 <= player_count <= 11:
+        fail("design spec teamPhoto.playerCount must be an integer from 5 to 11")
+    if by_role["team photo"].get("playerCount") != player_count:
+        fail("team photo playerCount must match the design spec")
+    if manifest["teamPhotoGeneration"].get("playerCount") != player_count:
+        fail("teamPhotoGeneration.playerCount must match the design spec")
+
+    approval = manifest.get("visualApproval")
+    if not isinstance(approval, dict) or set(approval) != VISUAL_FLAGS:
+        fail(f"visualApproval must contain exactly {len(VISUAL_FLAGS)} required flags")
+    if not all(approval.get(flag) is True for flag in VISUAL_FLAGS):
+        fail("all visualApproval flags must be true after full-size inspection")
 
     print(json.dumps({
         "ok": True,
         "folder": str(folder),
         "sku": sku,
-        "expectedMasterPixels": expected_pixels,
+        "imageCount": 4,
+        "actualPrintPixels": front_pixels,
+        "pixelFloorApplied": False,
         "masterPolicyValidated": MASTER_POLICY,
-        "masterScaleFactorValidated": 1.0,
-        "masterResamplingValidated": False,
+        "singleGenerationPerSideValidated": True,
+        "resamplingValidated": False,
+        "logoReferenceValidated": str(logo_path),
         "files": report,
-        "mockupGenerationValidated": "imagegen-native pixel identity",
-        "salesGenerationValidated": "imagegen-native pixel identity",
-        "teamPhotoGenerationValidated": "imagegen-native pixel identity",
-        "salesSpecFieldsValidated": sorted(REQUIRED_SALES_SPEC_FIELDS),
-        "collarLabelsValidated": COLLAR_LABELS,
-        "galleryContactValidated": expected_contact,
         "visualInspectionRecorded": True,
     }, ensure_ascii=False, indent=2))
 

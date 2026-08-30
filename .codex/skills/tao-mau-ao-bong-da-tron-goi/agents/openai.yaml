@@ -1,5 +1,4 @@
 interface:
-  # Đồng bộ ngày này mỗi khi nội dung skill được cập nhật.
-  display_name: "Tạo ảnh bóng đá - 29.08.2026"
-  short_description: "Master trước–sau, mockup và ảnh bán hàng"
-  default_prompt: "Use $tao-mau-ao-bong-da-tron-goi để tạo một bộ áo bóng đá hoàn chỉnh từ ý tưởng mới hoặc ảnh tham khảo, luôn khóa master trước–sau trước mockup và ảnh chào hàng."
+  display_name: "Tạo bộ áo bóng đá 4 ảnh"
+  short_description: "2 print master, 1 sales, 1 team"
+  default_prompt: "Use $tao-mau-ao-bong-da-tron-goi để tạo đúng 4 ảnh bằng built-in imagegen: print trước, print sau, ảnh sales và ảnh team; validate rồi giao nguyên byte 2 print master sang volume mayaobongda.vn."
