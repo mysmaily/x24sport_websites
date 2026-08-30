@@ -13,7 +13,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 
-SKU_PATTERN = re.compile(r"X24-BD-([0-9]{8}|[0-9]{6})")
+SKU_PATTERN = re.compile(r"X24-BD-([0-9]{8})")
 TIMEZONE = ZoneInfo("Asia/Ho_Chi_Minh")
 
 

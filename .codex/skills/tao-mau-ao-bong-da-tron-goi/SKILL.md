@@ -48,8 +48,8 @@ python3 scripts/allocate_sku.py \
 
 SKU mới có format `X24-BD-FFMMHHDD`: `FF` là hai chữ số phần trăm giây, `MM`
 là phút, `HH` là giờ và `DD` là ngày theo múi giờ `Asia/Ho_Chi_Minh`. Allocator
-khóa registry local bằng `flock` và không truy vấn dữ liệu server. Các script
-vẫn chấp nhận format cũ `X24-BD-FFHHDD` để xử lý lại sản phẩm lịch sử.
+khóa registry local bằng `flock` và không truy vấn dữ liệu server. Đây là format
+SKU duy nhất được allocator và toàn bộ validator của skill chấp nhận.
 
 Xác định `original-design` hoặc `reference-conversion`, màu chính/phụ, cổ áo và
 đối tượng sử dụng. Tự suy luận các chi tiết còn thiếu theo hướng thương mại, gọn

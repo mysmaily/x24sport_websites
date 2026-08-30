@@ -12,7 +12,7 @@ import re
 from pathlib import Path
 
 
-SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[0-5][0-9])?(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
+SKU_RE = re.compile(r"^X24-BD-[0-9]{2}[0-5][0-9](?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
 MOTIFS = [
     "velocity", "topographic", "orbit", "tactical-grid", "soundwave", "modular", "architectural", "energy-field",
     "classic-stripes", "brush-strokes", "marble-veins", "flame-trails", "tropical-leaf", "digital-camo",
@@ -429,7 +429,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     if not SKU_RE.fullmatch(args.sku):
-        raise SystemExit("--sku must match X24-BD-FFMMHHDD or legacy X24-BD-FFHHDD")
+        raise SystemExit("--sku must match X24-BD-FFMMHHDD")
     name_library = load_name_library(args.name_library)
     sales_style_library = load_sales_style_library(args.sales_style_library)
     sales_composition_library = load_sales_composition_library(args.sales_composition_library)

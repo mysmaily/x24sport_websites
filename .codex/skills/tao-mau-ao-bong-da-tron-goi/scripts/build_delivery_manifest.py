@@ -15,7 +15,7 @@ except ImportError as error:
     raise SystemExit("Pillow is required") from error
 
 
-SKU_RE = re.compile(r"^X24-BD-[0-9]{2}(?:[0-5][0-9])?(?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
+SKU_RE = re.compile(r"^X24-BD-[0-9]{2}[0-5][0-9](?:[01][0-9]|2[0-3])(?:0[1-9]|[12][0-9]|3[01])$")
 MASTER_POLICY = "builtin-imagegen-original"
 VISUAL_FLAGS = (
     "frontFlatArtworkOnly",
@@ -119,7 +119,7 @@ def generation_record(path: Path) -> dict[str, object]:
 def main() -> None:
     args = parse_args()
     if not SKU_RE.fullmatch(args.sku):
-        raise SystemExit("--sku must match X24-BD-FFMMHHDD or legacy X24-BD-FFHHDD")
+        raise SystemExit("--sku must match X24-BD-FFMMHHDD")
 
     folder = args.folder.expanduser().resolve()
     spec_path = folder / "design-spec.json"

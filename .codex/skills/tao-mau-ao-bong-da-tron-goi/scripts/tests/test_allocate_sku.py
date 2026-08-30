@@ -56,7 +56,7 @@ class AllocateSkuTests(unittest.TestCase):
                     },
                 )
 
-    def test_consumers_accept_new_and_legacy_formats(self) -> None:
+    def test_consumers_require_new_format(self) -> None:
         for script_name in (
             "build_delivery_manifest.py",
             "validate_delivery.py",
@@ -67,7 +67,7 @@ class AllocateSkuTests(unittest.TestCase):
                 "SKU_RE"
             ]
             self.assertIsNotNone(sku_re.fullmatch("X24-BD-00000001"), script_name)
-            self.assertIsNotNone(sku_re.fullmatch("X24-BD-000001"), script_name)
+            self.assertIsNone(sku_re.fullmatch("X24-BD-000001"), script_name)
             self.assertIsNone(sku_re.fullmatch("X24-BD-00600001"), script_name)
 
 
