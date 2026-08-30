@@ -2,11 +2,10 @@
 
 ## Scope
 
-`x24sport` and `pndsport` are master catalogs. Every product created or updated
-for another tenant is a satellite source and must be distributed to both masters
-within the same publishing task, unless the user explicitly approves a deferred
-or excluded target. This rule supersedes older portfolio descriptions that treat
-an individual source as an independent catalog for distribution purposes.
+Cross-tenant distribution is explicit. Run this workflow only when the user
+names a target master or tenant; publishing a source product does not authorize
+automatic fan-out. The source listing may be published and reported complete
+without distribution when no target was requested.
 
 Distribution is one-way: satellite product to master product. Do not distribute
 a master product, or a product whose `sourceSystem` is already

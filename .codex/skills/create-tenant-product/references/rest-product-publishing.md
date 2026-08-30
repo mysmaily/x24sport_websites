@@ -62,23 +62,34 @@ The script expects:
 
 - `CMS_API_URL`, default `https://cms.x24sport.vn`.
 - `TENANT_SLUG`, optional when `input.tenantSlug` is set.
-- `PAYLOAD_API_KEY`, required for `--apply`.
+- `PAYLOAD_API_KEY`, required for CMS-aware `--dry-run` and `--apply`.
 
-Always source the env file from the target tenant profile. Do not source sibling tenant secrets.
+Always source the env file from the target tenant profile with `set -a` so shell variables are exported to Node. Do not ask the user to type the key and do not source sibling tenant secrets.
 
 ## Commands
 
 Dry run:
 
 ```bash
-node /Users/hoang/hacado/x24sport_websites/.codex/skills/create-tenant-product/scripts/upsert-product.mjs --input=/absolute/path/product-input.json --dry-run
+set +x
+set -a
+source <(ssh root@10.10.0.28 'cat /root/sports-cms/<tenant>-rest-api.env')
+set +a
+node /Users/hoang/hacado/x24sport-websites-gitlab-main/.codex/skills/create-tenant-product/scripts/upsert-product.mjs --input=/absolute/path/product-input.json --dry-run
 ```
 
 Apply:
 
 ```bash
-node /Users/hoang/hacado/x24sport_websites/.codex/skills/create-tenant-product/scripts/upsert-product.mjs --input=/absolute/path/product-input.json --apply
+set +x
+set -a
+source <(ssh root@10.10.0.28 'cat /root/sports-cms/<tenant>-rest-api.env')
+set +a
+node /Users/hoang/hacado/x24sport-websites-gitlab-main/.codex/skills/create-tenant-product/scripts/upsert-product.mjs --input=/absolute/path/product-input.json --apply
+unset PAYLOAD_API_KEY PAYLOAD_API_USER PAYLOAD_AUTH_COLLECTION
 ```
+
+The JSON result includes `timingsMs` for context resolution, media preparation/identity, product identity, product write, category-count refresh, and total runtime. Query-only checks and independent category refreshes are parallelized; media items remain ordered to avoid duplicate-upload races. After apply succeeds, request the public product URL immediately. A 200 response completes the default fast path; do not sleep for a fixed cache window.
 
 ## Idempotency Rules
 

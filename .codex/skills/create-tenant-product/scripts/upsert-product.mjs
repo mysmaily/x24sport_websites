@@ -4,6 +4,7 @@ import { createRequire } from 'node:module'
 import { existsSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
+import { performance } from 'node:perf_hooks'
 import { fileURLToPath } from 'node:url'
 
 const require = createRequire(import.meta.url)
@@ -26,11 +27,15 @@ const CMS_API_URL = (process.env.CMS_API_URL || 'https://cms.x24sport.vn').repla
 const PAYLOAD_API_KEY = process.env.PAYLOAD_API_KEY
 
 if (!inputPath) throw new Error('Missing --input=/absolute/path/product-input.json')
-if (apply && !PAYLOAD_API_KEY) throw new Error('PAYLOAD_API_KEY is required for --apply')
+if (!PAYLOAD_API_KEY) {
+  throw new Error('PAYLOAD_API_KEY is required for CMS-aware dry-run and apply; source the target tenant env with set -a before running this helper')
+}
 
 const input = JSON.parse(await readFile(inputPath, 'utf8'))
 const TENANT_SLUG = input.tenantSlug || process.env.TENANT_SLUG
 const SOURCE_SYSTEM = input.sourceSystem || 'manual-product-upload'
+const workflowStartedAt = performance.now()
+const timingsMs = {}
 
 if (!TENANT_SLUG) throw new Error('tenantSlug is required in input JSON or TENANT_SLUG env')
 if (!input.product?.name) throw new Error('product.name is required')
@@ -49,6 +54,15 @@ function validateContextualMedia(mediaItems = []) {
 }
 
 validateContextualMedia(input.media || [])
+
+async function measure(name, operation) {
+  const startedAt = performance.now()
+  try {
+    return await operation()
+  } finally {
+    timingsMs[name] = Math.round((performance.now() - startedAt) * 10) / 10
+  }
+}
 
 const authHeaders = () => ({ Authorization: `users API-Key ${PAYLOAD_API_KEY}` })
 const jsonHeaders = () => ({ ...authHeaders(), 'Content-Type': 'application/json' })
@@ -183,7 +197,6 @@ function query(params) {
 }
 
 async function findOne(collection, params) {
-  if (dryRun && !PAYLOAD_API_KEY) return null
   const data = await fetchJson(`/api/${collection}?${query({ ...params, limit: 1, depth: 0 })}`, {
     headers: authHeaders(),
   })
@@ -210,44 +223,49 @@ async function patchJson(collection, id, data) {
 
 async function resolveTenant() {
   const tenant = await findOne('tenants', { 'where[slug][equals]': TENANT_SLUG })
-  if (!tenant && apply) throw new Error(`Tenant not found: ${TENANT_SLUG}`)
-  return tenant || { id: 'dry-tenant', slug: TENANT_SLUG }
+  if (!tenant) throw new Error(`Tenant not found: ${TENANT_SLUG}`)
+  return tenant
 }
 
 async function resolveCategories() {
   const categorySlugs = input.categorySlugs || []
-  const categories = []
-  for (const slug of categorySlugs) {
+  return Promise.all(categorySlugs.map(async (slug) => {
     const category = await findOne('product-categories', {
       'where[tenant.slug][equals]': TENANT_SLUG,
       'where[slug][equals]': slug,
     })
-    if (!category && apply) throw new Error(`Category not found for ${TENANT_SLUG}: ${slug}`)
-    categories.push(category || { id: `dry-category-${slug}`, slug })
+    if (!category) throw new Error(`Category not found for ${TENANT_SLUG}: ${slug}`)
+    return category
+  }))
+}
+
+function oneIdentityMatch(label, matches) {
+  const found = matches.filter(Boolean)
+  const ids = [...new Set(found.map((item) => String(item.id)))]
+  if (ids.length > 1) {
+    throw new Error(`${label} identity conflict: stable keys resolved to different records (${ids.join(', ')})`)
   }
-  return categories
+  return found[0] || null
 }
 
 async function findExistingProduct(product) {
-  if (input.sourceId) {
-    const bySource = await findOne('products', {
+  const [bySource, bySku, bySlug] = await Promise.all([
+    input.sourceId ? findOne('products', {
       'where[tenant.slug][equals]': TENANT_SLUG,
       'where[sourceSystem][equals]': SOURCE_SYSTEM,
       'where[sourceId][equals]': input.sourceId,
-    })
-    if (bySource) return bySource
-  }
-  if (product.sku) {
-    const bySku = await findOne('products', {
+    }) : null,
+    product.sku ? findOne('products', {
       'where[tenant.slug][equals]': TENANT_SLUG,
       'where[sku][equals]': product.sku,
-    })
-    if (bySku) return bySku
-  }
-  return findOne('products', {
-    'where[tenant.slug][equals]': TENANT_SLUG,
-    'where[slug][equals]': product.slug,
-  })
+    }) : null,
+    findOne('products', {
+      'where[tenant.slug][equals]': TENANT_SLUG,
+      'where[slug][equals]': product.slug,
+    }),
+  ])
+
+  return oneIdentityMatch('Product', [bySource, bySku, bySlug])
 }
 
 async function uploadMedia(tenantId, item, index) {
@@ -258,18 +276,19 @@ async function uploadMedia(tenantId, item, index) {
   const forceUploadForFilename = Boolean(item.forceUploadForFilename)
 
   if (!forceUploadForFilename) {
-    const existingBySource = await findOne('media', {
-      'where[tenant.slug][equals]': TENANT_SLUG,
-      'where[sourceSystem][equals]': SOURCE_SYSTEM,
-      'where[sourceId][equals]': sourceId,
-    })
-    if (existingBySource) return existingBySource
-
-    const existingByChecksum = await findOne('media', {
-      'where[tenant.slug][equals]': TENANT_SLUG,
-      'where[sourceChecksum][equals]': checksum,
-    })
-    if (existingByChecksum) return existingByChecksum
+    const [existingBySource, existingByChecksum] = await Promise.all([
+      findOne('media', {
+        'where[tenant.slug][equals]': TENANT_SLUG,
+        'where[sourceSystem][equals]': SOURCE_SYSTEM,
+        'where[sourceId][equals]': sourceId,
+      }),
+      findOne('media', {
+        'where[tenant.slug][equals]': TENANT_SLUG,
+        'where[sourceChecksum][equals]': checksum,
+      }),
+    ])
+    const existingMedia = oneIdentityMatch(`Media ${index + 1}`, [existingBySource, existingByChecksum])
+    if (existingMedia) return existingMedia
   }
 
   if (dryRun) {
@@ -296,9 +315,7 @@ async function uploadMedia(tenantId, item, index) {
 }
 
 async function updateCategoryCounts(categoryIds) {
-  const updates = []
-  for (const categoryId of categoryIds) {
-    if (String(categoryId).startsWith('dry-')) continue
+  const updates = await Promise.all(categoryIds.map(async (categoryId) => {
     const data = await fetchJson(`/api/products?${query({
       'where[tenant.slug][equals]': TENANT_SLUG,
       'where[categories][contains]': categoryId,
@@ -308,19 +325,24 @@ async function updateCategoryCounts(categoryIds) {
     })}`, { headers: authHeaders() })
     const total = Number(data?.totalDocs || 0)
     await patchJson('product-categories', categoryId, { productCount: total })
-    updates.push({ categoryId, productCount: total })
-  }
+    return { categoryId, productCount: total }
+  }))
   return updates
 }
 
-const tenant = await resolveTenant()
-const categories = await resolveCategories()
-const mediaRecords = []
-for (const [index, mediaItem] of (input.media || []).entries()) {
-  mediaRecords.push(await uploadMedia(tenant.id, mediaItem, index))
-}
+const [tenant, categories] = await measure('resolveContext', () => Promise.all([
+  resolveTenant(),
+  resolveCategories(),
+]))
+const mediaRecords = await measure('prepareAndResolveMedia', async () => {
+  const records = []
+  for (const [index, mediaItem] of (input.media || []).entries()) {
+    records.push(await uploadMedia(tenant.id, mediaItem, index))
+  }
+  return records
+})
 
-const existingProduct = await findExistingProduct(input.product)
+const existingProduct = await measure('resolveProductIdentity', () => findExistingProduct(input.product))
 const categoryIds = categories.map((category) => category.id)
 const productData = {
   ...input.product,
@@ -336,11 +358,14 @@ const productData = {
 }
 delete productData.descriptionParagraphs
 
-const product = existingProduct
-  ? await patchJson('products', existingProduct.id, productData)
-  : await createJson('products', productData)
+const product = await measure('writeProduct', () => existingProduct
+  ? patchJson('products', existingProduct.id, productData)
+  : createJson('products', productData))
 
-const categoryCounts = apply ? await updateCategoryCounts(categoryIds) : []
+const categoryCounts = apply
+  ? await measure('updateCategoryCounts', () => updateCategoryCounts(categoryIds))
+  : []
+timingsMs.total = Math.round((performance.now() - workflowStartedAt) * 10) / 10
 
 console.log(JSON.stringify({
   mode: dryRun ? 'dry-run' : 'apply',
@@ -363,4 +388,5 @@ console.log(JSON.stringify({
     url: media.url,
   })),
   categoryCounts,
+  timingsMs,
 }, null, 2))
