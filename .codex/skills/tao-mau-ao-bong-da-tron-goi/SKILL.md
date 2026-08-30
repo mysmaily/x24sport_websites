@@ -140,8 +140,9 @@ Lưu duy nhất output cuối vào `marketing/<SKU>-sales.png`.
 Gọi imagegen với ba reference cố định; có thể thêm sales image làm Image 4 để giữ
 form áo. Tạo một đội bóng người Việt trên sân thật, ánh sáng tự nhiên, đúng số
 người trong spec (mặc định 5–11), cùng một bộ kit. Logo local phải nhận ra được
-trên các áo nhìn chính diện. Không sponsor lạ, logo CLB nổi tiếng, watermark,
-poster title, giá hoặc CTA.
+trên các áo nhìn chính diện. Thêm một contact overlay nhỏ, rõ, không che người
+hoặc áo, với đúng `mayaobongda.vn` và `0989 353 247`. Không sponsor lạ, logo CLB
+nổi tiếng, watermark, poster title, giá hoặc CTA khác.
 
 Lưu duy nhất output cuối vào `marketing/<SKU>-team-photo.png`.
 
@@ -155,7 +156,8 @@ Xem cả bốn ảnh ở full size. Chỉ approve khi:
 - hai print master là output imagegen gốc, cùng kích thước, chưa resample;
 - sales và team bám đúng palette/pattern của hai master;
 - logo trên sales và team nhận ra là đúng Image 3, không phải logo tự bịa;
-- ảnh sales dùng đúng contact; ảnh team đúng số người và không có branding lạ.
+- ảnh sales và team đều dùng đúng website/hotline; ảnh team đúng số người và
+  không có branding lạ.
 
 Tạo và kiểm manifest:
 

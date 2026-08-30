@@ -32,7 +32,8 @@ front–back–logo.
 
 validate_delivery.py không áp pixel floor. Nó kiểm format PNG, bốn path khác
 nhau, front/back cùng kích thước và tỷ lệ portrait 0.60-0.75, checksum, logo
-asset, player count và mười cờ visual approval.
+asset, player count và mười một cờ visual approval, gồm contact chính xác trên
+cả ảnh sales và ảnh team.
 
 ## Delivery
 

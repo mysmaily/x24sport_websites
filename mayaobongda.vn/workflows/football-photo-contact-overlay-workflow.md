@@ -13,7 +13,7 @@ generator for these source-photo-first jobs.
 - One or more local image paths or chat-attached images.
 - The source image should already be a football-kit lifestyle, catalog, or field
   photo.
-- Required contact text: `X24SPORT.VN | HOTLINE: 0989 353 247`.
+- Required contact text: `MAYAOBONGDA.VN | HOTLINE: 0989 353 247`.
 - Do not add collar-option text, size rows, front/back mockups, or large
   campaign headlines.
 
@@ -46,7 +46,7 @@ turn the image into a split catalog poster.
 Add only a compact, tasteful contact overlay in open space.
 
 Text to add exactly:
-"X24SPORT.VN | HOTLINE: 0989 353 247"
+"MAYAOBONGDA.VN | HOTLINE: 0989 353 247"
 
 Overlay direction: use a slim bottom ribbon, lower-corner lockup, or small
 floating translucent plate with subtle shadow/blur for readability. Match the

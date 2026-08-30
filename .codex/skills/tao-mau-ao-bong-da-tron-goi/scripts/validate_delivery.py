@@ -33,6 +33,7 @@ VISUAL_FLAGS = {
     "marketingLogoMatchesReference",
     "teamLogoMatchesReference",
     "salesContactExact",
+    "teamContactExact",
     "teamPlayerCountExact",
     "noUnexpectedBranding",
 }
