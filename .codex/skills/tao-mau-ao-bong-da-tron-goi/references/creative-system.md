@@ -26,9 +26,10 @@ Script cũng chọn `teamPhoto` ổn định theo SKU: `playerCount` là số ng
 phải giữ nguyên số người và formation, trừ khi user khóa override rõ trong brief.
 `logoSource` cũng do script chọn ổn định theo SKU từ các file ảnh trong
 `assets/logo-references/`; `assets/football-logo-sources.json` chỉ bổ sung
-metadata/prompt notes cho các file đã biết. Nếu folder có
-`x24sport-round-badge-*`, script chỉ random trong nhóm badge chuẩn đó. Đây là
-badge mẫu cho mockup/sales để batch không bị cố định vào một logo ngực duy nhất.
+metadata/prompt notes cho các file đã biết. Nếu folder có `logo-dark-*` và
+`logo-white-*`, script chọn theo contrast group: `logo-dark-*` cho vùng ngực
+sáng, `logo-white-*` cho vùng ngực tối/bão hòa. Đây là badge mẫu cho mockup/sales
+để batch không bị cố định vào một logo ngực duy nhất.
 
 Trước khi chốt `design-spec.json`, đọc `user-taste-profile.md` và ghi rõ các
 trường taste/market-fit bắt buộc. Output của script không được vượt gu người dùng:
@@ -101,6 +102,8 @@ Nếu người dùng cung cấp logo/crest/sponsor riêng, ghi asset đó vào `
 
 Nếu người dùng dẫn trang `https://x24sport.vn/tim-kiem/?q=logo%20b%C3%B3ng%20%C4%91%C3%A1`,
 chọn một logo local cụ thể từ `assets/logo-references/` qua creative script hoặc
-brief fit; không mặc định lấy entry đầu tiên trong metadata. Dùng logo đã chọn
-như badge mẫu trên ngực áo trong mockup/sales. Không đưa logo này vào master in
-phẳng; master vẫn là nền sản xuất sạch để xưởng bình tài sản khách hàng sau.
+brief fit; không mặc định lấy entry đầu tiên trong metadata. Luôn kiểm vùng ngực
+thực tế: ngực sáng dùng `logo-dark-*`, ngực tối/bão hòa dùng `logo-white-*`. Dùng
+logo đã chọn như badge mẫu trên ngực áo trong mockup/sales. Không đưa logo này
+vào master in phẳng; master vẫn là nền sản xuất sạch để xưởng bình tài sản khách
+hàng sau.

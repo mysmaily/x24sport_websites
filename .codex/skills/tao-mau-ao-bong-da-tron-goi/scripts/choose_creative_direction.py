@@ -63,7 +63,8 @@ DEFAULT_SALES_COMPOSITION_LIBRARY = Path(__file__).resolve().parent.parent / "as
 DEFAULT_FEATURE_BADGE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-sales-feature-badges.json"
 DEFAULT_LOGO_SOURCE_LIBRARY = Path(__file__).resolve().parent.parent / "assets" / "football-logo-sources.json"
 DEFAULT_LOGO_REFERENCE_DIR = Path(__file__).resolve().parent.parent / "assets" / "logo-references"
-PREFERRED_LOGO_PREFIX = "x24sport-round-badge-"
+LOGO_DARK_PREFIX = "logo-dark-"
+LOGO_WHITE_PREFIX = "logo-white-"
 LOGO_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 TEAM_PHOTO_FORMATIONS = [
     {"id": "single-row-five", "playerCount": 5, "promptNotes": "Use one compact standing row of five Vietnamese amateur football players, shoulder-to-shoulder, all jersey fronts readable."},
@@ -216,8 +217,12 @@ def load_logo_source_library(path: Path, reference_dir: Path) -> list[dict[str, 
         raise SystemExit(f"Logo reference directory does not exist: {logo_dir}")
     metadata = load_logo_metadata(path)
     image_paths = sorted(candidate for candidate in logo_dir.iterdir() if candidate.suffix.lower() in LOGO_EXTENSIONS)
-    preferred_paths = [candidate for candidate in image_paths if candidate.name.startswith(PREFERRED_LOGO_PREFIX)]
-    candidate_paths = preferred_paths or image_paths
+    contrast_paths = [
+        candidate
+        for candidate in image_paths
+        if candidate.name.startswith(LOGO_DARK_PREFIX) or candidate.name.startswith(LOGO_WHITE_PREFIX)
+    ]
+    candidate_paths = contrast_paths or image_paths
     ids: set[str] = set()
     result: list[dict[str, object]] = []
     for logo_path in candidate_paths:
@@ -228,11 +233,30 @@ def load_logo_source_library(path: Path, reference_dir: Path) -> list[dict[str, 
         row.setdefault("path", relative_path)
         row.setdefault("usage", "sample chest badge for mockup and sales images only")
         row.setdefault("placement", "left chest or upper chest on the worn front jersey and front product view")
-        row.setdefault("preferredFor", ["general-football"])
-        row.setdefault(
-            "promptNotes",
-            "Use this local sample as a small fictional customer crest on the chest. Keep it subordinate to the jersey design, integrated on fabric, and out of the print masters.",
-        )
+        if logo_path.name.startswith(LOGO_DARK_PREFIX):
+            row.setdefault("logoTone", "dark")
+            row.setdefault("contrastRole", "use on light or bright chest zones")
+            row.setdefault("preferredFor", ["light-chest-zone", "bright-kits", "white-kits"])
+            row.setdefault(
+                "promptNotes",
+                "Use this dark logo variant only on light or bright chest zones so the crest remains readable. Keep it small, integrated on fabric, and out of the print masters.",
+            )
+        elif logo_path.name.startswith(LOGO_WHITE_PREFIX):
+            row.setdefault("logoTone", "white")
+            row.setdefault("contrastRole", "use on dark or saturated chest zones")
+            row.setdefault("preferredFor", ["dark-chest-zone", "saturated-kits", "black-kits"])
+            row.setdefault(
+                "promptNotes",
+                "Use this white logo variant only on dark or saturated chest zones so the crest remains readable. Keep it small, integrated on fabric, and out of the print masters.",
+            )
+        else:
+            row.setdefault("logoTone", "generic")
+            row.setdefault("contrastRole", "use only when no dark/white contrast pool is available")
+            row.setdefault("preferredFor", ["general-football"])
+            row.setdefault(
+                "promptNotes",
+                "Use this local sample as a small fictional customer crest on the chest. Keep it subordinate to the jersey design, integrated on fabric, and out of the print masters.",
+            )
         logo_id = row["id"]
         if not isinstance(logo_id, str) or logo_id in ids:
             raise SystemExit("Logo-source library contains duplicate ids")
@@ -255,8 +279,37 @@ def choose_team_photo(sku: str) -> dict[str, object]:
     return TEAM_PHOTO_FORMATIONS[index(sku.encode("ascii"), "team-photo", len(TEAM_PHOTO_FORMATIONS))]
 
 
-def choose_logo_source(sku: str, library: list[dict[str, object]]) -> dict[str, object]:
-    return library[index(sku.encode("ascii"), "logo-source", len(library))]
+def hex_luminance(value: str) -> float:
+    match = re.fullmatch(r"#?([0-9a-fA-F]{6})", value.strip())
+    if not match:
+        return 0.5
+    raw = match.group(1)
+    rgb = [int(raw[channel:channel + 2], 16) / 255 for channel in (0, 2, 4)]
+    linear = [
+        component / 12.92 if component <= 0.04045 else ((component + 0.055) / 1.055) ** 2.4
+        for component in rgb
+    ]
+    return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2]
+
+
+def estimate_chest_zone_from_palette(palette: object) -> str:
+    if not isinstance(palette, dict):
+        return "unknown"
+    colors = palette.get("colors")
+    if not isinstance(colors, list) or not colors or not isinstance(colors[0], str):
+        return "unknown"
+    return "dark" if hex_luminance(colors[0]) < 0.38 else "light"
+
+
+def choose_logo_source(sku: str, library: list[dict[str, object]], chest_zone: str = "unknown") -> dict[str, object]:
+    if chest_zone == "dark":
+        preferred = [row for row in library if row.get("logoTone") == "white"]
+    elif chest_zone == "light":
+        preferred = [row for row in library if row.get("logoTone") == "dark"]
+    else:
+        preferred = []
+    candidates = preferred or library
+    return candidates[index(sku.encode("ascii"), f"logo-source-{chest_zone}", len(candidates))]
 
 
 def make_direction(
@@ -270,6 +323,8 @@ def make_direction(
     seed = sku.encode("ascii")
     sales_style = choose_sales_style(sku, sales_style_library)
     sales_composition = choose_sales_composition(sku, sales_composition_library)
+    palette = PALETTES[index(seed, "palette", len(PALETTES), offset)]
+    estimated_chest_zone = estimate_chest_zone_from_palette(palette)
     direction: dict[str, object] = {
         "sku": sku,
         "motifFamily": MOTIFS[index(seed, "motif", len(MOTIFS), offset)],
@@ -280,11 +335,18 @@ def make_direction(
         "accentPlacement": ACCENTS[index(seed, "accent", len(ACCENTS), offset)],
         "collar": COLLARS[index(seed, "collar", len(COLLARS), offset)],
         "colorStrategy": COLOR_STRATEGIES[index(seed, "color-strategy", len(COLOR_STRATEGIES), offset)],
-        "palette": PALETTES[index(seed, "palette", len(PALETTES), offset)],
+        "palette": palette,
         "salesStyle": sales_style,
         "salesComposition": sales_composition,
         "teamPhoto": choose_team_photo(sku),
-        "logoSource": choose_logo_source(sku, logo_source_library),
+        "logoSource": choose_logo_source(sku, logo_source_library, estimated_chest_zone),
+        "logoContrastPolicy": {
+            "estimatedChestZone": estimated_chest_zone,
+            "darkChestUse": "logo-white-*",
+            "lightChestUse": "logo-dark-*",
+            "selection": "stable random within the contrast-correct group",
+            "promptNotes": "Before writing design-spec.json, confirm the actual front chest zone. Use a logo-white-* file on dark/saturated chest zones and a logo-dark-* file on light/bright chest zones. If the final chest zone differs from the palette estimate, switch logoSource to a stable file from the correct group.",
+        },
         "featureBadges": feature_badge_library,
         "salesHardConstraints": {
             "collarLabels": COLLAR_LABELS,
@@ -405,8 +467,19 @@ def main() -> None:
                     row["salesComposition"] = choose_sales_composition(args.sku, sales_composition_library)
                 if not row.get("teamPhoto"):
                     row["teamPhoto"] = choose_team_photo(args.sku)
-                if not row.get("logoSource"):
-                    row["logoSource"] = choose_logo_source(args.sku, logo_source_library)
+                palette = row.get("palette")
+                chest_zone = estimate_chest_zone_from_palette(palette)
+                logo_source = row.get("logoSource")
+                if not isinstance(logo_source, dict) or logo_source.get("path") not in {item.get("path") for item in logo_source_library}:
+                    row["logoSource"] = choose_logo_source(args.sku, logo_source_library, chest_zone)
+                if not row.get("logoContrastPolicy"):
+                    row["logoContrastPolicy"] = {
+                        "estimatedChestZone": chest_zone,
+                        "darkChestUse": "logo-white-*",
+                        "lightChestUse": "logo-dark-*",
+                        "selection": "stable random within the contrast-correct group",
+                        "promptNotes": "Before writing design-spec.json, confirm the actual front chest zone. Use a logo-white-* file on dark/saturated chest zones and a logo-dark-* file on light/bright chest zones. If the final chest zone differs from the palette estimate, switch logoSource to a stable file from the correct group.",
+                    }
                 if not row.get("salesHardConstraints"):
                     row["salesHardConstraints"] = {
                         "collarLabels": COLLAR_LABELS,

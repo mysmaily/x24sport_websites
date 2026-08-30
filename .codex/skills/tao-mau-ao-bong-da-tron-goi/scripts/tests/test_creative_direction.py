@@ -30,13 +30,17 @@ class CreativeDirectionTests(unittest.TestCase):
         self.assertIsInstance(logo_source, dict)
         self.assertRegex(str(logo_source["id"]), r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
         self.assertTrue(str(logo_source["path"]).startswith("assets/logo-references/"))
+        self.assertIn(logo_source["logoTone"], {"dark", "white"})
+        self.assertIn("logoContrastPolicy", first)
 
     def test_logo_source_varies_across_batch(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:
             logo_dir = Path(temp_name) / "logo-references"
             logo_dir.mkdir()
+            for index in range(6):
+                (logo_dir / f"logo-dark-{index}.png").write_bytes(b"placeholder")
             for index in range(5):
-                (logo_dir / f"x24sport-round-badge-test-{index}.png").write_bytes(b"placeholder")
+                (logo_dir / f"logo-white-{index}.png").write_bytes(b"placeholder")
             logo_ids = {
                 str(
                     self.run_direction_with_logo_dir(f"X24-BD-{ff:02d}0001", logo_dir)[
@@ -66,16 +70,23 @@ class CreativeDirectionTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         return json.loads(result.stdout)
 
-    def test_logo_source_prefers_round_badges_when_present(self) -> None:
+    def test_logo_source_prefers_contrast_logo_pool_when_present(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:
             logo_dir = Path(temp_name) / "logo-references"
             logo_dir.mkdir()
             raw_logo = logo_dir / "raw-logo.png"
-            badge_logo = logo_dir / "x24sport-round-badge-test.png"
+            dark_logo = logo_dir / "logo-dark-test.png"
+            white_logo = logo_dir / "logo-white-test.png"
             raw_logo.write_bytes(b"placeholder")
-            badge_logo.write_bytes(b"placeholder")
+            dark_logo.write_bytes(b"placeholder")
+            white_logo.write_bytes(b"placeholder")
             direction = self.run_direction_with_logo_dir("X24-BD-000001", logo_dir)
-            self.assertEqual(direction["logoSource"]["path"], str(badge_logo.resolve()))
+            self.assertNotEqual(direction["logoSource"]["path"], str(raw_logo.resolve()))
+            estimated_chest_zone = direction["logoContrastPolicy"]["estimatedChestZone"]
+            if estimated_chest_zone == "dark":
+                self.assertEqual(direction["logoSource"]["path"], str(white_logo.resolve()))
+            elif estimated_chest_zone == "light":
+                self.assertEqual(direction["logoSource"]["path"], str(dark_logo.resolve()))
 
     def test_logo_source_pool_scans_reference_folder(self) -> None:
         with tempfile.TemporaryDirectory() as temp_name:
