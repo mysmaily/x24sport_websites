@@ -61,16 +61,16 @@ export async function DongPhucX24Home() {
           <p className={styles.heroLead}>Chọn mẫu áo đồng phục cho công ty, team building hoặc trường lớp; sau đó phối màu, chọn chất liệu, in thêu logo và tư vấn size trước khi báo giá.</p>
           <div className={styles.heroActions}><Link className={styles.primaryButton} href="/san-pham/">Xem catalog <ArrowRight aria-hidden="true" /></Link><Link className={styles.secondaryButton} href="#nhan-tu-van">{consultationEnabled ? 'Gửi yêu cầu tư vấn' : 'Chuẩn bị yêu cầu'}</Link></div>
           <nav aria-label="Giải pháp đồng phục theo nhóm khách hàng" className={styles.heroAudiences}>
-            <Link href="/danh-muc/dong-phuc-cong-ty/"><Building2 aria-hidden="true" /><span><b>Công ty & doanh nghiệp</b><small>Chỉn chu nhận diện · phù hợp từng bộ phận</small></span></Link>
-            <Link href="/danh-muc/team-building-su-kien/"><Flag aria-hidden="true" /><span><b>Dã ngoại & team building</b><small>Thoáng nhẹ · nổi bật tinh thần tập thể</small></span></Link>
-            <Link href="/danh-muc/ao-lop-truong-hoc/"><GraduationCap aria-hidden="true" /><span><b>Lớp học & trường học</b><small>Thiết kế riêng · dễ gom size và số lượng</small></span></Link>
+            <Link href="/danh-muc/dong-phuc-doanh-nghiep/"><Building2 aria-hidden="true" /><span><b>Công ty & doanh nghiệp</b><small>Chỉn chu nhận diện · phù hợp từng bộ phận</small></span></Link>
+            <Link href="/danh-muc/dong-phuc-da-ngoai-team-building/"><Flag aria-hidden="true" /><span><b>Dã ngoại & team building</b><small>Thoáng nhẹ · nổi bật tinh thần tập thể</small></span></Link>
+            <Link href="/danh-muc/dong-phuc-truong-hoc/"><GraduationCap aria-hidden="true" /><span><b>Lớp học & trường học</b><small>Thiết kế riêng · dễ gom size và số lượng</small></span></Link>
           </nav>
         </div>
       </TenantPromoHero>
 
       <section aria-label="Điểm bắt đầu" className={styles.quickBar}>
         <p>Bắt đầu từ điều bạn đang cần</p>
-        <div><Link href="/danh-muc/dong-phuc-cong-ty/">May cho công ty <ChevronRight aria-hidden="true" /></Link><Link href="/danh-muc/dong-phuc-nha-hang-fnb/">Mở quán / nhà hàng <ChevronRight aria-hidden="true" /></Link><Link href="/danh-muc/ao-lop-truong-hoc/">Làm áo lớp <ChevronRight aria-hidden="true" /></Link><Link href="/danh-muc/team-building-su-kien/">Chuẩn bị sự kiện <ChevronRight aria-hidden="true" /></Link></div>
+        <div><Link href="/danh-muc/dong-phuc-doanh-nghiep/">May cho công ty <ChevronRight aria-hidden="true" /></Link><Link href="/danh-muc/dong-phuc-fnb/">Mở quán / nhà hàng <ChevronRight aria-hidden="true" /></Link><Link href="/danh-muc/dong-phuc-truong-hoc/">Làm áo lớp <ChevronRight aria-hidden="true" /></Link><Link href="/danh-muc/dong-phuc-da-ngoai-team-building/">Chuẩn bị sự kiện <ChevronRight aria-hidden="true" /></Link></div>
       </section>
 
       <section className={styles.section} id="giai-phap">
@@ -78,7 +78,7 @@ export async function DongPhucX24Home() {
         <div className={styles.categoryGrid}>{categories.map((category, index) => <Link className={`${styles.categoryCard} ${index < 2 ? styles.categoryWide : ''}`} href={`/danh-muc/${category.slug}/`} key={category.slug}>
           <Image alt={`Khám phá ${category.name.toLowerCase()}`} fill loading="lazy" sizes="(max-width: 760px) 100vw, 50vw" src={category.image} />
           <i aria-hidden="true" />
-          {(category.slug === 'ao-lop-truong-hoc' || category.slug === 'team-building-su-kien') && <b aria-hidden="true" className={styles.sourceBrandMask}>X24</b>}
+          {(category.slug === 'dong-phuc-truong-hoc' || category.slug === 'dong-phuc-da-ngoai-team-building') && <b aria-hidden="true" className={styles.sourceBrandMask}>X24</b>}
           <div><small>{category.eyebrow}</small><h3>{category.name}</h3><p>{category.description}</p><span>Xem giải pháp <ArrowRight aria-hidden="true" /></span></div>
         </Link>)}</div>
       </section>
