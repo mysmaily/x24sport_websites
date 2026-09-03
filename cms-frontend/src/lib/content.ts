@@ -12,6 +12,7 @@ export type CmsCategory = {
   id: number | string; name: string; slug: string; description?: string; order?: number
   legacyPath?: string; group?: 'sport' | 'type' | 'color'
   parent?: number | string | CmsCategory
+  productCount?: number
   showInNavigation?: boolean
   status?: 'active' | 'hidden' | 'retired'
 }
@@ -236,13 +237,22 @@ export async function getSitemapCategories(): Promise<SportCategory[]> {
   const tenantSlug = await getTenantSlug()
   try {
     const params = new URLSearchParams({
-      'where[tenant.slug][equals]': tenantSlug, 'where[group][equals]': 'sport',
+      'where[tenant.slug][equals]': tenantSlug,
       depth: '0', limit: '100', sort: 'order',
     })
+    if (tenantSlug !== 'pndsport' && tenantSlug !== 'dongphucx24') {
+      params.set('where[group][equals]', 'sport')
+    }
     const docs = await fetchAllDocs<CmsCategory>('product-categories', params)
     if (tenantSlug === 'x24sport') {
       const docsBySlug = Object.fromEntries(docs.map((item) => [item.slug, item]))
       return categoryDesigns.map((category, index) => docsBySlug[category.slug] ? mapCategory(docsBySlug[category.slug], index) : category)
+    }
+    if (tenantSlug === 'pndsport' || tenantSlug === 'dongphucx24') {
+      return docs
+        .filter((item) => item.status !== 'hidden' && item.status !== 'retired' && item.showInNavigation !== false)
+        .filter((item) => tenantSlug !== 'dongphucx24' || Number(item.productCount || 0) > 0)
+        .map(mapCategory)
     }
     return docs.filter((item) => !item.parent).map(mapCategory)
   } catch (error) { console.error('Unable to load X24Sport sitemap categories.', error) }
