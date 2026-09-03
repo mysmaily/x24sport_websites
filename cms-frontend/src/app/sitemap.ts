@@ -260,7 +260,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     }),
     ...products.map((product) => ({
-      url: tenant.slug.startsWith('mayao') || tenant.slug === 'pndsport' ? `${base}/san-pham/${product.slug}/` : `${base}${product.legacyPath || `/${product.slug}/`}`,
+      url: tenant.slug.startsWith('mayao') || tenant.slug === 'pndsport' || tenant.slug === 'x24sport' ? `${base}/san-pham/${product.slug}/` : `${base}${product.legacyPath || `/${product.slug}/`}`,
       lastModified: product.sourceModifiedAt ? new Date(product.sourceModifiedAt) : undefined,
       priority: .7,
     })),
