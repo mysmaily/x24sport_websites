@@ -12,6 +12,8 @@ export type CmsCategory = {
   id: number | string; name: string; slug: string; description?: string; order?: number
   legacyPath?: string; group?: 'sport' | 'type' | 'color'
   parent?: number | string | CmsCategory
+  showInNavigation?: boolean
+  status?: 'active' | 'hidden' | 'retired'
 }
 export type CmsMedia = { id?: number | string; url?: string; alt?: string; width?: number; height?: number }
 type SearchTag = { value?: string }
@@ -210,10 +212,11 @@ export async function getCategoryNavigation(): Promise<CategoryNavigationItem[]>
       depth: '1', limit: '300', sort: 'order',
     })
     const docs = await fetchAllDocs<CmsCategory>('product-categories', params)
-    const topLevel = docs.filter((item) => item.group === 'sport' && !item.parent)
+    const isVisible = (item: CmsCategory) => item.status !== 'hidden' && item.status !== 'retired' && item.showInNavigation !== false
+    const topLevel = docs.filter((item) => isVisible(item) && item.group === 'sport' && !item.parent)
     const childrenByParent = new Map<number | string, CmsCategory[]>()
 
-    docs.forEach((item) => {
+    docs.filter(isVisible).forEach((item) => {
       const parentId = categoryParentId(item)
       if (!parentId) return
       const items = childrenByParent.get(parentId) || []

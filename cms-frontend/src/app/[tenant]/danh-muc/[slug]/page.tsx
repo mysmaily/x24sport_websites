@@ -4,13 +4,22 @@ import X24CategoryPage, { generateMetadata as generateX24CategoryMetadata } from
 import { RynoCategoryPage } from '../../ryno-catalog'
 import { getCategory } from '../../../../lib/content'
 
-const PND_CATEGORY_REDIRECTS: Record<string, string> = {
-  'dong-phuc-cong-ty': 'dong-phuc-doanh-nghiep',
-  'dong-phuc-lop-truong-hoc': 'dong-phuc-truong-hoc',
+const CATEGORY_REDIRECTS_BY_TENANT: Record<string, Record<string, string>> = {
+  pndsport: {
+    'dong-phuc-cong-ty': 'dong-phuc-doanh-nghiep',
+    'dong-phuc-lop-truong-hoc': 'dong-phuc-truong-hoc',
+  },
+  dongphucx24: {
+    'ao-lop-truong-hoc': 'dong-phuc-truong-hoc',
+    'dong-phuc-bao-ho-ky-thuat': 'dong-phuc-bao-ho',
+    'dong-phuc-cong-ty': 'dong-phuc-doanh-nghiep',
+    'dong-phuc-nha-hang-fnb': 'dong-phuc-fnb',
+    'team-building-su-kien': 'dong-phuc-da-ngoai-team-building',
+  },
 }
 
-function redirectLegacyPndCategory(slug: string) {
-  const target = PND_CATEGORY_REDIRECTS[slug]
+function redirectLegacyCategory(tenant: string, slug: string) {
+  const target = CATEGORY_REDIRECTS_BY_TENANT[tenant]?.[slug]
   if (target) permanentRedirect(`/danh-muc/${target}/`)
 }
 
@@ -27,11 +36,12 @@ export async function generateMetadata({
     return getMayAoDongPhucCatalogMetadata(slug, await searchParams)
   }
   if (tenant === 'dongphucx24') {
+    redirectLegacyCategory(tenant, slug)
     const { getDongPhucX24CatalogMetadata } = await import('../../_dongphucx24/catalog-page')
     return getDongPhucX24CatalogMetadata(slug)
   }
   if (tenant === 'pndsport') {
-    redirectLegacyPndCategory(slug)
+    redirectLegacyCategory(tenant, slug)
     const { getPndCatalogMetadata } = await import('../../_pndsport/catalog-page')
     return getPndCatalogMetadata(slug, await searchParams)
   }
@@ -64,11 +74,12 @@ export default async function TenantCategoryPage(props: Parameters<typeof X24Cat
     return <MayAoDongPhucCatalogPage categorySlug={slug} search={await props.searchParams} />
   }
   if (tenant === 'dongphucx24') {
+    redirectLegacyCategory(tenant, slug)
     const { DongPhucX24CatalogPage } = await import('../../_dongphucx24/catalog-page')
     return <DongPhucX24CatalogPage categorySlug={slug} />
   }
   if (tenant === 'pndsport') {
-    redirectLegacyPndCategory(slug)
+    redirectLegacyCategory(tenant, slug)
     const { PndCatalogPage } = await import('../../_pndsport/catalog-page')
     return <PndCatalogPage categorySlug={slug} search={await props.searchParams} />
   }

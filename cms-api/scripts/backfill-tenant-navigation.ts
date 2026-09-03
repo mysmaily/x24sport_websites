@@ -151,8 +151,10 @@ function categoryItem(category: Doc, index: number): ItemSpec {
 }
 
 function categoryTreeItems(categories: Doc[]): ItemSpec[] {
+  const isVisible = (category: Doc) =>
+    category.status !== 'hidden' && category.status !== 'retired' && category.showInNavigation !== false
   const children = new Map<string, Doc[]>()
-  categories.forEach((category) => {
+  categories.filter(isVisible).forEach((category) => {
     const parent = parentID(category)
     if (parent === undefined) return
     const current = children.get(String(parent)) || []
@@ -160,7 +162,7 @@ function categoryTreeItems(categories: Doc[]): ItemSpec[] {
     children.set(String(parent), current)
   })
   return categories
-    .filter((category) => category.group === 'sport' && parentID(category) === undefined)
+    .filter((category) => isVisible(category) && category.group === 'sport' && parentID(category) === undefined)
     .sort((left, right) => Number(left.order || 0) - Number(right.order || 0))
     .map((category, index) => ({
       ...categoryItem(category, index),
@@ -335,25 +337,34 @@ function rynoManifest(): Manifest {
   }
 }
 
-const dongPhucCategories = [
-  ['dong-phuc-cong-ty', 'Đồng phục công ty', 'Polo, sơ mi và áo khoác theo nhận diện đội ngũ.'],
-  ['dong-phuc-nha-hang-fnb', 'Nhà hàng & F&B', 'Phân vai rõ ràng giữa phục vụ, pha chế và bếp.'],
-  ['ao-lop-truong-hoc', 'Áo lớp & trường học', 'Mẫu trẻ, dễ nhận diện và thuận tiện gom size.'],
-  ['team-building-su-kien', 'Team building & sự kiện', 'Màu sắc nổi bật cho hoạt động tập thể và sự kiện.'],
-  ['dong-phuc-bao-ho-ky-thuat', 'Bảo hộ & kỹ thuật', 'Chọn mẫu theo công việc, điều kiện sử dụng và nhận diện.'],
-  ['dong-phuc-y-te-dich-vu', 'Y tế & dịch vụ', 'Phom gọn, màu dịu và nhận diện chuyên nghiệp.'],
+const dongPhucCategorySlugs = [
+  'dong-phuc-da-ngoai-team-building',
+  'dong-phuc-doanh-nghiep',
+  'dong-phuc-fnb',
+  'dong-phuc-truong-hoc',
+  'dong-phuc-ngo-nghinh',
+  'dong-phuc-gia-dinh',
+  'dong-phuc-tre-em',
+  'dong-phuc-bao-ho',
+  'dong-phuc-y-te-dich-vu',
+  'dong-phuc-su-kien-doi-nhom',
 ] as const
 
-function dongPhucX24Manifest(): Manifest {
+function dongPhucX24Manifest(categories: Doc[]): Manifest {
+  const bySlug = new Map(categories.map((category) => [category.slug, category]))
   return {
     tenantSlug: 'dongphucx24',
     items: [
-      group('categories', 'Danh mục', dongPhucCategories.map(([slug, label, description]) => ({
-        description,
-        key: `category-${slug}`,
-        label,
-        targetCategorySlug: slug,
-      }))),
+      group('categories', 'Danh mục', dongPhucCategorySlugs.map((slug) => {
+        const category = bySlug.get(slug)
+        if (!category) throw new Error(`dongphucx24: thiếu category ${slug}.`)
+        return {
+          description: category.description || '',
+          key: `category-${slug}`,
+          label: category.navigationLabel || category.name,
+          targetCategorySlug: slug,
+        }
+      })),
       custom('products', 'Sản phẩm', '/san-pham/'),
       custom('solutions', 'Giải pháp', '/#giai-phap'),
       custom('process', 'Quy trình', '/#quy-trinh'),
@@ -456,7 +467,7 @@ async function buildManifest(payload: any, tenant: Doc): Promise<Manifest> {
   if (tenant.slug === 'rynosport') return rynoManifest()
   if (tenant.slug === 'x24sport' || tenant.slug === 'pndsport') return masterManifest(tenant.slug, categories)
   if (tenant.slug === 'mayaodongphuc') return uniformWorkshopManifest(categories)
-  if (tenant.slug === 'dongphucx24') return dongPhucX24Manifest()
+  if (tenant.slug === 'dongphucx24') return dongPhucX24Manifest(categories)
   if (tenant.slug === 'mayaocaulong' || tenant.slug === 'mayaopickleball') return racketManifest(tenant.slug)
   if (tenant.slug === 'mayaobongchuyen') return volleyballManifest()
   if (tenant.slug === 'mayaobongro') return basketballManifest()
@@ -481,20 +492,25 @@ function flatten(items: ItemSpec[], parentKey = '', depth = 0): Array<Record<str
 }
 
 async function ensureDongPhucCategories(payload: any, tenant: Doc) {
-  for (const [index, [slug, name, description]] of dongPhucCategories.entries()) {
+  const sourceTenant = await tenantBySlug(payload, 'mayaodongphuc')
+  const sourceCategories = await categoriesForTenant(payload, sourceTenant.id)
+  const sourceBySlug = new Map(sourceCategories.map((category) => [category.slug, category]))
+  for (const [index, slug] of dongPhucCategorySlugs.entries()) {
+    const source = sourceBySlug.get(slug)
+    if (!source) throw new Error(`mayaodongphuc: thiếu category nguồn ${slug}.`)
     const existing = await uniqueDoc(payload, 'product-categories', {
       and: [{ tenant: { equals: tenant.id } }, { slug: { equals: slug } }],
     })
     const data = {
       tenant: tenant.id,
-      name,
+      name: source.name,
       slug,
-      description,
+      description: source.description || '',
       group: 'type',
       legacyPath: `/danh-muc/${slug}/`,
-      navigationLabel: name,
-      navigationOrder: index,
-      order: index,
+      navigationLabel: source.navigationLabel || source.name,
+      navigationOrder: Number(source.navigationOrder ?? source.order ?? index),
+      order: Number(source.order ?? index),
       showInNavigation: true,
       status: 'active',
     }

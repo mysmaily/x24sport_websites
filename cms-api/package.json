@@ -21,6 +21,7 @@
     "test:navigation-migration": "tsx scripts/test-navigation-migration.ts",
     "test:master-catalog-projection": "tsx scripts/test-master-catalog-projection.ts",
     "sync:master-catalog-projections": "tsx scripts/sync-master-catalog-projections.ts",
+    "sync:uniform-category-architecture": "tsx scripts/sync-uniform-category-architecture.ts",
     "backfill:tenant-navigation": "tsx scripts/backfill-tenant-navigation.ts",
     "backfill:search-tag-keys": "tsx scripts/backfill-search-tag-keys.ts",
     "test:media-sharing-access": "tsx scripts/test-media-sharing-access.ts"
