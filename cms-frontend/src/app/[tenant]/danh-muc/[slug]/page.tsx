@@ -1,7 +1,18 @@
 import type { Metadata } from 'next'
+import { permanentRedirect } from 'next/navigation'
 import X24CategoryPage, { generateMetadata as generateX24CategoryMetadata } from '../../../danh-muc/[slug]/page'
 import { RynoCategoryPage } from '../../ryno-catalog'
 import { getCategory } from '../../../../lib/content'
+
+const PND_CATEGORY_REDIRECTS: Record<string, string> = {
+  'dong-phuc-cong-ty': 'dong-phuc-doanh-nghiep',
+  'dong-phuc-lop-truong-hoc': 'dong-phuc-truong-hoc',
+}
+
+function redirectLegacyPndCategory(slug: string) {
+  const target = PND_CATEGORY_REDIRECTS[slug]
+  if (target) permanentRedirect(`/danh-muc/${target}/`)
+}
 
 export async function generateMetadata({
   params,
@@ -20,6 +31,7 @@ export async function generateMetadata({
     return getDongPhucX24CatalogMetadata(slug)
   }
   if (tenant === 'pndsport') {
+    redirectLegacyPndCategory(slug)
     const { getPndCatalogMetadata } = await import('../../_pndsport/catalog-page')
     return getPndCatalogMetadata(slug, await searchParams)
   }
@@ -56,6 +68,7 @@ export default async function TenantCategoryPage(props: Parameters<typeof X24Cat
     return <DongPhucX24CatalogPage categorySlug={slug} />
   }
   if (tenant === 'pndsport') {
+    redirectLegacyPndCategory(slug)
     const { PndCatalogPage } = await import('../../_pndsport/catalog-page')
     return <PndCatalogPage categorySlug={slug} search={await props.searchParams} />
   }
