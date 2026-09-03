@@ -9,10 +9,17 @@ import styles from './dongphucx24.module.css'
 
 export function getDongPhucX24CatalogMetadata(categorySlug?: string): Metadata {
   const category = getCategory(categorySlug)
+  const hasProducts = !category || products.some((product) => product.category === category.slug)
   const title = category ? `${category.name} | Đồng Phục X24` : 'Catalog đồng phục công ty, lớp, F&B & sự kiện | Đồng Phục X24'
   const description = category?.description || 'Khám phá mẫu đồng phục công ty, nhà hàng, trường học, team building, bảo hộ và dịch vụ để phát triển theo nhận diện riêng.'
   const path = category ? `/danh-muc/${category.slug}/` : '/san-pham/'
-  return { title: { absolute: title }, description, alternates: { canonical: `https://dongphucx24.vn${path}` }, openGraph: { title, description, url: `https://dongphucx24.vn${path}` } }
+  return {
+    title: { absolute: title },
+    description,
+    alternates: { canonical: `https://dongphucx24.vn${path}` },
+    openGraph: { title, description, url: `https://dongphucx24.vn${path}` },
+    robots: hasProducts ? undefined : { index: false, follow: true },
+  }
 }
 
 export function DongPhucX24CatalogPage({ categorySlug }: { categorySlug?: string }) {
