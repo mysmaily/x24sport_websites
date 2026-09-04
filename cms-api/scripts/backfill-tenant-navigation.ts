@@ -152,7 +152,7 @@ function categoryItem(category: Doc, index: number): ItemSpec {
 
 function categoryTreeItems(categories: Doc[]): ItemSpec[] {
   const isVisible = (category: Doc) =>
-    category.status !== 'hidden' && category.status !== 'retired' && category.showInNavigation !== false
+    category.status !== 'hidden' && category.status !== 'retired'
   const children = new Map<string, Doc[]>()
   categories.filter(isVisible).forEach((category) => {
     const parent = parentID(category)
